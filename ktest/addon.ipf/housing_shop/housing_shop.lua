@@ -546,6 +546,8 @@ function HOUSING_SHOP_INIT_TAB(frame, gboxName, marketCategory)
 
 	local gbox_sell_list = GET_CHILD_RECURSIVELY(frame, gboxName);
 	gbox_sell_list:RemoveAllChild();
+	
+	local curTime = geTime.GetServerSystemTime();
 
 	local yPos = 0;
 	for i = 0, shopItemList:Count() - 1 do
@@ -555,12 +557,10 @@ function HOUSING_SHOP_INIT_TAB(frame, gboxName, marketCategory)
 		if itemClass.MarketCategory == marketCategory then
 			local furnitureClass = GET_FURNITURE_CLASS_BY_ITEM_CLASSID(shopItem.type);
 			if furnitureClass ~= nil then
-				local ShopItemCountObj = gbox_sell_list:CreateControlSet('shopitemset_Type', "SHOPITEM_" .. i, 0, yPos);
+				local ShopItemCountObj = gbox_sell_list:CreateControlSet("housing_shop_itemset", "SHOPITEM_" .. i, 0, yPos);
 				yPos = yPos + ShopItemCountObj:GetHeight() - 5;
 
 				local ShopItemCountCtrl = tolua.cast(ShopItemCountObj, "ui::CControlSet");
-				local foodInfoBox = ShopItemCountCtrl:GetChild('foodInfoBox');
-				foodInfoBox:ShowWindow(0);
 
 				ShopItemCountCtrl:SetEnableSelect(1);
 				ShopItemCountCtrl:SetSelectGroupName("ShopItemList");
@@ -569,17 +569,38 @@ function HOUSING_SHOP_INIT_TAB(frame, gboxName, marketCategory)
 				local ConSetBySlot = ShopItemCountCtrl:GetChild('slot');
 				local slot = tolua.cast(ConSetBySlot, "ui::CSlot");
 				local icon = CreateIcon(slot);
-	
+
 				local imageName = shopItem:GetIcon();
 
 				icon:Set(imageName, 'SHOPITEM', i, 0);
 				local printText	= '{@st66b}' .. GET_SHOPITEM_TXT(shopItem, itemClass);
-		
+
 				local priceText1 = string.format("{img icon_guild_housing_coin_01 20 20} {@st66b}%s", TryGetProp(furnitureClass, "Price1", 0));
 				local priceText2 = string.format("  {img icon_guild_housing_coin_02 20 20} {@st66b}%s", TryGetProp(furnitureClass, "Price2", 0));
 				local priceText3 = string.format("  {img icon_guild_housing_coin_03 20 20} {@st66b}%s", TryGetProp(furnitureClass, "Price3", 0));
 				local priceText4 = string.format("  {img icon_guild_housing_coin_04 20 20} {@st66b}%s", TryGetProp(furnitureClass, "Price4", 0));
 				local priceText	= priceText1 .. priceText2 .. priceText3 .. priceText4;
+				
+				local pic_new = GET_CHILD_RECURSIVELY(ShopItemCountObj, "pic_new");
+
+				local newOpenTimeString = TryGetProp(furnitureClass, "NewOpenTime", "None");
+				local newCloseTimeString = TryGetProp(furnitureClass, "NewCloseTime", "None");
+
+				if newOpenTimeString ~= "None" and newCloseTimeString ~= "None" then
+					local yy, mm, dd, hh, mm2, ss = date_time.get_date_time(newOpenTimeString);
+					local newOpenTime = imcTime.GetSysTime(yy, mm, dd, hh, mm2, ss);
+				
+					local yy, mm, dd, hh, mm2, ss = date_time.get_date_time(newCloseTimeString);
+					local newCloseTime = imcTime.GetSysTime(yy, mm, dd, hh, mm2, ss);
+
+					if imcTime.IsLaterThan(curTime, newOpenTime) == 1 and imcTime.IsLaterThan(newCloseTime, curTime) == 1 then
+						pic_new:ShowWindow(1);
+					else
+						pic_new:ShowWindow(0);
+					end
+				else
+					pic_new:ShowWindow(0);
+				end
 
 				ShopItemCountCtrl:SetEventScript(ui.RBUTTONDOWN, 'HOUSING_SHOP_SLOT_RBTNDOWN_2');
 				ShopItemCountCtrl:SetEventScriptArgString(ui.RBUTTONDOWN, imageName);
@@ -587,6 +608,10 @@ function HOUSING_SHOP_INIT_TAB(frame, gboxName, marketCategory)
 				ShopItemCountCtrl:SetTextByKey('ItemName_Count', printText);
 				ShopItemCountCtrl:SetTextByKey('Item_Price', priceText);
 				ShopItemCountCtrl:SetOverSound("button_over");
+				
+				ShopItemCountCtrl:SetUserValue("FurnitureName", TryGetProp(furnitureClass, "Name", "None"));
+				ShopItemCountCtrl:SetUserValue("FurnitureTheme", TryGetProp(furnitureClass, "Theme", "None"));
+				ShopItemCountCtrl:SetUserValue("FurnitureUsage", TryGetProp(furnitureClass, "Usage", "None"));
 
 				slot:SetEventScript(ui.RBUTTONDOWN, 'HOUSING_SHOP_SLOT_RBTNDOWN');
 				slot:SetEventScriptArgString(ui.RBUTTONDOWN, imageName);
@@ -606,7 +631,22 @@ function HOUSING_SHOP_INIT_TAB(frame, gboxName, marketCategory)
 end
 
 function SCP_HOUSING_SHOP_TAB_LANDSCAPE(frame, gbox)
-	HOUSING_SHOP_INIT_TAB(frame, "gbox_sell_list_landscape", "Housing_Furniture");
+	HOUSING_SHOP_INIT_TAB(frame, "gbox_sell_list_landscape_itemlist", "Housing_Furniture");
+	
+	local edit_itemSearch = GET_CHILD_RECURSIVELY(frame, "edit_itemSearch");
+	edit_itemSearch:SetText("");
+
+	local droplist_search_first = GET_CHILD_RECURSIVELY(frame, 'droplist_search_first');
+	local droplist_search_second = GET_CHILD_RECURSIVELY(frame, 'droplist_search_second');
+
+	droplist_search_first:ClearItems();
+	droplist_search_second:ClearItems();
+
+	droplist_search_first:AddItem(0, ClMsg("Auto_MoDu_BoKi"));
+	droplist_search_first:AddItem(1, ClMsg("Housing_Search_Item_First_Theme"));
+	droplist_search_first:AddItem(2, ClMsg("Housing_Search_Item_First_Purpose"));
+	
+	droplist_search_second:AddItem(0, ClMsg("Auto_MoDu_BoKi"));
 end
 
 function SCP_HOUSING_SHOP_TAB_FACILITIES(frame, gbox)
@@ -615,4 +655,153 @@ end
 
 function SCP_HOUSING_SHOP_TAB_CONTRACT(frame, gbox)
 	HOUSING_SHOP_INIT_TAB(frame, "gbox_sell_list_contract", "Housing_Contract");
+end
+
+function SCP_SELECT_DROPLIST_ITEM_FIRST(parent, dropList)
+	local droplist_search_second = GET_CHILD_RECURSIVELY(parent, 'droplist_search_second');
+	
+	droplist_search_second:SetUserValue("SortType", "All");
+
+	droplist_search_second:ClearItems();
+
+	local selectedIndex = dropList:GetSelItemIndex();
+	if selectedIndex == 1 then
+		droplist_search_second:SetUserValue("SortType", "Theme");
+
+		local themes = {};
+		local themeCount = 0;
+		local housingFurnitureClassList, count = GetClassList("Housing_Furniture");
+		for i = 0, count - 1 do
+			local housingFurnitureClass = GetClassByIndexFromList(housingFurnitureClassList, i);
+			if housingFurnitureClass ~= nil then
+				local type = TryGetProp(housingFurnitureClass, "Type");
+				if type == "Guild" then
+					local itemClassName = TryGetProp(housingFurnitureClass, "ItemClassName");
+					local itemClass = GetClass("Item", itemClassName);
+					if itemClass ~= nil and TryGetProp(itemClass, "MarketCategory", "None") == "Housing_Furniture" then
+						local theme = TryGetProp(housingFurnitureClass, "Theme");
+						if themes[theme] == nil then
+							themes[theme] = 0;
+							themeCount = themeCount + 1;
+						end
+					end
+				end
+			end
+		end
+		
+		local sortedThemes = {};
+		local index = 1;
+		for key, value in pairs(themes) do
+			sortedThemes[index] = key;
+			index = index + 1;
+		end
+
+		table.sort(sortedThemes, function(a, b) return string.byte(a) < string.byte(b) end);
+
+		for i = 1, #sortedThemes do
+			droplist_search_second:AddItem(i, sortedThemes[i]);
+		end
+
+		themeCount = CLAMP(themeCount, 2, 8);
+		droplist_search_second:SetVisibleLine(themeCount);
+	elseif selectedIndex == 2 then
+		droplist_search_second:SetUserValue("SortType", "Usage");
+		
+		local usages = {};
+		local usageCount = 0;
+		local housingFurnitureClassList, count = GetClassList("Housing_Furniture");
+		for i = 0, count - 1 do
+			local housingFurnitureClass = GetClassByIndexFromList(housingFurnitureClassList, i);
+			if housingFurnitureClass ~= nil then
+				local type = TryGetProp(housingFurnitureClass, "Type");
+				if type == "Guild" then
+					local itemClassName = TryGetProp(housingFurnitureClass, "ItemClassName");
+					local itemClass = GetClass("Item", itemClassName);
+					if itemClass ~= nil and TryGetProp(itemClass, "MarketCategory", "None") == "Housing_Furniture" then
+						local usage = TryGetProp(housingFurnitureClass, "Usage");
+						if usages[usage] == nil then
+							usages[usage] = 0;
+							usageCount = usageCount + 1;
+						end
+					end
+				end
+			end
+		end
+		
+		local sortedUsages = {};
+		local index = 1;
+		for key, value in pairs(usages) do
+			sortedUsages[index] = key;
+			index = index + 1;
+		end
+
+		table.sort(sortedUsages, function(a, b) return string.byte(a) < string.byte(b) end);
+
+		for i = 1, #sortedUsages do
+			droplist_search_second:AddItem(i, sortedUsages[i]);
+		end
+
+		usageCount = CLAMP(usageCount, 4, 8);
+		droplist_search_second:SetVisibleLine(usageCount);
+	else
+		droplist_search_second:AddItem(0, ClMsg("Auto_MoDu_BoKi"));
+		droplist_search_second:SetVisibleLine(1);
+	end
+	
+	local frame = parent:GetTopParentFrame();
+	SCP_HOUSING_SHOP_SORT_BY_SELECT_DROPlIST(frame);
+end
+
+function SCP_SELECT_DROPLIST_ITEM_SECOND(parent, dropList)
+	local frame = parent:GetTopParentFrame();
+	SCP_HOUSING_SHOP_SORT_BY_SELECT_DROPlIST(frame);
+end
+
+function HOUSING_SHOP_SEARCH_TYPING(parent, edit)
+	local frame = parent:GetTopParentFrame();
+	SCP_HOUSING_SHOP_SORT_BY_SELECT_DROPlIST(frame);
+end
+
+function SCP_HOUSING_SHOP_SORT_BY_SELECT_DROPlIST(frame)
+	local gbox_sell_list_landscape_itemlist = GET_CHILD_RECURSIVELY(frame, "gbox_sell_list_landscape_itemlist");
+	local droplist_search_first = GET_CHILD_RECURSIVELY(frame, "droplist_search_first");
+	local firstSelectedIndex = droplist_search_first:GetSelItemIndex();
+
+	local droplist_search_second = GET_CHILD_RECURSIVELY(frame, "droplist_search_second");
+	local secondSelectedIndex = droplist_search_second:GetSelItemIndex();
+	
+	local edit_itemSearch = GET_CHILD_RECURSIVELY(frame, "edit_itemSearch");
+	local searchText = edit_itemSearch:GetText();
+
+	local yPos = 0;
+	local childCount = gbox_sell_list_landscape_itemlist:GetChildCount();
+	for i = 0, childCount do
+		local child = gbox_sell_list_landscape_itemlist:GetChildByIndex(i);
+		if child ~= nil and string.match(child:GetName(), "SHOPITEM_") then
+			local findCaption = nil;
+			local selectedCaption = nil;
+			if firstSelectedIndex == 1 then
+				-- 테마별
+				findCaption = child:GetUserValue("FurnitureTheme");
+				selectedCaption = droplist_search_second:GetSelItemCaption();
+			elseif firstSelectedIndex == 2 then
+				-- 용도별
+				findCaption = child:GetUserValue("FurnitureUsage");
+				selectedCaption = droplist_search_second:GetSelItemCaption();
+			end
+			
+			local furnitureName = child:GetUserValue("FurnitureName");
+			if ((findCaption == nil or selectedCaption == nil) or (findCaption == selectedCaption)) and (searchText == "" or string.match(furnitureName, searchText)) then
+				local margin = child:GetMargin();
+				
+				child:ShowWindow(1);
+				child:SetOffset(margin.left, yPos);
+				yPos = yPos + child:GetHeight() - 5;
+			else
+				local margin = child:GetMargin();
+				child:SetOffset(margin.left, 0);
+				child:ShowWindow(0);
+			end
+		end
+	end
 end

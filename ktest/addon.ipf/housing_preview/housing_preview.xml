@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by Hey (IMCGames Co., Ltd) -->
+<uiframe name="housing_preview" x="0" y="0" width="280" height="270" create="open">
+	<frame fullheight="false" fasthide="true" layout_gravity="left center" margin="10 50 0 0"/>
+	<input moveable="true" hittestframe="true"/>
+	<option visible="false" hideable="false" closebutton="false" moveable="true" alwaysVisible="false"/>
+	<draw drawtitlebar="false" drawframe="false"/>
+	<layer layerlevel="100"/>
+	<controls>
+		<groupbox name="gbox_preview" rect="0 0 280 270" margin="0 0 0 0" layout_gravity="left top" draw="true" skin="blackbox_op_50" hittestbox="false" hittest="true"/>
+		<richtext name="txt_preview_hotkey" parent="gbox_preview" rect="0 0 180 30" margin="0 10 0 0" layout_gravity="center top" caption="{@st43}미리보기 조작키{/}" fontname="white_20_ol_ds" resizebytext="true"/>
+		<labelline name="labelline1" parent="gbox_preview" rect="0 0 265 5" margin="0 45 0 0" layout_gravity="center top" skin="labelline_def_2"/>
+		<picture name="pic_preview_close" parent="gbox_preview" rect="0 0 50 50" margin="55 55 0 0" layout_gravity="left top" image="Esc" stretch="true"/>
+		<richtext name="txt_preview_close" parent="gbox_preview" rect="0 0 180 30" margin="170 70 0 0" layout_gravity="left top" caption="{@st41}나가기{/}" fontname="white_20_ol_ds" resizebytext="true"/>
+		<picture name="pic_preview_w" parent="gbox_preview" rect="0 0 50 50" margin="55 110 0 0" layout_gravity="left top" image="W" stretch="true"/>
+		<picture name="pic_preview_a" parent="gbox_preview" rect="0 0 50 50" margin="10 155 0 0" layout_gravity="left top" image="A" stretch="true"/>
+		<picture name="pic_preview_s" parent="gbox_preview" rect="0 0 50 50" margin="55 155 0 0" layout_gravity="left top" image="S" stretch="true"/>
+		<picture name="pic_preview_d" parent="gbox_preview" rect="0 0 50 50" margin="100 155 0 0" layout_gravity="left top" image="D" stretch="true"/>
+		<richtext name="txt_preview_move" parent="gbox_preview" rect="0 0 180 30" margin="170 140 0 0" layout_gravity="left top" caption="{@st41}화면 이동{/}" fontname="white_20_ol_ds" resizebytext="true"/>
+		<picture name="pic_preview_q" parent="gbox_preview" rect="0 0 50 50" margin="30 210 0 0" layout_gravity="left top" image="Q" stretch="true"/>
+		<picture name="pic_preview_e" parent="gbox_preview" rect="0 0 50 50" margin="85 210 0 0" layout_gravity="left top" image="E" stretch="true"/>
+		<richtext name="txt_preview_move_updown" parent="gbox_preview" rect="0 0 180 30" margin="170 220 0 0" layout_gravity="left top" caption="{@st41}상하 이동{/}" fontname="white_20_ol_ds" resizebytext="true"/>
+	</controls>
+</uiframe>

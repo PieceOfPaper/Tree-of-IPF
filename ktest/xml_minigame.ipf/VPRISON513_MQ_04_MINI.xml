@@ -158,6 +158,9 @@
             </Stage>
             <Stage Name="1" AutoStart="0">
                 <StartScpList>
+                    <ToolScp Scp="MGAME_CUSTOM_START_FUNC" Client="NO" UseSleep="NO">
+                        <Str Str="SCR_VPRISON513_MQ_04_MAP_CHECK1"/>
+                    </ToolScp>
                     <ToolScp Scp="MGAME_CAMERA_TO" Client="YES" UseSleep="NO">
                         <AbsPos X="-40.946972" Y="94.598801" Z="898.73743"/>
                         <Num Num="2"/>
@@ -165,7 +168,7 @@
                         <Num Num="0.5"/>
                     </ToolScp>
                     <ToolScp Scp="MGAME_REMOVE_GUIDE" Client="YES" UseSleep="NO">
-                        <Str Str="st1"/>
+                        <Str Str="st0"/>
                     </ToolScp>
                     <ToolScp Scp="MGAME_SET_DM_ICON" Client="NO" UseSleep="NO">
                         <Str Str="하우벅의 부하들을 모두 처치하세요!"/>
@@ -176,7 +179,7 @@
                 <CompleteScpList>
                     <ToolScp Scp="MGAME_MAKE_GUIDE" Client="YES" UseSleep="NO">
                         <AbsPos X="421.79111" Y="91.039902" Z="889.68805"/>
-                        <Str Str="st2"/>
+                        <Str Str="st1"/>
                     </ToolScp>
                     <ToolScp Scp="MGAME_SET_DM_ICON" Client="NO" UseSleep="NO">
                         <Str Str="하우벅의 부하들을 모두 처치했습니다{nl}하우벅을 추적하세요!"/>
@@ -354,8 +357,11 @@
             </Stage>
             <Stage Name="2" AutoStart="0">
                 <StartScpList>
+                    <ToolScp Scp="MGAME_CUSTOM_START_FUNC" Client="NO" UseSleep="NO">
+                        <Str Str="SCR_VPRISON513_MQ_04_MAP_CHECK2"/>
+                    </ToolScp>
                     <ToolScp Scp="MGAME_REMOVE_GUIDE" Client="YES" UseSleep="NO">
-                        <Str Str="st2"/>
+                        <Str Str="st1"/>
                     </ToolScp>
                     <ToolScp Scp="MGAME_SET_DM_ICON" Client="NO" UseSleep="NO">
                         <Str Str="하우벅의 부하들을 모두 처치하세요!"/>
@@ -511,6 +517,10 @@
                             </ToolScp>
                         </condList>
                         <execList>
+                            <ToolScp Scp="MGAME_EVT_SCP_TO_MON" Client="NO" UseSleep="NO">
+                                <MGameObj List="2/0"/>
+                                <Str Str="VPRISON513_MQ_04_MINI_AFTER"/>
+                            </ToolScp>
                             <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_CLEAR" Client="NO" UseSleep="NO">
                                 <Str Str="2"/>
                             </ToolScp>
@@ -526,7 +536,7 @@
             <Stage Name="set">
                 <StartScpList>
                     <ToolScp Scp="MGAME_MAKE_GUIDE" Client="YES" UseSleep="NO">
-                        <AbsPos X="-660.52631" Y="91.039902" Z="891.91821"/>
+                        <AbsPos X="-317.61453" Y="91.039856" Z="899.90381"/>
                         <Str Str="st0"/>
                     </ToolScp>
                     <ToolScp Scp="MGAME_SET_DM_ICON" Client="NO" UseSleep="NO">
@@ -536,19 +546,6 @@
                     </ToolScp>
                 </StartScpList>
                 <ObjList>
-                    <Obj Type="Trigger" triggerName="Trigger">
-                        <Area>
-                            <Pos Value="-820.652832 91.039902 879.763977"/>
-                            <Pos Value="-838.500732 91.039902 932.230347"/>
-                            <Pos Value="-765.050781 91.039902 965.307434"/>
-                            <Pos Value="-715.710632 87.870216 829.425842"/>
-                        </Area>
-                        <enterScpList>
-                            <ToolScp Scp="MGAME_TRG_START_STAGE" Client="NO" UseSleep="NO">
-                                <Str Str="DefGroup"/>
-                            </ToolScp>
-                        </enterScpList>
-                    </Obj>
                     <Obj Type="Trigger" triggerName="Trigger">
                         <Area>
                             <Pos Value="-376.166962 86.157120 817.281616"/>

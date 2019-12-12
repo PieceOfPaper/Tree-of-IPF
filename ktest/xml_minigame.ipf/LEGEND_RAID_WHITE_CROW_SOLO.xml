@@ -83,8 +83,11 @@
                                 <MGameObj List="DefGroup/1"/>
                                 <Str Str="SHADOW_RAID_BOSS_HPLOCK"/>
                             </ToolScp>
+                            <ToolScp Scp="GAME_EVT_ON_BYNAME" Client="NO" UseSleep="NO">
+                                <Str Str="timesetting"/>
+                            </ToolScp>
                             <ToolScp Scp="MGAME_EVT_SCRIPT_ARG" Client="NO" UseSleep="NO">
-                                <Str Str="SHADOW_LEGEND_PHASE_CHECK_LOG"/>
+                                <Str Str="SHADOW_LEGEND_SOLO_PHASE_CHECK_LOG"/>
                                 <Str Str="Start"/>
                                 <Num Num="1"/>
                             </ToolScp>
@@ -143,7 +146,7 @@
                                 <Str Str="Phase1_PowerUp_End"/>
                             </ToolScp>
                             <ToolScp Scp="MGAME_EVT_SCRIPT_ARG" Client="NO" UseSleep="NO">
-                                <Str Str="SHADOW_LEGEND_PHASE_CHECK_LOG"/>
+                                <Str Str="SHADOW_LEGEND_SOLO_PHASE_CHECK_LOG"/>
                                 <Str Str="Start"/>
                                 <Num Num="2"/>
                             </ToolScp>
@@ -173,6 +176,11 @@
                             <ToolScp Scp="SCR_LEGEND_SOLO_RAID_CLEAR_CHECK" Client="NO" UseSleep="NO">
                                 <Str Str="흰 까마귀 영면지: 레전드 캐주얼"/>
                                 <Str Str="None"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_EVT_SCRIPT_ARG" Client="NO" UseSleep="NO">
+                                <Str Str="SHADOW_LEGEND_SOLO_PHASE_CHECK_LOG"/>
+                                <Str Str="Clear"/>
+                                <Num Num="2"/>
                             </ToolScp>
                             <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
                                 <Str Str="FAIL_CHECK"/>
@@ -207,7 +215,7 @@
                                 <Str Str="ChangeBoss"/>
                             </ToolScp>
                             <ToolScp Scp="MGAME_EVT_SCRIPT_ARG" Client="NO" UseSleep="NO">
-                                <Str Str="SHADOW_LEGEND_PHASE_CHECK_LOG"/>
+                                <Str Str="SHADOW_LEGEND_SOLO_PHASE_CHECK_LOG"/>
                                 <Str Str="Clear"/>
                                 <Num Num="1"/>
                             </ToolScp>
@@ -284,7 +292,7 @@
                                 <Str Str="SHADOW_RAID_MAX_POWER"/>
                             </ToolScp>
                             <ToolScp Scp="MGAME_EVT_SCRIPT_ARG" Client="NO" UseSleep="NO">
-                                <Str Str="SHADOW_LEGEND_PHASE_CHECK_LOG"/>
+                                <Str Str="SHADOW_LEGEND_SOLO_PHASE_CHECK_LOG"/>
                                 <Str Str="Ex"/>
                                 <Num Num="2"/>
                             </ToolScp>
@@ -337,14 +345,9 @@
                             <ToolScp Scp="MGAME_EXEC_ACTORSCP" Client="NO" UseSleep="NO">
                                 <Str Str="SHADOW_LEGEND_RESURRECT_ON_CLEAR"/>
                             </ToolScp>
-                            <ToolScp Scp="MGAME_EVT_SCRIPT_ARG" Client="NO" UseSleep="NO">
-                                <Str Str="SHADOW_LEGEND_PHASE_CHECK_LOG"/>
-                                <Str Str="Clear"/>
-                                <Num Num="2"/>
-                            </ToolScp>
                         </execList>
                     </Event>
-                    <Event execCount="1" eventName="timesetting">
+                    <Event execCount="1" eventName="timesetting" execWithStart="0" isEnabled="0">
                         <execList>
                             <ToolScp Scp="SCR_RAID_CLEAR_TIME_START_SETTING" Client="NO" UseSleep="NO"/>
                         </execList>
@@ -374,7 +377,7 @@
                         </condList>
                         <execList>
                             <ToolScp Scp="MGAME_EVT_SCRIPT_ARG" Client="NO" UseSleep="NO">
-                                <Str Str="SHADOW_LEGEND_PHASE_CHECK_LOG"/>
+                                <Str Str="SHADOW_LEGEND_SOLO_PHASE_CHECK_LOG"/>
                                 <Str Str="Ex"/>
                                 <Num Num="1"/>
                             </ToolScp>

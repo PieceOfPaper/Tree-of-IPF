@@ -15,6 +15,8 @@ function QUICKSLOTNEXPBAR_ON_INIT(addon, frame)
 	addon:RegisterMsg('KEYBOARD_INPUT', 'KEYBOARD_INPUT');
 	
 	addon:RegisterMsg('SKILL_LIST_GET', 'QUICKSLOTNEXPBAR_ON_MSG');
+	addon:RegisterMsg('SPECIFIC_SKILL_GET', 'QUICKSLOTNEXPBAR_ON_MSG');
+	
 	addon:RegisterMsg('REGISTER_QUICK_SKILL', 'QUICKSLOT_REGISTER_Skill');
 	addon:RegisterMsg('REGISTER_QUICK_ITEM', 'QUICKSLOT_REGISTER_Item');
 	
@@ -40,6 +42,7 @@ function QUICKSLOTNEXPBAR_ON_INIT(addon, frame)
     addon:RegisterMsg('RESET_ALL_SKILL', 'CLEAR_ALL_SKILL_QUICKSLOTBAR');
 
 	addon:RegisterMsg('DELETE_QUICK_SKILL', 'DELETE_SKILLICON_QUICKSLOTBAR');
+	addon:RegisterMsg("DELETE_SPECIFIC_SKILL", 'DELETE_SKILLICON_QUICKSLOTBAR');
 	
 	local timer = GET_CHILD(frame, "addontimer", "ui::CAddOnTimer");
 	timer:SetUpdateScript("UPDATE_QUICKSLOT_OVERHEAT");
@@ -758,7 +761,7 @@ function SET_MON_QUICK_SLOT(frame, slot, category, type)
 	SET_QUICKSLOT_OVERHEAT(slot);
 end
 
-function QUICKSLOTNEXPBAR_ON_MSG(frame, msg, argStr, argNum)        
+function QUICKSLOTNEXPBAR_ON_MSG(frame, msg, argStr, argNum)    
 	local joystickquickslotFrame = ui.GetFrame('joystickquickslot');
 	JOYSTICK_QUICKSLOT_ON_MSG(joystickquickslotFrame, msg, argStr, argNum)
 		

@@ -23,10 +23,10 @@ function _HOUSING_EDIT_MODE_REMOVE_OPEN_CALLBACK(handle)
 	
 	local name = TryGetProp(furnitureClass, "Name");
 	local demolitionPrice = TryGetProp(furnitureClass, "DemolitionPrice", 0);
-	DO_HOUSING_EDIT_MODE_REMOVE_OPEN(name, demolitionPrice, handle);
+	DO_HOUSING_EDIT_MODE_REMOVE_OPEN(name, demolitionPrice, "Handle", handle);
 end
 
-function DO_HOUSING_EDIT_MODE_REMOVE_OPEN(name, demolitionPrice, handle)
+function DO_HOUSING_EDIT_MODE_REMOVE_OPEN(name, demolitionPrice, removeType, value)
     local guild = session.party.GetPartyInfo(PARTY_GUILD);
 	
 	local currentMapName = session.GetMapName();
@@ -72,20 +72,22 @@ function DO_HOUSING_EDIT_MODE_REMOVE_OPEN(name, demolitionPrice, handle)
 	txt_furniture_name:SetTextByKey("name", name);
 
 	local btn_yes = GET_CHILD_RECURSIVELY(frame, "btn_yes");
-	if handle ~= nil then
-		btn_yes:SetUserValue("Handle", tostring(handle));
-	else
-		btn_yes:SetUserValue("Handle", "AllRemove");
+	btn_yes:SetUserValue("RemoveType", removeType);
+	if value ~= nil then
+		btn_yes:SetUserValue("RemoveValue", tostring(value));
 	end
 end
 
 function BTN_HOUSING_EDITMODE_REMOVE_YES(gbox, btn)
-	local handle = btn:GetUserValue("Handle");
-	if handle ~= nil and handle ~= "None" then
-		if handle == "AllRemove" then
+	local type = btn:GetUserValue("RemoveType");
+	local value = btn:GetUserValue("RemoveValue");
+
+	print(type, value);
+	if type ~= nil then
+		if type == "Handle" then
+			housing.RemoveFurniture(tostring(value));
+		elseif type == "AllRemove" then
 			housing.RemoveAllFurniture();
-		else
-			housing.RemoveFurniture(tostring(handle));
 		end
 	end
 

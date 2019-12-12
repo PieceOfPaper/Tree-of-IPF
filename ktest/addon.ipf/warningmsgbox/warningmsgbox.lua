@@ -411,3 +411,54 @@ function _WARNINGMSGBOX_FRAME_OPEN_NONNESTED_OK(parent, ctrl, argStr, argNum)
 	ui.CloseFrame("warningmsgbox");
 	ui.CloseFrame("item_tooltip");
 end
+
+-- 아이템 등급으로 체크하는 로직을 제거하여, 무조건 0000 입력 체크하도록 함
+function WARNINGMSGBOX_FRAME_OPEN_WITH_CHECK(clmsg, yesScp, noScp)
+	ui.OpenFrame("warningmsgbox")
+	
+	local frame = ui.GetFrame('warningmsgbox')
+	frame:EnableHide(1);
+	
+	local warningText = GET_CHILD_RECURSIVELY(frame, "warningtext")
+	warningText:SetText(clmsg)
+
+    local input_frame = GET_CHILD_RECURSIVELY(frame, "input")
+    input_frame:ShowWindow(1)
+    input_frame:SetText('')
+
+	local showTooltipCheck = GET_CHILD_RECURSIVELY(frame, "cbox_showTooltip")
+	
+	showTooltipCheck:ShowWindow(0)
+
+	local_item_grade = 99 -- 기존 스크립트 이용하기 위한 조치
+    
+	local yesBtn = GET_CHILD_RECURSIVELY(frame, "yes")
+	tolua.cast(yesBtn, "ui::CButton");
+
+	input_frame:ShowWindow(1)            
+
+	yesBtn:SetEventScript(ui.LBUTTONUP, '_WARNINGMSGBOX_FRAME_OPEN_YES');
+	yesBtn:SetEventScriptArgString(ui.LBUTTONUP, yesScp);
+
+	local noBtn = GET_CHILD_RECURSIVELY(frame, "no")
+	tolua.cast(noBtn, "ui::CButton");
+
+	noBtn:SetEventScript(ui.LBUTTONUP, '_WARNINGMSGBOX_FRAME_OPEN_NO');
+	noBtn:SetEventScriptArgString(ui.LBUTTONUP, noScp)
+
+	local buttonMargin = noBtn:GetMargin()
+	local warningbox = GET_CHILD_RECURSIVELY(frame, 'warningbox')
+	local totalHeight = warningbox:GetY() + warningText:GetY() + warningText:GetHeight() + showTooltipCheck:GetHeight() + noBtn:GetHeight() + 2 * buttonMargin.bottom + input_frame:GetHeight()
+
+	local okBtn = GET_CHILD_RECURSIVELY(frame, "ok")
+	tolua.cast(okBtn, "ui::CButton");
+
+	yesBtn:ShowWindow(1);
+	noBtn:ShowWindow(1);
+	okBtn:ShowWindow(0);
+
+	local bg = GET_CHILD_RECURSIVELY(frame, 'bg')
+	warningbox:Resize(warningbox:GetWidth(), totalHeight)
+	bg:Resize(bg:GetWidth(), totalHeight)
+	frame:Resize(frame:GetWidth(), totalHeight)
+end

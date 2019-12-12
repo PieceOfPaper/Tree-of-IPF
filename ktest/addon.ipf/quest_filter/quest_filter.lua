@@ -1,6 +1,6 @@
 -- quest_filter.lua
 
-function QUEST_FILTER_OPEN(questframe, optionBtnCtrl)		
+function QUEST_FILTER_OPEN(questframe, optionBtnCtrl)	
 	if questframe == nil or optionBtnCtrl == nil then
 		return
 	end
@@ -42,7 +42,20 @@ local function _GET_QUEST_FILTER_CHECK_TABLE()
 end
 
 function QUEST_FILTER_UPDATE(frame, ctrl, argStr, argNum)
-	
+	if (ctrl:GetName() == "mode_sub_check" or ctrl:GetName() == "mode_all_check") and ctrl:IsChecked() == 1 then
+        local accountObj = GetMyAccountObj();
+        if accountObj ~= nil then
+            --에피소드 서브퀘스트 언락조건 메시지
+            local episodeCheck = TryGetProp(accountObj, "Episode_10_Clear", 0)
+            if episodeCheck ~= 1 then
+                local myLevel = GETMYPCLEVEL();
+                if myLevel < 390 then
+                    addon.BroadMsg("NOTICE_Dm_!", ScpArgMsg("SubQuest_Lock_Msg"), 10);
+                end
+            end
+        end
+    	
+	end
 	AUTO_CAST(ctrl)
 	if ctrl:GetName() == "mode_all_check" then
 		local isChecked = ctrl:IsChecked();

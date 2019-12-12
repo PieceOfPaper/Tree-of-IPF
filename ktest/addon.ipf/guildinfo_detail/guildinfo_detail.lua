@@ -2,8 +2,12 @@
 local json = require "json_imc"
 local g_guildName = nil;
 local g_guildIdx = nil;
-function GUILDINFO_DETAIL_ON_INIT(guildData, emblemPath, info, guild_idx)
 
+function GUILDINFO_DETAIL_ON_INIT(addon, frame)
+    addon:RegisterMsg('RECEIVE_OTHER_GUILD_AGIT_INFO', 'SCR_OTHER_GUILD_AGIT_INFO');
+end
+
+function GUILDINFO_DETAIL_INIT(guildData, emblemPath, info, guild_idx)
     local frame = ui.GetFrame("guildinfo_detail");
     local promoBox = GET_CHILD_RECURSIVELY(frame, "promoBox");
     promoBox:SetScrollPos(0)
@@ -13,6 +17,9 @@ function GUILDINFO_DETAIL_ON_INIT(guildData, emblemPath, info, guild_idx)
     tabCtrl:SelectTab(0)
     if guild_idx ~= nil and guildData ~= nil then
         g_guildIdx = guild_idx;
+
+		housing.RequestGuildAgitInfoByGuildID(g_guildIdx, "RECEIVE_OTHER_GUILD_AGIT_INFO");
+
         local name = guildData['name']
         local level = guildData['level']
         local introText = guildData['shortDesc']
@@ -96,6 +103,12 @@ function GUILDINFO_DETAIL_ON_INIT(guildData, emblemPath, info, guild_idx)
             --row:Invalidate()
         end
         GetIntroductionImage("GET_INTRO_IMAGE", guild_idx);
+		
+		local agitLevelText = GET_CHILD_RECURSIVELY(frame, "agitLevelText");
+		agitLevelText:SetTextByKey("level", "1");
+
+		local btn_preview_housing = GET_CHILD_RECURSIVELY(frame, "btn_preview_housing");
+		btn_preview_housing:SetEnable(0);
 
         frame:ShowWindow(1)
     end
@@ -308,4 +321,34 @@ function SET_ENABLE_GUILDINFO_DETAIL_ROW(row, index, enable)
     teamName:SetText(teamNameLabel)
     team_lv:SetText(team_lvLabel)
     lv:SetText(lvLabel)
+end
+
+function BTN_PREVIEW_HOUSING(gbox, btn)
+	local mapClassName = session.GetMapName();
+	if mapClassName == "c_Klaipe" or mapClassName == "c_orsha" or mapClassName == "c_fedimian" then
+		housing.PreviewGuild(g_guildIdx)
+	else
+		ui.SysMsg(ClMsg('AllowedInTown1'));
+	end
+end
+
+function SCR_OTHER_GUILD_AGIT_INFO(frame, msg, argStr, argNum)
+	if argStr ~= g_guildIdx then
+		return;
+	end
+
+	local guildAgit = housing.GetGuildAgitInfoByGuildID(g_guildIdx);
+	if guildAgit == nil then
+		return;
+	end
+
+	if guildAgit.extensionLevel <= 1 then
+		return;
+	end
+
+	local agitLevelText = GET_CHILD_RECURSIVELY(frame, "agitLevelText");
+	agitLevelText:SetTextByKey("level", tostring(guildAgit.extensionLevel));
+
+	local btn_preview_housing = GET_CHILD_RECURSIVELY(frame, "btn_preview_housing");
+	btn_preview_housing:SetEnable(1);
 end

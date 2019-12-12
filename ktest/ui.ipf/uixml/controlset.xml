@@ -1327,7 +1327,7 @@
 		</controls>
 	</controlset>
 	<controlset name="quest_list_title" toggle="false" width="520" height="34" updateparent="true" stateskin="false" MouseOnAnim="btn_mouseover" MouseOffAnim="btn_mouseoff">
-		<userconfig QUEST_CTRL_HEIGHT="32" QUEST_CTRL_TITLE_HEIGHT="32" OPENED_CTRL_IMAGE="btn_plus" CLOSED_CTRL_IMAGE="btn_minus" />
+		<userconfig QUEST_CTRL_HEIGHT="32" QUEST_CTRL_TITLE_HEIGHT="32" OPENED_CTRL_IMAGE="btn_plus" CLOSED_CTRL_IMAGE="btn_minus" NORMAL_TITLEBAR_SKIN="quest_titlebar_skin" COMMAND_TITLEBAR_SKIN="quest_titlebar_green_skin"/>
 		<controls>
 			<groupbox name="questMapTitleGbox" rect="0 0 510 32" margin="0 0 0 0" layout_gravity="left top" skin="quest_titlebar_skin" draw="true" hittestbox="true" LBtnUpScp="CLICK_QUEST_MAP_TITLE" resizebyparent="false" scrollbar="false"/>
 			<picture name="openMark" parent="questMapTitleGbox" rect="0 0 26 26" margin="10 9 0 0" layout_gravity="left top" stretch="false" hittestbox="false" hittest="false" image="btn_minus"/>
@@ -1343,6 +1343,33 @@
 			<button name="avandonquest_try" rect="0 0 120 43" layout_gravity="right bottom" margin="0 0 103 15" skin="test_pvp_btn" format="{@st66b}재시작{/}" oversound="button_over" clicksound="button_click" MouseOnAnim="btn_mouseover" MouseOffAnim="btn_mouseoff" LBtnUpScp="SCR_ABANDON_QUEST_TRY"/>
 			<button name="dialogReplay" rect="0 0 46 46" layout_gravity="right bottom" margin="0 0 60 15" image="quest_dialog_btn" format="{@st42b}{/}" oversound="button_over" clicksound="button_click" MouseOnAnim="btn_mouseover" MouseOffAnim="btn_mouseoff" LBtnUpScp="SCR_QUEST_DIALOG_REPLAY" texttooltip="{@st59}퀘스트 대사 보기{/}"/>
 			<button name="abandon" rect="0 0 46 46" layout_gravity="right bottom" margin="0 0 20 15" image="quest_giveup_btn" format="{@st42b}{/}" oversound="button_over" clicksound="button_click" MouseOnAnim="btn_mouseover" MouseOffAnim="btn_mouseoff" LBtnUpScp="SCR_QUEST_ABANDON_SELECT" texttooltip="{@st59}퀘스트 포기{/}"/>
+		</controls>
+	</controlset>
+	<controlset name="episode_list_title" toggle="false" width="520" height="70" updateparent="true" stateskin="false" MouseOnAnim="btn_mouseover" MouseOffAnim="btn_mouseoff">
+		<userconfig QUEST_CTRL_HEIGHT="32" QUEST_CTRL_TITLE_HEIGHT="32" OPENED_CTRL_IMAGE="btn_plus" CLOSED_CTRL_IMAGE="btn_minus" LOCK_COLORTONE="FF777777" CLEAR_COLORTONE="FF777777" NORMAL_SKIN="relabeling_episode_title" LOCK_SKIN="relabeling_episode_gray_title" CLEAR_REWARD_BOX="compen_open" LOCK_REWARD_BOX="compen_unacted" />
+		<controls>
+			<groupbox name="episodeGbox" rect="0 0 510 70" margin="0 0 0 0" layout_gravity="left top" skin="relabeling_episode_title" draw="true" hittestbox="true" resizebyparent="false" scrollbar="false"/>
+			<richtext name="episodeNameText" parent="episodeGbox" rect="0 0 345 24" margin="35 10 0 0" layout_gravity="left top" format="{@st42b}{s18}{ds}%s" param1="name" param1_def="에피소드" fixwidth="true" resizebytext="true" hittest="false" fontname="white_24_ol"/>
+			<richtext name="questNameText" parent="episodeGbox" rect="0 0 345 24" margin="35 36 0 0" layout_gravity="left top" format="{@st42b}{s16}{ds}%s" param1="name" param1_def="퀘스트 제목" fixwidth="true" resizebytext="true" hittest="false" fontname="white_24_ol"/>
+			<picture name="rewardBtn" parent="episodeGbox" 		rect="0 0 36 30" margin="0 20 45 0" layout_gravity="right top" image="compen_btn" stretch="true" LBtnUpScp="CLICK_EPISODE_REWARD" />
+			<groupbox name="rewardStepBox" parent="episodeGbox" rect="0 0 25 24" margin="0 10 35 0" layout_gravity="right top" skin="digitnotice_bg"/>
+			<picture name="rewardDigitNotice" parent="rewardStepBox" rect="0 0 5 16" margin="0 0 0 0" 	layout_gravity="center center" 	image="exclamation_digitnotice" stretch="false" />
+			<picture name="lockMark" parent="episodeGbox" rect="0 0 38 47" margin="0 10 0 0" layout_gravity="center top" stretch="false" hittestbox="false" hittest="false" image="relabeling_lock"/>
+			<picture name="clearMark" parent="episodeGbox" rect="0 0 103 50" margin="0 10 20 0" layout_gravity="right top" stretch="false" hittestbox="false" hittest="false" image="relabeling_clear"/>
+			<groupbox name="questMapTitleGbox" rect="0 0 510 32" margin="0 65 0 0" layout_gravity="left top" skin="quest_titlebar_skin" draw="true" hittestbox="true" LBtnUpScp="CLICK_QUEST_MAP_TITLE" resizebyparent="false" scrollbar="false"/>
+			<picture name="openMark" parent="questMapTitleGbox" rect="0 0 26 26" margin="10 9 0 0" layout_gravity="left top" stretch="false" hittestbox="false" hittest="false" image="btn_minus"/>
+			<richtext name="questMapNameText" parent="questMapTitleGbox" rect="0 0 335 18" margin="35 8 0 0" layout_gravity="left top" format="{@st66b}%s" param1="mapName" param1_def="퀘스트 목록" fixwidth="true" resizebytext="true" hittest="false" fontname="yellow_16_ol"/>
+			<groupbox name="questListGbox" rect="0 0 510 50" margin="0 103 0 0" layout_gravity="left top" draw="false" hittestbox="true" resizebyparent="false" scrollbar="false"/>
+		</controls>
+	</controlset>
+	<controlset name="episode_list_oneline" toggle="false" width="500" height="30" updateparent="true" stateskin="false" MouseOnAnim="btn_mouseover" MouseOffAnim="btn_mouseoff">
+		<userconfig NORMAL_FONT="{@s16}" NORMAL_COLOR="{#ff9b0d}" COMP_FONT="{@s16}" COMP_COLOR="{#9f9f9f}" />
+		<controls>
+			<richtext name="level" rect="0 0 50 18" margin="10 0 0 0" layout_gravity="left center"  fixwidth="false" resizebytext="true" hittest="false" fontname="yellow_16_ol"/>
+			<picture name="questmark" rect="0 0 24 24" margin="75 0 0 0" layout_gravity="left center" stretch="true"/>
+			<richtext name="name" rect="0 0 270 20"  margin="105 0 0 0" layout_gravity="left center" fixwidth="true" resizebytext="false" hittest="false" omitbywidth="true" fontname="yellow_16_ol"/>
+			<picture name="questLink" rect="0 0 22 22" margin="0 0 7 0" layout_gravity="right center" stretch="true" image="relabeling_carry" LBtnUpScp="SCR_LINK_EPISODE_QUEST" texttooltip="{@st59}바로가기{/}"/>
+			<picture name="complete" rect="0 0 22 22" margin="0 0 7 0" layout_gravity="right center" stretch="true" image="relabeling_end_check" texttooltip="{@st59}완료{/}"/>
 		</controls>
 	</controlset>
 	<controlset name="joblist_by_rank" toggle="false" width="1400" height="200" skin="bg" updateparent="true" stateskin="false">
@@ -1696,6 +1723,15 @@
 		<controls>
 			<slot name="slot" layout_gravity="left center" rect="20 0 42 42" hittest="false"/>
 			<richtext name="ItemName" margin="0 0 0 0" rect="80 0 270 21" layout_gravity="left center" fixwidth="true" resizebytext="true" textalign="left center" hittest="false" fontname="white_18_b_ds"/>
+		</controls>
+	</controlset>
+	<controlset name="episodequest_reward" hittest="false" skin="bg_test" draw="true" updateparent="true" width="470" height="70">
+		<controls>
+			<slot name="slot" layout_gravity="left center" rect="20 0 42 42" hittest="false"/>
+			<groupbox name="nameGb" margin="80 0 0 0" rect="0 0 200 21" hittestbox="false" draw="false" layout_gravity="left center" scrollbar="false"/>
+			<richtext name="ItemName" parent="nameGb" margin="0 0 0 0" rect="0 0 200 21" layout_gravity="left center" fixwidth="true" resizebytext="true" textalign="left center" hittest="false" fontname="white_18_b_ds"/>
+			<groupbox name="countGb" margin="80 0 20 0" rect="0 0 80 21" hittestbox="false" draw="false" layout_gravity="right center" scrollbar="false"/>
+			<richtext name="ItemCount"  parent="countGb" margin="0 0 0 0" rect="0 0 80 21" layout_gravity="left center" fixwidth="true" resizebytext="true" textalign="right center" hittest="false" fontname="white_18_b_ds"/>
 		</controls>
 	</controlset>
 	<controlset name="itemset" hittest="true" skin="bg_test" draw="true" updateparent="true" width="70" height="70">
@@ -2154,7 +2190,7 @@
 			<richtext name="item" rect="0 0 200 60" margin="110 0 0 0" caption="제작서" layout_gravity="left top" textalign="left top" resizebytext="false" fixwidth="true" hittest="false" fontname="brown_18"/>
 			<slot name="slot" skin="invenslot2" layout_gravity="left top" margin="0 0 0 0" rect="40 0 64 64"/>
 			<button name="btn" caption="{@st41b}{/}" margin="40 0 0 0" rect="0 0 70 70" layout_gravity="left top" LBtnUpScp="CRAFT_ITEM_ALL" texttooltip="{@st59}재료 아이템을 슬롯에 추가합니다.{/}" image="itemcraft_btn" clicksound="button_click_big_2" oversound="button_cursor_over_3"/>
-			<richtext name="needcount" rect="0 0 64 20" margin="38 0 0 5" format="{@st41b}x%s{/}" layout_gravity="left bottom" textalign="right center" resizebytext="false" fixwidth="true" hittest="false" param1="count" param1_def="99" fontname="white_18_b"/>
+			<richtext name="needcount" rect="0 0 64 20" margin="38 0 0 5" format="{@st41b}x%s{/}" layout_gravity="left bottom" textalign="right center" resizebytext="false" fixwidth="true" hittest="false" param1="count" param1_def="99" fontname="white_18_b" autofontsizebywidth="63"/>
 		</controls>
 	</controlset>
 	<controlset name="craftRecipe_detail_item_alchemist" hittest="true" width="470" height="68" hittestset="true">
@@ -3305,7 +3341,7 @@
 			<richtext name="text" margin="0 3 0 0" rect="0 0 420 49" hittest="false" format="{@sti1c}%s {#FFFF00}%s%s%" param1="propname" param1_def="Defence" textalign="center center" resizebytext="false" spacey="0" maxwidth="0" fontname="white_16" fixwidth="true" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top" param2="propoper" param2_def="+" param3="propvalue" param3_def="131"/>
 		</controls>
 	</controlset>
-	<controlset name="guildEvent_popup_listItem" hittest="true" width="200" height="45" hittestset="true" draw="false" skin="none">
+	<controlset name="guildEvent_popup_listItem" hittest="true" width="470" height="45" hittestset="true" draw="false" skin="none">
 		<controls>
 			<picture name="jobportrait" rect="0 0 30 30" hittest="true" margin="0 0 0 0" layout_gravity="left top" stretch="true"/>
 			<richtext name="name_text" rect="0 0 0 0" margin="120 3 0 0" spacey="0" fontname="white_18_ol" layout_gravity="left top" hittest="false" textalign="left center" format="%s{/}" param1="name" param1_def="?name_text"/>
@@ -4873,6 +4909,14 @@
       <picture name="pic_silver" parent="gbox_background_change_slot" rect="0 0 25 25" margin="0 0 130 55" hittest="false" layout_gravity="right bottom" stretch="true" image="icon_item_silver"/>
       <richtext name="txt_silver" parent="gbox_background_change_slot" rect="0 0 120 25" margin="0 0 15 55" layout_gravity="right bottom" resizebytext="false" textalign="right center" format="%s" param1="value" param1_def="0" fontname="white_18_ol"/>
       <button name="btn_apply" parent="gbox_background_change_slot" rect="0 0 120 40" margin="0 0 5 5" layout_gravity="right bottom" MouseOnAnim="btn_mouseover" MouseOffAnim="btn_mouseoff" stretch="false" hittest="true" format="{@st42b}%s{/}" param1="value" param1_def="구매" skin="test_red_button" oversound="button_over" LBtnUpScp="BTN_HOUSING_EDITMODE_BACKGROUND_CHANGE"/>
+    </controls>
+  </controlset>
+  <controlset name="housing_shop_itemset" toggle="false" hittest="true" width="460" height="55" skin="test_skin_01_btn">
+    <controls>
+      <slot name="slot" layout_gravity="left top" skin="slot_empty" rect="8 4 42 42"/>
+      <richtext name="ItemName_Count" rect="55 7 400 42" layout_gravity="left top" fixwidth="true" hittest="false" fontname="white_14_b_ds"/>
+      <richtext name="Item_Price" rect="50 -7 400 42" layout_gravity="left bottom" fixwidth="true" hittest="false" fontname="white_14_b_ds"/>
+      <picture name="pic_new" rect="0 0 40 25" margin="0 5 5 0" hittest="false" layout_gravity="right top" stretch="false" image="new_inventory_icon"/>
     </controls>
   </controlset>
 	<!--Etc-->

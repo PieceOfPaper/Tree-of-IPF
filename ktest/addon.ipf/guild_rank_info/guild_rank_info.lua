@@ -209,7 +209,7 @@ function ON_BANNER_CLICKED(frame, control, guild_data)
         if filefind.FileExists(emblemPath, true) == false then
             emblemPath = "None";
         end
-        GUILDINFO_DETAIL_ON_INIT(guildData, emblemPath, guildData['additionalInfo'], guild_data )
+        GUILDINFO_DETAIL_INIT(guildData, emblemPath, guildData['additionalInfo'], guild_data )
     end
 end
 

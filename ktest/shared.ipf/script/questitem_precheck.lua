@@ -1787,7 +1787,7 @@ function SCR_PRE_CATHEDRAL54_SQ04_PART2_ITEM(self, argstring, argnum1, argnum2)
     if result == "PROGRESS" then
         if GetZoneName(self) == 'd_cathedral_54' then
             if GetLayer(self) == 0 then 
-                local list, cnt = SelectObject(self, 100, 'ALL')
+                local list, cnt = SelectObjectByFaction(self, 100, 'Monster')
                 local i
                 for i = 1 , cnt do
 --                    if list[i].ClassName == "Stoulet_blue" then
@@ -5057,7 +5057,7 @@ function SCR_PRE_CASTLE65_1_MQ02_ITEM(self, argObj, argstring, argnum1, argnum2)
                 local i
                 for i = 1, cnt do
                     if list[i].ClassName ~= 'PC' then
-                        if list[i].ClassName == 'rokas_pot3_small' or list[i].ClassName == 'Stone01_NoObb'then
+                        if list[i].ClassName == 'rokas_pot3_small' or list[i].ClassName == 'rokas_pots'then
                             if IsServerSection(self) == 1 then
                                 if list[i].Dialog == 'CASTLE651_MQ_02_1' then
                                     if quest_ssn.Step1 ~= 1 then
@@ -8264,7 +8264,8 @@ end
 
 -- STARTOWER_88_MQ_30_ITEM
 
-function SCR_PRE_STARTOWER_88_MQ_30_ITEM(self, argObj, argstring, arg1, arg2)
+function SCR_PRE_STARTOWER_88_MQ_30_ITEM(self, argstring, argnum1, argnum2)
+
     local questCheck = SCR_QUEST_CHECK(self, "STARTOWER_88_MQ_30")
     local itemCount = GetInvItemCount(self, "STARTOWER_88_MQ_30_ITEM")
     if itemCount ~= 0 then
@@ -8300,19 +8301,27 @@ function SCR_PRE_STARTOWER_88_MQ_30_ITEM(self, argObj, argstring, arg1, arg2)
                                     local DialogFunc = objectList[i].Dialog
                                     if DialogFunc == "D_STARTOWER_88_VELNIAS_1ST_SUMMON_PORTAL" then
                                         if sObj.Step1 == 0 then
-                                            return 1
+                                            if IsDead(objectList[i]) == 0 then
+                                                return 1
+                                            end
                                         end
                                     elseif DialogFunc == "D_STARTOWER_88_VELNIAS_2ND_SUMMON_PORTAL" then
                                         if sObj.Step2 == 0 then
-                                            return 1
+                                            if IsDead(objectList[i]) == 0 then
+                                                return 1
+                                            end
                                         end
                                     elseif DialogFunc == "D_STARTOWER_88_VELNIAS_3RD_SUMMON_PORTAL" then
                                         if sObj.Step3 == 0 then
-                                            return 1
+                                            if IsDead(objectList[i]) == 0 then
+                                                return 1
+                                            end
                                         end
                                     elseif DialogFunc == "D_STARTOWER_88_VELNIAS_4TH_SUMMON_PORTAL" then
                                         if sObj.Step4 == 0 then
-                                            return 1
+                                            if IsDead(objectList[i]) == 0 then
+                                                return 1
+                                            end
                                         end
                                     end
                                 end
@@ -8328,7 +8337,7 @@ end
 
 
 -- STARTOWER_91_MQ_30_ITEM
-function SCR_PRE_STARTOWER_91_MQ_30_ITEM(self, argObj, argstring, arg1, arg2)
+function SCR_PRE_STARTOWER_91_MQ_30_ITEM(self, argstring, argnum1, argnum2)
     local questCheck = SCR_QUEST_CHECK(self, "STARTOWER_91_MQ_30")
     local itemCount = GetInvItemCount(self, "STARTOWER_91_MQ_30_ITEM")
     if itemCount >= 1 then
@@ -9030,4 +9039,14 @@ function SCR_PRE_EVENT_1911_HALLOWEEN_CANDY(self)
     end
     SendAddOnMsg(self, "NOTICE_Dm_scroll", ScpArgMsg("HALLOWEEN_CANDY_UNSERVICEABILITY"), 5)
     return 0;
+end
+
+
+--PRISON_82_MQ_11_NECKLACE
+function SCR_PRE_PRISON_82_MQ_11_NECKLACE(self, argObj, argstring, arg1, arg2)
+    local result = SCR_QUEST_CHECK(self, 'PRISON_82_MQ_11')
+    if result == 'COMPLETE' then
+        return 1
+    end
+    return 0
 end

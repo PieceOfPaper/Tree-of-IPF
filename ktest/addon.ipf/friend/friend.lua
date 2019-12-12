@@ -730,8 +730,12 @@ function UPDATE_FRIEND_CONTROLSET(ctrlSet, listType, friendInfo)
         local logoutText = ctrlSet:GetChild('logoutText');
         local logoutTime = imcTime.GetDiffSecFromNow(info.logoutTime);
                 
-        logoutText:SetTextByKey('name', info:GetFamilyName());
-		logoutText:SetTextByKey('time', GET_DIFF_TIME_TXT(logoutTime));
+		logoutText:SetTextByKey('name', info:GetFamilyName());
+		if logoutTime < 0 or logoutTime > 31536000 then
+			logoutText:SetTextByKey('time', ScpArgMsg("LogoutLongTime"));
+		else
+			logoutText:SetTextByKey('time', GET_DIFF_TIME_TXT(logoutTime));
+		end
 		ctrlSet:SetEventScript(ui.RBUTTONUP, "POPUP_FRIEND_COMPLETE_CTRLSET");
         return;
     end

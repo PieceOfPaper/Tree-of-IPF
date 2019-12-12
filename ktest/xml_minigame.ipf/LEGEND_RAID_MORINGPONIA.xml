@@ -310,6 +310,11 @@
                                 <Num Num="7"/>
                                 <Num Num="0"/>
                             </ToolScp>
+                            <ToolScp Scp="MGAME_EVT_SCRIPT_ARG" Client="NO" UseSleep="NO">
+                                <Str Str="SCR_LEGEND_RAID_MORINGPONIA_CUSTOM_LOG"/>
+                                <Str Str="Clear"/>
+                                <Num Num="1"/>
+                            </ToolScp>
                         </execList>
                     </Event>
                     <Event execCount="1" eventName="Stage_Start">
@@ -325,6 +330,11 @@
                                 <Num Num="0"/>
                             </ToolScp>
                             <ToolScp Scp="SCR_RAID_CLEAR_TIME_START_SETTING" Client="NO" UseSleep="NO"/>
+                            <ToolScp Scp="MGAME_EVT_SCRIPT_ARG" Client="NO" UseSleep="NO">
+                                <Str Str="SCR_LEGEND_RAID_MORINGPONIA_CUSTOM_LOG"/>
+                                <Str Str="Start"/>
+                                <Num Num="1"/>
+                            </ToolScp>
                         </execList>
                     </Event>
                 </StageEvents>
@@ -411,6 +421,11 @@
                                 <Num Num="1"/>
                                 <Num Num="0"/>
                             </ToolScp>
+                            <ToolScp Scp="MGAME_EVT_SCRIPT_ARG" Client="NO" UseSleep="NO">
+                                <Str Str="SCR_LEGEND_RAID_MORINGPONIA_CUSTOM_LOG"/>
+                                <Str Str="Start"/>
+                                <Num Num="2"/>
+                            </ToolScp>
                         </execList>
                     </Event>
                     <Event execCount="1" eventName="end_check">
@@ -437,6 +452,11 @@
                                 <MGameObjPtr List="NPC_SET/9"/>
                             </ToolScp>
                             <ToolScp Scp="MGAME_EXEC_REVIVE" Client="NO" UseSleep="NO"/>
+                            <ToolScp Scp="MGAME_EVT_SCRIPT_ARG" Client="NO" UseSleep="NO">
+                                <Str Str="SCR_LEGEND_RAID_MORINGPONIA_CUSTOM_LOG"/>
+                                <Str Str="Clear"/>
+                                <Num Num="2"/>
+                            </ToolScp>
                         </execList>
                     </Event>
                     <Event execCount="1" eventName="summon_pad_pattern_2">
@@ -602,12 +622,17 @@
                             <ToolScp Scp="MGAME_EXEC_ACTORSCP" Client="NO" UseSleep="NO">
                                 <Str Str="SCR_MORINGPONIA_START_BUFF"/>
                             </ToolScp>
-                            <ToolScp Scp="GAME_EVT_OFF" Client="NO" UseSleep="NO"/>
                             <ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
                                 <MGameObjIndex List="NPC_SET/9"/>
                                 <Num Num="1"/>
                                 <Num Num="0"/>
                             </ToolScp>
+                            <ToolScp Scp="MGAME_EVT_SCRIPT_ARG" Client="NO" UseSleep="NO">
+                                <Str Str="SCR_LEGEND_RAID_MORINGPONIA_CUSTOM_LOG"/>
+                                <Str Str="Start"/>
+                                <Num Num="3"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_EVT_OFF" Client="NO" UseSleep="NO"/>
                         </execList>
                     </Event>
                     <Event execCount="1" eventName="end_check" execWithStart="0" isEnabled="0">
@@ -654,6 +679,11 @@
                             <ToolScp Scp="SCR_LEGEND_RAID_CLEAR_CHECK" Client="NO" UseSleep="NO">
                                 <Str Str="나비목 접선지"/>
                                 <Str Str="moringponia_first_kill"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_EVT_SCRIPT_ARG" Client="NO" UseSleep="NO">
+                                <Str Str="SCR_LEGEND_RAID_MORINGPONIA_CUSTOM_LOG"/>
+                                <Str Str="Clear"/>
+                                <Num Num="3"/>
                             </ToolScp>
                             <ToolScp Scp="MGAME_EVT_EXEC_DELMON" Client="NO" UseSleep="NO">
                                 <MGameObjPtr List="Stage_03(Moringponia)/7"/>

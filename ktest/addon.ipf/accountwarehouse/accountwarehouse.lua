@@ -1,5 +1,9 @@
+local json = require "json_imc"
+
 local max_slot_per_tab = account_warehouse.get_max_slot_per_tab()
 local current_tab_index = 0
+local custom_title_name = {}
+
 
 function ACCOUNTWAREHOUSE_ON_INIT(addon, frame)
     addon:RegisterMsg("OPEN_DLG_ACCOUNTWAREHOUSE", "ON_OPEN_ACCOUNTWAREHOUSE");
@@ -77,6 +81,7 @@ end
 function ON_OPEN_ACCOUNTWAREHOUSE(frame)
     new_add_item = { }
     new_stack_add_item = { }
+	custom_title_name = {}
     ui.OpenFrame("accountwarehouse");
 end
 
@@ -89,6 +94,7 @@ function ACCOUNTWAREHOUSE_OPEN(frame)
     session.inventory.ReqAccountWareHouseLimitAmount();
     new_add_item = { }
     new_stack_add_item = { }
+	custom_title_name = {}
 
     ACCOUNT_WAREHOUSE_MAKE_TAB(frame);
 
@@ -274,7 +280,7 @@ function ON_ACCOUNT_WAREHOUSE_ITEM_LIST(frame, msg, argStr, argNum, tab_index)
     if tab_index == nil then
         tab_index = current_tab_index
     end
-
+	
     if msg == 'ACCOUNT_WAREHOUSE_ITEM_ADD' then
         tab_index = get_tab_index(argNum)
         if argNum == 0 and tab_index == 0 then
@@ -283,7 +289,7 @@ function ON_ACCOUNT_WAREHOUSE_ITEM_LIST(frame, msg, argStr, argNum, tab_index)
     end
 
     current_tab_index = tab_index
-
+    
     if frame:IsVisible() == 0 then
         new_add_item = { }
         new_stack_add_item = { }
@@ -622,56 +628,70 @@ end
 
 -- 탭 생성
 function ACCOUNT_WAREHOUSE_MAKE_TAB(frame)
+    ACCOUNT_WAREHOUSE_MAKE_TAB_POST(true)
+    GetAccountWarehouseTitle('callback_get_account_warehouse_title')    
+end
+
+function ACCOUNT_WAREHOUSE_MAKE_TAB_POST(invalidate_item)    
+    local frame = ui.GetFrame("accountwarehouse");
     local accountwarehouse_tab = GET_CHILD_RECURSIVELY(frame, "accountwarehouse_tab");
-    if accountwarehouse_tab == nil then
+    if accountwarehouse_tab == nil then    
         return;
     end
-
+    
     local tab_width = frame:GetUserConfig("WAREHOUSE_TAB_WIDTH");
     local tab_height = frame:GetUserConfig("WAREHOUSE_TAB_HEIGHT");
     local tab_x = frame:GetUserConfig("WAREHOUSE_TAB_X");
     local tab_y = frame:GetUserConfig("WAREHOUSE_TAB_Y");
     local width = frame:GetUserConfig("TAB_WIDTH");
-
+    
     local addTabInfoList = ACCOUNT_WAREHOUSE_GET_TAB_INFO_LIST();
-
+    
     local gblist = UI_LIB_TAB_ADD_TAB_LIST(frame, accountwarehouse_tab, addTabInfoList, tab_width, tab_height, ui.CENTER_HORZ, ui.TOP, tab_x, tab_y, "account_warehouse_tab_box", "true", tab_width, "tab_name");
     for i = 1, #gblist do
         local gb = gblist[i];
         gb:SetTabChangeScp("ACCOUNT_WAREHOUSE_ON_CHANGE_TAB");
     end
-
-    ACCOUNT_WAREHOUSE_ON_CHANGE_TAB(frame);
+    
+    ACCOUNT_WAREHOUSE_ON_CHANGE_TAB(frame, '', '', '', invalidate_item);
     frame:SetUserValue("CLICK_ACCOUNT_WAREHOUSE_ACTIVE_TIME", imcTime.GetAppTime());
 end
 
 -- 팀 창고 정보 리스트 설정
-function ACCOUNT_WAREHOUSE_GET_TAB_INFO_LIST()
+function ACCOUNT_WAREHOUSE_GET_TAB_INFO_LIST()     
     local list = { }
-
     -- 기본 창고
-    list[#list + 1] = UI_LIB_TAB_GET_ADD_TAB_INFO("tab_0", "gb_0", "{@st66b}" .. ClMsg('BasicAccountWarehouse'), ClMsg('BasicAccountWarehouse'), false);
 
+    if custom_title_name[0] == nil then
+        list[#list + 1] = UI_LIB_TAB_GET_ADD_TAB_INFO("tab_0", "gb_0", "{@st66b}" .. ClMsg('BasicAccountWarehouse'), ClMsg('BasicAccountWarehouse'), false);
+    else
+        list[#list + 1] = UI_LIB_TAB_GET_ADD_TAB_INFO("tab_0", "gb_0", "{@st66b}" .. custom_title_name[0], custom_title_name[0], false);
+    end
+    
     -- 추가 창고
     local cnt = account_warehouse.get_max_tab()
     -- 계정에 접근해서 갯수 받아오기
     for i = 1, cnt do
-        list[#list + 1] = UI_LIB_TAB_GET_ADD_TAB_INFO("tab_" .. i, "gb_" .. i, "{@st66b}" .. ClMsg('AdditionalAccountWarehouse') .. tostring(i), ClMsg('AdditionalAccountWarehouse') .. tostring(i), false);
+        if custom_title_name[i] ~= nil then            
+            list[#list + 1] = UI_LIB_TAB_GET_ADD_TAB_INFO("tab_" .. i, "gb_" .. i, "{@st66b}" .. custom_title_name[i], custom_title_name[i], false);
+        else
+            list[#list + 1] = UI_LIB_TAB_GET_ADD_TAB_INFO("tab_" .. i, "gb_" .. i, "{@st66b}" .. ClMsg('AdditionalAccountWarehouse') .. tostring(i), ClMsg('AdditionalAccountWarehouse') .. tostring(i), false);
+        end
     end
 
     return list;
 end
 
 -- 탭 체인지
-function ACCOUNT_WAREHOUSE_ON_CHANGE_TAB(frame)
+function ACCOUNT_WAREHOUSE_ON_CHANGE_TAB(frame, arg1, arg2, arg3, invalidate_item)        
     local accountwarehouse_tab = GET_CHILD_RECURSIVELY(frame, "accountwarehouse_tab");
     if accountwarehouse_tab == nil then
         return;
     end
 
     local gb, tab_index = ACCOUNT_WAREHOUSE_GET_SELECTED_TAB_GROUPBOX(frame);
-    local tab_name = gb:GetUserValue("tab_name");
-    ACCOUNT_WAREHOUSE_GET_FILL_GB(gb, tab_name, tab_index)
+    local tab_name = gb:GetUserValue("tab_name");   
+    ACCOUNT_WAREHOUSE_GET_FILL_GB(gb, tab_name, tab_index, invalidate_item)    
 end
 
 -- 선택한 탭의 그룹박스 
@@ -682,21 +702,117 @@ function ACCOUNT_WAREHOUSE_GET_SELECTED_TAB_GROUPBOX(frame)
     end
 
     local tab_index = accountwarehouse_tab:GetSelectItemIndex();
-    local gb = GET_CHILD_RECURSIVELY(frame, "gb_" .. tab_index);
+    local gb = GET_CHILD_RECURSIVELY(frame, "gb_" .. tab_index);    
 
     return gb, tab_index;
 end
 
 -- 선택한 탭과 관련된 내용 수정 함수
-function ACCOUNT_WAREHOUSE_GET_FILL_GB(gb, tab_name, tab_index)
+function ACCOUNT_WAREHOUSE_GET_FILL_GB(gb, tab_name, tab_index, invalidate_item)
+    if invalidate_item == nil then
+        invalidate_item = true
+    end
+
     local frame = ui.GetFrame("accountwarehouse")
 
     local richtext_1 = GET_CHILD_RECURSIVELY(frame, "richtext_1");
     richtext_1:SetTextByKey("tab_name", tab_name);
-
+    
     -- 아이템 갯수 변경
-    ON_ACCOUNT_WAREHOUSE_ITEM_LIST(frame, nil, nil, 0, tab_index)
+    if invalidate_item == true then
+        ON_ACCOUNT_WAREHOUSE_ITEM_LIST(frame, nil, nil, 0, tab_index)
+    end
     -- 버튼 클릭 이벤트 함수 변경
 
     -- slotset 내용 변경
+end
+
+function callback_get_account_warehouse_title(code, ret_json)
+    ACCOUNT_WAREHOUSE_TAB_UNFREEZE();    
+    if code ~= 200 then
+        SHOW_GUILD_HTTP_ERROR(code, ret_json, "callback_get_account_warehouse_title")
+        return
+    end
+    if ret_json == '' then
+        return -- 등록된적이 없음
+    end
+
+    local parsed_json = json.decode(ret_json)
+    local list = parsed_json['list']
+    for k, v in pairs(list) do
+        if v['title'] ~= '' then
+            local index = tonumber(v['index'])
+            custom_title_name[index] = v['title']            
+        end        
+    end
+
+    ACCOUNT_WAREHOUSE_MAKE_TAB_POST(false)
+end
+
+function callback_set_account_warehouse_title(code, ret_json)
+    if code ~= 200 then
+        SHOW_GUILD_HTTP_ERROR(code, ret_json, "callback_set_account_warehouse_title")
+        return
+    end
+
+    local parsed = json.decode(ret_json)
+    local index = tonumber(parsed['index'])    
+    custom_title_name[index] = parsed['title']    
+    ACCOUNT_WAREHOUSE_MAKE_TAB_POST(false)
+
+    local frame = ui.GetFrame("accountwarehouse");
+    local accountwarehouse_tab = GET_CHILD_RECURSIVELY(frame, "accountwarehouse_tab");
+    if accountwarehouse_tab == nil then
+        return;
+    end
+    
+    accountwarehouse_tab:ChangeTab(index)
+    local richtext_1 = GET_CHILD_RECURSIVELY(frame, "richtext_1");
+    richtext_1:SetTextByKey("tab_name", custom_title_name[index]);
+    
+end
+
+-- TAB 우클릭 시 메뉴 생성
+function ACCOUNT_WAREHOUSE_CREATE_TAB_MANU(ctrl)    
+    local topFrame = ctrl:GetTopParentFrame();
+    local tab = GET_CHILD(topFrame, "accountwarehouse_tab");
+    local tab_index = tab:GetSelectItemIndex();
+
+    local context = ui.CreateContextMenu("TAB_MANU", "", 0, 0, 80, 60);
+    
+    -- 메뉴1 - 탭 이름 변경
+    scpScp = string.format("ACCOUNT_WAREHOUSE_ON_CHANGE_TABNAME(\"%s\")", tab_index);    
+    ui.AddContextMenuItem(context, ClMsg("ChangeAccountWareHouseTabName"), scpScp);
+
+    ui.OpenContextMenu(context);
+end
+
+-- 창고 이름 변경 edit UI open
+function ACCOUNT_WAREHOUSE_ON_CHANGE_TABNAME(index)
+    local frame = ui.GetFrame("accountwarehouse");
+    local tab = GET_CHILD(frame, "accountwarehouse_tab");
+    tab:EnableHitTest(0);   -- 탭 이름 변경 시도시 다른 탭 못누르도록
+
+    EDITMSGBOX_FRAME_OPEN(ClMsg("ChangeAccountWareHouseTabName"), "_ACCOUNT_WAREHOUSE_ON_CHANGE_TABNAME", "ACCOUNT_WAREHOUSE_TAB_UNFREEZE");
+end
+
+-- 창고 이름 변경 
+function _ACCOUNT_WAREHOUSE_ON_CHANGE_TABNAME(argStr)
+    ACCOUNT_WAREHOUSE_TAB_UNFREEZE();
+
+    if argStr == nil or argStr == "" then
+        ui.SysMsg(ClMsg("PleaseChangeAccountWareHouseTabName"));
+        return;
+    end
+
+    local frame = ui.GetFrame("accountwarehouse");
+    local tab = GET_CHILD(frame, "accountwarehouse_tab");
+    local tab_index = tab:GetSelectItemIndex();
+    SetAccountWarehouseTitle('callback_set_account_warehouse_title', tab_index, argStr);
+end
+
+function ACCOUNT_WAREHOUSE_TAB_UNFREEZE()
+    local frame = ui.GetFrame("accountwarehouse");
+    local tab = GET_CHILD(frame, "accountwarehouse_tab");
+    tab:EnableHitTest(1);
 end

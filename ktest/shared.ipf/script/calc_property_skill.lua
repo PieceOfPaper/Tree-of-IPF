@@ -4571,13 +4571,13 @@ function SCR_GET_Evocation_Ratio2(skill)
 end
 
 function SCR_GET_Desmodus_Ratio(skill)
-    local value = skill.Level * 4
+    local value = skill.Level * 24
     
     return value
 end
 
 function SCR_GET_Desmodus_Ratio2(skill)
-    local value = skill.Level * 6
+    local value = skill.Level * 36
     
     return value
 end
@@ -4585,7 +4585,7 @@ end
 function SCR_GET_GatherCorpse_Ratio(skill)
 
     local pc = GetSkillOwner(skill);
-    local value = 5 * skill.Level
+    local value = 30 * skill.Level
 
     return value
 
@@ -9384,13 +9384,13 @@ function SCR_GET_Daino_Bufftime(skill)
 end
 
 function SCR_GET_Mackangdal_Bufftime(skill)
-    local value = 4 + (skill.Level * 1)
+    local value = 5 + (skill.Level * 0.5)
     local pc = GetSkillOwner(skill);
     if IsPVPServer(pc) == 1 or IsPVPField(pc) == 1 then
         value = value * 0.5
     end
     
-    return math.floor(value);
+    return value;
 end
 
 function SCR_GET_Hexing_Bufftime(skill)

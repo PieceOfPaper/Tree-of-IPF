@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <GameList>
-	<Game Name="LIMESTONE_52_1_MQ_7_MINI" minLv="0" maxLv="0" startWaitSec="19259392">
+	<Game Name="LIMESTONE_52_1_MQ_7_MINI" minLv="0" maxLv="0" playerCountCheckDestroy="1" startWaitSec="19259392">
 		<StageList>
 			<Stage Name="1st">
 				<ObjList>
@@ -11,7 +11,7 @@
 					<Event eventName="1-2">
 						<condList>
 							<ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
-								<Num Num="30"/>
+								<Num Num="10"/>
 							</ToolScp>
 						</condList>
 						<execList>
@@ -23,22 +23,7 @@
 							</ToolScp>
 						</execList>
 					</Event>
-					<Event execMS="5000" execCount="3" eventName="repeat_1">
-						<condList>
-							<ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
-								<MGameObj List="1st/0/1st/1/1st/2/1st/3"/>
-								<Num Num="1"/>
-							</ToolScp>
-						</condList>
-						<execList>
-							<ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
-								<MGameObjIndex List="1st/2/1st/3"/>
-								<Num Num="1"/>
-								<Num Num="0"/>
-							</ToolScp>
-						</execList>
-					</Event>
-				</StageEvents>
+					</StageEvents>
 			</Stage>
 			<Stage Name="2nd" AutoStart="0">
 				<ObjList>
@@ -50,7 +35,7 @@
 					<Event eventName="1-3">
 						<condList>
 							<ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
-								<Num Num="30"/>
+								<Num Num="10"/>
 							</ToolScp>
 						</condList>
 						<execList>
@@ -62,29 +47,44 @@
 							</ToolScp>
 						</execList>
 					</Event>
-					<Event execMS="5000" execCount="3" eventName="repeat_2">
+					</StageEvents>
+            </Stage>
+            <Stage Name="3rd" AutoStart="0">
+                <ObjList>
+                    <Obj Type="Monster" MonType="58433" Pos="-382.49#-229.30#-60.88" angle="-87" genCount="1" genTime="20000" objectKey="0" searchRange="800" tendency="1"/>
+                    <Obj Type="Monster" MonType="58437" Pos="-249.67#-229.30#-224.52" angle="-167" genCount="1" genTime="20000" objectKey="1" searchRange="800" tendency="1"/>
+                    <Obj Type="Monster" MonType="58475" Pos="-326.71#-229.30#-140.73" angle="-125" genCount="1" genTime="20000" objectKey="2" searchRange="800" tendency="1"/>
+                </ObjList>
+                <StageEvents>
+                    <Event eventName="1-4">
 						<condList>
-							<ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
-								<MGameObj List="2nd/0/2nd/1/2nd/2/2nd/3"/>
-								<Num Num="1"/>
+							<ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+								<Num Num="10"/>
 							</ToolScp>
 						</condList>
 						<execList>
-							<ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
-								<MGameObjIndex List="2nd/1/2nd/2"/>
-								<Num Num="1"/>
-								<Num Num="0"/>
+							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+								<Str Str="4th"/>
+								</ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
+								<Str Str="3rd"/>
 							</ToolScp>
 						</execList>
 					</Event>
 				</StageEvents>
 			</Stage>
-			<Stage Name="3rd" AutoStart="0">
+			<Stage Name="4th" AutoStart="0">
 				<ObjList>
-					<Obj Type="Monster" MonType="58437" Pos="-310.74#-229.30#-156.17" genCount="1" genTime="20000" objectKey="0" searchRange="800" tendency="1"/>
-					<Obj Type="Monster" MonType="58475" Pos="-381.65#-229.30#-106.87" genCount="1" genTime="20000" objectKey="3" searchRange="800" tendency="1"/>
-					<Obj Type="Monster" MonType="58433" Pos="-398.73#-229.30#-17.86" genCount="1" genTime="20000" objectKey="6" searchRange="800" tendency="1"/>
-					</ObjList>
+					<Obj Type="Monster" MonType="58437" Pos="-242.99#-229.30#-195.80" angle="178" genCount="1" genTime="20000" objectKey="0" searchRange="800" tendency="1">
+                        <SelfAI ActiveMessageMapInBattle="1"/>
+					</Obj>
+                    <Obj Type="Monster" MonType="58475" Pos="-271.69#-229.30#-262.39" angle="-175" genCount="1" genTime="20000" objectKey="1" searchRange="800" tendency="1">
+                        <SelfAI ActiveMessageMapInBattle="1"/>
+					</Obj>
+                    <Obj Type="Monster" MonType="58433" Pos="-324.75#-229.30#-70.84" angle="-105" genCount="1" genTime="20000" objectKey="2" searchRange="800" tendency="1">
+                        <SelfAI ActiveMessageMapInBattle="1"/>
+					</Obj>
+                </ObjList>
 			</Stage>
 		</StageList>
 	</Game>

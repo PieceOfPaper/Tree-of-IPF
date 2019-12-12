@@ -12,20 +12,20 @@
 	<userconfig MAT_MAX_COUNT="10" TOTAL_CUBE_MAX_COUNT="2" MAKE_START_SOUND="button_click_repair" MAKE_RESULT_SOUND="sys_quest_item_get" NOT_ENOUPH_STYLE="{@st42}{s18}{#FF0000}" ENOUPH_STYLE="{@st42}{s18}" MAT1_DEF_NAME="신비한 서 낱장"/>
 	<controls>
 		<!-- title -->
-		<groupbox name="title_bg" rect="0 0 500 60" margin="0 0 0 0"  layout_gravity="center top" draw="true" scrollbar="false" skin="test_frame_top"/>
+		<groupbox name="title_bg" rect="0 0 500 60" margin="0 0 0 0" layout_gravity="center top" draw="true" scrollbar="false" skin="test_frame_top"/>
 		<richtext name="title_text" parent="title_bg" rect="0 0 120 24" margin="0 0 0 0" layout_gravity="center center" caption="{@st43}{s22}신비한 서 제작" fixwidth="false" textalign="center center"/>
 		<button name="close" rect="0 0 35 35" margin="0 15 28 0" layout_gravity="right top" LBtnUpScp="HIDDENABILITY_MAKE_CLOSE" oversound="button_over" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" clicksound="button_click_big" image="testclose_button"/>
 		<picture name="bg_pic" rect="0 0 453 832" margin="0 100 0 0" layout_gravity="center top" changecursor="false" hittest="false" image="mystic_note_production" stretch="true" draw="false"/>
 		<!-- material 1 : piece -->
-		<groupbox name="mat_1_gb" rect="0 0 145 200" margin="-85 250 0 0"  layout_gravity="center top" draw="false" scrollbar="false"/>
-		<slot name="matslot_1" parent="mat_1_gb" rect="0 0 141 141" margin="0 0 0 0" layout_gravity="center top" draw="false" DropScp="HIDDENABILITY_MAKE_ITEM_DROP" DropArgNum="1" PopScp="HIDDENABILITY_MAKE_ITEM_POP" PopArgNum="1"  dropsound="icon_get_down"/>
+		<groupbox name="mat_1_gb" rect="0 0 145 200" margin="-85 250 0 0" layout_gravity="center top" draw="false" scrollbar="false"/>
+		<slot name="matslot_1" parent="mat_1_gb" rect="0 0 141 141" margin="0 0 0 0" layout_gravity="center top" draw="false" DropScp="HIDDENABILITY_MAKE_ITEM_DROP" DropArgNum="1" PopScp="HIDDENABILITY_MAKE_ITEM_POP" PopArgNum="1" dropsound="icon_get_down"/>
 		<richtext name="matslot_1_count" parent="matslot_1" rect="0 0 200 50" margin="0 0 0 5" layout_gravity="right bottom" format="%s%s/%s" param1="style" param1_def="{@st42}{s18}" param2="cur" param2_def="0" param3="need" param3_def="0"/>
-		<richtext name="matslot_1_text" parent="mat_1_gb" rect="0 0 120 24" margin="0 159 0 0" layout_gravity="center top" format="{@st41b}{s18}%s" param1="value" param1_def="신비한 서 낱장" fixwidth="false" textalign="center center" />
+		<richtext name="matslot_1_text" parent="mat_1_gb" rect="0 0 120 50" margin="0 70 0 0" layout_gravity="center center" format="{@st41b}{s18}%s" param1="value" param1_def="신비한 서 낱장" fixwidth="true" textalign="center center"/>
 		<!-- material 2 : stone -->
-		<groupbox name="mat_2_gb" rect="0 0 145 200" margin="85 250 0 0"  layout_gravity="center top" draw="false" scrollbar="false"/>
-		<slot name="matslot_2" parent="mat_2_gb" rect="0 0 141 141" margin="0 0 0 0" layout_gravity="center top" draw="false" DropScp="HIDDENABILITY_MAKE_ITEM_DROP" DropArgNum="2" PopScp="HIDDENABILITY_MAKE_ITEM_POP" PopArgNum="2"  dropsound="icon_get_down"/>
+		<groupbox name="mat_2_gb" rect="0 0 145 200" margin="85 250 0 0" layout_gravity="center top" draw="false" scrollbar="false"/>
+		<slot name="matslot_2" parent="mat_2_gb" rect="0 0 141 141" margin="0 0 0 0" layout_gravity="center top" draw="false" DropScp="HIDDENABILITY_MAKE_ITEM_DROP" DropArgNum="2" PopScp="HIDDENABILITY_MAKE_ITEM_POP" PopArgNum="2" dropsound="icon_get_down"/>
 		<richtext name="matslot_2_count" parent="matslot_2" rect="0 0 200 50" margin="0 0 0 5" layout_gravity="right bottom" format="%s%s/%s" param1="style" param1_def="{@st42}{s18}" param2="cur" param2_def="0" param3="need" param3_def="0"/>
-		<richtext name="matslot_2_text" parent="mat_2_gb" rect="0 0 120 24" margin="0 158 0 0" layout_gravity="center top" caption="{@st41b}{s18}여신의 축복석" fixwidth="false" textalign="center center" />
+		<richtext name="matslot_2_text" parent="mat_2_gb" rect="0 0 120 50" margin="0 70 0 0" layout_gravity="center center" caption="{@st41b}{s18}여신의 축복석" fixwidth="true" textalign="center center"/>
 		<picture name="matslot_2_pic" parent="mat_2_gb" rect="0 0 131 132" margin="0 0 0 0" layout_gravity="center top" changecursor="false" hittest="false" image="trasuremapmark" stretch="true" draw="false"/>
 		<!-- center ui -->
 		<groupbox name="issuccess_gb" rect="0 0 400 150" margin="0 470 0 0" layout_gravity="center top" scrollbar="false" draw="false"/>
@@ -33,8 +33,8 @@
 		<picture name="issuccess_pic" parent="issuccess_gb" rect="0 0 250 85" margin="0 -7 0 0" layout_gravity="center center" changecursor="false" hittest="false" image="card_reinforce_SUCCESS" stretch="true" draw="false"/>
 		<!-- result -->
 		<groupbox name="result_gb" rect="0 0 220 220" margin="0 705 0 0" layout_gravity="center top" draw="false" scrollbar="false"/>
-		<slot name="result_slot" parent="result_gb" rect="0 0 141 141" margin="0 0 0 0" layout_gravity="center top" draw="false" movepop="false" enabledrag="false" enabledrop="false" enablepop="false"/> 
-		<richtext name="result_text" parent="result_gb" rect="0 0 10 24" margin="0 175 0 0" layout_gravity="center top" format="{@st66b}{s18} %s" param1="value" param1_def="아이템 이름" textalign="center center" resizebytext="true"/>
+		<slot name="result_slot" parent="result_gb" rect="0 0 141 141" margin="0 0 0 0" layout_gravity="center top" draw="false" movepop="false" enabledrag="false" enabledrop="false" enablepop="false"/>
+		<richtext name="result_text" parent="result_gb" rect="0 0 210 50" margin="0 75 0 0" layout_gravity="center center" format="{@st66b}{s18} %s" param1="value" param1_def="아이템 이름" textalign="center center" fixwidth="true"/>
 		<droplist name="result_droplist" rect="0 0 205 21" margin="0 165 0 0" layout_gravity="center top" SelectScp="HIDDENABILITY_MAKE_DROPLIST_SELECT" frametextalign="left" skin="droplist_normal" visibleline="4" clicksound="button_click_big"/>
 		<button name="Btn" rect="0 0 180 50" margin="0 0 0 60" layout_gravity="center bottom" skin="test_red_button" caption="{@st41b}{s18}제작 하기" LBtnUpScp="HIDDENABILITY_MAKE_RESULT_ITEM_CREATE" oversound="button_cursor_over_3"/>
 		<button name="ok_Btn" rect="0 0 180 50" margin="0 0 0 60" layout_gravity="center bottom" skin="test_red_button" caption="{@st41b}{s18}확인" LBtnUpScp="HIDDENABILITY_MAKE_OK_CLLICK" oversound="button_cursor_over_3"/>

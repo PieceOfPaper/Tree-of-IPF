@@ -1746,13 +1746,15 @@ function SCR_SKILLSCROLL(invItem)
 		return;
 	end
 
-	local mGameName = session.mgame.GetCurrentMGameName()
-	if mGameName ~= nil and mGameName ~= 'None' then
-		local indunCls = GetClassByStrProp('Indun', 'MGame', mGameName)
-		local dungeonType = TryGetProp(indunCls, 'DungeonType', 'None')
-		if dungeonType == 'Raid' or dungeonType == 'GTower' then
-			ui.SysMsg(ClMsg("NotAvailableInThisContents"))
-			return
+	if IsRaidField() == 1 or IsRaidMap() == 1 then
+		local mGameName = session.mgame.GetCurrentMGameName()
+		if mGameName ~= nil and mGameName ~= 'None' then
+			local indunCls = GetClassByStrProp('Indun', 'MGame', mGameName)
+			local dungeonType = TryGetProp(indunCls, 'DungeonType', 'None')
+			if dungeonType == 'Raid' or dungeonType == 'GTower' then
+				ui.SysMsg(ClMsg("NotAvailableInThisContents"))
+				return
+			end
 		end
 	end
 	
@@ -2467,7 +2469,7 @@ function GET_PCPROPERTY_TAG_TXT(propertyName, value)
     return ret
 end
 
-function GET_HONOR_TAG_TXT(honor, point_value)
+function GET_HONOR_TAG_TXT(honor, point_value, prop)
 
 	local cls = GetClass("AchievePoint", honor);
 	local ret
@@ -2478,11 +2480,30 @@ function GET_HONOR_TAG_TXT(honor, point_value)
 	    ret = ScpArgMsg("Auto_{ol}{@st45tw}{Auto_1}_:_{Auto_2}_Jeom","Auto_1", cls.Name,"Auto_2", point_value)
 	end
 	
+	local isNoTitle = false;
+	local font = "{@st41b}"
+	local color ="{#0064FF}"
+	if prop ~= nil then
+		if prop.noTitle == 1 then
+			isNoTitle = true;
+		end
+		if prop.color ~= nil then
+			color = prop.color;
+		end
+		if prop.font ~= nil then
+			font = prop.font;
+		end
+	end
+	
 	local clslist, cnt  = GetClassList("Achieve");
 	for i = 0 , cnt - 1 do
 		local cls2 = GetClassByIndexFromList(clslist, i);
 		if cls2.NeedPoint == honor and cls2.NeedCount <= point_value  then
-			ret = ScpArgMsg("RepeatRewardAchieve")..'{@st41b}{#0064FF}'..cls2.Name
+			if isNoTitle == true then
+				ret = font..color..cls2.Name
+			else
+				ret = ScpArgMsg("RepeatRewardAchieve")..font..color..cls2.Name
+			end
 			break
 		end
 	end
@@ -4106,6 +4127,44 @@ end
 
 function TEST_UI_OBJECT_INFO()
 	print(ui.UIObjCount(), ui.UIObjectAllocatedSize() / 1024 / 1024);
+end
+
+function ADD_QUEST_CHECK_MONSTER_CUSTOM_EXEC(questID, monName)
+	if questID == -1 then
+		return;
+	end
+
+    local pc = GetMyPCObject()
+    local questIES = GetClassByType('QuestProgressCheck', questID)
+
+	local cutStr = SCR_STRING_CUT(monName);
+	if #cutStr > 1 then
+	
+		for i = 1 , #cutStr do
+			quest.AddCheckQuestMonsterList(questID, cutStr[i]);
+		end
+	else
+		quest.AddCheckQuestMonsterList(questID, monName);
+	end
+end
+
+function REMOVE_QUEST_CHECK_MONSTER_CUSTOM_EXEC(questID, monName)
+	if questID == -1 then
+		return;
+	end
+
+    local pc = GetMyPCObject()
+    local questIES = GetClassByType('QuestProgressCheck', questID)
+
+	local cutStr = SCR_STRING_CUT(monName);
+	if #cutStr > 1 then
+		for i = 1 , #cutStr do
+            quest.RemoveCheckQuestMonsterList(questID, cutStr[i])
+		end
+	else
+        quest.RemoveCheckQuestMonsterList(questID, monName)
+	end
+
 end
 
 function FADE_OUT_IN(fadeDuration)

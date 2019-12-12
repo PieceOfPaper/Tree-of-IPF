@@ -1,27 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <GameList>
-    <Game Name="ORCHARD_342_MQ_03_MINI" minLv="0" maxLv="0" startWaitSec="652968416">
+    <Game Name="ORCHARD_342_MQ_03_MINI" minLv="0" maxLv="0" playerCountCheckDestroy="1" startWaitSec="652968416">
         <StageList>
             <Stage Name="DefGroup">
                 <ObjList>
                     <Obj Type="Monster" MonType="57850" Pos="-795.45#-69.99#-671.81" genCount="1" maxStackCount="1" genTime="10000" genReadyTime="5000" objectKey="0" SimpleAI="ORCHARD_342_MON_AI" tendency="1"/>
                     <Obj Type="Monster" MonType="57850" Pos="-478.88#-69.99#-928.81" genCount="1" maxStackCount="1" genTime="10000" genReadyTime="5000" objectKey="1" SimpleAI="ORCHARD_342_MON_AI" tendency="1"/>
-                    <Obj Type="Monster" MonType="57850" Pos="-766.99#-69.99#-745.61" genCount="1" maxStackCount="1" genTime="10000" genReadyTime="10000" objectKey="2" SimpleAI="ORCHARD_342_MON_AI" tendency="1"/>
-                    <Obj Type="Monster" MonType="57850" Pos="-548.61#-69.99#-938.26" genCount="1" maxStackCount="1" genTime="10000" genReadyTime="10000" objectKey="3" SimpleAI="ORCHARD_342_MON_AI" tendency="1"/>
-                    <Obj Type="Monster" MonType="57850" Pos="-642.66#-69.99#-812.46" genCount="1" maxStackCount="1" genTime="10000" genReadyTime="10000" objectKey="4" SimpleAI="ORCHARD_342_MON_AI" tendency="1"/>
-                    <Obj Type="Monster" MonType="57851" Pos="-554.46#-69.99#-720.97" genCount="1" maxStackCount="1" genTime="10000" genReadyTime="15000" objectKey="5" SimpleAI="ORCHARD_342_MON_AI" tendency="1"/>
-                    <Obj Type="Monster" MonType="57850" Pos="-610.70#-69.99#-594.54" genCount="1" maxStackCount="1" genTime="10000" genReadyTime="15000" objectKey="6" SimpleAI="ORCHARD_342_MON_AI" tendency="1"/>
-                    <Obj Type="Monster" MonType="57850" Pos="-371.60#-69.99#-752.93" genCount="1" maxStackCount="1" genTime="10000" genReadyTime="15000" objectKey="7" SimpleAI="ORCHARD_342_MON_AI" tendency="1"/>
-                    <Obj Type="Monster" MonType="57850" Pos="-586.38#-69.99#-679.18" genCount="1" maxStackCount="1" genTime="10000" genReadyTime="15000" objectKey="8" SimpleAI="ORCHARD_342_MON_AI" tendency="1"/>
-                    <Obj Type="Monster" MonType="57850" Pos="-741.11#-69.99#-713.00" genCount="1" maxStackCount="1" genTime="10000" genReadyTime="20000" objectKey="9" SimpleAI="ORCHARD_342_MON_AI" tendency="1"/>
-                    <Obj Type="Monster" MonType="57850" Pos="-521.93#-69.99#-905.52" genCount="1" maxStackCount="1" genTime="20000" genReadyTime="20000" objectKey="10" SimpleAI="ORCHARD_342_MON_AI" tendency="1"/>
-                    <Obj Type="Monster" MonType="57850" Pos="-719.45#-69.99#-593.37" genCount="1" maxStackCount="1" genTime="10000" genReadyTime="20000" objectKey="11" SimpleAI="ORCHARD_342_MON_AI" tendency="1"/>
-                    <Obj Type="Monster" MonType="57850" Pos="-362.82#-69.99#-796.63" genCount="1" maxStackCount="1" genTime="10000" genReadyTime="20000" objectKey="12" SimpleAI="ORCHARD_342_MON_AI" tendency="1"/>
-                    <Obj Type="Monster" MonType="57851" Pos="-707.41#-69.99#-810.87" genCount="1" maxStackCount="1" genTime="25000" genReadyTime="25000" objectKey="13" SimpleAI="ORCHARD_342_MON_AI" tendency="1"/>
-                    <Obj Type="Monster" MonType="57851" Pos="-641.17#-69.99#-863.07" genCount="1" maxStackCount="1" genTime="20000" genReadyTime="25000" objectKey="14" SimpleAI="ORCHARD_342_MON_AI" tendency="1"/>
-                    <Obj Type="Monster" MonType="57850" Pos="-644.26#-69.99#-629.63" genCount="1" maxStackCount="1" genTime="25000" genReadyTime="25000" objectKey="15" SimpleAI="ORCHARD_342_MON_AI" tendency="1"/>
-                    <Obj Type="Monster" MonType="57850" Pos="-488.49#-69.99#-730.09" genCount="1" maxStackCount="1" genTime="25000" genReadyTime="25000" objectKey="16" SimpleAI="ORCHARD_342_MON_AI" tendency="1"/>
-                    <Obj Type="Monster" MonType="57850" Pos="-420.19#-69.99#-801.72" genCount="1" maxStackCount="1" genTime="25000" genReadyTime="25000" objectKey="17" SimpleAI="ORCHARD_342_MON_AI" tendency="1"/>
+                    <Obj Type="Monster" MonType="57850" Pos="-766.99#-69.99#-745.61" genCount="1" maxStackCount="1" genTime="10000" genReadyTime="5000" objectKey="2" SimpleAI="ORCHARD_342_MON_AI" tendency="1"/>
+                    <Obj Type="Monster" MonType="57850" Pos="-548.61#-69.99#-938.26" genCount="1" maxStackCount="1" genTime="10000" genReadyTime="5000" objectKey="3" SimpleAI="ORCHARD_342_MON_AI" tendency="1"/>
+                    <Obj Type="Monster" MonType="57850" Pos="-642.66#-69.99#-812.46" genCount="1" maxStackCount="1" genTime="10000" genReadyTime="5000" objectKey="4" SimpleAI="ORCHARD_342_MON_AI" tendency="1"/>
+                    <Obj Type="Monster" MonType="57851" Pos="-554.46#-69.99#-720.97" genCount="1" maxStackCount="1" genTime="10000" genReadyTime="12000" objectKey="5" SimpleAI="ORCHARD_342_MON_AI" tendency="1"/>
+                    <Obj Type="Monster" MonType="57850" Pos="-610.70#-69.99#-594.54" genCount="1" maxStackCount="1" genTime="10000" genReadyTime="12000" objectKey="6" SimpleAI="ORCHARD_342_MON_AI" tendency="1"/>
+                    <Obj Type="Monster" MonType="57850" Pos="-741.11#-69.99#-713.00" genCount="1" maxStackCount="1" genTime="10000" genReadyTime="12000" objectKey="9" SimpleAI="ORCHARD_342_MON_AI" tendency="1"/>
+                    <Obj Type="Monster" MonType="57851" Pos="-707.41#-69.99#-810.87" genCount="1" maxStackCount="1" genTime="25000" genReadyTime="12000" objectKey="13" SimpleAI="ORCHARD_342_MON_AI" tendency="1"/>
+                    <Obj Type="Monster" MonType="57851" Pos="-641.17#-69.99#-863.07" genCount="1" maxStackCount="1" genTime="20000" genReadyTime="12000" objectKey="14" SimpleAI="ORCHARD_342_MON_AI" tendency="1"/>
                 </ObjList>
             </Stage>
         </StageList>

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by Hey (IMCGames Co., Ltd) -->
-<uiframe name="housing_editmode_page_change" x="0" y="0" width="450" height="500" create="open">
+<uiframe name="housing_editmode_page_change" x="0" y="0" width="450" height="550" create="open">
+	<!--이 ui 크기는 housing_editmode_page.lua 에서 조절 중-->
 	<frame fullheight="false" fasthide="true" layout_gravity="center center" margin="0 0 0 0"/>
 	<option visible="false" hideable="false" closebutton="false" moveable="true" alwaysVisible="false"/>
 	<input moveable="true" hittestframe="true"/>
@@ -10,9 +11,9 @@
 	<draw drawtitlebar="false" drawframe="false"/>
 	<layer layerlevel="100"/>
 	<controls>
-		<groupbox name="listselect_gb" rect="0 0 450 500" margin="0 0 0 0" layout_gravity="center center" skin="test_frame_low" hittest="false"/>
+		<groupbox name="listselect_gb" rect="0 0 450 550" margin="0 0 0 0" layout_gravity="center center" skin="test_frame_low" hittest="false"/>
 		<groupbox name="title_gb" rect="0 0 450 60" margin="0 0 0 0" layout_gravity="center top" skin="test_frame_top_r" hittest="false"/>
-		<groupbox name="gbox" rect="0 0 430 430" margin="0 0 0 10" layout_gravity="center bottom" skin="test_frame_midle_light" hittest="true" fixheight="true" draw="false"/>
+		<groupbox name="gbox" rect="0 0 430 480" margin="0 0 0 10" layout_gravity="center bottom" skin="test_frame_midle_light" hittest="true" fixheight="true" draw="false"/>
 		<richtext name="title" parent="title_gb" rect="0 0 400 130" margin="0 20 0 0" layout_gravity="center top" caption="{@43b}{s22}페이지 불러오기{/}{/}" fontname="white_18_ol" spacey="0"/>
 		<button name="closeBtn" rect="0 0 44 44" margin="0 18 27 0" layout_gravity="right top" LBtnUpScp="CLOSE_HOUSING_EDITMODE_PAGE_CHANGE" clicksound="button_click_big" image="testclose_button" oversound="button_over" texttooltip="{@st59}창을 닫습니다{/}" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover"/>
 		<groupbox name="gbox_required_furniture" parent="gbox" rect="0 0 430 400" margin="0 10 0 0" hittest="true" layout_gravity="center top" draw="false" scrollbar="false" skin="black_box_op20"/>
@@ -20,12 +21,14 @@
 		<richtext name="txt_memo1" parent="gbox_required_furniture" rect="0 0 430 55" margin="0 0 0 0" layout_gravity="center top" caption="{@st66b}{s18}다음의 하우징 물품이 존재하지 않아{nl}{nl}페이지를 불러올 수 없습니다." textalign="center center" fixwidth="true"/>
 		<richtext name="txt_list" parent="gbox_required_furniture" rect="0 0 430 30" margin="0 60 0 0" layout_gravity="center top" caption="{@st66b}{s18}목록" textalign="center center" fixwidth="true"/>
 		<richtext name="txt_memo3" parent="gbox_required_furniture" rect="0 0 430 120" margin="0 315 0 0" layout_gravity="center top" caption="{@st66b}{s18}다음의 경로에 하우징 물품이 배치되어 있거나,{nl}{nl}존재하는지 확인해 주세요.{nl}{nl}1. 하우징 배치 구역{nl}{nl}2. 인벤토리" textalign="center center" fixwidth="true"/>
-		<groupbox name="gbox_remove_furniture" parent="gbox" rect="0 0 430 400" margin="0 10 0 0" hittest="true" layout_gravity="center top" draw="false" scrollbar="false" skin="black_box_op20"/>
+		<groupbox name="gbox_remove_furniture" parent="gbox" rect="0 0 430 460" margin="0 10 0 0" hittest="true" layout_gravity="center top" draw="false" scrollbar="false" skin="black_box_op20"/>
 		<groupbox name="gbox_furniture_list" parent="gbox_remove_furniture" rect="0 0 410 210" margin="0 90 0 0" hittest="true" layout_gravity="center top" draw="true" scrollbar="true" skin="test_frame_midle_light"/>
 		<richtext name="txt_memo1" parent="gbox_remove_furniture" rect="0 0 430 55" margin="0 0 0 0" layout_gravity="center top" caption="{@st66b}{s18}페이지를 불러올 경우, 현재 배치된 하우징 물품 중 다음의 물품들이 철거됩니다." textalign="center center" fixwidth="true"/>
 		<richtext name="txt_list" parent="gbox_remove_furniture" rect="0 0 430 30" margin="0 60 0 0" layout_gravity="center top" caption="{@st66b}{s18}목록" textalign="center center" fixwidth="true"/>
-		<richtext name="txt_memo3" parent="gbox_remove_furniture" rect="0 0 430 120" margin="0 315 0 0" layout_gravity="center top" caption="{@st66b}{s18}철거를 진행하고 페이지를 불러오시겠습니까?" textalign="center center" fixwidth="true"/>
-		<button name="btn_yes" parent="gbox_remove_furniture" rect="0 0 145 46" margin="-73 0 0 5" layout_gravity="center bottom" skin="test_pvp_btn" caption="{@st66b}예" LBtnUpScp="DO_HOUSING_EDITMODE_PAGE_CHANGE"/>
-		<button name="btn_no" parent="gbox_remove_furniture" rect="0 0 145 46" margin="73 0 0 5" layout_gravity="center bottom" skin="test_pvp_btn" caption="{@st66b}아니오" LBtnUpScp="DO_HOUSING_PAGE_CHANGE_CANCEL"/>
+		<richtext name="txt_has_guild_money" parent="gbox_remove_furniture" rect="0 0 430 49" margin="0 315 0 0" layout_gravity="center top" format="{@st66b}{s18}소지 길드 자금 :{@st66d_y}%s" param1="money" param1_def="0" textalign="center center" fixwidth="true"/>
+		<richtext name="txt_need_guild_money" parent="gbox_remove_furniture" rect="0 0 430 49" margin="0 340 0 0" layout_gravity="center top" format="{@st66b}{s18}소비 길드 자금 :{ol}{s18}{#ec0000}%s" param1="money" param1_def="0" textalign="center center" fixwidth="true"/>
+		<richtext name="txt_memo3" parent="gbox_remove_furniture" rect="0 0 430 120" margin="0 375 0 0" layout_gravity="center top" caption="{@st66b}{s18}철거를 진행하고 페이지를 불러오시겠습니까?" textalign="center center" fixwidth="true"/>
+		<button name="btn_yes" parent="gbox_remove_furniture" rect="0 0 145 46" margin="-73 0 0 5" layout_gravity="center bottom" skin="test_pvp_btn" caption="{@st66b}예" LBtnUpScp="BTN_HOUSING_EDITMODE_PAGE_CHANGE"/>
+		<button name="btn_no" parent="gbox_remove_furniture" rect="0 0 145 46" margin="73 0 0 5" layout_gravity="center bottom" skin="test_pvp_btn" caption="{@st66b}아니오" LBtnUpScp="BTN_HOUSING_PAGE_CHANGE_CANCEL"/>
 	</controls>
 </uiframe>

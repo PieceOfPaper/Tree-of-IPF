@@ -358,6 +358,15 @@
         <Effect Name="I_smoke052_white2"/>
         <Effect Name="F_light029_yellow2"/>
         <Effect Name="1_ON"/>
+        <Effect Name="F_levitation039_red"/>
+        <Effect Name="F_sys_team_ground_red"/>
+        <Effect Name="F_levitation039_red"/>
+        <Effect Name="F_sys_team_ground_red"/>
+        <Effect Name="Step_Hidden"/>
+        <Effect Name="STAGE_MANAGER"/>
+        <Effect Name="Stage_02(Tantaliser)"/>
+        <Effect Name="Stage_03(Moringponia)"/>
+        <Effect Name="AbuseCheck"/>
     </Category>
     <Category ID="144">
         <Effect Name="F_pc_CardBook_ground_dark"/>
@@ -1385,6 +1394,18 @@
         <Effect Name="I_circle011_whtie_mash"/>
         <Effect Name="F_hit001_light_yellow"/>
         <Effect Name="UNIQUE_RAID_STARTOWER_SOLO"/>
+    <Effect Name="F_levitation005_dark_red4_loop"/>
+        <Effect Name="BENCH_SIT_LOOP"/>
+        <Effect Name="$BENCH_SIT_LOOP"/>
+        <Effect Name="F_light126_red_2"/>
+        <Effect Name="F_light126_red_2"/>
+        <Effect Name="F_hit003_light_mint"/>
+        <Effect Name="F_wizard_SummonServant_buff"/>
+        <Effect Name="std_freeze"/>
+        <Effect Name="F_circle026"/>
+        <Effect Name="MON_GEN04"/>
+        <Effect Name="MON_GEN05"/>
+    <Effect Name="idle1"/>
     </Category>
     <Category ID="201">
         <Effect Name="F_cleric_devinestigma_hit_smoke_LOW##0.5"/>
@@ -4850,6 +4871,7 @@
         <Effect Name="F_burstup048_fire_3"/>
         <Effect Name="I_force003_green#Dummy_weapon02"/>
         <Effect Name="I_archer_canon_force3#Dummy_weapon02"/>
+        <Effect Name="LEGEND_RAID_MORINGPONIA_EASY"/>
     </Category>
     <Category ID="45">
         <Effect Name="Cleric_Barrier"/>

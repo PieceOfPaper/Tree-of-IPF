@@ -43,6 +43,11 @@ local function _ADD_ITEM_TO_EXCHANGEANTIQUE_FROM_INV(frame, item)
 
 	local isAbleExchange = 1;
 	local itemClass = GetClassByType("Item", item.ClassID);
+	if itemClass.GroupName ~= "Armor" then
+		ui.SysMsg(ClMsg('PossibleToOnlyArmor'));
+		return;
+	end
+	
 	local exchangeAntique = GET_EXCHANGE_ANTIQUE_INFO(item.ClassName);
 	if exchangeAntique.ExchangeGroup == 'RebuildCare' then
 		return;

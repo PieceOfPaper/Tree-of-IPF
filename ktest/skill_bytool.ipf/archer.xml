@@ -22,35 +22,36 @@
 	<Skill Name="Archer_Jump">
 		<EndScripts>
 			<ToolScp Client="NO" Scp="SKL_RUN_SCRIPT" UseSleep="NO">
-				<Str Str="ARCHER_JUMP_EXCHANGE_BATTLESTATE" />
+				<Str Str="ARCHER_JUMP_EXCHANGE_BATTLESTATE"/>
 			</ToolScp>
 		</EndScripts>
 		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
 			<HitList>
-				<Frame Angle="0" AniTime="10199" Dist="0" ForceATK="0" HitCount="1" Length="30" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="9999" Type="FAN" Width="30" />
+				<Frame Angle="0" AniTime="10199" Dist="0" ForceATK="0" HitCount="1" Length="30" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="9999" Type="FAN" Width="30"/>
 			</HitList>
 			<EtcList>
 				<Scp Client="YES" Scp="C_EFFECT" Time="0" UseSleep="NO">
-					<Str_Arg Arg="2" Str="Non" />
-					<Str Str="Dummy_arrow_effect" />
-					<Num Num="0" />
+					<Str_Arg Arg="2" Str="Non"/>
+					<Str Str="Dummy_arrow_effect"/>
+					<Num Num="0"/>
 				</Scp>
-				<Scp Client="NO" Scp="SKL_INVIN" Time="0" UseSleep="NO">
-					<Num Num="1" />
+				<Scp Client="NO" Scp="SKL_SET_IMMUNE_STATE" Time="0" UseSleep="NO">
+					<Str Str="Skill_NoDamage_Buff" />
+                    <Num Num="100" />
 				</Scp>
 				<Scp Client="NO" Scp="SKL_MOVE_JUMP" Time="0" UseSleep="YES">
-					<Num Num="20" />
-					<Num FuncTxt="return 80 + obj.Level * 10;" Num="50" UseFunc="1" />
-					<Num Num="180" />
-					<Num Num="0.1" />
-					<Num Num="0.1" />
-					<Num Num="1" />
-					<Num Num="0.2" />
-					<Num Num="1" />
+					<Num Num="20"/>
+					<Num FuncTxt="return 80 + obj.Level * 10;" Num="50" UseFunc="1"/>
+					<Num Num="180"/>
+					<Num Num="0.1"/>
+					<Num Num="0.1"/>
+					<Num Num="1"/>
+					<Num Num="0.2"/>
+					<Num Num="1"/>
 				</Scp>
 				<Scp Client="YES" Scp="C_VOICE_SOUND" Time="200" UseSleep="NO">
-					<Str Str="voice_war_atk_long_cast" />
-					<Str Str="voice_atk_long_cast_f" />
+					<Str Str="voice_war_atk_long_cast"/>
+					<Str Str="voice_atk_long_cast_f"/>
 				</Scp>
 				<Scp Client="NO" Scp="SKL_BUFF" Time="900" UseSleep="NO">
 					<Str FuncTxt="local str = &quot;None&quot; local abilArcher35 = GetAbility(self, &quot;Archer35&quot;) if abilArcher35 ~= nil and TryGetProp(abilArcher35, &quot;ActiveState&quot;) == 1 then str = &quot;Jump_Abil_Buff&quot; end return str" UseFunc="1" Str="None"/>
@@ -64,13 +65,13 @@
 			</EtcList>
 			<ResultList>
 				<ToolScp Client="NO" Scp="S_R_TGTBUFF" UseSleep="NO">
-					<Str Str="UC_slowdown" />
-					<Num Num="1" />
-					<Num Num="0" />
-					<Num Num="6000" />
-					<Num Num="1" />
-					<Num FuncTxt="return skill.Level * 3" Num="100" UseFunc="1" />
-					<Num Num="-1" />
+					<Str Str="UC_slowdown"/>
+					<Num Num="1"/>
+					<Num Num="0"/>
+					<Num Num="6000"/>
+					<Num Num="1"/>
+					<Num FuncTxt="return skill.Level * 3" Num="100" UseFunc="1"/>
+					<Num Num="-1"/>
 				</ToolScp>
 			</ResultList>
 		</MainSkl>

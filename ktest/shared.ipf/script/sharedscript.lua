@@ -2729,39 +2729,108 @@ function SCR_MAIN_QUEST_WARP_CHECK(pc, questState, questIES, questName)
         sObj = GetSessionObject(pc, 'ssn_klapeda')
     end
 
+    if sObj == nil then
+        return 'NO'
+    end
+
     local clsList, cnt = GetClassList("mainquest_startnpcwarp");
     for i = 0, cnt - 1 do
         local tQuest = GetClassByIndexFromList(clsList, i);
-
         local tQuestState
+        local preQuestState = {}
+        local preQuestStateCheck = {}
         if IsServerSection(pc) == 1 then
             tQuestState = SCR_QUEST_CHECK(pc, tQuest.ClassName)
+            if tQuest.CheckQuestName ~= "None" then
+                local sList1 = StringSplit(tQuest.CheckQuestName, ';')
+                local sList2 = StringSplit(tQuest.CheckQuestState, ';')
+                if #sList1 > 0 then
+                    for j = 1, #sList1 do
+                        preQuestState[#preQuestState+1] = SCR_QUEST_CHECK(pc, sList1[j])
+                        preQuestStateCheck[#preQuestStateCheck+1] = sList2[j]
+                    end
+                end
+            end
         else
             if pc.Lv == nil then
                 pc = GetMyPCObject()
             end
             tQuestState = SCR_QUEST_CHECK_C(pc, tQuest.ClassName)
+            if tQuest.CheckQuestName ~= "None" then
+                local sList1 = StringSplit(tQuest.CheckQuestName, ';')
+                local sList2 = StringSplit(tQuest.CheckQuestState, ';')
+                if #sList1 > 0 then
+                    for j = 1, #sList1 do
+                        preQuestState[#preQuestState+1] = SCR_QUEST_CHECK_C(pc, sList1[j])
+                        preQuestStateCheck[#preQuestStateCheck+1] = sList2[j]
+                    end
+                end
+            end
         end
 
         if tQuestState == 'POSSIBLE' then
             local tquestIES = GetClass('QuestProgressCheck', tQuest.ClassName)
-            if pc.Lv < 100 then
                 if tquestIES.QStartZone ~= 'None' and sObj.QSTARTZONETYPE ~= 'None' and tquestIES.QStartZone ~= sObj.QSTARTZONETYPE then
                 elseif tQuest.ClassName == questName then
+                if tQuest.CheckQuestName ~= "None" then
+                    if #preQuestState > 1 then
+                        local flag = 0
+                        for j = 1, #preQuestState do
+                            if preQuestState[j] == preQuestStateCheck[j] then
+                                flag = flag + 1
+                            end
+                        end
+                        if flag > 0 then
+                            return 'YES'
+                        else
+                            return 'NO'
+                        end
+                    else
+                        if preQuestState[1] == preQuestStateCheck[1] then
                     return 'YES'
+                        else
+                            return 'NO'
+                        end
+                    end
+                else
+                    return 'YES'
+                end
                 elseif tquestIES.QStartZone ~= 'None' and sObj.QSTARTZONETYPE ~= 'None' and tquestIES.QStartZone == sObj.QSTARTZONETYPE then
                     return 'NO'
                 end
+        end
+        if tQuest.ClassName == questName then
+            if tQuest.CheckQuestName ~= "None" then
+                if #preQuestState > 1 then
+                    local flag = 0
+                    for j = 1, #preQuestState do
+                        if preQuestState[j] == preQuestStateCheck[j] then
+                            flag = flag + 1
+                        end
+                    end
+                    if flag > 0 then
+                        return 'YES'
             else
                 return 'NO'
             end
+                else
+                    if preQuestState[1] == preQuestStateCheck[1] then
+                        return 'YES'
+                    else
+                        return 'NO'
+                    end
         end
-
-        if tQuest.ClassName == questName then
+--                if preQuestState == preQuestStateCheck then
+--                print(questName, tQuest.ClassName, 'in')
+--                    return 'YES'
+--                else
+--                    return 'NO'
+--                end
+            else
             return 'YES'
         end
     end
-
+    end
     return 'NO'
 end
 

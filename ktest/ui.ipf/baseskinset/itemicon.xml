@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by imc (imc) -->
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
 <!-- edited with XMLSpy v2008 sp1 http://www.altova.com by MintPC Mi -->
 <skinset name="Base">
 	<imagelist category="item_tooltip_icon">
@@ -590,6 +590,8 @@
 		<image name="icon_item_moth_leather_gloves" file="\icon\equip\icon_item_moth_leather_gloves.png" imgrect="0 0 256 256"/>
 		<image name="icon_item_moth_leather_pants" file="\icon\equip\icon_item_moth_leather_pants.png" imgrect="0 0 256 256"/>
 		<image name="icon_item_moth_leather_shirts" file="\icon\equip\icon_item_moth_leather_shirts.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_tshirt_reissue_f" file="\icon\equip\icon_item_tshirt_reissue_f.png" imgrect="0 0 256 256" CMM_Caption="리슈 카페 콜라보 티셔츠_f"/>
+		<image name="icon_item_tshirt_reissue_m" file="\icon\equip\icon_item_tshirt_reissue_m.png" imgrect="0 0 256 256" CMM_Caption="리슈 카페 콜라보 티셔츠_m"/>
 		<image name="icon_item_quizshirts1_m" file="\icon\equip\icon_item_quizshirts1_m.png" imgrect="0 0 256 256" CMM_Caption="퀴즈왕티셔츠_남"/>
 		<image name="icon_item_quizshirts1_f" file="\icon\equip\icon_item_quizshirts1_f.png" imgrect="0 0 256 256" CMM_Caption="퀴즈왕티셔츠_여"/>
 		<image name="icon_item_wing_moth" file="\icon\equip\icon_item_wing_moth.png" imgrect="0 0 256 256" CMM_Caption="모링포니아 날개"/>
@@ -3508,6 +3510,10 @@
 		<image name="item_icon_helmet_teambattlecos_gold" file="\icon\hairacc\item_icon_helmet_teambattlecos_gold.png" imgrect="0 0 256 256" CMM_Caption="팀배틀리그보상_헬멧_금"/>
 		<image name="item_icon_helmet_teambattlecos_silver" file="\icon\hairacc\item_icon_helmet_teambattlecos_silver.png" imgrect="0 0 256 256" CMM_Caption="팀배틀리그보상_헬멧_은"/>
 		<image name="item_icon_helmet_teambattlecos_copper" file="\icon\hairacc\item_icon_helmet_teambattlecos_copper.png" imgrect="0 0 256 256" CMM_Caption="팀배틀리그보상_헬멧_동"/>
+		<image name="icon_item_accessory_gabia01" file="\icon\hairacc\icon_item_accessory_gabia01.png" imgrect="0 0 256 256" CMM_Caption="2019_12월 가비야 악세사리"/>
+		<image name="icon_item_accessory_gabia02" file="\icon\hairacc\icon_item_accessory_gabia02.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_accessory_gabia03" file="\icon\hairacc\icon_item_accessory_gabia03.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_accessory_gabia04" file="\icon\hairacc\icon_item_accessory_gabia04.png" imgrect="0 0 256 256"/>
 	</imagelist>
 	<imagelist category="collection_item">
 		<image name="icon_collitem_collection" file="\icon\colletion\icon_item_collection.tga" imgrect="0 0 673 419" CMM_Caption="월계수"/>
@@ -5423,6 +5429,7 @@
 		<image name="icon_item_grimoire_dark_red" file="\icon\item\icon_item_grimoire_dark_red.png" imgrect="0 0 128 128" CMM_Caption="빨강색 보급품"/>
 		<image name="icon_item_grimoire_dark_purple" file="\icon\item\icon_item_grimoire_dark_purple.png" imgrect="0 0 128 128" CMM_Caption="보라색 보급품"/>
 		<image name="icon_item_grimoire_dark_green" file="\icon\item\icon_item_grimoire_dark_green.png" imgrect="0 0 128 128" CMM_Caption="초록색 보급품"/>
+		<image name="icon_item_pizza" file="\icon\item\icon_item_pizza.png" imgrect="0 0 128 128" CMM_Caption="피자"/>
 		<image name="icon_item_guild_housing_contract_farmer_01" file="\icon\item\icon_item_guild_housing_contract_farmer_01.png" imgrect="0 0 128 128" CMM_Caption="고용 계약서"/>
 		<image name="icon_item_guild_housing_contract_lab_armor" file="\icon\item\icon_item_guild_housing_contract_lab_armor.png" imgrect="0 0 128 128" CMM_Caption="건축 계약서_아머"/>
 		<image name="icon_item_guild_housing_contract_lab_attribute" file="\icon\item\icon_item_guild_housing_contract_lab_attribute.png" imgrect="0 0 128 128" CMM_Caption="건축 계약서_속성"/>
@@ -5442,6 +5449,9 @@
 		<image name="icon_item_moringponia_rubymoru_box" file="\icon\item\icon_item_moringponia_rubymoru_box.png" imgrect="0 0 256 256" CMM_Caption="모링포니아_루비모루"/>
 		<image name="icon_item_ruby_moru" file="\icon\item\icon_item_ruby_moru.png" imgrect="0 0 256 256" CMM_Caption="루비모루"/>
 		<image name="icon_item_RiceCake" file="\icon\item\icon_item_RiceCake.png" imgrect="0 0 128 128" CMM_Caption="가래떡"/>
+		<image name="icon_item_Arts_Ability_Coupon" file="\icon\item\icon_item_Arts_Ability_Coupon.png" imgrect="0 0 256 256" CMM_Caption="아츠 쿠폰"/>
+		<image name="icon_item_4th_coin" file="\icon\item\icon_item_4th_coin.png" imgrect="0 0 128 128" CMM_Caption="4주년 기념 주화"/>
+		<image name="icon_item_misc_tantaliser_easy" file="\icon\item\icon_item_misc_tantaliser_easy.png" imgrect="0 0 128 128" CMM_Caption="모스 더스트 1/5"/>
 	</imagelist>
 	<imagelist category="housing">
 		<image name="icon_item_h_bigplant_set_01_green" file="\icon\housing\icon_item_h_bigplant_set_01_green.png" imgrect="0 0 256 256" CMM_Caption="[길드 하우징] 화단_01(초록색)"/>
@@ -5575,7 +5585,6 @@
 		<image name="icon_item_h_barrack_puddle_blue" file="\icon\housing\icon_item_h_barrack_puddle_blue.png" imgrect="0 0 256 256" CMM_Caption="[길드 하우징] 연못(파란색)"/>
 		<image name="icon_item_h_barrack_puddle_red" file="\icon\housing\icon_item_h_barrack_puddle_red.png" imgrect="0 0 256 256" CMM_Caption="[길드 하우징] 연못(빨간색)"/>
 		<image name="icon_item_h_barrack_puddle_yellow" file="\icon\housing\icon_item_h_barrack_puddle_yellow.png" imgrect="0 0 256 256" CMM_Caption="[길드 하우징] 연못(노란색)"/>
-		<image name="icon_item_pizza" file="\icon\item\icon_item_pizza.png" imgrect="0 0 128 128" CMM_Caption="피자"/>
 	</imagelist>
 	<imagelist category="personalhousing">
 		<image name="icon_item_p_h_barrack_06_carpet" file="\icon\housing\icon_item_p_h_barrack_06_carpet_1.png" imgrect="0 0 256 256" CMM_Caption="[개인 하우징]낚시꾼 카펫"/>
@@ -5669,6 +5678,55 @@
 		<image name="icon_item_p_h_barrack_08_tablepot" file="\icon\housing\icon_item_p_h_barrack_08_tablepot_1.png" imgrect="0 0 256 256" CMM_Caption="[개인 하우징]바다 산호 탁자"/>
 		<image name="icon_item_p_h_barrack_08_treasurebox" file="\icon\housing\icon_item_p_h_barrack_08_treasurebox_1.png" imgrect="0 0 256 256" CMM_Caption="[개인 하우징]바다 보물상자"/>
 		<image name="icon_item_p_h_barrack_08_waterbottle" file="\icon\housing\icon_item_p_h_barrack_08_waterbottle_1.png" imgrect="0 0 256 256" CMM_Caption="[개인 하우징]바다 물병"/>
+		<image name="icon_item_h_wild_grass_01" file="\icon\housing\icon_item_h_wild_grass_01.png" imgrect="0 0 256 256" CMM_Caption="[길드 하우징] 야생풀_1"/>
+		<image name="icon_item_h_tree_basic_03" file="\icon\housing\icon_item_h_tree_basic_03.png" imgrect="0 0 256 256" CMM_Caption="[길드 하우징] 장식용 나무_3"/>
+		<image name="icon_item_h_tree_basic_02" file="\icon\housing\icon_item_h_tree_basic_02.png" imgrect="0 0 256 256" CMM_Caption="[길드 하우징] 장식용 나무_2"/>
+		<image name="icon_item_h_topiary_fence" file="\icon\housing\icon_item_h_topiary_fence.png" imgrect="0 0 256 256" CMM_Caption="[길드 하우징] 토피어리(울타리)"/>
+		<image name="icon_item_h_topiary_bush" file="\icon\housing\icon_item_h_topiary_bush.png" imgrect="0 0 256 256" CMM_Caption="[길드 하우징] 토피어리(덤불)"/>
+		<image name="icon_item_h_small_hydrangea_01_purple" file="\icon\housing\icon_item_h_small_hydrangea_01_purple.png" imgrect="0 0 256 256" CMM_Caption="[길드 하우징] 작은 수국(보라색)"/>
+		<image name="icon_item_h_round_tree_01" file="\icon\housing\icon_item_h_round_tree_01.png" imgrect="0 0 256 256" CMM_Caption="[길드 하우징] 둥근 나무"/>
+		<image name="icon_item_h_plantfence_02" file="\icon\housing\icon_item_h_plantfence_02.png" imgrect="0 0 256 256" CMM_Caption="[길드 하우징] 나무 울타리_2"/>
+		<image name="icon_item_h_fruity_bush_01" file="\icon\housing\icon_item_h_fruity_bush_01.png" imgrect="0 0 256 256" CMM_Caption="[길드 하우징] 열매 맺은 덤불"/>
+		<image name="icon_item_h_forest_windmill_01" file="\icon\housing\icon_item_h_forest_windmill_01.png" imgrect="0 0 256 256" CMM_Caption="[길드 하우징] 숲속의 생활-풍차"/>
+		<image name="icon_item_h_forest_table_01" file="\icon\housing\icon_item_h_forest_table_01.png" imgrect="0 0 256 256" CMM_Caption="[길드 하우징] 숲속의 생활-나무 식탁"/>
+		<image name="icon_item_h_forest_stump_02" file="\icon\housing\icon_item_h_forest_stump_02.png" imgrect="0 0 256 256" CMM_Caption="[길드 하우징] 숲속의 생활-도끼와 그루터기"/>
+		<image name="icon_item_h_forest_stump_01" file="\icon\housing\icon_item_h_forest_stump_01.png" imgrect="0 0 256 256" CMM_Caption="[길드 하우징] 숲속의 생활-그루터기"/>
+		<image name="icon_item_h_forest_stall_01" file="\icon\housing\icon_item_h_forest_stall_01.png" imgrect="0 0 256 256" CMM_Caption="[길드 하우징] 숲속의 생활-가판대"/>
+		<image name="icon_item_h_forest_scarecrow_01" file="\icon\housing\icon_item_h_forest_scarecrow_01.png" imgrect="0 0 256 256" CMM_Caption="[길드 하우징] 숲속의 생활-허수아비"/>
+		<image name="icon_item_h_forest_rabbit_cage_01" file="\icon\housing\icon_item_h_forest_rabbit_cage_01.png" imgrect="0 0 256 256" CMM_Caption="[길드 하우징] 숲속의 생활-토끼 사육장"/>
+		<image name="icon_item_h_forest_pushcart_01" file="\icon\housing\icon_item_h_forest_pushcart_01.png" imgrect="0 0 256 256" CMM_Caption="[길드 하우징] 숲속의 생활-채소 수레"/>
+		<image name="icon_item_h_forest_pond_01" file="\icon\housing\icon_item_h_forest_pond_01.png" imgrect="0 0 256 256" CMM_Caption="[길드 하우징] 숲속의 생활-오리 연못"/>
+		<image name="icon_item_h_forest_pile_02" file="\icon\housing\icon_item_h_forest_pile_02.png" imgrect="0 0 256 256" CMM_Caption="[길드 하우징] 숲속의 생활-장작 더미"/>
+		<image name="icon_item_h_forest_pile_01" file="\icon\housing\icon_item_h_forest_pile_01.png" imgrect="0 0 256 256" CMM_Caption="[길드 하우징] 숲속의 생활-짚 더미"/>
+		<image name="icon_item_h_forest_hammock_01" file="\icon\housing\icon_item_h_forest_hammock_01.png" imgrect="0 0 256 256" CMM_Caption="[길드 하우징] 숲속의 생활-해먹"/>
+		<image name="icon_item_h_forest_fence_01" file="\icon\housing\icon_item_h_forest_fence_01.png" imgrect="0 0 256 256" CMM_Caption="[길드 하우징] 숲속의 생활-나무 울타리"/>
+		<image name="icon_item_h_forest_dwarf_02" file="\icon\housing\icon_item_h_forest_dwarf_02.png" imgrect="0 0 256 256" CMM_Caption="[길드 하우징] 숲속의 생활-삽을 든 난쟁이"/>
+		<image name="icon_item_h_forest_dwarf_01" file="\icon\housing\icon_item_h_forest_dwarf_01.png" imgrect="0 0 256 256" CMM_Caption="[길드 하우징] 숲속의 생활-갈퀴를 든 난쟁이"/>
+		<image name="icon_item_h_forest_chicken_cage_01" file="\icon\housing\icon_item_h_forest_chicken_cage_01.png" imgrect="0 0 256 256" CMM_Caption="[길드 하우징] 숲속의 생활-닭장"/>
+		<image name="icon_item_h_forest_bench_02" file="\icon\housing\icon_item_h_forest_bench_02.png" imgrect="0 0 256 256" CMM_Caption="[길드 하우징] 숲속의 생활-그네 의자"/>
+		<image name="icon_item_h_forest_bench_01" file="\icon\housing\icon_item_h_forest_bench_01.png" imgrect="0 0 256 256" CMM_Caption="[길드 하우징] 숲속의 생활-나무 벤치"/>
+		<image name="icon_item_h_forest_bear_shack_01" file="\icon\housing\icon_item_h_forest_bear_shack_01.png" imgrect="0 0 256 256" CMM_Caption="[길드 하우징] 숲속의 생활-곰의 오두막"/>
+		<image name="icon_item_h_forest_arch_02" file="\icon\housing\icon_item_h_forest_arch_02.png" imgrect="0 0 256 256" CMM_Caption="[길드 하우징] 숲속의 생활-그루터기 입구"/>
+		<image name="icon_item_h_forest_arch_01" file="\icon\housing\icon_item_h_forest_arch_01.png" imgrect="0 0 256 256" CMM_Caption="[길드 하우징] 숲속의 생활-바람개비 입구"/>
+		<image name="icon_item_h_flower_valleylily_white" file="\icon\housing\icon_item_h_flower_valleylily_white.png" imgrect="0 0 256 256" CMM_Caption="[길드 하우징] 은방울 꽃(하얀색)"/>
+		<image name="icon_item_h_flower_tulip_white" file="\icon\housing\icon_item_h_flower_tulip_white.png" imgrect="0 0 256 256" CMM_Caption="[길드 하우징] 튤립(하얀색)"/>
+		<image name="icon_item_h_flower_sunflower_yellow" file="\icon\housing\icon_item_h_flower_sunflower_yellow.png" imgrect="0 0 256 256" CMM_Caption="[길드 하우징] 해바라기(노란색)"/>
+		<image name="icon_item_h_flower_poppyflower_yellow" file="\icon\housing\icon_item_h_flower_poppyflower_yellow.png" imgrect="0 0 256 256" CMM_Caption="[길드 하우징] 양귀비 꽃(노란색)"/>
+		<image name="icon_item_h_flower_lupine_pink" file="\icon\housing\icon_item_h_flower_lupine_pink.png" imgrect="0 0 256 256" CMM_Caption="[길드 하우징] 루피너스 꽃(분홍색)"/>
+		<image name="icon_item_h_flower_lotus_blue" file="\icon\housing\icon_item_h_flower_lotus_blue.png" imgrect="0 0 256 256" CMM_Caption="[길드 하우징] 연꽃(파란색)"/>
+		<image name="icon_item_h_flower_dieffenbachia" file="\icon\housing\icon_item_h_flower_dieffenbachia.png" imgrect="0 0 256 256" CMM_Caption="[길드 하우징] 디펜바키아"/>
+		<image name="icon_item_h_flower_cannalily_red" file="\icon\housing\icon_item_h_flower_cannalily_red.png" imgrect="0 0 256 256" CMM_Caption="[길드 하우징] 칸나 꽃(빨간색)"/>
+		<image name="icon_item_h_flower_allium_purple" file="\icon\housing\icon_item_h_flower_allium_purple.png" imgrect="0 0 256 256" CMM_Caption="[길드 하우징] 알리움(보라색)"/>
+		<image name="icon_item_h_cube_wood_01_brown" file="\icon\housing\icon_item_h_cube_wood_01_brown.png" imgrect="0 0 256 256" CMM_Caption="[길드 하우징] 우드 큐브(갈색)"/>
+		<image name="icon_item_h_cube_wood_01_beige" file="\icon\housing\icon_item_h_cube_wood_01_beige.png" imgrect="0 0 256 256" CMM_Caption="[길드 하우징] 우드 큐브(베이지색)"/>
+		<image name="icon_item_h_cube_limestone_01_gray" file="\icon\housing\icon_item_h_cube_limestone_01_gray.png" imgrect="0 0 256 256" CMM_Caption="[길드 하우징] 석회암 큐브(회색)"/>
+		<image name="icon_item_h_cube_limestone_01_beige" file="\icon\housing\icon_item_h_cube_limestone_01_beige.png" imgrect="0 0 256 256" CMM_Caption="[길드 하우징] 석회암 큐브(베이지색)"/>
+		<image name="icon_item_h_bush_01" file="\icon\housing\icon_item_h_bush_01.png" imgrect="0 0 256 256" CMM_Caption="[길드 하우징] 덤불"/>
+		<image name="icon_item_h_topiary_cube_set" file="\icon\housing\icon_item_h_topiary_cube_set.png" imgrect="0 0 256 256" CMM_Caption="[길드 하우징] 토피어리(큐브)_세트"/>
+		<image name="icon_item_h_cube_wood_01_beige_set" file="\icon\housing\icon_item_h_cube_wood_01_beige_set.png" imgrect="0 0 256 256" CMM_Caption="[길드 하우징] 우드 큐브(베이지색)_세트"/>
+		<image name="icon_item_h_cube_wood_01_brown_set" file="\icon\housing\icon_item_h_cube_wood_01_brown_set.png" imgrect="0 0 256 256" CMM_Caption="[길드 하우징] 우드 큐브(갈색)_세트"/>
+		<image name="icon_item_h_cube_limestone_01_gray_set" file="\icon\housing\icon_item_h_cube_limestone_01_gray_set.png" imgrect="0 0 256 256" CMM_Caption="[길드 하우징] 석회암 큐브(회색)_세트"/>
+		<image name="icon_item_h_cube_limestone_01_beige_set" file="\icon\housing\icon_item_h_cube_limestone_01_beige_set.png" imgrect="0 0 256 256" CMM_Caption="[길드 하우징] 석회암 큐브(베이지색)_세트"/>
 	</imagelist>
 	<imagelist category="payment">
 		<image name="icon_item_hpPotionPremium" file="\icon\payment\icon_item_hpPotionPremium.png" imgrect="0 0 256 256" CMM_Caption="HP포션"/>
@@ -6692,6 +6750,8 @@
 		<image name="icon_item_balloon_skin_rolling_door_02" file="\icon\payment\icon_item_balloon_skin_rolling_door_02.png" imgrect="0 0 256 256" CMM_Caption="블루다이아 말풍선_마이크"/>
 		<image name="hair_undercuttail" file="\icon\payment\hair_undercuttail.png" imgrect="0 0 256 256" CMM_Caption="투블럭 포니테일"/>
 		<image name="hair_twintailchignon" file="\icon\payment\hair_twintailchignon.png" imgrect="0 0 256 256" CMM_Caption="트윈테일 시뇽"/>
+		<image name="hair_frenchbob" file="\icon\payment\hair_frenchbob.png" imgrect="0 0 256 256" CMM_Caption="프렌치 보브"/>
+		<image name="hair_sideswept" file="\icon\payment\hair_sideswept.png" imgrect="0 0 256 256" CMM_Caption="사이드 스윕트"/>
 		<image name="icon_item_balloon_skin_rolling_door_01_pic" file="\icon\payment\icon_item_balloon_skin_rolling_door_01_pic.png" imgrect="0 0 256 256" CMM_Caption="핑크하트 말풍선"/>
 		<image name="icon_item_balloon_skin_rolling_door_02_pic" file="\icon\payment\icon_item_balloon_skin_rolling_door_02_pic.png" imgrect="0 0 256 256" CMM_Caption="블루다이아 말풍선"/>
 		<image name="icon_item_awakstone_a" file="\icon\payment\icon_item_awakstone_a.png" imgrect="0 0 128 128" CMM_Caption="빛나는 각성석 상자_10개"/>
@@ -6700,6 +6760,16 @@
 		<image name="icon_item_select_transcendSet_s" file="\icon\payment\icon_item_select_transcendSet_s.png" imgrect="0 0 256 256" CMM_Caption="초월 선택 상자"/>
 		<image name="icon_item_dia_Moru_Box_S" file="\icon\payment\icon_item_dia_Moru_Box_S.png" imgrect="0 0 256 256" CMM_Caption="다이아 모루 상자"/>
 		<image name="icon_item_Ability_coupon_box_Sx3" file="\icon\payment\icon_item_Ability_coupon_box_Sx3.png" imgrect="0 0 256 256" CMM_Caption="특성 초기화 S x3 상자"/>
+		<image name="icon_item_selectbox_gabia01" file="\icon\payment\icon_item_selectbox_gabia01.png" imgrect="0 0 256 256" CMM_Caption="2019_12월 여큡 가비야 테마"/>
+		<image name="icon_item_selectbox_gabia02" file="\icon\payment\icon_item_selectbox_gabia02.png" imgrect="0 0 256 256"/>
+		<image name="item_icon_gabia01_m" file="\icon\payment\item_icon_gabia01_m.png" imgrect="0 0 256 256"/>
+		<image name="item_icon_gabia01_f" file="\icon\payment\item_icon_gabia01_f.png" imgrect="0 0 256 256"/>
+		<image name="item_icon_gabia02_m" file="\icon\payment\item_icon_gabia02_m.png" imgrect="0 0 256 256"/>
+		<image name="item_icon_gabia02_f" file="\icon\payment\item_icon_gabia02_f.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_Effect_gabiaFire" file="\icon\payment\icon_item_Effect_gabiaFire.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_wing_gabia" file="\icon\payment\icon_item_wing_gabia.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_doll_gabia" file="\icon\payment\icon_item_doll_gabia.png" imgrect="0 0 256 256"/>
+		<image name="Dye_rightgreen" file="\icon\payment\Dye_rightgreen.png" imgrect="0 0 128 128" CMM_Caption="염색약_라이트 그린"/>
 	</imagelist>
 	<imagelist category="seal">
 		<image name="icon_seal_yellow_cc_A1" file="\icon\seal\seal_yellow_cc_A1.tga" imgrect="0 0 80 80"/>
