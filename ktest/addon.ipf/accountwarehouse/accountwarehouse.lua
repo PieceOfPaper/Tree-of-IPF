@@ -307,7 +307,7 @@ function ON_ACCOUNT_WAREHOUSE_ITEM_LIST(frame, msg, argStr, argNum, tab_index)
         else
             local slotIndx = imcSlot:GetEmptySlotIndex(slotset);
             local slot = slotset:GetSlotByIndex(slotIndx)
-            if slot == nil then
+            if slot == nil then                
                 slot = GET_EMPTY_SLOT(slotset, current_tab_index, max_slot_per_tab);
             end
 
@@ -362,13 +362,14 @@ function ON_ACCOUNT_WAREHOUSE_ITEM_LIST(frame, msg, argStr, argNum, tab_index)
     end
 
     -- 아이템이 없어도 사용가능한 슬롯이면 스킨 변경
-    local slotIndx = imcSlot:GetEmptySlotIndex(slotset);
+    local slotIndx = imcSlot:GetEmptySlotIndex(slotset);    
     
     local is_item_full = false
     if current_tab_index > 0 then
         local slot_1 = GET_EMPTY_SLOT(slotset, current_tab_index, max_slot_per_tab);
         if slot_1 == nil then
             is_item_full = true
+            slotIndx = max_slot_per_tab
         end        
     end
     
@@ -377,14 +378,20 @@ function ON_ACCOUNT_WAREHOUSE_ITEM_LIST(frame, msg, argStr, argNum, tab_index)
     local slotCount = account:GetAccountWarehouseSlotCount();
     local availableTakeCount = math.max(slotCount, slotIndx);
     
+    if current_tab_index == 0 then        
+        for i = availableTakeCount, max_slot_per_tab do        
+            local slot = slotset:GetSlotByIndex(i);
+            if slot ~= nil then                
+                slot:RemoveAllChild();                
+            end
+        end
+    end
+
     -- 추가 슬롯 음영 관련
     local pc = GetMyPCObject()
     if true == session.loginInfo.IsPremiumState(ITEM_TOKEN) and current_tab_index >= 1 then
         availableTakeCount = max_slot_per_tab
         slotCount = max_slot_per_tab
---    elseif IsBuffApplied(pc, 'light_account_warehouse_ticket') == 'YES' and current_tab_index > 0 and current_tab_index <= account_warehouse.get_max_tab() then
---        availableTakeCount = max_slot_per_tab
---        slotCount = max_slot_per_tab
     elseif current_tab_index >= 1 then
         for i = slotIndx, availableTakeCount - 1 do
             local slot = slotset:GetSlotByIndex(i);
@@ -405,11 +412,6 @@ function ON_ACCOUNT_WAREHOUSE_ITEM_LIST(frame, msg, argStr, argNum, tab_index)
     end
 
     local itemcnt = GET_CHILD_RECURSIVELY(frame, "itemcnt");
-
-    if is_item_full == true and itemCnt == 0 then
-        itemCnt = max_slot_per_tab
-    end
-
     local currentItemCnt = string.format('%d', itemCnt);    
     if itemCnt > slotCount then
         local EXCEED_SLOT_FONT_COLOR = frame:GetUserConfig('EXCEED_SLOT_FONT_COLOR');

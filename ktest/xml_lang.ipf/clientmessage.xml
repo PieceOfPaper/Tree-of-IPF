@@ -1232,6 +1232,7 @@
 		<Class ClassID="10522" ClassName="RegisterPrefixItem" Data="옵션을 부여할 아이템을 등록해주세요."/>
 		<Class ClassID="10523" ClassName="AlreadyPrefixOption" Data="이미 적용된 옵션입니다."/>
 		<Class ClassID="10524" ClassName="{Name}ItemCountOver" Data="인벤토리에 [{Name}]이(가) 가득 차서 분해할 수 없습니다."/>
+		<Class ClassID="10526" ClassName="CannotTakeRewardWarning1Min" Data="1분 동안 움직임이 없는 상태입니다.{nl}앞으로 2분 동안 움직임이 없을 경우 보상을 획득하실 수 없습니다."/>
 	</Category>
 	<Category Name="FoodTable">
 		<Class ClassID="20001" ClassName="IncreaseHP{Value}For{Time}Minute" Data="{Time}분 동안 HP가 {Value}% 증가합니다."/>
