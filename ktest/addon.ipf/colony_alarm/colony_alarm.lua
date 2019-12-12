@@ -19,7 +19,7 @@ function ON_COLONY_ALARM_MSG(frame, msg, argStr, diffSec)
                 if config.GetServiceNation() == 'KOR' then
                     imcSound.PlaySoundEvent('battle_start_before');
                 else
-                if config.GetServiceNation() ~= 'JP' then
+                if config.GetServiceNation() ~= 'GLOBAL_JP' then
                     imcSound.PlaySoundEvent('S1_battle_start_before_1');
                 end
             end
@@ -28,7 +28,7 @@ function ON_COLONY_ALARM_MSG(frame, msg, argStr, diffSec)
                 if config.GetServiceNation() == 'KOR' then
                     imcSound.PlaySoundEvent('battle_start');
                 else
-                if config.GetServiceNation() ~= 'JP' then
+                if config.GetServiceNation() ~= 'GLOBAL_JP' then
                     imcSound.PlaySoundEvent('S1_battle_start');
                 end
         end
@@ -39,7 +39,7 @@ function ON_COLONY_ALARM_MSG(frame, msg, argStr, diffSec)
             if config.GetServiceNation() == 'KOR' then
                 imcSound.PlaySoundEvent('battle_end_before_30min');
             else
-                if config.GetServiceNation() ~= 'JP' then
+                if config.GetServiceNation() ~= 'GLOBAL_JP' then
                 imcSound.PlaySoundEvent('S1_battle_end_before_30min');
             end
             end
@@ -48,7 +48,7 @@ function ON_COLONY_ALARM_MSG(frame, msg, argStr, diffSec)
             if config.GetServiceNation() == 'KOR' then
                 imcSound.PlaySoundEvent('battle_end_before_10min');
             else
-                if config.GetServiceNation() ~= 'JP' then
+                if config.GetServiceNation() ~= 'GLOBAL_JP' then
                 imcSound.PlaySoundEvent('S1_battle_end_before_10min');
             end
             end
@@ -57,7 +57,7 @@ function ON_COLONY_ALARM_MSG(frame, msg, argStr, diffSec)
             if config.GetServiceNation() == 'KOR' then
                 imcSound.PlaySoundEvent('battle_end_before_5min');
             else
-                if config.GetServiceNation() ~= 'JP' then
+                if config.GetServiceNation() ~= 'GLOBAL_JP' then
                 imcSound.PlaySoundEvent('S1_battle_end_before_5min');
             end
             end
@@ -66,7 +66,7 @@ function ON_COLONY_ALARM_MSG(frame, msg, argStr, diffSec)
             if config.GetServiceNation() == 'KOR' then
                 imcSound.PlaySoundEvent('battle_end_before_1min');
             else
-                if config.GetServiceNation() ~= 'JP' then
+                if config.GetServiceNation() ~= 'GLOBAL_JP' then
                 imcSound.PlaySoundEvent('S1_battle_end_before_1min');
             end
             end
@@ -76,7 +76,7 @@ function ON_COLONY_ALARM_MSG(frame, msg, argStr, diffSec)
             if config.GetServiceNation() == 'KOR' then
                 imcSound.PlaySoundEvent('countdown_'..countdownSec);
             else
-                if config.GetServiceNation() ~= 'JP' then
+                if config.GetServiceNation() ~= 'GLOBAL_JP' then
                 imcSound.PlaySoundEvent('S1_countdown_'..countdownSec);
             end
             end
@@ -85,7 +85,7 @@ function ON_COLONY_ALARM_MSG(frame, msg, argStr, diffSec)
                 if config.GetServiceNation() == 'KOR' then
                     imcSound.PlaySoundEvent('battle_end');
                 else
-                if config.GetServiceNation() ~= 'JP' then
+                if config.GetServiceNation() ~= 'GLOBAL_JP' then
                     imcSound.PlaySoundEvent('S1_battle_end');
                 end
         end

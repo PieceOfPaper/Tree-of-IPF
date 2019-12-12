@@ -13879,6 +13879,14 @@ if self.HP == 0 then return 1; else return 0; end;">
         </StartList>
     </AI>
     <AI Name="MON_DUMMY" UpdateMS="100000" ActiveMessageMapInBattle="1"/>
+    <AI Name="MORINGPONIA_POISON_AI" UpdateMS="5000" ActiveMessageMapInBattle="1">
+        <List>
+            <ToolScp Scp="S_AI_CUSTOM_SCRIPT" Client="NO" UseSleep="YES">
+                <Str Str="SCR_MORINGPONIA_POISON_AI"/>
+                <Num Num="0"/>
+            </ToolScp>
+        </List>
+    </AI>
     <AI Name="MOVE_SOLDIER" ActiveMessageMapInBattle="1">
         <List>
             <ToolScp Scp="SAI_FUNC_DIRECT" Client="NO" UseSleep="NO">

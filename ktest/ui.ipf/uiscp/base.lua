@@ -134,6 +134,16 @@ function ICON_ON_ENABLE(frame, object, argStr, argNum)
 		return;
 	end
 
+	local mGameName = session.mgame.GetCurrentMGameName()
+	if mGameName ~= nil and mGameName ~= 'None' then
+		local indunCls = GetClassByStrProp('Indun', 'MGame', mGameName)
+		local dungeonType = TryGetProp(indunCls, 'DungeonType', 'None')
+		if dungeonType == 'Raid' or dungeonType == 'GTower' then
+			ui.SysMsg(ClMsg("NotAvailableInThisContents"))
+			return
+		end
+	end
+
 	if invItem ~= nil then
 		local itemobj = GetIES(invItem:GetObject());
 		item.ToggleDispelDebuff(itemobj.ClassID);

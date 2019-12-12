@@ -5466,7 +5466,7 @@ function SCR_PRE_ITEM_Escape(self, argObj, BuffName, arg1, arg2)
             return 0;
         end
         
-        if zone == "shadow_raid_main" then
+        if zone == "shadow_raid_main" or zone == "uniq_castle_raid" then
             SendSysMsg(self, "ThisLocalUseNot");
             return 0;
         end

@@ -379,6 +379,13 @@
 							<ToolScp Scp="MGAME_EXEC_ACTORSCP" Client="NO" UseSleep="NO">
 								<Str Str="SCR_VELCOFFR_RAID_PC_DEBUFF_REMOVE"/>
 							</ToolScp>
+							<ToolScp Scp="EXEC_DUNGEON_GIVE_TAKE_SOBJ_ACHIEVE_TX" Client="NO" UseSleep="NO">
+								<Str Str="Raid_Velcoffer_guard"/>
+								<Str Str="None"/>
+								<Str Str="58690"/>
+								<Str Str="RAID_VELCOPFFER_RARE_MINI"/>
+								<Str Str="NO"/>
+							</ToolScp>
 							<ToolScp Scp="MGAME_EXEC_GIVE_TAKE_SOBJ_ACHIEVE2_TX" Client="NO" UseSleep="NO">
 								<Str Str="None"/>
 								<Str Str="None"/>

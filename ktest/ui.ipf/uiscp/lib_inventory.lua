@@ -747,6 +747,53 @@ function SELECT_INV_SLOT_BY_GUID(guid, isSelect)
 	invSlot_All:Select(isSelect);
 end
 
+function GET_INV_ITEM_BY_WHERE(itemIdx, where)
+	local invItem = nil;
+	local _where = nil; 
+
+	-- where로 넘어오는 값이 inven인데 inventory로 넘겨줘야 하는 경우가 있으므로 확인된 inven과 link만 반환한다.
+	-- 나머지는 넘어오는 값이 확인되면 수정 후에 주석을 풀어야한다.
+	if where == 'inven' then
+		invItem = GET_PC_ITEM_BY_GUID(itemIdx);	
+		_where = 'inventory';
+	-- elseif where == 'warehouse' then
+	-- 	invItem =  session.GetEtcItemByGuid(IT_WAREHOUSE, itemIdx);
+	-- 	_where =  'warehouse';
+	-- elseif where == 'account_warehouse' then
+	-- 	invItem =  session.GetEtcItemByGuid(IT_ACCOUNT_WAREHOUSE, itemIdx);
+	-- 	_where =  'account_warehouse';
+	-- elseif where == 'sold' then
+	-- 	invItem =  session.GetEtcItemByGuid(IT_SOLD, itemIdx);
+	-- 	_where =  'sold';
+	-- elseif where == 'guild_joint' then
+	-- 	invItem =  session.GetEtcItemByGuid(IT_GUILD_JOINT, itemIdx);
+	-- 	_where =  'guild_joint';
+	-- elseif where == 'compare' then
+	-- 	invItem =  session.otherPC.GetItemByGuid(itemIdx);
+	-- 	_where =  'compare';
+	-- elseif where == 'market' then
+	-- 	invItem =  session.market.GetItemByItemID(itemIdx);
+	-- 	_where =  'market';
+	-- elseif where == 'cabinet' then
+	-- 	invItem =  session.market.GetCabinetItemByItemObjID(itemIdx);
+	-- 	_where =  'cabinet';
+	-- elseif where == 'exchange' then
+	-- 	invItem =  exchange.GetExchangeItemInfoByGuid(itemIdx);
+	-- 	_where =  'exchange';
+	-- elseif where == 'pet_equip' then
+	-- 	invItem =  session.pet.GetPetEquipObjByGuid(itemIdx);
+	-- 	_where =  'pet_equip';
+	-- elseif where == 'compare' then
+	-- 	invItem =  session.otherPC.GetItemByGuid(itemIdx);
+	-- 	_where =  'compare';
+	elseif where == 'link' then
+		invItem =  session.link.GetGCLinkObject(itemIdx)
+		_where =  'link';
+	end
+
+	return invItem, _where ;
+end
+
 function GET_INV_ITEM_BY_ITEM_OBJ(item)	
 	if item == nil then
 		return nil;
@@ -757,9 +804,19 @@ function GET_INV_ITEM_BY_ITEM_OBJ(item)
 		return session.barrack.GetEquipItemByGuid(CUR_SELECT_GUID, itemIdx), 'barrack';
 	end
 
-	local invitem = GET_PC_ITEM_BY_GUID(itemIdx);	
-	local dummy1, dummy2;
-	local where = 'inventory';
+	-- 어디에서왔는지 exProp을 조사해서 선행처리한다.
+	local invitem =nil;
+	local where = GetExProp_Str(item, 'where'); 
+	if where ~= nil and where ~= 'None' then
+		invitem, where = GET_INV_ITEM_BY_WHERE(itemIdx,where )
+		if invitem ~= nil then
+			return invitem, where;
+		end
+	end
+
+	-- 위 검사에 걸리지 않는다면 다음을 순서대로 수행해서 아이템을 찾는다.
+	invitem = GET_PC_ITEM_BY_GUID(itemIdx);	
+	where = 'inventory';
 	if invitem == nil then
 		invitem = session.GetEtcItemByGuid(IT_WAREHOUSE, itemIdx);
 		where = 'warehouse';

@@ -22,6 +22,7 @@ function IS_MORU_FREE_PRICE(moruItem)
         or moruItem.StringArg == 'SILVER'
         or moruItem.ClassName == 'Moru_Silver_Team'
         or moruItem.ClassName == 'Moru_Silver_Team_event1909'
+        or moruItem.ClassName == 'Moru_Ruby_noCharge'
         then
         return true;
     end
@@ -55,7 +56,20 @@ function IS_MORU_NOT_DESTROY_TARGET_ITEM(moruItem)
         or moruItem.ClassName == "Moru_Gold_Team_Trade" 
         or moruItem.ClassName == "Moru_Gold_14d_Team" 
         or moruItem.ClassName == "Moru_Gold_EVENT_1710_NEWCHARACTER"
-        or moruItem.ClassName == "Moru_Gold_14d_Team_event1909" then
+        or moruItem.ClassName == "Moru_Gold_14d_Team_event1909" 
+        or moruItem.StringArg == 'gold_Moru' then
+        return true;
+    end
+
+    return false;
+end
+
+function IS_MORU_NOT_DESTROY_TARGET_UNIQUE_ITEM(moruItem)
+    if moruItem == nil then
+        return false;
+    end
+
+    if moruItem.StringArg == 'unique_gold_Moru' then
         return true;
     end
 

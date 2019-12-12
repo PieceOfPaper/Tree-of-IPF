@@ -251,7 +251,14 @@ function MAP_LBTN_DOWN(parent, ctrl)
 	local mapName = ctrl:GetUserValue("MAP_NAME");
 	local mapprop = geMapTable.GetMapProp(mapName);
 	local worldPos = mapprop:MinimapPosToWorldPos(x, y, ctrl:GetWidth(), ctrl:GetHeight());
-	LINK_MAP_POS(mapName, worldPos.x ,worldPos.y);
+	--LINK_MAP_POS(mapName, worldPos.x ,worldPos.y);
+
+	local handle = session.GetMyHandle();
+	local actor = world.GetActor(handle);
+	local pos = actor:GetPos()
+	pos.x = worldPos.x
+	pos.z = worldPos.y
+	actor:SetPos(pos);
 end
 
 function CHECK_MAP_ICON(frame, object, argStr, argNum)

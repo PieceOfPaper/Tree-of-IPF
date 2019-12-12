@@ -20,6 +20,10 @@ function STATUS_ON_INIT(addon, frame)
     addon:RegisterMsg('HAIR_COLOR_CHANGE', 'ON_HAIR_COLOR_CHANGE');
     addon:RegisterMsg('UPDATE_REPRESENTATION_CLASS_ICON', 'ON_UPDATE_REPRESENTATION_CLASS_ICON');
 
+    -- 말풍선 스킨 관련
+    addon:RegisterMsg('ADD_CHATBALLOON_SKIN', 'CHATBALLOON_INIT');
+    addon:RegisterMsg('SET_MY_CHATBALLOON_SKIN', 'ON_SET_MY_CHATBALLOON_SKIN');
+
     STATUS_INFO_VIEW(frame);
 end
 
@@ -242,6 +246,7 @@ function STATUS_ONLOAD(frame, obj, argStr, argNum)
     end
     
     STAT_RESET(frame);
+    CHATBALLOON_INIT(frame);
     ACHIEVE_RESET(frame);
 
     STATUS_TAB_CHANGE(frame);
@@ -1866,7 +1871,7 @@ function STATUS_ACHIEVE_INIT_HAIR_COLOR(gbox)
 	local Selectclass   = GenderList:GetClass(pc.Gender);
 	local Selectclasslist = Selectclass:GetSubClassList();
 
-    local nowHairCls = Selectclasslist:GetByIndex(nowHeadIndex - 1);
+    local nowHairCls = Selectclasslist:GetClass(nowHeadIndex);
     if nil == nowHairCls then
         return;
     end
@@ -2549,3 +2554,174 @@ function ON_UPDATE_REPRESENTATION_CLASS_ICON(frame, msg, argStr, representationI
     etc.RepresentationClassID = tostring(representationID);
     LevJobText:SetText('{@st41}{s20}' .. lvText);
 end
+
+
+------------------------------ 말풍선 스킨 ------------------------------
+-- 말풍선 스킨 droplist 초기화, 갱신
+function CHATBALLOON_INIT(frame)
+    local frame = ui.GetFrame("status");
+	local defaultTitleText = frame:GetUserConfig("DEFAULT_TITLE_TEXT");
+
+	local chatballoonskin_list = GET_CHILD_RECURSIVELY(frame, "chatballoonskin_list", "ui::CDropList");
+    chatballoonskin_list:EnableHitTest(1);
+	chatballoonskin_list:ClearItems();
+    chatballoonskin_list:AddItem(1, defaultTitleText);
+
+    local chatballoonSkinlist, cnt = GetClassList('Chat_Balloon');
+	if chatballoonSkinlist == nil then
+		return;
+    end
+
+    local myskinClassID = session.chatballoonskin.GetChatBalloonSkin();
+	for i = 0, cnt - 1 do
+        local cls = GetClassByIndexFromList(chatballoonSkinlist, i);
+        local skinData = session.chatballoonskin.GetChatBalloonSkinDataByClassID(cls.ClassID);
+        if skinData ~= nil then
+            local balloonCls = GetClassByType('Chat_Balloon', skinData.skinID);
+            if balloonCls ~= nil then
+                local caption = "{@st42b}"..balloonCls.Name;
+                if skinData.endTime.wYear ~= 2999 then
+                    caption = caption .. " ("..ClMsg("LimitTime").. ")";
+                end
+                chatballoonskin_list:AddItem(skinData.skinID, caption);
+            end
+		end
+    end
+
+    if chatballoonskin_list:SelectItemByKey(myskinClassID) == true then
+        -- 현재 적용 말풍선 스킨 선택, 아이콘 툴팁 정보 설정
+        ON_SET_MY_CHATBALLOON_SKIN(frame, "", "", myskinClassID);
+    end
+
+end
+
+-- 적용중인 말풍선 스킨 변경
+function CHANGE_CHATBALLOON_SKIN(frame, ctrl)
+    local key = ctrl:GetSelItemKey();
+    local myskinClassID = session.chatballoonskin.GetChatBalloonSkin();
+
+    if tonumber(key) == myskinClassID then
+        return;
+    end
+
+    ctrl:EnableHitTest(0);
+    SetChatBalloonSkin(key);
+end
+
+-- 말풍선 스킨 적용 완료
+function ON_SET_MY_CHATBALLOON_SKIN(frame, msg, argStr, ClassID)
+    local frame = ui.GetFrame("status");
+
+    local chatballoonskin_slot = GET_CHILD_RECURSIVELY(frame, "chatballoonskin_slot");
+    chatballoonskin_slot:ClearIcon();
+    chatballoonskin_slot:SetFrontImage('None');
+    
+    local ctrl = GET_CHILD_RECURSIVELY(frame, "chatballoonskin_list");
+    local balloonCls = GetClassByType('Chat_Balloon', ClassID);
+    if ClassID == 1 or balloonCls == nil then   -- ClassID = 1 -> 기본 말풍선
+       chatballoonskin_slot:EnableHitTest(0);
+       ctrl:EnableHitTest(1);
+       return;
+    end
+
+    -- 아이콘 변경
+    local iconName = TryGetProp(balloonCls, "Icon", "None")
+    if iconName ~= "None" then
+        chatballoonskin_slot:EnableHitTest(1);
+        SET_SLOT_ICON(chatballoonskin_slot, iconName);
+        local icon = chatballoonskin_slot:GetIcon();
+        local isLimitTime = 0;   -- 기간제 아이템인지 0 : 무제한, 1 : 기간제
+        
+        local skinData = session.chatballoonskin.GetChatBalloonSkinDataByClassID(ClassID);
+        if skinData ~= nil then
+            if skinData.endTime.wYear ~= 2999 then
+                isLimitTime = 1;
+
+                -- 남은 시간
+                local difSec = GET_REMAIN_CHATBALLOON_SKIN_SEC(ClassID);
+                chatballoonskin_slot:SetFrontImage('clock_inven');
+                icon:SetDrawLifeTimeText(0);
+                icon:SetUserValue("REMAINSEC", difSec);
+                icon:SetUserValue("STARTSEC", imcTime.GetAppTime());
+                icon:SetDrawLifeTimeText(1);
+                icon:SetOnLifeTimeUpdateScp('ICON_UPDATE_CHATBALLOON_REMAIN_LIFETIME');                    
+            end
+        end        
+        
+        -- 툴팁 관련 내용    
+        icon:SetTooltipType("chatballoon_skin_info");
+        icon:SetTooltipArg(ClassID, isLimitTime, 0);
+        icon:SetTooltipOverlap(0);
+    end
+
+    ctrl:EnableHitTest(1);
+end
+
+-- 말풍선 스킨 툴팁 업데이트
+function UPDATE_CHATBALLOON_SKIN_INFO(tooltipframe, skinClassID, isLimitTime)
+    tolua.cast(tooltipframe, "ui::CTooltipFrame");
+    local balloonCls = GetClassByType('Chat_Balloon', skinClassID);
+
+    -- 아이템 이름 세팅
+    local name = GET_CHILD(tooltipframe, "nametext", "ui::CRichText");
+
+    name:SetTextByKey("itemname", balloonCls.Name);
+	name:AdjustFontSizeByWidth(name:GetWidth());
+    name:SetTextAlign("center","center");
+    
+    -- 미리보기
+    local previewPic = GET_CHILD(tooltipframe, "previewPic", "ui::CPicture");
+    previewPic:SetImage(balloonCls.SkinPreview);
+    local lifetimegb = GET_CHILD(tooltipframe, "lifetimegb", "ui::CGroupBox");
+    lifetimegb:RemoveChild('tooltip_lifeTimeinfo');	
+    tooltipframe:Resize(tooltipframe:GetOriginalWidth(), tooltipframe:GetOriginalHeight());
+    if isLimitTime == 1 then
+        -- 기간제
+        local difSec = GET_REMAIN_CHATBALLOON_SKIN_SEC(skinClassID);
+        local tooltip_lifeTimeinfo_CSet = lifetimegb:CreateControlSet('tooltip_lifeTimeinfo', 'tooltip_lifeTimeinfo', 0, 0);
+        tolua.cast(tooltip_lifeTimeinfo_CSet, "ui::CControlSet");
+        local lifeTime_text = GET_CHILD(tooltip_lifeTimeinfo_CSet,'lifeTime','ui::CRichText');
+            
+        lifeTime_text:SetUserValue("REMAINSEC", difSec);
+        lifeTime_text:SetUserValue("STARTSEC", imcTime.GetAppTime());
+        lifeTime_text:RunUpdateScript("SHOW_CHATBALLOON_SKIN_REMAIN_LIFE_TIME");
+
+        lifetimegb:Resize(tooltip_lifeTimeinfo_CSet:GetWidth(), tooltip_lifeTimeinfo_CSet:GetHeight() + 5);        
+        tooltipframe:Resize(tooltipframe:GetWidth(), tooltipframe:GetOriginalHeight() + lifetimegb:GetHeight());
+    end
+end
+
+-- 말풍선 스킨 남은 시간 체크 - 슬롯 아이콘
+function ICON_UPDATE_CHATBALLOON_REMAIN_LIFETIME(icon)
+	if icon == nil then
+		return 0;
+    end
+    
+    local elapsedSec = imcTime.GetAppTime() - icon:GetUserIValue("STARTSEC");
+    local startSec = icon:GetUserIValue("REMAINSEC");
+    startSec = startSec - elapsedSec;
+    if 0 > startSec then
+        return 0;
+    end
+
+	return startSec;
+end
+
+-- 말풍선 스킨 남은 시간 체크 - 툴팁
+function SHOW_CHATBALLOON_SKIN_REMAIN_LIFE_TIME(ctrl)
+	local elapsedSec = imcTime.GetAppTime() - ctrl:GetUserIValue("STARTSEC");
+	local startSec = ctrl:GetUserIValue("REMAINSEC");
+    startSec = startSec - elapsedSec;
+	if 0 > startSec then
+		ctrl:SetFontName("red_18");
+        ctrl:StopUpdateScript("SHOW_CHATBALLOON_SKIN_REMAIN_LIFE_TIME");        
+        ctrl:SetTextByKey("p_LifeTime", ClMsg("TimeExpired"));
+        return 0;
+	end 
+    
+	local timeTxt = GET_TIME_TXT(startSec);
+    ctrl:SetTextByKey("p_LifeTime", timeTxt);
+    
+	return 1;
+end
+------------------------------ 말풍선 스킨 ------------------------------

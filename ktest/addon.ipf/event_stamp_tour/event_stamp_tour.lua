@@ -160,6 +160,10 @@ function EVENT_STAMP_TOUR_SET_PAGE(argnum)
 			clear_bg:ShowWindow(1);
             clear_bg:SetAlpha(REWARD_CLEAR_BG_ALPHA);
 			clear_Pic:ShowWindow(1);
+
+			if config.GetServiceNation() ~= 'KOR' then
+				clear_Pic:SetImage("very_nice_stamp_eng");
+			end
 		end
 
 

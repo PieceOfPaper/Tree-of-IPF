@@ -1199,7 +1199,13 @@ function UPDATE_MON_SIMPLE_TOOLTIP(frame, monName)
     frame:Resize(frame:GetWidth(), t_desc:GetY() + t_desc:GetHeight() + 10);
 end
 
-function UPDATE_RESTRICT_INFO_TOOLTIP(frame, mapKeyword)
+local legend_raid_item_restrict = {
+    'Dispeller_1',
+    'Bujeok_1',
+    'Scroll_SkillItem',
+}
+
+function UPDATE_RESTRICT_INFO_TOOLTIP(frame, mapKeyword, isLegendRaid)
     local titleBox = GET_CHILD_RECURSIVELY(frame, "titleBox");
     local INNER_X = frame:GetUserConfig("INNER_X");
     local INNER_Y = frame:GetUserConfig("INNER_Y");
@@ -1219,6 +1225,14 @@ function UPDATE_RESTRICT_INFO_TOOLTIP(frame, mapKeyword)
         end
     end
 
+    if isLegendRaid == 1 then
+        for i = 1, #legend_raid_item_restrict do
+            local width, height = MAKE_ITEM_RESTRICT_INFO(frame, legend_raid_item_restrict[i], ypos + INNER_Y, ctrlsetWidth);
+            xpos = math.max(xpos, width);
+            ypos = height;
+        end
+    end
+
     frame:Resize(xpos + INNER_X, ypos + INNER_Y);
 end
 
@@ -1233,6 +1247,26 @@ function MAKE_RESTRICT_INFO(frame, skillRestrict, ypos, ctrlSetWidth)
 
     local INNER_X = frame:GetUserConfig("INNER_X");
     local ctrlSet = frame:CreateOrGetControlSet("skill_restrict_info_list", "SKILL_RESTRICT_INFO_" .. className, INNER_X, ypos);
+    local text = GET_CHILD_RECURSIVELY(ctrlSet, "skill_info");
+    text:SetTextByKey("img", img);
+    text:SetTextByKey("name", name);
+    text:SetTextByKey("caption", caption);
+    
+    local textWidth = text:GetTextWidth();
+    ctrlSet:Resize(textWidth, text:GetHeight());
+    return textWidth, ypos + ctrlSet:GetHeight();
+end
+
+function MAKE_ITEM_RESTRICT_INFO(frame, clsName, ypos, strlSetWidth)
+    local itemCls = GetClass("Item", clsName);
+    local imgName = TryGetProp(itemCls, "Icon");
+    local ICON_SIZE = frame:GetUserConfig("ICON_SIZE");
+    local img = string.format("{img %s %d %d}", imgName, ICON_SIZE, ICON_SIZE);
+    local name = TryGetProp(itemCls, "Name");
+    local caption = ScpArgMsg("ImpossibleToUse");
+
+    local INNER_X = frame:GetUserConfig("INNER_X");
+    local ctrlSet = frame:CreateOrGetControlSet("skill_restrict_info_list", "SKILL_RESTRICT_INFO_" .. clsName, INNER_X, ypos);
     local text = GET_CHILD_RECURSIVELY(ctrlSet, "skill_info");
     text:SetTextByKey("img", img);
     text:SetTextByKey("name", name);

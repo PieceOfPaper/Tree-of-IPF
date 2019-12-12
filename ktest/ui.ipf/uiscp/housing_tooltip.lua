@@ -163,12 +163,19 @@ function DRAW_HOUSING_SELL_PRICE(tooltipframe, invitem, yPos, mainframename)
 
 	local furnitureClass = GET_FURNITURE_CLASS_BY_ITEM(invitem.ClassName);
 	if furnitureClass ~= nil then
-		local priceText1 = string.format("{img icon_guild_housing_coin_01 20 20} {@st66b}%s", TryGetProp(furnitureClass, "SellPrice1", 0));
-		local priceText2 = string.format("  {img icon_guild_housing_coin_02 20 20} {@st66b}%s", TryGetProp(furnitureClass, "SellPrice2", 0));
-		local priceText3 = string.format("  {img icon_guild_housing_coin_03 20 20} {@st66b}%s", TryGetProp(furnitureClass, "SellPrice3", 0));
-		local priceText4 = string.format("  {img icon_guild_housing_coin_04 20 20} {@st66b}%s", TryGetProp(furnitureClass, "SellPrice4", 0));
-		local txt_price = GET_CHILD(tooltip_sellinfo_CSet, 'sellprice', 'ui::CRichText');
-		txt_price:SetText(priceText1 .. priceText2 .. priceText3 .. priceText4);
+		local baseidClass = GetClass("inven_baseid", invitem.MarketCategory);
+		if baseidClass.TreeGroup == "Housing" then
+			local priceText1 = string.format("{img icon_guild_housing_coin_01 20 20} {@st66b}%s", TryGetProp(furnitureClass, "SellPrice1", 0));
+			local priceText2 = string.format("  {img icon_guild_housing_coin_02 20 20} {@st66b}%s", TryGetProp(furnitureClass, "SellPrice2", 0));
+			local priceText3 = string.format("  {img icon_guild_housing_coin_03 20 20} {@st66b}%s", TryGetProp(furnitureClass, "SellPrice3", 0));
+			local priceText4 = string.format("  {img icon_guild_housing_coin_04 20 20} {@st66b}%s", TryGetProp(furnitureClass, "SellPrice4", 0));
+			local txt_price = GET_CHILD(tooltip_sellinfo_CSet, 'sellprice', 'ui::CRichText');
+			txt_price:SetText(priceText1 .. priceText2 .. priceText3 .. priceText4);
+		else
+			local priceText1 = string.format("{img silver 20 20} {@st66b}%s", TryGetProp(invitem, "SellPrice", 0));
+			local txt_price = GET_CHILD(tooltip_sellinfo_CSet, 'sellprice', 'ui::CRichText');
+			txt_price:SetText(priceText1);
+		end
 	end
 
 	local pic_silver = GET_CHILD(tooltip_sellinfo_CSet, "silver");

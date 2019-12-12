@@ -988,7 +988,9 @@
                         <Str Str="End"/>
                     </ToolScp>
                 </StartScpList>
-                <ObjList/>
+                <ObjList>
+                    <Obj Type="Monster" MonType="156162" Pos="-172.37#239.91#4437.59" genCount="1" genTime="20000" objectKey="0" propList="&apos;Dialog&apos; &apos;NPC_DUNGEON_GACHA_CUBE&apos; "/>
+                </ObjList>
                 <StageEvents>
                     <Event execCount="1" eventName="LEAVE">
                         <condList>

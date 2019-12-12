@@ -1177,7 +1177,10 @@ function QUICKSLOTNEXPBAR_DUMPICON(frame, control, argStr, argNum)
 end
 
 function QUICKSLOTNEXPBAR_EXECUTE(slotIndex)
-	
+	if camera.IsCameraWorkingMode() == true then
+		return;
+	end
+
 	local chatFrame = ui.GetFrame("chat");
 	if chatFrame ~= nil then
 		if chatFrame:IsVisible() == 1 then

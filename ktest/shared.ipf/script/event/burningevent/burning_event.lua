@@ -70,19 +70,23 @@ function SCR_BURNING_EVENT_BUFF_CHECK(self, isServer)
             if eventCheck ~= "None" then
                 local buffTable = StringSplit(eventCheck, "/")
                 if #buffTable ~= 0 and #buffTable ~= nil then
+                    -- remove previous day buff
                     for j = 1, #buffTable do
                         for k = 1, #eventList do
-                            -- remove previous day buff
                             if tostring(buffTable[j]) ~= tostring(eventList[k].ClassName) then
-                                if IsBuffApplied(self, tostring(eventList[k].ClassName)) == "YES" then
+                                if IsBuffApplied(self, tostring(eventList[k].BuffName)) == "YES" then
                                     RemoveBuff(self, tostring(eventList[k].BuffName))
                                 end
                             end
-
-                            -- add today buff
-                            if tostring(buffTable[j]) == tostring(eventList[k].ClassName) then
-                                if IsBuffApplied(self, tostring(eventList[k].ClassName)) == "NO" then
-                                    AddBuff(self, self, tostring(eventList[k].BuffName))
+                        end
+                    end
+                    
+                    -- add today buff
+                    for l =1, #buffTable do
+                        for m = 1, #eventList do
+                            if tostring(buffTable[l]) == tostring(eventList[m].ClassName) then
+                                if IsBuffApplied(self, tostring(eventList[m].BuffName)) == "NO" then
+                                    AddBuff(self, self, tostring(eventList[m].BuffName))
                                 end
                             end
                         end

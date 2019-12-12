@@ -84,10 +84,10 @@
                                 <Str Str="SUCCESS"/>
                             </ToolScp>
                             <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
-                                <Str Str="Stage_03(Moringponia)"/>
+                                <Str Str="Stage_01"/>
                             </ToolScp>
                             <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
-                                <Str Str="Stage_03(Moringponia)"/>
+                                <Str Str="Stage_02(Tantaliser)"/>
                             </ToolScp>
                             <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
                                 <Str Str="Stage_03(Moringponia)"/>
@@ -97,6 +97,9 @@
                             </ToolScp>
                             <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
                                 <Str Str="SUCCESS"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_EVT_SCRIPT" Client="NO" UseSleep="NO">
+                                <Str Str="SCR_RAID_END_STOP_DEBUFF_MON"/>
                             </ToolScp>
                         </execList>
                     </Event>
@@ -287,7 +290,7 @@
             <Stage Name="Stage_02(Tantaliser)" AutoStart="0">
                 <ObjList>
                     <Obj Type="Monster" MonType="59343" Pos="-1403.82#291.41#-314.19" genCount="1" genTime="20000" autoGen="0" objectKey="0"/>
-                    <Obj Type="Monster" MonType="20026" Pos="-672.67#231.96#-290.92" genCount="1" genTime="20000" objectKey="1" propList="&apos;Enter&apos; &apos;MORINGPONIA_STAGE_02_START&apos; &apos;Range&apos; &apos;50&apos; &apos;Name&apos; &apos;UnvisibleName&apos; "/>
+                    <Obj Type="Monster" MonType="20026" Pos="-538.30#233.93#-282.65" genCount="1" genTime="20000" objectKey="1" propList="&apos;Enter&apos; &apos;MORINGPONIA_STAGE_02_START&apos; &apos;Range&apos; &apos;50&apos; &apos;Name&apos; &apos;UnvisibleName&apos; "/>
                 </ObjList>
                 <StageEvents>
                     <Event eventName="debuff_pattern">
@@ -364,6 +367,11 @@
                             </ToolScp>
                             <ToolScp Scp="MGAME_EVT_EXEC_DELMON" Client="NO" UseSleep="NO">
                                 <MGameObjPtr List="Stage_02(Tantaliser)/1"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
+                                <MGameObjIndex List="NPC_SET/15"/>
+                                <Num Num="1"/>
+                                <Num Num="0"/>
                             </ToolScp>
                         </execList>
                     </Event>
@@ -477,6 +485,7 @@
                     <Obj Type="Monster" MonType="59342" Pos="-2318.66#292.69#-251.43" genCount="1" genTime="20000" autoGen="0" objectKey="4"/>
                     <Obj Type="Monster" MonType="20026" Pos="-1749.98#291.79#-299.71" genCount="1" genTime="20000" objectKey="5" propList="&apos;Range&apos; &apos;50&apos; &apos;Enter&apos; &apos;MORINGPONIA_STAGE_03_START&apos; &apos;Name&apos; &apos;UnvisibleName&apos; "/>
                     <Obj Type="Monster" MonType="147448" Pos="-2549.86#292.69#-180.98" angle="-80" genCount="1" genTime="20000" autoGen="0" objectKey="6" propList="&apos;Dialog&apos; &apos;CHRONO_MASTER&apos; "/>
+                    <Obj Type="Monster" MonType="59344" Pos="-2310.64#292.69#-274.92" genCount="1" genTime="20000" autoGen="0" objectKey="1" propList="&apos;StatType&apos; &apos;UniqueRaid_Boss_Solo_EP11_2&apos; "/>
                 </ObjList>
                 <StageEvents>
                     <Event execCount="1" eventName="STAGE_START">
@@ -513,6 +522,11 @@
                                 <Str Str="Clear"/>
                             </ToolScp>
                             <ToolScp Scp="GAME_EVT_OFF" Client="NO" UseSleep="NO"/>
+                            <ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
+                                <MGameObjIndex List="Stage_03(Moringponia)/1"/>
+                                <Num Num="1"/>
+                                <Num Num="0"/>
+                            </ToolScp>
                         </execList>
                     </Event>
                     <Event eventName="summon_potal_1" execWithStart="0" isEnabled="0">
@@ -562,6 +576,9 @@
                             </ToolScp>
                             <ToolScp Scp="MGAME_EVT_EXEC_DELMON" Client="NO" UseSleep="NO">
                                 <MGameObjPtr List="NPC_SET/10"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_EVT_EXEC_DELMON" Client="NO" UseSleep="NO">
+                                <MGameObjPtr List="Stage_03(Moringponia)/1"/>
                             </ToolScp>
                             <ToolScp Scp="MGAME_EVT_SCP_TO_MON_CMD" Client="NO" UseSleep="NO">
                                 <MGameObj List="Stage_03(Moringponia)/4"/>
@@ -664,6 +681,11 @@
                     <Obj Type="Monster" MonType="150204" Pos="-1701.84#291.47#-285.82" genCount="1" genTime="20000" autoGen="0" objectKey="10"/>
                     <Obj Type="Monster" MonType="20026" Pos="-1300.49#291.41#-299.47" genCount="1" genTime="20000" objectKey="11" propList="&apos;Enter&apos; &apos;RETURN_STAGE_01&apos; &apos;Range&apos; &apos;500&apos; "/>
                     <Obj Type="Monster" MonType="20026" Pos="-2213.96#292.69#-278.01" genCount="1" genTime="20000" objectKey="12" propList="&apos;Range&apos; &apos;500&apos; &apos;Enter&apos; &apos;RETURN_STAGE_02&apos; "/>
+                    <Obj Type="Monster" MonType="59319" Pos="-1280.26#291.41#-515.74" genCount="1" genTime="20000" objectKey="13"/>
+                    <Obj Type="Monster" MonType="59319" Pos="-2160.13#292.69#-368.20" genCount="1" genTime="20000" objectKey="13"/>
+                    <Obj Type="Monster" MonType="59319" Pos="-2384.52#292.69#-129.63" genCount="1" genTime="20000" objectKey="13"/>
+                    <Obj Type="Monster" MonType="40070" Pos="837.55#291.67#-172.68" angle="30" genCount="1" genTime="20000" objectKey="14" propList="&apos;Dialog&apos; &apos;MORINGPONIA_BOARD&apos; "/>
+                    <Obj Type="Monster" MonType="20026" Pos="-1276.21#291.41#-324.94" genCount="1" genTime="20000" autoGen="0" objectKey="15" propList="&apos;Range&apos; &apos;4000&apos; &apos;Enter&apos; &apos;MORINGPONIA_SOUND&apos; "/>
                 </ObjList>
             </Stage>
             <Stage Name="STAGE_MANAGER">

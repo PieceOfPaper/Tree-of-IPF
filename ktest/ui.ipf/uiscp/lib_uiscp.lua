@@ -377,7 +377,11 @@ function SET_MAP_MONGEN_NPC_INFO(picture, mapprop, WorldPos, MonProp, npclist, s
             if questclsIdStr == '' then
                 questclsIdStr = result .. '/' .. tostring(questIES.ClassID);
             else
-                questclsIdStr = questclsIdStr .. '/' .. result .. '/' .. tostring(questIES.ClassID);
+                local addStr = result .. '/' .. tostring(questIES.ClassID);
+                -- 중복된 값이 있는지 검사하고 추가한다.
+                if string.find(questclsIdStr, addStr) == nil then
+                    questclsIdStr = questclsIdStr .. '/' .. addStr;
+                end
             end
         end
     end

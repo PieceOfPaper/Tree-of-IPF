@@ -196,7 +196,7 @@ function ATTACH_STYLE_INFO_CTRLSET(ctrlset, key, style, text, curCount, count, s
 		local content = ctrlset:CreateOrGetControlSet('style_info_ctrlset_bar', key, startx, y);
 		AUTO_CAST(content);
 
-		local txt = string.format("{@st42}목표 : %s", text);
+		local txt = string.format("{@st42}"..ClMsg("QuestDescBasicTxt").."%s", text);
 		local text = GET_CHILD(content, 'text');
 		text:SetText(txt);
 

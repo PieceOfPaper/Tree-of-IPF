@@ -180,30 +180,76 @@ function UPDATE_PC_FOLLOWER_LIST(dataStr)
 	ON_UPDATE_MY_SUMMON_MONSTER(monIDList, countList);
 end
 
+local function sort_func(a, b)
+    return a < b;
+end
+
+-- 현재까지 소환한 소환수 controlset name 정보
+local temp = {}
+
+local function startsWith(String, Start)
+    return string.sub(String, 1, string.len(Start)) == Start
+end
+
+local function is_summoning_mon(mon_name)        
+    return startsWith(mon_name:lower(), 'pc_summon_')
+end
+
 -- create summonui controlset
-function ON_UPDATE_MY_SUMMON_MONSTER(monIdList, monCountList)
+function ON_UPDATE_MY_SUMMON_MONSTER(monIdList, monCountList)        
 	local frame = ui.GetFrame("summonsinfo");
 	if frame == nil then
 		return;
 	end
-
+    
+    local count_map = {}
+    local mon_name_list = {}
+    local mon_name_id_map = {}
+    for i = 1, #monIdList do
+        local mon_name = geMonsterTable.GetMonsterNameByType(monIdList[i]);
+        count_map[mon_name] = tonumber(monCountList[i])
+        mon_name_list[#mon_name_list + 1] = mon_name
+        mon_name_id_map[mon_name] = monIdList[i]
+    end
+        
+    table.sort(mon_name_list, sort_func)    
 	local ctrlsetHeight = tonumber(frame:GetUserConfig("SUMMONINFO_CTRLSET_HEIGHTOFFSET"));
-	for i = 1, #monIdList do
-		local ctrlName = "SUMMONINFO_" .. monIdList[i];
-		local summonsInfoCtrlSet = frame:CreateOrGetControlSet('summonsinfo', ctrlName, 10, i * ctrlsetHeight); 
-
-		local summonsName = GET_CHILD_RECURSIVELY(summonsInfoCtrlSet, "summons_name");
-		local summonsCount = GET_CHILD_RECURSIVELY(summonsInfoCtrlSet, "summons_count");
-		local monName = geMonsterTable.GetMonsterNameByType(monIdList[i]);
-		if monName ~= nil then
-			summonsName:SetTextByKey("name", monName);
-			summonsCount:SetTextByKey("count", monCountList[i]);
-		end		
-
-		if monCountList[i] <= 0 then
-			frame:RemoveChild(summonsInfoCtrlSet:GetName());
+    
+    for k, v in pairs(temp) do
+		frame:RemoveChild(k);
+    end
+    
+    for i = 1, #mon_name_list do        
+        local class_name = geMonsterTable.GetMonsterClassNameByType( mon_name_id_map[mon_name_list[i]]);
+        if is_summoning_mon(class_name) == true then
+            local ctrlName = "SUMMONINFO_" .. mon_name_id_map[mon_name_list[i]];        
+		    local summonsInfoCtrlSet = frame:CreateOrGetControlSet('summonsinfo', ctrlName, 10, i * ctrlsetHeight); 
+		    local summonsName = GET_CHILD_RECURSIVELY(summonsInfoCtrlSet, "summons_name");
+		    local summonsCount = GET_CHILD_RECURSIVELY(summonsInfoCtrlSet, "summons_count");
+		    local monName = mon_name_list[i]              
+            temp[summonsInfoCtrlSet:GetName()] = 1        
+		    if monName ~= nil then
+			    summonsName:SetTextByKey("name", monName);
+			    summonsCount:SetTextByKey("count", count_map[monName]);
+            end            
         end
-	end
+    end
+
+    for i = 1, #mon_name_list do        
+        local class_name = geMonsterTable.GetMonsterClassNameByType( mon_name_id_map[mon_name_list[i]]);
+        if is_summoning_mon(class_name) == false then
+            local ctrlName = "SUMMONINFO_" .. mon_name_id_map[mon_name_list[i]];        
+		    local summonsInfoCtrlSet = frame:CreateOrGetControlSet('summonsinfo', ctrlName, 10, i * ctrlsetHeight); 
+		    local summonsName = GET_CHILD_RECURSIVELY(summonsInfoCtrlSet, "summons_name");
+		    local summonsCount = GET_CHILD_RECURSIVELY(summonsInfoCtrlSet, "summons_count");
+		    local monName = mon_name_list[i]              
+            temp[summonsInfoCtrlSet:GetName()] = 1        
+		    if monName ~= nil then
+			    summonsName:SetTextByKey("name", monName);
+			    summonsCount:SetTextByKey("count", count_map[monName]);
+            end		
+        end
+    end
 
     frame:Invalidate();
 	SUMMONSINFO_CONTROLSET_AUTO_ALIGN(frame);

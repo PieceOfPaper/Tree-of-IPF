@@ -1,5 +1,4 @@
 function TRADESELECTITEM_ON_INIT(addon, frame)
-    addon:RegisterMsg('ANCIENT_SCROLL_USE', 'OPEN_TRADE_ANCIENT_MON_ITEM');
 end
 
 function OPEN_TRADE_SELECT_ITEM(invItem)
@@ -98,32 +97,10 @@ function OPEN_TRADE_SELECT_ITEM(invItem)
 	NeedItemSlot:SetVisible(0)
 	frame:ShowWindow(1);
 end
---EVENT_1909_ANCIENT
+
 function OPEN_TRADE_ANCIENT_MON_ITEM(frame, msg, strArg, numArg)
-	local iesID,itemList = unpack(StringSplit(strArg,'#'))
-	if itemList == 'None' then
-		return;
-	end
-	frame:EnableHide(0)
-	frame:Resize(626,672)
-	frame:SetUserValue("ANCIENT_MON_LIST",itemList)	
-	frame:SetUserValue("IES_ID",iesID)	
-	itemList = StringSplit(itemList, ';');
-	local ancientNameList = {};
-	local ancientCostList = {};
-
-	for i = 1,#itemList do
-		local ancientCls = GetClassByType("Ancient",tonumber(itemList[i]));
-		ancientNameList[i] = ancientCls.ClassName
-		local rarityCls = GetClassByNumProp("Ancient_Rarity","Rarity",ancientCls.Rarity)
-		ancientCostList[i] = rarityCls.Cost
-	end
-
-	--EVENT_1909_ANCIENT
-	OPEN_TRADE_SELECT_MUTIPLE_ITEM(ancientNameList,ancientCostList, 'EVENT_190919_ANCIENT_COIN', 'EVENT_190919_ANCIENT_MONSTER_PIECE')
-
 end
---EVENT_1909_ANCIENT
+
 function OPEN_TRADE_SELECT_MUTIPLE_ITEM(targetItemNameList, targetItemCostList,targetItemName, rewareItemName)
 	local frame = ui.GetFrame("tradeselectitem")
 	local useItemCls = GetClass("Item","EVENT_190919_ANCIENT_SCROLL")
@@ -135,8 +112,8 @@ function OPEN_TRADE_SELECT_MUTIPLE_ITEM(targetItemNameList, targetItemCostList,t
 	box:DeleteAllControl();
 
 	for i = 1, #targetItemNameList do
-		y = CREATE_ANCIENT_MON_CTRL(box, y, i, rewareItemName, 1,targetItemName, targetItemNameList[i], targetItemCostList[i]);	
-		y = y + 5
+		--y = CREATE_ANCIENT_MON_CTRL(box, y, i, rewareItemName, 1,targetItemName, targetItemNameList[i], targetItemCostList[i]);	
+		--y = y + 5
 	end
 
 	local cancelBtn = frame:GetChild('CancelBtn');

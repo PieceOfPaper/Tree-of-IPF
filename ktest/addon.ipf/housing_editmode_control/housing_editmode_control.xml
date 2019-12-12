@@ -10,6 +10,6 @@
 		<richtext name="txt_editmode_control_left_click" parent="gbox_editmode_control" rect="0 0 40 40" margin="45 7 0 0" layout_gravity="left center" caption="{@st43}{#97f72f}{s20}설치" textalign="center center" fixwidth="true"/>
 		<picture name="pic_editmode_control_left_click" parent="gbox_editmode_control" rect="0 0 65 65" margin="80 0 0 0" layout_gravity="left center" image="mouseclick_left"/>
 		<picture name="pic_editmode_control_right_click" parent="gbox_editmode_control" rect="0 0 65 65" margin="140 0 0 0" layout_gravity="left center" image="mouseclick_right"/>
-    ㄷ<richtext name="txt_editmode_control_right_click" parent="gbox_editmode_control" rect="0 0 40 40" margin="195 7 0 0" layout_gravity="left center" caption="{@st43}{#97f72f}{s20}회전" textalign="center center" fixwidth="true"/>
+		<richtext name="txt_editmode_control_right_click" parent="gbox_editmode_control" rect="0 0 40 40" margin="195 7 0 0" layout_gravity="left center" caption="{@st43}{#97f72f}{s20}회전" textalign="center center" fixwidth="true"/>
 	</controls>
 </uiframe>

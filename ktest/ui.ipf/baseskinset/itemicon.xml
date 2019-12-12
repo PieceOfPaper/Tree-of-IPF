@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by imc (imc) -->
 <!-- edited with XMLSpy v2008 sp1 http://www.altova.com by MintPC Mi -->
 <skinset name="Base">
 	<imagelist category="item_tooltip_icon">
@@ -598,6 +598,12 @@
 		<image name="icon_item_tantalisercos_f" file="\icon\equip\icon_item_tantalisercos_f.png" imgrect="0 0 256 256" CMM_Caption="탄타이저 코스튬_여"/>
 		<image name="icon_item_mothcos_m" file="\icon\equip\icon_item_mothcos_m.png" imgrect="0 0 256 256" CMM_Caption="모링포니아 코스튬_남"/>
 		<image name="icon_item_mothcos_f" file="\icon\equip\icon_item_mothcos_f.png" imgrect="0 0 256 256" CMM_Caption="모링포니아 코스튬_여"/>
+		<image name="item_icon_armor_teambattlecos_gold_f" file="\icon\equip\item_icon_armor_teambattlecos_gold_f.png" imgrect="0 0 256 256" CMM_Caption="팀배틀리그보상_금_여"/>
+		<image name="item_icon_armor_teambattlecos_silver_f" file="\icon\equip\item_icon_armor_teambattlecos_silver_f.png" imgrect="0 0 256 256" CMM_Caption="팀배틀리그보상_은"/>
+		<image name="item_icon_armor_teambattlecos_copper_f" file="\icon\equip\item_icon_armor_teambattlecos_copper_f.png" imgrect="0 0 256 256" CMM_Caption="팀배틀리그보상_동"/>
+		<image name="item_icon_armor_teambattlecos_gold_m" file="\icon\equip\item_icon_armor_teambattlecos_gold_m.png" imgrect="0 0 256 256" CMM_Caption="팀배틀리그보상_금_남"/>
+		<image name="item_icon_armor_teambattlecos_silver_m" file="\icon\equip\item_icon_armor_teambattlecos_silver_m.png" imgrect="0 0 256 256" CMM_Caption="팀배틀리그보상_은"/>
+		<image name="item_icon_armor_teambattlecos_copper_m" file="\icon\equip\item_icon_armor_teambattlecos_copper_m.png" imgrect="0 0 256 256" CMM_Caption="팀배틀리그보상_동"/>
 	</imagelist>
 	<imagelist category="256_costume_icons">
 		<image name="icon_item_Alchemist_f" file="\icon\equip\Alchemist_f_icon.png" imgrect="0 0 256 256" CMM_Caption="알케미스트"/>
@@ -3125,6 +3131,11 @@
 		<image name="icon_item_uphill_BRC06" file="\icon\acc\icon_item_uphill_BRC06.png" imgrect="0 0 256 256"/>
 		<image name="icon_item_armband_goddess_2" file="\icon\acc\icon_item_armband_goddess_2.png" imgrect="0 0 256 256" CMM_Caption="2주년 암밴드"/>
 		<image name="icon_item_armband_angrybear" file="\icon\acc\icon_item_armband_angrybear.png" imgrect="0 0 256 256" CMM_Caption="태국 2주년 암밴드"/>
+		<image name="icon_item_armband_rudolf" file="\icon\acc\icon_item_armband_rudolf.png" imgrect="0 0 256 256" CMM_Caption="루돌프 암밴드"/>
+		<image name="icon_item_necklace_moth_04" file="\icon\acc\icon_item_necklace_moth_04.png" imgrect="0 0 256 256" CMM_Caption="모링포니아 색배리_검정"/>
+		<image name="icon_item_bracelet_moth_04" file="\icon\acc\icon_item_bracelet_moth_04.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_bracelet_moth_05" file="\icon\acc\icon_item_bracelet_moth_05.png" imgrect="0 0 256 256" CMM_Caption="모링포니아 색배리_파랑"/>
+		<image name="icon_item_necklace_moth_05" file="\icon\acc\icon_item_necklace_moth_05.png" imgrect="0 0 256 256"/>
 	</imagelist>
 	<imagelist category="hair_accesory">
 		<image name="hairacc_1_egg" file="\icon\hairacc\hairacc_1_egg.png" imgrect="0 0 256 256"/>
@@ -3494,6 +3505,9 @@
 		<image name="item_icon_acc_tantaliser" file="\icon\hairacc\item_icon_acc_tantaliser.png" imgrect="0 0 256 256" CMM_Caption="탄타이저 헤어 악세"/>
 		<image name="item_icon_helmet_moth" file="\icon\hairacc\item_icon_helmet_moth.png" imgrect="0 0 256 256" CMM_Caption="모링포니아 헬멧"/>
 		<image name="item_icon_acc_moth" file="\icon\hairacc\item_icon_acc_moth.png" imgrect="0 0 256 256" CMM_Caption="모링포니아 헤어 악세"/>
+		<image name="item_icon_helmet_teambattlecos_gold" file="\icon\hairacc\item_icon_helmet_teambattlecos_gold.png" imgrect="0 0 256 256" CMM_Caption="팀배틀리그보상_헬멧_금"/>
+		<image name="item_icon_helmet_teambattlecos_silver" file="\icon\hairacc\item_icon_helmet_teambattlecos_silver.png" imgrect="0 0 256 256" CMM_Caption="팀배틀리그보상_헬멧_은"/>
+		<image name="item_icon_helmet_teambattlecos_copper" file="\icon\hairacc\item_icon_helmet_teambattlecos_copper.png" imgrect="0 0 256 256" CMM_Caption="팀배틀리그보상_헬멧_동"/>
 	</imagelist>
 	<imagelist category="collection_item">
 		<image name="icon_collitem_collection" file="\icon\colletion\icon_item_collection.tga" imgrect="0 0 673 419" CMM_Caption="월계수"/>
@@ -5425,6 +5439,9 @@
 		<image name="icon_item_Extractkit_goldbox" file="\icon\item\icon_item_Extractkit_goldbox.png" imgrect="0 0 256 256" CMM_Caption="pc방 황금 아이커 상자"/>
 		<image name="icon_item_misc_tantaliser" file="\icon\item\icon_item_misc_tantaliser.png" imgrect="0 0 256 256" CMM_Caption="영혼 조각:탄타이저"/>
 		<image name="icon_item_mothpowder" file="\icon\item\icon_item_mothpowder.png" imgrect="0 0 128 128" CMM_Caption="모스 파우더"/>
+		<image name="icon_item_moringponia_rubymoru_box" file="\icon\item\icon_item_moringponia_rubymoru_box.png" imgrect="0 0 256 256" CMM_Caption="모링포니아_루비모루"/>
+		<image name="icon_item_ruby_moru" file="\icon\item\icon_item_ruby_moru.png" imgrect="0 0 256 256" CMM_Caption="루비모루"/>
+		<image name="icon_item_RiceCake" file="\icon\item\icon_item_RiceCake.png" imgrect="0 0 128 128" CMM_Caption="가래떡"/>
 	</imagelist>
 	<imagelist category="housing">
 		<image name="icon_item_h_bigplant_set_01_green" file="\icon\housing\icon_item_h_bigplant_set_01_green.png" imgrect="0 0 256 256" CMM_Caption="[길드 하우징] 화단_01(초록색)"/>
@@ -5559,6 +5576,99 @@
 		<image name="icon_item_h_barrack_puddle_red" file="\icon\housing\icon_item_h_barrack_puddle_red.png" imgrect="0 0 256 256" CMM_Caption="[길드 하우징] 연못(빨간색)"/>
 		<image name="icon_item_h_barrack_puddle_yellow" file="\icon\housing\icon_item_h_barrack_puddle_yellow.png" imgrect="0 0 256 256" CMM_Caption="[길드 하우징] 연못(노란색)"/>
 		<image name="icon_item_pizza" file="\icon\item\icon_item_pizza.png" imgrect="0 0 128 128" CMM_Caption="피자"/>
+	</imagelist>
+	<imagelist category="personalhousing">
+		<image name="icon_item_p_h_barrack_06_carpet" file="\icon\housing\icon_item_p_h_barrack_06_carpet_1.png" imgrect="0 0 256 256" CMM_Caption="[개인 하우징]낚시꾼 카펫"/>
+		<image name="icon_item_p_h_barrack_06_chair" file="\icon\housing\icon_item_p_h_barrack_06_chair_1.png" imgrect="0 0 256 256" CMM_Caption="[개인 하우징]낚시꾼 의자"/>
+		<image name="icon_item_p_h_barrack_06_desk" file="\icon\housing\icon_item_p_h_barrack_06_desk_1.png" imgrect="0 0 256 256" CMM_Caption="[개인 하우징]낚시꾼 책상"/>
+		<image name="icon_item_p_h_barrack_06_fishlamp" file="\icon\housing\icon_item_p_h_barrack_06_fishlamp_1.png" imgrect="0 0 256 256" CMM_Caption="[개인 하우징]낚시꾼 물고기 램프"/>
+		<image name="icon_item_p_h_barrack_06_fishrod" file="\icon\housing\icon_item_p_h_barrack_06_fishrod_1.png" imgrect="0 0 256 256" CMM_Caption="[개인 하우징]낚시꾼 낚시대"/>
+		<image name="icon_item_p_h_barrack_06_fishtank_01" file="\icon\housing\icon_item_p_h_barrack_06_fishtank_01_1.png" imgrect="0 0 256 256" CMM_Caption="[개인 하우징]낚시꾼 네모 수족관"/>
+		<image name="icon_item_p_h_barrack_06_fishtank_02" file="\icon\housing\icon_item_p_h_barrack_06_fishtank_02_1.png" imgrect="0 0 256 256" CMM_Caption="[개인 하우징]낚시군 원형 수족관"/>
+		<image name="icon_item_p_h_barrack_06_frame" file="\icon\housing\icon_item_p_h_barrack_06_frame_1.png" imgrect="0 0 256 256" CMM_Caption="[개인 하우징]낚시꾼 청새치 장식"/>
+		<image name="icon_item_p_h_barrack_06_lamp" file="\icon\housing\icon_item_p_h_barrack_06_lamp_1.png" imgrect="0 0 256 256" CMM_Caption="[개인 하우징]낚시꾼 기름 램프"/>
+		<image name="icon_item_p_h_barrack_06_mapboard" file="\icon\housing\icon_item_p_h_barrack_06_mapboard_1.png" imgrect="0 0 256 256" CMM_Caption="[개인 하우징]낚시꾼 지도보드"/>
+		<image name="icon_item_p_h_barrack_06_partiton_01" file="\icon\housing\icon_item_p_h_barrack_06_partiton_01_1.png" imgrect="0 0 256 256" CMM_Caption="[개인 하우징]낚시꾼 난간"/>
+		<image name="icon_item_p_h_barrack_06_partiton_02" file="\icon\housing\icon_item_p_h_barrack_06_partiton_02_1.png" imgrect="0 0 256 256" CMM_Caption="[개인 하우징]낚시꾼 칸막이"/>
+		<image name="icon_item_p_h_barrack_06_partiton_03" file="\icon\housing\icon_item_p_h_barrack_06_partiton_03_1.png" imgrect="0 0 256 256" CMM_Caption="[개인 하우징]낚시꾼 가림막"/>
+		<image name="icon_item_p_h_barrack_06_rodstand" file="\icon\housing\icon_item_p_h_barrack_06_rodstand_1.png" imgrect="0 0 256 256" CMM_Caption="[개인 하우징]낚시꾼 낚시대 거치대"/>
+		<image name="icon_item_p_h_barrack_06_rug" file="\icon\housing\icon_item_p_h_barrack_06_rug_1.png" imgrect="0 0 256 256" CMM_Caption="[개인 하우징]낚시꾼 러그"/>
+		<image name="icon_item_p_h_barrack_06_shelf" file="\icon\housing\icon_item_p_h_barrack_06_shelf_1.png" imgrect="0 0 256 256" CMM_Caption="[개인 하우징]낚시꾼 선반"/>
+		<image name="icon_item_p_h_barrack_04_cupboard_01" file="\icon\housing\icon_item_p_h_barrack_04_cupboard_01_1.png" imgrect="0 0 256 256" CMM_Caption="[개인 하우징]달콤 벽장-잼"/>
+		<image name="icon_item_p_h_barrack_04_cupboard_02" file="\icon\housing\icon_item_p_h_barrack_04_cupboard_02_1.png" imgrect="0 0 256 256" CMM_Caption="[개인 하우징]달콤 벽장-소스"/>
+		<image name="icon_item_p_h_barrack_04_candlestick" file="\icon\housing\icon_item_p_h_barrack_04_candlestick_1.png" imgrect="0 0 256 256" CMM_Caption="[개인 하우징]달콤 촛대"/>
+		<image name="icon_item_p_h_barrack_04_shelf_01" file="\icon\housing\icon_item_p_h_barrack_04_shelf_01_1.png" imgrect="0 0 256 256" CMM_Caption="[개인 하우징]달콤 식기장"/>
+		<image name="icon_item_p_h_barrack_04_shelf_02" file="\icon\housing\icon_item_p_h_barrack_04_shelf_02_1.png" imgrect="0 0 256 256" CMM_Caption="[개인 하우징]달콤 선물함"/>
+		<image name="icon_item_p_h_barrack_04_shelf_03" file="\icon\housing\icon_item_p_h_barrack_04_shelf_03_1.png" imgrect="0 0 256 256" CMM_Caption="[개인 하우징]달콤 장식장"/>
+		<image name="icon_item_p_h_barrack_04_coffemachine" file="\icon\housing\icon_item_p_h_barrack_04_coffeemachine_1.png" imgrect="0 0 256 256" CMM_Caption="[개인 하우징]달콤 커피 머신"/>
+		<image name="icon_item_p_h_barrack_04_storage" file="\icon\housing\icon_item_p_h_barrack_04_storage_1.png" imgrect="0 0 256 256" CMM_Caption="[개인 하우징]달콤 쿠키함"/>
+		<image name="icon_item_p_h_barrack_04_displayStand" file="\icon\housing\icon_item_p_h_barrack_04_displayStand_1.png" imgrect="0 0 256 256" CMM_Caption="[개인 하우징]달콤 진열대 대형"/>
+		<image name="icon_item_p_h_barrack_04_counter" file="\icon\housing\icon_item_p_h_barrack_04_counter_1.png" imgrect="0 0 256 256" CMM_Caption="[개인 하우징]달콤 카운터"/>
+		<image name="icon_item_p_h_barrack_04_mat" file="\icon\housing\icon_item_p_h_barrack_04_mat_1.png" imgrect="0 0 256 256" CMM_Caption="[개인 하우징]달콤 반원 러그"/>
+		<image name="icon_item_p_h_barrack_04_chair" file="\icon\housing\icon_item_p_h_barrack_04_chair_1.png" imgrect="0 0 256 256" CMM_Caption="[개인 하우징]달콤 의자"/>
+		<image name="icon_item_p_h_barrack_04_macaron" file="\icon\housing\icon_item_p_h_barrack_04_macaron_1.png" imgrect="0 0 256 256" CMM_Caption="[개인 하우징]달콤 마카롱 테이블"/>
+		<image name="icon_item_p_h_barrack_04_cakeStall" file="\icon\housing\icon_item_p_h_barrack_04_cakeStall_1.png" imgrect="0 0 256 256" CMM_Caption="[개인 하우징]달콤 진열대 소형"/>
+		<image name="icon_item_p_h_barrack_03_cushion_set" file="\icon\housing\icon_item_p_h_barrack_03_cushion_set_1.png" imgrect="0 0 256 256" CMM_Caption="[개인 하우징]소녀 쿠션"/>
+		<image name="icon_item_p_h_barrack_03_cabinet" file="\icon\housing\icon_item_p_h_barrack_03_cabinet_1.png" imgrect="0 0 256 256" CMM_Caption="[개인 하우징]소녀 캐비넷"/>
+		<image name="icon_item_p_h_barrack_03_beartoy" file="\icon\housing\icon_item_p_h_barrack_03_beartoy_1.png" imgrect="0 0 256 256" CMM_Caption="[개인 하우징]소녀 선물상자-곰인형"/>
+		<image name="icon_item_p_h_barrack_03_mannequin" file="\icon\housing\icon_item_p_h_barrack_03_mannequin_1.png" imgrect="0 0 256 256" CMM_Caption="[개인 하우징]소녀 마네킹"/>
+		<image name="icon_item_p_h_barrack_03_shoes" file="\icon\housing\icon_item_p_h_barrack_03_shoes_1.png" imgrect="0 0 256 256" CMM_Caption="[개인 하우징]소녀 빨간 구두"/>
+		<image name="icon_item_p_h_barrack_03_gacha_cabinet" file="\icon\housing\icon_item_p_h_barrack_03_gacha_cabinet_1.png" imgrect="0 0 256 256" CMM_Caption="[개인 하우징]소녀 캔디 머신"/>
+		<image name="icon_item_p_h_barrack_03_candle" file="\icon\housing\icon_item_p_h_barrack_03_candle_1.png" imgrect="0 0 256 256" CMM_Caption="[개인 하우징]소녀 촛대"/>
+		<image name="icon_item_p_h_barrack_03_dressing_desk" file="\icon\housing\icon_item_p_h_barrack_03_dressing_desk_1.png" imgrect="0 0 256 256" CMM_Caption="[개인 하우징]소녀 화장대"/>
+		<image name="icon_item_p_h_barrack_03_mirror_01" file="\icon\housing\icon_item_p_h_barrack_03_mirror_01_1.png" imgrect="0 0 256 256" CMM_Caption="[개인 하우징]소녀 거울-원형"/>
+		<image name="icon_item_p_h_barrack_03_mirror_02" file="\icon\housing\icon_item_p_h_barrack_03_mirror_02_1.png" imgrect="0 0 256 256" CMM_Caption="[개인 하우징]소녀 거울-네모"/>
+		<image name="icon_item_p_h_barrack_03_mirror_03" file="\icon\housing\icon_item_p_h_barrack_03_mirror_03_1.png" imgrect="0 0 256 256" CMM_Caption="[개인 하우징]소녀 겨울-장식"/>
+		<image name="icon_item_p_h_barrack_03_mirror_04" file="\icon\housing\icon_item_p_h_barrack_03_mirror_04_1.png" imgrect="0 0 256 256" CMM_Caption="[개인 하우징]소녀 거울-새"/>
+		<image name="icon_item_p_h_barrack_03_mirror_05" file="\icon\housing\icon_item_p_h_barrack_03_mirror_05_1.png" imgrect="0 0 256 256" CMM_Caption="[개인 하우징]소녀 거울-딸기"/>
+		<image name="icon_item_p_h_barrack_03_mirror_06" file="\icon\housing\icon_item_p_h_barrack_03_mirror_06_1.png" imgrect="0 0 256 256" CMM_Caption="[개인 하우징]소녀 겨울-오리"/>
+		<image name="icon_item_p_h_barrack_03_mirror_07" file="\icon\housing\icon_item_p_h_barrack_03_mirror_07_1.png" imgrect="0 0 256 256" CMM_Caption="[개인 하우징]소녀 거울-구름"/>
+		<image name="icon_item_p_h_barrack_03_doll" file="\icon\housing\icon_item_p_h_barrack_03_doll_1.png" imgrect="0 0 256 256" CMM_Caption="[개인 하우징]소녀 봉제 인형"/>
+		<image name="icon_item_p_h_barrack_village_alarm" file="\icon\housing\icon_item_p_h_barrack_village_alarm_1.png" imgrect="0 0 256 256" CMM_Caption="[개인 하우징]철제 풍경"/>
+		<image name="icon_item_p_h_barrack_village_bed_01" file="\icon\housing\icon_item_p_h_barrack_village_bed_01_1.png" imgrect="0 0 256 256" CMM_Caption="[개인 하우징]공주 침대"/>
+		<image name="icon_item_p_h_barrack_village_woodbed" file="\icon\housing\icon_item_p_h_barrack_village_woodbed_1.png" imgrect="0 0 256 256" CMM_Caption="[개인 하우징]나무 침대"/>
+		<image name="icon_item_p_h_barrack_village_bread_table" file="\icon\housing\icon_item_p_h_barrack_village_bread_table_1.png" imgrect="0 0 256 256" CMM_Caption="[개인 하우징]나무 식탁-빵"/>
+		<image name="icon_item_p_h_barrack_village_fruit_table" file="\icon\housing\icon_item_p_h_barrack_village_fruit_table_1.png" imgrect="0 0 256 256" CMM_Caption="[개인 하우징]나무 식탁-과일"/>
+		<image name="icon_item_p_h_barrack_village_dish_table" file="\icon\housing\icon_item_p_h_barrack_village_dish_table_1.png" imgrect="0 0 256 256" CMM_Caption="[개인 하우징]고급 식탁"/>
+		<image name="icon_item_p_h_barrack_village_chair_01" file="\icon\housing\icon_item_p_h_barrack_village_chair_01_1.png" imgrect="0 0 256 256" CMM_Caption="[개인 하우징]긴 등받이 의자"/>
+		<image name="icon_item_p_h_barrack_village_longchair" file="\icon\housing\icon_item_p_h_barrack_village_longchair_1.png" imgrect="0 0 256 256" CMM_Caption="[개인 하우징]핑크 스툴 더블"/>
+		<image name="icon_item_p_h_barrack_village_sofa_01" file="\icon\housing\icon_item_p_h_barrack_village_sofa_01_1.png" imgrect="0 0 256 256" CMM_Caption="[개인 하우징]그린 소파 더블"/>
+		<image name="icon_item_p_h_barrack_village_mat_01" file="\icon\housing\icon_item_p_h_barrack_village_mat_01_1.png" imgrect="0 0 256 256" CMM_Caption="[개인 하우징]반원 러그"/>
+		<image name="icon_item_p_h_barrack_village_mat_02" file="\icon\housing\icon_item_p_h_barrack_village_mat_02_1.png" imgrect="0 0 256 256" CMM_Caption="[개인 하우징]사각 러그"/>
+		<image name="icon_item_p_h_barrack_village_rug" file="\icon\housing\icon_item_p_h_barrack_village_rug_1.png" imgrect="0 0 256 256" CMM_Caption="[개인 하우징]가죽 러그"/>
+		<image name="icon_item_p_h_barrack_village_sitting_cushion" file="\icon\housing\icon_item_p_h_barrack_village_sitting_cushion_1.png" imgrect="0 0 256 256" CMM_Caption="[개인 하우징]술장식 쿠션"/>
+		<image name="icon_item_p_h_barrack_village_side_table_01" file="\icon\housing\icon_item_p_h_barrack_village_side_table_01_1.png" imgrect="0 0 256 256" CMM_Caption="[개인 하우징]서랍장-뿔피리"/>
+		<image name="icon_item_p_h_barrack_village_side_table_012" file="\icon\housing\icon_item_p_h_barrack_village_side_table_012_1.png" imgrect="0 0 256 256" CMM_Caption="[개인 하우징]서랍장-뿔장식"/>
+		<image name="icon_item_p_h_barrack_village_stove_01" file="\icon\housing\icon_item_p_h_barrack_village_stove_01_1.png" imgrect="0 0 256 256" CMM_Caption="[개인 하우징]벽난로"/>
+		<image name="icon_item_p_h_barrack_village_stove_012" file="\icon\housing\icon_item_p_h_barrack_village_stove_012_1.png" imgrect="0 0 256 256" CMM_Caption="[개인 하우징]벽난로-접시"/>
+		<image name="icon_item_p_h_barrack_02_bookshelf_01" file="\icon\housing\icon_item_p_h_barrack_02_bookshelf_01_1.png" imgrect="0 0 256 256" CMM_Caption="[개인 하우징]점성술 책장 고급형"/>
+		<image name="icon_item_p_h_barrack_02_bookshelf_02" file="\icon\housing\icon_item_p_h_barrack_02_bookshelf_02_1.png" imgrect="0 0 256 256" CMM_Caption="[개인 하우징]대형 책장"/>
+		<image name="icon_item_p_h_barrack_02_chair" file="\icon\housing\icon_item_p_h_barrack_02_chair_1.png" imgrect="0 0 256 256" CMM_Caption="[개인 하우징]점성술 소파 싱글"/>
+		<image name="icon_item_p_h_barrack_02_table" file="\icon\housing\icon_item_p_h_barrack_02_table_1.png" imgrect="0 0 256 256" CMM_Caption="[개인 하우징]점성술 탁자"/>
+		<image name="icon_item_p_h_barrack_07_bear" file="\icon\housing\icon_item_p_h_barrack_07_bear_1.png" imgrect="0 0 256 256" CMM_Caption="[개인 하우징]사냥꾼 곰 장식"/>
+		<image name="icon_item_p_h_barrack_07_chair" file="\icon\housing\icon_item_p_h_barrack_07_chair_1.png" imgrect="0 0 256 256" CMM_Caption="[개인 하우징]사냥꾼 안락의자"/>
+		<image name="icon_item_p_h_barrack_07_desk" file="\icon\housing\icon_item_p_h_barrack_07_desk_1.png" imgrect="0 0 256 256" CMM_Caption="[개인 하우징]사냥꾼 책상"/>
+		<image name="icon_item_p_h_barrack_07_fireplace" file="\icon\housing\icon_item_p_h_barrack_07_fireplace_1.png" imgrect="0 0 256 256" CMM_Caption="[개인 하우징]사냥꾼 난로"/>
+		<image name="icon_item_p_h_barrack_07_floorDoor" file="\icon\housing\icon_item_p_h_barrack_07_floorDoor_1.png" imgrect="0 0 256 256" CMM_Caption="[개인 하우징]사냥꾼 바닥 문"/>
+		<image name="icon_item_p_h_barrack_07_table" file="\icon\housing\icon_item_p_h_barrack_07_table_1.png" imgrect="0 0 256 256" CMM_Caption="[개인 하우징]사냥꾼 탁자"/>
+		<image name="icon_item_p_h_barrack_07_tiger" file="\icon\housing\icon_item_p_h_barrack_07_tiger_1.png" imgrect="0 0 256 256" CMM_Caption="[개인 하우징]사냥꾼 호피 러그"/>
+		<image name="icon_item_p_h_barrack_07_tiger_white" file="\icon\housing\icon_item_p_h_barrack_07_tiger_white_1.png" imgrect="0 0 256 256" CMM_Caption="[개인 하우징]사냥꾼 백호 러그"/>
+		<image name="icon_item_p_h_barrack_07_woodholder" file="\icon\housing\icon_item_p_h_barrack_07_woodholder_1.png" imgrect="0 0 256 256" CMM_Caption="[개인 하우징]사냥꾼 장작 거치대"/>
+		<image name="icon_item_p_h_barrack_08_bed" file="\icon\housing\icon_item_p_h_barrack_08_bed_1.png" imgrect="0 0 256 256" CMM_Caption="[개인 하우징]바다 침대"/>
+		<image name="icon_item_p_h_barrack_08_capet_01" file="\icon\housing\icon_item_p_h_barrack_08_capet_01_1.png" imgrect="0 0 256 256" CMM_Caption="[개인 하우징]바다 푸른 카펫"/>
+		<image name="icon_item_p_h_barrack_08_capet_02" file="\icon\housing\icon_item_p_h_barrack_08_capet_02_1.png" imgrect="0 0 256 256" CMM_Caption="[개인 하우징]바다 분홍 카펫"/>
+		<image name="icon_item_p_h_barrack_08_capet_small" file="\icon\housing\icon_item_p_h_barrack_08_capet_small_1.png" imgrect="0 0 256 256" CMM_Caption="[개인 하우징]바다 산호색 러그"/>
+		<image name="icon_item_p_h_barrack_08_fishbowl_01" file="\icon\housing\icon_item_p_h_barrack_08_fishbowl_01_1.png" imgrect="0 0 256 256" CMM_Caption="[개인 하우징]바다 대형 어항"/>
+		<image name="icon_item_p_h_barrack_08_fishbowl_02" file="\icon\housing\icon_item_p_h_barrack_08_fishbowl_02_1.png" imgrect="0 0 256 256" CMM_Caption="[개인 하우징]바다 소형 어항"/>
+		<image name="icon_item_p_h_barrack_08_jellyfishhganger" file="\icon\housing\icon_item_p_h_barrack_08_jellyfishhganger_1.png" imgrect="0 0 256 256" CMM_Caption="[개인 하우징]바다 해파리 옷걸이"/>
+		<image name="icon_item_p_h_barrack_08_mirror" file="\icon\housing\icon_item_p_h_barrack_08_mirror_1.png" imgrect="0 0 256 256" CMM_Caption="[개인 하우징]바다 세면대"/>
+		<image name="icon_item_p_h_barrack_08_partition_01" file="\icon\housing\icon_item_p_h_barrack_08_partition_01_1.png" imgrect="0 0 256 256" CMM_Caption="[개인 하우징]바다 가림막"/>
+		<image name="icon_item_p_h_barrack_08_pot" file="\icon\housing\icon_item_p_h_barrack_08_pot_1.png" imgrect="0 0 256 256" CMM_Caption="[개인 하우징]바다 산호초 탁자"/>
+		<image name="icon_item_p_h_barrack_08_sofa" file="\icon\housing\icon_item_p_h_barrack_08_sofa_1.png" imgrect="0 0 256 256" CMM_Caption="[개인 하우징]바다 산호색 소파"/>
+		<image name="icon_item_p_h_barrack_08_stole" file="\icon\housing\icon_item_p_h_barrack_08_stole_1.png" imgrect="0 0 256 256" CMM_Caption="[개인 하우징]바다 산호색 스툴"/>
+		<image name="icon_item_p_h_barrack_08_tablepot" file="\icon\housing\icon_item_p_h_barrack_08_tablepot_1.png" imgrect="0 0 256 256" CMM_Caption="[개인 하우징]바다 산호 탁자"/>
+		<image name="icon_item_p_h_barrack_08_treasurebox" file="\icon\housing\icon_item_p_h_barrack_08_treasurebox_1.png" imgrect="0 0 256 256" CMM_Caption="[개인 하우징]바다 보물상자"/>
+		<image name="icon_item_p_h_barrack_08_waterbottle" file="\icon\housing\icon_item_p_h_barrack_08_waterbottle_1.png" imgrect="0 0 256 256" CMM_Caption="[개인 하우징]바다 물병"/>
 	</imagelist>
 	<imagelist category="payment">
 		<image name="icon_item_hpPotionPremium" file="\icon\payment\icon_item_hpPotionPremium.png" imgrect="0 0 256 256" CMM_Caption="HP포션"/>
@@ -6573,15 +6683,23 @@
 		<image name="icon_item_devilrabbit_f" file="\icon\payment\icon_item_devilrabbit.png" imgrect="0 0 256 256"/>
 		<image name="icon_item_2019halloween01_f" file="\icon\payment\icon_item_2019halloween01_f.png" imgrect="0 0 256 256"/>
 		<image name="icon_item_2019halloween01_m" file="\icon\payment\icon_item_2019halloween01_m.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_lens_emerald" file="\icon\payment\icon_item_lens_emerald.png" imgrect="0 0 256 256" CMM_Caption="에메랄드 렌드"/>
+		<image name="icon_item_lens_scarlet" file="\icon\payment\icon_item_lens_scarlet.png" imgrect="0 0 256 256" CMM_Caption="스칼렛 렌즈"/>
 		<image name="icon_item_Tos_squad_weapon" file="\icon\payment\icon_item_Tos_squad_weapon.png" imgrect="0 0 256 256" CMM_Caption="2019_전대물 무기상자"/>
 		<image name="icon_item_TOS_squad_Full" file="\icon\payment\icon_item_TOS_squad_Full.png" imgrect="0 0 256 256" CMM_Caption="2019_전대물 전체 세트 상자"/>
 		<image name="icon_item_2019hallowen_weapon" file="\icon\payment\icon_item_2019hallowen_weapon.png" imgrect="0 0 256 256" CMM_Caption="2019_할로윈 무기선택상자"/>
+		<image name="icon_item_balloon_skin_rolling_door_01" file="\icon\payment\icon_item_balloon_skin_rolling_door_01.png" imgrect="0 0 256 256" CMM_Caption="핑크하트 말풍선_마이크"/>
+		<image name="icon_item_balloon_skin_rolling_door_02" file="\icon\payment\icon_item_balloon_skin_rolling_door_02.png" imgrect="0 0 256 256" CMM_Caption="블루다이아 말풍선_마이크"/>
 		<image name="hair_undercuttail" file="\icon\payment\hair_undercuttail.png" imgrect="0 0 256 256" CMM_Caption="투블럭 포니테일"/>
 		<image name="hair_twintailchignon" file="\icon\payment\hair_twintailchignon.png" imgrect="0 0 256 256" CMM_Caption="트윈테일 시뇽"/>
+		<image name="icon_item_balloon_skin_rolling_door_01_pic" file="\icon\payment\icon_item_balloon_skin_rolling_door_01_pic.png" imgrect="0 0 256 256" CMM_Caption="핑크하트 말풍선"/>
+		<image name="icon_item_balloon_skin_rolling_door_02_pic" file="\icon\payment\icon_item_balloon_skin_rolling_door_02_pic.png" imgrect="0 0 256 256" CMM_Caption="블루다이아 말풍선"/>
 		<image name="icon_item_awakstone_a" file="\icon\payment\icon_item_awakstone_a.png" imgrect="0 0 128 128" CMM_Caption="빛나는 각성석 상자_10개"/>
 		<image name="icon_item_awakstone_s" file="\icon\payment\icon_item_awakstone_s.png" imgrect="0 0 256 256" CMM_Caption="빛나는 각성석 상자_30개"/>
 		<image name="item_icon_enchantjewel_s" file="\icon\payment\item_icon_enchantjewel_s.png" imgrect="0 0 256 256" CMM_Caption="인챈트 쥬얼"/>
 		<image name="icon_item_select_transcendSet_s" file="\icon\payment\icon_item_select_transcendSet_s.png" imgrect="0 0 256 256" CMM_Caption="초월 선택 상자"/>
+		<image name="icon_item_dia_Moru_Box_S" file="\icon\payment\icon_item_dia_Moru_Box_S.png" imgrect="0 0 256 256" CMM_Caption="다이아 모루 상자"/>
+		<image name="icon_item_Ability_coupon_box_Sx3" file="\icon\payment\icon_item_Ability_coupon_box_Sx3.png" imgrect="0 0 256 256" CMM_Caption="특성 초기화 S x3 상자"/>
 	</imagelist>
 	<imagelist category="seal">
 		<image name="icon_seal_yellow_cc_A1" file="\icon\seal\seal_yellow_cc_A1.tga" imgrect="0 0 80 80"/>

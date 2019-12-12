@@ -171,6 +171,13 @@
                                 <Str Str="흰 까마귀의 영면지"/>
                                 <Str Str="whitecrow_first_kill"/>
                             </ToolScp>
+                            <ToolScp Scp="EXEC_DUNGEON_GIVE_TAKE_SOBJ_ACHIEVE_TX" Client="NO" UseSleep="NO">
+								<Str Str="Raid_boss_Skiaclipse"/>
+								<Str Str="None"/>
+								<Str Str="59262"/>
+								<Str Str="LEGEND_RAID_WHITE_CROW"/>
+								<Str Str="NO"/>
+							</ToolScp>
                             <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
                                 <Str Str="FAIL_CHECK"/>
                             </ToolScp>

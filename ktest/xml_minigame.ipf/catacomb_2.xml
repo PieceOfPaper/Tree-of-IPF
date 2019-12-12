@@ -490,9 +490,8 @@
                     </Event>
                     <Event execCount="1" eventName="giveItem">
                         <execList>
-                            <ToolScp Scp="MGAME_EXEC_GIVE_TAKE_SOBJ_ACHIEVE_TX" Client="NO" UseSleep="NO">
-                                <Str Str="Gacha_E_001/1"/>
-                                <Str Str="None"/>
+                            <ToolScp Scp="EXEC_DUNGEON_GIVE_TAKE_SOBJ_ACHIEVE_TX" Client="NO" UseSleep="NO">
+                                <Str Str="Request_Mission6"/>
                                 <Str Str="None"/>
                                 <Str Str="None"/>
                                 <Str Str="Request_Mission6_SUCCESS"/>

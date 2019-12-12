@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by imc (imc) -->
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by My (IMCGames Co., Ltd) -->
 <idspace id="ClientMessage">
 	<Category Name="ErrorMsg">
 		<Class ClassID="1" Data="DirectX 9.0c 이상의 버전이 설치되어 있어야 합니다"/>
@@ -328,13 +328,21 @@
 		<Class ClassID="2291" ClassName="PleaseSelectSetOption" Data="세트 옵션을 선택해주세요."/>
 		<Class ClassID="2292" ClassName="CantUseInBattleState" Data="전투중엔 사용하실 수 없습니다."/>
 		<Class ClassID="2293" ClassName="CantUseInSkillsCoolDown" Data="스킬이 재사용 대기시간 중이거나 오버히트를 소모한 상태에서 사용하실 수 없습니다."/>
+
+<Class ClassID="2294" ClassName="InvalidIndex_AccountWareHouse" Data="잘못된 아이템 인덱스 요청입니다."/>
+    <Class ClassID="2295" ClassName="NotExist_AccountWahreHouseTicket" Data="아이템이 존재하지 않습니다."/>    
+    <Class ClassID="2297" ClassName="BasicAccountWarehouse" Data="기본 창고"/>
+    <Class ClassID="2298" ClassName="AdditionalAccountWarehouse" Data="추가 창고"/>
+    <Class ClassID="2299" ClassName="CantUseAdditional_AccountWarehouse" Data="추가 창고를 사용하실 수 없습니다."/>
 		<Class ClassID="2302" ClassName="selectrecipe" Data="레시피 선택"/>
 		<Class ClassID="2305" ClassName="UseUp{LEVEL}{GRADE}Jewell" Data="{LEVEL} 레벨의 {GRADE} 인챈트 쥬얼 아이템을 모두 사용하였습니다.{nl}인챈트 쥬얼 UI를 닫으시겠습니까?"/>
 		<Class ClassID="2304" ClassName="ExistingIcordeleted" Data="기존의 장착된 아이커는 소멸됩니다.{nl}계속 진행하시겠습니까?"/>
 		<Class ClassID="2306" ClassName="PleasePrefixItem" Data="세트 옵션을 부여할 아이템을 등록해주세요"/>
 		<Class ClassID="2307" ClassName="ReallyUseAbilityPointResetItem_arts" Data="사용시 해당 직업의 모든 아츠 특성을 초기화 하며 특성 포인트 및 [보상용] 미식별 신비한 서 가 환급됩니다.{nl}계속 진행하시겠습니까?"/>
 		<Class ClassID="2308" ClassName="DontHaveThatJob" Data="해당 직업을 보유하고 있지 않습니다."/>
+<Class ClassID="2309" ClassName="CantUseCuzStackItemInAdditionalTab" Data="추가 창고에 같은 종류의 스택형 아이템이 존재하기 때문에 이용하실 수 없습니다. 추가 창고에서 스택형 아이템을 모두 찾으신 후 이용 가능합니다."/>
 		<Class ClassID="2310" ClassName="ReallyUseAbilityPointResetItem_OneAbility" Data="사용시 해당 특성을 초기화 하며 특성 포인트 및 [보상용] 미식별 신비한 서 가 환급됩니다.{nl}계속 진행하시겠습니까?"/>
+		<Class ClassID="2311" ClassName="ExceedAdditionalAccountwarehouse" Data="확장 가능한 기본 창고 슬롯이 최대치에 도달하였습니다."/>
 	</Category>
 	<Category Name="ClassContents">
 		<Class ClassID="2500" ClassName="FullWeeklyGainClassResetExp" Data="주간 획득 가능한 클래스 변경 포인트를 모두 달성하였습니다."/>
@@ -653,6 +661,7 @@
 		<Class ClassID="4243" ClassName="HiddenAbility" Data="아츠"/>
 		<Class ClassID="4244" ClassName="SelectBox_Default" Data="선택 상자"/>
 		<Class ClassID="4245" ClassName="NonTradableItemIsNotForCompanion" Data="팀 창고 이동이 불가능한 아이템은 컴패니언에게 착용시킬 수 없습니다."/>
+		<Class ClassID="4246" ClassName="NotAvailableInThisContents" Data="현재 진행중인 컨텐츠 내에서는 사용하실 수 없습니다."/>
 	</Category>
 	<Category Name="ItemTooltip">
 		<Class ClassID="5001" ClassName="CoolDown : {Sec} Sec" Data="재사용 대기시간 : {Sec}초"/>
@@ -1161,7 +1170,7 @@
 		<Class ClassID="10457" ClassName="OnlyTokenUserAbilCount" Data="토큰 이용자만 특성 레벨을 한번에 올릴 수 있습니다."/>
 		<Class ClassID="10458" ClassName="ShopNameMustLongerThen{ENG_LEN}{KOR_LEN}" Data="상점 이름은 최대 한글 {KOR_LEN}자,{nl}영문 {ENG_LEN}자 이내 이어야 합니다."/>
 		<Class ClassID="10459" ClassName="ApprisePriceMustLowerThan{PRICE}" Data="감정 비용은 {PRICE} 실버 이하 이어야 합니다."/>
-		<Class ClassID="10460" ClassName="TeamWarehouseEnable" Data="팀 창고 +30칸 증가"/>
+		<Class ClassID="10460" ClassName="TeamWarehouseEnable" Data="팀 창고 +30칸 증가, 추가 창고 활성화"/>
 		<Class ClassID="10461" ClassName="CantLogoutWhileMatching" Data="매칭 요청 중에는 로그아웃 할 수 없습니다."/>
 		<Class ClassID="10462" ClassName="ExceedMaxAbilityPoint" Data="특성 포인트 보유 한도를 초과합니다."/>
 		<Class ClassID="10463" ClassName="NotEnoughAbilityPoint" Data="특성 포인트가 부족합니다."/>
@@ -4624,7 +4633,9 @@
 		<Class ClassID="26991" ClassName="FLASHMOB_EVENT_PROGRESS_MSG1" Data="이벤트에 참여하셨습니다!"/>
 		<Class ClassID="27000" ClassName="GM_MON_SUMMON_MSG1" Data="이벤트 몬스터 {COUNT}마리 생성 완료!"/>
 		<Class ClassID="27010" ClassName="GM_BUFF_MSG1" Data="[{BUFF}]버프를 선물 받으셨습니다!"/>
-		<Class ClassID="27011" ClassName="GM_BUFF_MSG2" Data="착용 중인 모든 장비의 내구도가 5씩 회복됩니다!"/>
+		<Class ClassID="27011" ClassName="GM_BUFF_MSG2" Data="GM의 응원을 받아 착용 중인 모든 장비의 내구도가 5씩 회복됩니다!"/>
+		<Class ClassID="27012" ClassName="GM_BUFF_MSG3" Data="현재 레드옥스 버프가 적용 중입니다."/>
+		<Class ClassID="27013" ClassName="GM_BUFF_MSG4" Data="현재 레드옥스 - GM의 응원이 적용 중입니다."/>
 		<Class ClassID="27020" ClassName="DAYCHECK_EVENT_GETITEM" Data="출석 이벤트{nl}시즌 : {SEASON}{nl}{COUNT}일차 달성{nl}보상 : {ITEMNAME} {ITEMCOUNT}개"/>
 		<Class ClassID="27021" ClassName="DAYCHECK_EVENT_PCDATA" Data="출석 이벤트{nl}시즌 : {SEASON}{nl}{COUNT}일차 달성"/>
 		<Class ClassID="27022" ClassName="DAYCHECK_EVENT_SILVER_GET" Data="대박 실버 상자 보상{nl}{COUNT} 실버 획득!"/>
@@ -5706,12 +5717,13 @@
 		<Class ClassID="41129" ClassName="EVENT_1909_MINI_FULLMOON_BUFF_RESULT_3" Data="[이벤트] 보름달 조각이 부족합니다."/>
 		<Class ClassID="41130" ClassName="EVENT_1909_MINI_FULLMOON_MGS_4" Data="{#FF0000}이벤트 설명을 다시 물어 본다{/}"/>
 		<Class ClassID="41131" ClassName="EVENT_1910_HALLOWEEN_MSG1" Data="맛이 이상한 할로윈 사탕을 소지하고 있지 않습니다."/>
-		<Class ClassID="41132" ClassName="EVENT_1910_HALLOWEEN_MSG2" Data="보너스 목표 {MON_NAME} 20마리 처치 완료"/>
-		<Class ClassID="41133" ClassName="EVENT_1910_HALLOWEEN_MSG3" Data="보너스 목표 {MON_NAME} 처치 완료"/>
+		<Class ClassID="41132" ClassName="EVENT_1910_HALLOWEEN_MSG2" Data="보너스 목표 {MON_NAME} 20마리 처치 완료. 이벤트 던전 종료 시 보너스 보상이 지급됩니다."/>
+		<Class ClassID="41133" ClassName="EVENT_1910_HALLOWEEN_MSG3" Data="보너스 목표 {MON_NAME} 처치 완료. 이벤트 던전 종료 시 보너스 보상이 지급됩니다."/>
 		<Class ClassID="41134" ClassName="EVENT_1910_HALLOWEEN_MSG4" Data="오늘 획득 할 수 있는 주화를 모두 획득했습니다."/>
-		<Class ClassID="41135" ClassName="EVENT_1910_HALLOWEEN_MSG5" Data="할로윈 밤의 소동에서 오늘 획득 할 수 있는 주화를 모두 획득했습니다."/>
+		<Class ClassID="41135" ClassName="EVENT_1910_HALLOWEEN_MSG5" Data="할로윈 밤의 소동에서 오늘 획득 할 수 있는 사탕을 모두 획득했습니다."/>
 		<Class ClassID="41136" ClassName="EVENT_1910_HALLOWEEN_SHOP" Data="할로윈 이벤트 상점"/>
-		<Class ClassID="41137" ClassName="EVENT_1910_HALLOWEEN_MSG6" Data="오늘 사탕을 {@st66d_y}{s18}{GET_BONUS}{/}{/}개 획득하였으며, 보너스 획득량은 총 {@st66d_y}{s18}{GET_EVENT}{/}{/}개 입니다. 총 획득량은 {@st66d_y}{s18}{GET_TOTAL}{/}{/}개 입니다."/>
+		<Class ClassID="41137" ClassName="EVENT_1910_HALLOWEEN_MSG6" Data="오늘 사탕을 {@st66d_y}{s18}{GET_BONUS}{/}{/}개 획득하였으며, 보너스 획득량은 총 {@st66d_y}{s18}{GET_EVENT}{/}{/}개 입니다.{nl}총 획득량은 {@st66d_y}{s18}{GET_TOTAL}{/}{/}개 입니다."/>
+		<Class ClassID="41138" ClassName="EVENT_1910_HALLOWEEN_MSG7" Data="곧 {@st66d_y}{s20}달콤한 할로윈 사탕{/}{/}이 지급됩니다. 사탕 지급 전 종료시 정상적으로 아이템이 지급되지 않을 수 있습니다."/>
 		<Class ClassID="41147" ClassName="EVENT_QOS_END_1" Data="퀴즈 이벤트가 종료되었습니다.{nl}더 재밌는 퀴즈로 찾아오겠습니다!"/>
 		<Class ClassID="41148" ClassName="EVENT_QOS_END_2" Data="퀴즈 오브 세이비어 이벤트 시즌1이 종료되었습니다.{nl}더 재밌는 퀴즈로 찾아오겠습니다.{nl}감사합니다."/>
 		<Class ClassID="41149" ClassName="EVENT_QOS_START_1" Data="퀴즈 오브 세이비어!{nl}5분 후 퀴즈 이벤트가 시작됩니다."/>
@@ -8863,7 +8875,7 @@
 		<Class ClassID="100089" ClassName="IgnoreLinkBuff" Data="조인트 페널티 면역!!"/>
 		<Class ClassID="100090" ClassName="MackangdalOFF" Data="마캉달 무적 효과 해제!!"/>
 		<Class ClassID="100091" ClassName="ShowBattleInfo{ONOFF}" Data="전투 관련 수치 표시 {ONOFF}"/>
-		<Class ClassID="100092" ClassName="DiminishingBuffTime{ONOFF}" Data="군중제어 지속시간 점감 {ONOFF}"/>
+		<Class ClassID="100092" ClassName="DisableDiminishingBuffTime{ONOFF}" Data="군중제어 지속시간 점감 무시 {ONOFF}"/>
 		<Class ClassID="100093" ClassName="show_temporary_resist" Data="일시 면역!"/>
 		<Class ClassID="100094" ClassName="skill_visibletalent2" Data="비지블 탤런트 공격 (최대 대미지 도달!)"/>
 	</Category>
@@ -10127,6 +10139,8 @@
 		<Class ClassID="131072" ClassName="PVPReward" Data="보상 받기"/>
 		<Class ClassID="131074" ClassName="CantExcutePartyInvite" Data="현재 맵에서는 파티 초대기능을 사용하실 수 없습니다."/>
 		<Class ClassID="131076" ClassName="CantUseNow" Data="현재 사용할 수 없는 기능입니다."/>
+		<Class ClassID="131077" ClassName="BuyableCountPerAccount_{Count}" Data="팀 당 {Count}개 구매 가능"/>
+		<Class ClassID="131078" ClassName="OverAccountBuyCount" Data="팀 당 구매 가능한 수량을 초과했습니다."/>
 	</Category>
 	<Category Name="MonInfo">
 		<Class ClassID="132001" ClassName="MonInfo_Size" Data="크기"/>
@@ -13903,6 +13917,31 @@
 		<Class ClassID="815050" ClassName="Guild_Housing_Remain_Mileage" Data="예상 잔여 마일리지"/>
 		<Class ClassID="815051" ClassName="Mileage_Name" Data="마일리지"/>
 	</Category>
+	<Category Name="PersonalHousing">
+		<Class ClassID="815100" ClassName="PH_SEL_DLG_1" Data="개인 하우징 활성화"/>
+		<Class ClassID="815101" ClassName="PH_SEL_DLG_2" Data="개인 하우징 이동"/>
+		<Class ClassID="815102" ClassName="PH_SEL_DLG_3" Data="파티원의 개인 하우징으로 이동"/>
+		<Class ClassID="815103" ClassName="PH_SEL_DLG_4" Data="개인 하우징 테마 변경"/>
+		<Class ClassID="815104" ClassName="PH_SEL_DLG_5" Data="가구 상점"/>
+		<Class ClassID="815105" ClassName="PH_SEL_DLG_6" Data="개인 하우징 포인트 사용"/>
+		<Class ClassID="815106" ClassName="ANSWER_JOIN_PH_1" Data="개인 하우징으로 이동하시겠습니까?"/>
+		<Class ClassID="815107" ClassName="ANSWER_JOIN_PH_2" Data="파티원의 개인 하우징으로 이동하시겠습니까?"/>
+		<Class ClassID="815108" ClassName="ANSWER_JOIN_PH_2_NO_1" Data="파티에 속해있지 않습니다."/>
+		<Class ClassID="815109" ClassName="ANSWER_JOIN_PH_2_NO_2" Data="이동할 수 있는 개인 하우징이 없습니다."/>
+		<Class ClassID="815110" ClassName="ANSWER_OUT_PH_1" Data="개인 하우징에서 나가시겠습니까?"/>
+		<Class ClassID="815111" ClassName="PH_CANT_JOIN_LV_LIMIT_1" Data="개인 하우징은 팀 레벨 5부터 이용할 수 있습니다."/>
+		<Class ClassID="815112" ClassName="PERSONAL_HOUSING_SIT_INTERRACTION_1" Data="개인 하우징은 팀 레벨 5부터 이용할 수 있습니다."/>
+		<Class ClassID="815113" ClassName="PERSONAL_HOUSING_SIT_INTERRACTION_2" Data="앉는다"/>
+		<Class ClassID="815114" ClassName="PERSONAL_HOUSING_PC_CMD_MSG_1" Data="현재 적립된 개인 하우징 포인트 ( {@st66d_y}{s18}{POINT}{/}{/}  / {MAXPOINT} ){nl}개인 하우징 {@st66d_y}{s18}{LV}{/}{/} 단계, 배치 포인트{@st66d_y}{s18}{PLACE_LV}{/}{/}점"/>
+		<Class ClassID="815115" ClassName="PERSONAL_HOUSING_POINT_CHECK_MSG_1" Data="현재 적립된 개인 하우징 포인트는 {@st66d_y}{s18}{POINT}{/}{/}점입니다.{nl}앞으로 {REMAIN_POINT}점 더 모을 수 있습니다."/>
+		<Class ClassID="815116" ClassName="PH_POINT_SHOP_DLG_1" Data="포인트를 보상과 교환한다"/>
+		<Class ClassID="815117" ClassName="PH_POINT_SHOP_DLG_SEL_1" Data="{TEAM_NAME}님의 개인 하우징은 {@st66d_y}{s18}{LV}{/}{/} 단계, 배치 포인트는 {@st66d_y}{s18}{PLACE_LV}{/}{/}점 입니다.{nl}각 단계별로 교환할 수 있는 주거 정착 물품은 다음과 같습니다.{nl}{#003399}1 단계 주거 정착 물품{/}  - 배치 포인트 100점 미만{nl}{#003399}2 단계 주거 정착 물품{/}  - 배치 포인트 200점 미만{nl}{#003399}3 단계 주거 정착 물품{/}  - 배치 포인트 200점 이상{np}단계별 주거 정착 물품에 필요한 포인트는 다음과 같습니다.{nl}{#003399}1 단계 주거 정착 물품{/}  - 개인 하우징 포인트 50{nl}{#003399}2 단계 주거 정착 물품{/}  - 개인 하우징 포인트 100{nl}{#003399}3 단계 주거 정착 물품{/}  - 개인 하우징 포인트 150{nl}※주거 정착 물품과 단계는 주기적으로 교체됩니다."/>
+		<Class ClassID="815118" ClassName="PH_POINT_SHOP_POINT_TRADE_1" Data="1 단계 주거 정착 물품과 교환한다"/>
+		<Class ClassID="815119" ClassName="PH_POINT_SHOP_POINT_TRADE_2" Data="2 단계 주거 정착 물품과 교환한다"/>
+		<Class ClassID="815120" ClassName="PH_POINT_SHOP_POINT_TRADE_3" Data="3 단계 주거 정착 물품과 교환한다"/>
+		<Class ClassID="815121" ClassName="PH_POINT_SHOP_POINT_TRADE_CANT_1" Data="개인 하우징 포인트가 부족 합니다"/>
+		<Class ClassID="815122" ClassName="PH_POINT_SHOP_POINT_TRADE_SUCCESS_1" Data="개인 하우징"/>
+	</Category>
 	<Category Name="Ancient">
 		<Class ClassID="820000" ClassName="AncientMonRegItemUse" Data="{@st66d_y}{s20}{monName}{/}{/} 몬스터가 등록됩니다. 획득하시겠습니까?"/>
 		<Class ClassID="820001" ClassName="Evolve" Data="진화"/>
@@ -14154,6 +14193,7 @@
 		<Class ClassID="514010" ClassName="TableLand_ReturnCity{SEC}" Data="잠시 후 베다 고원으로 귀환됩니다. ({SEC}초)"/>
 		<Class ClassID="514011" ClassName="RAID_FIRST_KILL_NOTICE" Data="{partyMember} 파티가 {clearMin}분 {clearSec}초에 {raidName}을/를 처음으로 클리어했습니다!"/>
 		<Class ClassID="514012" ClassName="RAID_NEW_RECORD" Data="{partyMember} 파티가 {clearMin}분 {clearSec}초에 {raidName}의 클리어 시간을 단축했습니다!"/>
+
 	    <Class ClassID="514013" ClassName="SOLO_RAID_FIRST_KILL_NOTICE" Data="{teamName}가 {clearMin}분 {clearSec}초에 {raidName}을/를 처음으로 클리어했습니다!"/>
 	    <Class ClassID="514014" ClassName="SOLO_RAID_NEW_RECORD" Data="{teamName}가 {clearMin}분 {clearSec}초에 {raidName}을/를 처음으로 클리어했습니다!"/>
 		<Class ClassID="514015" ClassName="MORINGPONIA_NPC_MSG1" Data="지원? 고작이게 전부인가?"/>
@@ -14171,7 +14211,15 @@
 		<Class ClassID="514027" ClassName="MORINGPONIA_NPC_MSG5_4" Data="보급품이 점점 떨어지고 있어.."/>
 		<Class ClassID="514028" ClassName="MORINGPONIA_NPC_MSG5_5" Data="내 고향은 안전할까? 소식을 들은 지 한참이 지났어.."/>
 		<Class ClassID="514029" ClassName="MORINGPONIA_NPC_MSG5_6" Data="이상 없다! 아직 싸울 수 있어!"/>
-	</Category>
+	    <Class ClassID="514030" ClassName="MORINGPONIA_MONSTER_MSG1" Data="{s20}모링포니아가 {#ff6d00}{NAME}{/}을(를) 주시합니다.{/}"/>
+		<Class ClassID="514031" ClassName="TANTALISER_PATTERN_DEBUFF_MSG" Data="{s20}탄타이저가 당신에게 {#ff6d00}마력 응축{/} 디버프를 부여합니다.{/}"/>
+		<Class ClassID="514032" ClassName="MORINGPONIA_SUMMON_MSG_01" Data="{s20}검은 빅 그리바가 생성되었습니다.{/}"/>
+		<Class ClassID="514033" ClassName="MORINGPONIA_SUMMON_MSG_02" Data="{s20}모링포니아가 {#ff6d00}리타스워트{/}를 소환 중입니다.{nl}소환 포탈을 찾아 암흑 디버프를 해제하고 {#ff6d00}리타스워트{/}를 처치하십시오.{/}"/>
+		<Class ClassID="514034" ClassName="MORINGPONIA_CURSE_PATTERN_MSG" Data="{s20}모링포니아가 {#ff6d00}{NAME}{/}에게 저주를 걸었습니다!{nl}저주 대상과 이격하여 저주에 대비하십시오.{/}"/>
+		<Class ClassID="514035" ClassName="TANTALISER_POLARITY_PATTERN_START_MSG" Data="{s20}잠시 후 탄타이저가 극성 디버프를 부여합니다.{nl}진영을 갖추어 극성 디버프에 대비하십시오.{/}"/>
+		<Class ClassID="514036" ClassName="TANTALISER_POLARITY_PATTERN_CHANGE_MSG" Data="{s20}잠시 후 극성이 변환됩니다.{/}"/>
+        </Category>
+
 	<Category Name="SoloDungeon">
 		<Class ClassID="513001" ClassName="SoloDungeonStageMSG" Data="스테이지의 몬스터가 몰려옵니다. 모두 처치해 주세요!"/>
 		<Class ClassID="513002" ClassName="SoloDungeonSelectMsg_1" Data="이공간에 들어간다(권장레벨:300)"/>
@@ -14295,6 +14343,18 @@
 		<Class ClassID="519056" ClassName="Housing_Cant_Do_It_While_Arrangement" Data="배치 중에는 사용할 수 없습니다."/>
 		<Class ClassID="519057" ClassName="Housing_Restricted_To_Use_When_Using_Joypad" Data="조이패드 사용 시, 하우징 편집 모드 이용이 제한됩니다."/>
 		<Class ClassID="519058" ClassName="Housing_Cant_Extension_While_Agit_Raid" Data="길드 레이드 중에는 아지트를 확장 할 수 없습니다."/>
+		<Class ClassID="519059" ClassName="Housing_Cant_Move_Attached_Furniture" Data="벽면에 배치된 가구가 있어서 가구를 이동 할 수 없습니다."/>
+		<Class ClassID="519060" ClassName="Housing_Cant_Remove_Attached_Furniture" Data="벽면에 배치된 가구가 있어서 가구를 제거 할 수 없습니다."/>
+		<Class ClassID="519061" ClassName="Housing_Really_Remove_Wall_Furniture{WORD}" Data="벽면에 배치된 가구들이 함께 제거 됩니다. {nl}정말 {ol}{@st66d_y} {WORD}{/}{/}하시겠습니까?"/>
+		<Class ClassID="519062" ClassName="Housing_Cant_Move_Something_On_The_Floor" Data="(용어 정리 필요) 가구 위에 가구가 있어서 가구를 이동 할 수 없습니다."/>
+		<Class ClassID="519063" ClassName="Housing_Cant_Remove_Something_On_The_Floor" Data="(용어 정리 필요) 가구 위에 가구가 있어서 가구를 제거 할 수 없습니다."/>
+		<Class ClassID="519064" ClassName="Housing_Page_Really_Load{PAGE_NUMBER}" Data="{PAGE_NUMBER}번 페이지에 저장된 가구 배치 정보를 불러오시겠습니까?"/>
+		<Class ClassID="519065" ClassName="Housing_Page_Not_Enough_Furniture_Item" Data="가구 아이템이 부족합니다."/>
+		<Class ClassID="519066" ClassName="Housing_All_Furniture" Data="모든 가구"/>
+		<Class ClassID="519067" ClassName="Housing_Empty_Furniture" Data="배치된 가구가 없습니다."/>
+		<Class ClassID="519068" ClassName="Housing_Page_Really_Save{PAGE_NUMBER}" Data="{PAGE_NUMBER}번 페이지에 가구 배치 정보가 이미 저장되어 있습니다.{nl}{nl}덮어쓰시겠습니까?"/>
+		<Class ClassID="519069" ClassName="Housing_Page_Really_Delete{PAGE_NUMBER}" Data="{PAGE_NUMBER}번 페이지의 가구 배치 정보를 삭제하시겠습니까?"/>
+		<Class ClassID="519070" ClassName="ReallyChange?" Data="변경하시겠습니까?"/>
 	</Category>
 	<Category Name="BgmPlayer">
 		<Class ClassID="520001" ClassName="BgmPlayer_NotExistFile" Data="존재하지 않는 파일 입니다."/>
@@ -14349,5 +14409,26 @@
 		<Class ClassID="560008" ClassName="kupole_emotion06" Data="{nl} {nl}사용한 캐릭터가 채팅 이모티콘을 흭득합니다.{nl} {nl}{#FF0000}사용 후 복구가 불가능합니다.{nl} {nl}{@st66d_y}이모티콘을 습득하시겠습니까?"/>
 		<Class ClassID="560009" ClassName="medeina_emotion01" Data="{nl} {nl}사용한 캐릭터가 채팅 이모티콘을 흭득합니다.{nl} {nl}{#FF0000}사용 후 복구가 불가능합니다.{nl} {nl}{@st66d_y}이모티콘을 습득하시겠습니까?"/>
 		<Class ClassID="560010" ClassName="medeina_emotion02" Data="{nl} {nl}사용한 캐릭터가 채팅 이모티콘을 흭득합니다.{nl} {nl}{#FF0000}사용 후 복구가 불가능합니다.{nl} {nl}{@st66d_y}이모티콘을 습득하시겠습니까?"/>
+		<Class ClassID="560011" ClassName="motion_medeina_emotion01" Data="{nl} {nl}사용한 캐릭터가 채팅 이모티콘을 흭득합니다.{nl} {nl}{#FF0000}사용 후 복구가 불가능합니다.{nl} {nl}{@st66d_y}이모티콘을 습득하시겠습니까?"/>
+		<Class ClassID="560012" ClassName="motion_medeina_emotion02" Data="{nl} {nl}사용한 캐릭터가 채팅 이모티콘을 흭득합니다.{nl} {nl}{#FF0000}사용 후 복구가 불가능합니다.{nl} {nl}{@st66d_y}이모티콘을 습득하시겠습니까?"/>
+		<Class ClassID="560013" ClassName="emoticon_Normal" Data="일반"/>
+		<Class ClassID="560014" ClassName="emoticon_Motion" Data="모션"/>
+	</Category>
+	<Category Name="Gesture">
+		<Class ClassID="570000" ClassName="Already_Gesture" Data="이미 보유한 제스쳐입니다."/>
+		<Class ClassID="570001" ClassName="Gesture_WAVE" Data="{nl} {nl}모든 캐릭터가 제스쳐를 흭득합니다.{nl} {nl}{@st66d_y}제스쳐를 습득하시겠습니까?"/>
+	</Category>
+	<Category Name="ChatBalloon">
+		<Class ClassID="580000" ClassName="ChatBalloon_YESSCP_message1" Data="{nl} {nl}모든 캐릭터가 말풍선 스킨을 획득하며, 캐릭터 설정에서 말풍선 스킨을 변경할 수 있습니다.{nl}"/>
+		<Class ClassID="580001" ClassName="ChatBalloon_YESSCP_message2" Data="{nl} {nl}현재 기간제 형태의 동일한 말풍선을 사용 중이며, 해당 아이템 사용 시 사용 기한이 늘어납니다.{nl}"/>
+		<Class ClassID="580002" ClassName="ChatBalloon_YESSCP_message3" Data="{nl} {nl}현재 기간 제한이 없는 동일한 말풍선을 사용중입니다.{nl}"/>
+		<Class ClassID="580003" ClassName="ChatBalloon_YESSCP_message4" Data="{nl} {nl}현재 기간제 형태의 동일한 말풍선을 사용 중이며, 해당 아이템 사용 시 사용 중인 말풍선의 기간 제한이 없어집니다.{nl}"/>
+		<Class ClassID="580004" ClassName="ChatBalloon_YESSCP_message5" Data="{nl} {nl}{@st66d_y}말풍선을 획득하시겠습니까?{/}{nl}"/>
+	</Category>
+	<Category Name="ContentsTotalShop">
+		<Class ClassID="590000" ClassName="Weekly_Total_Point_Get_Fail_Msg" Data="이번주 통합 포인트를 더이상 획득할 수 없습니다."/>
+		<Class ClassID="590001" ClassName="Weekly_Total_Point_Get_Success_Msg{Point}{NowPoint}{MaxPoint}{TotalPoint}" Data="{#33FF33}{Point}의 통합 포인트를 획득했습니다.{nl}(주간 획득 가능한 통합 포인트 : {NowPoint}/{MaxPoint}){nl}(현재 누적된 통합 포인트 : {TotalPoint}){/}"/>
+		<Class ClassID="590002" ClassName="CONTENTS_TOTAL_SHOP" Data="콘텐츠 통합 상점"/>
+		<Class ClassID="590003" ClassName="CONTENTS_TOTAL_SHOP_Tooltip" Data="다양한 콘텐츠를 클리어해 통합 포인트를 획득할 수 있습니다.{nl}- 레벨 던전 : 10{nl}- 유니크 레이드 : 20{nl}- 유니크 레이드(캐주얼) : 20{nl}- 레전드 레이드 : 50{nl}- 레전드 레이드(캐주얼) : 30{nl}- 업힐 디펜스 미션(보통 10단계 이상) : 5{nl}- 업힐 디펜스 미션(어려움 5단계 이상) : 20{nl}- 업힐 디펜스 미션(매우 어려움 5단계 이상) : 50{nl}- 살러스 수녀원 미션 : 10{nl}- 의뢰소 미션 : 5{nl}- 챌린지 모드(5단계 이상) : 5{nl}- 챌린지 모드(6단계 이상) : 20{nl}- 챌린지 모드(7단계 이상) : 30{nl}* 통합 포인트는 주간 최대 2000 포인트까지 팀 단위로 누적됩니다.{nl}* 주간 누적량은 매주 월요일 오전 6시에 초기화됩니다.{nl}* 누적된 통합 포인트는 3개월 단위로 초기화됩니다."/>
 	</Category>
 </idspace>

@@ -4,6 +4,9 @@
 			<HitList>
 				<Frame Angle="0" AniTime="0" Dist="0" ForceATK="0" HitCount="1" Length="40" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="0" Type="SQUARE" Width="20" />
 			</HitList>
+            <EtcList>
+                <Scp Client="NO" Scp="SKL_SPEND_COOLDOWN_SP" Time="0" UseSleep="NO" />
+            </EtcList>
 		</MainSkl>
 	</Skill>
 	<Skill Name="Mon_Velhider_Skill_3">

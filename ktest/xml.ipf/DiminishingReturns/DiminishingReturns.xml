@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by IMC (IMCGames Co., Ltd) -->
 <!-- CC(Crowd Control) 점감관련 상수들, 점감 관련 상수를 세팅할 시에, Name에 RefleshTime, ApplyingCount, Ratio 을 사용하여야 한다. -->
 <!-- 상수 관련 Name은 RefleshTime, ApplyingCount, Ratio 을 반드시 사용하여야 한다. -->
 <!-- 그룹 구분은 반드시 [Group_숫자] 형식을 따라야 한다.-->
@@ -69,8 +69,9 @@
 			<Class Name="SprinkleSands_Debuff" BuffID="319" Desc="BuffID에 buff.xml에 있는 buff의 ClassID가 들어간다."/>
 			<Class Name="Blistering_Debuff" BuffID="1042" Desc="BuffID에 buff.xml에 있는 buff의 ClassID가 들어간다."/>
 			<Class Name="SmokeGrenade_Debuff" BuffID="2028" Desc="BuffID에 buff.xml에 있는 buff의 ClassID가 들어간다."/>
-      <Class Name="ForceMoveDebuff" BuffID="90006" Desc="BuffID에 buff.xml에 있는 buff의 ClassID가 들어간다."/>      
-    </Category>
+			<Class Name="ShieldPush_Debuff" BuffID="196" Desc="BuffID에 buff.xml에 있는 buff의 ClassID가 들어간다."/>
+			<Class Name="ForceMoveDebuff" BuffID="90006" Desc="BuffID에 buff.xml에 있는 buff의 ClassID가 들어간다."/>
+		</Category>
 	</Category>
 	<!-- ############################################################################################################################################################### -->
 	<!-- 아래에 그룹이 아닌 별도의 값을 관리할 내용을 넣으세요 -->

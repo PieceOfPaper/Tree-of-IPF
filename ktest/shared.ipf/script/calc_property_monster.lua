@@ -225,12 +225,6 @@ function SCR_Get_MON_MHP(self)
         value = value + 5000;   -- PC Summon Monster MHP Add
     end
     
-    local ancient_info = GetClass("Ancient",self.ClassName)
-    if ancient_info ~= nil then
-        local rarity = ancient_info.Rarity
-        local starrank = GetExProp(self,'STARRANK',99)
-        value = value * SCR_MON_ANCIENT_RATE_CALC(rarity,starrank,'HPRate')
-    end
 
     if value < 1 then
         value = 1;
@@ -368,12 +362,6 @@ function SCR_Get_MON_DEF(self)
     
     value = value + byBuff + byRateBuff;
 
-    local ancient_info = GetClass("Ancient",self.ClassName)
-    if ancient_info ~= nil then
-        local rarity= ancient_info.Rarity
-        local starrank = GetExProp(self,'STARRANK',99)
-        value = value * SCR_MON_ANCIENT_RATE_CALC(rarity,starrank,"DefRate")
-    end
 
     if value < 0 then
         value = 0;
@@ -450,12 +438,6 @@ function SCR_Get_MON_MDEF(self)
     
     value = value + byBuff + byRateBuff;
     
-    local ancient_info = GetClass("Ancient",self.ClassName)
-    if ancient_info ~= nil then
-        local rarity= ancient_info.Rarity
-        local starrank = GetExProp(self,'STARRANK',99)
-        value = value * SCR_MON_ANCIENT_RATE_CALC(rarity,starrank,"DefRate")
-    end
     
     if value < 0 then
         value = 0;
@@ -685,13 +667,6 @@ function SCR_Get_MON_MINPATK(self)
     
     value = value + byBuff + byRateBuff;
 
-    local ancient_info = GetClass("Ancient",self.ClassName)
-    if ancient_info ~= nil then
-        local rarity= ancient_info.Rarity
-        local starrank = GetExProp(self,'STARRANK',99)
-        value = value * SCR_MON_ANCIENT_RATE_CALC(rarity,starrank,'AtkRate')
-    end
-
     if value < 1 then
         value = 1;
     end
@@ -759,12 +734,6 @@ function SCR_Get_MON_MAXPATK(self)
     
     value = value + byBuff + byRateBuff;
 
-    local ancient_info = GetClass("Ancient",self.ClassName)
-    if ancient_info ~= nil then
-        local rarity= ancient_info.Rarity
-        local starrank = GetExProp(self,'STARRANK',99)
-        value = value * SCR_MON_ANCIENT_RATE_CALC(rarity,starrank,'AtkRate')
-    end
 
     if value < 1 then
         value = 1;
@@ -833,13 +802,6 @@ function SCR_Get_MON_MINMATK(self)
     
     value = value + byBuff + byRateBuff;
 
-    local ancient_info = GetClass("Ancient",self.ClassName)
-    if ancient_info ~= nil then
-        local rarity= ancient_info.Rarity
-        local starrank = GetExProp(self,'STARRANK',99)
-        value = value * SCR_MON_ANCIENT_RATE_CALC(rarity,starrank,'AtkRate')
-    end
-
     if value < 1 then
         value = 1;
     end
@@ -907,12 +869,6 @@ function SCR_Get_MON_MAXMATK(self)
     
     value = value + byBuff + byRateBuff;
 
-    local ancient_info = GetClass("Ancient",self.ClassName)
-    if ancient_info ~= nil then
-        local rarity= ancient_info.Rarity
-        local starrank = GetExProp(self,'STARRANK',99)
-        value = value * SCR_MON_ANCIENT_RATE_CALC(rarity,starrank,'AtkRate')
-    end
 
     if value < 1 then
         value = 1;
@@ -2087,7 +2043,4 @@ function SCR_MON_STAT_RATE(self, prop)
 end
 
 function SCR_MON_ANCIENT_RATE_CALC(rarity, starrank, propName)
-    local starrankCls = GetClassByNumProp('Ancient_Rarity','Rarity',rarity)
-    local rarityCls = GetClassByNumProp('Ancient_Rank','Rank',starrank)
-    return TryGetProp(starrankCls,propName,1) * TryGetProp(rarityCls,propName,1)
 end

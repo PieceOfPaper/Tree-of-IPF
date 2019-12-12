@@ -681,6 +681,12 @@ function INDUNINFO_MAKE_DETAIL_INFO_BOX(frame, indunClassID)
     restrictBox:ShowWindow(0);
 
     local mapName = TryGetProp(indunCls, "MapName");
+    local dungeonType = TryGetProp(indunCls, "DungeonType");
+    local isLegendRaid = 0;
+    if dungeonType == "Raid" or dungeonType == "GTower" then
+        isLegendRaid = 1;
+    end
+
     if mapName ~= nil and mapName ~= "None" then
         local indunMap = GetClass("Map", mapName);
         local mapKeyword = TryGetProp(indunMap, "Keyword");
@@ -691,7 +697,7 @@ function INDUNINFO_MAKE_DETAIL_INFO_BOX(frame, indunClassID)
             local TOOLTIP_POSY = frame:GetUserConfig("TOOLTIP_POSY");
             restrictBox:SetPosTooltip(TOOLTIP_POSX, TOOLTIP_POSY);
             restrictBox:SetTooltipType("skillRestrictList");
-            restrictBox:SetTooltipArg("IsRaidField");
+            restrictBox:SetTooltipArg("IsRaidField", isLegendRaid);
         end
     end
     
@@ -901,6 +907,9 @@ function INDUNINFO_MAKE_DETAIL_INFO_BOX(frame, indunClassID)
 
         moveBox:ShowWindow(1);
         local moveBtn = GET_CHILD_RECURSIVELY(moveBox, 'moveBtn');
+        if config.GetServiceNation() == 'GLOBAL' then
+            moveBtn:SetTextByKey('btnText', 'Warp')
+        end
         moveBtn:SetUserValue('MOVE_INDUN_CLASSID', indunCls.ClassID);
     else
         if posBox:GetHeight() ~= originHeight then

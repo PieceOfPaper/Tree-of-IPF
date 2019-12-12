@@ -228,7 +228,7 @@ function HAIRSHOP_GET_TRANSLATE_DYE_NAME(Gender, ItemClassName, DyeColorEngName)
 	local Selectclass   = GenderList:GetClass(Gender);
 	local Selectclasslist = Selectclass:GetSubClassList();
 
-	local nowHairCls = Selectclasslist:GetByIndex(hairIndex-1); -- 현재 head 클래스 들고옴
+	local nowHairCls = Selectclasslist:GetClass(hairIndex); -- 현재 head 클래스 들고옴
 	if nowHairCls == nil then
 		return DyeColorEngName
 	end

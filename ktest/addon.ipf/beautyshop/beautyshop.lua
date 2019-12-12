@@ -1078,7 +1078,10 @@ local function BEAUTYSHOP_SET_PREVIEW_HAIR_COLOR(apc)
 	local Selectclass   = GenderList:GetClass(pc.Gender);
 	local Selectclasslist = Selectclass:GetSubClassList();
 
-	local nowhaircls = Selectclasslist:GetByIndex(nowheadindex-1);
+	local nowhaircls = Selectclasslist:GetClass(nowheadindex);
+	if nowhaircls == nil then
+		return;
+	end
 	
 	local nowengname = imcIES.GetString(nowhaircls, "EngName") 
 	local nowcolor = imcIES.GetString(nowhaircls, "EngColor")
@@ -1089,7 +1092,7 @@ local function BEAUTYSHOP_SET_PREVIEW_HAIR_COLOR(apc)
 		local cls = Selectclasslist:GetByIndex(i);
 		if cls ~= nil then
 			if nowengname == imcIES.GetString(cls, "EngName") and nowcolor == imcIES.GetString(cls, "EngColor") then
-				apc:SetHeadType(i + 1);
+				apc:SetHeadType(cls:GetID());
 				break;
 			end
 		end
@@ -1409,13 +1412,14 @@ function BEAUTYSHOP_SET_PREVIEW_WEAPON_EQUIP_SLOT(apc, slot, existItem, classnam
 			if slotName == "slotPreview_lh" then
 				-- 왼손/오른손 상관없이 장비한다.
 				apc:SetEquipItem(ES_RH, existItem.ClassID);
-				gereinforceeffect.SetBeautyShopPreviewEquipItem(apc:GetName(), ES_RH, existItem.ClassID);
+				gereinforceeffect.SetBeautyShopPreviewEquipItem(apc:GetName(), ES_LH, existItem.ClassID);
 			elseif slotName == "slotPreview_rh" then
 				-- 양손이라면 왼손과 똑같은 무기가 들어 있어야 한다.
 				if eqpType == "SH" then -- 한손무기일 경우
 					apc:SetEquipItem(ES_LH, existItem.ClassID);
 					gereinforceeffect.SetBeautyShopPreviewEquipItem(apc:GetName(), ES_LH, existItem.ClassID);
 				end
+				gereinforceeffect.SetBeautyShopPreviewEquipItem(apc:GetName(), ES_RH, existItem.ClassID);
 				-- 양손무기라면 그냥 리턴된다.
 			end
 			return

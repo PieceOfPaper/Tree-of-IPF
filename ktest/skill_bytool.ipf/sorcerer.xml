@@ -121,7 +121,7 @@
 					<Num Num="0" />
 					<Num Num="0" />
 					<Str Str="follow_mon" />
-					<MonProp List="WlkMSPD#80#RunMSPD#80#$EVOCATION_MON#1" />
+					<MonProp List="WlkMSPD#160#RunMSPD#160#$EVOCATION_MON#1" />
 					<Str Str="SORCERER_EVOCATION" />
 				</Scp>
 				<Scp Client="NO" Scp="SKL_SET_TGT_EXPROP_RECENT" Time="950" UseSleep="NO">
@@ -159,12 +159,12 @@
 					<Str Str="Saloon" />
 					<Pos Angle="0" Dist="20" />
 					<Angle Angle="0" />
-					<Str FuncTxt="local name = GetClassString(&quot;Monster&quot;, &quot;Salamion&quot;, &quot;Name&quot;); return SofS(name, self.Name);" Str="" UseFunc="1" />
+					<Str FuncTxt="local name = GetClassString(&quot;Monster&quot;, &quot;Saloon&quot;, &quot;Name&quot;); return SofS(name, self.Name);" Str="" UseFunc="1" />
 					<Str Str="PC_Summon" />
 					<Num Num="0" />
 					<Num FuncTxt=" return 300;" Num="5" UseFunc="1" />
 					<Str Str="None" />
-					<MonProp List="WlkMSPD#80#RunMSPD#80#$SORCERER_MON#1" />
+					<MonProp List="WlkMSPD#160#RunMSPD#160#$SORCERER_MON#1" />
 					<Str Str="SORCERER_SALOON" />
 				</Scp>
 				<Scp Client="NO" Scp="SKL_SET_TGT_EXPROP_RECENT" Time="1300" UseSleep="NO">
@@ -478,7 +478,7 @@
 					<Num Num="0" />
 					<Num Num="0" />
                     <Str Str="None" />
-					<MonProp List="WlkMSPD#80#RunMSPD#80#$SORCERER_MON#1" />
+					<MonProp List="WlkMSPD#160#RunMSPD#160#$SORCERER_MON#1" />
 					<Str Str="SORCERER_SUMMONING_SUB_MON" />
 				</Scp>
 				<Scp Client="NO" Scp="SKL_SET_TGT_EXPROP_RECENT" Time="1300" UseSleep="NO">
@@ -522,17 +522,17 @@
 					<Str Str="SORCERER_SUMMONING" />
 					<Num Num="1" />
 				</Scp>
-				<Scp Client="YES" Scp="C_VOICE_SOUND" Time="1100" UseSleep="NO">
+				<Scp Client="YES" Scp="C_VOICE_SOUND" Time="1000" UseSleep="NO">
 					<Str Str="voice_wiz_m_summoning_shot" />
 					<Str Str="voice_wiz_summoning_shot" />
 				</Scp>
-				<Scp Client="YES" Scp="C_EFFECT_POS" Time="1300" UseSleep="NO">
+				<Scp Client="YES" Scp="C_EFFECT_POS" Time="1000" UseSleep="NO">
 					<Str_Arg Arg="1.5" Str="F_wizard_SummonDemon2_cast_ground" />
 					<Pos Angle="0" Dist="35" />
 					<Num Num="0" />
 					<Str Str="None" />
 				</Scp>
-				<Scp Client="NO" Scp="MONSKL_CRE_MON_SCR" Time="1300" UseSleep="NO">
+				<Scp Client="NO" Scp="MONSKL_CRE_MON_SCR" Time="1000" UseSleep="NO">
 					<Str FuncTxt="local etc = GetETCObject(self); if etc == nil then SkillCancel(self); return 'None'; end local cardIES = etc.Sorcerer_bosscardGUID1; if 'None' ~= cardIES then    local item = GetInvItemByGuid(self, cardIES); if nil == item then SkillCancel(self); return 'None'; end return etc.Sorcerer_bosscardName1;  end SkillCancel(self); return 'None';" Str="boss_NetherBovine" UseFunc="1" />
 					<Pos Angle="0" Dist="35" />
 					<Angle Angle="0" />
@@ -541,31 +541,31 @@
 					<Num Num="0" />
 					<Num Num="0" />
 					<Str Str="None" />
-					<MonProp List="WlkMSPD#80#RunMSPD#80#$SORCERER_MON#1" />
+					<MonProp List="WlkMSPD#160#RunMSPD#160#$SORCERER_MON#1" />
 					<Str Str="SORCERER_SUMMONING_MON" />
 				</Scp>
-				<Scp Client="NO" Scp="SKL_SET_TGT_EXPROP_RECENT" Time="1300" UseSleep="NO">
+				<Scp Client="NO" Scp="SKL_SET_TGT_EXPROP_RECENT" Time="1000" UseSleep="NO">
 					<Str Str="SORCERER_SUMMONING" />
 					<Num Num="1" />
 				</Scp>
-				<Scp Client="NO" Scp="SORCER_SET_EXPROP_SEND" Time="1300" UseSleep="NO">
+				<Scp Client="NO" Scp="SORCER_SET_EXPROP_SEND" Time="1000" UseSleep="NO">
 					<Str Str="SORCERER_SUMMONING" />
 					<Num Num="1" />
 				</Scp>
-				<Scp Client="NO" Scp="SKL_TGT_COLOR" Time="1300" UseSleep="NO">
+				<Scp Client="NO" Scp="SKL_TGT_COLOR" Time="1000" UseSleep="NO">
 					<Num Num="64" />
 					<Num Num="32" />
 					<Num Num="64" />
 					<Num Num="250" />
 					<Num Num="1" />
 				</Scp>
-				<Scp Client="NO" Scp="SORCER_ATTACH_EFFECT" Time="1300" UseSleep="NO">
+				<Scp Client="NO" Scp="SORCER_ATTACH_EFFECT" Time="1000" UseSleep="NO">
 					<Str_Arg Arg="0.1" Str="I_smoke013_dark3" />
 					<Num Num="1" />
 					<Str_Arg Arg="0.2" Str="I_smoke013_dark3_yellow" />
 					<Num Num="2" />
 				</Scp>
-				<Scp Client="NO" Scp="SKL_TGT_EFFECT_SORCERER" Time="2000" UseSleep="NO">
+				<Scp Client="NO" Scp="SKL_TGT_EFFECT_SORCERER" Time="1000" UseSleep="NO">
 					<Str_Arg Arg="0.69999999" Str="I_cylinder007_light_yellow" />
 				</Scp>
 			</EtcList>

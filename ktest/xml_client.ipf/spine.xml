@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by IMC (IMCGames Co., Ltd) -->
+<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by imc (imc) -->
 <!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by MinstFaith (EMBRACE) -->
 <List>
 	<Spine>
@@ -159,5 +159,9 @@
 	</Spine>
 	<Spine>
 		<Element Name="medeina" root="medeina" atlas="medeina" json="medeina" scale="0.6" offsetX="0" offsetY="0" animation="animation"/>
+	</Spine>
+	<Spine>
+		<Element Name="medeinacon01" root="medeinacon01" atlas="medeinacon01" json="medeinacon01" scale="1" offsetX="-10" offsetY="0" animation="animation"/>
+		<Element Name="medeinacon02" root="medeinacon02" atlas="medeinacon02" json="medeinacon02" scale="1" offsetX="0" offsetY="0" animation="animation"/>
 	</Spine>
 </List>

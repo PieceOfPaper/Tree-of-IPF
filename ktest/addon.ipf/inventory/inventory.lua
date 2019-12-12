@@ -2953,7 +2953,7 @@ function CHANGE_HAIR_COLOR(frame)
 	local Selectclasslist = Selectclass:GetSubClassList();
 
     local nowHeadIndex = item.GetHeadIndex()
-	local nowHairCls = Selectclasslist:GetByIndex(nowHeadIndex - 1);
+	local nowHairCls = Selectclasslist:GetClass(nowHeadIndex);
 	local nowPCHairEngName = imcIES.GetString(nowHairCls, 'EngName');	--현재 내가 '헤어'슬롯에 착용한 아이템
 
 	for i = 0, Selectclasslist:Count() do
@@ -4692,4 +4692,70 @@ function REQUEST_USE_ITEM_TX()
 	end
 	
 	item.UseByGUID(invItem:GetIESID());
+end
+
+function BEFORE_APPLIED_GESTURE_YESSCP_OPEN(invItem)
+	if invItem == nil then
+		return;
+	end
+	
+	local invFrame = ui.GetFrame("inventory");	
+	local itemobj = GetIES(invItem:GetObject());
+	if itemobj == nil then
+		return;
+	end
+	invFrame:SetUserValue("INVITEM_GUID", invItem:GetIESID());
+	
+	local strLang = TryGetProp(itemobj , 'StringArg')
+	if strLang ~='None' then
+    	local textmsg = string.format("[ %s ]{nl}%s", itemobj.Name, ScpArgMsg("Gesture_"..strLang));
+    	ui.MsgBox_NonNested(textmsg, itemobj.Name, 'REQUEST_SUMMON_BOSS_TX', "None");
+    end
+	return;
+	
+end
+
+function BEFORE_APPLIED_CAHT_BALLOON_YESSCP_OPEN(invItem)
+	if invItem == nil then
+		return;
+	end
+	
+	local invFrame = ui.GetFrame("inventory");	
+	local itemobj = GetIES(invItem:GetObject());
+	if itemobj == nil then
+		return;
+	end
+	invFrame:SetUserValue("INVITEM_GUID", invItem:GetIESID());
+	
+	local strLang = TryGetProp(itemobj , 'StringArg')
+	local numLang = TryGetProp(itemobj , 'NumberArg1')
+	if strLang ~='None' then
+		local textmsg = string.format("[ %s ]{nl}", itemobj.Name);
+		
+		local skinData = session.chatballoonskin.GetChatBalloonSkinDataByClassName(strLang);
+		if skinData ~= nil then
+			if skinData.endTime.wYear ~= 2999 then
+				-- 기간제인 해당 말풍선 스킨 보유
+				if numLang ~= 0 then
+					-- 기간제 아이템 사용
+					textmsg = textmsg .. ScpArgMsg("ChatBalloon_YESSCP_message2");
+				else
+					-- 무제한 아이템 사용
+					textmsg = textmsg .. ScpArgMsg("ChatBalloon_YESSCP_message4");
+				end
+			else
+				-- 무제한인 해당 말풍선 스킨 보유
+				ui.SysMsg(ScpArgMsg("ChatBalloon_YESSCP_message3"));
+				return;
+			end
+		else
+			-- 보유하지 않은 말풍선 스킨 아이템 사용
+			textmsg = textmsg .. ScpArgMsg("ChatBalloon_YESSCP_message1");
+		end
+		
+		textmsg = textmsg .. ScpArgMsg("ChatBalloon_YESSCP_message5");
+    	ui.MsgBox_NonNested(textmsg, itemobj.Name, 'REQUEST_SUMMON_BOSS_TX', "None");
+    end
+	return;
+	
 end

@@ -41,7 +41,7 @@
                     </ToolScp>
                 </StartScpList>
                 <ObjList>
-                    <Obj Type="Monster" MonType="2000122" Pos="-986.03#-1.16#-588.47" genCount="1" genTime="20000" autoGen="0" objectKey="0">
+                    <Obj Type="Monster" MonType="2000122" Pos="-986.03#-1.16#-588.47" range="80" genCount="2" genTime="1" objectKey="0">
                         <SelfAI ActiveMessageMapInBattle="1">
                             <List>
                                 <ToolScp Scp="S_AI_CUSTOM_SCRIPT" Client="NO" UseSleep="YES">
@@ -51,7 +51,7 @@
                             </List>
                         </SelfAI>
                     </Obj>
-                    <Obj Type="Monster" MonType="2000122" Pos="-690.91#-1.16#-453.65" genCount="1" genTime="20000" autoGen="0" objectKey="1">
+                    <Obj Type="Monster" MonType="2000122" Pos="-690.91#-1.16#-453.65" range="80" genCount="2" genTime="1" objectKey="1">
                         <SelfAI ActiveMessageMapInBattle="1">
                             <List>
                                 <ToolScp Scp="S_AI_CUSTOM_SCRIPT" Client="NO" UseSleep="YES">
@@ -61,7 +61,7 @@
                             </List>
                         </SelfAI>
                     </Obj>
-                    <Obj Type="Monster" MonType="2000122" Pos="-358.22#-1.16#-762.15" genCount="1" genTime="20000" autoGen="0" objectKey="2">
+                    <Obj Type="Monster" MonType="2000122" Pos="-358.22#-1.16#-762.15" range="80" genCount="2" genTime="1" objectKey="2">
                         <SelfAI ActiveMessageMapInBattle="1">
                             <List>
                                 <ToolScp Scp="S_AI_CUSTOM_SCRIPT" Client="NO" UseSleep="YES">
@@ -71,7 +71,7 @@
                             </List>
                         </SelfAI>
                     </Obj>
-                    <Obj Type="Monster" MonType="2000122" Pos="-105.43#-1.18#-830.72" genCount="1" genTime="20000" autoGen="0" objectKey="3">
+                    <Obj Type="Monster" MonType="2000122" Pos="-105.43#-1.18#-830.72" range="80" genCount="2" genTime="1" objectKey="3">
                         <SelfAI ActiveMessageMapInBattle="1">
                             <List>
                                 <ToolScp Scp="S_AI_CUSTOM_SCRIPT" Client="NO" UseSleep="YES">
@@ -81,7 +81,7 @@
                             </List>
                         </SelfAI>
                     </Obj>
-                    <Obj Type="Monster" MonType="2000122" Pos="354.11#-1.16#-629.89" genCount="1" genTime="20000" autoGen="0" objectKey="4">
+                    <Obj Type="Monster" MonType="2000122" Pos="354.11#-1.16#-629.89" range="80" genCount="2" genTime="1" objectKey="4">
                         <SelfAI ActiveMessageMapInBattle="1">
                             <List>
                                 <ToolScp Scp="S_AI_CUSTOM_SCRIPT" Client="NO" UseSleep="YES">
@@ -91,7 +91,7 @@
                             </List>
                         </SelfAI>
                     </Obj>
-                    <Obj Type="Monster" MonType="2000122" Pos="551.46#-1.16#-413.93" genCount="1" genTime="20000" autoGen="0" objectKey="5">
+                    <Obj Type="Monster" MonType="2000122" Pos="551.46#-1.16#-413.93" range="80" genCount="2" genTime="1" objectKey="5">
                         <SelfAI ActiveMessageMapInBattle="1">
                             <List>
                                 <ToolScp Scp="S_AI_CUSTOM_SCRIPT" Client="NO" UseSleep="YES">
@@ -101,7 +101,7 @@
                             </List>
                         </SelfAI>
                     </Obj>
-                    <Obj Type="Monster" MonType="2000122" Pos="861.97#-1.16#-406.64" genCount="1" genTime="20000" autoGen="0" objectKey="6">
+                    <Obj Type="Monster" MonType="2000122" Pos="861.97#-1.16#-406.64" range="80" genCount="2" genTime="1" objectKey="6">
                         <SelfAI ActiveMessageMapInBattle="1">
                             <List>
                                 <ToolScp Scp="S_AI_CUSTOM_SCRIPT" Client="NO" UseSleep="YES">
@@ -111,7 +111,7 @@
                             </List>
                         </SelfAI>
                     </Obj>
-                    <Obj Type="Monster" MonType="2000122" Pos="702.53#-1.16#-88.86" genCount="1" genTime="20000" autoGen="0" objectKey="7">
+                    <Obj Type="Monster" MonType="2000122" Pos="702.53#-1.16#-88.86" range="80" genCount="2" genTime="1" objectKey="7">
                         <SelfAI ActiveMessageMapInBattle="1">
                             <List>
                                 <ToolScp Scp="S_AI_CUSTOM_SCRIPT" Client="NO" UseSleep="YES">
@@ -121,7 +121,7 @@
                             </List>
                         </SelfAI>
                     </Obj>
-                    <Obj Type="Monster" MonType="2000122" Pos="696.26#-1.16#251.33" genCount="1" genTime="20000" autoGen="0" objectKey="8">
+                    <Obj Type="Monster" MonType="2000122" Pos="696.26#-1.16#251.33" range="80" genCount="2" genTime="1" objectKey="8">
                         <SelfAI ActiveMessageMapInBattle="1">
                             <List>
                                 <ToolScp Scp="S_AI_CUSTOM_SCRIPT" Client="NO" UseSleep="YES">
@@ -131,7 +131,7 @@
                             </List>
                         </SelfAI>
                     </Obj>
-                    <Obj Type="Monster" MonType="2000122" Pos="353.85#79.86#200.54" genCount="1" genTime="20000" autoGen="0" objectKey="9">
+                    <Obj Type="Monster" MonType="2000122" Pos="353.85#79.86#200.54" range="80" genCount="2" genTime="1" objectKey="9">
                         <SelfAI ActiveMessageMapInBattle="1">
                             <List>
                                 <ToolScp Scp="S_AI_CUSTOM_SCRIPT" Client="NO" UseSleep="YES">
@@ -141,7 +141,7 @@
                             </List>
                         </SelfAI>
                     </Obj>
-                    <Obj Type="Monster" MonType="2000122" Pos="-5.21#79.86#-478.70" genCount="1" genTime="20000" autoGen="0" objectKey="10">
+                    <Obj Type="Monster" MonType="2000122" Pos="-5.21#79.86#-478.70" range="80" genCount="2" genTime="1" objectKey="10">
                         <SelfAI ActiveMessageMapInBattle="1">
                             <List>
                                 <ToolScp Scp="S_AI_CUSTOM_SCRIPT" Client="NO" UseSleep="YES">
@@ -151,7 +151,7 @@
                             </List>
                         </SelfAI>
                     </Obj>
-                    <Obj Type="Monster" MonType="2000122" Pos="-162.59#96.88#-406.77" genCount="1" genTime="20000" autoGen="0" objectKey="11">
+                    <Obj Type="Monster" MonType="2000122" Pos="-162.59#96.88#-406.77" range="80" genCount="2" genTime="1" objectKey="11">
                         <SelfAI ActiveMessageMapInBattle="1">
                             <List>
                                 <ToolScp Scp="S_AI_CUSTOM_SCRIPT" Client="NO" UseSleep="YES">
@@ -161,7 +161,7 @@
                             </List>
                         </SelfAI>
                     </Obj>
-                    <Obj Type="Monster" MonType="2000122" Pos="395.69#79.86#-4.82" genCount="1" genTime="20000" autoGen="0" objectKey="12">
+                    <Obj Type="Monster" MonType="2000122" Pos="395.69#79.86#-4.82" range="80" genCount="2" genTime="1" objectKey="12">
                         <SelfAI ActiveMessageMapInBattle="1">
                             <List>
                                 <ToolScp Scp="S_AI_CUSTOM_SCRIPT" Client="NO" UseSleep="YES">
@@ -171,7 +171,7 @@
                             </List>
                         </SelfAI>
                     </Obj>
-                    <Obj Type="Monster" MonType="2000122" Pos="-83.30#149.07#-15.24" genCount="1" genTime="20000" autoGen="0" objectKey="13">
+                    <Obj Type="Monster" MonType="2000122" Pos="-90.74#149.07#-5.89" range="80" genCount="2" genTime="1" objectKey="13">
                         <SelfAI ActiveMessageMapInBattle="1">
                             <List>
                                 <ToolScp Scp="S_AI_CUSTOM_SCRIPT" Client="NO" UseSleep="YES">
@@ -181,7 +181,7 @@
                             </List>
                         </SelfAI>
                     </Obj>
-                    <Obj Type="Monster" MonType="2000122" Pos="-45.29#149.11#223.96" genCount="1" genTime="20000" autoGen="0" objectKey="14">
+                    <Obj Type="Monster" MonType="2000122" Pos="-74.63#149.11#222.20" range="80" genCount="2" genTime="1" objectKey="14">
                         <SelfAI ActiveMessageMapInBattle="1">
                             <List>
                                 <ToolScp Scp="S_AI_CUSTOM_SCRIPT" Client="NO" UseSleep="YES">
@@ -191,7 +191,7 @@
                             </List>
                         </SelfAI>
                     </Obj>
-                    <Obj Type="Monster" MonType="2000122" Pos="-331.73#149.11#-12.41" genCount="1" genTime="20000" autoGen="0" objectKey="15">
+                    <Obj Type="Monster" MonType="2000122" Pos="-320.81#149.11#-11.66" angle="6" range="80" genCount="2" genTime="1" objectKey="15">
                         <SelfAI ActiveMessageMapInBattle="1">
                             <List>
                                 <ToolScp Scp="S_AI_CUSTOM_SCRIPT" Client="NO" UseSleep="YES">
@@ -201,7 +201,7 @@
                             </List>
                         </SelfAI>
                     </Obj>
-                    <Obj Type="Monster" MonType="2000122" Pos="-285.33#149.11#209.61" genCount="1" genTime="20000" autoGen="0" objectKey="16">
+                    <Obj Type="Monster" MonType="2000122" Pos="-316.56#149.11#209.21" range="80" genCount="2" genTime="1" objectKey="16">
                         <SelfAI ActiveMessageMapInBattle="1">
                             <List>
                                 <ToolScp Scp="S_AI_CUSTOM_SCRIPT" Client="NO" UseSleep="YES">
@@ -354,29 +354,48 @@
                     <Obj Type="Monster" MonType="2000130" Pos="-244.00#240.00#1088.00" genCount="1" genTime="20000" objectKey="59" propList="&apos;Dialog&apos; &apos;EVENT_1910_HALLOWEEN_DOOR&apos; "/>
                     <Obj Type="Monster" MonType="2000130" Pos="-155.00#240.00#1041.00" genCount="1" genTime="20000" objectKey="60" propList="&apos;Dialog&apos; &apos;EVENT_1910_HALLOWEEN_DOOR&apos; "/>
                     <Obj Type="Monster" MonType="2000130" Pos="17.00#240.00#995.00" genCount="1" genTime="20000" objectKey="61" propList="&apos;Dialog&apos; &apos;EVENT_1910_HALLOWEEN_DOOR&apos; "/>
+                <Obj Type="Monster" MonType="2000122" Pos="-39.22#149.07#108.57" range="80" genCount="2" genTime="1" objectKey="20">
+                        <SelfAI ActiveMessageMapInBattle="1">
+                            <List>
+                                <ToolScp Scp="S_AI_CUSTOM_SCRIPT" Client="NO" UseSleep="YES">
+                                    <Str Str="EVENT_1910_DOG_AI"/>
+                                    <Num Num="0"/>
+                                </ToolScp>
+                            </List>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="2000122" Pos="-181.82#149.11#266.64" range="80" genCount="2" genTime="1" objectKey="63">
+                        <SelfAI ActiveMessageMapInBattle="1">
+                            <List>
+                                <ToolScp Scp="S_AI_CUSTOM_SCRIPT" Client="NO" UseSleep="YES">
+                                    <Str Str="EVENT_1910_DOG_AI"/>
+                                    <Num Num="0"/>
+                                </ToolScp>
+                            </List>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="2000122" Pos="-216.32#149.11#-34.93" range="80" genCount="2" genTime="1" objectKey="64">
+                        <SelfAI ActiveMessageMapInBattle="1">
+                            <List>
+                                <ToolScp Scp="S_AI_CUSTOM_SCRIPT" Client="NO" UseSleep="YES">
+                                    <Str Str="EVENT_1910_DOG_AI"/>
+                                    <Num Num="0"/>
+                                </ToolScp>
+                            </List>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="2000122" Pos="-365.78#149.11#113.68" range="80" genCount="2" genTime="1" objectKey="65">
+                        <SelfAI ActiveMessageMapInBattle="1">
+                            <List>
+                                <ToolScp Scp="S_AI_CUSTOM_SCRIPT" Client="NO" UseSleep="YES">
+                                    <Str Str="EVENT_1910_DOG_AI"/>
+                                    <Num Num="0"/>
+                                </ToolScp>
+                            </List>
+                        </SelfAI>
+                    </Obj>
                 </ObjList>
                 <StageEvents>
-                    <Event execCount="1" eventName="MonGen">
-                        <execList>
-                            <ToolScp Scp="GAME_ST_EVT_EXEC_VALUE" Client="NO" UseSleep="NO">
-                                <Str Str="REMAIN_SYS_KILL"/>
-                                <Num Num="4"/>
-                            </ToolScp>
-                            <ToolScp Scp="GAME_ST_EVT_EXEC_VALUE" Client="NO" UseSleep="NO">
-                                <Str Str="REMAIN_SYS_CEHCK"/>
-                                <Num Num="34"/>
-                            </ToolScp>
-                            <ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
-                                <MGameObjIndex List="MonGroup/0/MonGroup/1/MonGroup/2/MonGroup/3/MonGroup/4/MonGroup/5/MonGroup/6/MonGroup/7/MonGroup/8/MonGroup/9/MonGroup/10/MonGroup/11/MonGroup/12/MonGroup/13/MonGroup/14/MonGroup/15/MonGroup/16"/>
-                                <Num Num="2"/>
-                                <Num Num="0"/>
-                            </ToolScp>
-                            <ToolScp Scp="MGAME_EVT_SCP_TO_MON_CMD" Client="NO" UseSleep="NO">
-                                <MGameObj List="MonGroup/0/MonGroup/1/MonGroup/2/MonGroup/3/MonGroup/4/MonGroup/5/MonGroup/6/MonGroup/7/MonGroup/8/MonGroup/9/MonGroup/10/MonGroup/11/MonGroup/12/MonGroup/13/MonGroup/14/MonGroup/15/MonGroup/16/"/>
-                                <Str Str="EVENT_1910_HALLOWEEN_DOG_SUMMON"/>
-                            </ToolScp>
-                        </execList>
-                    </Event>
                     <Event execCount="1" eventName="BossGen">
                         <execList>
                             <ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
@@ -420,7 +439,7 @@
                             <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
                                 <Str Str="MonGroup"/>
                             </ToolScp>
-                            </execList>
+                        </execList>
                     </Event>
                     <Event execCount="1" eventName="Spector_m">
                         <condList>
@@ -525,14 +544,6 @@
                 </StageEvents>
             </Stage>
             <Stage Name="Fever" AutoStart="0">
-                <StartScpList>
-                    <ToolScp Scp="MGAME_SET_QUEST_NAME" Client="NO" UseSleep="NO">
-                        <Str Str="피버타임!"/>
-                    </ToolScp>
-                    <ToolScp Scp="MGAME_SET_TIMEOUT" Client="NO" UseSleep="NO">
-                        <Num Num="30"/>
-                    </ToolScp>
-                </StartScpList>
                 <ObjList>
                     <Obj Type="Monster" MonType="2000121" Pos="-670.18#241.05#575.30" range="250" genCount="1" genTime="20000" autoGen="0" objectKey="7" tendency="1"/>
                     <Obj Type="Monster" MonType="20041" Pos="-15.17#169.88#523.47" genCount="1" genTime="20000" objectKey="0">
@@ -542,7 +553,7 @@
                     <Obj Type="Monster" MonType="20041" Pos="-611.23#168.75#-69.05" genCount="1" genTime="20000" objectKey="2"/>
                 </ObjList>
                 <StageEvents>
-                    <Event eventName="Fever" isEnabled="0">
+                    <Event eventName="Fever">
                         <condList>
                             <ToolScp Scp="SCR_MGAME_VALUE_CHECK_2" Client="NO" UseSleep="NO">
                                 <Str Str="FEVER_COUNT"/>
@@ -597,8 +608,44 @@
                                 <Str Str="EVENT_1910_HALLOWEEN_GUID_DLG6"/>
                                 <Num Num="3"/>
                             </ToolScp>
-                            <ToolScp Scp="GAME_EVT_ON_BYNAME" Client="NO" UseSleep="NO">
-                                <Str Str="Fever"/>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="20s">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="10"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_MSG" Client="YES" UseSleep="NO">
+                                <Str Str="피크타임이 20초 후 종료됩니다."/>
+                                <Num Num="3"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="10s">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="20"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_MSG" Client="YES" UseSleep="NO">
+                                <Str Str="피크타임이 10초 후 종료됩니다."/>
+                                <Num Num="3"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="5s">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="25"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_MSG" Client="YES" UseSleep="NO">
+                                <Str Str="피크타임이 5초 후 종료됩니다."/>
+                                <Num Num="3"/>
                             </ToolScp>
                         </execList>
                     </Event>

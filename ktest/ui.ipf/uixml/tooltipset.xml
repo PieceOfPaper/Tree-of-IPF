@@ -239,16 +239,17 @@
 			<richtext name="marketFastGet" margin="10 95 0 0" rect="0 0 120 24" format="마켓 판매금 즉시 수령" param1="value" textalign="left top" resizebytext="true" spacey="0" maxwidth="0" fontname="brown_16" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top"/>
 			<richtext name="marketMinMax" margin="10 95 0 0" rect="0 0 120 24" format="마켓 상/하한가 관계없이 물품 등록 가능" param1="value" textalign="left top" resizebytext="true" spacey="0" maxwidth="0" fontname="brown_16" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top"/>
 			<richtext name="abilityMax" margin="10 45 0 0" rect="0 0 120 24" format="%s" param1="value" textalign="left top" resizebytext="true" spacey="0" maxwidth="0" fontname="brown_16" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top"/>
+			<richtext name="TradeFreeCom" margin="10 280 0 0" rect="0 0 120 24" format="개인 거래 무제한" param1="value" textalign="left top" resizebytext="true" spacey="0" maxwidth="0" fontname="brown_16" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top"/>
 			<richtext name="speedUp" margin="10 120 0 0" rect="0 0 120 24" format="%s" param1="value" textalign="left top" resizebytext="true" spacey="0" maxwidth="0" fontname="brown_16" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top"/>
 			<richtext name="token_expup" margin="10 145 0 0" rect="0 0 120 24" format="%s" param1="value" textalign="left top" resizebytext="true" spacey="0" maxwidth="0" fontname="brown_16" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top"/>
 			<richtext name="pcbangPartyExpUp" margin="10 220 0 0" rect="0 0 120 24" format="%s" param1="value" textalign="left top" resizebytext="true" spacey="0" maxwidth="0" fontname="brown_16" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top"/>
 			<richtext name="token_staup" margin="10 170 0 0" rect="0 0 120 24" format="%s" param1="value" textalign="left top" resizebytext="true" spacey="0" maxwidth="0" fontname="brown_16" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top"/>
-			<richtext name="token_teamwarehouse" margin="10 220 0 0" rect="0 0 120 24" format="팀 창고 +30칸 증가" param1="value" textalign="left top" resizebytext="true" spacey="0" maxwidth="0" fontname="brown_16" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top"/>
+			<richtext name="token_teamwarehouse" margin="10 220 0 0" rect="0 0 120 24" format="팀 창고 +30칸 증가, 추가 창고 활성화" param1="value" textalign="left top" resizebytext="true" spacey="0" maxwidth="0" fontname="brown_16" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top"/>
 			<richtext name="token_tradecount" margin="10 220 0 0" rect="0 0 120 24" format="%s" param1="value" textalign="left top" resizebytext="true" spacey="0" maxwidth="0" fontname="brown_16" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top"/>
 			<richtext name="challengeCount" margin="10 220 0 0" rect="0 0 120 24" format="%s" param1="value" textalign="left top" resizebytext="true" spacey="0" maxwidth="0" fontname="brown_16" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top"/>
 			<richtext name="pcbangItemRental" margin="10 220 0 0" rect="0 0 120 24" format="%s" param1="value" textalign="left top" resizebytext="true" spacey="0" maxwidth="0" fontname="brown_16" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top"/>
 			<richtext name="token_remaintime" margin="10 220 0 0" rect="0 0 120 24" format="남은 토큰 시간 : {#FF0000}%s{/}" param1="value" textalign="left top" resizebytext="true" spacey="0" maxwidth="0" fontname="brown_16" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top"/>
-			</controls>
+		</controls>
 	</tooltip>
 	<tooltip name="reinforceitem" x="0" y="0" fixwidth="false" width="1640" height="0" moveable="false" frameskin="None" draw="false" blendtime="" UpdateScp="UPDATE_REINFORCE_ITEM_TOOLTIP">
 		<userconfig BOTTOM_MARGIN="10"/>
@@ -301,7 +302,8 @@
 		<controls>
 			<picture name="selectedImage" rect="0 0 450 300" image="partylist_line" layout_gravity="center center"/>
 		</controls>
-	</tooltip>	<tooltip name="trust_point" x="0" y="0" fixwidth="true" width="308" height="180" moveable="false" frameskin="test_tooltipskin_tj" lifetime="90000" blendtime="1500" UpdateScp="UPDATE_TRUST_POINT_TOOLTIP">
+	</tooltip>
+	<tooltip name="trust_point" x="0" y="0" fixwidth="true" width="308" height="180" moveable="false" frameskin="test_tooltipskin_tj" lifetime="90000" blendtime="1500" UpdateScp="UPDATE_TRUST_POINT_TOOLTIP">
 		<userconfig STAR_IMG="star_in_arrow" STAR_SIZE="20"/>
 		<controls>
 			<richtext name="staticText" rect="0 0 300 30" margin="10 8 0 0" layout_gravity="left top" format="거래 등급 안내" fontname="white_18_b_ds_ol"/>
@@ -324,14 +326,12 @@
 	</tooltip>
 	<tooltip name="indunListTooltip" width="394" height="309" moveable="false" frameskin="None" draw="false" UpdateScp="UPDATE_INDUN_INFO_TOOLTIP">
 		<userconfig INDUN_CTRL_LEFT_MARGIN="9" INDUN_CTRL_WIDTH="355" INDUN_CTRL_SPACING="5" INDUN_CTRL_START_TOP_MARGIN="10" INDUN_CTRL_OFFSET="3"/>
-						<controls>
-
-<groupbox name="indunListBoxBg" rect="0 0 394 259" scrollbar="false" skin="test_skill_skin2"/>
+		<controls>
+			<groupbox name="indunListBoxBg" rect="0 0 394 259" scrollbar="false" skin="test_skill_skin2"/>
 			<richtext name="indunLabelText" caption="IndunInfo" margin="0 12 0 0" rect="0 0 200 50" layout_gravity="center top" parent="indunListBoxBg"/>
 			<groupbox name="indunListBox" rect="0 0 370 206" margin="0 40 0 0" layout_gravity="center top" scrollbar="false" skin="graybox_op_45" parent="indunListBoxBg"/>
-			
 		</controls>
-			</tooltip>
+	</tooltip>
 	<tooltip name="skillRestrictList" x="0" y="0" width="480" height="100" fixwidth="true" fixheight="false" moveable="false" frameskin="downbox" UpdateScp="UPDATE_RESTRICT_INFO_TOOLTIP">
 		<userconfig INNER_X="5" INNER_Y="5" ICON_SIZE="23" CTRLSET_WIDTH="480"/>
 		<controls>
@@ -340,16 +340,16 @@
 		</controls>
 	</tooltip>
 	<tooltip name="ancient_monster" x="0" y="0" frameskin="None" marginy="10" fixwidth="true" width="280" height="470" moveable="false" blendtime="" UpdateScp="UPDATE_ANCIENT_MON_TOOLTIP">
-		<userconfig NORMAL_GRADE_TEXT="{@st42b}{s14}{#ffffff}노말" MAGIC_GRADE_TEXT="{@st42b}{s14}{#0e7fe8}매직" UNIQUE_GRADE_TEXT="{@st42b}{s14}{#d92400}유니크" LEGEND_GRADE_TEXT="{@st42b}{s14}{#ffa800}레전드" />
+		<userconfig NORMAL_GRADE_TEXT="{@st42b}{s14}{#ffffff}노말" MAGIC_GRADE_TEXT="{@st42b}{s14}{#0e7fe8}매직" UNIQUE_GRADE_TEXT="{@st42b}{s14}{#d92400}유니크" LEGEND_GRADE_TEXT="{@st42b}{s14}{#ffa800}레전드"/>
 		<controls>
-			<groupbox name="bg" rect="0 0 280 470" margin="0 0 0 0" layout_gravity="left top" skin="test_Item_tooltip_equip2" />
-			<groupbox name="name_box" rect="0 0 280 60" margin="0 0 0 0" layout_gravity="left top" draw="false" />
-			<richtext name="rarity" parent="name_box" rect="0 0 280 40" margin="0 10 0 0" layout_gravity="center top" />
-			<richtext name="name" parent="name_box" rect="0 0 280 40" margin="0 30 0 0" layout_gravity="center top" />
+			<groupbox name="bg" rect="0 0 280 470" margin="0 0 0 0" layout_gravity="left top" skin="test_Item_tooltip_equip2"/>
+			<groupbox name="name_box" rect="0 0 280 60" margin="0 0 0 0" layout_gravity="left top" draw="false"/>
+			<richtext name="rarity" parent="name_box" rect="0 0 280 40" margin="0 10 0 0" layout_gravity="center top"/>
+			<richtext name="name" parent="name_box" rect="0 0 280 40" margin="0 30 0 0" layout_gravity="center top"/>
 			<groupbox name="monster_info" rect="0 0 280 140" margin="0 45 0 0" layout_gravity="left top" draw="false"/>
 			<picture name="img" parent="monster_info" rect="0 0 80 80" margin="0 20 0 0" layout_gravity="center top"/>
-			<richtext name="starrank"  parent="img" rect="0 0 21 20" margin="0 60 0 0" layout_gravity="left top" />
-			<gauge name="exp" parent="monster_info" rect="0 0 200 30" margin="0 110 0 0" layout_gravity="center top" inverse="false" skin="test_gauge_barrack_defence"  text1="%.1p%" textoffset1="0 0" textalign1="center center"/>
+			<richtext name="starrank" parent="img" rect="0 0 21 20" margin="0 60 0 0" layout_gravity="left top"/>
+			<gauge name="exp" parent="monster_info" rect="0 0 200 30" margin="0 110 0 0" layout_gravity="center top" inverse="false" skin="test_gauge_barrack_defence" text1="%.1p%" textoffset1="0 0" textalign1="center center"/>
 			<groupbox name="line" rect="0 0 260 3" margin="10 185 0 0" layout_gravity="left top" draw="true" skin="test_tooltip_line"/>
 			<groupbox name="monster_stat" rect="0 0 280 300" margin="0 200 0 0" layout_gravity="left top" draw="false"/>
 		</controls>
@@ -367,6 +367,14 @@
 			<richtext name="trade_text" format="총 거래 불가: %s개" param1="count" layout_gravity="right top" fontname="brown_16_b" rect="0 0 150 20" fixwidth="true" textalign="right center" margin="0 70 20 0" hittest="false" updateparent="true" parent="skill_desc"/>
 			<richtext name="weapon_text" format="{@st66d}착용 무기" layout_gravity="left center" fontname="white_18_ol" rect="0 0 100 50" fixwidth="true" textalign="left center" margin="30 -5 0 0" hittest="false" updateparent="true" parent="weapon_box"/>
 			<groupbox name="ability_desc" margin="500 0 0 50" rect="0 0 500 50" hittest="false" skin="custom_box_bg" draw="true" updateparent="true" scrollbar="false" layout_gravity="left top"/>
+		</controls>
+	</tooltip>
+<tooltip name="chatballoon_skin_info" x="0" y="0" frameskin="test_Item_tooltip_normal" width="410" height="255" UpdateScp="UPDATE_CHATBALLOON_SKIN_INFO" moveable="false" blendtime="" marginy="10" fixwidth="true">
+		<controls>
+			<richtext name="nametext" rect="0 0 385 30" margin="0 12 0 0" layout_gravity="center top" format="{s20}{#FFFFFF}%s{/}" param1="itemname" param1_def="기본 아이템 이름" fixwidth="false" hittest="false" resizebytext="false" updateparent="true" fontname="white_20_ol"/>
+			<picture name="item_bg" rect="0 0 392 200" margin="0 45 0 0" layout_gravity="center top" image="one_two_star_item_bg" stretch="true" updateparent="true"/>
+			<picture name="previewPic" rect="0 0 200 200" margin="0 45 0 0" layout_gravity="center top" hittest="false" draw="false" updateparent="true" scrollbar="false" stretch="true"/>
+			<groupbox name="lifetimegb" rect="0 0 410 0" margin="0 245 0 0" layout_gravity="center top" hittest="false" draw="false" scrollbar="false"/>
 		</controls>
 	</tooltip>
 </tooltipset>

@@ -1858,17 +1858,16 @@ function ITEM_EQUIP_CRAFT()
 
 end
 
+-- Legend Item craft Able Y/N
 function REGISTER_EQUIP(itemObj, invItem)
 	if itemObj.Reinforce_2 ~= 0 then
 			local yesScp = string.format("ITEM_EQUIP_CRAFT()");
 			ui.MsgBox(ScpArgMsg("craft_really_make"), yesScp, "None");
-			return 1
 	else 		
 		for i = 0, itemObj.MaxSocket - 1 do
 			if invItem:IsAvailableSocket(i) then
 				local yesScp = string.format("ITEM_EQUIP_CRAFT()");
 				ui.MsgBox(ScpArgMsg("craft_really_make"), yesScp, "None");
-				return 1
 			end
 		end
 	end
