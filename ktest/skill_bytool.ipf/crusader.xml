@@ -346,7 +346,7 @@ end
             <ToolScp Scp="SKL_RUN_SCRIPT" Client="NO" UseSleep="NO">
                 <Str Str="SACRED_RUN1"/>
             </ToolScp>
-            </KeyInputStart>
+        </KeyInputStart>
         <KeyInputEnd>
             <ToolScp Scp="MONSKL_C_CLEAR_RESERVE_ANIM" Client="YES" UseSleep="NO"/>
             <ToolScp Scp="MONSKL_REMOVE_PAD" Client="NO" UseSleep="NO">
@@ -366,6 +366,11 @@ end
             <HitList>
                 <Frame Type="CIRCLE" Time="99799" HitCount="1" TermMin="0" TermMax="0" PosType="0" Dist="0" RandDist="0" RandomPerHit="0" Angle="0" SklAngle="0.17453292" AniTime="99999" RotAngle="0" ForceATK="0"/>
             </HitList>
+            <EtcList>
+                <Scp Scp="SKL_RUN_SCRIPT" Client="NO" UseSleep="NO" Time="0">
+                    <Str Str="SACRED_RUN3"/>
+                </Scp>
+            </EtcList>
         </MainSkl>
     </Skill>
     <Skill Name="Crusader_Chants">
