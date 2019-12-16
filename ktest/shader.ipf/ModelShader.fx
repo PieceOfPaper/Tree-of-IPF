@@ -289,6 +289,8 @@ sampler heightTex = sampler_state
 
 float4	g_FogColor;
 float4	g_FogDist	: FOG_DIST;
+float4	g_lightColor;
+
 //g_FogDist
 //x = fog Start
 //y = fog End
@@ -1039,7 +1041,7 @@ float4 PS_WaterRender(VS_OUT In) : COLOR
 
 #ifdef ENABLE_STATICSHADOWTEX
 	float4 shadowColor = tex2D(staticShadowTex, In.shadowCoord.xy);
-	Out.rgb *= shadowColor.rgba * 2;
+	Out.rgb *= shadowColor.rgb * 2.f * g_lightColor.rgb * pow(max(g_lightColor.w, 0.01f), 1.5f);
 #endif
 
 #ifdef ENABLE_ENVTEX
@@ -1072,6 +1074,8 @@ float4 PS_WaterRender(VS_OUT In) : COLOR
 	{
 		Out.rgb = lerp(g_FogColor.rgb, Out.rgb, 1.f - ((1.f - In.worldz_tmIndex_fog.z) * 0.3f));
 	}
+
+	Out.rgb *= g_lightColor.rgb * g_lightColor.w;
 
 	saturate(Out.rgb);
 #endif
@@ -1181,11 +1185,9 @@ OUT_COLOR PS_TEST(VS_OUT In)
 
 #ifdef ENABLE_STATICSHADOWTEX
 	float4 shadowColor = tex2D(staticShadowTex, In.shadowCoord.xy);
-	Out.rgb *= shadowColor.rgba * 2;
-#endif
-
-#ifdef ENABLE_ENVTEX
-	float4 envColor = tex2D(envTex, In.envTexCoord.xy);
+	Out.rgb *= shadowColor.rgb * 2.f * g_lightColor.rgb * pow(max(g_lightColor.w, 0.01f), 1.5f);
+#else
+	Out.rgb *= g_lightColor.rgb * g_lightColor.w;
 #endif
 
 	if (g_FogColor.w > 0)
@@ -1297,6 +1299,8 @@ OUT_COLOR PS_CharacterShader(VS_OUT In, uniform const bool isLowQuality)
 		Out.rgb = lerp(g_FogColor.rgb, Out.rgb, 1 - ((1 - In.worldz_tmIndex_fog.z) * 0.3f));
 	}
 
+	Out.rgb *= g_lightColor.rgb * g_lightColor.w;
+
 #ifdef ENABLE_DIFFUSETEX_ANIMATION
 	if (g_DiffuseAnimationTM._24 > 0.f)
 	{
@@ -1403,6 +1407,8 @@ float4 PS_CharacterShaderOption(VS_OUT In, uniform const int optionType) : COLOR
 	}
 #endif
 
+	OutColor.rgb *= g_lightColor.rgb * g_lightColor.w;
+
 	return OutColor;
 }
 
@@ -1492,6 +1498,8 @@ OUT_COLOR PS_BillBoardHead(VS_OUT In, uniform const bool isLowQuality)
 	{
 		Out.rgb = lerp(g_FogColor.rgb, Out.rgb, 1 - ((1 - In.worldz_tmIndex_fog.z) * 0.3f));
 	}
+
+	Out.rgb *= g_lightColor.rgb * g_lightColor.w;
 
 	OUT_COLOR color = (OUT_COLOR)0;
 	color.albedo = Out;

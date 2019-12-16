@@ -4106,8 +4106,8 @@ function SCR_GET_LOOTINGCHANCE(self)
     
     local value = defaultValue + byItem + byBuff;
     
-    if value > 4000 then
-    	value = 4000;
+    if value > 10000 then
+    	value = 10000;
     end
     
     return math.floor(value);

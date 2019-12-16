@@ -1541,19 +1541,6 @@ function GET_PREFIX_SET_ITEM_FLAG(invitem)
 		end
 	end
 
-	local slot = GET_CHILD_RECURSIVELY(frame, "RH")
-	local slotIcon = slot:GetIcon()
-	if slotIcon ~= nil then
-		local slotIconInfo = slotIcon:GetInfo()
-		local slotItem = GET_ITEM_BY_GUID(slotIconInfo:GetIESID())
-		if slotItem ~= nil then
-			local obj = GetIES(slotItem:GetObject())
-			local isDoubleHand = TryGetProp(obj, "DBLHand");
-			if isDoubleHand == "YES" then
-				returnValue[2] = 0;
-			end
-		end
-	end
 	return returnValue[1], returnValue[2], returnValue[3], returnValue[4], returnValue[5], returnValue[6]
 
 end

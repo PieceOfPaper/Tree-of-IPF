@@ -3803,9 +3803,10 @@ function SCR_GET_Limacon_Ratio(skill)
     return math.floor(value)
 end
 
+-- 리마콘
 function SCR_GET_Limacon_Ratio2(skill)
     local pc = GetSkillOwner(skill);
-    local value = 42 + ((skill.Level - 1) * 7);
+    local value = 200 + ((skill.Level - 1) * 21.8);
     value = value * SCR_REINFORCEABILITY_TOOLTIP(skill);
     return value
 end
@@ -5197,10 +5198,15 @@ function SCR_GET_EnchantLightning_Bufftime(skill)
     
 end
 
+-- 인챈트 라이트닝
 function SCR_GET_EnchantLightning_Ratio(skill)
---    local value = 100 * skill.Level
-    local pc = GetSkillOwner(skill);
-    local value = 160 + ((skill.Level - 1) * 60) + ((skill.Level / 5) * ((pc.DEX * 0.8) ^ 0.9))
+    local pc = GetSkillOwner(skill)
+    local str = TryGetProp(pc, 'STR', 0)
+    local dex = TryGetProp(pc, 'DEX', 0)    
+    local str_bonus = str * 1.5
+    local dex_bonus = dex * 2.5
+    
+    local value = 1000 + (TryGetProp(skill, 'Level', 1)) * 100 + dex_bonus + str_bonus
     value = value * SCR_REINFORCEABILITY_TOOLTIP(skill)
     return math.floor(value)
 end
@@ -5625,24 +5631,30 @@ function SCR_GET_CorpseTower_Bufftime(skill)
 
 end
 
+-- 쌍쇄공 공격 속도 증가
 function SCR_GET_DoublePunch_Ratio(skill)
-    local value = skill.Level * 20
+    local value = skill.Level * 20    
     return value
 end
 
+-- 쌍쇄공 추가 대미지 수치
+-- 바뀌면 cpp의 SKILL_AFTERCALC_HIT(DoublePunch_Attack) 내용 수정 필요
 function SCR_GET_DoublePunch_Ratio2(skill)
     local pc = GetSkillOwner(skill);
-    local value = skill.Level * (pc.Lv * 0.15)
+    local str = TryGetProp(pc, 'STR', 0)
+    local dex = TryGetProp(pc, 'DEX', 0)    
+    local value = skill.Level * ((str + dex) * 0.5)
     return value
 end
 
+-- 쌍쇄공 스킬 계수
 function SCR_Get_SkillFactor_DoublePunch(skill)
     local pc = GetSkillOwner(skill);
     local DoublePunchSkill = GetSkill(pc, "Monk_DoublePunch")
     local value = 0
     if DoublePunchSkill ~= nil then
         value = DoublePunchSkill.SkillFactor;
-    end
+    end    
     return math.floor(value)
 end
 
@@ -5701,15 +5713,14 @@ function SCR_GET_LastRites_Time(skill)
 end
 
 function SCR_GET_LastRites_Ratio(skill)
-    local pc = GetSkillOwner(skill);
-    local pcLevel = TryGetProp(pc, "Lv")
-    local pcMNA = TryGetProp(pc, "MNA")
-    
-    local pcLevelRate = (pcLevel / 6.5) + 15
-    local baseDamageValue = 200 + (skill.Level - 1) * pcLevelRate
-    local pcMnaRate = (pcMNA / (pcMNA + pcLevel) * 2) + 0.15
-    local value = baseDamageValue * pcMnaRate
-    
+    local pc = GetSkillOwner(skill);    
+    local mna = TryGetProp(pc, "MNA", 0)
+    local int = TryGetProp(pc, "INT", 0)
+    local str = TryGetProp(pc, "STR", 0)
+    local dex = TryGetProp(pc, "DEX", 0)
+
+    local baseDamageValue = 200 + (skill.Level - 1) * 100
+    local value = baseDamageValue + (mna + int + str + dex) * 5
     value = value * SCR_REINFORCEABILITY_TOOLTIP(skill)
     return math.floor(value)
 end
@@ -6478,7 +6489,7 @@ function SCR_Get_Retrieve_Ratio(skill)
 end
 
 function SCR_Get_Hounding_Ratio(skill)
-    local value = skill.Level * 100
+    local value = skill.Level * 200
     return value;
 end
 
@@ -7169,34 +7180,29 @@ end
 
 --[Pyromancer_EnchantFire]--
 function SCR_GET_EnchantFire_Ratio(skill)
-
     local pc = GetSkillOwner(skill);
-    local value = 30 + ((skill.Level - 1) * 5) + ((skill.Level / 5) * (((pc.INT + pc.MNA) * 0.6) ^ 0.9))
-    
---  local Pyromancer23_abil = GetAbility(pc, "Pyromancer23")    -- 2rank Skill Damage multiple
---    local Pyromancer24_abil = GetAbility(pc, "Pyromancer24")    -- 3rank Skill Damage multiple
---    if Pyromancer24_abil ~= nil then
---        value = value * 1.44
---    elseif Pyromancer24_abil == nil and Pyromancer23_abil ~= nil then
---        value = value * 1.38
---    end
+    local int = TryGetProp(pc, 'INT', 0)
+    local mna = TryGetProp(pc, 'MNA', 0)    
+    local bonus = (int + mna) * 3
+
+    local value = 100 + ((TryGetProp(skill, 'Level', 1) - 1) * 100) + bonus
     
     local Pyromancer16_abil = GetAbility(pc, 'Pyromancer16');
     if Pyromancer16_abil ~= nil then
-        value = value + Pyromancer16_abil.Level
+        value = value + TryGetProp(Pyromancer16_abil, 'Level', 1)
     end
-
+    
     return math.floor(value)
-
 end
 
 function SCR_GET_EnchantFire_Ratio2(skill)
-
     local pc = GetSkillOwner(skill);
-    local value = pc.MINMATK * 0.1
-
-    return math.floor(value)
-  
+    local int = TryGetProp(pc, 'INT', 0)
+    local mna = TryGetProp(pc, 'MNA', 0)    
+    local bonus = (int + mna) * 2
+    
+    local value = pc.MINMATK * 0.1 + bonus    
+    return math.floor(value)  
 end
 
 function SCR_Get_FireBall_Bufftime(skill)
@@ -7290,16 +7296,13 @@ end
 
 function SCR_GET_Blessing_Ratio(skill)
     local pc = GetSkillOwner(skill);
-    local pcMNA = TryGetProp(pc, "MNA")
-    local pcLevel = TryGetProp(pc, "Lv")
-    
-    local pcLevelRate = (pcLevel / 7) + 10
-	local baseDamageValue = 180 + (skill.Level - 1) * pcLevelRate
-    local pcMnaRate = (pcMNA / (pcMNA + pcLevel) * 2) + 0.15
-    local value = baseDamageValue * pcMnaRate
-    
+    local pcMNA = TryGetProp(pc, "MNA", 0)
+    local int = TryGetProp(pc, "INT", 0)
+    local mna_bonus = pcMNA * 1.5
+    local int_bonus = int * 1.5
+    local baseDamageValue = 100 + (skill.Level) * 100    
+    local value = baseDamageValue + mna_bonus + int    
     value = value * SCR_REINFORCEABILITY_TOOLTIP(skill)
-    
     return math.floor(value);
 end
 
@@ -7341,16 +7344,11 @@ end
 
 function SCR_GET_Sacrament_Ratio(skill)
     local pc = GetSkillOwner(skill);
-    local pcLevel = TryGetProp(pc, "Lv")
     local pcMNA = TryGetProp(pc, "MNA")
-    
-    local pcLevelRate = (pcLevel / 7) + 10
-    local baseDamageValue = 180 + (skill.Level - 1) * pcLevelRate
-    local pcMnaRate = (pcMNA / (pcMNA + pcLevel) * 2) + 0.15
-    local value = baseDamageValue * pcMnaRate
-    
-    value = value * SCR_REINFORCEABILITY_TOOLTIP(skill)
-
+    local mna_bonus = pcMNA * 2
+    local baseDamageValue = 100 + (skill.Level) * 100    
+    local value = baseDamageValue + mna_bonus    
+    value = value * SCR_REINFORCEABILITY_TOOLTIP(skill)    
     return math.floor(value)
 end
 
@@ -8050,13 +8048,9 @@ end
 
 function SCR_GET_SpellShop_Sacrament_Ratio(skill)
     local pc = GetSkillOwner(skill)
-    local pcLevel = TryGetProp(pc, "Lv")
-	local pcMNA = TryGetProp(pc, "MNA")
 	
-	local levelRate = (pcLevel / 7) + 10
-	local mnaRate = (pcMNA / (pcMNA + pcLevel) * 2) + 0.15
-	
-    local value = SCR_COMMON_MNA_FACTOR(180, 10, levelRate, mnaRate)
+    local value = SCR_GET_Sacrament_Ratio(skill)
+    value = value / SCR_REINFORCEABILITY_TOOLTIP(skill) 
     value = value * 0.3
     
     -- 주문 ?�매?�점 개설 강화 ?�성?�??�러개라??SCR_REINFORCEABILITY_TOOLTIP ?�수???�용 불�?. 직접 ?�용 ----
@@ -8078,13 +8072,9 @@ end
 
 function SCR_GET_SpellShop_Blessing_Ratio(skill)
     local pc = GetSkillOwner(skill)
-    local pcLevel = TryGetProp(pc, "Lv")
-	local pcMNA = TryGetProp(pc, "MNA")
 	
-	local levelRate = (pcLevel / 7) + 10
-	local mnaRate = (pcMNA / (pcMNA + pcLevel) * 2) + 0.15
-	
-    local value = SCR_COMMON_MNA_FACTOR(180, 10, levelRate, mnaRate)
+    local value = SCR_GET_Blessing_Ratio(skill)
+    value = value / SCR_REINFORCEABILITY_TOOLTIP(skill) 
     value = value * 0.3
     
     -- 주문 ?�매?�점 개설 강화 ?�성?�??�러개라??SCR_REINFORCEABILITY_TOOLTIP ?�수???�용 불�?. 직접 ?�용 ----
@@ -8686,30 +8676,31 @@ function SCR_Get_Zhendu_Bufftime(skill)
 
 end
 
+-- 속성 추가 타격
 function SCR_Get_Zhendu_Ratio(skill)
-
     local value = 0 
     local pc = GetSkillOwner(skill)
     if pc ~= nil then
         local minPATK = TryGetProp(pc, "MINPATK")
         local maxPATK = TryGetProp(pc, "MAXPATK")
-        value = math.floor(((minPATK + maxPATK) / 2) * 0.1)
+        value = math.floor(((minPATK + maxPATK) / 2) * 0.5)
     end
     
-    return value
+    return math.floor(value)
 end
 
+-- 추가 대미지
 function SCR_Get_Zhendu_Ratio2(skill)
-
     local pc = GetSkillOwner(skill);
     local skillLv = skill.Level;
-    local value = 40 + (skillLv -1) * 7;
+    local value = 100 + (skillLv -1) * 50;
     if pc ~= nil then
-        local STR = TryGetProp(pc, "STR")
-        value = math.floor(value + ((skillLv / 4)* ((STR * 0.6) ^ 0.9)));
+        local str = TryGetProp(pc, "STR", 0)
+        local dex = TryGetProp(pc, "DEX", 0)
+        value = value + (str + dex)
     end
     
-    return value
+    return math.floor(value)
 end
 
 function SCR_GET_JollyRoger_Bufftime(skill)
@@ -9614,7 +9605,7 @@ function SCR_GET_Aukuras_Ratio2(skill)
     local pc = GetSkillOwner(skill)
     local value = 0
     
-    if pc ~= nil then
+    if pc ~= nil then        
         -- 지??+ ?�신 계수 ?�산
         local casterINT = TryGetProp(pc, 'INT', 1);
         local casterMNA = TryGetProp(pc, 'MNA', 1);        
@@ -9820,7 +9811,7 @@ function SCR_GET_Prakriti_Ratio(skill)
 end
 
 function SCR_GET_TransmitPrana_BuffTime(skill)
-    local value = 30
+    local value = 60
     return value
 end
 
@@ -10022,7 +10013,7 @@ function SCR_Get_JointPenalty_Ratio(skill)
 end
 
 function SCR_Get_JointPenalty_Ratio2(skill)
-    local value = 6.5 + skill.Level * 0.5
+    local value = skill.Level
     return math.floor(value)
 end
 
@@ -11462,7 +11453,7 @@ function SCR_GET_Sabbath_Ratio(skill)
 end
 
 function SCR_GET_SubweaponCancel_Ratio(skill)
-    local value = 105;
+    local value = 500;
     return value;
 end
 
@@ -12106,12 +12097,20 @@ end
 
 function SCR_GET_SwellHands_Ratio(skill)
     local pc = GetSkillOwner(skill)
-    local DEX = TryGetProp(pc, "DEX", 1)
-    local value = 30 + ((skill.Level - 1) * 2) + ((skill.Level / 5) * ((DEX * 0.8) ^ 0.9))
-    value = math.floor(value * SCR_REINFORCEABILITY_TOOLTIP(skill))
-    
+    -- local DEX = TryGetProp(pc, "DEX", 1)
+    -- local value = 30 + ((skill.Level - 1) * 2) + ((skill.Level / 5) * ((DEX * 0.8) ^ 0.9))
+    local value = TryGetProp(skill, 'Level', 1) * 0.625
+    value = (value * SCR_REINFORCEABILITY_TOOLTIP(skill))
     return value;
 end
+    
+function SCR_GET_SwellHands_Ratio2(skill)    
+    local pc = GetSkillOwner(skill)
+    local value = TryGetProp(skill, 'Level', 1) * 2
+    value = (value * SCR_REINFORCEABILITY_TOOLTIP(skill))    
+    return value;
+end
+
 
 function SCR_GET_Agility_Ratio(skill)
     local value = skill.Level * 1
@@ -12645,7 +12644,7 @@ end
 
 function SCR_GET_Sacred_Heal_Ratio(skill)
     --value = skill.SklFactor + (skill.Level - 1) * skill.SklFactorByLevel;
-	value = 11 + (skill.Level - 1) * 2.9
+	value = 10 + (skill.Level - 1) * 2.7
 	value = math.floor(value * SCR_REINFORCEABILITY_TOOLTIP(skill))
     return math.floor(value)
 end
@@ -12657,31 +12656,31 @@ function SCR_GET_Barong_Time(skill)
 end
 
 function SCR_GET_HolySmash_Heal_Ratio(skill)
-    value = 30 + (skill.Level - 1) * 5
+    value = 16 + (skill.Level - 1) * 2.7
 	value = math.floor(value * SCR_REINFORCEABILITY_TOOLTIP(skill))
     return math.floor(value)
 end
 
 function SCR_GET_RingOfLight_Heal_Ratio(skill)
-    value = 46 + (skill.Level - 1) * 7.8
+    value = 42 + (skill.Level - 1) * 7.1
 	value = math.floor(value * SCR_REINFORCEABILITY_TOOLTIP(skill))
     return math.floor(value)
 end
 
 function SCR_GET_Condemn_Heal_Ratio(skill)
-    value = 15 + (skill.Level - 1) * 4.2
+    value = 14 + (skill.Level - 1) * 3.7
 	value = math.floor(value * SCR_REINFORCEABILITY_TOOLTIP(skill))
     return math.floor(value)
 end
 
 function SCR_GET_ProtectionOfGoddess_Heal_Ratio(skill)
-    value = 76 + (skill.Level - 1) * 77
+    value = 67 + (skill.Level - 1) * 67.3
 	value = math.floor(value * SCR_REINFORCEABILITY_TOOLTIP(skill))
     return math.floor(value)
 end
 
 function SCR_GET_Retaliation_Heal_Ratio(skill)
-    value = 84 + (skill.Level - 1) * 22.2
+    value = 76 + (skill.Level - 1) * 20
 	value = math.floor(value * SCR_REINFORCEABILITY_TOOLTIP(skill))
     return math.floor(value)
 end
@@ -12894,6 +12893,12 @@ end
 
 function SCR_GET_ShiningBurst_Time(skill)
     local value = 5
+    return value
+end
+
+function SCR_GET_ShiningBurst_Ratio(skill)
+    local pc = GetSkillOwner(skill);
+    local value = 7 + TryGetProp(pc, "SR", 0)/3
     return value
 end
 

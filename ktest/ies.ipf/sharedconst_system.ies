@@ -77,6 +77,7 @@ ClassID,Value,Value2,ClassName,Desc,UseInScript
 100070,5,0,"FIND_UNOBSTRUCTED_DISTANCE_MOVE_PATH","유효하지 않은 위치일 경우 경로 찾기에 사용할 오차 거리","NO"
 100071,0.500000,0,"WORLD_EVENT_CLICK_DELAY","월드 이벤트 클릭 딜레이","YES"
 100072,1,0,"ENABLE_QUIZ_QUIZ_EVENT","퀴즈퀴즈 이벤트 실행 여부[1:실행]","YES"
+100073,48,0,"DAY_COUNT_AT_INGAMES","현실에서의 하루는 인게임의 며칠인가? ex) 4 -> 현실의 하루는 인게임에서 4일이다. 즉 인게임에서의 하루는 360분을 의미한다.","NO"
 100074,0.200000,0,"CASUAL_GAMBLE_CLICK_DELAY","캐쥬얼 던전 겜블 클릭 딜레이","YES"
 100075,250,0,"MAX_TAB_TARGETTING_RANGE","대상 선택 최대 거리","NO"
 110000,21,0,"TEST_VAL_1","테스트용","NO"

@@ -1,5 +1,6 @@
 <?xml version='1.0' encoding='utf-8'?>
-<ToolSkill><Skill Name="Mon_pc_summon_boss_Ignas_Skill_2">
+<ToolSkill>
+    <Skill Name="Mon_pc_summon_boss_Ignas_Skill_2">
 		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
 			<HitList>
 				<Frame Angle="0" AniTime="10199" Dist="0" ForceATK="0" HitCount="1" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" TermMax="0" TermMin="0" Time="9999" Type="FAN" />
@@ -1632,46 +1633,55 @@
         </MainSkl>
     </Skill>
     <Skill Name="Mon_pc_summon_boss_succubus_Skill_2">
-		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+        <MainSkl ScrLock="None" JumpFlee="NO" MSPDToUsePos="0">
 			<HitList>
-				<Frame Angle="-0.089316741" AniTime="1000" Dist="37.445694" ForceATK="0" HitCount="1" Length="150" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.78539819" TermMax="0" TermMin="0" Time="800" Type="FAN" Width="70" />
+                <Frame Type="FAN" Time="800" HitCount="1" TermMin="0" TermMax="0" PosType="0" Dist="37.445694" RandDist="0" RandomPerHit="0" Angle="-0.089316741" Width="70" Length="150" SklAngle="0.78539819" AniTime="1000" RotAngle="0" ForceATK="0"/>
 			</HitList>
 			<EtcList>
-				<Anim Anim="rightturn" Speed="0.80000001" Time="0" />
-				<Scp Client="YES" Scp="C_EFFECT" Time="100" UseSleep="NO">
-					<Str_Arg Arg="2" Str="F_sys_heart" />
+                <Anim Time="0" Anim="rightturn" Speed="0.80000001"/>
+                <Scp Scp="C_EFFECT" Client="YES" UseSleep="NO" Time="100">
+                    <Str_Arg Str="F_sys_heart" Arg="2"/>
 					<Str Str="succubus_weapon" />
 					<Num Num="0" />
 				</Scp>
-				<Scp Client="YES" Scp="C_EFFECT" Time="100" UseSleep="NO">
-					<Str_Arg Arg="2" Str="F_sys_heart" />
+                <Scp Scp="C_EFFECT" Client="YES" UseSleep="NO" Time="100">
+                    <Str_Arg Str="F_sys_heart" Arg="2"/>
 					<Str Str="Bip001 R Finger31" />
 					<Num Num="0" />
 				</Scp>
-				<Scp Client="YES" Scp="C_EFFECT" Time="100" UseSleep="NO">
-					<Str_Arg Arg="2" Str="F_sys_heart" />
+                <Scp Scp="C_EFFECT" Client="YES" UseSleep="NO" Time="100">
+                    <Str_Arg Str="F_sys_heart" Arg="2"/>
 					<Str Str="Bone_Chain_3" />
 					<Num Num="0" />
 				</Scp>
-				<Scp Client="YES" Scp="C_EFFECT" Time="100" UseSleep="NO">
-					<Str_Arg Arg="2" Str="F_sys_heart" />
+                <Scp Scp="C_EFFECT" Client="YES" UseSleep="NO" Time="100">
+                    <Str_Arg Str="F_sys_heart" Arg="2"/>
 					<Str Str="Bip001 L UpperArm" />
 					<Num Num="0" />
 				</Scp>
-				<Scp Client="YES" CondFunc="" Scp="C_EFFECT" Time="100" UseSleep="NO">
-					<Str_Arg Arg="2" Str="F_sys_heart" />
+                <Scp Scp="C_EFFECT" Client="YES" UseSleep="NO" CondFunc="" Time="100">
+                    <Str_Arg Str="F_sys_heart" Arg="2"/>
 					<Str Str="Dummy_effect_center" />
 					<Num Num="0" />
 				</Scp>
 			</EtcList>
 			<ResultList>
-				<ToolScp Client="NO" Scp="S_R_PULL_TARGET" UseSleep="NO">
+                <ToolScp Scp="S_R_PULL_TARGET" Client="NO" UseSleep="NO">
 					<Num Num="20" />
 					<Num Num="200" />
 					<Num Num="300" />
 					<Num Num="0" />
 					<Num Num="0.5" />
-					<Str_Arg Arg="1" Str="F_ground082_smoke" />
+                    <Str_Arg Str="F_ground082_smoke" Arg="1"/>
+                </ToolScp>
+                <ToolScp Scp="S_R_TGTBUFF" Client="NO" UseSleep="NO">
+                    <Str Str="UC_slowdown"/>
+                    <Num Num="1"/>
+                    <Num Num="0"/>
+                    <Num Num="5000"/>
+                    <Num Num="1"/>
+                    <Num Num="100"/>
+                    <Num Num="-1"/>
 				</ToolScp>
 			</ResultList>
 		</MainSkl>
@@ -16933,28 +16943,28 @@
 		</MainSkl>
 	</Skill>
 	<Skill Name="Mon_pc_summon_Mummyghast_Skill_3">
-		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+        <MainSkl ScrLock="None" JumpFlee="NO" MSPDToUsePos="0">
 			<HitList>
-				<Frame Angle="2.9716773" AniTime="2000" Dist="315.1481" ForceATK="0" HitCount="1" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453294" TermMax="0" TermMin="0" Time="1800" Type="CIRCLE" Width="150" />
+                <Frame Type="CIRCLE" Time="1800" HitCount="1" TermMin="0" TermMax="0" PosType="0" Dist="315.1481" RandDist="0" RandomPerHit="0" Angle="2.9716773" Width="150" SklAngle="0.17453294" AniTime="2000" RotAngle="0" ForceATK="0"/>
 			</HitList>
 			<EtcList>
-				<Scp Client="NO" Scp="EFT_AND_HIT" Time="0" TooltipScp="TOOLTIP_EFT_AND_HIT" UseSleep="YES">
+                <Scp Scp="EFT_AND_HIT" Client="NO" UseSleep="YES" TooltipScp="TOOLTIP_EFT_AND_HIT" Time="0">
 					<Pos Angle="0" Dist="0" />
-					<Str_Arg Arg="9" Str="None" />
+                    <Str_Arg Str="None" Arg="9"/>
 					<Num Num="2700" />
-					<Str_Arg Arg="1" Str="None" />
+                    <Str_Arg Str="None" Arg="1"/>
 					<Num Num="150" />
 					<Num Num="200" />
 					<Num Num="0" />
 					<Num Num="1" />
 					<Num Num="1000" />
-					<Str_Arg Arg="1" Str="None" />
+                    <Str_Arg Str="None" Arg="1"/>
 					<Str Str="None" />
 					<Num Num="4" />
 					<Num Num="60" />
 				</Scp>
-				<Anim Anim="skl3" Speed="1" Time="500" />
-				<Scp Client="YES" Scp="C_SHOCKWAVE" Time="2300" UseSleep="NO">
+                <Anim Time="500" Anim="skl3" Speed="1"/>
+                <Scp Scp="C_SHOCKWAVE" Client="YES" UseSleep="NO" Time="2300">
 					<Num Num="5" />
 					<Num Num="1" />
 					<Num Num="60" />
@@ -16962,13 +16972,22 @@
 				</Scp>
 			</EtcList>
 			<ResultList>
-				<ToolScp Client="NO" Scp="S_R_PULL_TARGET" UseSleep="NO">
+                <ToolScp Scp="S_R_TGTBUFF" Client="NO" UseSleep="NO">
+                    <Str Str="UC_slowdown"/>
+                    <Num Num="1"/>
+                    <Num Num="0"/>
+                    <Num Num="5000"/>
+                    <Num Num="1"/>
+                    <Num Num="100"/>
+                    <Num Num="-1"/>
+                </ToolScp>
+                <ToolScp Scp="S_R_PULL_TARGET" Client="NO" UseSleep="NO">
 					<Num Num="10" />
 					<Num Num="100" />
 					<Num Num="300" />
 					<Num Num="0" />
 					<Num Num="1" />
-					<Str_Arg Arg="1" Str="None" />
+                    <Str_Arg Str="None" Arg="1"/>
 				</ToolScp>
 			</ResultList>
 		</MainSkl>

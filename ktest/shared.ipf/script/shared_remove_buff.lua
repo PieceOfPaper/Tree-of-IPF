@@ -292,7 +292,7 @@ end
 
 -- 헌터 - 코싱
 function get_remove_buff_tooltip_Hunter_Coursing(level)
-    local percent = 1.2 * tonumber(level)    
+    local percent = 0.72 * tonumber(level)
     if percent > 100 then
         percent = 100
     end

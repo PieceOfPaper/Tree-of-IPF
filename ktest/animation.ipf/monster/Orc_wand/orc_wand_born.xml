@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by IMCGames Co., Ltd (IMCGames Co., Ltd) -->
 <ActionDesc>
-    <Sound frame="0.00" soundFile="skl_eff_landing_m"/>
-    <Sound frame="0.00" soundFile="skl_eff_born_underground_1"/>
+	<Sound frame="0.00" soundFile="skl_eff_landing_m"/>
+	<Sound frame="0.00" soundFile="skl_eff_born_underground_1"/>
+	<Particle frame="5" attachNode="None" particleName="F_ground187" useAttach="false" hiddenObj="false" changeEffect="None" scale="0.45" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="5" attachNode="None" particleName="F_stone007" useAttach="false" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="false" soft2DValue="20"/>
 </ActionDesc>

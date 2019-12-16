@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by IMCGames Co., Ltd (IMCGames Co., Ltd) -->
 <ActionDesc>
-    <Sound frame="0.00" soundFile="skl_eff_born_underground_1"/>
-    <Sound frame="2.00" soundFile="skl_eff_body_atk_10"/>
+	<Sound frame="0.00" soundFile="skl_eff_born_underground_1"/>
+	<Sound frame="2.00" soundFile="skl_eff_body_atk_10"/>
+	<Particle frame="3" attachNode="None" particleName="F_ground145_smoke_red" useAttach="false" hiddenObj="false" changeEffect="None" scale="0.25" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="7" attachNode="Bip001 Spine1" particleName="F_ground145_smoke_red" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.7" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="3" attachNode="None" particleName="F_levitation017_smoke" useAttach="false" hiddenObj="false" changeEffect="None" scale="0.3" pause="true" use2DEffect="false" soft2DValue="20"/>
 </ActionDesc>

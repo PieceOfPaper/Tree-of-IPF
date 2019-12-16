@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by IMCGames Co., Ltd (IMCGames Co., Ltd) -->
 <ActionDesc>
-    <Sound frame="0.00" soundFile="mobgen_underground"/>
-    <Sound frame="0.00" soundFile="skl_eff_body_atk_8"/>
-    <Sound frame="8.00" soundFile="skl_eff_landing_s"/>
+	<Particle frame="3" attachNode="None" particleName="F_ground068_smoke2" useAttach="false" hiddenObj="false" changeEffect="None" scale="0.4" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="11" attachNode="None" particleName="F_ground065_smoke" useAttach="false" hiddenObj="false" changeEffect="None" scale="0.4" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="11" attachNode="None" particleName="F_stone005" useAttach="false" hiddenObj="false" changeEffect="None" scale="0.75" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Sound frame="0.00" soundFile="mobgen_underground"/>
+	<Sound frame="0.00" soundFile="skl_eff_body_atk_8"/>
+	<Sound frame="8.00" soundFile="skl_eff_landing_s"/>
 </ActionDesc>

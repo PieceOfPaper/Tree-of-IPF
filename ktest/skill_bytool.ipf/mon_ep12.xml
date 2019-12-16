@@ -694,9 +694,9 @@
                 </Scp>
                 <Scp Scp="EFT_AND_HIT" Client="NO" UseSleep="YES" TooltipScp="TOOLTIP_EFT_AND_HIT" Time="0">
                     <Pos Angle="0" Dist="0" PosType="8"/>
-                    <Str_Arg Str="I_smoke045_spread_in#None#0.5" Arg="3"/>
+                    <Str_Arg Str="I_smoke013_dark_earth##0.8" Arg="0.80000001"/>
                     <Num Num="1000"/>
-                    <Str_Arg Str="F_archer_SiegeBurst_explosion" Arg="0.40000001"/>
+                    <Str_Arg Str="F_explosion028_red" Arg="0.69999999"/>
                     <Num Num="30"/>
                     <Num Num="100"/>
                     <Num Num="0"/>
@@ -707,6 +707,14 @@
                     <Num Num="1"/>
                     <Num Num="0"/>
                     <Num Num="0"/>
+                </Scp>
+            <Scp Scp="C_EFFECT" Client="YES" UseSleep="NO" Time="100">
+                    <Str_Arg Str="I_smoke013_dark_earth" Arg="0.69999999"/>
+                    <Str Str="Bip001 R Hand"/>
+                    <Num Num="0.69999999"/>
+                </Scp>
+                <Scp Scp="C_SOUND" Client="YES" UseSleep="NO" Time="300">
+                    <Str Str="mon_saurman_priest_dead"/>
                 </Scp>
             </EtcList>
         </MainSkl>

@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by IMCGames Co., Ltd (IMCGames Co., Ltd) -->
 <ActionDesc>
-    <Sound frame="0.00" soundFile="skl_eff_bodyfall_l_1"/>
-    <Sound frame="0.00" soundFile="skl_eff_born_underground_1"/>
-    <Sound frame="0.00" soundFile="mon_goblin_warrior_born"/>
+	<Sound frame="0.00" soundFile="skl_eff_bodyfall_l_1"/>
+	<Sound frame="0.00" soundFile="skl_eff_born_underground_1"/>
+	<Sound frame="0.00" soundFile="mon_goblin_warrior_born"/>
+	<Particle frame="4" attachNode="Dummy_emitter" particleName="F_smoke046" useAttach="false" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="4" attachNode="Dummy_emitter" particleName="F_stone005" useAttach="false" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="false" soft2DValue="20"/>
 </ActionDesc>

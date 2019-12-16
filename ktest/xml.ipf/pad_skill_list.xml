@@ -13451,7 +13451,7 @@ return 1"/>
 			</ToolScp>
 		</updateEvent>
 	</PadSkill>
-    <PadSkill Name="Rangda_Rawa" CheckerType="0" Range="65" UpdateTerm="600" AllowOverlap="1">
+    <PadSkill Name="Rangda_Rawa" CheckerType="0" Range="65" UpdateTerm="600" ApplyFlyMon="1" AllowOverlap="1">
         <createEvent>
             <ToolScp Scp="C_PAD_EFFECT_POS" Client="YES" UseSleep="NO">
                 <Str_Arg Str="F_scout_rawa" Arg="2"/>
@@ -13469,18 +13469,7 @@ return 1"/>
             </ToolScp>
         </createEvent>
         <enterEvent>
-            <ToolScp Scp="PAD_TGT_BUFF_MON" Client="NO" UseSleep="NO">
-                <Str Str="ENEMY"/>
-                <Num Num="0"/>
-                <Num Num="0"/>
-                <Str Str="Rawa_Debuff"/>
-                <Num Num="1"/>
-                <Num Num="0"/>
-                <Num Num="3000" UseFunc="1" FuncTxt="return obj.Level * 1000"/>
-                <Num Num="1"/>
-                <Num Num="100"/>
-            </ToolScp>
-        </enterEvent>
+            </enterEvent>
         <updateEvent>
             <ToolScp Scp="PAD_ADD_LIFE" Client="NO" UseSleep="NO">
                 <Num Num="-600"/>
@@ -13508,7 +13497,7 @@ return 1"/>
             </ToolScp>
         </updateEvent>
     </PadSkill>
-    <PadSkill Name="Rangda_Rawa_Abil" CheckerType="0" Range="65" UpdateTerm="3000" AllowOverlap="1">
+    <PadSkill Name="Rangda_Rawa_Abil" CheckerType="0" Range="65" UpdateTerm="3000" ApplyFlyMon="1" AllowOverlap="1">
         <createEvent>
             <ToolScp Scp="PAD_ADD_LIFE" Client="NO" UseSleep="NO">
                 <Num Num="8500"/>
@@ -21189,6 +21178,9 @@ return time"/>
                 <Num Num="500"/>
                 <Num Num="99990"/>
             </ToolScp>
+			<ToolScp Scp="PAD_CONCURRENT_USE_COUNT" Client="NO" UseSleep="NO">
+                <Num Num="10"/>
+            </ToolScp>
             <ToolScp Scp="C_PAD_EFFECT_POS" Client="YES" UseSleep="NO">
                 <Str_Arg Str="I_smoke014_dark3" Arg="0.60000002"/>
                 <Pos Angle="0" Dist="0"/>
@@ -21217,6 +21209,9 @@ return time"/>
             <ToolScp Scp="PAD_ADD_LIFE" Client="NO" UseSleep="NO">
                 <Num Num="500"/>
                 <Num Num="99990"/>
+            </ToolScp>
+			<ToolScp Scp="PAD_CONCURRENT_USE_COUNT" Client="NO" UseSleep="NO">
+                <Num Num="10"/>
             </ToolScp>
             <ToolScp Scp="C_PAD_EFFECT_POS" Client="YES" UseSleep="NO">
                 <Str_Arg Str="F_ground045_smoke" Arg="0.80000001"/>
@@ -21603,5 +21598,44 @@ return time"/>
 				<Num Num="1"/>
 			</ToolScp>
 		</updateEvent>
+	
+</PadSkill>
+	<PadSkill Name="item_vibora_shield_pad" CheckerType="0" Dist="714.84918" Angle="0.89040607" Range="150" AutoPos="1" AllowOverlap="1">
+		<createEvent>
+			<ToolScp Scp="PAD_ADD_LIFE" Client="NO" UseSleep="NO">
+				<Num Num="1e+09"/>
+				<Num Num="1"/>
+			</ToolScp>
+		</createEvent>
+		<destroyEvent>
+			<ToolScp Scp="PAD_REMOVEBUFF" Client="NO" UseSleep="NO">
+				<Str Str="ALL"/>
+				<Num Num="0"/>
+				<Num Num="0"/>
+				<Str Str="ITEM_BUFF_VIBORA_SHIELD"/>
+			</ToolScp>
+		</destroyEvent>
+		<enterEvent>
+			<ToolScp Scp="PAD_TGT_BUFF_ONLYPC" Client="NO" UseSleep="NO">
+				<Str Str="PARTY"/>
+				<Num Num="0"/>
+				<Num Num="0"/>
+				<Str Str="ITEM_BUFF_VIBORA_SHIELD"/>
+				<Num Num="99"/>
+				<Num Num="0"/>
+				<Num Num="0"/>
+				<Num Num="1"/>
+				<Num Num="100"/>
+			</ToolScp>
+		</enterEvent>
+		<leaveEvent>
+			<ToolScp Scp="PAD_TGT_BUFF_REMOVE" Client="NO" UseSleep="NO">
+				<Str Str="ALL"/>
+				<Num Num="0"/>
+				<Num Num="0"/>
+				<Str Str="ITEM_BUFF_VIBORA_SHIELD"/>
+				<Num Num="1"/>
+			</ToolScp>
+		</leaveEvent>
 	</PadSkill>
 </PadSkills>

@@ -139,7 +139,7 @@ end
 
 -- 헌터 - 리트리브
 function get_decrease_heal_debuff_tooltip_Hunter_Retrieve(lv)
-    local arg2 = 2 * tonumber(lv) * 1000
+    local arg2 = 1.2 * tonumber(lv) * 1000
     local bfTime = 5000
     local msg = string.format('DecreaseHeal_Debuff/%.2f/%.2f/%d/1/100/-1/0/0', arg2, arg2, bfTime)
     return msg
@@ -147,7 +147,7 @@ end
 
 -- 헌터 - 코싱
 function get_decrease_heal_debuff_tooltip_Hunter_Coursing(lv)
-    local arg2 = 2.6 * tonumber(lv) * 1000
+    local arg2 = 1.56 * tonumber(lv) * 1000
     local bfTime = 5000
     local msg = string.format('DecreaseHeal_Debuff/%.2f/%.2f/%d/1/100/-1/0/0', arg2, arg2, bfTime)
     return msg

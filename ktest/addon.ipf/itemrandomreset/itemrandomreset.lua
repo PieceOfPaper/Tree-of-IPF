@@ -265,6 +265,10 @@ function ITEM_RANDOMRESET_REG_TARGETITEM(frame, itemID)
 			return
 		end
 
+		if materialItemCount == 0 then
+			break;
+		end
+
 		local bodyGbox2_1 = GET_CHILD_RECURSIVELY(frame, "bodyGbox2_1")
 		local materialClsCtrl = bodyGbox2_1:CreateOrGetControlSet('eachmaterial_in_itemrandomreset', 'MATERIAL_CSET_'..i, 0, 0);
 		materialClsCtrl = AUTO_CAST(materialClsCtrl)

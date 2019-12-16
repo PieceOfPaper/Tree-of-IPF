@@ -1,7 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by IMCGames Co., Ltd (IMCGames Co., Ltd) -->
 <ActionDesc>
-    <Sound frame="0.00" soundFile="skl_eff_born_1"/>
-    <Sound frame="0.00" soundFile="skl_eff_born_underground_1"/>
-    <Sound frame="0.00" soundFile="skl_eff_atk_move_m_10"/>
-    <Sound frame="10.00" soundFile="skl_eff_body_atk_21"/>
+	<Sound frame="0.00" soundFile="skl_eff_born_1"/>
+	<Sound frame="0.00" soundFile="skl_eff_born_underground_1"/>
+	<Sound frame="0.00" soundFile="skl_eff_atk_move_m_10"/>
+	<Sound frame="10.00" soundFile="skl_eff_body_atk_21"/>
+	<Particle frame="3" attachNode="Dummy_effect_born" particleName="F_smoke141_grey_dark_spread_out" useAttach="false" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="10" attachNode="Dummy_effect_born" particleName="F_smoke141_grey_dark_spread_out" useAttach="false" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="5" attachNode="None" particleName="F_smoke141_grey_dark_spread_out" useAttach="false" hiddenObj="false" changeEffect="None" scale="0.35" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="3" attachNode="None" particleName="F_ground145_smoke_red" useAttach="false" hiddenObj="false" changeEffect="None" scale="0.6" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="7" attachNode="Bip001 Spine1" particleName="F_ground145_smoke_red" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.4" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="3" attachNode="None" particleName="F_levitation017_smoke" useAttach="false" hiddenObj="false" changeEffect="None" scale="0.6" pause="true" use2DEffect="false" soft2DValue="20"/>
 </ActionDesc>

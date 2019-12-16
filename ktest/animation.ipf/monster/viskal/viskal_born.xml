@@ -1,4 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
 <ActionDesc>
-    <Sound frame="4.00" soundFile="mon_voice_lapene_skl1_shot"/>
+	<Particle frame="2" attachNode="None" particleName="I_smoke026_spread_out" useAttach="false" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+	<Sound frame="4.00" soundFile="mon_voice_lapene_skl1_shot"/>
 </ActionDesc>

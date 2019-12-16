@@ -6,6 +6,15 @@ function SCR_SIERA_MATERIAL(item)
 	end
 
 	local sieraCount =  math.floor((1 + (math.floor(itemLv/75) * math.floor(itemLv/75))* 5) * 0.5)
+
+	local ItemGrade = TryGetProp(item, "ItemGrade");
+	if ItemGrade == 3 then
+		if 430 <= itemLv then
+			sieraCount = math.floor(sieraCount * 0.25);
+		else
+			return 0;
+		end
+	end
     
     --EVENT_1903_WEEKEND
     local isServer = false
@@ -42,7 +51,14 @@ function SCR_NEWCLE_MATERIAL(item)
 	end
 	
 	local newcleCount = math.floor(math.floor(1 + (itemLv/itemGradeRatio[itemGrade])) * itemMaxRatio[itemGrade] * 20)
-    
+	
+	local ItemGrade = TryGetProp(item, "ItemGrade");
+	if ItemGrade == 3 then
+		if 430 <= itemLv then
+			newcleCount = math.floor(newcleCount * 1.25);
+		end
+	end
+
 	--EVENT_1903_WEEKEND
 	local isServer = false
 
