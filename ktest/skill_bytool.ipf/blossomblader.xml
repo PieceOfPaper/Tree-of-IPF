@@ -209,7 +209,7 @@
                 <Scp Scp="SKL_SETPOS" Client="NO" UseSleep="NO" Time="100">
                     <Pos Angle="0" Dist="100"/>
                     <Str_Arg Str="None" Arg="1"/>
-                    <Num Num="1"/>
+                    <Num Num="0"/>
                 </Scp>
                 <Scp Scp="SKL_BUFF_ABIL" Client="NO" UseSleep="NO" Time="150">
                     <Str Str="Blossomblader16"/>
@@ -243,7 +243,7 @@ return buff"/>
                 <Num Num="0"/>
             </ToolScp>
             <ToolScp Scp="C_COLORBLEND_ACTOR" Client="YES" UseSleep="NO">
-                <Num Num="1"/>
+                <Num Num="3"/>
                 <Num Num="0"/>
                 <Num Num="0"/>
                 <Num Num="0"/>
@@ -278,7 +278,7 @@ return buff"/>
                     <Num Num="100"/>
                 </Scp>
                 <Scp Scp="C_COLORBLEND_ACTOR" Client="YES" UseSleep="NO" Time="0">
-                    <Num Num="1"/>
+                    <Num Num="3"/>
                     <Num Num="1"/>
                     <Num Num="0"/>
                     <Num Num="0"/>
@@ -382,7 +382,7 @@ return buff"/>
                             <Num Num="100"/>
                         </Scp>
                         <Scp Scp="C_COLORBLEND_ACTOR" Client="YES" UseSleep="NO" Time="0">
-                            <Num Num="1"/>
+                            <Num Num="3"/>
                             <Num Num="1"/>
                             <Num Num="0"/>
                             <Num Num="0"/>
@@ -431,6 +431,12 @@ return buff"/>
                             <Num Num="0"/>
                             <Num Num="0"/>
                         </Scp>
+                        <Scp Scp="SKL_TGT_REMOVE_BUFF" Client="NO" UseSleep="NO" Time="250">
+                            <Str Str="0" UseFunc="1" FuncTxt="local func_name = 'get_remove_buff_tooltip_' .. TryGetProp(obj, 'ClassName', 'None')
+                            local func = _G[func_name]
+                            if func == nil then return end
+                            return func(obj.Level)"/>
+                        </Scp>                        
                         <Scp Scp="EFT_AND_HIT" Client="NO" UseSleep="YES" TooltipScp="TOOLTIP_EFT_AND_HIT" Time="300">
                             <Pos Angle="0" Dist="0" Rand="30" PosType="8"/>
                             <Str_Arg Str="None" Arg="1"/>

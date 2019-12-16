@@ -840,6 +840,7 @@ function SCR_PRE_KEY_OF_LEGEND_01(self, argstring, argnum1, argnum2)
             PC_zone == 'd_velniasprison_51_1' or
             PC_zone == 'd_velniasprison_51_5' or
             PC_zone == 'id_catacomb_25_4' or
+            PC_zone == 'd_fantasylibrary_48_5' or
             PC_zone == 'f_maple_25_1' then
             
         if GetLayer(self) == 0 then

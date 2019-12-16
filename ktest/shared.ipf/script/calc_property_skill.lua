@@ -12645,7 +12645,7 @@ end
 
 function SCR_GET_Sacred_Heal_Ratio(skill)
     --value = skill.SklFactor + (skill.Level - 1) * skill.SklFactorByLevel;
-	value = 7 + (skill.Level - 1) * 2
+	value = 11 + (skill.Level - 1) * 2.9
 	value = math.floor(value * SCR_REINFORCEABILITY_TOOLTIP(skill))
     return math.floor(value)
 end
@@ -12657,31 +12657,31 @@ function SCR_GET_Barong_Time(skill)
 end
 
 function SCR_GET_HolySmash_Heal_Ratio(skill)
-    value = 20 + (skill.Level - 1) * 3.4
+    value = 30 + (skill.Level - 1) * 5
 	value = math.floor(value * SCR_REINFORCEABILITY_TOOLTIP(skill))
     return math.floor(value)
 end
 
 function SCR_GET_RingOfLight_Heal_Ratio(skill)
-    value = 31 + (skill.Level - 1) * 5.2
+    value = 46 + (skill.Level - 1) * 7.8
 	value = math.floor(value * SCR_REINFORCEABILITY_TOOLTIP(skill))
     return math.floor(value)
 end
 
 function SCR_GET_Condemn_Heal_Ratio(skill)
-    value = 10 + (skill.Level - 1) * 2.8
+    value = 15 + (skill.Level - 1) * 4.2
 	value = math.floor(value * SCR_REINFORCEABILITY_TOOLTIP(skill))
     return math.floor(value)
 end
 
 function SCR_GET_ProtectionOfGoddess_Heal_Ratio(skill)
-    value = 43 + (skill.Level - 1) * 43
+    value = 76 + (skill.Level - 1) * 77
 	value = math.floor(value * SCR_REINFORCEABILITY_TOOLTIP(skill))
     return math.floor(value)
 end
 
 function SCR_GET_Retaliation_Heal_Ratio(skill)
-    value = 57 + (skill.Level - 1) * 14.8
+    value = 84 + (skill.Level - 1) * 22.2
 	value = math.floor(value * SCR_REINFORCEABILITY_TOOLTIP(skill))
     return math.floor(value)
 end
@@ -12877,6 +12877,11 @@ function SCR_GET_SR_LV_Kutukan(skill)
     return value
 end
 
+function SCR_GET_GuidedShot_Time(skill)
+    local value = 20
+    return value
+end
+
 function SCR_GET_Escape_Ratio(skill)
     local value = skill.Level * 5
     return value
@@ -12922,6 +12927,13 @@ function SCR_GET_SKL_COOLDOWN_SeptEtoiles(skill)
                 coolDownClassify, zoneAddCoolDown = addCoolDown[1], addCoolDown[2]
             end
         end
+    end
+
+    local laimaCoolTime = GetExProp(pc, "LAIMA_BUFF_COOLDOWN")
+    if laimaCoolTime > 0 then
+        basicCoolDown = basicCoolDown * (1 - laimaCoolTime)
+    elseif IsBuffApplied(pc, 'CarveLaima_Debuff') == 'YES' then
+        basicCoolDown = basicCoolDown * 1.2;
     end
     
     --burning_event
@@ -12981,6 +12993,13 @@ function SCR_GET_SKL_COOLDOWN_Fleche(skill)
             end
         end
     end
+
+    local laimaCoolTime = GetExProp(pc, "LAIMA_BUFF_COOLDOWN")
+    if laimaCoolTime > 0 then
+        basicCoolDown = basicCoolDown * (1 - laimaCoolTime)
+    elseif IsBuffApplied(pc, 'CarveLaima_Debuff') == 'YES' then
+        basicCoolDown = basicCoolDown * 1.2;
+    end
     
     --burning_event
     if IsBuffApplied(pc, "Event_Cooldown_SPamount_Decrease") == "YES" then
@@ -13038,6 +13057,13 @@ function SCR_GET_SKL_COOLDOWN_HolySmash(skill)
                 coolDownClassify, zoneAddCoolDown = addCoolDown[1], addCoolDown[2]
             end
         end
+    end
+
+    local laimaCoolTime = GetExProp(pc, "LAIMA_BUFF_COOLDOWN")
+    if laimaCoolTime > 0 then
+        basicCoolDown = basicCoolDown * (1 - laimaCoolTime)
+    elseif IsBuffApplied(pc, 'CarveLaima_Debuff') == 'YES' then
+        basicCoolDown = basicCoolDown * 1.2;
     end
     
     --burning_event
@@ -13097,6 +13123,13 @@ function SCR_GET_SKL_COOLDOWN_Condemn(skill)
             end
         end
     end
+
+    local laimaCoolTime = GetExProp(pc, "LAIMA_BUFF_COOLDOWN")
+    if laimaCoolTime > 0 then
+        basicCoolDown = basicCoolDown * (1 - laimaCoolTime)
+    elseif IsBuffApplied(pc, 'CarveLaima_Debuff') == 'YES' then
+        basicCoolDown = basicCoolDown * 1.2;
+    end
     
     --burning_event
     if IsBuffApplied(pc, "Event_Cooldown_SPamount_Decrease") == "YES" then
@@ -13153,6 +13186,13 @@ function SCR_GET_SKL_COOLDOWN_BlossomSlash(skill)
                 coolDownClassify, zoneAddCoolDown = addCoolDown[1], addCoolDown[2]
             end
         end
+    end
+
+    local laimaCoolTime = GetExProp(pc, "LAIMA_BUFF_COOLDOWN")
+    if laimaCoolTime > 0 then
+        basicCoolDown = basicCoolDown * (1 - laimaCoolTime)
+    elseif IsBuffApplied(pc, 'CarveLaima_Debuff') == 'YES' then
+        basicCoolDown = basicCoolDown * 1.2;
     end
     
     --burning_event

@@ -197,24 +197,34 @@ function ITEMOPTIONRELOCATE_REG_SRC_ITEM(frame, itemID)
 		return false;
 	end
 	
-	local enable, reason = IS_ENABLE_REG_ITEM(invItem);
-	if enable == false then
-		local typetext = frame:GetUserConfig('TEXT_AWAKE');
-		if relocateType == 'ENCHANT' then
-			typetext = frame:GetUserConfig('TEXT_ENCHANT');
-		end
-
-		ui.SysMsg(ScpArgMsg('CannotItemOptionRelocateBecause{TYPE}{REASON}', 'TYPE', typetext, 'REASON', ClMsg(reason)));
+	if invItem.isLockState == true then
+		ui.SysMsg(ClMsg("MaterialItemIsLock"));
 		return;
 	end
-	
+
 	local itemObj = GetIES(invItem:GetObject());
 	if relocateType == 'AWAKE' then
 		if itemObj.IsAwaken == 0 then
 			return;
 		end
+		
+		local enable, reason = IS_ENABLE_AWAKE_OPTION_RELOCATE_ITEM(itemObj);
+		if enable == false then
+			ui.SysMsg(ScpArgMsg('CannotItemOptionRelocateBecause{TYPE}{REASON}', 'TYPE', frame:GetUserConfig('TEXT_AWAKE'),'REASON', ClMsg(reason)));
+			return;
+		end
 	elseif relocateType == 'ENCHANT' then
 		if itemObj['RandomOptionRare'] == nil or itemObj['RandomOptionRare'] == 'None' then
+			return;
+		end
+
+		local enable, reason = IS_ENABLE_ENCHANT_OPTION_RELOCATE_ITEM(itemObj);
+		if enable == false then
+			if reason == 'minLv' then
+				ui.SysMsg(ClMsg('EnchantOptionRelocateDestItemLvMin100'));
+			else
+				ui.SysMsg(ScpArgMsg('CannotItemOptionRelocateBecause{TYPE}{REASON}', 'TYPE', frame:GetUserConfig('TEXT_ENCHANT'), 'REASON', ClMsg(reason)));
+			end
 			return;
 		end
 	else 
@@ -248,10 +258,6 @@ function ITEMOPTIONRELOCATE_REG_DEST_ITEM(frame, itemID)
 	if ui.CheckHoldedUI() == true then
 		return;
 	end
-	
-    local guid = frame:GetUserValue('DEST_ITEM_GUID');
-    SELECT_INV_SLOT_BY_GUID(guid, 0);
-    frame:SetUserValue('DEST_ITEM_GUID', 0);
     
 	local relocateType = frame:GetUserValue("RELOCATE_TYPE");
 
@@ -260,16 +266,11 @@ function ITEMOPTIONRELOCATE_REG_DEST_ITEM(frame, itemID)
 		return false;
 	end
 	
-	local enable, reason = IS_ENABLE_REG_ITEM(invItem);
-	if enable == false then
-		local typetext = frame:GetUserConfig('TEXT_AWAKE');
-		if relocateType == 'ENCHANT' then
-			typetext = frame:GetUserConfig('TEXT_ENCHANT');
-		end
-		ui.SysMsg(ScpArgMsg('CannotItemOptionRelocateBecause{TYPE}{REASON}', 'TYPE', typetext,'REASON', ClMsg(reason)));
-		return;
+	if invItem.isLockState == true then
+		ui.SysMsg(ClMsg("MaterialItemIsLock"));
+		return false;
 	end
-	
+
 	local slot1 = GET_CHILD_RECURSIVELY(frame, "slot1");
 	local src_item = GET_SLOT_ITEM(slot1);
 	if src_item == nil then
@@ -281,25 +282,53 @@ function ITEMOPTIONRELOCATE_REG_DEST_ITEM(frame, itemID)
 
 	local relocateType = frame:GetUserValue("RELOCATE_TYPE");
 	local enable2, reason2 = false, 'Type';
-	if relocateType == 'AWAKE' then
+	if relocateType == 'AWAKE' then			
+		local enable, reason = IS_ENABLE_AWAKE_OPTION_RELOCATE_ITEM(dest_Obj);
+		if enable == false then
+			ui.SysMsg(ScpArgMsg('CannotItemOptionRelocateBecause{TYPE}{REASON}', 'TYPE', frame:GetUserConfig('TEXT_AWAKE'),'REASON', ClMsg(reason)));
+			return;
+		end
+
 		-- 동일한 레벨, 동일한 부위, 동일한 등급
 		enable2, reason2 = IS_ENABLE_AWAKE_OPTION_RELOCATE(dest_Obj, src_Obj);
-	elseif relocateType == 'ENCHANT' then
-		-- 부위 제한이 없음. 동일한 레벨, 동일한 등급
+		if enable2 == false then
+			if reason2 == 'Same' then
+				ui.SysMsg(ClMsg('AlreadRegSameItem'));
+			else
+				ui.SysMsg(ScpArgMsg('CannotItemOptionRelocateBecause{REASON}_2', 'REASON', ClMsg(reason2)));
+			end
+			return;
+		end
+	elseif relocateType == 'ENCHANT' then					
+		local enable, reason = IS_ENABLE_ENCHANT_OPTION_RELOCATE_ITEM(dest_Obj);
+		if enable == false then
+			if reason == 'minLv' then
+				ui.SysMsg(ClMsg('EnchantOptionRelocateDestItemLvMin100'));
+			else
+				ui.SysMsg(ScpArgMsg('CannotItemOptionRelocateBecause{TYPE}{REASON}', 'TYPE', frame:GetUserConfig('TEXT_ENCHANT'), 'REASON', ClMsg(reason)));
+			end
+			return;
+		end
+
 		enable2, reason2 = IS_ENABLE_ENCHANT_OPTION_RELOCATE(dest_Obj, src_Obj);
+		if enable2 == false then
+			if reason2 == 'Same' then
+				ui.SysMsg(ClMsg('AlreadRegSameItem'));
+			elseif reason2 == 'Level' then
+				ui.SysMsg(ClMsg('EnchantOptionRelocateDestItemLvHigh'));
+			else
+				ui.SysMsg(ScpArgMsg('CannotItemOptionRelocateBecause{REASON}_2', 'REASON', ClMsg(reason2)));
+			end
+			return;
+		end
 	else 
 		return;
 	end
 
-	if enable2 == false then
-		if reason2 == 'Same' then
-			ui.SysMsg(ClMsg('AlreadRegSameItem'));
-		else
-			ui.SysMsg(ScpArgMsg('CannotItemOptionRelocateBecause{REASON}_2', 'REASON', ClMsg(reason2)));
-		end
-		return;
-	end
-
+    local guid = frame:GetUserValue('DEST_ITEM_GUID');
+    SELECT_INV_SLOT_BY_GUID(guid, 0);
+	frame:SetUserValue('DEST_ITEM_GUID', 0);
+	
 	-- 아이템 등록
 	local slot2 = GET_CHILD_RECURSIVELY(frame, "slot2");
 	SET_SLOT_ITEM(slot2, invItem);
@@ -318,24 +347,30 @@ function ITEMOPTIONRELOCATE_REG_DEST_ITEM(frame, itemID)
 	local gBox = GET_CHILD_RECURSIVELY(frame, "bodyGbox1_0");
 	gBox:RemoveAllChild();
 	
+	-- 이전 비용
+	local src_LV = TryGetProp(src_Obj, "UseLv", 9999);
+	local dest_LV = TryGetProp(dest_Obj, "UseLv", 9999);
+	local decomposecost = GET_CHILD_RECURSIVELY(medal_gb, "decomposecost");
+	local cost = 999999999;
+
 	if relocateType == 'AWAKE' then
 		local opName = string.format("[%s] %s", ClMsg("AwakenOption"), ScpArgMsg(src_Obj.HiddenProp));
 		local strInfo = ABILITY_DESC_PLUS(opName, src_Obj.HiddenPropValue);
 
 		local ctrlSet = gBox:CreateOrGetControl('richtext', 'OPTION_TEXT_2', 3, 0, 400, 30);
 		ctrlSet:SetText(strInfo);
-		ctrlSet:SetFontName('brown_16');		
+		ctrlSet:SetFontName('brown_16');
+
+		cost = GET_ITEM_AWAKE_OPTION_RELOCATE_COST(src_LV);
 	elseif relocateType == 'ENCHANT' then
 		local strInfo = GET_RANDOM_OPTION_RARE_CLIENT_TEXT(src_Obj)
 		
 		local ctrlSet = gBox:CreateOrGetControl('richtext', 'OPTION_TEXT_1', 3, 0, 400, 30);
 		ctrlSet:SetText(strInfo);
+
+		cost = GET_ITEM_ENCHANT_OPTION_RELOCATE_COST(dest_LV, src_LV);
 	end
 
-	-- 이전 비용
-	local itemUseLv = TryGetProp(src_Obj, "UseLv", 9999);
-	local cost = GET_ITEM_OPTION_RELOCATE_COST(itemUseLv);
-	local decomposecost = GET_CHILD_RECURSIVELY(medal_gb, "decomposecost");
 	decomposecost:SetText(cost);
 	
 	-- 예상 잔액
@@ -390,9 +425,9 @@ function _ITEMOPTIONRELOCATE_START()
 	local enable, reason = false, nil;
 	local relocateType = frame:GetUserValue("RELOCATE_TYPE");
 	if relocateType == 'AWAKE' then
-		enable, reason = IS_ENABLE_AWAKE_OPTION_RELOCATE(dest_Obj, src_Obj);
+		enable, reason = IS_ENABLE_AWAKE_OPTION_RELOCATE_ITEM(dest_Obj, src_Obj);
 	elseif relocateType == 'ENCHANT' then
-		enable, reason = IS_ENABLE_ENCHANT_OPTION_RELOCATE(dest_Obj, src_Obj);
+		enable, reason = IS_ENABLE_ENCHANT_OPTION_RELOCATE_ITEM(dest_Obj, src_Obj);
 	end
 
 	if enable == false then
@@ -498,25 +533,4 @@ function  _RELOCATE_SUCCESS_EFFECT()
 	local result_effect_bg = GET_CHILD_RECURSIVELY(frame, 'result_effect_bg');
 	result_effect_bg:StopUIEffect('EXTRACT_SUCCESS_EFFECT', true, 0.5);
 	ui.SetHoldUI(false);
-end
-
-function IS_ENABLE_REG_ITEM(invItem)    
-	if invItem.isLockState == true then
-		return false, 'ItemLock';
-	end
-	
-	local itemObj = GetIES(invItem:GetObject());
-	if TryGetProp(itemObj, 'ItemStar', -1) < 0 then
-		return false, 'Type';
-	end
-
-	if 0 < TryGetProp(itemObj , 'LifeTime') or 0 < TryGetProp(itemObj , 'ItemLifeTimeOver') then
-		return false, 'LimitTime';
-	end
-
-	if TryGetProp(itemObj , 'NeedAppraisal') == 1 or TryGetProp(itemObj , 'NeedRandomOption') == 1 then
-		return false, 'NeedRandomOption';
-	end
-
-	return true;
 end

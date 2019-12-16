@@ -276,6 +276,16 @@
             </ToolScp>
         </KeyInput>
         <KeyInputStart>
+            <ToolScp Client="NO" Scp="SKL_CONSUME_SKILL_COOLDOWN" UseSleep="NO"/>
+			<ToolScp Client="NO" Scp="SKL_BUFF" UseSleep="NO">
+				<Str Str="ShiningBurst_Buff"/>
+				<Num FuncTxt="return obj.Level" Num="1" UseFunc="1"/>
+				<Num Num="0"/>
+				<Num Num="0"/>
+				<Num Num="1"/>
+				<Num Num="100"/>
+				<Num Num="0"/>
+			</ToolScp>        
             <ToolScp Scp="SKL_BUFF" Client="NO" UseSleep="NO">
                 <Str Str="Skill_SuperArmor_Buff"/>
                 <Num Num="1"/>
@@ -327,6 +337,9 @@
             </ToolScp>
         </KeyInputStart>
         <KeyInputEnd>
+			<ToolScp Client="NO" Scp="SKL_BUFF_REMOVE" UseSleep="NO">
+				<Str Str="ShiningBurst_Buff"/>
+			</ToolScp>        
             <ToolScp Scp="C_COLORBLEND_ACTOR" Client="YES" UseSleep="NO">
                 <Num Num="1"/>
                 <Num Num="0"/>

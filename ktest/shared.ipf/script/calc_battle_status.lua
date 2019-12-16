@@ -227,3 +227,11 @@ function get_Ghost_Atk_ratio_for_status(value)
     return value .. ' {#ff4040}(' .. ret .. '%)'
 end
 
+function get_AttackType_value_Cannon(pc)
+    local value = 10
+    if pc ~= nil then
+        --value = value + (TryGetProp(pc, 'STR', 0) / 100)
+    end
+
+    return value
+end

@@ -971,9 +971,10 @@
         <Effect Name="F_hit020"/>
         <Effect Name="F_hit_concentrate"/>
         <Effect Name="F_explosion111_smoke"/>
-		<Effect Name="F_pattern020_ground_darkRed"/>
-		<Effect Name="F_pattern008_violet"/>
-		<Effect Name="F_pattern008_violet_loop"/>
+        <Effect Name="F_pattern020_ground_darkRed"/>
+        <Effect Name="F_pattern008_violet"/>
+        <Effect Name="F_pattern008_violet_loop"/>
+        <Effect Name="boss_giltine"/>
     </Category>
     <Category ID="83">
         <Effect Name="SKL_ARIES"/>
@@ -2519,7 +2520,13 @@
         <Effect Name="I_arrow005_mash2_red#Dummy_back_arrow04"/>
         <Effect Name="F_pc_statue_buff"/>
         <Effect Name="I_spread_out004_dark"/>
+        <Effect Name="voice_archer_m_deadzone_shot"/>
+        <Effect Name="voice_archer_f_deadzone_shot"/>
+        <Effect Name="voice_wiz_m_implosion_shot"/>
         <Effect Name="voice_wiz_m_rollingstone_cast"/>
+        <Effect Name="voice_wiz_m_hornofgolem_shot"/>
+        <Effect Name="TerraMancer_HornOfGolem"/>
+        <Effect Name="TerraMancer_HornOfGolem_hidden"/>
         <Effect Name="F_smoke182_spread_out_dark2"/>
         <Effect Name="shieldup"/>
         <Effect Name="shieldup_2"/>

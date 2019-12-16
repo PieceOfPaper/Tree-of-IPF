@@ -139,6 +139,7 @@
 		<Class ClassID="1139" ClassName="ItemLock" Data="잠긴"/>
 		<Class ClassID="1140" ClassName="Same" Data="같은"/>
 		<Class ClassID="1141" ClassName="Grade" Data="등급"/>
+		<Class ClassID="1142" ClassName="TradeOption" Data="거래 옵션"/>
 	</Category>
 	<Category Name="Reinforce">
 		<Class ClassID="2001" ClassName="NotEnoughReinforcePotential" Data="강화에 필요한 포텐셜이 부족합니다"/>
@@ -360,6 +361,8 @@
 		<Class ClassID="2320" ClassName="ItemOptionRelocate_Check_Message_Enchant" Data="옵션을 이전할 아이템의 {#fe7e00}인챈트 옵션{/}이 {nl} 이전받을 아이템에게 옮겨갑니다."/>
 		<Class ClassID="2321" ClassName="ItemArkReturnExtraExp{count}" Data="아크 아이템 레벨 확장으로 인해 여분의 경험치에 따른 재화가 {count} 만큼 [마켓 수령함]으로 지급되었습니다."/>
 		<Class ClassID="2322" ClassName="ReallyDecomposeLEgendItemFor{ITEM}?_LV430_UPPER" Data="해당 아이템을 분해할 경우{nl}레전드 아이템은 사라지며 100% 확률로 '레전드 쥬얼' 아이템이 지급됩니다.{nl}분해하시겠습니까?"/>
+		<Class ClassID="2323" ClassName="EnchantOptionRelocateDestItemLvHigh" Data="이전 받을 아이템의 레벨이 더 높아야 합니다."/>
+		<Class ClassID="2324" ClassName="EnchantOptionRelocateDestItemLvMin100" Data="100레벨 이상의 장비만 등록 가능합니다."/>
 		</Category>
 	<Category Name="ClassContents">
 		<Class ClassID="2500" ClassName="FullWeeklyGainClassResetExp" Data="주간 획득 가능한 클래스 변경 포인트를 모두 달성하였습니다."/>
