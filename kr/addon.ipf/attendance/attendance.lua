@@ -114,13 +114,13 @@ function ATTENDANCE_INIT_REWARD(frame, attendanceID)
             local itemPic = GET_CHILD(ctrlSet, 'itemPic');
             itemPic:SetImage(itemCls.Icon);
 
-			if itemName ~= MONEY_NAME and itemName ~= 'Event_Unique_Enchant_Jewel' then
-				SET_ITEM_TOOLTIP_BY_NAME(itemPic, itemName);
-			else
+			if string.find(itemName, 'Enchant_Jewel') ~= nil then
 				local rewardClassName = attendanceClassData:GetRewardClassName();
 				if rewardClassName ~= nil then
 					SET_ITEM_TOOLTIP_BY_CLASSID(itemPic, itemName, 'RewardAttendance', rewardClassName);
 				end
+			elseif itemName ~= MONEY_NAME then
+				SET_ITEM_TOOLTIP_BY_NAME(itemPic, itemName);
 			end
 			itemPic:SetTooltipOverlap(1);
 
@@ -143,10 +143,6 @@ function ATTENDANCE_INIT_REWARD(frame, attendanceID)
 					UI_PLAYFORCE(getPic, "sizeUpAndDown");
                 end
 			end
-			
-			SET_ITEM_TOOLTIP_BY_NAME(getPic, itemName);
-			getPic:SetTooltipOverlap(1);
-			
 		end
 	end
 

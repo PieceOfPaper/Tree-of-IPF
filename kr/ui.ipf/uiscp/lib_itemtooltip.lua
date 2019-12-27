@@ -564,7 +564,7 @@ function GET_TOOLTIP_ITEM_OBJECT(strarg, guid, numarg1)
 	elseif strarg == 'RewardAttendance' then
 		local itemObj = GetClassByType("Item", guid)
 		viewObj = CloneIES_UseCP(itemObj);
-		if guid == '699008' then
+		if string.find(itemObj.ClassName, 'Enchant_Jewel') ~= nil then
 			local temp_obj = GetClassByType("RewardAttendance", numarg1)
 			viewObj.Level = temp_obj.AppendPropertyStatus;			
 			return viewObj, 1;
