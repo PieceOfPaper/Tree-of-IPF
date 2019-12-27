@@ -153,7 +153,7 @@
                     <Num Num="0"/>
                 </Scp>
                 <Scp Scp="SKL_BUFF" Client="NO" UseSleep="NO" Time="0">
-                    <Str Str="Escape_Buff" UseFunc="1" FuncTxt="local buffName = &quot;Escape_Buff&quot; local abil = GetAbility(self, &quot;Arbalester6&quot;) if abil ~= nil and TryGetProp(abil, &quot;ActiveState&quot;, 0) == 1 then buffName = &quot;Escape_abil_Buff&quot; end  return buffName;"/>
+                    <Str Str="Escape_Buff" UseFunc="1" FuncTxt="local buffName = &quot;Escape_Buff&quot; local lhitem = GetEquipItem(self, 'LH'); local abil = GetAbility(self, &quot;Arbalester6&quot;) if abil ~= nil and TryGetProp(abil, &quot;ActiveState&quot;, 0) == 1 and TryGetProp(lhitem, 'ClassType', 'None') == 'Shield' then buffName = &quot;Escape_abil_Buff&quot; end  return buffName;"/>
                     <Num Num="1" UseFunc="1" FuncTxt="return obj.Level"/>
                     <Num Num="0"/>
                     <Num Num="1000"/>

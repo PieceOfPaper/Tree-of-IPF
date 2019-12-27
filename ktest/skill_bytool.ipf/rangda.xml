@@ -241,7 +241,8 @@ return 10000 + addTime * 1000"/>
                 <Scp Scp="SKL_SET_TARGET_CIRCLE" Client="NO" UseSleep="NO" Time="600">
                     <Pos Angle="0" Dist="100"/>
                     <Num Num="150"/>
-                    <Num Num="5" UseFunc="1" FuncTxt="return 7 + (self.SR/5);"/>
+                    <Num Num="5" UseFunc="1" FuncTxt="local value = 7 + (self.SR/5);
+                    return math.floor(value);"/>
                     <Num Num="2"/>
                     <Num Num="0"/>
                     <Num Num="0"/>

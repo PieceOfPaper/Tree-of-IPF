@@ -110,6 +110,11 @@
                                 <Num Num="1"/>
                                 <Num Num="0"/>
                             </ToolScp>
+                            <ToolScp Scp="MGAME_MSG_ICON" Client="YES" UseSleep="NO">
+                                <Str Str="마족 무리가 계속 습격해옵니다!"/>
+                                <Str Str="scroll"/>
+                                <Num Num="5"/>
+                            </ToolScp>
                         </execList>
                     </Event>
                     <Event execCount="1" eventName="next" execWithStart="0">
@@ -188,6 +193,11 @@
                                 <MGameObjIndex List="Phase3/0/Phase3/1/Phase3/2/Phase3/3"/>
                                 <Num Num="1"/>
                                 <Num Num="0"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_MSG_ICON" Client="YES" UseSleep="NO">
+                                <Str Str="마족 무리가 계속 습격해옵니다!"/>
+                                <Str Str="scroll"/>
+                                <Num Num="5"/>
                             </ToolScp>
                         </execList>
                     </Event>
@@ -317,6 +327,11 @@
                                 <MGameObjIndex List="Last Battle/0/Last Battle/1/Last Battle/2"/>
                                 <Num Num="1"/>
                                 <Num Num="0"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_MSG_ICON" Client="YES" UseSleep="NO">
+                                <Str Str="마족의 리더가 나타났습니다! 마족 무리를 모두 처치하세요!"/>
+                                <Str Str="scroll"/>
+                                <Num Num="5"/>
                             </ToolScp>
                         </execList>
                     </Event>

@@ -686,7 +686,11 @@ function PLAY_ARK_COMPOSITION_EFFECT()
 
 	local COMPOSITION_EFFECT_NAME = frame:GetUserConfig('COMPOSITION_EFFECT_NAME');
 	local COMPOSITION_EFFECT_SCALE = tonumber(frame:GetUserConfig('COMPOSITION_EFFECT_SCALE'));
-	local COMPOSITION_EFFECT_DURATION = tonumber(frame:GetUserConfig('COMPOSITION_EFFECT_DURATION'));
+    local COMPOSITION_EFFECT_DURATION = tonumber(frame:GetUserConfig('COMPOSITION_EFFECT_DURATION'));
+    local COMPOSITION_SOUND_NAME = frame:GetUserConfig('COMPOSITION_SOUND_NAME');
+    
+    imcSound.PlaySoundEvent(COMPOSITION_SOUND_NAME);
+    
 	local effect_gb = GET_CHILD_RECURSIVELY(frame, 'effect_gb');
 	effect_gb:ShowWindow(1);
     effect_gb:PlayUIEffect(COMPOSITION_EFFECT_NAME, COMPOSITION_EFFECT_SCALE, 'COMPOSITION_EFFECT');

@@ -1923,7 +1923,7 @@ local function _CREATE_ARK_LV(gBox, ypos, step, class_name, curlv)
 	local func_str = string.format('get_tooltip_%s_arg%d', class_name, step)
     local tooltip_func = _G[func_str]  -- get_tooltip_Ark_str_arg1 시리즈
 	if tooltip_func ~= nil then
-		local status, interval, add_value = tooltip_func();
+		local status, interval, add_value, summon_atk = tooltip_func();
 
 		local option = status
         
@@ -1933,11 +1933,15 @@ local function _CREATE_ARK_LV(gBox, ypos, step, class_name, curlv)
 		if add_value <= 0 then
 			return ypos;
 		end
-
-		local strInfo = ABILITY_DESC_PLUS(ScpArgMsg(option), add_value);
-
+		
+		local strInfo = ABILITY_DESC_PLUS(ScpArgMsg(option), add_value)
+		if summon_atk ~= nil then
+			local add_msg =  string.format(", %s "..ScpArgMsg("PropUp").."%.1f", ScpArgMsg('SUMMON_ATK'), math.abs(add_value / 200)) .. '%'
+			strInfo = strInfo .. ' ' .. add_msg
+		end
+		
 		local infoText = gBox:CreateControl('richtext', 'infoText'..step, 15, ypos, gBox:GetWidth(), 30);
-		infoText:SetText(strInfo);
+		infoText:SetText(strInfo);		
 		infoText:SetFontName("brown_16");
 		ypos = ypos + infoText:GetHeight() + margin;
 	end
@@ -1952,10 +1956,18 @@ local function _CREATE_ARK_OPTION(gBox, ypos, step, class_name)
 	local func_str = string.format('get_tooltip_%s_arg%d', class_name, step)
     local tooltip_func = _G[func_str]  -- get_tooltip_Ark_str_arg1 시리즈
 	if tooltip_func ~= nil then
-		local status, interval, add_value = tooltip_func();
+		local status, interval, add_value, summon_atk = tooltip_func();
 		local option = status
 		local infoText = gBox:CreateControl('richtext', 'infoText'..step, 15, ypos, gBox:GetWidth(), 30);
-		infoText:SetText(ScpArgMsg("ArkOptionText{Option}{interval}{addvalue}", "Option", ClMsg(option), "interval", interval, "addvalue", add_value));
+		local text = ''
+		if summon_atk == nil then
+			text = ScpArgMsg("ArkOptionText{Option}{interval}{addvalue}", "Option", ClMsg(option), "interval", interval, "addvalue", add_value)
+		else			
+			text = ScpArgMsg("ArkOptionText{Option}{interval}{addvalue}{option2}{addvalue2}", "Option", ClMsg(option), "interval", interval, "addvalue", add_value, 'option2', ClMsg(summon_atk), 'addvalue2', string.format('%.1f', add_value / 200))
+			
+		end
+		
+		infoText:SetText(text);
 		infoText:SetFontName("brown_16_b");
 		ypos = ypos + infoText:GetHeight() + margin;
 	end

@@ -225,7 +225,7 @@ return time;"/>
                 <Num Num="1"/>
             </ToolScp>
             <ToolScp Scp="PAD_CONCURRENT_USE_COUNT" Client="NO" UseSleep="NO">
-                <Num Num="10" UseFunc="1" FuncTxt="return 7 + TryGetProp(self, 'SR', 0) / 3"/>
+                <Num Num="10" UseFunc="1" FuncTxt="return math.floor(7 + TryGetProp(self, &apos;SR&apos;, 0) / 3)"/>
             </ToolScp>
         </createEvent>
         <enterEvent>
@@ -13522,7 +13522,7 @@ skillLevel = TryGetProp(skill, &apos;Level&apos;, 0);
 end
 return skillLevel"/>
                 <Num Num="0"/>
-                <Num Num="10000"/>
+                <Num Num="1000"/>
                 <Num Num="1"/>
                 <Num Num="100"/>
             </ToolScp>

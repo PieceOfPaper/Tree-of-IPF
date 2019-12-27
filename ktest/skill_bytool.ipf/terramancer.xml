@@ -145,31 +145,52 @@
         </MainSkl>
     </Skill>
     <Skill Name="TerraMancer_StoneShower">
-        <KeyInputEnd>
-            <ToolScp Scp="MONSKL_PAD_MOVE_BY_SPEED" Client="NO" UseSleep="NO">
-                <Str Str="TerraMancer_RollingStone_DamagePad"/>
-                <Num Num="0"/>
-                <Pos Angle="0" Dist="0" PosType="1"/>
-                <Num Num="50"/>
-                <Num Num="0"/>
-                <Num Num="0"/>
-            </ToolScp>
-        </KeyInputEnd>
         <MainSkl ScrLock="None" JumpFlee="NO" MSPDToUsePos="0">
             <HitList>
-                <Frame Type="SQUARE" Time="150" HitCount="1" TermMin="0" TermMax="0" PosType="0" Dist="0" RandDist="0" RandomPerHit="0" Angle="0" Width="55" Length="150" SklAngle="1.0471981" AniTime="350" RotAngle="0" ForceATK="0" RandomSort="1"/>
-                <Frame Type="SQUARE" Time="250" HitCount="1" TermMin="0" TermMax="0" PosType="0" Dist="0" RandDist="0" RandomPerHit="0" Angle="0" Width="55" Length="150" SklAngle="1.0471981" AniTime="450" RotAngle="0" ForceATK="0" RandomSort="1"/>
-                <Frame Type="SQUARE" Time="350" HitCount="1" TermMin="0" TermMax="0" PosType="0" Dist="0" RandDist="0" RandomPerHit="0" Angle="0" Width="55" Length="150" SklAngle="1.0471981" AniTime="550" RotAngle="0" ForceATK="0" RandomSort="1"/>
-                <Frame Type="SQUARE" Time="450" HitCount="1" TermMin="0" TermMax="0" PosType="0" Dist="0" RandDist="0" RandomPerHit="0" Angle="0" Width="55" Length="150" SklAngle="1.0471981" AniTime="650" RotAngle="0" ForceATK="0" RandomSort="1"/>
-                <Frame Type="SQUARE" Time="550" HitCount="1" TermMin="0" TermMax="0" PosType="0" Dist="0" RandDist="0" RandomPerHit="0" Angle="0" Width="55" Length="150" SklAngle="1.0471981" AniTime="750" RotAngle="0" ForceATK="0" RandomSort="1"/>
+                <Frame Type="FAN" Time="999799" HitCount="1" TermMin="0" TermMax="0" PosType="0" Dist="0" RandDist="0" RandomPerHit="0" Angle="0" AniTime="999999" RotAngle="0" ForceATK="0"/>
             </HitList>
             <EtcList>
+                <Scp Scp="SKL_SET_TARGET_SQUARE_SR" Client="NO" UseSleep="NO" Time="0">
+                    <Pos Angle="0" Dist="0"/>
+                    <Num Num="0"/>
+                    <Num Num="150"/>
+                    <Num Num="55"/>
+                    <Num Num="2"/>
+                    <Num Num="1"/>
+                    <Num Num="0"/>
+                    <Num Num="0"/>
+                </Scp>
                 <Scp Scp="SKL_RUN_SCRIPT" Client="NO" UseSleep="NO" Time="0">
                     <Str Str="SCR_TERRAMANCER_STONESHOWER_SKILL"/>
                 </Scp>
                 <Scp Scp="C_VOICE_SOUND" Client="YES" UseSleep="NO" Time="0">
                     <Str Str="voice_wiz_m_stoneshower_shot"/>
                     <Str Str="voice_wiz_f_stoneshower_shot"/>
+                </Scp>
+                <Scp Scp="SKL_TGT_DMG" Client="NO" UseSleep="NO" Time="350">
+                    <Num Num="1"/>
+                    <Num Num="1"/>
+                    <Num Num="0"/>
+                </Scp>
+                <Scp Scp="SKL_TGT_DMG" Client="NO" UseSleep="NO" Time="450">
+                    <Num Num="1"/>
+                    <Num Num="1"/>
+                    <Num Num="0"/>
+                </Scp>
+                <Scp Scp="SKL_TGT_DMG" Client="NO" UseSleep="NO" Time="550">
+                    <Num Num="1"/>
+                    <Num Num="1"/>
+                    <Num Num="0"/>
+                </Scp>
+                <Scp Scp="SKL_TGT_DMG" Client="NO" UseSleep="NO" Time="650">
+                    <Num Num="1"/>
+                    <Num Num="1"/>
+                    <Num Num="0"/>
+                </Scp>
+                <Scp Scp="SKL_TGT_DMG" Client="NO" UseSleep="NO" Time="750">
+                    <Num Num="1"/>
+                    <Num Num="1"/>
+                    <Num Num="0"/>
                 </Scp>
             </EtcList>
         </MainSkl>
@@ -238,6 +259,9 @@
                 <Str Str="skl_eff_rollingstone_cast"/>
                 <Num Num="0"/>
                 <Str Str="skl_eff_rollingstone_cast"/>
+            </ToolScp>
+            <ToolScp Scp="SKL_CONSUME_SKILL_COOLDOWN" Client="NO" UseSleep="NO">
+                <Num Num="1"/>
             </ToolScp>
         </KeyInputStart>
         <KeyInputEnd>
@@ -359,7 +383,7 @@
         </KeyInputEnd>
         <MainSkl ScrLock="None" JumpFlee="NO" MSPDToUsePos="0">
             <HitList>
-                <Frame Type="SQUARE" Time="10999" HitCount="1" TermMin="0" TermMax="0" PosType="0" Dist="0" RandDist="0" RandomPerHit="0" Angle="0" Width="55" Length="150" SklAngle="1.0471981" AniTime="9999" RotAngle="0" ForceATK="0" RandomSort="1"/>
+                <Frame Type="SQUARE" Time="10999" HitCount="1" TermMin="0" TermMax="0" PosType="0" Dist="0" RandDist="0" RandomPerHit="0" Angle="0" Width="55" Length="160" SklAngle="1.0471981" AniTime="9999" RotAngle="0" ForceATK="0" RandomSort="1"/>
             </HitList>
             <EtcList>
                 <Scp Scp="C_EFFECT_ATTACH" Client="YES" UseSleep="NO" Time="0">

@@ -55,10 +55,6 @@ function IS_ENABLE_ENCHANT_OPTION_RELOCATE(dest_Obj, src_Obj)
 		return false, 'Level';
 	end
 
-	if IS_OPTION_RELOCATE_ENABLE_USER_TRADE_ITEM(dest_Obj) ~= false and IS_OPTION_RELOCATE_ENABLE_USER_TRADE_ITEM(src_Obj) == false then
-		return false, 'TradeOption';
-	end	
-
 	if IS_OPTION_RELOCATE_ENABLE_MARKET_TRADE_ITEM(dest_Obj) ~= false and IS_OPTION_RELOCATE_ENABLE_MARKET_TRADE_ITEM(src_Obj) == false then
 		return false, 'TradeOption';
 	end	
@@ -66,23 +62,7 @@ function IS_ENABLE_ENCHANT_OPTION_RELOCATE(dest_Obj, src_Obj)
 	return true;
 end
 
--- 개인 거래 가능 여부 확인
-function IS_OPTION_RELOCATE_ENABLE_USER_TRADE_ITEM(itemObj)
-	if TryGetProp(itemObj, "BelongingCount", 1) == 1 then
-		return false;
-	end
-
-	if TryGetProp(itemObj, "PR", 9999) <= 0 then
-		return false;
-	end
-
-	if TryGetProp(itemObj, "UserTrade", "NO") == "NO" then
-		return false;
-	end
-
-	return true;
-end
-
+-- 마켓 거래 가능 여부 확인
 function IS_OPTION_RELOCATE_ENABLE_MARKET_TRADE_ITEM(itemObj)
 	if TryGetProp(itemObj, "BelongingCount", 1) == 1 then
 		return false;

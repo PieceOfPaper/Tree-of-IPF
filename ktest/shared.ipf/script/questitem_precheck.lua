@@ -9084,7 +9084,9 @@ function SCR_PRE_D_CASTLE_19_1_MQ_05_ITEM(self, argObj, argstring, arg1, arg2)
     return 0;
 end
 
+
 --EP12_MAINSTREAM_RAIMA
+
 
 function SCR_PRE_EP12_MAINSTREAM_RAIMA_WHEEL_ITEM(self, argObj, argstring, arg1, arg2)
     local mainSession = GetSessionObject(self, "ssn_klapeda")
@@ -9092,9 +9094,40 @@ function SCR_PRE_EP12_MAINSTREAM_RAIMA_WHEEL_ITEM(self, argObj, argstring, arg1,
         if mainSession.CASTLE102_MQ_06 < 300 then
             if GetLayer(self) == 0 then
                 if GetZoneName(self) ~= "shadow_raid_mini_dungeon" then
+                    local CompanionPeeding = GetExProp(self, 'feed')
+                    if CompanionPeeding == 1 then
+                        SendAddOnMsg(self, "NOTICE_Dm_scroll", ScpArgMsg("CanNotUseWarpDuringFeeding"), 2)
+                        return 0
+                    end
+                    if IsJoinColonyWarMap(self) == 1 then
+                        SendAddOnMsg(self, "NOTICE_Dm_scroll", ScpArgMsg("EP12_MAINSTREAM_RAIMA_WHEEL_DONT_USE"), 5);
+                        return 0;
+                    end
+                    
+                    if IsUsingSkill(self) == 1 then
+                        SendAddOnMsg(self, "NOTICE_Dm_scroll", ScpArgMsg("EP12_MAINSTREAM_RAIMA_WHEEL_DONT_USE"), 5)
+                        return 0;
+                    else
+                        local cls = GetClassList('Map');
+                        local zone = GetZoneName(self);
+                        local obj = GetClassByNameFromList(cls, zone);
+                        if zone == "c_barber_dress" then
+                            SendAddOnMsg(self, "NOTICE_Dm_scroll", ScpArgMsg("EP12_MAINSTREAM_RAIMA_WHEEL_DONT_USE"), 5);
+                            return 0;
+                        end
+    
+                        if obj.MapType == "Instance" or obj.MapType == "Login" or obj.MapType == "Dungeon" or obj.MapType == "None" then
+                            SendAddOnMsg(self, "NOTICE_Dm_scroll", ScpArgMsg("EP12_MAINSTREAM_RAIMA_WHEEL_DONT_USE"), 5);
+                            return 0
+                        end
+                    end
+                    
                     return 1
                 end
             end
+        else
+            SendAddOnMsg(self, "NOTICE_Dm_scroll", ScpArgMsg("EP12_MAINSTREAM_RAIMA_WHEEL_ABANDON_USE"), 5);
+            return 0
         end
     end
     return 0

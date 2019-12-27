@@ -198,7 +198,7 @@ end
 
 -- 두번째 옵션 치유력은 3레벨당 x씩 오른다.
 function get_tooltip_Ark_mna_arg2()
-    return 'HEAL_PWR_BM', 3, 420
+    return 'HEAL_PWR_BM', 3, 420, 'SUMMON_ATK'
 end
 
 -- 세번째 옵션 마치공 5레벨당 x씩 오른다.

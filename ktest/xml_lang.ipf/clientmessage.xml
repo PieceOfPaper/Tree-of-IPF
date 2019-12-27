@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by imc (imc) -->
+<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by IMC (IMCGames Co., Ltd) -->
 <idspace id="ClientMessage">
 	<Category Name="ErrorMsg">
 		<Class ClassID="1" Data="DirectX 9.0c 이상의 버전이 설치되어 있어야 합니다"/>
@@ -363,7 +363,9 @@
 		<Class ClassID="2322" ClassName="ReallyDecomposeLEgendItemFor{ITEM}?_LV430_UPPER" Data="해당 아이템을 분해할 경우{nl}레전드 아이템은 사라지며 100% 확률로 '레전드 쥬얼' 아이템이 지급됩니다.{nl}분해하시겠습니까?"/>
 		<Class ClassID="2323" ClassName="EnchantOptionRelocateDestItemLvHigh" Data="이전 받을 아이템의 레벨이 더 높아야 합니다."/>
 		<Class ClassID="2324" ClassName="EnchantOptionRelocateDestItemLvMin100" Data="100레벨 이상의 장비만 등록 가능합니다."/>
-		</Category>
+		<Class ClassID="2325" ClassName="EP12_PRE_REWARDS_FIX_MSG_1" Data="[초월]400레벨 케도란 장비(무기, 방패)를 초월한다"/>
+		<Class ClassID="2326" ClassName="EP12_PRE_REWARDS_FIX_MSG_2" Data="400레벨 케도란 장비(무기, 방패)의 초월이 완료되었습니다"/>
+	</Category>
 	<Category Name="ClassContents">
 		<Class ClassID="2500" ClassName="FullWeeklyGainClassResetExp" Data="주간 획득 가능한 클래스 변경 포인트를 모두 달성하였습니다."/>
 		<Class ClassID="2501" ClassName="FullClassResetExp" Data="더 이상 클래스 변경 포인트를 획득할 수 없습니다."/>
@@ -756,6 +758,7 @@
 		<Class ClassID="5055" ClassName="Leather_Def_BM" Data="가죽 대상 공격력 상쇄"/>
 		<Class ClassID="5056" ClassName="Iron_Def_BM" Data="판금 대상 공격력 상쇄"/>
 		<Class ClassID="5057" ClassName="MiddleSize_Def_BM" Data="중형 대상 공격력 상쇄"/>		
+		<Class ClassID="5058" ClassName="ArkOptionText{Option}{interval}{addvalue}{option2}{addvalue2}" Data="{@st41b}{s16}{#ffc500}{interval}{/} 레벨당 {#ffc500}{Option} {addvalue}{/} 증가, {#ffc500}{option2} {addvalue2}%{/} 증가"/>
 	</Category>
 	<Category Name="PeriodicTitle">
 		<Class ClassID="6001" ClassName="TournamentChampion" Data="토너먼트 챔피언"/>
@@ -8049,13 +8052,13 @@
 		<Class ClassID="70568" ClassName="CASTLE102_QUESTION03_03" Data="등뒤를 노리는 칼날"/>
 		<Class ClassID="70569" ClassName="CASTLE102_QUESTION03_04" Data="사나운 맹수의 뱃속"/>
 		<Class ClassID="70570" ClassName="CASTLE102_QUESTION03_05" Data="끝없는 고문"/>
-		<Class ClassID="70571" ClassName="DCAPITAL53_1_MQ_03_MSG01" Data="우상이 파괴됐습니다!"/>
+		<Class ClassID="70571" ClassName="DCAPITAL53_1_MQ_03_MSG01" Data="우상이 파괴됐습니다!{nl}네링가의 촛불을 이용해 네링가를 불러내 이야기하세요."/>
 		<Class ClassID="70572" ClassName="DCAPITAL53_1_MQ_04_MSG01" Data="우상이 반응하지 않습니다.{nl}잠시 후 다시 시도해주세요."/>
-		<Class ClassID="70573" ClassName="DCAPITAL53_1_MQ_04_MSG02" Data="생명이 이어진 마족이 없어 우상의 힘이 소멸되어 파괴됐습니다!"/>
-		<Class ClassID="70574" ClassName="DCAPITAL53_1_MQ_04_MSG03" Data="생명이 이어진 마족이 처치되어 피해를 계속 입은 우상이 파괴됐습니다!"/>
+		<Class ClassID="70573" ClassName="DCAPITAL53_1_MQ_04_MSG02" Data="생명이 이어진 마족이 없어 우상의 힘이 소멸되어 파괴됐습니다!{nl}네링가의 촛불을 이용해 네링가를 불러내 이야기하세요."/>
+		<Class ClassID="70574" ClassName="DCAPITAL53_1_MQ_04_MSG03" Data="생명이 이어진 마족이 처치되어 피해를 계속 입은 우상이 파괴됐습니다!{nl}네링가의 촛불을 이용해 네링가를 불러내 이야기하세요."/>
 		<Class ClassID="70575" ClassName="DCAPITAL53_1_MQ_04_MSG04" Data="우상과 생명이 이어진 마족을 처치했습니다!"/>
 		<Class ClassID="70576" ClassName="DCAPITAL53_1_MQ_04_MSG05" Data="우상이 반응하여 생명이 이어진 마족을 가리킵니다!"/>
-		<Class ClassID="70577" ClassName="DCAPITAL53_1_MQ_05_MSG01" Data="지휘관 우드센츄리온이 쓰러지자 생명이 이어진 우상이 파괴됐습니다! "/>
+		<Class ClassID="70577" ClassName="DCAPITAL53_1_MQ_05_MSG01" Data="지휘관 우드센츄리온이 쓰러지자 생명이 이어진 우상이 파괴됐습니다!{nl}네링가의 촛불을 이용해 네링가를 불러내 이야기하세요."/>
 		<Class ClassID="70578" ClassName="DCAPITAL53_1_SUB_NPC01_BEFORE" Data="우리 힘만으로 여길 지키기엔 역부족인데.."/>
 		<Class ClassID="70579" ClassName="DCAPITAL53_1_SUB_NPC01_AFTER" Data="당신 같은 사람이 있어서 든든합니다!"/>
 		<Class ClassID="70580" ClassName="DCAPITAL53_1_SUB_NPC02_BEFORE" Data="크으, 정말 끈질긴 녀석들..!"/>
@@ -8083,6 +8086,7 @@
 		<Class ClassID="70602" ClassName="EP12_MAINSTREAM_NERINGA_APPEAR" Data="촛블의 일렁임을 통해 네링가의 환영이 나타났습니다!"/>
 		<Class ClassID="70603" ClassName="EP12_MAINSTREAM_NERINGA_MOVE_TO_HIDDEN_SPACE" Data="현재 이곳에서 네링가를 부를 수 없습니다.{nl}라이마의 물레를 사용해 숨겨진 이공간으로 들어가 촛불을 다시 사용해주세요."/>
 		<Class ClassID="70604" ClassName="HIDDEN_SPACE_FIELD_ENTER" Data="네링가의 촛불을 이용해 네링가를 불러내 이야기하세요."/>
+		<Class ClassID="70605" ClassName="EP12_MAINSTREAM_RAIMA_WHEEL_DONT_USE" Data="현재 지역에서는 라이마의 물레를 사용할 수 없습니다."/>
 		<Class ClassID="80001" ClassName="LIMESTONE_52_1_CRYSTAL_ING" Data="불안정한 마력핵 설치 중"/>
 		<Class ClassID="80002" ClassName="LIMESTONE_52_1_SQ_1_TAKE" Data="목걸이 빼앗는 중"/>
 		<Class ClassID="80003" ClassName="LIMESTONE_52_2_MQ_7_SUCC_MSG" Data="구속장치가 요동치기 시작합니다!"/>
@@ -9972,6 +9976,7 @@
 		<Class ClassID="111253" ClassName="ResAdd_Damage_status" Data="{#66b3ff}추가 대미지 저항"/>
 		<Class ClassID="111254" ClassName="Add_Damage_Atk_status" Data="{#ff4040}추가 대미지"/>
 		<Class ClassID="111255" ClassName="HEAL_PWR_BM" Data="치유력"/>
+		<Class ClassID="111256" ClassName="SUMMON_ATK" Data="소환수 대미지"/>
 	</Category>
 	<Category Name="Quest">
 		<Class ClassID="112001" ClassName="VeryEasy" Data="매우 쉬움"/>
@@ -10518,6 +10523,7 @@
 		<Class ClassID="134068" ClassName="UNIQ_NICOPOLIS_RAID_ENTER_1" Data="마법 실험 구역 진입(1인)"/>
 		<Class ClassID="134069" ClassName="UNIQ_NICOPOLIS_RAID_ENTER_2" Data="마법 실험 구역 진입(5인)"/>
 		<Class ClassID="134070" ClassName="SHADOW_SOLO_RAID_FAIRY_MSG" Data="제가 해결하겠습니다!"/>
+		<Class ClassID="134071" ClassName="INSTANCE_DUNGEON_REMAINS_BOARD" Data='"해당 지역은, 몬스터 토벌이 완료된 지역 입니다."'/>
 	</Category>
 	<Category Name="AchieveReward">
 		<Class ClassID="135001" ClassName="GainAchieveHairBefore" Data="이미 업적 보상을 받았습니다."/>

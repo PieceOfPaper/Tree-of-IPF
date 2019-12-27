@@ -12825,7 +12825,7 @@ end
 
 function SCR_GET_Penyerapan_Ratio(skill)
     local value = 50 * skill.Level;
-    vlaue = value * SCR_REINFORCEABILITY_TOOLTIP(skill)
+    value = value * SCR_REINFORCEABILITY_TOOLTIP(skill)
     return value
 end
 
@@ -12898,7 +12898,7 @@ end
 
 function SCR_GET_ShiningBurst_Ratio(skill)
     local pc = GetSkillOwner(skill);
-    local value = 7 + TryGetProp(pc, "SR", 0)/3
+    local value = math.floor(7 + TryGetProp(pc, "SR", 0)/3)
     return value
 end
 
