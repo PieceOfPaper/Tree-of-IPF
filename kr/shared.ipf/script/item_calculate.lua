@@ -1833,7 +1833,7 @@ function CALC_GROWTH_ITEM_LEVEL(item)
     end
     
     local pcLv = TryGetProp(pc, 'Lv', 1);
-    local itemLvList = { 1, 15, 40, 75, 120, 170, 220, 270, 315, 350, 380, 400};
+    local itemLvList = { 1, 15, 40, 75, 120, 170, 220, 270, 315, 350, 380, 400, 430};
     local value = itemLvList[#itemLvList];
     for i = 2, #itemLvList do
         if pcLv < itemLvList[i] then
