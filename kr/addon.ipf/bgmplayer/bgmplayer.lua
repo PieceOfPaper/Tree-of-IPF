@@ -376,11 +376,8 @@ function BGMPLAYER_MUSIC_SET_ALL_LIST(frame, mode, option, isChange)
 
                 local musictime_txt = GET_CHILD_RECURSIVELY(musicInfoCtrlSet, "musictotaltime_text");
                 if musictime_txt ~= nil then
-                    local totalTime = GetBgmTotalTimeByTitleName(bgmTitleList[i]) / 1000;
-                    local totalMin = math.floor(totalTime / 60);
-                    local totalSec = math.floor(totalTime % 60);
-                    local totalTimeStr = string.format('%d:%02d', totalMin, totalSec);
-                    musictime_txt:SetTextByKey("value", totalTimeStr);
+                    local totalTime = GetBgmTotalTimeByTitleName(bgmTitleList[i]);
+                    musictime_txt:SetTextByKey("value", totalTime);
                 end
 
                 musicInfoCtrlSet:SetUserValue("CTRLSET_NAME", "MUSICINFO_"..i);
@@ -437,11 +434,8 @@ function BGMPLAYER_MUSIC_SET_ALL_LIST(frame, mode, option, isChange)
 
                 local musictime_txt = GET_CHILD_RECURSIVELY(musicInfoCtrlSet, "musictotaltime_text");
                 if musictime_txt ~= nil then
-                    local totalTime = GetBgmTotalTimeByTitleName(bgmTitleList[i]) / 1000;
-                    local totalMin = math.floor(totalTime / 60);
-                    local totalSec = math.floor(totalTime % 60);
-                    local totalTimeStr = string.format('%d:%02d', totalMin, totalSec);
-                    musictime_txt:SetTextByKey("value", totalTimeStr);
+                    local totalTime = GetBgmTotalTimeByTitleName(bgmTitleList[i]);
+                    musictime_txt:SetTextByKey("value", totalTime);
                 end
 
                 musicInfoCtrlSet:SetUserValue("CTRLSET_NAME", "MUSICINFO_"..i);
@@ -603,11 +597,8 @@ function BGMPLAYER_SEARCH_BY_MODE(frame, mode, option, isChange)
 
             local musictime_txt = GET_CHILD_RECURSIVELY(musicInfoCtrlSet, "musictotaltime_text");
             if musictime_txt ~= nil then
-                local totalTime = GetBgmTotalTimeByTitleName(searchList[i]) / 1000;
-                local totalMin = math.floor(totalTime / 60);
-                local totalSec = math.floor(totalTime % 60);
-                local totalTimeStr = string.format('%d:%02d', totalMin, totalSec);
-                musictime_txt:SetTextByKey("value", totalTimeStr);
+                local totalTime = GetBgmTotalTimeByTitleName(searchList[i]);
+                musictime_txt:SetTextByKey("value", totalTime);
             end
         end
     end

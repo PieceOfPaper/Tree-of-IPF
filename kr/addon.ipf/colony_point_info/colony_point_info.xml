@@ -14,7 +14,7 @@
 		<richtext name="mapNameText" rect="0 0 300 30" parent="mapBox" margin="36 18 0 0" layout_gravity="left top" caption="남은 시간" fontname="white_16_b_ol"/>
 		<richtext name="remainTimeText" rect="0 0 300 30" parent="mapBox" margin="0 18 40 0" layout_gravity="right top" format="%s" param1="time" param1_def="0:00" fontname="white_16_b_ol"/>
 		<picture name="line" rect="0 0 330 23" margin="-12 149 0 0" layout_gravity="center top" image="colonyline" stretch="true"/>
-		<button name="expandBtn" rect="0 0 60 20" margin="-10 163 0 0" layout_gravity="center top" image="colonyopen_btn" stretch="true" LBtnUpScp="COLONY_POINT_INFO_EXPAND_CLICK"clicksound="button_click_big" oversound="button_over"/>
+		<button name="expandBtn" rect="0 0 60 20" margin="-10 163 0 0" layout_gravity="center top" image="colonyopen_btn" stretch="true" LBtnUpScp="COLONY_POINT_INFO_EXPAND_CLICK" clicksound="button_click_big" oversound="button_over"/>
 		<!-- Expand -->
 		<groupbox name="infoBox" rect="0 0 331 366" margin="0 164 0 0" layout_gravity="left top" draw="false"/>
 		<groupbox name="bgBox" rect="0 0 328 344" parent="infoBox" margin="3 0 0 0" layout_gravity="left top" draw="false" image="colony_chartbg"/>
@@ -73,6 +73,6 @@
 		<richtext name="myGuildPointText" rect="0 0 300 30" parent="mapBox" margin="0 84 35 0" layout_gravity="right top" format="%s%s/%s" param1="style" param1_def="{@st66d}{#ffffff}{s16}" param2="cur" param2_def="0" param3="max" param3_def="1000"/>
 		<richtext name="myGuildbuffText" rect="0 0 300 30" parent="mapBox" margin="15 125 0 0" layout_gravity="left top" caption="적용 효과" fontname="white_16_ol"/>
 		<picture name="line1" rect="0 0 330 23" parent="infoBox" margin="-12 332 0 0" layout_gravity="center top" image="colonyline" stretch="true"/>
-		<button name="minimizeBtn" rect="0 0 60 20" parent="infoBox" margin="-10 0 0 0" layout_gravity="center bottom" image="colonyclose_btn" stretch="true" LBtnUpScp="COLONY_POINT_INFO_MINIMIZE_CLICK"clicksound="button_click_big" oversound="button_over"/>
+		<button name="minimizeBtn" rect="0 0 60 20" parent="infoBox" margin="-10 0 0 0" layout_gravity="center bottom" image="colonyclose_btn" stretch="true" LBtnUpScp="COLONY_POINT_INFO_MINIMIZE_CLICK" clicksound="button_click_big" oversound="button_over"/>
 	</controls>
 </uiframe>

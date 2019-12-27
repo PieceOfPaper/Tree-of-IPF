@@ -1,5 +1,6 @@
 <?xml version='1.0' encoding='utf-8'?>
-<ToolSkill><Skill Name="Rogue_KnifeThrowing">
+<ToolSkill>
+	<Skill Name="Rogue_KnifeThrowing">
 		<MainSkl ScrLock="None" JumpFlee="NO" MSPDToUsePos="0">
 			<HitList>
                 <Frame Type="SQUARE" Time="400" HitCount="1" TermMin="0" TermMax="0" PosType="0" Dist="0" RandDist="0" RandomPerHit="0" Angle="0" Width="15" Length="120" SklAngle="0.17453292" AniTime="600" RotAngle="0" ForceATK="0"/>
@@ -650,10 +651,10 @@ return func(skill.Level)" Str="0" UseFunc="1"/>
                     local targetDir = DirToAngle(targetx, targetz)
                     local relativeAngle = attackerDir - targetDir
                     local revAngle = angle * -1
-                    if GetExProp(from, &quot;IS_BACKATTACK&quot;) == 1 or (angle/2 >= relativeAngle and 0 <= relativeAngle) or (revAngle/2 <= relativeAngle and 0 >= relativeAngle) then
+                    if GetExProp(from, 'IS_BACKATTACK') == 1 or (angle/2s &gt;= relativeAngle and 0 &lt;= relativeAngle) or (revAngle/2 &lt;= relativeAngle and 0 &gt;= relativeAngle) then
                     value = value * 1.5
                     end
-                    return value"/>
+                    return value" />
 					<Num Num="1" />
 					<Num Num="50" UseFunc="1" FuncTxt="local value = 70; if IsPVPServer(self) == 1 or IsPVPField(self) == 1 then value = 50 end return value;"/>
 					<Num Num="-1" />
