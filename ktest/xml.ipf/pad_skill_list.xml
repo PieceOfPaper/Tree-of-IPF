@@ -5069,7 +5069,7 @@ return
 math.floor(3+SR/3)"/>
             </ToolScp>
             <ToolScp Scp="C_PAD_EFFECT_POS" Client="YES" UseSleep="NO">
-                <Str_Arg Str="F_cleric_Condemn_ground_loop#Dummy_emitter" UseFunc="1" FuncTxt="local abilBuff1 = info.GetBuffByName(self:GetHandleVal(), &quot;GoddessProtection_Buff&quot;)
+				<Str_Arg Str="F_cleric_Condemn_ground_loop#Dummy_emitter" UseFunc="1" FuncTxt="if self ~= nil then local abilBuff1 = info.GetBuffByName(self:GetHandleVal(), &quot;GoddessProtection_Buff&quot;)
 
 
 local abilBuff2 = info.GetBuffByName(self:GetHandleVal(), &quot;GoddessPunishment_Buff&quot;)
@@ -5092,6 +5092,8 @@ else
 return &quot;F_spread_in032_fire2#Dummy_Force&quot;, 1;
 
 end
+end
+return &quot;F_cleric_Condemn_ground_loop_red#Dummy_emitter&quot;, 4;
 
 " Arg="4"/>
                 <Pos Angle="0" Dist="0"/>
@@ -5102,7 +5104,7 @@ end
         </createEvent>
         <destroyEvent>
             <ToolScp Scp="C_PAD_EFFECT_POS" Client="YES" UseSleep="NO">
-                <Str_Arg Str="F_cleric_Condemn_ground_end#Dummy_emitter" UseFunc="1" FuncTxt="local abilBuff1 = info.GetBuffByName(self:GetHandleVal(), &quot;GoddessProtection_Buff&quot;)
+				<Str_Arg Str="F_cleric_Condemn_ground_end#Dummy_emitter" UseFunc="1" FuncTxt="if self ~= nil then local abilBuff1 = info.GetBuffByName(self:GetHandleVal(), &quot;GoddessProtection_Buff&quot;)
 
 
 local abilBuff2 = info.GetBuffByName(self:GetHandleVal(), &quot;GoddessPunishment_Buff&quot;)
@@ -5125,6 +5127,8 @@ else
 return &quot;F_spread_in032_fire2#Dummy_Force&quot;, 1;
 
 end
+end
+return &quot;F_cleric_Condemn_ground_end_red&quot;, 4.2;
 
 " Arg="4.1999998"/>
                 <Pos Angle="0" Dist="0"/>
@@ -5134,7 +5138,33 @@ end
             </ToolScp>
             <ToolScp Scp="C_PAD_DESTROY_EFFECT_POS" Client="YES" UseSleep="NO">
                 <Pos Angle="0" Dist="0"/>
-                <Str_Arg Str="F_warrior_upeerslash_shot_ground#Dummy_emitter" Arg="1"/>
+				<Str_Arg Str="F_warrior_upeerslash_shot_ground#Dummy_emitter" UseFunc="1" FuncTxt="if self ~= nil then local abilBuff1 = info.GetBuffByName(self:GetHandleVal(), &quot;GoddessProtection_Buff&quot;)
+
+
+local abilBuff2 = info.GetBuffByName(self:GetHandleVal(), &quot;GoddessPunishment_Buff&quot;)
+
+
+local abilBuff3 = info.GetBuffByName(self:GetHandleVal(), &quot;GoddessBlessing_Buff&quot;)
+
+
+
+if abilBuff1 ~= nil then
+return &quot;F_warrior_upeerslash_shot_ground&quot;, 0.8;
+
+elseif abilBuff2 ~= nil then
+return &quot;F_warrior_upeerslash_shot_ground_violet&quot;, 0.8;
+
+elseif abilBuff3 ~= nil then
+return &quot;F_warrior_upeerslash_shot_ground_red&quot;, 0.8;
+
+else 
+return &quot;F_spread_in032_fire2#Dummy_Force&quot;, 1;
+
+end
+end
+return &quot;F_warrior_upeerslash_shot_ground_red&quot;, 0.8;
+
+" Arg="1"/>
                 <Num Num="0"/>
                 <Num Num="0.5"/>
             </ToolScp>
@@ -5205,7 +5235,7 @@ return
 math.floor(4+SR/3)"/>
             </ToolScp>
             <ToolScp Scp="C_PAD_EFFECT_POS" Client="YES" UseSleep="NO">
-                <Str_Arg Str="F_cleric_Sacred_ground_loop#Dummy_emitter##1" UseFunc="1" FuncTxt="local abilBuff1 = info.GetBuffByName(self:GetHandleVal(), &quot;GoddessProtection_Buff&quot;)
+				<Str_Arg Str="F_cleric_Sacred_ground_loop#Dummy_emitter##1" UseFunc="1" FuncTxt="if self ~= nil then local abilBuff1 = info.GetBuffByName(self:GetHandleVal(), &quot;GoddessProtection_Buff&quot;)
 
 
 local abilBuff2 = info.GetBuffByName(self:GetHandleVal(), &quot;GoddessPunishment_Buff&quot;)
@@ -5227,6 +5257,8 @@ else
 return &quot;F_spread_in032_fire2#Dummy_Force&quot;, 1;
 
 end
+end
+return &quot;E_cleric_ProtectionOfGoddess_ground_violet&quot;, 1.1;
 
 " Arg="1.5"/>
                 <Pos Angle="0" Dist="0"/>
@@ -5244,7 +5276,7 @@ end
             </ToolScp>
             <ToolScp Scp="C_PAD_DESTROY_EFFECT_POS" Client="YES" UseSleep="NO">
                 <Pos Angle="0" Dist="0"/>
-                <Str_Arg Str="E_cleric_ProtectionOfGoddess_ground_end" UseFunc="1" FuncTxt="local abilBuff1 = info.GetBuffByName(self:GetHandleVal(), &quot;GoddessProtection_Buff&quot;)
+				<Str_Arg Str="E_cleric_ProtectionOfGoddess_ground_end" UseFunc="1" FuncTxt="if self ~= nil then local abilBuff1 = info.GetBuffByName(self:GetHandleVal(), &quot;GoddessProtection_Buff&quot;)
 
 
 local abilBuff2 = info.GetBuffByName(self:GetHandleVal(), &quot;GoddessPunishment_Buff&quot;)
@@ -5266,6 +5298,8 @@ else
 return &quot;F_spread_in032_fire2#Dummy_Force&quot;, 1;
 
 end
+end
+return &quot;E_cleric_ProtectionOfGoddess_ground_end_violet&quot;, 1.1;
 
 " Arg="1"/>
                 <Num Num="0"/>
@@ -5316,7 +5350,7 @@ return
 math.floor(4+SR/3)"/>
             </ToolScp>
             <ToolScp Scp="C_PAD_EFFECT_POS" Client="YES" UseSleep="NO">
-                <Str_Arg Str="F_cleric_Sacred_ground_loop#Dummy_emitter##1" UseFunc="1" FuncTxt="local abilBuff1 = info.GetBuffByName(self:GetHandleVal(), &quot;GoddessProtection_Buff&quot;)
+				<Str_Arg Str="F_cleric_Sacred_ground_loop#Dummy_emitter##1" UseFunc="1" FuncTxt="if self ~= nil then local abilBuff1 = info.GetBuffByName(self:GetHandleVal(), &quot;GoddessProtection_Buff&quot;)
 
 
 local abilBuff2 = info.GetBuffByName(self:GetHandleVal(), &quot;GoddessPunishment_Buff&quot;)
@@ -5338,6 +5372,8 @@ else
 return &quot;F_spread_in032_fire2#Dummy_Force&quot;, 1;
 
 end
+end
+return &quot;E_cleric_ProtectionOfGoddess_ground_red&quot;, 1.1;
 
 " Arg="1.5"/>
                 <Pos Angle="0" Dist="0"/>
@@ -5355,7 +5391,7 @@ end
             </ToolScp>
             <ToolScp Scp="C_PAD_DESTROY_EFFECT_POS" Client="YES" UseSleep="NO">
                 <Pos Angle="0" Dist="0"/>
-                <Str_Arg Str="E_cleric_ProtectionOfGoddess_ground_end" UseFunc="1" FuncTxt="local abilBuff1 = info.GetBuffByName(self:GetHandleVal(), &quot;GoddessProtection_Buff&quot;)
+				<Str_Arg Str="E_cleric_ProtectionOfGoddess_ground_end" UseFunc="1" FuncTxt="if self ~= nil then local abilBuff1 = info.GetBuffByName(self:GetHandleVal(), &quot;GoddessProtection_Buff&quot;)
 
 
 local abilBuff2 = info.GetBuffByName(self:GetHandleVal(), &quot;GoddessPunishment_Buff&quot;)
@@ -5377,7 +5413,8 @@ else
 return &quot;F_spread_in032_fire2#Dummy_Force&quot;, 1;
 
 end
-
+end
+return &quot;E_cleric_ProtectionOfGoddess_ground_end_red&quot;, 1.1;
 " Arg="1"/>
                 <Num Num="0"/>
                 <Num Num="1"/>
@@ -5507,7 +5544,7 @@ return
 math.floor(3+SR/3)"/>
             </ToolScp>
             <ToolScp Scp="C_PAD_EFFECT_POS" Client="YES" UseSleep="NO">
-                <Str_Arg Str="F_cleric_Sacred_ground_loop#Dummy_emitter##1" UseFunc="1" FuncTxt="local abilBuff1 = info.GetBuffByName(self:GetHandleVal(), &quot;GoddessProtection_Buff&quot;)
+				<Str_Arg Str="F_cleric_Sacred_ground_loop#Dummy_emitter##1" UseFunc="1" FuncTxt="if self ~= nil then local abilBuff1 = info.GetBuffByName(self:GetHandleVal(), &quot;GoddessProtection_Buff&quot;)
 
 
 local abilBuff2 = info.GetBuffByName(self:GetHandleVal(), &quot;GoddessPunishment_Buff&quot;)
@@ -5529,6 +5566,8 @@ else
 return &quot;F_spread_in032_fire2#Dummy_Force&quot;, 1;
 
 end
+end
+return &quot;F_cleric_Sacred_ground_loop_violet&quot;, 1.5;
 
 " Arg="1.5"/>
                 <Pos Angle="0" Dist="0"/>
@@ -5577,7 +5616,7 @@ math.floor(3+SR/3)"/>
         </createEvent>
         <destroyEvent>
             <ToolScp Scp="C_PAD_EFFECT_POS" Client="YES" UseSleep="NO">
-                <Str_Arg Str="F_cleric_Sacred_ground_shot" UseFunc="1" FuncTxt="local abilBuff1 = info.GetBuffByName(self:GetHandleVal(), &quot;GoddessProtection_Buff&quot;)
+				<Str_Arg Str="F_cleric_Sacred_ground_shot" UseFunc="1" FuncTxt="if self ~= nil then local abilBuff1 = info.GetBuffByName(self:GetHandleVal(), &quot;GoddessProtection_Buff&quot;)
 
 
 local abilBuff2 = info.GetBuffByName(self:GetHandleVal(), &quot;GoddessPunishment_Buff&quot;)
@@ -5599,7 +5638,8 @@ else
 return &quot;F_spread_in032_fire2#Dummy_Force&quot;, 1;
 
 end
-
+end
+return &quot;F_cleric_Sacred_ground_shot_violet&quot;, 1.5;
 " Arg="1.5"/>
                 <Pos Angle="0" Dist="0"/>
                 <Num Num="0"/>
@@ -5607,7 +5647,7 @@ end
                 <Num Num="1"/>
             </ToolScp>
             <ToolScp Scp="C_PAD_EFFECT_POS" Client="YES" UseSleep="NO">
-                <Str_Arg Str="F_cleric_Zornhau_shot_ground" UseFunc="1" FuncTxt="local abilBuff1 = info.GetBuffByName(self:GetHandleVal(), &quot;GoddessProtection_Buff&quot;)
+				<Str_Arg Str="F_cleric_Zornhau_shot_ground" UseFunc="1" FuncTxt="if self ~= nil then local abilBuff1 = info.GetBuffByName(self:GetHandleVal(), &quot;GoddessProtection_Buff&quot;)
 
 
 local abilBuff2 = info.GetBuffByName(self:GetHandleVal(), &quot;GoddessPunishment_Buff&quot;)
@@ -5629,6 +5669,8 @@ else
 return &quot;F_spread_in032_fire2#Dummy_Force&quot;, 1;
 
 end
+end
+return &quot;F_cleric_Zornhau_shot_ground_violet&quot;, 1.2;
 
 " Arg="1"/>
                 <Pos Angle="0" Dist="0"/>
@@ -5675,7 +5717,7 @@ return
 math.floor(3+SR/3)"/>
             </ToolScp>
             <ToolScp Scp="C_PAD_EFFECT_POS" Client="YES" UseSleep="NO">
-                <Str_Arg Str="F_cleric_Sacred_ground_loop#Dummy_emitter##1" UseFunc="1" FuncTxt="local abilBuff1 = info.GetBuffByName(self:GetHandleVal(), &quot;GoddessProtection_Buff&quot;)
+				<Str_Arg Str="F_cleric_Sacred_ground_loop#Dummy_emitter##1" UseFunc="1" FuncTxt="if self ~= nil then local abilBuff1 = info.GetBuffByName(self:GetHandleVal(), &quot;GoddessProtection_Buff&quot;)
 
 
 local abilBuff2 = info.GetBuffByName(self:GetHandleVal(), &quot;GoddessPunishment_Buff&quot;)
@@ -5697,6 +5739,8 @@ else
 return &quot;F_spread_in032_fire2#Dummy_Force&quot;, 1;
 
 end
+end
+return &quot;F_cleric_Sacred_ground_loop_red&quot;, 1.5;
 
 " Arg="1.5"/>
                 <Pos Angle="0" Dist="0"/>
@@ -5732,7 +5776,7 @@ end
         </createEvent>
         <destroyEvent>
             <ToolScp Scp="C_PAD_EFFECT_POS" Client="YES" UseSleep="NO">
-                <Str_Arg Str="F_cleric_Sacred_ground_shot" UseFunc="1" FuncTxt="local abilBuff1 = info.GetBuffByName(self:GetHandleVal(), &quot;GoddessProtection_Buff&quot;)
+				<Str_Arg Str="F_cleric_Sacred_ground_shot" UseFunc="1" FuncTxt="if self ~= nil then local abilBuff1 = info.GetBuffByName(self:GetHandleVal(), &quot;GoddessProtection_Buff&quot;)
 
 
 local abilBuff2 = info.GetBuffByName(self:GetHandleVal(), &quot;GoddessPunishment_Buff&quot;)
@@ -5754,7 +5798,8 @@ else
 return &quot;F_spread_in032_fire2#Dummy_Force&quot;, 1;
 
 end
-
+end
+return &quot;F_cleric_Sacred_ground_shot_red&quot;, 1.5;
 " Arg="1.5"/>
                 <Pos Angle="0" Dist="0"/>
                 <Num Num="0"/>
@@ -5762,7 +5807,7 @@ end
                 <Num Num="1"/>
             </ToolScp>
             <ToolScp Scp="C_PAD_EFFECT_POS" Client="YES" UseSleep="NO">
-                <Str_Arg Str="F_cleric_Zornhau_shot_ground" UseFunc="1" FuncTxt="local abilBuff1 = info.GetBuffByName(self:GetHandleVal(), &quot;GoddessProtection_Buff&quot;)
+				<Str_Arg Str="F_cleric_Zornhau_shot_ground" UseFunc="1" FuncTxt="if self ~= nil then local abilBuff1 = info.GetBuffByName(self:GetHandleVal(), &quot;GoddessProtection_Buff&quot;)
 
 
 local abilBuff2 = info.GetBuffByName(self:GetHandleVal(), &quot;GoddessPunishment_Buff&quot;)
@@ -5784,6 +5829,8 @@ else
 return &quot;F_spread_in032_fire2#Dummy_Force&quot;, 1;
 
 end
+end
+return &quot;F_cleric_Zornhau_shot_ground_red&quot;, 1.2;
 
 " Arg="1"/>
                 <Pos Angle="0" Dist="0"/>
@@ -6306,7 +6353,7 @@ return value;"/>
                 <Str_Arg Str="None" Arg="0.60000002"/>
             </ToolScp>
             <ToolScp Scp="PAD_ADD_LIFE" Client="NO" UseSleep="NO">
-                <Num Num="10000" UseFunc="1" FuncTxt="return 4500 + obj.Level * 500;"/>
+                <Num Num="10000" UseFunc="1" FuncTxt="return 3000 + obj.Level * 1000;"/>
                 <Num Num="1"/>
             </ToolScp>
             <ToolScp Scp="PAD_SET_ARG_NUMBER" Client="NO" UseSleep="NO">
@@ -7686,10 +7733,10 @@ return &quot;self&quot;"/>
                 <Num Num="0.5"/>
             </ToolScp>
             <ToolScp Scp="PAD_REMOVEBUFF_ENEMY" Client="NO" UseSleep="NO">
-                <Str Str="FRIEND"/>
+                <Str Str="ALL"/>
                 <Num Num="0"/>
                 <Num Num="0"/>
-                <Str Str="Restoration_Buff"/>
+                <Str Str="Bloodbath_Buff"/>
             </ToolScp>
         </destroyEvent>
         <enterEvent>
@@ -21172,7 +21219,7 @@ return time"/>
 			</ToolScp>
 		</enterEvent>
 	</PadSkill>
-    <PadSkill Name="TerraMancer_HornOfGolem" CheckerType="0" Dist="103.52911" Angle="0.022853669" Range="50" UpdateTerm="100" ApplyFlyMon="1">
+	<PadSkill Name="TerraMancer_HornOfGolem" CheckerType="0" Dist="103.52911" Angle="0.022853669" Range="60" UpdateTerm="100" ApplyFlyMon="1">
         <createEvent>
             <ToolScp Scp="PAD_ADD_LIFE" Client="NO" UseSleep="NO">
                 <Num Num="500"/>
@@ -21204,7 +21251,7 @@ return time"/>
             </ToolScp>
         </updateEvent>
     </PadSkill>
-    <PadSkill Name="TerraMancer_HornOfGolem_hidden" CheckerType="0" Range="50" UpdateTerm="100" ApplyFlyMon="1" AllowOverlap="1">
+	<PadSkill Name="TerraMancer_HornOfGolem_hidden" CheckerType="0" Range="75" UpdateTerm="100" ApplyFlyMon="1" AllowOverlap="1">
         <createEvent>
             <ToolScp Scp="PAD_ADD_LIFE" Client="NO" UseSleep="NO">
                 <Num Num="500"/>
@@ -21214,7 +21261,7 @@ return time"/>
                 <Num Num="10"/>
             </ToolScp>
             <ToolScp Scp="C_PAD_EFFECT_POS" Client="YES" UseSleep="NO">
-                <Str_Arg Str="F_ground045_smoke" Arg="0.80000001"/>
+				<Str_Arg Str="F_ground045_smoke" Arg="1.5"/>
                 <Pos Angle="0" Dist="0"/>
                 <Num Num="10"/>
                 <Str_Arg Str="None" Arg="1"/>

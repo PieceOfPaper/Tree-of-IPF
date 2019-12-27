@@ -67,6 +67,7 @@ function INDUNINFO_CREATE_CATEGORY(frame)
     local categoryBtnWidth = categoryBox:GetWidth() - SCROLL_WIDTH;
     local firstBtn = nil;
     resetGroupTable = {};
+    local missionIndunAdded = false;
     local indunClsList, cnt = GetClassList('Indun');
     for i = 0, cnt - 1 do
         local indunCls = GetClassByIndexFromList(indunClsList, i);
@@ -77,7 +78,7 @@ function INDUNINFO_CREATE_CATEGORY(frame)
             if categoryCtrl == nil and category ~= 'None' then
                 PUSH_BACK_UNIQUE_INTO_INDUN_CATEGORY_LIST(resetGroupID);                
 
-                resetGroupTable[resetGroupID] = 1;                
+                resetGroupTable[resetGroupID] = 1;
                 categoryCtrl = categoryBox:CreateOrGetControlSet('indun_cate_ctrl', 'CATEGORY_CTRL_'..resetGroupID, 0, i*50);
 
                 local name = categoryCtrl:GetChild("name");                
@@ -128,8 +129,23 @@ function INDUNINFO_CREATE_CATEGORY(frame)
                 if firstBtn == nil then -- 디폴트는 첫번째가 클릭되게 함
                     firstBtn = btn;
                 end
+
+                if indunCls.DungeonType == 'MissionIndun' then
+                    missionIndunAdded = true;
+                end
             elseif categoryCtrl ~= nil and category ~= 'None' then
-                resetGroupTable[resetGroupID] = resetGroupTable[resetGroupID] + 1;
+                local add_flag = true;
+                if missionIndunAdded == true then
+                    add_flag = false;
+                end
+
+                if add_flag == true then
+                    resetGroupTable[resetGroupID] = resetGroupTable[resetGroupID] + 1;
+
+                    if indunCls.DungeonType == 'MissionIndun' then
+                        missionIndunAdded = true;
+                    end
+                end
             end
         end
     end

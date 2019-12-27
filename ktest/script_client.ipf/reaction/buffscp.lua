@@ -1244,6 +1244,19 @@ function GET_BUFF_BY_NAME_C(buffName)
     return info.GetBuff(handle, buffCls.ClassID);
 end
 
+
+-- doll_tiny
+function DOLL_TINY_BUFF_ENTER(actor, obj, buff)
+end
+
+function DOLL_TINY_BUFF_UPDATE(actor, obj, buff)
+	SCR_CREATE_FAIRY(actor:GetHandleVal(), "doll_tiny");
+end
+
+function DOLL_TINY_BUFF_LEAVE(actor, obj, buff)
+	SCR_REMOVE_FAIRY(actor:GetHandleVal(), "doll_tiny");
+end
+
 -- 2019Halloween_effect / moon effect
 function HalloweenMoon_effect_ENTER(actor, obj, buff)
     if actor:GetBuff():IsUse2DEffect() == false then

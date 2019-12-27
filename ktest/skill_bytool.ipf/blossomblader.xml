@@ -422,7 +422,7 @@ return buff"/>
                         <Scp Scp="SKL_TARGET_RESET" Client="NO" UseSleep="NO" Time="200"/>
                         <Scp Scp="SKL_SET_TARGET_CIRCLE" Client="NO" UseSleep="NO" Time="250">
                             <Pos Angle="0" Dist="0" PosType="5" Height="1"/>
-                            <Num Num="100"/>
+                            <Num Num="150"/>
                             <Num Num="4"/>
                             <Num Num="2"/>
                             <Num Num="0"/>
@@ -436,73 +436,12 @@ return buff"/>
                             local func = _G[func_name]
                             if func == nil then return end
                             return func(obj.Level)"/>
-                        </Scp>                        
-                        <Scp Scp="EFT_AND_HIT" Client="NO" UseSleep="YES" TooltipScp="TOOLTIP_EFT_AND_HIT" Time="300">
-                            <Pos Angle="0" Dist="0" Rand="30" PosType="8"/>
-                            <Str_Arg Str="None" Arg="1"/>
-                            <Num Num="0"/>
-                            <Str_Arg Str="E_warrior_fallenblossom" Arg="0.60000002"/>
-                            <Num Num="5"/>
-                            <Num Num="0"/>
-                            <Num Num="0"/>
-                            <Num Num="6"/>
-                            <Num Num="200"/>
-                            <Str_Arg Str="None" Arg="1"/>
-                            <Str Str="None"/>
-                            <Num Num="1"/>
-                            <Num Num="0"/>
-                            <Num Num="0"/>
                         </Scp>
-                        <Scp Scp="EFT_AND_HIT" Client="NO" UseSleep="YES" TooltipScp="TOOLTIP_EFT_AND_HIT" Time="450">
-                            <Pos Angle="0" Dist="0" Rand="30" PosType="8"/>
-                            <Str_Arg Str="None" Arg="1"/>
-                            <Num Num="0"/>
-                            <Str_Arg Str="E_warrior_fallenblossom" Arg="0.60000002"/>
-                            <Num Num="5"/>
-                            <Num Num="0"/>
-                            <Num Num="0"/>
-                            <Num Num="6"/>
-                            <Num Num="200"/>
-                            <Str_Arg Str="None" Arg="1"/>
-                            <Str Str="None"/>
-                            <Num Num="1"/>
-                            <Num Num="0"/>
-                            <Num Num="0"/>
-                        </Scp>
-                        <Scp Scp="EFT_AND_HIT" Client="NO" UseSleep="YES" TooltipScp="TOOLTIP_EFT_AND_HIT" Time="600">
-                            <Pos Angle="0" Dist="0" Rand="30" PosType="8"/>
-                            <Str_Arg Str="None" Arg="1"/>
-                            <Num Num="0"/>
-                            <Str_Arg Str="E_warrior_fallenblossom" Arg="0.60000002"/>
-                            <Num Num="5"/>
-                            <Num Num="0"/>
-                            <Num Num="0"/>
-                            <Num Num="6"/>
-                            <Num Num="200"/>
-                            <Str_Arg Str="None" Arg="1"/>
-                            <Str Str="None"/>
-                            <Num Num="1"/>
-                            <Num Num="0"/>
-                            <Num Num="0"/>
-                        </Scp>
-                        <Scp Scp="EFT_AND_HIT" Client="NO" UseSleep="YES" TooltipScp="TOOLTIP_EFT_AND_HIT" Time="750">
-                            <Pos Angle="0" Dist="0" Rand="30" PosType="8"/>
-                            <Str_Arg Str="None" Arg="1"/>
-                            <Num Num="0"/>
-                            <Str_Arg Str="E_warrior_fallenblossom" Arg="0.60000002"/>
-                            <Num Num="5"/>
-                            <Num Num="0"/>
-                            <Num Num="0"/>
-                            <Num Num="6"/>
-                            <Num Num="200"/>
-                            <Str_Arg Str="None" Arg="1"/>
-                            <Str Str="None"/>
-                            <Num Num="1"/>
-                            <Num Num="0"/>
-                            <Num Num="0"/>
+                        <Scp Scp="SKL_RUN_SCRIPT" Client="NO" UseSleep="NO" Time="300">
+                            <Str Str="SCR_VIBORA_BLOSSOMSLASH"/>
                         </Scp>
                         <Scp Scp="SKL_SETPOS" Client="NO" UseSleep="NO" Time="1200">
-                            <Pos Angle="0" Dist="0" Rand="30" PosType="5" Height="1"/>
+                            <Pos Angle="0" Dist="0" Rand="20" PosType="5" Height="1"/>
                             <Str_Arg Str="F_warrior_fallenblossom001" Arg="1"/>
                             <Num Num="1"/>
                         </Scp>

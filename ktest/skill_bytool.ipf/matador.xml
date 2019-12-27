@@ -11,11 +11,11 @@
         <MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
             <EtcList>
                 <Scp Scp="MONSKL_C_PLAY_ANIM" Client="YES" UseSleep="NO" Time="0">
-					<Str Str="SKL_CORRIDAFINALE"/>
-					<Num Num="1"/>
-					<Num Num="1"/>
-					<Num Num="0"/>
-				</Scp>
+                    <Str Str="SKL_CORRIDAFINALE"/>
+                    <Num Num="1"/>
+                    <Num Num="1"/>
+                    <Num Num="0"/>
+                </Scp>
                 <Scp Client="YES" Scp="C_EFFECT" Time="0" UseSleep="NO">
                     <Str_Arg Arg="2" Str="F_buff_basic016_orange"/>
                     <Str Str="None"/>
@@ -175,6 +175,20 @@ return BuffTime;"/>
                     <Str Str="voice_war_m_Ole_cast"/>
                     <Str Str="voice_war_Ole_cast"/>
                 </Scp>
+                <Scp Scp="SKL_SET_TARGET_CLIENT_TARGETTING" Client="NO" UseSleep="NO" Time="0">
+                    <Num Num="1"/>
+                    <Num Num="100"/>
+                </Scp>
+                <Scp Scp="SKL_TGT_BUFF" Client="NO" UseSleep="NO" Time="550">
+                    <Str Str="Ole_Debuff"/>
+                    <Num Num="99"/>
+                    <Num Num="0"/>
+                    <Num Num="5000"/>
+                    <Num Num="1"/>
+                    <Num Num="100"/>
+                    <Num Num="0"/>
+                    <Num Num="0"/>
+                </Scp>
             </EtcList>
         </MainSkl>
     </Skill>
@@ -212,12 +226,12 @@ return BuffTime;"/>
                 </Scp>
             </EtcList>
             <ResultList>
-              <ToolScp Client="NO" Scp="S_R_TGT_Decrease_heal_debuff" UseSleep="NO">
-                <Str FuncTxt="local func_name = 'get_decrease_heal_debuff_tooltip_' .. TryGetProp(skill, 'ClassName', 'None')
+                <ToolScp Client="NO" Scp="S_R_TGT_Decrease_heal_debuff" UseSleep="NO">
+                    <Str FuncTxt="local func_name = 'get_decrease_heal_debuff_tooltip_' .. TryGetProp(skill, 'ClassName', 'None')
                local func = _G[func_name]
                if func == nil then return end
                return func(skill.Level)" Str="0" UseFunc="1"/>
-              </ToolScp>              
+                </ToolScp>              
                 <ToolScp Client="NO" Scp="S_R_SELFBUFF" UseSleep="NO">
                     <Str Str="PasoDoble_Buff"/>
                     <Num Num="1"/>

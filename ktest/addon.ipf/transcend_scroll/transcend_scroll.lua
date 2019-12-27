@@ -23,7 +23,7 @@ function TRANSCEND_SCROLL_CHECK_TARGET_ITEM(slot)-- _CHECK_MORU_TARGET_ITEM
 	end
 end
 
-function TRANSCEND_SCROLL_SET_TARGET_ITEM(invframe, invItem)	
+function TRANSCEND_SCROLL_SET_TARGET_ITEM(invframe, invItem)
 	local frame = ui.GetFrame("transcend_scroll");
 	local scrollType = frame:GetUserValue("ScrollType");
 	local slot = GET_CHILD(frame, "slot");
@@ -64,7 +64,7 @@ function TRANSCEND_SCROLL_SET_TARGET_ITEM(invframe, invItem)
 	if IS_TRANSCEND_SCROLL_ABLE_ITEM(itemObj, scrollType, scrollObj.NumberArg1) ~= 1 then
 		if scrollType == "transcend_Add" then
 			ui.SysMsg(ClMsg("TranscendScrollAddDisabledItem"));
-		elseif scrollType == "transcend_Set" or scrollType == "transcend_Set_380" or scrollType == "transcend_Set_400" or scrollType == "transcend_Set_420" then
+		elseif scrollType == "transcend_Set" or scrollType == "transcend_Set_380" or scrollType == "transcend_Set_400" or scrollType == "transcend_Set_420" or scrollType == "transcend_Set_430" then
 			ui.SysMsg(ClMsg("TranscendScrollSetDisabledItem"));
 		end
 		return;
@@ -154,7 +154,7 @@ function TRANSCEND_SCROLL_EXEC_ASK_AGAIN(frame, btn)
 	if transcend == nil then
 		if scrollType == "transcend_Add" then
 			ui.SysMsg(ClMsg("TranscendScrollAddDisabledItem"));
-		elseif scrollType == "transcend_Set" or scrollType == "transcend_Set_380" or scrollType == "transcend_Set_400" or scrollType == "transcend_Set_420" then
+		elseif scrollType == "transcend_Set" or scrollType == "transcend_Set_380" or scrollType == "transcend_Set_400" or scrollType == "transcend_Set_420" or scrollType == "transcend_Set_430" then
 			ui.SysMsg(ClMsg("TranscendScrollSetDisabledItem"));
 		end
 		return;

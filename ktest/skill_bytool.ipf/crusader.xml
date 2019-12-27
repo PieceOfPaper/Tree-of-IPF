@@ -22,54 +22,57 @@
                     <Num Num="0"/>
                 </Scp>
                 <Scp Scp="C_FORCE_EFT" Client="YES_Time" UseSleep="NO" Time="200">
-                    <Str_Arg Str="I_cleric_HolySmash_shield_mesh" UseFunc="1" FuncTxt="local abilBuff1 = info.GetBuffByName(self:GetHandleVal(), &quot;GoddessProtection_Buff&quot;)
+                    <Str_Arg Str="I_cleric_HolySmash_shield_mesh" UseFunc="1" FuncTxt="if self ~= nil then local abilBuff1 = info.GetBuffByName(self:GetHandleVal(), &quot;GoddessProtection_Buff&quot;)
 
 
-local abilBuff2 = info.GetBuffByName(self:GetHandleVal(), &quot;GoddessPunishment_Buff&quot;)
+    local abilBuff2 = info.GetBuffByName(self:GetHandleVal(), &quot;GoddessPunishment_Buff&quot;)
 
 
-local abilBuff3 = info.GetBuffByName(self:GetHandleVal(), &quot;GoddessBlessing_Buff&quot;)
+    local abilBuff3 = info.GetBuffByName(self:GetHandleVal(), &quot;GoddessBlessing_Buff&quot;)
 
 
-if abilBuff1 ~= nil then
-return &quot;I_cleric_HolySmash_shield_mesh&quot;, 0.7;
+    if abilBuff1 ~= nil then
+    return &quot;I_cleric_HolySmash_shield_mesh&quot;, 0.7;
 
-elseif abilBuff2 ~= nil then
-return &quot;I_cleric_HolySmash_shield_mesh_violet&quot;, 0.7;
+    elseif abilBuff2 ~= nil then
+    return &quot;I_cleric_HolySmash_shield_mesh_violet&quot;, 0.7;
 
-elseif abilBuff3 ~= nil then
-return &quot;I_cleric_HolySmash_shield_mesh_red&quot;, 0.7;
+    elseif abilBuff3 ~= nil then
+    return &quot;I_cleric_HolySmash_shield_mesh_red&quot;, 0.7;
 
-else 
-return &quot;F_spread_in032_fire2#Dummy_Force&quot;, 1;
+    else 
+    return &quot;F_spread_in032_fire2#Dummy_Force&quot;, 1;
 
+    end
 end
+return &quot;I_cleric_HolySmash_shield_mesh_red&quot;, 0.7;
 
 " Arg="1"/>
                     <Str Str="arrow_cast"/>
-                    <Str_Arg Str="F_cleric_HolySmash_explosion" UseFunc="1" FuncTxt="local abilBuff1 = info.GetBuffByName(self:GetHandleVal(), &quot;GoddessProtection_Buff&quot;)
+                    <Str_Arg Str="F_cleric_HolySmash_explosion" UseFunc="1" FuncTxt="if self ~= nil thne local abilBuff1 = info.GetBuffByName(self:GetHandleVal(), &quot;GoddessProtection_Buff&quot;)
 
 
-local abilBuff2 = info.GetBuffByName(self:GetHandleVal(), &quot;GoddessPunishment_Buff&quot;)
+    local abilBuff2 = info.GetBuffByName(self:GetHandleVal(), &quot;GoddessPunishment_Buff&quot;)
 
 
-local abilBuff3 = info.GetBuffByName(self:GetHandleVal(), &quot;GoddessBlessing_Buff&quot;)
+    local abilBuff3 = info.GetBuffByName(self:GetHandleVal(), &quot;GoddessBlessing_Buff&quot;)
 
 
-if abilBuff1 ~= nil then
-return &quot;F_cleric_HolySmash_explosion&quot;, 1;
+    if abilBuff1 ~= nil then
+    return &quot;F_cleric_HolySmash_explosion&quot;, 1;
 
-elseif abilBuff2 ~= nil then
-return &quot;F_cleric_HolySmash_explosion_violet&quot;, 1;
+    elseif abilBuff2 ~= nil then
+    return &quot;F_cleric_HolySmash_explosion_violet&quot;, 1;
 
-elseif abilBuff3 ~= nil then
-return &quot;F_cleric_HolySmash_explosion_red&quot;, 1;
+    elseif abilBuff3 ~= nil then
+    return &quot;F_cleric_HolySmash_explosion_red&quot;, 1;
 
-else 
-return &quot;F_spread_in032_fire2#Dummy_Force&quot;, 0.7;
+    else 
+    return &quot;F_spread_in032_fire2#Dummy_Force&quot;, 0.7;
 
+    end
 end
-
+return &quot;F_cleric_HolySmash_explosion_red&quot;, 1;
 " Arg="1.5"/>
                     <Str Str="arrow_blow"/>
                     <Str Str="FAST"/>
@@ -555,7 +558,7 @@ end
                 <Num Num="0"/>
             </ToolScp>
             <ToolScp Scp="C_EFFECT" Client="YES" UseSleep="NO">
-                <Str_Arg Str="F_cleric_Retaliation_cast_loop" UseFunc="1" FuncTxt="local abilBuff1 = info.GetBuffByName(self:GetHandleVal(), &quot;GoddessProtection_Buff&quot;)
+                <Str_Arg Str="F_cleric_Retaliation_cast_loop" UseFunc="1" FuncTxt="if self ~= nil then local abilBuff1 = info.GetBuffByName(self:GetHandleVal(), &quot;GoddessProtection_Buff&quot;)
 
 
 local abilBuff2 = info.GetBuffByName(self:GetHandleVal(), &quot;GoddessPunishment_Buff&quot;)
@@ -577,6 +580,8 @@ else
 return &quot;F_spread_in032_fire2#Dummy_Force&quot;, 1;
 
 end
+end
+return &quot;F_cleric_Retaliation_cast_loop_red&quot;, 2;
 
 " Arg="2"/>
                 <Str Str="None"/>
@@ -618,7 +623,7 @@ end
                     <Num Num="0"/>
                 </Scp>
                 <Scp Scp="C_EFFECT_POS" Client="YES" UseSleep="NO" Time="300">
-                    <Str_Arg Str="F_cleric_Retaliation_ground_line##0.1" UseFunc="1" FuncTxt="local abilBuff1 = info.GetBuffByName(self:GetHandleVal(), &quot;GoddessProtection_Buff&quot;)
+                    <Str_Arg Str="F_cleric_Retaliation_ground_line##0.1" UseFunc="1" FuncTxt="if self ~= nil then local abilBuff1 = info.GetBuffByName(self:GetHandleVal(), &quot;GoddessProtection_Buff&quot;)
 
 
 local abilBuff2 = info.GetBuffByName(self:GetHandleVal(), &quot;GoddessPunishment_Buff&quot;)
@@ -640,6 +645,8 @@ else
 return &quot;F_spread_in032_fire2#Dummy_Force&quot;, 1;
 
 end
+end
+return &quot;F_cleric_Retaliation_ground_line_red&quot;, 1;
 
 " Arg="1"/>
                     <Pos Angle="0" Dist="0" PosType="3"/>
@@ -658,7 +665,7 @@ end
                     <Num Num="999"/>
                 </Scp>
                 <Scp Scp="C_EFFECT_POS" Client="YES" UseSleep="NO" Time="500">
-                    <Str_Arg Str="F_cleric_Retaliation_ground_explosion" UseFunc="1" FuncTxt="local abilBuff1 = info.GetBuffByName(self:GetHandleVal(), &quot;GoddessProtection_Buff&quot;)
+                    <Str_Arg Str="F_cleric_Retaliation_ground_explosion" UseFunc="1" FuncTxt="if self ~= nil then local abilBuff1 = info.GetBuffByName(self:GetHandleVal(), &quot;GoddessProtection_Buff&quot;)
 
 
 local abilBuff2 = info.GetBuffByName(self:GetHandleVal(), &quot;GoddessPunishment_Buff&quot;)
@@ -680,7 +687,8 @@ else
 return &quot;F_spread_in032_fire2#Dummy_Force&quot;, 1;
 
 end
-
+end
+return &quot;F_cleric_Retaliation_ground_explosion_red&quot;, 1;
 " Arg="1"/>
                     <Pos Angle="0" Dist="0" PosType="3"/>
                     <Num Num="0"/>
@@ -878,7 +886,7 @@ end
 "/>
                 </Scp>
                 <Scp Scp="C_EFFECT" Client="YES" UseSleep="NO" Time="900">
-                    <Str_Arg Str="F_cleric_RingOfLight_circle_loop" UseFunc="1" FuncTxt="local abilBuff1 = info.GetBuffByName(self:GetHandleVal(), &quot;GoddessProtection_Buff&quot;)
+                    <Str_Arg Str="F_cleric_RingOfLight_circle_loop" UseFunc="1" FuncTxt="if self ~= nil then local abilBuff1 = info.GetBuffByName(self:GetHandleVal(), &quot;GoddessProtection_Buff&quot;)
 
 
 local abilBuff2 = info.GetBuffByName(self:GetHandleVal(), &quot;GoddessPunishment_Buff&quot;)
@@ -901,13 +909,14 @@ else
 return &quot;F_spread_in032_fire2#Dummy_Force&quot;, 1;
 
 end
-
+end
+return &quot;F_cleric_RingOfLight_circle_loop_red&quot;, 4.5;
 " Arg="3"/>
                     <Str Str="Bip01 Spine"/>
                     <Num Num="0.60000002"/>
                 </Scp>
                 <Scp Scp="C_EFFECT" Client="YES" UseSleep="NO" Time="900">
-                    <Str_Arg Str="I_light004_orange2" UseFunc="1" FuncTxt="local abilBuff1 = info.GetBuffByName(self:GetHandleVal(), &quot;GoddessProtection_Buff&quot;)
+                    <Str_Arg Str="I_light004_orange2" UseFunc="1" FuncTxt="if self ~=nil then local abilBuff1 = info.GetBuffByName(self:GetHandleVal(), &quot;GoddessProtection_Buff&quot;)
 
 
 local abilBuff2 = info.GetBuffByName(self:GetHandleVal(), &quot;GoddessPunishment_Buff&quot;)
@@ -930,13 +939,15 @@ else
 return &quot;F_spread_in032_fire2#Dummy_Force&quot;, 1;
 
 end
+end
+return &quot;I_light004_red4&quot;, 4;
 
 " Arg="8"/>
                     <Str Str="Bip01 Spine"/>
                     <Num Num="0.60000002"/>
                 </Scp>
                 <Scp Scp="C_EFFECT" Client="YES" UseSleep="NO" Time="1500">
-                    <Str_Arg Str="F_cleric_RingOfLight_circle_explosion_end" UseFunc="1" FuncTxt="local abilBuff1 = info.GetBuffByName(self:GetHandleVal(), &quot;GoddessProtection_Buff&quot;)
+                    <Str_Arg Str="F_cleric_RingOfLight_circle_explosion_end" UseFunc="1" FuncTxt="if self ~= nil then local abilBuff1 = info.GetBuffByName(self:GetHandleVal(), &quot;GoddessProtection_Buff&quot;)
 
 
 local abilBuff2 = info.GetBuffByName(self:GetHandleVal(), &quot;GoddessPunishment_Buff&quot;)
@@ -959,6 +970,8 @@ else
 return &quot;F_spread_in032_fire2#Dummy_Force&quot;, 1;
 
 end
+end
+return &quot;F_cleric_RingOfLight_circle_explosion_end_red&quot;, 2.5;
 
 " Arg="2"/>
                     <Str Str="Bip01 Spine"/>

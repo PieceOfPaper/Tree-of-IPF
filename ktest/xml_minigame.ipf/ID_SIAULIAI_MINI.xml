@@ -9,9 +9,9 @@
                     </ToolScp>
                 </StartScpList>
                 <ObjList>
-                    <Obj Type="Monster" MonType="41248" Pos="-447.66#-74.46#-1312.18" range="80" genCount="1" genTime="20000" autoGen="0" objectKey="1" searchRange="300" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;Name&apos; &apos;싸늘한 티니&apos; &apos;Journal&apos; &apos;None&apos; &apos;DropItemList&apos; &apos;None&apos; " tendency="1"/>
-                    <Obj Type="Monster" MonType="41248" Pos="-353.75#-74.46#-1316.50" range="90" genCount="1" genTime="20000" autoGen="0" objectKey="2" searchRange="300" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;Name&apos; &apos;싸늘한 티니&apos; &apos;Journal&apos; &apos;None&apos; &apos;DropItemList&apos; &apos;None&apos; " tendency="1"/>
-                    <Obj Type="Monster" MonType="400041" Pos="-398.93#-74.46#-1319.93" range="90" genCount="1" genTime="20000" autoGen="0" objectKey="3" searchRange="300" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;Name&apos; &apos;싸늘한 치넨시&apos; &apos;Journal&apos; &apos;None&apos; &apos;DropItemList&apos; &apos;None&apos; " tendency="1"/>
+                    <Obj Type="Monster" MonType="59412" Pos="-447.66#-74.46#-1312.18" range="80" genCount="1" genTime="20000" autoGen="0" objectKey="1" searchRange="300" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;Name&apos; &apos;싸늘한 티니&apos; &apos;Journal&apos; &apos;None&apos; &apos;DropItemList&apos; &apos;None&apos; " tendency="1"/>
+                    <Obj Type="Monster" MonType="59412" Pos="-353.75#-74.46#-1316.50" range="90" genCount="1" genTime="20000" autoGen="0" objectKey="2" searchRange="300" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;Name&apos; &apos;싸늘한 티니&apos; &apos;Journal&apos; &apos;None&apos; &apos;DropItemList&apos; &apos;None&apos; " tendency="1"/>
+                    <Obj Type="Monster" MonType="59413" Pos="-398.93#-74.46#-1319.93" range="90" genCount="1" genTime="20000" autoGen="0" objectKey="3" searchRange="300" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;Name&apos; &apos;싸늘한 치넨시&apos; &apos;Journal&apos; &apos;None&apos; &apos;DropItemList&apos; &apos;None&apos; " tendency="1"/>
                 </ObjList>
                 <StageEvents>
                     <Event eventName="setPosPC">
@@ -48,25 +48,25 @@
                             </ToolScp>
                         </condList>
                         <execList>
-                            <ToolScp Scp="MGAME_EVT_EXEC_CREMON_PCCOUNT" Client="NO" UseSleep="NO">
+                            <ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
                                 <MGameObjIndex List="st1/1/st1/2/st1/3"/>
-                                <Num Num="0"/>
                                 <Num Num="1"/>
+                                <Num Num="0"/>
                             </ToolScp>
-                            <ToolScp Scp="MGAME_EVT_EXEC_CREMON_PCCOUNT" Client="NO" UseSleep="NO">
+                            <ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
                                 <MGameObjIndex List="st1/1/st1/2/st1/3"/>
-                                <Num Num="0"/>
                                 <Num Num="1"/>
+                                <Num Num="0"/>
                             </ToolScp>
-                            <ToolScp Scp="MGAME_EVT_EXEC_CREMON_PCCOUNT" Client="NO" UseSleep="NO">
+                            <ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
                                 <MGameObjIndex List="st1/1/st1/2/st1/3"/>
-                                <Num Num="0"/>
                                 <Num Num="1"/>
+                                <Num Num="0"/>
                             </ToolScp>
-                            <ToolScp Scp="MGAME_EVT_EXEC_CREMON_PCCOUNT" Client="NO" UseSleep="NO">
+                            <ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
                                 <MGameObjIndex List="st1/1/st1/2/st1/3"/>
-                                <Num Num="0"/>
                                 <Num Num="1"/>
+                                <Num Num="0"/>
                             </ToolScp>
                         </execList>
                     </Event>
@@ -146,8 +146,8 @@
                             </List>
                         </SelfAI>
                     </Obj>
-                    <Obj Type="Monster" MonType="41317" Pos="-265.09#-74.46#-671.35" range="210" genCount="1" genTime="20000" autoGen="0" objectKey="2" searchRange="500" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;SET&apos; &apos;monster_Sparnicht_raid&apos; &apos;Name&apos; &apos;싸늘한 스파니히트&apos; &apos;Journal&apos; &apos;None&apos; " tendency="1"/>
-                    <Obj Type="Monster" MonType="401341" Pos="-275.26#-74.46#-655.93" range="230" genCount="1" genTime="20000" autoGen="0" objectKey="3" searchRange="500" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;Journal&apos; &apos;None&apos; " tendency="1"/>
+                    <Obj Type="Monster" MonType="59414" Pos="-265.09#-74.46#-671.35" range="210" genCount="1" genTime="20000" autoGen="0" objectKey="2" searchRange="500" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;SET&apos; &apos;monster_Sparnicht_raid&apos; &apos;Name&apos; &apos;싸늘한 스파니히트&apos; &apos;Journal&apos; &apos;None&apos; " tendency="1"/>
+                    <Obj Type="Monster" MonType="59415" Pos="-275.26#-74.46#-655.93" range="230" genCount="1" genTime="20000" autoGen="0" objectKey="3" searchRange="500" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;Journal&apos; &apos;None&apos; " tendency="1"/>
                 </ObjList>
                 <StageEvents>
                     <Event eventName="stSuccess" isEnabled="0">
@@ -196,7 +196,7 @@
                     </Event>
                     <Event eventName="normalGen">
                         <condList>
-                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK_START" Client="NO" UseSleep="NO">
                                 <Num Num="10"/>
                             </ToolScp>
                             <ToolScp Scp="MGAME_EVT_COND_MONCNT_ALIVE" Client="NO" UseSleep="NO">
@@ -264,7 +264,7 @@
                     </ToolScp>
                 </StartScpList>
                 <ObjList>
-                    <Obj Type="Monster" MonType="47242" Pos="-70.52#1.83#130.80" angle="-40" genCount="1" genTime="20000" autoGen="0" objectKey="0" UseAiOutOfPc="1" propList="&apos;Faction&apos; &apos;Law&apos; &apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;HPCount&apos; &apos;70&apos; "/>
+                    <Obj Type="Monster" MonType="47242" Pos="-70.52#1.83#130.80" angle="-40" genCount="1" genTime="20000" autoGen="0" objectKey="0" UseAiOutOfPc="1" propList="&apos;Faction&apos; &apos;Law&apos; &apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;HPCount&apos; &apos;150&apos; "/>
                     <Obj Type="Monster" MonType="47241" Pos="9.24#1.83#351.04" genCount="1" genTime="20000" autoGen="0" objectKey="1" UseAiOutOfPc="1"/>
                     <Obj Type="Monster" MonType="59416" Pos="-46.28#1.83#64.33" range="230" genCount="1" genTime="20000" autoGen="0" objectKey="2" UseAiOutOfPc="1" searchRange="600" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;Name&apos; &apos;싸늘한 골렘릿&apos; &apos;Journal&apos; &apos;None&apos; " SimpleAI="raid_siauliai1_ST3" tendency="1"/>
                     <Obj Type="Monster" MonType="59417" Pos="-64.90#1.83#63.70" range="260" genCount="1" genTime="20000" autoGen="0" objectKey="3" UseAiOutOfPc="1" searchRange="600" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;Name&apos; &apos;싸늘한 스톤오르카&apos; &apos;Journal&apos; &apos;None&apos; " SimpleAI="raid_siauliai1_ST3" tendency="1"/>
@@ -298,64 +298,24 @@
                             </ToolScp>
                         </condList>
                         <execList>
-                            <ToolScp Scp="MGAME_EVT_EXEC_CREMON_PCCOUNT" Client="NO" UseSleep="NO">
+                            <ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
                                 <MGameObjIndex List="st3/2/st3/3/st3/4"/>
-                                <Num Num="0.5"/>
-                                <Num Num="3"/>
-                            </ToolScp>
-                            <ToolScp Scp="MGAME_EVT_EXEC_CREMON_PCCOUNT" Client="NO" UseSleep="NO">
-                                <MGameObjIndex List="st3/2/st3/3/st3/4"/>
-                                <Num Num="0.5"/>
-                                <Num Num="3"/>
-                            </ToolScp>
-                            <ToolScp Scp="MGAME_EVT_EXEC_CREMON_PCCOUNT" Client="NO" UseSleep="NO">
-                                <MGameObjIndex List="st3/2/st3/3/st3/4"/>
-                                <Num Num="0.5"/>
-                                <Num Num="3"/>
-                            </ToolScp>
-                            <ToolScp Scp="MGAME_EVT_EXEC_CREMON_PCCOUNT" Client="NO" UseSleep="NO">
-                                <MGameObjIndex List="st3/2/st3/3/st3/4"/>
-                                <Num Num="0.5"/>
-                                <Num Num="3"/>
-                            </ToolScp>
-                            <ToolScp Scp="MGAME_EVT_EXEC_CREMON_PCCOUNT" Client="NO" UseSleep="NO">
-                                <MGameObjIndex List="st3/2/st3/3/st3/4"/>
-                                <Num Num="0.5"/>
-                                <Num Num="3"/>
+                                <Num Num="4"/>
+                                <Num Num="0"/>
                             </ToolScp>
                         </execList>
                     </Event>
                     <Event execMS="5000" eventName="normalGen2" execWithStart="0" isEnabled="0">
                         <condList>
                             <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK_START" Client="NO" UseSleep="NO">
-                                <Num Num="7"/>
+                                <Num Num="15"/>
                             </ToolScp>
                         </condList>
                         <execList>
-                            <ToolScp Scp="MGAME_EVT_EXEC_CREMON_PCCOUNT" Client="NO" UseSleep="NO">
+                            <ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
                                 <MGameObjIndex List="st3/2/st3/3/st3/4"/>
-                                <Num Num="0.5"/>
                                 <Num Num="3"/>
-                            </ToolScp>
-                            <ToolScp Scp="MGAME_EVT_EXEC_CREMON_PCCOUNT" Client="NO" UseSleep="NO">
-                                <MGameObjIndex List="st3/2/st3/3/st3/4"/>
-                                <Num Num="0.5"/>
-                                <Num Num="3"/>
-                            </ToolScp>
-                            <ToolScp Scp="MGAME_EVT_EXEC_CREMON_PCCOUNT" Client="NO" UseSleep="NO">
-                                <MGameObjIndex List="st3/2/st3/3/st3/4"/>
-                                <Num Num="0.5"/>
-                                <Num Num="3"/>
-                            </ToolScp>
-                            <ToolScp Scp="MGAME_EVT_EXEC_CREMON_PCCOUNT" Client="NO" UseSleep="NO">
-                                <MGameObjIndex List="st3/2/st3/3/st3/4"/>
-                                <Num Num="0.5"/>
-                                <Num Num="3"/>
-                            </ToolScp>
-                            <ToolScp Scp="MGAME_EVT_EXEC_CREMON_PCCOUNT" Client="NO" UseSleep="NO">
-                                <MGameObjIndex List="st3/2/st3/3/st3/4"/>
-                                <Num Num="0.5"/>
-                                <Num Num="3"/>
+                                <Num Num="0"/>
                             </ToolScp>
                         </execList>
                     </Event>

@@ -124,8 +124,9 @@ end
 
 
 function SCR_COOLDOWN_SPAMOUNT_DECREASE(pc, skillProp, value)
-    local mapCheck = "false"
-    local mapList = {"id_chaple", "id_remains", "id_remains3", "id_castle2", "id_3cmlake_26_1", "raid_siauliai1", "onehour_cmine1", "mission_huevillage_01", "mission_d_castle_67_2_nunnery", "mission_zachariel_01", "mission_rokas_01"}
+    local mapCheck = "false" 
+    local mapList = {"id_chaple", "id_remains", "id_remains3", "id_castle2", "id_3cmlake_26_1", "raid_siauliai1", "onehour_cmine1", "mission_huevillage_01", "mission_d_castle_67_2_nunnery", "mission_zachariel_01", "mission_rokas_01"
+                     ,"id_zachariel_01","id_cmine_01","id_huevillage_01","id_catacomb_05","id_rokas_01","id_castle_67_2_nunnery","id_siauliai_01"}
     local curMapName = "";
     if IsServerSection() == 1 then
         curMapName = GetZoneName(pc)

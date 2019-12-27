@@ -367,10 +367,14 @@
 					<Str Str="voice_cleric_m_divinemight_shot"/>
 					<Str Str="voice_cleric_divinemight_shot"/>
 				</Scp>
-				<Scp Client="NO" Scp="MONSKL_CRE_PAD" Time="0" UseSleep="NO">
-					<Pos Angle="0" Dist="0"/>
-					<Angle Angle="0"/>
-					<Str Str="Oracle_DivineMight"/>
+				<Scp Client="NO" Scp="SKL_BUFF" Time="0" UseSleep="NO">
+					<Str Str="DivineMight_Buff" UseFunc="1" FuncTxt="local abilOracle23 = GetAbility(self, &apos;Oracle23&apos;); if abilOracle23 ~= nil and TryGetProp(abilOracle23, &apos;ActiveState&apos;) ==1 then return &apos;None&apos;; end return &apos;DivineMight_Buff&apos;"/>
+					<Num FuncTxt="return obj.Level;" Num="1" UseFunc="1"/>
+					<Num Num="0"/>
+					<Num Num="60000"/>
+					<Num Num="1"/>
+					<Num Num="100"/>
+					<Num Num="1"/>
 				</Scp>
 				<Scp Client="NO" Scp="MONSKL_CRE_PAD" Time="0" UseSleep="NO">
 					<Pos Angle="0" Dist="0"/>
