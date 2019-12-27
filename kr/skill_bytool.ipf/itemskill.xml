@@ -854,7 +854,7 @@
 					<Num Num="0" />
 					<Num Num="6000" />
 					<Num Num="1" />
-					<Num FuncTxt="return 20 + obj.Level * 2;" Num="30" UseFunc="1" />
+                    <Num FuncTxt="return 20 + skill.Level * 2;" Num="30" UseFunc="1" />
 					<Num Num="-1" />
 				</ToolScp>
 			</ResultList>
@@ -2063,7 +2063,7 @@
 				<ToolScp Client="NO" Scp="S_R_KNOCK_TARGET" UseSleep="NO">
 					<Num Num="3" />
 					<Num Num="0" />
-					<Num FuncTxt="return 100 + obj.Level * 10;" Num="200" UseFunc="1" />
+                    <Num FuncTxt="return 100 + skill.Level * 10;" Num="200" UseFunc="1" />
 					<Num Num="10" />
 					<Num Num="0" />
 					<Num Num="1" />

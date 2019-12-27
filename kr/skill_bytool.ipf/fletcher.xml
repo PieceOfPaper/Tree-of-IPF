@@ -524,7 +524,7 @@
 					<ResultList>
 						<ToolScp Client="NO" Scp="S_R_TGTBUFF" UseSleep="NO">
 							<Str Str="BroadHead_Debuff" />
-							<Num FuncTxt="return obj.Level" Num="1" UseFunc="1" />
+                            <Num FuncTxt="return skill.Level" Num="1" UseFunc="1" />
 							<Num Num="0" />
 							<Num FuncTxt="return 5000 + skill.Level * 500" Num="6000" UseFunc="1" />
 							<Num Num="1" />

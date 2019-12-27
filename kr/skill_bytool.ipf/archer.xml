@@ -844,7 +844,7 @@
 					<Num Num="0.000000" />
 					<Num Num="17000.000000" />
 					<Num Num="1.000000" />
-					<Num FuncTxt="return 50 + obj.Level * 0.5;" Num="50.000000" UseFunc="1" />
+					<Num FuncTxt="return 50 + skill.Level * 0.5;" Num="50.000000" UseFunc="1"/>
 					<Num Num="-1.000000" />
 				</ToolScp>
 			</ResultList>
