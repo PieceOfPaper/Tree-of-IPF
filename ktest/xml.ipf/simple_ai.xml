@@ -5570,6 +5570,13 @@
             </ToolScp>
         </List>
     </AI>
+    <AI Name="EP12_STONETABLET_AI" UpdateMS="1000" ActiveMessageMapInBattle="1">
+        <List>
+            <ToolScp Scp="SAI_FUNC_DIRECT" Client="NO" UseSleep="NO">
+                <Str Str="SCR_EP12_STONETABLET"/>
+            </ToolScp>
+        </List>
+    </AI>
     <AI Name="EVENT1912_4TH_BUFF2_RUN_MON_AI_RUN" UpdateMS="10000" ActiveMessageMapInBattle="1">
         <List>
             <ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">

@@ -80,15 +80,12 @@
                     <Angle_Abs Angle="0"/>
                     <Num Num="0"/>
                     <Num Num="5"/>
-                    <Num Num="10"/>
+                    <Num Num="0"/>
                     <Num Num="0"/>
                 </Scp>
                 <Scp Scp="C_VOICE_SOUND" Client="YES" UseSleep="NO" Time="0">
                     <Str Str="voice_war_atk_medium"/>
                     <Str Str="voice_atk_medium_war_f"/>
-                </Scp>
-                <Scp Scp="SKL_RUN_SCRIPT" Client="NO" UseSleep="NO" Time="0">
-                    <Str Str="TERRAMANCER_PAD_MOVE_BY_SPEED"/>
                 </Scp>
             </EtcList>
         </MainSkl>
@@ -271,10 +268,11 @@
             <ToolScp Scp="MONSKL_PAD_MOVE_BY_SPEED" Client="NO" UseSleep="NO">
                 <Str Str="TerraMancer_RollingStone_DamagePad"/>
                 <Num Num="-1"/>
-                <Pos Angle="0" Dist="100"/>
-                <Num Num="100"/>
+                <Pos Angle="0" Dist="200"/>
+                <Num Num="85"/>
                 <Num Num="0"/>
                 <Num Num="1"/>
+                <Num Num="0"/>
             </ToolScp>
             <ToolScp Scp="SKL_BUFF_REMOVE" Client="NO" UseSleep="NO">
                 <Str Str="Rollingston_Debuff"/>

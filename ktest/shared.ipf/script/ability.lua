@@ -1829,7 +1829,7 @@ function SCR_ABIL_SPEARMASTERY_Dagger_ACTIVE(self, ability)
     local lItem  = GetEquipItem(self, 'LH');
     if TryGetProp(rItem, "ClassType", "None") == "Spear" and TryGetProp(lItem, "ClassType", "None") == "Dagger" then
         local akt = (lItem.MINATK + lItem.MAXATK) / 2
-        addATK = math.floor(akt * 0.3);
+        addATK = math.floor(akt * 0.25);
     end
     
     self.PATK_MAIN_BM = self.PATK_MAIN_BM + addATK;

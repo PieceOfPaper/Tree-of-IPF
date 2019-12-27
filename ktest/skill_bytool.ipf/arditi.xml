@@ -212,7 +212,7 @@
 					<Str Str="Recupero_Buff"/>
 					<Num FuncTxt="return obj.Level" Num="1" UseFunc="1"/>
 					<Num Num="0"/>
-					<Num Num="500"UseFunc="1" FuncTxt="local abil = GetAbility(self, &quot;Arditi11&quot;) local value = 500 if abil ~= nil and abil.ActiveState == 1 then value = 30000 end  return value" />
+					<Num Num="500" UseFunc="1" FuncTxt="local abil = GetAbility(self, &quot;Arditi11&quot;) local value = 500 if abil ~= nil and abil.ActiveState == 1 then value = 30000 end  return value" />
 					<Num Num="1"/>
 					<Num Num="100"/>
 					<Num Num="0"/>

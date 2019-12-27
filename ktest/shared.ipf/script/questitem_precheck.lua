@@ -9091,7 +9091,7 @@ end
 function SCR_PRE_EP12_MAINSTREAM_RAIMA_WHEEL_ITEM(self, argObj, argstring, arg1, arg2)
     local mainSession = GetSessionObject(self, "ssn_klapeda")
     if mainSession.CASTLE102_MQ_05 >= 200 then
-        if mainSession.CASTLE102_MQ_06 < 300 then
+        if mainSession.CASTLE102_MQ_06 < 200 then
             if GetLayer(self) == 0 then
                 if GetZoneName(self) ~= "shadow_raid_mini_dungeon" then
                     local CompanionPeeding = GetExProp(self, 'feed')

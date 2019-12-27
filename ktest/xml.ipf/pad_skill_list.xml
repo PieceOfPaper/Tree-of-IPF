@@ -16189,7 +16189,7 @@ end"/>
 			</ToolScp>
 		</updateEvent>
 	</PadSkill>
-    <PadSkill Name="TerraMancer_RollingStone_DamagePad" CheckerType="0" deadProcess="1" Dist="5.1272907" Angle="1.6337266" Range="30" AutoDir="1" AllowOverlap="1" ApplyFlyMon="1">
+	<PadSkill Name="TerraMancer_RollingStone_DamagePad" CheckerType="0" deadProcess="1" Dist="5.1272907" Angle="1.6337266" Range="35" AutoDir="1" AllowOverlap="1" ApplyFlyMon="1" UpdateTerm="250">
         <createEvent>
             <ToolScp Scp="PAD_ADD_LIFE" Client="NO" UseSleep="NO">
                 <Num Num="20000"/>
@@ -16240,7 +16240,7 @@ end"/>
         </destroyEvent>
         <updateEvent>
             <ToolScp Scp="PAD_ADD_LIFE" Client="NO" UseSleep="NO">
-                <Num Num="-500"/>
+				<Num Num="-250"/>
                 <Num Num="0"/>
             </ToolScp>
             <ToolScp Scp="PAD_SPLASH_DAMAGE_ENEMY" Client="NO" UseSleep="NO">

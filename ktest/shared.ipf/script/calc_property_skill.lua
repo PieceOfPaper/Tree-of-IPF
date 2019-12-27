@@ -9831,6 +9831,7 @@ function SCR_GET_TransmitPrana_Ratio3(skill)
 end
 
 function SCR_Get_VashitaSiddhi_Time(skill)
+    local pc = GetSkillOwner(skill);
     local value = 4
     if IsPVPField(pc) == 1 then
         value = value * 0.75

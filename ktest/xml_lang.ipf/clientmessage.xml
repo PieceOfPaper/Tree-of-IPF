@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by IMC (IMCGames Co., Ltd) -->
+<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by imc (imc) -->
 <idspace id="ClientMessage">
 	<Category Name="ErrorMsg">
 		<Class ClassID="1" Data="DirectX 9.0c 이상의 버전이 설치되어 있어야 합니다"/>
@@ -699,6 +699,7 @@
 		<Class ClassID="4254" ClassName="abilitypoint_piece" Data="찢어진 특성 포인트 교환권이 부족합니다."/>
 		<Class ClassID="4255" ClassName="NoUseYourLevel" Data="200레벨 이상은 해당 아이템을 사용 할 수 없습니다."/>
 		<Class ClassID="4256" ClassName="CanUseGreaterThan430" Data="430레벨 이상 랜덤 옵션 아이템에만 사용할 수 있습니다."/>
+		<Class ClassID="4257" ClassName="Ark" Data="아크"/>
 	</Category>
 	<Category Name="ItemTooltip">
 		<Class ClassID="5001" ClassName="CoolDown : {Sec} Sec" Data="재사용 대기시간 : {Sec}초"/>
@@ -1646,6 +1647,7 @@
 		<Class ClassID="21350" ClassName="JobExp" Data="클래스 경험치"/>
 		<Class ClassID="21358" ClassName="SkillPointPotion" Data="스킬 포인트 추가"/>
 		<Class ClassID="21359" ClassName="StatusTooltipMsgRHPRSP" Data="괄호 안의 값이 실제 적용되는 수치"/>
+		<Class ClassID="21360" ClassName="StartCasualGamble" Data="여신의 축복 이벤트가 시작되었습니다."/>		
 	</Category>
 	<Category Name="ChatText">
 		<Class ClassID="22001" ClassName="Guard" Data="방어"/>
@@ -5258,7 +5260,7 @@
 		<Class ClassID="28251" ClassName="EVENT_1811_NEWCHARACTER_MSG12" Data="캐릭터 슬롯이 모두 개방되어 슬롯 아이템 대신 증정용 33TP 가 지급됩니다"/>
 		<Class ClassID="28252" ClassName="EVENT_1811_NEWCHARACTER_MSG13" Data="{COUNT1}강화 {COUNT2}초월"/>
 		<Class ClassID="28253" ClassName="EVENT_1811_NEWCHARACTER_MSG14" Data="적용할 장비 아이템이 없습니다"/>
-		<Class ClassID="28254" ClassName="EVENT_1903_NEWCHARACTER_MSG1" Data="레벨 400 미만만 참여 할 수 있습니다."/>
+		<Class ClassID="28254" ClassName="EVENT_1903_NEWCHARACTER_MSG1" Data="레벨 400 이하만 참여 할 수 있습니다."/>
 		<Class ClassID="28255" ClassName="EVENT_1811_KUPOLE_MSG1" Data="교환 상점을 사용한다"/>
 		<Class ClassID="28260" ClassName="IMCTEST_1811_NPC_MSG1" Data="보루타 레이드 지역으로 이동"/>
 		<Class ClassID="28261" ClassName="IMCTEST_1811_NPC_MSG2" Data="콜로니전 지역으로 이동"/>
@@ -8781,6 +8783,7 @@
 		<Class ClassID="81089" ClassName="F_CASTLE_99_MQ_05_MSG2" Data="저 앞에 카르타스의 기운이 느껴져요!"/>
 		<Class ClassID="81090" ClassName="F_CASTLE_99_MQ_05_MSG3" Data="카르타스의 기운을 확인했습니다"/>
 		<Class ClassID="81091" ClassName="D_CASTLE_19_1_MQ_03_MSG5" Data="네링가가 이미 주변을 맴돌고 있습니다"/>
+		<Class ClassID="81092" ClassName="F_CASTLE_99_MQ_05_MSG4" Data="시간이 없습니다. 카르타스의 기운을 어서 쫓아가죠."/>
 		<Class ClassID="81100" ClassName="ROKAS24_ALCHEMIST_OTHER_MSG1" Data="룬 스톤에 대해 묻는다"/>
 		<Class ClassID="90001" ClassName="CORAL_32_2_SQ_6_FAIL2" Data="퀘스트를 포기했습니다"/>
 		<Class ClassID="90002" ClassName="DCAPITAL_20_5_SQ_30" Data="작은 돌 파편을 얻었습니다"/>

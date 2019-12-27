@@ -328,9 +328,9 @@ end
                 <Num Num="120" UseFunc="1" FuncTxt="local value = 120;
                 local lv = self.Lv;
                 local bylvCorrect = lv - 300;
-                if bylvCorrect < 0 then
+                if bylvCorrect &lt; 0 then
                 bylvCorrect = bylvCorrect * 2.75 / 1000;
-                elseif bylvCorrect >= 0 then
+                elseif bylvCorrect &gt;= 0 then
                 bylvCorrect = bylvCorrect * 1.25 / 1000
                 end
                 value = value * (1 + bylvCorrect);

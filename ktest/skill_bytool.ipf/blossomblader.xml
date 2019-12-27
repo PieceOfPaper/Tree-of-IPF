@@ -91,7 +91,7 @@
                 <Scp Client="NO" Scp="SKL_RECOVER_COOLDOWN_SP" Time="0" TimeSync="0" UseSleep="NO"/>
                 <Scp Scp="SKL_SET_TARGET_CLIENT_TARGETTING" Client="NO" UseSleep="NO" Time="0">
                     <Num Num="1"/>
-                    <Num Num="180"/>
+                    <Num Num="130"/>
                 </Scp>
                 <Scp Client="NO" Scp="SKL_SPEND_COOLDOWN_SP" Time="0" TimeSync="0" UseSleep="NO"/>
                 <Scp Scp="C_EFFECT" Client="YES" UseSleep="NO" Time="0">
@@ -253,12 +253,12 @@ return buff"/>
             </ToolScp>
             <ToolScp Scp="C_SHOW_PARTS_MODEL" Client="YES" UseSleep="NO">
                 <Str Str="LH"/>
-                <Num Num="0"/>
+                <Num Num="1"/>
                 <Num Num="1"/>
             </ToolScp>
             <ToolScp Scp="C_SHOW_PARTS_MODEL" Client="YES" UseSleep="NO">
                 <Str Str="RH"/>
-                <Num Num="0"/>
+                <Num Num="1"/>
                 <Num Num="1"/>
             </ToolScp>
         </EndScripts>
@@ -270,7 +270,7 @@ return buff"/>
                 <Scp Scp="SKL_RECOVER_COOLDOWN_SP" Client="NO" UseSleep="NO" Time="0" TimeSync="0"/>
                 <Scp Scp="SKL_SET_TARGET_CLIENT_TARGETTING" Client="NO" UseSleep="NO" Time="0">
                     <Num Num="1"/>
-                    <Num Num="180"/>
+                    <Num Num="130"/>
                 </Scp>
                 <Scp Scp="SKL_SPEND_COOLDOWN_SP" Client="NO" UseSleep="NO" Time="0" TimeSync="0"/>
                 <Scp Scp="SKL_SET_IMMUNE_STATE" Client="NO" UseSleep="NO" Time="0">
@@ -374,7 +374,7 @@ return buff"/>
                         <Scp Scp="SKL_RECOVER_COOLDOWN_SP" Client="NO" UseSleep="NO" Time="0" TimeSync="0"/>
                         <Scp Scp="SKL_SET_TARGET_CLIENT_TARGETTING" Client="NO" UseSleep="NO" Time="0">
                             <Num Num="1"/>
-                            <Num Num="180"/>
+                            <Num Num="130"/>
                         </Scp>
                         <Scp Scp="SKL_SPEND_COOLDOWN_SP" Client="NO" UseSleep="NO" Time="0" TimeSync="0"/>
                         <Scp Scp="SKL_SET_IMMUNE_STATE" Client="NO" UseSleep="NO" Time="0">
