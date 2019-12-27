@@ -1,6 +1,6 @@
 
 function MONSTERBASEINFO_ON_INIT(addon, frame)  
-    addon:RegisterMsg('PC_PROPERTY_UPDATE', 'MONSTERBASEINFO_ON_MSG');
+    addon:RegisterMsg('PC_PROPERTY_UPDATE_TO_MONBASEINFO', 'MONSTERBASEINFO_ON_MSG');
     addon:RegisterMsg('TARGET_CLOSE', 'ON_TARGET_CLEAR');
     addon:RegisterMsg('TARGET_CLEAR', 'ON_TARGET_CLEAR');
     addon:RegisterMsg('TARGET_UPDATE', 'ON_MONB_TARGET_UPDATE');
@@ -300,7 +300,7 @@ function MONSTERBASEINFO_ON_MSG(baseFrame, msg, argStr, argNum)
         return;
     end
     
-    if msg == 'PC_PROPERTY_UPDATE' then
+    if msg == 'PC_PROPERTY_UPDATE_TO_MONBASEINFO' then
         MONSTERBASEINFO_CHECK_OPENCONDITION(frame);
     end
 end

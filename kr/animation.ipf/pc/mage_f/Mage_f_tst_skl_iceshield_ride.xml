@@ -6,7 +6,6 @@
 	<Sound frame="0" soundFile="atk_cloth_s_l2"/>
 	<Sound frame="0.00" soundFile="skl_wiz_icebarrier"/>
 	<Sound frame="0.00" soundFile="skl_wiz_magicblock"/>
-	<Particle frame="9" attachNode="Dummy_emitter" particleName="F_wizard_reflect_shot_light" useAttach="true" hiddenObj="false" changeEffect="None" scale="2" pause="true" targetPos="false"/>
 	<PostFix frame="10" ID="_height"/>
 	<ReadyAniTime frame="15" Value="500"/>
 	<PostFix frame="20" ID="_height"/>

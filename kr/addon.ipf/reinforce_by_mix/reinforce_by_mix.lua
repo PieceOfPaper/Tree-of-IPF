@@ -171,12 +171,20 @@ function CLEAR_REINFORCE_BY_MIX(frame)
 	INVENTORY_SET_CUSTOM_RBTNDOWN("REINFORCE_MIX_RBTN");
 	INVENTORY_SET_CUSTOM_RDBTNDOWN("None");
 	RESET_INVENTORY_ICON();
+
+	SetCraftState(0);
+	ui.SetHoldUI(false);
 end
 
 function CLOSE_REINFORCE_BY_MIX(frame)
+	if ui.CheckHoldedUI() == true then
+		return;
+	end
+	
 	CLEAR_REINFORCE_BY_MIX(frame);
 	INVENTORY_SET_CUSTOM_RBTNDOWN("None");
 	ui.CloseFrame("inventory");
+	ui.CloseFrame("reinforce_by_mix");
 end
 
 function OPEN_REINFORCE_BY_MIX(frame)
@@ -958,6 +966,8 @@ function _REINFORCE_BY_MIX_EXECUTE()
 
 	local resultlist = session.GetItemIDList();
 	if resultlist:Count() > 1 then
+		SetCraftState(1);
+		ui.SetHoldUI(true);
 		item.DialogTransaction("SCR_ITEM_EXP_UP", resultlist);	
 	end
 	--local tgtItem = GET_REINFORCE_MIX_ITEM();
@@ -970,6 +980,9 @@ end
 function REINFORCE_MIX_ITEM_EXP_STOP()	    
 	local frame = ui.GetFrame("reinforce_by_mix");
 	frame:SetUserValue("EXECUTE_REINFORCE", 0);
+	SetCraftState(0);
+	ui.SetHoldUI(false);
+
     local reinforceButton = GET_CHILD_RECURSIVELY(frame, "exec_mixreinf");
 	if reinforceButton ~= nil then
 	  reinforceButton:EnableHitTest(1);
@@ -1043,7 +1056,8 @@ function REINFORCE_MIX_ITEM_EXPUP_END(frame, msg, multiPly, totalPoint)
         a:ClearIcon();
     end
     CLEAR_MATERIAL_SLOT(frame)
-
+	SetCraftState(0);
+	ui.SetHoldUI(false);
 end
 
 function CLEAR_MATERIAL_SLOT(frame)

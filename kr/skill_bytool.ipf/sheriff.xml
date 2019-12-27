@@ -121,6 +121,12 @@
                     <Str Str="voice_scout_m_redemption_cast"/>
                     <Str Str="voice_scout_f_redemption_cast"/>
 				</Scp>
+                <Scp Client="NO" Scp="SKL_TGT_REMOVE_DEBUFF" Time="110" UseSleep="NO">
+                <Str FuncTxt="local func_name = 'get_remove_debuff_tooltip_' .. TryGetProp(obj, 'ClassName', 'None')
+               local func = _G[func_name]
+               if func == nil then return end
+               return func(obj.Level)" Str="0" UseFunc="1"/>
+               </Scp>
 			</EtcList>
 		</MainSkl>
 	</Skill>

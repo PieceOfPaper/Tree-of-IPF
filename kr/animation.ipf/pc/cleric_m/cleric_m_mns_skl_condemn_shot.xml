@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="EUC-KR"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by IMCGames Co., Ltd (IMCGames Co., Ltd) -->
+<ActionDesc>
+	<BlendOn frame="0" R="0" G="0" B="0" A="50"/>
+	<Sound frame="0.00" soundFile="skl_eff_sturzhau_whoosh_1"/>
+	<BlendOn frame="1" R="150" G="150" B="100" A="100"/>
+	<Sound frame="1.00" soundFile="skl_eff_condemn_shot"/>
+	<BlendOn frame="2" R="200" G="200" B="150" A="200"/>
+	<Shockwave frame="2" type="2" intensity="5" frequency="70" duration="0.3" range="1000"/>
+	<BlendOff frame="3" R="0" G="0" B="0" A="0"/>
+</ActionDesc>

@@ -500,12 +500,64 @@ function SET_SKILL_PUB_CREATECHAR_TOOLTIP_CAPTION(skillFrame, caption, parsedCap
     skillDesc:EnableSplitBySpace(0);
 end
 
-function UPDATE_SKILL_TOOLTIP(frame, strarg, numarg1, numarg2, userData, obj)        
+local function get_remove_buff_additional_tooltip(func, lv, lvDesc, additional_remove_buff_tooltip)
+    -- 버프 삭제 로직 툴팁 관련    
+    if func ~= nil then
+        local args = func(lv)        
+        local token = StringSplit(args, '/')                        
+        local msg = ScpArgMsg('AdditionalRemoveEnemyBuff{level}{prob}{count}', 'level', token[2], 'prob', tonumber(token[4]), 'count', token[3])
+        additional_remove_buff_tooltip = dictionary.ReplaceDicIDInCompStr(msg)
+    end
+
+    if additional_remove_buff_tooltip ~= nil then
+        lvDesc = string.format("%s{nl}%s", lvDesc, additional_remove_buff_tooltip)
+    end
+
+    return lvDesc
+end
+
+local function get_decrease_heal_debuff_additional_tooltip(func, lv, lvDesc, additional_decrease_heal_debuff_tooltip)
+    if func ~= nil then
+        local args = func(lv)                        
+        local token = StringSplit(args, '/')                
+        local msg = ScpArgMsg('AdditionalDecreaseHealEnemy{duration}{ratio}', 'duration', math.floor(tonumber(token[4])/1000), 'ratio', string.format("%.1f", tonumber(token[3])/1000))
+        additional_decrease_heal_debuff_tooltip = dictionary.ReplaceDicIDInCompStr(msg)
+    end
+
+    if additional_decrease_heal_debuff_tooltip ~= nil then
+        lvDesc = string.format("%s{nl}%s", lvDesc, additional_decrease_heal_debuff_tooltip)
+    end
+
+    return lvDesc
+end
+
+local function get_remove_debuff_additional_tooltip(func, lv, lvDesc, additional_decrease_heal_debuff_tooltip)
+    -- 디버프 삭제 로직 툴팁 관련    
+    if func ~= nil then
+        local args = func(lv)        
+        local token = StringSplit(args, '/')
+        local msg = ''
+        if token[6] == 'self' then
+            msg = ScpArgMsg('AdditionalRemoveSelfDebuff{level}{prob}{count}', 'level', token[2], 'prob', tonumber(token[4]), 'count', token[3])
+        else
+            msg = ScpArgMsg('AdditionalRemoveFriendDebuff{level}{prob}{count}', 'level', token[2], 'prob', tonumber(token[4]), 'count', token[3])
+        end
+        additional_remove_buff_tooltip = dictionary.ReplaceDicIDInCompStr(msg)
+    end
+
+    if additional_remove_buff_tooltip ~= nil then
+        lvDesc = string.format("%s{nl}%s", lvDesc, additional_remove_buff_tooltip)
+    end
+
+    return lvDesc
+end
+
+function UPDATE_SKILL_TOOLTIP(frame, strarg, numarg1, numarg2, userData, obj)  	
     -- destroy skill, ability tooltip
     DESTROY_CHILD_BYNAME(frame:GetChild('skill_desc'), 'SKILL_CAPTION_');
     DESTROY_CHILD_BYNAME(frame:GetChild('ability_desc'), 'ABILITY_CAPTION_');
 
-    local abil = session.GetSkillByGuid(numarg2);
+    local abil = session.GetSkillByGuid(numarg2);	
     local obj = nil;
     local objIsClone = false;
     local tooltipStartLevel = 1;
@@ -528,15 +580,15 @@ function UPDATE_SKILL_TOOLTIP(frame, strarg, numarg1, numarg2, userData, obj)
     if obj == nil then
         return;
     end
-
+	
     --------------------------- skill description frame ------------------------------------
     local skillFrame = GET_CHILD(frame, "skill_desc", "ui::CGroupBox")
     -- set skill icon and name
     SET_SKILL_TOOLTIP_ICON_AND_NAME(skillFrame, obj, true);    
     
     -- set skill description
-    local skillDesc = GET_CHILD(skillFrame, "desc", "ui::CRichText");   
-    SET_SKILL_TOOLTIP_CAPTION(skillFrame, obj.Caption, PARSE_TOOLTIP_CAPTION(obj, obj.Caption, true));    
+    local skillDesc = GET_CHILD(skillFrame, "desc", "ui::CRichText");   	
+    SET_SKILL_TOOLTIP_CAPTION(skillFrame, obj.Caption, PARSE_TOOLTIP_CAPTION(obj, obj.Caption, true));    	
 
     local stateLevel = 0;
     if strarg ~= "quickslot" then
@@ -579,7 +631,7 @@ function UPDATE_SKILL_TOOLTIP(frame, strarg, numarg1, numarg2, userData, obj)
         originalText = skillCaption2
     end    
     
-    local skillLvDesc = PARSE_TOOLTIP_CAPTION(obj, skillCaption2, strarg ~= "quickslot");
+    local skillLvDesc = PARSE_TOOLTIP_CAPTION(obj, skillCaption2, strarg ~= "quickslot");	
     local lvDescStart, lvDescEnd = string.find(skillLvDesc, "Lv.");
     local lv = 1;
     if tooltipStartLevel > 0 then
@@ -598,22 +650,86 @@ function UPDATE_SKILL_TOOLTIP(frame, strarg, numarg1, numarg2, userData, obj)
     else
         totalLevel = obj.LevelByDB;
     end
+    
+    -- 적 버프 제거 관련 --------------------------------------------------
+    local skill_class_name = TryGetProp(obj, 'ClassName', 'None')
+    local additional_remove_buff_tooltip = nil
+    local func_name_remove_buff = nil
+    if skill_class_name ~= 'None' then
+        func_name_remove_buff = string.format('get_remove_buff_tooltip_%s', skill_class_name)
+    end
+
+    -- 아군 디버프 제거 관련 
+    local additional_remove_debuff_tooltip = nil
+    local func_name_remove_debuff = nil
+    if skill_class_name ~= 'None' then
+        func_name_remove_debuff = string.format('get_remove_debuff_tooltip_%s', skill_class_name)
+    end
+    --------------------------------------------------------------------
+    
+    -- 적에게 힐량 감소 디버프 부여 관련 ----------------------------------
+    local additional_decrease_heal_debuff_tooltip = nil
+    local func_name_decrease_heal = nil
+    if skill_class_name ~= 'None' then
+        func_name_decrease_heal = string.format('get_decrease_heal_debuff_tooltip_%s', skill_class_name)
+    end
+    --------------------------------------------------------------------
 
     local currLvCtrlSet = nil    
-    if totalLevel == 0 and lvDescStart ~= nil then  -- no have skill case        
+    if totalLevel == 0 and lvDescStart ~= nil then  -- no have skill case
         skillLvDesc = string.sub(skillLvDesc, lvDescEnd + 2, string.len(skillLvDesc));
         lvDescStart, lvDescEnd = string.find(skillLvDesc, "Lv.");        
         if lvDescStart ~= nil then              
             local lvDesc = string.sub(skillLvDesc, 2, lvDescStart -1);
             skillLvDesc  = string.sub(skillLvDesc, lvDescEnd + 2    , string.len(skillLvDesc));
+
+            -- 버프 삭제 로직 툴팁 관련 ----------------------------------------------------------------
+            if func_name_remove_buff ~= nil and _G[func_name_remove_buff] ~= nil then 
+                local func = _G[func_name_remove_buff]            
+                lvDesc = get_remove_buff_additional_tooltip(func, 1, lvDesc, additional_remove_buff_tooltip)
+            end
+
+            if func_name_remove_debuff ~= nil and _G[func_name_remove_debuff] ~= nil then 
+                local func = _G[func_name_remove_debuff]            
+                lvDesc = get_remove_debuff_additional_tooltip(func, 1, lvDesc, additional_remove_buff_tooltip)
+            end
+            -------------------------------------------------------------------------------------------------
+
+            -- 힐량 감소 디버프 부여 툴팁 관련 ----------------------------------------------------------------
+            if func_name_decrease_heal ~= nil and _G[func_name_decrease_heal] ~= nil then
+                local func = _G[func_name_decrease_heal]
+                lvDesc = get_decrease_heal_debuff_additional_tooltip(func, 1, lvDesc, additional_decrease_heal_debuff_tooltip)
+            end
+            -------------------------------------------------------------------------------------------------
+
             ypos = SKILL_LV_DESC_TOOLTIP(skillFrame, obj, totalLevel, lv, lvDesc, ypos, originalText);
         else -- max skill level = 1        
             local lvDesc = string.sub(skillLvDesc, 2, string.len(skillLvDesc));
+            
+            -- 버프 삭제 로직 툴팁 관련 ----------------------------------------------------------------
+            if func_name_remove_buff ~= nil and _G[func_name_remove_buff] ~= nil then 
+                local func = _G[func_name_remove_buff]
+                lvDesc = get_remove_buff_additional_tooltip(func, 1, lvDesc, additional_remove_buff_tooltip)
+            end
+
+            if func_name_remove_debuff ~= nil and _G[func_name_remove_debuff] ~= nil then 
+                local func = _G[func_name_remove_debuff]            
+                lvDesc = get_remove_debuff_additional_tooltip(func, 1, lvDesc, additional_remove_buff_tooltip)
+            end
+            -------------------------------------------------------------------------------------------------
+
+            -- 힐량 감소 디버프 부여 툴팁 관련 ----------------------------------------------------------------
+            if func_name_decrease_heal ~= nil and _G[func_name_decrease_heal] ~= nil then
+                local func = _G[func_name_decrease_heal]
+                lvDesc = get_decrease_heal_debuff_additional_tooltip(func, 1, lvDesc, additional_decrease_heal_debuff_tooltip)
+            end
+            -------------------------------------------------------------------------------------------------
+
             ypos = SKILL_LV_DESC_TOOLTIP(skillFrame, obj, totalLevel, lv, lvDesc, ypos, originalText);
         end            
     elseif lvDescStart ~= nil and totalLevel ~= 0 then        
-        skillLvDesc = string.sub(skillLvDesc, lvDescEnd + 2, string.len(skillLvDesc));                
-        while 1 do
+        skillLvDesc = string.sub(skillLvDesc, lvDescEnd + 2, string.len(skillLvDesc));                		
+        while 1 do			
 
             local levelvalue = 2
             if lv >= 9 then
@@ -624,16 +740,56 @@ function UPDATE_SKILL_TOOLTIP(frame, strarg, numarg1, numarg2, userData, obj)
             
             lvDescStart, lvDescEnd = string.find(skillLvDesc, "Lv.");  
             if lvDescStart == nil then -- max skill level = 1
-                local lvDesc = string.sub(skillLvDesc, 2, string.len(skillLvDesc));   
-                ypos = SKILL_LV_DESC_TOOLTIP(skillFrame, obj, totalLevel, lv, lvDesc, ypos, originalText);                
+                local lvDesc = string.sub(skillLvDesc, 2, string.len(skillLvDesc));
+                
+                -- 버프 삭제 로직 툴팁 관련 -----------------------------------------------------------------------
+                if func_name_remove_buff ~= nil and _G[func_name_remove_buff] ~= nil then 
+                    local func = _G[func_name_remove_buff]
+                    lvDesc = get_remove_buff_additional_tooltip(func, lv, lvDesc, additional_remove_buff_tooltip)
+                end
+
+                if func_name_remove_debuff ~= nil and _G[func_name_remove_debuff] ~= nil then 
+                    local func = _G[func_name_remove_debuff]            
+                    lvDesc = get_remove_debuff_additional_tooltip(func, lv, lvDesc, additional_remove_buff_tooltip)
+                end
+                -------------------------------------------------------------------------------------------------
+                
+                -- 힐량 감소 디버프 부여 툴팁 관련 ----------------------------------------------------------------
+                if func_name_decrease_heal ~= nil and _G[func_name_decrease_heal] ~= nil then
+                    local func = _G[func_name_decrease_heal]
+                    lvDesc = get_decrease_heal_debuff_additional_tooltip(func, lv, lvDesc, additional_decrease_heal_debuff_tooltip)
+                end
+                -------------------------------------------------------------------------------------------------
+
+                ypos = SKILL_LV_DESC_TOOLTIP(skillFrame, obj, totalLevel, lv, lvDesc, ypos, originalText);                				
                 break;
             end            
-            local lvDesc = string.sub(skillLvDesc, 2, lvDescStart -1);               
+            local lvDesc = string.sub(skillLvDesc, 2, lvDescStart -1);   			            
             local comma = string.sub(lvDesc, 1, 1)            
             if comma ~= nil and comma == ',' then                
                 lvDesc = string.sub(skillLvDesc, 3, lvDescStart -1);   
             end
-            skillLvDesc  = string.sub(skillLvDesc, lvDescEnd + levelvalue, string.len(skillLvDesc));            
+            skillLvDesc  = string.sub(skillLvDesc, lvDescEnd + levelvalue, string.len(skillLvDesc))
+            
+            -- 버프 삭제 로직 툴팁 관련 ----------------------------------------------------------------
+            if func_name_remove_buff ~= nil and _G[func_name_remove_buff] ~= nil then 
+                local func = _G[func_name_remove_buff]
+                lvDesc = get_remove_buff_additional_tooltip(func, lv, lvDesc, additional_remove_buff_tooltip)
+            end
+
+            if func_name_remove_debuff ~= nil and _G[func_name_remove_debuff] ~= nil then 
+                local func = _G[func_name_remove_debuff]            
+                lvDesc = get_remove_debuff_additional_tooltip(func, lv, lvDesc, additional_remove_buff_tooltip)
+            end
+            -------------------------------------------------------------------------------------------------
+
+            -- 힐량 감소 디버프 부여 툴팁 관련 ----------------------------------------------------------------
+            if func_name_decrease_heal ~= nil and _G[func_name_decrease_heal] ~= nil then
+                local func = _G[func_name_decrease_heal]
+                lvDesc = get_decrease_heal_debuff_additional_tooltip(func, lv, lvDesc, additional_decrease_heal_debuff_tooltip)
+            end
+            -------------------------------------------------------------------------------------------------
+
             ypos = SKILL_LV_DESC_TOOLTIP(skillFrame, obj, totalLevel, lv, lvDesc, ypos, originalText);            
             lv = lv + 1;
         end

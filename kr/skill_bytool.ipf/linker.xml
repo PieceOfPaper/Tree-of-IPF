@@ -344,6 +344,12 @@
 					<Str_Arg Arg="0.40000001" Str="F_scout_JointPenalty_hit" />
 					<Str Str="swd_blow_cloth2" />
 				</ToolScp>
+                <ToolScp Client="NO" Scp="S_R_TGT_REMOVE_BUFF" UseSleep="NO">
+                <Str FuncTxt="local func_name = 'get_remove_buff_tooltip_' .. TryGetProp(skill, 'ClassName', 'None')
+               local func = _G[func_name]
+               if func == nil then return end
+               return func(skill.Level)" Str="0" UseFunc="1"/>
+              </ToolScp>
 			</ResultList>
 		</MainSkl>
         <ByCondSkills>
@@ -518,6 +524,7 @@
 					<Num Num="0.30000001" />
 					<Str_Arg Arg="1" Str="None" />
 					<Str Str="swd_blow_cloth2" />
+                    <Str Str="true"/>
 				</Scp>
 				<Scp Client="YES" Scp="C_VOICE_SOUND" Time="0" UseSleep="NO">
 					<Str Str="voice_wiz_m_umbilicalcord_shot" />

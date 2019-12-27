@@ -46,6 +46,7 @@ function INDUNINFO_CHAR_UI_OPEN(frame, msg, argStr, argNum)
                 charGroupBox:CreateOrGetControl("groupbox", "INDUN_CONTROL_".. g_indunCategoryList[i], 0, 0, ctrlWidth, 20)
             end
             
+            -- 기본 인던 내용 
             for j = 0, indunCount - 1 do
                 local indunCls = GetClassByIndexFromList(indunClsList, j)
                 if indunCls ~= nil and indunCls.Category ~= 'None' then
@@ -74,10 +75,53 @@ function INDUNINFO_CHAR_UI_OPEN(frame, msg, argStr, argNum)
                         indunCntLabel:SetEnable(1)
                         playPerRestTypeTable["INDUN_COUNT_" .. indunCls.PlayPerResetType]=1
                     end
-                   
-
                 end
             end
+
+            -- 챌린지, 프리 던전 보스 내용 추가 
+            local contentsClsList, count = GetClassList('contents_info');
+            for i = 0, count - 1 do
+                local contentsCls = GetClassByIndexFromList(contentsClsList, i);
+                if contentsCls ~= nil then
+                    local resetGroupID = contentsCls.ResetGroupID;
+                    local category = contentsCls.Category;
+                    local indunGroupBox = charGroupBox:GetChild('INDUN_CONTROL_'..resetGroupID);
+                    if category ~= 'None' then
+                        local indunGroupBox = charGroupBox:CreateOrGetControl("groupbox", "INDUN_CONTROL_".. resetGroupID, 0, 0, ctrlWidth, 20);
+                        indunGroupBox = tolua.cast(indunGroupBox, "ui::CGroupBox");
+                        indunGroupBox:EnableDrawFrame(0);
+        
+                        local indunLabel = indunGroupBox:CreateOrGetControl("richtext", "INDUN_NAME_" .. resetGroupID, 20, 0, ctrlWidth / 2, 20);
+                        indunLabel = tolua.cast(indunLabel, 'ui::CRichText');
+                        indunLabel:SetText('{@st42b}' .. category);
+                        indunLabel:SetEnable(0);
+        
+                        local indunCntLabel = indunGroupBox:CreateOrGetControl("richtext", "INDUN_COUNT_" .. resetGroupID, 2, 0, ctrlWidth / 2, 20);
+                        indunCntLabel = tolua.cast(indunCntLabel, 'ui::CRichText');
+                        indunCntLabel:SetGravity(ui.RIGHT, ui.TOP);
+                        indunCntLabel:SetEnable(0);
+        
+                        local curCount = GET_CHAR_INDUN_ENTRANCE_COUNT(pcInfo.cid, resetGroupID);
+                        if curCount == nil or curCount == 'None' then
+                            curCount = 0;
+                        else
+                            curCount = tonumber(curCount)
+                        end
+        
+                        local maxCount = GET_INDUN_MAX_ENTERANCE_COUNT(resetGroupID);
+                        indunCntLabel:SetText("{@st42b}" .. curCount .. "/" .. maxCount);
+        
+                        if pcInfo ~= nil then
+                            if contentsCls.Level <= pcInfo:GetLevel()  or playPerRestTypeTable["INDUN_COUNT_" .. resetGroupID]== 1 then
+                                indunLabel:SetEnable(1);
+                                indunCntLabel:SetEnable(1);
+                                playPerRestTypeTable["INDUN_COUNT_" .. resetGroupID] = 1;
+                            end
+                        end
+                    end
+                end
+            end
+
             local silverLabel = charGroupBox:CreateOrGetControl("richtext", 'CHARACTER_SILVER_' .. pcName, 20, 10, ctrlWidth, 20)
             silverLabel:SetText(ClMsg('Auto__{@st42b}SilBeo') .. ':' .. GET_COMMAED_STRING(pcInfo:GetSilver()))
 
@@ -93,6 +137,23 @@ function GET_CHAR_INDUN_ENTRANCE_COUNT(cid, resetGroupID)
     local accountInfo = session.barrack.GetMyAccount();
     local acc_obj = GetMyAccountObj()
 
+	if resetGroupID < 0 then
+		local contentsClsList, count = GetClassList('contents_info')		
+        local contentsCls = nil;
+        for i = 0, count - 1 do
+            contentsCls = GetClassByIndexFromList(contentsClsList, i);
+            if contentsCls ~= nil and contentsCls.ResetGroupID == resetGroupID and contentsCls.Category ~= 'None' then
+                break;
+            end
+        end
+
+        if contentsCls.UnitPerReset == 'PC' then
+			return accountInfo:GetBarrackCharEtcProp(cid, contentsCls.ResetType);
+        else
+            return acc_obj[contentsCls.ResetType];
+        end
+    end
+    
     local indunClsList, cnt = GetClassList('Indun');
     local indunCls = nil;
     for i = 0, cnt - 1 do
@@ -119,25 +180,38 @@ function GET_CHAR_INDUN_ENTRANCE_COUNT(cid, resetGroupID)
 end
 
 function GET_INDUN_MAX_ENTERANCE_COUNT(resetGroupID)
-    local indunClsList, cnt = GetClassList('Indun');
-    local indunCls = nil;
-    for i = 0, cnt - 1 do
-        indunCls = GetClassByIndexFromList(indunClsList, i);
-        if indunCls ~= nil and indunCls.PlayPerResetType == resetGroupID and indunCls.Category ~= 'None' then
-            break;
+    if resetGroupID < 0 then
+        local contentsClsList, count = GetClassList('contents_info');
+        local contentsCls = nil;
+        for i = 0, count - 1 do
+            contentsCls = GetClassByIndexFromList(contentsClsList, i);
+            if contentsCls ~= nil and contentsCls.ResetGroupID == resetGroupID and contentsCls.Category ~= 'None' then
+                break;
+            end
         end
-    end
-    
-    local infinity = TryGetProp(indunCls, 'EnableInfiniteEnter', 'NO')
-    if indunCls.AdmissionItemName ~= "None" or infinity == 'YES'  then
-        local a = "{img infinity_text 20 10}"
-        return a;
-    end
-    
-    local bonusCount = 0;
-    if indunCls.WeeklyEnterableCount ~= nil and indunCls.WeeklyEnterableCount ~= "None" and indunCls.WeeklyEnterableCount ~= 0 then
-        return indunCls.WeeklyEnterableCount + bonusCount;  --매주 max
+
+        return contentsCls.EnterableCount
     else
-        return indunCls.PlayPerReset + bonusCount;          --매일 max
-    end
+        local indunClsList, cnt = GetClassList('Indun');
+        local indunCls = nil;
+        for i = 0, cnt - 1 do
+            indunCls = GetClassByIndexFromList(indunClsList, i);
+            if indunCls ~= nil and indunCls.PlayPerResetType == resetGroupID and indunCls.Category ~= 'None' then
+                break;
+            end
+        end
+        
+        local infinity = TryGetProp(indunCls, 'EnableInfiniteEnter', 'NO')
+        if indunCls.AdmissionItemName ~= "None" or infinity == 'YES'  then
+            local a = "{img infinity_text 20 10}"
+            return a;
+        end
+        
+        local bonusCount = 0;
+        if indunCls.WeeklyEnterableCount ~= nil and indunCls.WeeklyEnterableCount ~= "None" and indunCls.WeeklyEnterableCount ~= 0 then
+            return indunCls.WeeklyEnterableCount + bonusCount;  --매주 max
+        else
+            return indunCls.PlayPerReset + bonusCount;          --매일 max
+        end
+    end    
 end

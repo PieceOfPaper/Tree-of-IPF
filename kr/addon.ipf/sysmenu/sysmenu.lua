@@ -1,6 +1,6 @@
 function SYSMENU_ON_INIT(addon, frame)
 	addon:RegisterMsg('NOTICE_Dm_levelup_base', 'SYSMENU_ON_MSG');
-	addon:RegisterMsg('PC_PROPERTY_UPDATE', 'SYSMENU_ON_MSG');
+	addon:RegisterMsg('PC_PROPERTY_UPDATE_TO_SYSMENU', 'SYSMENU_ON_MSG');
 	addon:RegisterMsg('GAME_START', 'SYSMENU_ON_MSG');
 	addon:RegisterOpenOnlyMsg('RESET_SKL_UP', 'SYSMENU_ON_MSG');
 	addon:RegisterMsg('JOB_CHANGE', 'SYSMENU_ON_JOB_CHANGE');
@@ -17,7 +17,6 @@ function SYSMENU_ON_INIT(addon, frame)
 	addon:RegisterMsg("ENABLE_PCBANG_SHOP", "SYSMENU_ON_MSG");
 	addon:RegisterMsg("NEW_USER_REQUEST_GUILD_JOIN", "SYSMENU_ON_MSG");    
 	frame:EnableHideProcess(1);
-
 end
 
 function SYSMENU_ON_JOB_CHANGE(frame)
@@ -52,7 +51,7 @@ function SYSMENU_ON_MSG(frame, msg, argStr, argNum)
 		end
 	end
 
-	if msg == 'PC_PROPERTY_UPDATE' or msg == 'RESET_SKL_UP' or msg =='GAME_START' or msg=='UPDATE_READ_COLLECTION_COUNT' then
+	if msg == 'PC_PROPERTY_UPDATE_TO_SYSMENU' or msg == 'RESET_SKL_UP' or msg =='GAME_START' or msg=='UPDATE_READ_COLLECTION_COUNT' then
 		SYSMENU_PC_STATUS_NOTICE(frame);
 		SYSMENU_PC_SKILL_NOTICE(frame);
 		SYSMENU_CHECK_OPENCONDITION(frame);
@@ -544,6 +543,7 @@ function AUCTION_TOOLTIP_SET_REMAINTIME(frame, aucItem)
 
 end
 
+-- 카드 합성
 function TOGGLE_CARD_REINFORCE(frame)
     if GetCraftState() == 1 then
         ui.SysMsg(ClMsg('CHATHEDRAL53_MQ03_ITEM02'));
@@ -560,7 +560,7 @@ function TOGGLE_CARD_REINFORCE(frame)
 	end
 end
 
-
+-- 증표 합성
 function TOGGLE_CERTIFICATE_REINFORCE(frame)		-- This is registered in restquickslotinfo.xml
     if GetCraftState() == 1 then
         ui.SysMsg(ClMsg('CHATHEDRAL53_MQ03_ITEM02'));
@@ -577,6 +577,7 @@ function TOGGLE_CERTIFICATE_REINFORCE(frame)		-- This is registered in restquick
 	end
 end
 
+-- 젬 강화
 function TOGGLE_GEM_REINFORCE(frame)
     if GetCraftState() == 1 then
         ui.SysMsg(ClMsg('CHATHEDRAL53_MQ03_ITEM02'));
@@ -593,6 +594,7 @@ function TOGGLE_GEM_REINFORCE(frame)
 	end
 end
 
+-- 레전드 카드 강화
 function TOGGLE_LEGEND_CARD_REINFORCE(frame)
     if GetCraftState() == 1 then
         ui.SysMsg(ClMsg('CHATHEDRAL53_MQ03_ITEM02'));
@@ -609,3 +611,32 @@ function TOGGLE_LEGEND_CARD_REINFORCE(frame)
 	end
 end
 
+-- 아크 합성
+function TOGGLE_ARK_COMPOSITION(frame)
+    if GetCraftState() == 1 then
+        ui.SysMsg(ClMsg('CHATHEDRAL53_MQ03_ITEM02'));
+        return;
+    end
+
+	local rframe = ui.GetFrame("ark_composition");
+	if rframe:IsVisible() == 1 then
+		TOGGLE_ARK_COMPOSITION_UI(0);
+	else
+		TOGGLE_ARK_COMPOSITION_UI(1);
+	end
+end
+
+-- 아크 이전
+function TOGGLE_ARK_RELOCATION(frame)
+    if GetCraftState() == 1 then
+        ui.SysMsg(ClMsg('CHATHEDRAL53_MQ03_ITEM02'));
+        return;
+    end
+
+	local rframe = ui.GetFrame("ark_relocation");
+	if rframe:IsVisible() == 1 then
+		TOGGLE_ARK_RELOCATION_UI(0);
+	else
+		TOGGLE_ARK_RELOCATION_UI(1);
+	end
+end

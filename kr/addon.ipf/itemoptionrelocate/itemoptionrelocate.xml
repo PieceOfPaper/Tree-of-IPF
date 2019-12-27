@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<uiframe name="itemoptionrelocate" x="0" y="0" width="500" height="609" create="open">
+	<draw drawtitlebar="false"/>
+	<skin frameskin="None"/>
+	<frame title="" fullheight="true" fasthide="true" layout_gravity="left top" open="pip" margin="-470 0 0 0"/>
+	<input maxwidth="1280" moveable="false"/>
+	<layer layerlevel="80"/>
+	<option closebutton="false"/>
+	<sound opensound="window_open" closesound="window_close"/>
+	<script OpenScp="ITEMOPTIONRELOCATE_OPEN" CloseScp="ITEMOPTIONRELOCATE_CLOSE"/>
+	<userconfig ITEM_NAME_TEXT="옵션을 이전할 아이템을 올려주세요" OPTION_TEXT_OFFSET="25" RELOCATE_EFFECT="UI_item_parts2" RELOCATE_EFFECT_SCALE="5" RELOCATE_EFFECT_DURATION="2" RELOCATE_RESULT_EFFECT="UI_item_parts2_success" RESULT_EFFECT_SCALE="5" RESULT_EFFECT_DURATION="2" TEXT_AWAKE="각성" TEXT_ENCHANT="인챈트"/>
+	<controls>
+		<groupbox name="bg" rect="0 0 500 1030" margin="0 0 0 0" layout_gravity="center top" draw="true" hittestbox="false" resizebyparent="false" resizebyresolution="true" scrollbar="true" skin="test_frame_low"/>
+		<groupbox name="pipwin_top" rect="0 0 500 60" margin="0 0 0 0" layout_gravity="center top" draw="true" hittestbox="false" resizebyparent="false" scrollbar="false" skin="test_frame_top"/>
+		<richtext name="title" rect="0 0 120 24" margin="0 18 0 0" layout_gravity="center top" drawbackground="false" fixwidth="false" fontname="white_16_ol" maxwidth="0" resizebytext="true" slideshow="false" spacey="0" textalign="left top" updateparent="false" format="{@st43}아이템 %s 이전" param1="value" param1_def=""/>
+		<button name="close" rect="0 0 44 44" margin="0 15 28 0" layout_gravity="right top" LBtnUpArgNum="" LBtnUpScp="ITEMOPTIONRELOCATE_CLOSE" oversound="button_over" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" clicksound="button_click_big" image="testclose_button"/>
+		<groupbox name="pic_bg" rect="0 0 468 362" margin="0 50 0 0" layout_gravity="center top" parent="bg" draw="false" hittestbox="false" resizebyparent="false" changecursor="false" scrollbar="false" hittest="true" skin="test_socket_topskin"/>
+		<button name="do_relocate" rect="0 0 180 50" margin="0 0 0 70" layout_gravity="center bottom" skin="test_red_button" format="{@st41b}{s18}%s 이전" param1="value" param1_def="" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" oversound="button_cursor_over_3" clicksound="button_click_big" LBtnUpScp="OPTION_RELOCATE_BUTTON_CLICK"/>
+		<button name="send_ok" rect="0 0 180 50" margin="0 0 0 70" layout_gravity="center bottom" skin="test_red_button" format="{@st41b}{s18}%s" param1="value" param1_def="확인" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" oversound="button_cursor_over_3" clicksound="button_click_big" LBtnUpScp="CLEAR_ITEMOPTIONRELOCATE_UI"/>
+		<!-- target item -->
+		<slot name="slot1" margin="0 0 0 0" parent="pic_bg" rect="0 0 140 140" layout_gravity="center center" movepop="false" dropsound="icon_get_down" picksound="icon_pick_up" skin="invenslot2" DropScp="ITEMOPTIONRELOCATE_ITEM_DROP" RBtnUpScp="ITEMOPTIONRELOCATE_ITEM_REMOVE" RBtnUpArgNum="1"/>
+		<picture name="slot1_bg_image" parent="slot1" rect="0 0 140 140" margin="10 13 0 0" layout_gravity="center center" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" hittest="false" image="socket_slot_bg" oversound="button_over"/>
+		<slot name="slot2" margin="0 0 0 0" parent="pic_bg" rect="0 0 140 140" layout_gravity="right center" movepop="false" dropsound="icon_get_down" picksound="icon_pick_up" skin="invenslot2" DropScp="ITEMOPTIONRELOCATE_ITEM_DROP" RBtnUpScp="ITEMOPTIONRELOCATE_ITEM_REMOVE" RBtnUpArgNum="2"/>
+		<picture name="slot2_bg_image" parent="slot2" rect="0 0 140 140" margin="10 13 0 0" layout_gravity="center center" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" hittest="false" image="socket_slot_bg" oversound="button_over"/>
+		<groupbox name="item_text_bg" margin="0 320 0 0" rect="0 0 430 70" skin="monster_skill_bg" layout_gravity="center top"/>
+		<richtext name="item_text" parent="item_text_bg" margin="0 -2 0 0" rect="0 0 500 50" format="{@st42}{s20}%s{/}" param1="value" param1_def="옵션을 이전할 아이템을 올려주세요" textalign="center center" fontname="white_20_ol" fixwidth="true" layout_gravity="center center"/>
+		<picture name="arrowpic" parent="pic_bg" rect="0 0 60 60" margin="0 0 0 0" layout_gravity="center center" image="gold_arrow_right" stretch="true"/>
+		<labelline name="labelline2" rect="0 0 420 1" margin="0 415 0 0" layout_gravity="center top" skin="labelline_def_2"/>		
+		<!-- Option item -->
+		<groupbox name="bodyGbox1" rect="0 0 430 200" margin="0 430 0 0" layout_gravity="center top" draw="true" hittestbox="false" resizebyparent="false" resizebyresolution="false" scrollbar="false" skin="test_bgreentitle_skin"/>
+		<groupbox name="bodyGbox1_0" rect="0 0 420 150" margin="0 43 0 0" parent="bodyGbox1" layout_gravity="center top" draw="true" hittestbox="false" resizebyparent="false" resizebyresolution="false" scrollbar="true" stretch="false" skin="None"/>
+		<richtext name="text_relocateoption" margin="5 5 0 0" rect="0 0 400 50" parent="bodyGbox1" format="{@st43b}{s18}이전 옵션" hittestbox="false" textalign="left center" resizebytext="true" spacey="0" maxwidth="0" fontname="white_16_ol" fixwidth="true" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top"/>
+		<groupbox name="medal_gb" rect="0 0 450 80" margin="0 0 0 150" layout_gravity="center bottom" draw="false"/>
+		<groupbox name="decomposegb" parent="medal_gb" rect="0 0 450 38" margin="0 0 0 0" layout_gravity="center top" skin="test_weight_skin"/>
+		<richtext name="decomposecost_text" parent="decomposegb" rect="0 0 120 24"  margin="10 0 0 0" layout_gravity="left center" format="{img icon_item_silver 24 24} {@st41b}이전 비용{/}%s" param1="tax_rate"/>
+		<richtext name="decomposecost" parent="decomposegb" rect="0 0 120 24" margin="0 1 10 0" layout_gravity="right center" caption="0" fontname="white_16_ol" textalign="right center"/>
+		<groupbox name="remainsilvergb" parent="medal_gb" rect="0 0 450 38" margin="0 40 0 0" layout_gravity="center top" skin="test_weight_skin"/>
+		<richtext name="remainsilver_text" parent="remainsilvergb" rect="0 0 120 24" margin="10 0 0 0" layout_gravity="left center" caption="{img icon_item_silver 24 24} {@st41b}예상 잔액{/}"/>
+		<richtext name="remainsilver" parent="remainsilvergb" rect="0 0 120 24" margin="0 1 10 0" layout_gravity="right center" caption="0" fontname="white_16_ol" textalign="right center"/>
+		<groupbox name="resultGbox" rect="0 0 470 362" margin="0 50 0 0" layout_gravity="center top" parent="bg" draw="false" hittestbox="false" resizebyparent="false" changecursor="false" scrollbar="false" hittest="true" skin="test_socket_topskin"/>
+		<picture name="result_effect_bg" parent="resultGbox" rect="0 0 470 313" margin="0 0 0 0" layout_gravity="center top" hittest="false" image="SUCCESS_gold_bg" oversound="button_cursor_over_3" stretch="true"/>
+		<picture name="result_item_pic" parent="resultGbox" rect="0 0 160 160" margin="0 0 0 0" layout_gravity="center center" hittest="true" stretch="true"/>
+	</controls>
+</uiframe>

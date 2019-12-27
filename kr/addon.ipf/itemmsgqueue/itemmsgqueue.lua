@@ -50,7 +50,7 @@ function ITEMMSG_SHOW_GET_ITEM(frame, itemType, count)
 	local toCnt = tonumber(GET_TOTAL_MONEY_STR());
 	
 	local curValue = textVis:GetCurrentTextChangeEventValue();
-	fromCnt = SumForBigNumberInt64(toCnt, '-'..count);
+	fromCnt = tonumber(SumForBigNumberInt64(toCnt, '-'..count));
 --	if curValue > 0 then
 --		if curValue > fromCnt then
 --			return;

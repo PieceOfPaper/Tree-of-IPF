@@ -117,9 +117,8 @@ function PouncingClientScp_LEAVE(actor, obj, buff)
     actor:GetAnimation():ResetRUNAnim();
     actor:GetAnimation():ResetWLKAnim();
     actor:GetAnimation():ResetTURNAnim();
-    
-    actor:SetAlwaysBattleState(false);
 
+    actor:SetAlwaysBattleState(false);
 end
 
 function TaglioClientScp_ENTER(actor, obj, buff)
@@ -679,6 +678,15 @@ function GoldenBlink_ENTER(actor, obj, buff)
 end
 
 function GoldenBlink_LEAVE(actor, obj, buff)
+    actor:GetEffect():SetColorBlink(0,0,0,0,1,0,0,1, 0 , 1);
+end
+
+--핑크
+function PinkBlink_ENTER(actor, obj, buff)
+    actor:GetEffect():SetColorBlink(0.2,0,0,0,0.58,0.36,0.52,0, 1.5, 1);
+end
+
+function PinkBlink_LEAVE(actor, obj, buff)
     actor:GetEffect():SetColorBlink(0,0,0,0,1,0,0,1, 0 , 1);
 end
 

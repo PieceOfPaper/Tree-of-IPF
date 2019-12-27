@@ -440,7 +440,7 @@ function ADVENTURE_BOOK_QUEST_DROPLIST_INIT(page_quest)
     questLevelDrop:AddItem(1, 'Lv.100 ~ Lv.199');
     questLevelDrop:AddItem(2, 'Lv.200 ~ Lv.299');
     questLevelDrop:AddItem(3, 'Lv.300 ~ Lv.399');
-    questLevelDrop:AddItem(4, 'Lv.400 ~ Lv.420');
+    questLevelDrop:AddItem(4, 'Lv.400 ~ Lv.450');
 end
 
 function ADVENTURE_BOOK_QUEST_DROPLIST(parent, ctrl)

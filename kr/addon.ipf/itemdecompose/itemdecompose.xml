@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by IMC (IMCGames Co., Ltd) -->
-<uiframe name="itemdecompose" x="0" y="0" width="560" height="1030" create="open">
+<uiframe name="itemdecompose" x="0" y="0" width="560" height="1070" create="open">
 	<frame title="" fullheight="false" fasthide="true" layout_gravity="right top" margin="0 0 -680 0" open="pip"/>
 	<skin frameskin="test_frame_low"/>
 	<draw drawtitlebar="false"/>
@@ -18,20 +18,29 @@
 		<checkbox name="magic" rect="0 0 70 20" margin="120 15 0 0" layout_gravity="left top" parent="itemTypeBox" caption="매직" fontname="black_16_b" LBtnUpScp="DECOMPOSE_ITEM_GRADE_SET"/>
 		<checkbox name="rare" rect="0 0 70 20" margin="220 15 0 0" layout_gravity="left top" parent="itemTypeBox" caption="레어" fontname="black_16_b" LBtnUpScp="DECOMPOSE_ITEM_GRADE_SET"/>
 		<checkbox name="unique" rect="0 0 70 20" margin="320 15 0 0" layout_gravity="left top" parent="itemTypeBox" caption="유니크" fontname="black_16_b" LBtnUpScp="DECOMPOSE_ITEM_GRADE_SET"/>
-		<checkbox name="mechanical" rect="0 0 70 20" margin="20 370 0 0" layout_gravity="left top" parent="itemTypeBox" caption="{@st47}{s18}가공된 장비 보기" fontname="black_16_b" LBtnUpScp="DECOMPOSE_ITEM_GRADE_SET"/>
+		<checkbox name="mechanical" rect="0 0 70 20" margin="20 370 0 0" layout_gravity="left top" parent="itemTypeBox" caption="{@st47}{s18}가공된 장비 보기" fontname="black_16_b" LBtnUpScp="DECOMPOSE_ITEM_MECHANICAL_SET"/>
 		<button name="selectAll" rect="0 0 110 38" margin="0 8 18 0" layout_gravity="right top" parent="itemTypeBox" LBtnDownScp="ITEM_DECOMPOSE_ALL_SELECT" skin="test_normal_button" caption="{@st66}전체 선택" fontname="black_16_b"/>
 		<slotset name="itemSlotset" rect="0 0 480 650" margin="0 150 0 0" layout_gravity="center top" LBtnDownScp="ITEM_DECOMPOSE_SLOT_LBTDOWN" enabledrag="false" enableselect="true" hideindrag="true" row="6" col="10" maxselect="80" size="50 50" skin="invenslot2" spc="2 2" enabledrop="false" enablepop="false"/>
 		<groupbox name="arrowBox" rect="0 0 500 40" margin="0 500 0 0" skin="test_arow" layout_gravity="center top" draw="true" hittestbox="false"/>
 		<picture name="decomposeSuccess" rect="0 0 500 104" margin="0 520 0 0" image="BnYellow_skin" layout_gravity="center top" draw="true" hittestbox="false"/>
-		<richtext name="decomposeSuccessText" rect="0 0 560 50" parent="decomposeSuccess" margin="0 0 0 0" layout_gravity="center center" caption="{@st43}{#ffcc33}분해 완료{/}" hittest="false"/>
-		<slotset name="slotlist" rect="0 0 300 100" margin="0 640 0 0" layout_gravity="center top" row="1" col="2" size="85 85" skin="invenslot2" spc="4 4" enabledrop="false" enablepop="false"/>
+		<richtext name="decomposeSuccessText" rect="0 0 560 55" parent="decomposeSuccess" margin="0 0 0 0" layout_gravity="center center" caption="{@st43}{#ffcc33}분해 완료{/}" hittest="false"/>
+		<groupbox name="slotgb" rect="0 0 460 245" margin="0 0 0 185" layout_gravity="center bottom" draw="false" hittestbox="false"/>
+		<richtext name="slottext_1" parent="slotgb" rect="0 0 100 24" margin="-170 0 0 0" layout_gravity="center top" format="기본 획득" fontname="black_18_b"/>
+		<richtext name="slottext_2" parent="slotgb" rect="0 0 100 24" margin="-18 0 0 0" layout_gravity="center top" format="초월 장비 보너스" fontname="black_18_b"/>
+		<richtext name="slottext_3" parent="slotgb" rect="0 0 100 24" margin="171 0 0 0" layout_gravity="center top" format="총 획득" fontname="black_18_b"/>
+		<picture name="pluspic1" parent="slotgb" rect="0 0 60 60" margin="106 50 0 0" layout_gravity="left top" image="gold_plus" stretch="true"/>
+		<picture name="pluspic2" parent="slotgb" rect="0 0 60 60" margin="106 145 0 0" layout_gravity="left top" image="gold_plus" stretch="true"/>
+		<picture name="arrowpic1" parent="slotgb" rect="0 0 60 60" margin="279 50 0 0" layout_gravity="left top" image="gold_arrow_right" stretch="true"/>
+		<picture name="arrowpic2" parent="slotgb" rect="0 0 60 60" margin="279 145 0 0" layout_gravity="left top" image="gold_arrow_right" stretch="true"/>
+		<slotset name="slotlist" rect="0 0 300 100" margin="-94 0 0 210" layout_gravity="center bottom" row="2" col="2" size="85 85" skin="invenslot2" spc="72 12" enabledrop="false" enablepop="false"/>
+		<slotset name="slotlist2" rect="0 0 300 100" margin="170 0 0 210" layout_gravity="center bottom" row="2" col="1" size="85 85" skin="invenslot2" spc="4 12" enabledrop="false" enablepop="false"/>
 		<groupbox name="materialGbox2" rect="0 0 540 100" margin="0 0 0 168" layout_gravity="center bottom" hittest="true" draw="false"/>
 		<groupbox name="materialGbox" rect="0 0 500 38" margin="0 0 0 205" layout_gravity="center bottom" hittest="true" draw="false"/>
-		<groupbox name="medalGbox2" rect="0 0 500 38" margin="0 0 0 160" layout_gravity="center bottom" draw="true" hittestbox="true" skin="test_weight_skin"/>
+		<groupbox name="medalGbox2" rect="0 0 500 38" margin="0 0 0 140" layout_gravity="center bottom" draw="true" hittestbox="true" skin="test_weight_skin"/>
 		<picture name="medalPic2" rect="0 0 24 24" margin="10 0 0 0" layout_gravity="left center" parent="medalGbox2" image="icon_item_silver" stretch="true"/>
 		<richtext name="decomposeCostText" rect="0 0 120 24" parent="medalGbox2" margin="40 0 0 0" layout_gravity="left center" format="{@st41b}분해 비용{/}%s" param1="tax_rate"/>
 		<richtext name="decomposeCost" rect="0 0 120 24" parent="medalGbox2" margin="0 1 10 0" layout_gravity="right center" caption="0" fontname="white_16_ol" textalign="right center"/>
-		<groupbox name="medalGbox" rect="0 0 500 38" margin="0 0 0 120" layout_gravity="center bottom" draw="true" hittestbox="true" skin="test_weight_skin"/>
+		<groupbox name="medalGbox" rect="0 0 500 38" margin="0 0 0 100" layout_gravity="center bottom" draw="true" hittestbox="true" skin="test_weight_skin"/>
 		<picture name="medalPic" rect="0 0 24 24" margin="10 0 0 0" layout_gravity="left center" parent="medalGbox" image="icon_item_silver" stretch="true"/>
 		<richtext name="remainSilverText" rect="0 0 120 24" parent="medalGbox" margin="40 0 0 0" layout_gravity="left center" caption="{@st41b}예상 잔액{/}"/>
 		<richtext name="remainSilver" rect="0 0 120 24" parent="medalGbox" margin="0 1 10 0" layout_gravity="right center" caption="0" fontname="white_16_ol" textalign="right center"/>

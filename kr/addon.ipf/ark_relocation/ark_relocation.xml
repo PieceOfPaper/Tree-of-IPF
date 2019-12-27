@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<uiframe name="ark_relocation" x="0" y="0" width="450" height="1100" create="open">
+	<frame title="" fullheight="true" fasthide="true" layout_gravity="left top" open="pip" margin="-470 0 0 0"/>
+	<skin frameskin="test_frame_low"/>
+	<draw drawframe="true" drawtitlebar="false"/>
+	<input hittestframe="true" moveintitlebar="false"/>
+	<option closebutton="false"/>
+	<sound opensound="skill_window_open" closesound="skill_window_close"/>
+	<layer layerlevel="92"/>
+	<script OpenScp="ARK_RELOCATION_OPEN" CloseScp="ARK_RELOCATION_CLOSE"/>
+	<userconfig ITEM_NAME_TEXT="이전할 아이템을 올려주세요" SLOT_OFFSET="20" RELOCATE_RESULT_EFFECT_NAME="UI_item_parts2_success" RELOCATE_RESULT_EFFECT_SCALE="5" RELOCATE_RESULT_EFFECT_DURATION="2" RELOCATE_EFFECT_NAME="UI_item_parts2" RELOCATE_EFFECT_SCALE="5" RELOCATE_EFFECT_DURATION="2"/>
+	<controls>
+		<groupbox name="pipwin_top" rect="0 0 450 60" margin="0 0 0 0" layout_gravity="center top" draw="true" hittestbox="false" resizebyparent="false" scrollbar="false" skin="test_frame_top"/>
+		<richtext name="richtext_1" rect="0 0 120 24" margin="0 18 0 0" layout_gravity="center top" drawbackground="false" fixwidth="false" fontname="white_16_ol" maxwidth="0" resizebytext="true" slideshow="false" spacey="0" textalign="left top" updateparent="false" format="{@st43}%s" param1="value" param1_def="아크 이전"/>
+		<picture name="question" rect="0 0 44 44" margin="27 20 0 0" layout_gravity="left top" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" hittest="true" image="testquesten_button" oversound="button_over" texttooltip="{@st59b}아크 이전{@st59s}{nl}- 이전 할 아크 등록 {nl} - 이전 받을 아크 등록"/>
+		<button name="close" rect="0 0 44 44" margin="0 15 28 0" layout_gravity="right top" LBtnUpArgNum="" oversound="button_over" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" clicksound="button_click_big" image="testclose_button" LBtnUpScp="ARK_RELOCATION_CLOSE"/>
+		<groupbox name="pic_bg" rect="0 0 420 430" margin="0 160 0 0" layout_gravity="center top" hittestbox="false" resizebyparent="false" changecursor="false" scrollbar="false" hittest="true" draw="false"/>
+		<button name="do_relocate" rect="0 0 180 50" margin="0 0 0 70" layout_gravity="center bottom" skin="test_red_button" format="{@st41b}{s18}%s" oversound="button_cursor_over_3" param1="value" param1_def="이전" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" clicksound="button_click_big" LBtnUpScp="ARK_RELOCATE_BUTTON_CLICK"/>
+		<button name="send_ok" rect="0 0 180 50" margin="0 0 0 70" layout_gravity="center bottom" skin="test_red_button" format="{@st41b}{s18}%s" oversound="button_cursor_over_3" param1="value" param1_def="확인" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" clicksound="button_click_big" LBtnUpScp="CLEAR_ARK_RELOCATION_UI"/>
+		<!-- target item -->
+		<slot name="slot1" parent="pic_bg" rect="0 0 140 140" margin="0 10 0 0" layout_gravity="center top" movepop="false" dropsound="icon_get_down" picksound="icon_pick_up" skin="invenslot2" DropScp="ARK_RELOCATION_SRC_ITEM_DROP" RBtnUpScp="ARK_RELOCATION_ITEM_REMOVE" RBtnUpArgNum="1"/>
+		<picture name="slot1_bg_image" parent="slot1" rect="0 0 140 140" margin="10 13 0 0" layout_gravity="center center" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" hittest="false" image="socket_slot_bg" oversound="button_over"/>
+		<controlset name="slot1_info" parent="pic_bg" rect="0 0 300 100" margin="0 10 0 0" type="ark_relocation_material" layout_gravity="left top"/>
+		<slot name="slot2" parent="pic_bg" rect="0 0 140 140" margin="0 130 0 0" layout_gravity="left center" movepop="false" dropsound="icon_get_down" picksound="icon_pick_up" skin="invenslot2" DropScp="ARK_RELOCATION_DEST_ITEM_DROP" RBtnUpScp="ARK_RELOCATION_ITEM_REMOVE" RBtnUpArgNum="2"/>
+		<picture name="slot2_bg_image" parent="slot2" rect="0 0 140 140" margin="10 13 0 0" layout_gravity="center center" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" hittest="false" image="socket_slot_bg" oversound="button_over"/>
+		<controlset name="slot2_info" parent="pic_bg" rect="0 0 300 100" margin="0 130 0 0" type="ark_relocation_material" layout_gravity="left center"/>
+		<groupbox name="item_text_bg" rect="0 0 430 70" margin="0 310 0 0" skin="monster_skill_bg" layout_gravity="center top"/>
+		<richtext name="item_text" parent="item_text_bg" margin="0 -2 0 0" rect="0 0 500 50" format="{@st42}{s20}%s{/}" param1="value" param1_def="옵션을 이전할 아이템을 올려주세요" textalign="center center" fontname="white_20_ol" fixwidth="true" layout_gravity="center center"/>
+		<picture name="arrowpic" parent="pic_bg" rect="0 0 60 60" margin="0 0 0 0" layout_gravity="center center" image="gold_arrow_below" stretch="true"/>
+		<!-- silver UI -->
+		<groupbox name="medal_gb" rect="0 0 430 80" margin="0 0 0 150" layout_gravity="center bottom" draw="false"/>
+		<groupbox name="decomposegb" parent="medal_gb" rect="0 0 430 38" margin="0 0 0 0" layout_gravity="center top" skin="test_weight_skin"/>
+		<richtext name="decomposecost_text" parent="decomposegb" rect="0 0 120 24"  margin="10 0 0 0" layout_gravity="left center" format="{img icon_item_silver 24 24} {@st41b}이전 비용{/}%s" param1="tax_rate"/>
+		<richtext name="decomposecost" parent="decomposegb" rect="0 0 120 24" margin="0 1 10 0" layout_gravity="right center" caption="0" fontname="white_16_ol" textalign="right center"/>
+		<groupbox name="remainsilvergb" parent="medal_gb" rect="0 0 430 38" margin="0 40 0 0" layout_gravity="center top" skin="test_weight_skin"/>
+		<richtext name="remainsilver_text" parent="remainsilvergb" rect="0 0 120 24" margin="10 0 0 0" layout_gravity="left center" caption="{img icon_item_silver 24 24} {@st41b}예상 잔액{/}"/>
+		<richtext name="remainsilver" parent="remainsilvergb" rect="0 0 120 24" margin="0 1 10 0" layout_gravity="right center" caption="0" fontname="white_16_ol" textalign="right center"/>
+		<!-- Result UI -->
+		<groupbox name="relocation_effect_gb" parent="pic_bg" rect="0 0 128 128" margin="-160 15 0 0" layout_gravity="left top" draw="true" hittestbox="true"/>
+		<groupbox name="relocation_effect_gb2" parent="pic_bg" rect="0 0 128 128" margin="-160 280 0 0" layout_gravity="left top" draw="true" hittestbox="true"/>
+		<groupbox name="resultGbox" rect="0 0 470 362" margin="0 200 0 0" layout_gravity="center top" draw="false" hittestbox="false" resizebyparent="false" changecursor="false" scrollbar="false" hittest="true" skin="test_socket_topskin"/>
+		<picture name="result_effect_bg" parent="resultGbox" rect="0 0 430 280" margin="0 0 0 0" layout_gravity="center top" hittest="false" image="SUCCESS_gold_bg" oversound="button_cursor_over_3" stretch="true"/>
+		<picture name="result_item_pic" parent="resultGbox" rect="0 0 130 130" margin="0 -20 0 0" layout_gravity="center center" hittest="false" stretch="true"/>
+	</controls>
+</uiframe>

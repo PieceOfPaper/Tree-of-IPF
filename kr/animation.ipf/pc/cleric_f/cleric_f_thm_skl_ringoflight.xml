@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="EUC-KR"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by IMCGames Co., Ltd (IMCGames Co., Ltd) -->
+<ActionDesc>
+	<Sound frame="0.00" soundFile="skl_fgt_tackle_cast"/>
+	<Sound frame="5.00" soundFile="skl_fgt_tackle_shot"/>
+	<Sound frame="5.00" soundFile="skl_eff_ringoflight_shot"/>
+	<Shockwave frame="6" type="2" intensity="2" frequency="70" duration="0.1" range="1000"/>
+	<Shockwave frame="14" type="2" intensity="5" frequency="70" duration="0.3" range="1000"/>
+	<BlendOn frame="0" R="0" G="0" B="0" A="50"/>
+	<BlendOn frame="6" R="160" G="130" B="200" A="100"/>
+	<BlendOn frame="7" R="130" G="100" B="150" A="100"/>
+	<BlendOn frame="8" R="0" G="0" B="0" A="50"/>
+	<BlendOn frame="14" R="200" G="200" B="200" A="100"/>
+	<BlendOff frame="15" R="0" G="0" B="0" A="0"/>
+</ActionDesc>

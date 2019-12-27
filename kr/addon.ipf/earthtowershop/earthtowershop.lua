@@ -180,6 +180,13 @@ function REQ_BUY_TPSHOP1912_SHOP_OPEN()
     ui.OpenFrame('earthtowershop');
 end
 
+function REQ_EVENT1912_GREWUP_SHOP_OPEN()
+    local frame = ui.GetFrame("earthtowershop");
+    frame:SetUserValue("SHOP_TYPE", 'GrewUpShop');
+    ui.OpenFrame('earthtowershop');
+end
+
+
 function EARTH_TOWER_SHOP_OPEN(frame)
     if frame == nil then
         frame = ui.GetFrame("earthtowershop")
@@ -283,6 +290,9 @@ function EARTH_TOWER_INIT(frame, shopType)
     elseif shopType == 'Buy_TPShop1912' then
         title:SetText('{@st43}'..ScpArgMsg("TP_201912_fur_change"));
         close:SetTextTooltip(ScpArgMsg('CloseUI{NAME}', 'NAME', ScpArgMsg("TP_201912_fur_change")));
+    elseif shopType == 'GrewUpShop' then
+        title:SetText('{@st43}'..ScpArgMsg("NEW_CHAR_SHOP_1"));
+        close:SetTextTooltip(ScpArgMsg('CloseUI{NAME}', 'NAME', ScpArgMsg("NEW_CHAR_SHOP_1")));
     end
 
 
@@ -769,6 +779,8 @@ function EARTH_TOWER_SHOP_TRADE_ENTER()
         item.DialogTransaction("SELL_TPSHOP1912_SHOP_1_TREAD1", resultlist, cntText);
     elseif shopType == 'Buy_TPShop1912' then
         item.DialogTransaction("BUY_TPSHOP1912_SHOP_1_TREAD1", resultlist, cntText);
+    elseif shopType == 'GrewUpShop' then
+        item.DialogTransaction("EVENT1912_GREWUP_SHOP_1_TREAD1", resultlist, cntText);
 	end
 end
 

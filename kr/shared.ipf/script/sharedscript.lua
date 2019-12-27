@@ -2607,22 +2607,62 @@ function SCR_TEXT_HIGHLIGHT(dialogClassName, text)
         end
     end
 
+    local sameZoneWordlist = CHECK_WORD_GET_LIST(targetZoneWordList);
     if #targetZoneWordList > 0 then
         for i = 1, #targetZoneWordList do
-            text = string.gsub(text, targetZoneWordList[i], '{#003399}' .. targetZoneWordList[i] .. '{/}')
+            text = string.gsub(text, targetZoneWordList[i], '{#003399}' .. targetZoneWordList[i] .. '{/}');
+        end
+    end
+
+            -- 같은 단어 목록에 추가로 색깔 지정된 부분 삭제
+            if #sameZoneWordlist > 0 then
+               for r = 1, #sameZoneWordlist do
+                    local word = sameZoneWordlist[r];
+                    if word ~= nil then
+                 local sampleText = '{#003399}{#003399}'..word..'{/}';
+                        local findText = string.find(text, sampleText);
+                        if findText ~= nil then
+                     text = string.gsub(text, sampleText, '{#003399}'..word);
+               end
+            end
         end
     end
 
     if #targetMonWordList > 0 then
         for i = 1, #targetMonWordList do
-            text = string.gsub(text, targetMonWordList[i], '{#003399}' .. targetMonWordList[i] .. '{/}')
+            text = string.gsub(text, targetMonWordList[i], '{#003399}' .. targetMonWordList[i] .. '{/}');
         end
     end
 
-    return text
+    return text;
 end
 
-function GET_DATE_BY_DATE_STRING(dateString) -- yyyy-mm-dd hh:mm:ss
+function CHECK_WORD_GET_LIST(list)
+    local same_word_list = {};
+    if #list > 0 then
+        for i = 1, #list - 1 do
+            for r = i + 1, #list do
+                if string.find(list[i], list[r]) ~= nil then
+                    local ilen = string.len(list[i]);
+                    local rlen = string.len(list[r]);
+                    
+                    if ilen > rlen then
+                        same_word_list[#same_word_list + 1] = list[r];
+                    elseif ilen < rlen then
+                        same_word_list[#same_word_list + 1] = list[i];
+                    else
+                        same_word_list[#same_word_list + 1] = list[i];
+                    end
+                end
+            end
+        end
+    end
+
+    return same_word_list;
+end
+
+function GET_DATE_BY_DATE_STRING(dateString)
+    -- yyyy-mm-dd hh:mm:ss
     local tIndex = string.find(dateString, ' ');
     if tIndex == nil then
         return -1;

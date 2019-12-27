@@ -1,7 +1,8 @@
-﻿<?xml version="1.0" encoding="UTF-8" ?>
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by XMLSPY 2004 Home Ed. Release 3, Installed Multi for 12 users (IMCGames Co., Ltd) -->
 <ActionDesc>
-    <Sound frame="0.00" Value="0" soundFile="walk_right" />
-    <Particle frame="2.00" particleName="F_smoke109" attachNode="Dummy_run_L" scale="1.5" useAttach="true" pause="true" targetPos="false" />
-    <Sound frame="6.00" Value="0" soundFile="walk_right" />
-    <Particle frame="8.00" particleName="F_smoke109" attachNode="Dummy_run_R" scale="1.5" useAttach="true" pause="true" targetPos="false" />
+	<Sound frame="0.00" Value="0" soundFile="walk_left"/>
+	<Particle frame="2.00" particleName="F_smoke109" attachNode="Dummy_run_L" scale="1.5" useAttach="true" pause="true" targetPos="false"/>
+	<Sound frame="6.00" Value="0" soundFile="walk_left"/>
+	<Particle frame="8.00" particleName="F_smoke109" attachNode="Dummy_run_R" scale="1.5" useAttach="true" pause="true" targetPos="false"/>
 </ActionDesc>

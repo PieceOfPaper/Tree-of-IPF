@@ -1,4 +1,4 @@
-﻿--- item_transcend_shared.lua
+--- item_transcend_shared.lua
 
 function IS_TRANSCENDING_STATE()
     local frame = ui.GetFrame("itemtranscend");
@@ -155,7 +155,7 @@ function GET_TRANSCEND_MATERIAL_COUNT(targetItem, Arg1)
     if groupName == nil then
         return 0;
     end
-
+    
     if groupName == 'Weapon' then
         if classType == 'Sword' or classType == 'Staff' or classType =='Rapier' or classType =='Spear' or classType =='Bow' or classType =='Mace' then
             equipTypeRatio = 0.8;
@@ -167,9 +167,14 @@ function GET_TRANSCEND_MATERIAL_COUNT(targetItem, Arg1)
         end
     elseif groupName == 'SubWeapon' then
             equipTypeRatio = 0.6;
-    elseif groupName == 'Armor' or classType == 'Shield' then
-        --Amor/Shield/Acc--
+        if classType == 'Trinket' then
+            equipTypeRatio = 0.4
+        end
+    elseif groupName == 'Armor' and classType ~= 'Shield' then
+        --Amor/Acc--
             equipTypeRatio = 0.33;
+    elseif classType == 'Shield' then  
+            equipTypeRatio = 0.6;
     else
         return 0;
     end

@@ -429,3 +429,11 @@ function SKL_CHECK_USE_TEMPLER_SKILL_C(actor, skl, abilName)
     
     return 1;
 end
+
+function SCR_CRUSADER_CHECK_CHECK_BUFF_C(actor, skl, buffName)
+    if actor:GetBuff():GetBuff("GoddessProtection_Buff") == nil and actor:GetBuff():GetBuff("GoddessPunishment_Buff") == nil and actor:GetBuff():GetBuff("GoddessBlessing_Buff") == nil then
+        return 0;
+    end
+
+    return 1;
+end

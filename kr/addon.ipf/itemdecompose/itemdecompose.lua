@@ -11,9 +11,11 @@ local function _ITEM_DECOMPOSE_ITEM_LIST(frame, itemGradeList)
     --슬롯 셋 및 전체 슬롯 초기화 해야됨
 	local itemSlotSet = GET_CHILD_RECURSIVELY(frame, "itemSlotset", "ui::CSlotSet")
 	local miscSlotSet = GET_CHILD_RECURSIVELY(frame, "slotlist", "ui::CSlotSet")
+	local miscSlotSet2 = GET_CHILD_RECURSIVELY(frame, "slotlist2", "ui::CSlotSet")
     
 	itemSlotSet:ClearIconAll();
 	miscSlotSet:ClearIconAll();
+	miscSlotSet2:ClearIconAll();
 
 	local itemSlotSetCnt = itemSlotSet:GetSlotCount();
 	itemSlotSet:SetSkinName("invenslot2")
@@ -94,6 +96,10 @@ function RESET_SUCCESS(frame)
     decomposeSuccess:ShowWindow(0)
     local slotlist = GET_CHILD_RECURSIVELY(frame, "slotlist", "ui::CSlotSet");
     slotlist:ShowWindow(0)
+    local slotlist2 = GET_CHILD_RECURSIVELY(frame, "slotlist2", "ui::CSlotSet");
+    slotlist2:ShowWindow(0);
+    local slotgb = GET_CHILD_RECURSIVELY(frame, "slotgb", "ui::CGroupBox");
+    slotgb:ShowWindow(0);
 end
 
 function ITEMDECOMPOSE_CHECKBOX(frame)
@@ -129,6 +135,32 @@ function DECOMPOSE_ITEM_GRADE_SET(frame, isOpen)
     
     ITEM_DECOMPOSE_UPDATE_MONEY(frame);
 
+    if isOpen ~= 1 then
+        local itemdecomposeFrame = ui.GetFrame("itemdecompose");
+        _ITEM_DECOMPOSE_ITEM_LIST(itemdecomposeFrame, itemGradeList);
+    end
+    return itemGradeList;
+end
+
+function DECOMPOSE_ITEM_MECHANICAL_SET(frame, isOpen)
+    ITEM_DECOMPOSE_ALL_UNSELECT(frame);
+    
+    local normalCheckbox = GET_CHILD_RECURSIVELY(frame, "normal", "ui::CCheckBox");
+    local magicCheckbox = GET_CHILD_RECURSIVELY(frame, "magic", "ui::CCheckBox");
+    local rareCheckbox = GET_CHILD_RECURSIVELY(frame, "rare", "ui::CCheckBox");
+    local uniqueCheckbox = GET_CHILD_RECURSIVELY(frame, "unique", "ui::CCheckBox");
+    local mechanicalCheckbox = GET_CHILD_RECURSIVELY(frame, 'mechanical', "ui::CCheckBox");
+    
+    local itemGradeList = {};
+    
+    itemGradeList[#itemGradeList + 1] = normalCheckbox:IsChecked();
+    itemGradeList[#itemGradeList + 1] = magicCheckbox:IsChecked();
+    itemGradeList[#itemGradeList + 1] = rareCheckbox:IsChecked();
+    itemGradeList[#itemGradeList + 1] = uniqueCheckbox:IsChecked();
+    itemGradeList[#itemGradeList + 1] = mechanicalCheckbox:IsChecked();
+    
+    ITEM_DECOMPOSE_UPDATE_MONEY(frame);
+
     if itemGradeList[5] == 1 then
         ui.MsgBox(ScpArgMsg("IS_MechanicalItem_Decompose"));
     end
@@ -136,7 +168,7 @@ function DECOMPOSE_ITEM_GRADE_SET(frame, isOpen)
     if isOpen ~= 1 then
         local itemdecomposeFrame = ui.GetFrame("itemdecompose");
         _ITEM_DECOMPOSE_ITEM_LIST(itemdecomposeFrame, itemGradeList);
-    end
+	end
     return itemGradeList;
 end
 
@@ -357,41 +389,77 @@ function ITEM_DECOMPOSE_COMPLETE(...)
         local decomposeSuccess = GET_CHILD_RECURSIVELY(frame, "decomposeSuccess", "ui::CPicture");
         decomposeSuccess:ShowWindow(1);
         local slotlist = GET_CHILD_RECURSIVELY(frame, "slotlist", "ui::CSlotSet");
-        slotlist:ShowWindow(1);
+		slotlist:ShowWindow(1);
+		local slotlist2 = GET_CHILD_RECURSIVELY(frame, "slotlist2", "ui::CSlotSet");
+		slotlist2:ShowWindow(1);
+		local slotgb = GET_CHILD_RECURSIVELY(frame, "slotgb", "ui::CGroupBox");
+		slotgb:ShowWindow(1);
     end
     
     local itemList = {...};
     if itemList ~= nil and #itemList > 0 then        
     	local miscSlotSet = GET_CHILD_RECURSIVELY(frame, "slotlist", "ui::CSlotSet")
+    	local miscSlotSet2 = GET_CHILD_RECURSIVELY(frame, "slotlist2", "ui::CSlotSet")
         
     	miscSlotSet:ClearIconAll();
+    	miscSlotSet2:ClearIconAll();
     	
         local itemName = { };
         local itemCount = { };
         local miscSlotCnt = 0;
         
-        for i = 1, #itemList do
-            local item = SCR_STRING_CUT(itemList[i]);
-            local itemName = item[1];
+		for i = 1, #itemList do
+			local item = ITEMDECOMPOSE_STRING_CUT(itemList[i]);
+            local itemName = item[1];					-- 획득 아이템 이름
 			local itemCount = item[2];
-			local itemCls = GetClass('Item', itemName);            
+			local itemCount2 = 0;
+			if i < 3 then 								-- 뉴클 가루, 시에라 가루 일 때만
+				itemCount = itemCount - item[3];		-- 기본 획득 량
+				itemCount2 = item[3];					-- 초월 장비 보너스 
+			end
+			
+			local itemCls = GetClass('Item', itemName);
             if itemCount > 0 and IS_ENCHANT_JEWELL_ITEM(itemCls) == false then
         		local miscSlot = miscSlotSet:GetSlotByIndex(miscSlotCnt)
-        		if miscSlot == nil then
+				local miscSlot2 = miscSlotSet:GetSlotByIndex(miscSlotCnt + 1)
+        		if miscSlot == nil or miscSlot2 == nil then
         			break;
-        		end
-                
-                ------------------------------------------------------
-                local invItem = session.GetInvItemByName(itemName)
+				end
+
+				local invItem = session.GetInvItemByName(itemName)
                 if invItem ~= nil then
                     local itemobj = GetIES(invItem:GetObject());
-        			local class = GetClassByType('Item', invItem.type);
+        			local class = GetClassByType('Item', invItem.type);                    
+					
+					SET_SLOT_ITEM_INFO(miscSlot, class, itemCount,'{s16}{ol}{b}{ds}');			-- 기본 획득
+					if 0 < itemCount2 then
+						SET_SLOT_ITEM_INFO(miscSlot2, class, itemCount2,'{s16}{ol}{b}{ds}');	-- 초월 장비 보너스
+					end
+
+					local miscSlotAll = miscSlotSet2:GetSlotByIndex(i-1);
+					if miscSlotAll == nil then
+						break;
+					end
+					SET_SLOT_ITEM_INFO(miscSlotAll, class, item[2],'{s16}{ol}{b}{ds}'); -- 총 획득
                     
-            		SET_SLOT_ITEM_INFO(miscSlot, class, itemCount,'{s16}{ol}{b}{ds}');
-                    
-        			miscSlotCnt = miscSlotCnt + 1;
+        			miscSlotCnt = miscSlotCnt + 2;
             	end
             end
         end
     end
+end
+
+function ITEMDECOMPOSE_STRING_CUT(string)
+	local temp_table = { };	
+	local strlist = StringSplit(string, "/");
+
+	for k, v in pairs(strlist) do
+		if tonumber(v) ~= nil then
+			temp_table[k] = tonumber(v);
+		else
+			temp_table[k] = v;
+		end
+	end
+
+	return temp_table
 end

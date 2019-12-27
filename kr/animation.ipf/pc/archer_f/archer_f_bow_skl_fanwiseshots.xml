@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<ActionDesc>
+    <Sound frame="0.00" soundFile="arrow_blow_normal"/>
+    <Sound frame="1.00" soundFile="voice_archer_f_atk"/>
+    <Particle frame="2" attachNode="Dummy_q_Force" particleName="I_archer_fanwiseshots" useAttach="false" hiddenObj="false" changeEffect="None" pause="true" scale="1.5" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <Particle frame="2" attachNode="Dummy_q_Force" particleName="F_explosion035_orange" useAttach="false" hiddenObj="false" changeEffect="None" pause="true" scale="0.7" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <Sound frame="2.00" soundFile="crossbow_shot"/>
+    <Sound frame="9.00" soundFile="skl_eff_bulletmarker_pistol_equip"/>
+</ActionDesc>

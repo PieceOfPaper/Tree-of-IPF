@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GameList>
+    <Game Name="D_CASTLE_19_1_MQ_05_MINI" minLv="0" maxLv="0" playerCountCheckDestroy="1" startWaitSec="-1">
+        <StageList>
+            <Stage Name="DefGroup">
+                <ObjList>
+                    <Obj Type="Monster" MonType="59351" Pos="-770.77#0.12#-522.02" angle="179" genCount="3" maxStackCount="1" genTime="8000" objectKey="0" UseAiOutOfPc="1" searchRange="500" tendency="1"/>
+                    <Obj Type="Monster" MonType="59351" Pos="-709.46#7.59#-499.97" angle="-156" genCount="3" maxStackCount="1" genTime="8000" objectKey="1" UseAiOutOfPc="1" searchRange="500" tendency="1"/>
+                    <Obj Type="Monster" MonType="59363" Pos="-744.42#3.41#-560.21" angle="-168" genCount="3" maxStackCount="1" genTime="8000" objectKey="2" UseAiOutOfPc="1" searchRange="500" tendency="1"/>
+                    <Obj Type="Monster" MonType="59363" Pos="-620.83#17.97#-503.25" angle="-165" genCount="3" maxStackCount="1" genTime="15000" genReadyTime="5000" objectKey="3" UseAiOutOfPc="1" searchRange="500" tendency="1"/>
+                    <Obj Type="Monster" MonType="59362" Pos="-643.34#15.34#-550.47" angle="-150" genCount="3" maxStackCount="1" genTime="17000" genReadyTime="5000" objectKey="4" UseAiOutOfPc="1" searchRange="500" tendency="1"/>
+                    <Obj Type="Monster" MonType="59351" Pos="-1093.28#-4.55#-375.58" angle="-64" genCount="3" maxStackCount="1" genTime="17000" genReadyTime="8000" objectKey="5" UseAiOutOfPc="1" searchRange="500" tendency="1"/>
+                    <Obj Type="Monster" MonType="59351" Pos="-837.76#-4.55#-414.65" angle="-135" genCount="3" maxStackCount="1" genTime="17000" genReadyTime="8000" objectKey="6" UseAiOutOfPc="1" searchRange="500" tendency="1"/>
+                    <Obj Type="Monster" MonType="59363" Pos="-1122.83#-4.55#-665.93" angle="36" genCount="3" maxStackCount="1" genTime="12000" genReadyTime="5000" objectKey="7" UseAiOutOfPc="1" searchRange="500" tendency="1"/>
+                    <Obj Type="Monster" MonType="59363" Pos="-1151.65#-4.55#-438.81" angle="-24" genCount="3" maxStackCount="1" genTime="12000" genReadyTime="5000" objectKey="8" UseAiOutOfPc="1" searchRange="500" tendency="1"/>
+                    <Obj Type="Monster" MonType="59362" Pos="-901.22#-4.55#-382.28" angle="-111" genCount="3" maxStackCount="1" genTime="16000" genReadyTime="6000" objectKey="9" UseAiOutOfPc="1" searchRange="500" tendency="1"/>
+                    <Obj Type="Monster" MonType="59362" Pos="-1078.53#-4.55#-671.53" angle="36" genCount="3" maxStackCount="1" genTime="16000" genReadyTime="6000" objectKey="10" UseAiOutOfPc="1" searchRange="500" tendency="1"/>
+                </ObjList>
+            </Stage>
+        </StageList>
+    </Game>
+</GameList>

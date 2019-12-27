@@ -152,12 +152,12 @@
                         <Str Str="Casual_Unique_Raid_boss_Moringponia"/>
                     </ToolScp>
                     <ToolScp Scp="MGAME_SET_QUEST_NAME" Client="NO" UseSleep="NO">
-                        <Str Str="레이드 성공!{nl}60초 뒤, 입장한 곳으로 돌아갑니다."/>
-                    </ToolScp>
-                    <ToolScp Scp="MGAME_SET_DM_ICON" Client="NO" UseSleep="NO">
-                        <Str Str="레이드 성공!{nl}60초 뒤, 입장한 곳으로 돌아갑니다."/>
-                        <Str Str="Clear"/>
-                        <Num Num="5"/>
+                        <Str Str="레이드 성공!{nl}90초 뒤, 입장한 곳으로 돌아갑니다."/>
+                    </ToolScp>                    
+                    <ToolScp Scp="MGAME_SET_START_CASUAL_GAME" Client="NO" UseSleep="NO">
+                      <Str Str="여신의 축복이 시작되었습니다."/>
+                      <Str Str="Clear"/>
+                      <Num Num="3"/>
                     </ToolScp>
                 </StartScpList>
                 <ObjList/>
@@ -165,7 +165,7 @@
                     <Event execCount="1" eventName="RETURN_ZONE">
                         <condList>
                             <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
-                                <Num Num="60"/>
+                                <Num Num="90"/>
                             </ToolScp>
                         </condList>
                         <execList>
@@ -178,7 +178,7 @@
                     <Event execCount="1" eventName="20&apos;s" execWithStart="0">
                         <condList>
                             <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
-                                <Num Num="40"/>
+                                <Num Num="70"/>
                             </ToolScp>
                         </condList>
                         <execList>
@@ -192,7 +192,7 @@
                     <Event execCount="1" eventName="10&apos;s">
                         <condList>
                             <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
-                                <Num Num="50"/>
+                                <Num Num="80"/>
                             </ToolScp>
                         </condList>
                         <execList>
@@ -206,7 +206,7 @@
                     <Event execCount="1" eventName="30&apos;s" execWithStart="0">
                         <condList>
                             <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
-                                <Num Num="30"/>
+                                <Num Num="60"/>
                             </ToolScp>
                         </condList>
                         <execList>

@@ -31,6 +31,12 @@
 					<Str Str="Dummy_L_HAND" />
 					<Num Num="0.30000001" />
 				</Scp>
+                <Scp Client="NO" Scp="SKL_TGT_REMOVE_DEBUFF" Time="500" UseSleep="NO">
+                <Str FuncTxt="local func_name = 'get_remove_debuff_tooltip_' .. TryGetProp(obj, 'ClassName', 'None')
+               local func = _G[func_name]
+               if func == nil then return end
+               return func(obj.Level)" Str="0" UseFunc="1"/>
+               </Scp>
 			</EtcList>
 		</MainSkl>
 	</Skill>
@@ -67,6 +73,12 @@
 					<Num Num="100" />
 					<Num Num="0" />
 				</Scp>
+                <Scp Client="NO" Scp="SKL_TGT_REMOVE_BUFF" Time="100" UseSleep="NO">
+                <Str FuncTxt="local func_name = 'get_remove_buff_tooltip_' .. TryGetProp(obj, 'ClassName', 'None')
+               local func = _G[func_name]
+               if func == nil then return end
+               return func(obj.Level)" Str="0" UseFunc="1"/>
+              </Scp>  
 			</EtcList>
 		</MainSkl>
 	</Skill>

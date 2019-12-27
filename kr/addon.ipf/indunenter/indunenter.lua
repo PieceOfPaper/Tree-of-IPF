@@ -365,9 +365,7 @@ function INDUNENTER_DROPBOX_ITEM_LIST(parent, control)
     local indunType = topFrame:GetUserValue('INDUN_TYPE');
     local indunCls = GetClassByType('Indun', indunType);
     local dungeonType = TryGetProp(indunCls, 'DungeonType')
-    local indunClsName = TryGetProp(indunCls, 'ClassName')
-    local rewardItem = GetClass('Indun_reward_item', indunClsName)
-    local indunRewardItem = TryGetProp(rewardItem, 'Reward_Item')
+    local indunRewardItem = TryGetProp(indunCls, 'Reward_Item')
     local groupList = SCR_STRING_CUT(indunRewardItem, '/')
     
     local indunRewardItemList = { };
@@ -377,67 +375,26 @@ function INDUNENTER_DROPBOX_ITEM_LIST(parent, control)
     indunRewardItemList['accBtn'] = { };
     indunRewardItemList['materialBtn'] = { };
 
-    allIndunRewardItemList, allIndunRewardItemCount = GetClassList('reward_indun');
+    local allIndunRewardItemList, allIndunRewardItemCount = GetClassList('reward_indun');
     
     if groupList ~= nil then
         for i = 1, #groupList do
-            local itemCls = GetClass('Item', groupList[i])
-            local itemStringArg = TryGetProp(itemCls, 'StringArg')
-            for j = 0, allIndunRewardItemCount - 1  do
-                local indunRewardItemClass = GetClassByIndexFromList(allIndunRewardItemList, j);
-                if indunRewardItemClass ~= nil and TryGetProp(indunRewardItemClass, 'Group') == itemStringArg then
-                    local item = GetClass('Item', indunRewardItemClass.ItemName);
-                    if item ~= nil then   -- 있다면 아이템 --
-                        local itemType = TryGetProp(item, 'GroupName');
-                        local itemClassType = TryGetProp(item, 'ClassType');
-                        if itemType == 'Recipe' then
-                            local recipeItemCls = GetClass('Recipe', item.ClassName);
-                            local targetItem = TryGetProp(recipeItemCls, 'TargetItem');
-                            if targetItem ~= nil then
-                                local targetItemCls = GetClass('Item', targetItem);
-                                if targetItemCls ~= nil then
-                                    itemType = TryGetProp(targetItemCls, 'GroupName');
-                                    itemClassType = TryGetProp(targetItemCls, 'ClassType');
-                                end
-                            end
-                        end
-                        if itemType ~= nil then
-                            if itemType == 'Weapon' then
-                                if IS_EXIST_CLASSNAME_IN_LIST(indunRewardItemList['weaponBtn'],item.ClassName) == false and IS_EXIST_CLASSNAME_IN_LIST(indunRewardItemList['subweaponBtn'],item.ClassName) == false then
-                                    indunRewardItemList['weaponBtn'][#indunRewardItemList['weaponBtn'] + 1] = item;
-                                end
-                            elseif itemType == 'SubWeapon' then
-                                if itemClassType == 'Armband' then
-                                    if IS_EXIST_CLASSNAME_IN_LIST(indunRewardItemList['accBtn'],item.ClassName) == false then
-                                        indunRewardItemList['accBtn'][#indunRewardItemList['accBtn'] + 1] = item;
-                                    end
-                                else 
-                                    if IS_EXIST_CLASSNAME_IN_LIST(indunRewardItemList['subweaponBtn'],item.ClassName) == false then
-                                        indunRewardItemList['subweaponBtn'][#indunRewardItemList['subweaponBtn'] + 1] = item;
-                                    end
-                                end
-                            elseif itemType == 'Armor' then
-                                if itemClassType == 'Neck' or itemClassType == 'Ring' then
-                                    if IS_EXIST_CLASSNAME_IN_LIST(indunRewardItemList['accBtn'],item.ClassName) == false then
-                                        indunRewardItemList['accBtn'][#indunRewardItemList['accBtn'] + 1] = item;
-                                    end
-                                elseif itemClassType == 'Shield' then
-                                    if IS_EXIST_CLASSNAME_IN_LIST(indunRewardItemList['subweaponBtn'],item.ClassName) == false then
-                                        indunRewardItemList['subweaponBtn'][#indunRewardItemList['subweaponBtn'] + 1] = item;
-                                    end
-                                else
-                                    if IS_EXIST_CLASSNAME_IN_LIST(indunRewardItemList['armourBtn'],item.ClassName) == false then
-                                        indunRewardItemList['armourBtn'][#indunRewardItemList['armourBtn'] + 1] = item;
-                                    end
-                                end
-                            else
-                                if IS_EXIST_CLASSNAME_IN_LIST(indunRewardItemList['materialBtn'],item.ClassName) == false then
-                                    indunRewardItemList['materialBtn'][#indunRewardItemList['materialBtn'] + 1] = item;
-                                end
-                            end
-                        end
+            -- 신규 레벨던전의 경우 'ClassName;1'의 형식으로 보상 이름이 들어가있을 수 있어서 ';'으로 파싱 한번 더해줌
+            local strList = SCR_STRING_CUT(groupList[i], ';')
+            local itemName = strList[1]
+            local itemCls = GetClass('Item', itemName)
+            local itemGroupName = TryGetProp(itemCls, 'GroupName')
+            if itemGroupName == 'Cube' then
+                -- 큐브 재개봉 시스템 개편에 따른 변경사항으로 보상 아이템 목록 보여주는 부분 큐브 대신 구성품으로 풀어서 보여주도록 변경함
+                local itemStringArg = TryGetProp(itemCls, 'StringArg')
+                for j = 0, allIndunRewardItemCount - 1  do
+                    local indunRewardItemClass = GetClassByIndexFromList(allIndunRewardItemList, j);
+                    if indunRewardItemClass ~= nil and TryGetProp(indunRewardItemClass, 'Group') == itemStringArg then
+                        CHECK_AND_FILL_REWARD_DROPBOX(indunRewardItemList, indunRewardItemClass.ItemName)
                     end
                 end
+            else
+                CHECK_AND_FILL_REWARD_DROPBOX(indunRewardItemList, itemName)
             end
         end
     end

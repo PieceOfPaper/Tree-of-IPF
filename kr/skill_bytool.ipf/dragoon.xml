@@ -158,6 +158,15 @@
                     <Num Num="0" />
                 </Scp>
 			</EtcList>
+          <ResultList>
+            <ToolScp Client="NO" Scp="S_R_TGT_Decrease_heal_debuff" UseSleep="NO">
+              <Str FuncTxt="local func_name = 'get_decrease_heal_debuff_tooltip_' .. TryGetProp(skill, 'ClassName', 'None')
+               local func = _G[func_name]
+               if func == nil then return end
+               return func(skill.Level)" Str="0" UseFunc="1"/>
+            </ToolScp>
+          </ResultList>
+
 		</MainSkl>
         <ByCondSkills>
             <SubSkl>
@@ -477,6 +486,12 @@
 					<Num Num="100" />
 					<Num Num="-1" />
 				</ToolScp>
+              <ToolScp Client="NO" Scp="S_R_TGT_Decrease_heal_debuff" UseSleep="NO">
+                <Str FuncTxt="local func_name = 'get_decrease_heal_debuff_tooltip_' .. TryGetProp(skill, 'ClassName', 'None')
+               local func = _G[func_name]
+               if func == nil then return end
+               return func(skill.Level)" Str="0" UseFunc="1"/>
+                </ToolScp>
 			</ResultList>
 		</MainSkl>
 	</Skill>
@@ -633,6 +648,14 @@
 					<Num Num="6" />
 				</Scp>
 			</EtcList>
+          <ResultList>
+            <ToolScp Client="NO" Scp="S_R_TGT_Decrease_heal_debuff" UseSleep="NO">
+              <Str FuncTxt="local func_name = 'get_decrease_heal_debuff_tooltip_' .. TryGetProp(skill, 'ClassName', 'None')
+               local func = _G[func_name]
+               if func == nil then return end
+               return func(skill.Level)" Str="0" UseFunc="1"/>
+            </ToolScp>            
+          </ResultList>
 		</MainSkl>
 	</Skill>
 	<Skill Name="Dragoon_DragonFear">
@@ -679,6 +702,12 @@
 				<Scp Client="YES" Scp="C_SOUND" Time="300" UseSleep="NO">
 					<Str Str="skl_eff_buff_16" />
 				</Scp>
+                <Scp Client="NO" Scp="SKL_TGT_REMOVE_BUFF" Time="500" UseSleep="NO">
+                <Str FuncTxt="local func_name = 'get_remove_buff_tooltip_' .. TryGetProp(obj, 'ClassName', 'None')
+               local func = _G[func_name]
+               if func == nil then return end
+               return func(obj.Level)" Str="0" UseFunc="1"/>
+              </Scp>   
 			</EtcList>
 		</MainSkl>
 	</Skill>

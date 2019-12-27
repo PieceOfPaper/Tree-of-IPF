@@ -29,6 +29,12 @@
                     <Str Str="voice_archer_m_fireandrun_cast"/>
                     <Str Str="voice_archer_f_fireandrun_cast"/>
 				</Scp>
+				<Scp Client="NO" Scp="SKL_TGT_REMOVE_DEBUFF" Time="110" UseSleep="NO">
+                <Str FuncTxt="local func_name = 'get_remove_debuff_tooltip_' .. TryGetProp(obj, 'ClassName', 'None')
+               local func = _G[func_name]
+               if func == nil then return end
+               return func(obj.Level)" Str="0" UseFunc="1"/>
+               </Scp>
                 <Scp Scp="SKL_TGT_MOVE" Client="NO" UseSleep="YES" Time="550">
 					<Num Num="30" />
                     <Num Num="0" UseFunc="1" FuncTxt="local value = 90; if GET_ABIL_LEVEL(self, &quot;Matross2&quot;) > 0 then value =  value  * 0.5; end return value"/>
@@ -82,6 +88,15 @@
 					<Str Str="voice_scout_m_explosion_shot" />
 					<Str Str="voice_scout_f_explosion_shot" />
 				</Scp>
+				<Scp Client="NO" Scp="SKL_BUFF" Time="0" UseSleep="NO">
+                    <Str FuncTxt="local str = &quot;None&quot; if GetExProp(self, 'ITEM_CANNONHOLD_BUFF') == 1 then str = &quot;CannonHold_Buff&quot; end return str" UseFunc="1" Str="None"/>
+                    <Num Num="1" />
+                    <Num Num="0" />
+                    <Num Num="3000" />
+                    <Num Num="1" />
+                    <Num Num="100" />
+                    <Num Num="0"/>
+                </Scp>
 			</EtcList>
 			<ResultList>
 				<ToolScp Client="NO" Scp="S_R_EXPLODE_TAKEDAMAGEADDBLOW_MATROSS" UseSleep="NO">
@@ -300,8 +315,16 @@
 					<Num Num="0" />
 					<Num Num="0.5" />
 					<Num Num="120" />
-				</Scp>
+				</Scp>								  
 			</EtcList>
+			<ResultList>
+			<ToolScp Client="NO" Scp="S_R_TGT_REMOVE_BUFF" UseSleep="NO">
+                <Str FuncTxt="local func_name = 'get_remove_buff_tooltip_' .. TryGetProp(skill, 'ClassName', 'None')
+               local func = _G[func_name]
+               if func == nil then return end
+               return func(skill.Level)" Str="0" UseFunc="1"/>
+              </ToolScp>
+			</ResultList>
 		</MainSkl>
 	</Skill>
 	</ToolSkill>

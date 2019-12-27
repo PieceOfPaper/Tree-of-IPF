@@ -10,25 +10,17 @@
 	<sound opensound="window_open" closesound="window_close"/>
 	<userconfig DISABLE_REWARD_STYLE="{@st42}" ENABLE_REWARD_STYLE="{@st66d_y}"/>
 	<controls>
-		<groupbox name="gboxRewardList" scrollbar="false" rect="0 0 420 230" margin="0 35 0 0" hittestbox="false" skin="test_frame_midle" layout_gravity="center center"/>
-		<groupbox name="gboxRewardList2" parent="gboxRewardList" scrollbar="false" rect="0 0 420 190" margin="4 0 0 0" hittestbox="false" draw="false" skin="test_frame_midle" layout_gravity="center bottom"/>
+		<groupbox name="gboxRewardList" scrollbar="false" rect="0 0 420 230" margin="0 170 0 0" hittestbox="false" skin="test_frame_midle" layout_gravity="center top" updateparent="true" fixwidth="true" fixheight="false"/>
+		<groupbox name="gboxRewardList2" parent="gboxRewardList" scrollbar="true" rect="0 0 420 147" margin="4 83 0 0" hittestbox="true" draw="false" skin="test_frame_midle" layout_gravity="center top" updateparent="true" fixwidth="true" fixheight="true"/>
 		<groupbox name="gboxRewardList3" scrollbar="false" parent="gboxRewardList" rect="0 0 420 50" margin="0 0 0 0" hittestbox="false" skin="market_listbase" layout_gravity="center top"/>
 		<picture name="bgIndunClear" rect="0 0 450 104" margin="0 65 0 0" layout_gravity="center top" image="BnYellow_skin" stretch="true"/>
 		<richtext name="textIndunClear" rect="0 0 100 30" margin="0 100 0 0" layout_gravity="center top" caption="{@st43}{#ffcc33}{s24}클리어" fontname="white_24_ol"/>
 		<richtext name="textContribution" rect="0 0 100 30" margin="100 178 0 0" layout_gravity="left top" caption="{@st43}{s24}달성률 : " fontname="brown_20_b"/>
 		<richtext name="textContribution_percent" rect="0 0 100 30" margin="200 178 0 0" layout_gravity="left top" caption="{@st43}{s24}0%" fontname="brown_20_b"/>
 		<labelline name="boardLine 1" parent="gboxRewardList" rect="0 0 400 3" margin="10 80 0 0" layout_gravity="left top" skin="None" visible="true"/>
-		<richtext name="textRewardList" rect="0 0 100 30" margin="110 -15 0 0" layout_gravity="left center" caption="{@st43b}{s18}획득 보상" fontname="white_18_ol"/>
-		<richtext name="textMultipleRate" rect="0 0 100 30" margin="0 -15 130 0" layout_gravity="right center" caption="{@st66d_y}배수권 효과 보상 x" fontname="yellow_18_ol"/>
-		<richtext name="textMultipleRate_value" rect="0 0 100 30" margin="0 -15 110 0" layout_gravity="right center" caption="{@st66d_y}0" fontname="yellow_18_ol"/>
-		<richtext name="textRewardSilver" parent="gboxRewardList2" rect="0 0 100 30" margin="25 50 0 0" layout_gravity="left top" caption="{img icon_item_silver 24 24} 실버" fontname="white_18_ol"/>
-		<richtext name="textRewardCube" parent="gboxRewardList2" rect="0 0 100 30" margin="25 85 0 0" layout_gravity="left top" caption="{img icon_item_cube3 25 25} 큐브" fontname="white_18_ol"/>
-		<richtext name="textRewardExp" parent="gboxRewardList2" rect="0 0 100 30" margin="22 120 0 0" layout_gravity="left top" caption="{img test_indun_exp 30 15} 경험치" fontname="white_18_ol"/>
-		<richtext name="textRewardJobExp" parent="gboxRewardList2" rect="0 0 100 30" margin="22 155 0 0" layout_gravity="left top" caption="{img test_indun_exp 30 15} 클래스 경험치" fontname="white_18_ol"/>
-		<richtext name="textRewardSilver_value" parent="gboxRewardList2" rect="0 0 100 30" margin="0 50 30 0" layout_gravity="right top" caption="0" fontname="white_18_ol"/>
-		<richtext name="textRewardCube_value" parent="gboxRewardList2" rect="0 0 100 30" margin="0 85 30 0" layout_gravity="right top" caption="0" fontname="white_18_ol"/>
-		<richtext name="textRewardExp_value" parent="gboxRewardList2" rect="0 0 100 30" margin="0 120 30 0" layout_gravity="right top" caption="0" fontname="white_18_ol"/>
-		<richtext name="textRewardJobExp_value" parent="gboxRewardList2" rect="0 0 100 30" margin="0 155 30 0" layout_gravity="right top" caption="0" fontname="white_18_ol"/>
+		<richtext name="textRewardList" rect="0 0 100 30" margin="110 223 0 0" layout_gravity="left top" caption="{@st43b}{s18}획득 보상" fontname="white_18_ol"/>
+		<richtext name="textMultipleRate" rect="0 0 100 30" margin="0 223 130 0" layout_gravity="right top" caption="{@st66d_y}배수권 효과 보상 x" fontname="yellow_18_ol"/>
+		<richtext name="textMultipleRate_value" rect="0 0 100 30" margin="0 223 110 0" layout_gravity="right top" caption="{@st66d_y}0" fontname="yellow_18_ol"/>
 		<richtext name="textReturn" rect="0 0 100 30" margin="85 0 0 55" layout_gravity="left bottom" caption="60초 후 입구로 돌아갑니다." fontname="brown_18"/>
 		<button name="btnReturn" rect="0 0 150 42" margin="0 0 85 45" layout_gravity="right bottom" LBtnUpArgNum="" LBtnUpScp="SCR_INDUN_REWARD_RETURN" caption="{@st41b}돌아가기" clicksound="button_click_big" skin="test_red_button" oversound="button_over" texttooltip="입장 지역으로 돌아갑니다."/>
 		<picture name="picRanking" rect="0 0 141 141" margin="0 75 45 0" layout_gravity="right top" image="test_indun_S"/>

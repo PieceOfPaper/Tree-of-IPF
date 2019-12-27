@@ -676,6 +676,9 @@
 	<Trail name="dash001_pink" texture="dash001_pink" height="5.00" texel_x="0" texel_y="0" texel_width="32" texel_height="16"/>
 	<Trail name="dash001" texture="dash001" height="5.00" texel_x="0" texel_y="0" texel_width="32" texel_height="16"/>
 	<Trail name="smoke002" texture="smoke002" height="10.00" texel_x="512" texel_y="512" texel_width="64" texel_height="64"/>
+	<Model name="hornofgolem001_arts" model="hornofgolem001_arts.xac" motion="hornofgolem001_arts_ani.xsm" texturepath="effect\high\modeltexture\" overlap="true" AlphaType="BLEND"/>
+	<Model name="effectitem_whitebirds" model="effectitem_whitebirds.xac" motion="effectitem_whitebirds_ani.xsm" texturepath="effect\high\modeltexture\" overlap="flase" AlphaType="TEST"/>
+	<Model name="subzeroshield_obj5" model="subzeroshield_obj5.xac" motion="None" texturepath="effect\high\modeltexture\" overlap="flase" AlphaType="TEST"/>
 	<Model name="hornofgolem001" model="hornofgolem001.xac" motion="hornofgolem001_ani.xsm" texturepath="effect\high\modeltexture\" overlap="true" AlphaType="BLEND"/>
 	<Model name="controlblade001" model="controlblade001.xac" motion="None" texturepath="effect\high\modeltexture\" overlap="true" AlphaType="BLEND"/>
 	<Model name="box_white" model="box_white.xac" motion="None" texturepath="effect\high\modeltexture\" overlap="true" AlphaType="BLEND"/>

@@ -324,9 +324,8 @@ end
 function C_COLORBLEND_ACTOR(self, obj, actorType, isUse, color_R, color_G, color_B, colar_A, blendOption)
 
     local target = self;
-    
-	-- 1 : ��ų������, 2 : ��ų Ÿ��
-    if actorType == 1 then
+	-- 1 : 시전자, 2 : 타겟, 3 : 시전자+컴패니언(탑승)
+    if actorType == 1 or actorType == 3 then
         target = self;
     elseif actorType == 2 then
         target = self:GetTargetObject();
@@ -334,6 +333,10 @@ function C_COLORBLEND_ACTOR(self, obj, actorType, isUse, color_R, color_G, color
     
     if target ~= nil then   
         target:GetEffect():ActorColorBlend(isUse, color_R, color_G, color_B, colar_A, blendOption);
+    end
+
+    if actorType == 3 and target:GetVehicleActor() ~= nil then
+        target:GetVehicleActor():GetEffect():ActorColorBlend(isUse, color_R, color_G, color_B, colar_A, blendOption);   
     end
 end
 

@@ -16,7 +16,7 @@ g_contentsCategoryList = { -100, -200 }
 
 function PUSH_BACK_UNIQUE_INTO_INDUN_CATEGORY_LIST(cateType)
     if g_indunCategoryList == nil then        
-        g_indunCategoryList ={100, 10000, 400, 800, 801, 200, 300, 500};
+        g_indunCategoryList ={100, 10000, 10002, 400, 800, 801, 500};
     end
     for i = 1, #g_indunCategoryList do
         if g_indunCategoryList[i] == cateType then
@@ -313,9 +313,25 @@ function INDUNINFO_CATEGORY_LBTN_CLICK(categoryCtrl, ctrl)
     else
     local indunClsList, cnt = GetClassList('Indun');    
     local showCnt = 0;    
+        local missionIndunCnt = 0; -- 신규 레벨던전 7곳의 로테이션은 해당 인던의 클래스가 indun.xml에 들어 있는 순서대로 일 ~ 토로 배정됨
     for i = 0, cnt - 1 do
         local indunCls = GetClassByIndexFromList(indunClsList, i);
+            local add_flag = false;
         if indunCls.PlayPerResetType == selectedResetGroupID and indunCls.Category ~= 'None' then
+                local dungeonType = TryGetProp(indunCls, 'DungeonType')
+                if dungeonType == 'MissionIndun' then
+                    local sysTime = geTime.GetServerSystemTime();
+                    -- 오늘 요일의 던전만 세부항목에 추가한다
+                    if missionIndunCnt == sysTime.wDayOfWeek then
+                        add_flag = true;
+                    end
+                    missionIndunCnt = missionIndunCnt + 1;
+                else
+                    add_flag = true;
+                end
+            end
+
+            if add_flag == true then
             local indunDetailCtrl = indunListBox:CreateOrGetControlSet('indun_detail_ctrl', 'DETAIL_CTRL_'..indunCls.ClassID, 0, 0);
             indunDetailCtrl = tolua.cast(indunDetailCtrl, 'ui::CControlSet');
             indunDetailCtrl:SetUserValue('INDUN_CLASS_ID', indunCls.ClassID);
@@ -572,7 +588,61 @@ function INDUNINFO_DETAIL_LBTN_CLICK(parent, detailCtrl)
 end
 end
 
--- 큐브 재개봉 시스템 개편에 따른 변경사항으로 보상 아이템 목록 보여주는 부분 큐브 대신 구성품으로 풀어서 보여주도록 변경함(2019.2.27 변경)
+-- induninfo와 indunenter에서 보상 드랍박스 만드는 데 완전 동일한 로직 사용중이고 또 너무 길어보여서 리스트에 아이템 채우는 부분만 분리했음
+function CHECK_AND_FILL_REWARD_DROPBOX(list, itemName)
+    local item = GetClass('Item', itemName);
+    if item ~= nil then   -- 있다면 아이템 --
+        local itemType = TryGetProp(item, 'GroupName');
+        local itemClassType = TryGetProp(item, 'ClassType');
+        if itemType == 'Recipe' then
+            local recipeItemCls = GetClass('Recipe', item.ClassName);
+            local targetItem = TryGetProp(recipeItemCls, 'TargetItem');
+            if targetItem ~= nil then
+                local targetItemCls = GetClass('Item', targetItem);
+                if targetItemCls ~= nil then
+                    itemType = TryGetProp(targetItemCls, 'GroupName');
+                    itemClassType = TryGetProp(targetItemCls, 'ClassType');
+                end
+            end
+        end
+        if itemType ~= nil then
+            if itemType == 'Weapon' then
+                if IS_EXIST_CLASSNAME_IN_LIST(list['weaponBtn'],item.ClassName) == false and IS_EXIST_CLASSNAME_IN_LIST(list['subweaponBtn'],item.ClassName) == false then
+                    list['weaponBtn'][#list['weaponBtn'] + 1] = item;
+                end
+            elseif itemType == 'SubWeapon' then
+                if itemClassType == 'Armband' then
+                    if IS_EXIST_CLASSNAME_IN_LIST(list['accBtn'],item.ClassName) == false then
+                        list['accBtn'][#list['accBtn'] + 1] = item;
+                    end
+                else 
+                    if IS_EXIST_CLASSNAME_IN_LIST(list['subweaponBtn'],item.ClassName) == false then
+                        list['subweaponBtn'][#list['subweaponBtn'] + 1] = item;
+                    end
+                end
+            elseif itemType == 'Armor' then
+                if itemClassType == 'Neck' or itemClassType == 'Ring' then
+                    if IS_EXIST_CLASSNAME_IN_LIST(list['accBtn'],item.ClassName) == false then
+                        list['accBtn'][#list['accBtn'] + 1] = item;
+                    end
+                elseif itemClassType == 'Shield' then
+                    if IS_EXIST_CLASSNAME_IN_LIST(list['subweaponBtn'],item.ClassName) == false then
+                        list['subweaponBtn'][#list['subweaponBtn'] + 1] = item;
+                    end
+                else
+                    if IS_EXIST_CLASSNAME_IN_LIST(list['armourBtn'],item.ClassName) == false then
+                        list['armourBtn'][#list['armourBtn'] + 1] = item;
+                    end
+                end
+            else
+                if IS_EXIST_CLASSNAME_IN_LIST(list['materialBtn'],item.ClassName) == false then
+                    list['materialBtn'][#list['materialBtn'] + 1] = item;
+                end
+            end
+        end
+    end
+end
+
 function INDUNINFO_DROPBOX_ITEM_LIST(parent, control)
     local topFrame = parent:GetTopParentFrame();
     local selectType = topFrame:GetUserIValue('SELECT');
@@ -593,9 +663,7 @@ function INDUNINFO_DROPBOX_ITEM_LIST(parent, control)
     else
         indunCls = GetClassByType('Indun', indunClassID);
         dungeonType = TryGetProp(indunCls, 'DungeonType')
-    local indunClsName = TryGetProp(indunCls, 'ClassName')
-    local rewardItem = GetClass('Indun_reward_item', indunClsName)
-        indunRewardItem = TryGetProp(rewardItem, 'Reward_Item')
+        indunRewardItem = TryGetProp(indunCls, 'Reward_Item')
     end
 
     if indunRewardItem ~= nil and indunRewardItem ~= 'None' then
@@ -609,72 +677,26 @@ function INDUNINFO_DROPBOX_ITEM_LIST(parent, control)
     indunRewardItemList['accBtn'] = { };
     indunRewardItemList['materialBtn'] = { };
 
-    -- 보상 아이템 목록이 서로 다른 idSpace에 존재하여 처리해주었음 
     local allIndunRewardItemList, allIndunRewardItemCount = GetClassList('reward_indun');
-    if selectType < 0 then
-        allIndunRewardItemList, allIndunRewardItemCount = GetClassList('reward_freedungeon')
-    end
 
     if groupList ~= nil then
         for i = 1, #groupList do
-            local itemCls = GetClass('Item', groupList[i])
+            -- 신규 레벨던전의 경우 'ClassName;1'의 형식으로 보상 이름이 들어가있을 수 있어서 ';'으로 파싱 한번 더해줌
+            local strList = SCR_STRING_CUT(groupList[i], ';')
+            local itemName = strList[1]
+            local itemCls = GetClass('Item', itemName)
+            local itemGroupName = TryGetProp(itemCls, 'GroupName')
+            if itemGroupName == 'Cube' then
+                -- 큐브 재개봉 시스템 개편에 따른 변경사항으로 보상 아이템 목록 보여주는 부분 큐브 대신 구성품으로 풀어서 보여주도록 변경함
             local itemStringArg = TryGetProp(itemCls, 'StringArg')
-
             for j = 0, allIndunRewardItemCount - 1  do
                 local indunRewardItemClass = GetClassByIndexFromList(allIndunRewardItemList, j);
                 if indunRewardItemClass ~= nil and TryGetProp(indunRewardItemClass, 'Group') == itemStringArg then
-                    local item = GetClass('Item', indunRewardItemClass.ItemName);
-                    if item ~= nil then   -- 있다면 아이템 --
-                        local itemType = TryGetProp(item, 'GroupName');
-                        local itemClassType = TryGetProp(item, 'ClassType');
-                        if itemType == 'Recipe' then
-                            local recipeItemCls = GetClass('Recipe', item.ClassName);
-                            local targetItem = TryGetProp(recipeItemCls, 'TargetItem');
-                            if targetItem ~= nil then
-                                local targetItemCls = GetClass('Item', targetItem);
-                                if targetItemCls ~= nil then
-                                    itemType = TryGetProp(targetItemCls, 'GroupName');
-                                    itemClassType = TryGetProp(targetItemCls, 'ClassType');
+                        CHECK_AND_FILL_REWARD_DROPBOX(indunRewardItemList, indunRewardItemClass.ItemName)
                                 end
-                            end
-                        end
-                        if itemType ~= nil then
-                            if itemType == 'Weapon' then
-                                if IS_EXIST_CLASSNAME_IN_LIST(indunRewardItemList['weaponBtn'],item.ClassName) == false and IS_EXIST_CLASSNAME_IN_LIST(indunRewardItemList['subweaponBtn'],item.ClassName) == false then
-                                    indunRewardItemList['weaponBtn'][#indunRewardItemList['weaponBtn'] + 1] = item;
-                                end
-                            elseif itemType == 'SubWeapon' then
-                                if itemClassType == 'Armband' then
-                                    if IS_EXIST_CLASSNAME_IN_LIST(indunRewardItemList['accBtn'],item.ClassName) == false then
-                                        indunRewardItemList['accBtn'][#indunRewardItemList['accBtn'] + 1] = item;
                                     end
                                 else 
-                                    if IS_EXIST_CLASSNAME_IN_LIST(indunRewardItemList['subweaponBtn'],item.ClassName) == false then
-                                        indunRewardItemList['subweaponBtn'][#indunRewardItemList['subweaponBtn'] + 1] = item;
-                                    end
-                                end
-                            elseif itemType == 'Armor' then
-                                if itemClassType == 'Neck' or itemClassType == 'Ring' then
-                                    if IS_EXIST_CLASSNAME_IN_LIST(indunRewardItemList['accBtn'],item.ClassName) == false then
-                                        indunRewardItemList['accBtn'][#indunRewardItemList['accBtn'] + 1] = item;
-                                    end
-                                elseif itemClassType == 'Shield' then
-                                    if IS_EXIST_CLASSNAME_IN_LIST(indunRewardItemList['subweaponBtn'],item.ClassName) == false then
-                                        indunRewardItemList['subweaponBtn'][#indunRewardItemList['subweaponBtn'] + 1] = item;
-                                    end
-                                else
-                                    if IS_EXIST_CLASSNAME_IN_LIST(indunRewardItemList['armourBtn'],item.ClassName) == false then
-                                        indunRewardItemList['armourBtn'][#indunRewardItemList['armourBtn'] + 1] = item;
-                                    end
-                                end
-                            else
-                                if IS_EXIST_CLASSNAME_IN_LIST(indunRewardItemList['materialBtn'],item.ClassName) == false then
-                                    indunRewardItemList['materialBtn'][#indunRewardItemList['materialBtn'] + 1] = item;
-                                end
-                            end
-                        end
-                    end
-                end
+                CHECK_AND_FILL_REWARD_DROPBOX(indunRewardItemList, itemName)
             end
         end
     end
@@ -932,7 +954,14 @@ function INDUNINFO_MAKE_DETAIL_INFO_BOX(frame, indunClassID)
         countData:SetTextByKey('now', GET_CURRENT_ENTERANCE_COUNT(resetGroupID));
         countData:SetTextByKey('max', GET_MAX_ENTERANCE_COUNT(resetGroupID));
 
-        if GET_RESET_CYCLE(resetGroupID) == true then
+        if dungeonType == 'MissionIndun' then
+            -- 로테이션식 레벨던전은 해당 요일을 표시한다
+            -- 이미 세부카테고리에서 해당 요일 로테이션 던전만 표시하도록 해놔서, 여기에선 요일별 처리를 해줄 필요는 없다
+            local sysTime = geTime.GetServerSystemTime();
+            local dayOfWeekStr = string.lower(GET_DAYOFWEEK_STR(sysTime.wDayOfWeek));
+            cycleImage:SetImage('indun_icon_' .. dayOfWeekStr)
+            cycleImage:ShowWindow(1);
+        elseif GET_RESET_CYCLE(resetGroupID) == true then
             cycleImage:SetImage('indun_icon_week_l')
             cycleImage:ShowWindow(1);
         else

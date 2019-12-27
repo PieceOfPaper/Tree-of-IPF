@@ -374,7 +374,7 @@ function DRAW_EQUIP_COMMON_TOOLTIP_SMALL_IMG(tooltipframe, invitem, mainframenam
 	end
 
 	local gradeName = GET_CHILD_RECURSIVELY(equipCommonCSet, "gradeName")
-gradeName:SetText(gradeText)
+	gradeName:SetText(gradeText)
 
 	-- 아이템 배경 이미지 : grade기준
 	local item_bg = GET_CHILD(equipCommonCSet, "item_bg", "ui::CPicture");
@@ -728,7 +728,7 @@ function DRAW_EQUIP_ATK_N_DEF(tooltipframe, invitem, yPos, mainframename, strarg
 	if basicProp == 'ATK' then
 	    typeiconname = 'test_sword_icon'
 		typestring = ScpArgMsg("Melee_Atk")
-		if TryGetProp(invitem, 'EquipGroup') == "SubWeapon" then
+		if TryGetProp(invitem, 'EquipGroup') == "SubWeapon" and TryGetProp(invitem, 'ClassType') ~= "Trinket" then
 			typestring = ScpArgMsg("PATK_SUB")
 		end
 		reinforceaddvalue = math.floor( GET_REINFORCE_ADD_VALUE_ATK(invitem, ignoreReinf, bonusReinf + overReinf, basicProp) )
@@ -1055,7 +1055,7 @@ function DRAW_EQUIP_DESC(tooltipframe, invitem, yPos, mainframename)
 	local gBox = GET_CHILD(tooltipframe, mainframename,'ui::CGroupBox')
 	gBox:RemoveChild('tooltip_equip_desc');
 
-	local desc = GET_ITEM_TOOLTIP_DESC(invitem);    
+	local desc = GET_ITEM_TOOLTIP_DESC(invitem);
 	if desc == "" then -- 일단 그릴 설명이 있는지 검사. 없으면 컨트롤 셋 자체를 안만듬
 		return yPos
 	end
@@ -1541,19 +1541,6 @@ function GET_PREFIX_SET_ITEM_FLAG(invitem)
 		end
 	end
 
-	local slot = GET_CHILD_RECURSIVELY(frame, "RH")
-	local slotIcon = slot:GetIcon()
-	if slotIcon ~= nil then
-		local slotIconInfo = slotIcon:GetInfo()
-		local slotItem = GET_ITEM_BY_GUID(slotIconInfo:GetIESID())
-		if slotItem ~= nil then
-			local obj = GetIES(slotItem:GetObject())
-			local isDoubleHand = TryGetProp(obj, "DBLHand");
-			if isDoubleHand == "YES" then
-				returnValue[2] = 0;
-			end
-		end
-	end
 	return returnValue[1], returnValue[2], returnValue[3], returnValue[4], returnValue[5], returnValue[6]
 
 end
@@ -1635,7 +1622,7 @@ function DRAW_EQUIP_TRADABILITY(tooltipframe, invitem, yPos, mainframename)
 	local gBox = GET_CHILD(tooltipframe, mainframename,'ui::CGroupBox')
 	gBox:RemoveChild('tooltip_equip_tradability');
 	
-	local CSet = gBox:CreateControlSet('tooltip_equip_tradability', 'tooltip_equip_tradability', 0, yPos);
+	local CSet = gBox:CreateControlSet('tooltip_equip_tradability', 'tooltip_equip_tradability', 0, yPos + 5);
 	tolua.cast(CSet, "ui::CControlSet");
 
 	TOGGLE_TRADE_OPTION(CSet, invitem, 'option_npc', 'option_npc_text', 'ShopTrade')
@@ -1875,8 +1862,6 @@ function DRAW_EQUIP_ONLY_PR(tooltipframe, invitem, yPos, mainframename)
 	local CSet = gBox:CreateControlSet('tooltip_only_pr', 'tooltip_only_pr', 0, yPos);
 	tolua.cast(CSet, "ui::CControlSet");
 
-	local inf_value = CSet:GetUserConfig("INF_VALUE")
-
 	local pr_gauge = GET_CHILD(CSet,'pr_gauge','ui::CGauge')
 	pr_gauge:SetPoint(invitem.PR, itemClass.PR);
 
@@ -1929,3 +1914,171 @@ function IS_USE_SET_TOOLTIP(invitem)
 	end
 
 end
+
+----------------- 아크 아이템 tooltip -----------------
+-- 적용 옵션 증가 text 추가 
+local function _CREATE_ARK_LV(gBox, ypos, step, class_name, curlv)
+	local margin = 5;
+
+	local func_str = string.format('get_tooltip_%s_arg%d', class_name, step)
+    local tooltip_func = _G[func_str]  -- get_tooltip_Ark_str_arg1 시리즈
+	if tooltip_func ~= nil then
+		local status, interval, add_value, summon_atk = tooltip_func();
+
+		local option = status
+        
+		local grade_count = math.floor(curlv / interval);
+		add_value = math.floor(add_value * grade_count);
+
+		if add_value <= 0 then
+			return ypos;
+		end
+		
+		local strInfo = ABILITY_DESC_PLUS(ScpArgMsg(option), add_value)
+		if summon_atk ~= nil then
+			local add_msg =  string.format(", %s "..ScpArgMsg("PropUp").."%.1f", ScpArgMsg('SUMMON_ATK'), math.abs(add_value / 200)) .. '%'
+			strInfo = strInfo .. ' ' .. add_msg
+		end
+		
+		local infoText = gBox:CreateControl('richtext', 'infoText'..step, 15, ypos, gBox:GetWidth(), 30);
+		infoText:SetText(strInfo);		
+		infoText:SetFontName("brown_16");
+		ypos = ypos + infoText:GetHeight() + margin;
+	end
+
+	return ypos;
+end
+
+-- 옵션 text 추가 
+local function _CREATE_ARK_OPTION(gBox, ypos, step, class_name)
+	local margin = 5;
+
+	local func_str = string.format('get_tooltip_%s_arg%d', class_name, step)
+    local tooltip_func = _G[func_str]  -- get_tooltip_Ark_str_arg1 시리즈
+	if tooltip_func ~= nil then
+		local status, interval, add_value, summon_atk = tooltip_func();
+		local option = status
+		local infoText = gBox:CreateControl('richtext', 'infoText'..step, 15, ypos, gBox:GetWidth(), 30);
+		local text = ''
+		if summon_atk == nil then
+			text = ScpArgMsg("ArkOptionText{Option}{interval}{addvalue}", "Option", ClMsg(option), "interval", interval, "addvalue", add_value)
+		else			
+			text = ScpArgMsg("ArkOptionText{Option}{interval}{addvalue}{option2}{addvalue2}", "Option", ClMsg(option), "interval", interval, "addvalue", add_value, 'option2', ClMsg(summon_atk), 'addvalue2', string.format('%.1f', add_value / 200))
+			
+		end
+		
+		infoText:SetText(text);
+		infoText:SetFontName("brown_16_b");
+		ypos = ypos + infoText:GetHeight() + margin;
+	end
+
+	return ypos;
+end
+
+function ITEM_TOOLTIP_ARK(tooltipframe, invitem, strarg, usesubframe)
+	if invitem.ClassType ~= 'Ark' then return end
+
+	tolua.cast(tooltipframe, "ui::CTooltipFrame");
+	local mainframename = 'equip_main'
+	local ypos = 0
+
+	ypos = DRAW_EQUIP_COMMON_TOOLTIP_SMALL_IMG(tooltipframe, invitem, mainframename); -- 장비라면 공통적으로 그리는 툴팁들
+
+	ypos = DRAW_ARK_LV(tooltipframe, invitem, ypos, mainframename); 			-- 레벨, 레벨에 따른 아크 옵션 증가 값
+
+	ypos = DRAW_ARK_OPTION(tooltipframe, invitem, ypos, mainframename); 		-- 아크 옵션
+	ypos = DRAW_ARK_EXP(tooltipframe, invitem, ypos, mainframename)				-- 아크 경험치
+
+	ypos = DRAW_EQUIP_MEMO(tooltipframe, invitem, ypos, mainframename); 		-- 아이템 제작 시 들어간 메모
+	ypos = DRAW_EQUIP_DESC(tooltipframe, invitem, ypos, mainframename); 		-- 각종 설명문
+	ypos = DRAW_EQUIP_TRADABILITY(tooltipframe, invitem, ypos, mainframename); 	-- 거래 제한
+	ypos = DRAW_CANNOT_REINFORCE(tooltipframe, invitem, ypos, mainframename); 	-- 초월 및 강화불가
+
+	local isHaveLifeTime = TryGetProp(invitem, "LifeTime", 0);					-- 기간제
+	if 0 == tonumber(isHaveLifeTime) then
+		ypos = DRAW_SELL_PRICE(tooltipframe, invitem, ypos, mainframename);
+	else
+		ypos = DRAW_REMAIN_LIFE_TIME(tooltipframe, invitem, ypos, mainframename);
+	end
+	
+	ypos = ypos + 3;
+    ypos = DRAW_TOGGLE_EQUIP_DESC(tooltipframe, invitem, ypos, mainframename); -- 설명문 토글 여부
+
+    local gBox = GET_CHILD(tooltipframe, mainframename,'ui::CGroupBox')
+    gBox:Resize(gBox:GetWidth(), ypos)
+end
+
+-- 현재 아크 레벨, 레벨에 따른 옵션 증가 내용 
+function DRAW_ARK_LV(tooltipframe, invitem, ypos, mainframename)
+	local class_name = TryGetProp(invitem, 'ClassName', 'None')
+	if class_name == 'None' then return; end
+
+	local gBox = GET_CHILD(tooltipframe, mainframename);
+	if gBox == nil then return; end
+
+	local CSet = gBox:CreateOrGetControlSet('tooltip_ark_lv', 'tooltip_ark_lv', 0, ypos);
+
+	-- 레벨 설정
+	local curlv = TryGetProp(invitem, 'ArkLevel', 1)
+	local lvtext = GET_CHILD(CSet, 'lv', 'ui::CRichText');
+	lvtext:SetTextByKey("value", curlv);
+
+	-- 레벨에 따른 옵션 증가 text
+	local _ypos = 43;			-- offset
+	for i = 1, max_ark_option_count do 	-- 옵션이 최대 10개 있다고 가정함
+		_ypos = _CREATE_ARK_LV(CSet, _ypos, i, class_name, curlv);
+	end
+	
+	CSet:Resize(CSet:GetWidth(), _ypos + 5);
+	ypos = ypos + CSet:GetHeight() + 5;
+
+	return ypos;
+end
+
+-- 해당 아크의 옵션 내용들 
+function DRAW_ARK_OPTION(tooltipframe, invitem, ypos, mainframename)
+	local class_name = TryGetProp(invitem, 'ClassName', 'None')
+	if class_name == 'None' then return; end
+
+	local gBox = GET_CHILD(tooltipframe, mainframename);
+	if gBox == nil then return; end
+
+	local CSet = gBox:CreateOrGetControlSet('item_tooltip_ark', 'item_tooltip_ark', 0, ypos);
+	
+	local margin = 5;
+	local _ypos = margin;
+
+	for i = 1, max_ark_option_count do 	-- 옵션이 최대 10개 있다고 가정함
+		_ypos = _CREATE_ARK_OPTION(CSet, _ypos, i, class_name);
+	end
+
+	CSet:Resize(CSet:GetWidth(), _ypos + 3);
+	ypos = ypos + CSet:GetHeight();
+
+	return ypos;
+end
+
+-- 다음 레벨 업에 필요한 경험치 
+function DRAW_ARK_EXP(tooltipframe, invitem, ypos, mainframename)
+	local gBox = GET_CHILD(tooltipframe, mainframename);
+	if gBox == nil then return; end
+	
+	local margin = 5;
+	local CSet = gBox:CreateOrGetControlSet('tooltip_ark_exp', 'tooltip_ark_exp', 0, ypos);
+
+	local curexp = TryGetProp(invitem, 'ArkExp', 0)
+	local isnextexp, nextexp = shared_item_ark.get_next_lv_exp(invitem)	
+	
+	if shared_item_ark.is_max_lv(invitem) == 'YES' then		-- max 레벨인 경우
+		isnextexp, nextexp = shared_item_ark.get_current_lv_exp(invitem)
+		curexp = nextexp		
+	end
+	local gauge = GET_CHILD(CSet,'gauge','ui::CGauge')
+		gauge:SetPoint(curexp, nextexp);
+
+	CSet:Resize(CSet:GetWidth(),CSet:GetHeight());
+	ypos = ypos + CSet:GetHeight() + margin;
+
+	return ypos;
+end
+----------------- 아크 아이템 tooltip -----------------

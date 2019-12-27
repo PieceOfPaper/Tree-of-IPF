@@ -12,14 +12,8 @@
                 <Frame Angle="0" AniTime="9999" Dist="0" ForceATK="0" HitCount="1" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="9799" Type="FAN" />
             </HitList>
             <EtcList>
-                <Scp Client="NO" Scp="NECRO_DPARTS_HOVER" Time="0" UseSleep="NO">
+                <Scp Client="NO" Scp="NECRO_CONSUME_DEADPARTS" Time="0" UseSleep="NO">
                     <Num Num="5" />
-                    <Num Num="0" />
-                    <Num Num="0" />
-                    <Num Num="5" />
-                    <Num Num="0" />
-                    <Num Num="0" />
-                    <Num Num="0" />
                 </Scp>
                 <Scp Client="YES" Scp="C_EFFECT" Time="0" UseSleep="NO">
                     <Str_Arg Arg="0.60000002" Str="I_smoke013_dark4_2" />
@@ -219,14 +213,8 @@
                 <Frame Angle="0" AniTime="9999" Dist="0" ForceATK="0" HitCount="1" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="9799" Type="FAN" />
             </HitList>
             <EtcList>
-                <Scp Client="NO" Scp="NECRO_DPARTS_HOVER" Time="0" UseSleep="NO">
+                <Scp Client="NO" Scp="NECRO_CONSUME_DEADPARTS" Time="0" UseSleep="NO">
                     <Num Num="5" />
-                    <Num Num="0" />
-                    <Num Num="0" />
-                    <Num Num="5" />
-                    <Num Num="0" />
-                    <Num Num="0" />
-                    <Num Num="0" />
                 </Scp>
                 <Scp Client="YES" Scp="C_EFFECT" Time="0" UseSleep="NO">
                     <Str_Arg Arg="0.60000002" Str="I_smoke013_dark4_2" />
@@ -260,14 +248,8 @@
                 <Frame Angle="0" AniTime="9999" Dist="0" ForceATK="0" HitCount="1" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="9799" Type="FAN" />
             </HitList>
             <EtcList>
-                <Scp Client="NO" Scp="NECRO_DPARTS_HOVER" Time="0" UseSleep="NO">
+                <Scp Client="NO" Scp="NECRO_CONSUME_DEADPARTS" Time="0" UseSleep="NO">
                     <Num Num="5" />
-                    <Num Num="0" />
-                    <Num Num="0" />
-                    <Num Num="5" />
-                    <Num Num="0" />
-                    <Num Num="0" />
-                    <Num Num="0" />
                 </Scp>
                 <Scp Client="YES" Scp="C_EFFECT" Time="0" UseSleep="NO">
                     <Str_Arg Arg="0.60000002" Str="I_smoke013_dark4_2" />
@@ -295,14 +277,8 @@
                 <Frame Angle="0" AniTime="9999" Dist="0" ForceATK="0" HitCount="1" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="9799" Type="FAN" />
             </HitList>
             <EtcList>
-                <Scp Client="NO" Scp="NECRO_DPARTS_HOVER" Time="0" UseSleep="NO">
+                <Scp Client="NO" Scp="NECRO_CONSUME_DEADPARTS" Time="0" UseSleep="NO">
                     <Num Num="7" />
-                    <Num Num="0" />
-                    <Num Num="0" />
-                    <Num Num="5" />
-                    <Num Num="0" />
-                    <Num Num="0" />
-                    <Num Num="0" />
                 </Scp>
                 <Scp Client="NO" Scp="MONSKL_KILL_FOL_EXPROP" Time="0" UseSleep="NO">
                     <Str Str="NECRO_SUMMONCORPS" />
@@ -587,14 +563,8 @@
                     <Str Str="NECRO_MON" />
                     <Num Num="1" />
                 </Scp>
-                <Scp Client="NO" Scp="NECRO_DPARTS_HOVER" Time="0" UseSleep="NO">
+                <Scp Client="NO" Scp="NECRO_CONSUME_DEADPARTS" Time="0" UseSleep="NO">
                     <Num Num="30" />
-                    <Num Num="0" />
-                    <Num Num="0" />
-                    <Num Num="5" />
-                    <Num Num="0" />
-                    <Num Num="0" />
-                    <Num Num="0" />
                 </Scp>
                 <Scp Client="YES" Scp="C_EFFECT_POS" Time="1500" UseSleep="NO">
                     <Str_Arg Arg="1" Str="F_wizard_shoggoth_shot_ground" />
@@ -736,4 +706,4 @@
             </EtcList>
         </MainSkl>
     </Skill>
-    </ToolSkill>
+</ToolSkill>

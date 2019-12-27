@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<ActionDesc>
+    <BlendOn frame="0" R="50" G="50" B="10" A="30"/>
+    <Sound frame="0.00" soundFile="mon_voice_rootopus_dead_1"/>
+    <Sound frame="0.00" soundFile="mon_voice_saltistter_7"/>
+    <Particle frame="5" attachActor="None" attachNode="Bip001 Spine1" particleName="F_light001_yellow" useAttach="true" hiddenObj="false" scale="10" pause="true" use2DEffect="false" targetPos="false"/>
+    <BlendOn frame="10" R="150" G="150" B="100" A="150"/>
+    <Particle frame="15" attachActor="None" attachNode="Bip001 Spine1" particleName="F_light001_yellow" useAttach="true" hiddenObj="false" scale="20" pause="true" use2DEffect="false" targetPos="false"/>
+    <BlendOn frame="30" R="200" G="200" B="150" A="200"/>
+    <Sound frame="33.00" soundFile="skl_eff_stone_blow_m"/>
+    <Particle frame="48" attachActor="None" attachNode="Dummy_dead" particleName="F_smoke089" useAttach="true" hiddenObj="false" scale="50" pause="true" use2DEffect="false" targetPos="false"/>
+    <Particle frame="48" attachActor="None" attachNode="none" particleName="I_boss_WoodCenturion_dead" useAttach="false" hiddenObj="false" scale="1.8" pause="true" use2DEffect="false" targetPos="false"/>
+    <Particle frame="48" attachActor="None" attachNode="Dummy_dead" particleName="F_explosion004_yellow" useAttach="true" hiddenObj="false" scale="2" pause="true" use2DEffect="false" targetPos="false"/>
+    <Particle frame="48" attachActor="None" attachNode="Dummy_dead" particleName="F_explosion082" useAttach="true" hiddenObj="false" scale="3" pause="true" use2DEffect="false" targetPos="false"/>
+    <BlendOff frame="70" R="0" G="0" B="0" A="0"/>
+</ActionDesc>

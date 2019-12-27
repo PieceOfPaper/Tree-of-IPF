@@ -90,6 +90,7 @@
 		<!-- 최소 버프 지속 유지시간을 적용시키지 않을 버프 및 스킬 목록 -->
 		<Category Name="Buff">
 			<Class Name="MagneticForce_Debuff_Hold" BuffID="282" Desc=""/>
+			<Class Name="ZaibasStun_Debuff" BuffID="2254" Desc="자이바스 경직"/>
 		</Category>
 		<Category Name="Skill">
 			<Class Name="Dummy" SkillID="-1" Desc=""/>

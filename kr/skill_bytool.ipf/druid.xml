@@ -149,6 +149,12 @@
 				<Scp Client="NO" Scp="SKL_RUN_SCRIPT" Time="1050" UseSleep="NO">
 					<Str Str="TRANSFORM_TO_LYCANTHROPY" />
 				</Scp>
+                <Scp Client="NO" Scp="SKL_TGT_REMOVE_DEBUFF" Time="110" UseSleep="NO">
+                <Str FuncTxt="local func_name = 'get_remove_debuff_tooltip_' .. TryGetProp(obj, 'ClassName', 'None')
+               local func = _G[func_name]
+               if func == nil then return end
+               return func(obj.Level)" Str="0" UseFunc="1"/>
+               </Scp>
 			</EtcList>
 		</MainSkl>
 	</Skill>
@@ -250,6 +256,7 @@
 					<Pos Angle="0" Dist="0" PosType="3" />
 					<Angle Angle="0" />
 					<Str Str="plant_pad" />
+                    <Str Str="true"/>
 				</Scp>
 			</EtcList>
 		</MainSkl>

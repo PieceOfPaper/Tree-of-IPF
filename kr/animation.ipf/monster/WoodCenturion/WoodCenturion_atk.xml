@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by IMCGames Co., Ltd (IMCGames Co., Ltd) -->
+<ActionDesc>
+    <BlendOn frame="0" R="0" G="0" B="0" A="50"/>
+    <Sound frame="3.00" soundFile="mon_voice_saltistter_8"/>
+    <Sound frame="15.00" soundFile="skl_eff_atk_move_l_2"/>
+    <Sound frame="16.00" soundFile="skl_eff_skyline_spread"/>
+    <Particle frame="22" attachNode="Dummy_emitter" particleName="F_ground071_smoke" useAttach="false" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <Shockwave frame="23" type="2" intensity="3" frequency="60" duration="0.2" range="1000"/>
+    <BlendOn frame="23" R="100" G="150" B="150" A="100"/>
+    <Particle frame="23" attachNode="Dummy_effect_atk" particleName="I_swordtrail046_alpha_reverse" useAttach="false" hiddenObj="false" changeEffect="None" scale="2.6" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <BlendOn frame="24" R="80" G="130" B="120" A="100"/>
+    <BlendOn frame="25" R="80" G="100" B="100" A="100"/>
+    <BlendOn frame="26" R="80" G="70" B="60" A="100"/>
+    <BlendOn frame="27" R="80" G="130" B="120" A="100"/>
+    <BlendOff frame="28" R="0" G="0" B="0" A="0"/>
+</ActionDesc>

@@ -13,6 +13,11 @@ function OPEN_UNREVERT_RANDOM(invItem)
 	if itemrevertrandom ~= nil and itemrevertrandom:IsVisible() == 1 then
 		return;
 	end
+	
+	local itemunrevertrandom = ui.GetFrame('itemsandrarevertrandom');
+	if itemunrevertrandom ~= nil and itemunrevertrandom:IsVisible() == 1 then
+		return;
+	end
 
 	 local frame = ui.GetFrame('itemunrevertrandom');
 	 frame:SetUserValue('REVERTITEM_GUID', invItem:GetIESID());	 
@@ -39,7 +44,7 @@ function ITEM_UNREVERT_RANDOM_CLOSE(frame)
 	INVENTORY_SET_CUSTOM_RBTNDOWN("None");
 	frame:ShowWindow(0);
 	control.DialogOk();
- end
+end
 
 function UNREVERT_RANDOM_UPDATE(isSuccess)
 	local frame = ui.GetFrame("itemunrevertrandom");
@@ -330,7 +335,7 @@ pic_bg:PlayUIEffect(RESET_SUCCESS_EFFECT_NAME, EFFECT_SCALE, 'RESET_SUCCESS_EFFE
 end
 
 function _SUCCESS_UNREVERT_RANDOM_OPTION()
-ui.SetHoldUI(false);
+	ui.SetHoldUI(false);
 	local frame = ui.GetFrame("itemunrevertrandom");
 	if frame:IsVisible() == 0 then
 		return;

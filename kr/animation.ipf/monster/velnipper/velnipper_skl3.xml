@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by gameds (IMCGames Co., Ltd) -->
+<ActionDesc>
+    <Sound frame="10.00" soundFile="mon_denoptic_skl_2"/>
+    <Sound frame="25.00" soundFile="mon_denoptic_born"/>
+    <Sound frame="28.00" soundFile="arw_blow_critical1"/>
+    <Sound frame="28.00" soundFile="shield_blow"/>
+    <Sound frame="43.00" soundFile="shield_blow"/>
+    <Sound frame="43.00" soundFile="arw_blow_critical1"/>
+    <Sound frame="70.00" soundFile="skl_eff_spread_2"/>
+    <Shockwave frame="75" type="2" intensity="10" frequency="90" duration="1" range="1000"/>
+    <Particle frame="75" attachActor="None" attachNode="None" particleName="F_spread_out008_smoke2_mint" hiddenObj="false" useAttach="true" scale="6" pause="true" targetPos="false"/>
+    <Particle frame="75" attachActor="None" attachNode="None" particleName="F_spread_out007_circle" hiddenObj="false" useAttach="true" scale="6" pause="true" targetPos="false"/>
+</ActionDesc>

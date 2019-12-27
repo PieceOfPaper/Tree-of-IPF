@@ -548,6 +548,10 @@ end
 function SCR_Get_MON_CRTDR(self)
     local lv = TryGetProp(self, "Lv", 1);
     local byLevel = lv * 1.0;
+
+    if lv > 420 and TryGetProp(self, "MonRank", "None") ~= "Summon" then
+    byLevel = lv * 4
+    end
     
     local raceTypeRate = SCR_RACE_TYPE_RATE(self, "CRTDR");
     

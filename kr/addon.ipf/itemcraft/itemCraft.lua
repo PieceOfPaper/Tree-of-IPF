@@ -85,12 +85,17 @@ function ITEMCRAFT_FIRST_OPEN(frame)
 end
 
 function ITEMCRAFT_CLOSE(frame)
+	if ui.CheckHoldedUI() == true then
+		return;
+	end
+	
 	session.ResetItemList();
 
 	INVENTORY_SET_CUSTOM_RBTNDOWN("None");
 	INVENTORY_SET_ICON_SCRIPT("ITEMCRAFT_INV_ICON");
 	RESET_INVENTORY_ICON();
 	ui.CloseFrame('inventory');
+    ui.CloseFrame('itemcraft');
 end
 
 function CRAFT_OPEN(frame)
@@ -608,16 +613,9 @@ function CRAFT_BEFORE_START_CRAFT(ctrl, ctrlset, recipeName, artNum)
     local targetItemGrade = TryGetProp(targetItem, 'ItemGrade', 0)
     
 
-	if someflag > 0 and targetItemGrade ~= 4 then
+	if someflag > 0  then
 		local yesScp = string.format("CRAFT_START_CRAFT(\'%s\', \'%s\', %d)",idSpace, recipeName, totalCount);        
 		ui.MsgBox(ScpArgMsg("IsValueAbleItem"), yesScp, "None");
-		
-	elseif someflag == 0 and targetItemGrade == 4 then
-	    local yesScp = string.format("CRAFT_START_CRAFT(\'%s\', \'%s\', %d)",idSpace, recipeName, totalCount);        
-		ui.MsgBox(ScpArgMsg("UniqueTranscendAllow").." "..ScpArgMsg("AllowManufacture"), yesScp, "None");
-	elseif someflag > 0 and targetItemGrade == 4 then
-		local yesScp = string.format("CRAFT_START_CRAFT(\'%s\', \'%s\', %d)",idSpace, recipeName, totalCount);        
-		ui.MsgBox(ScpArgMsg("UniqueTranscendAllow") .."{nl}"..ScpArgMsg("IsValueAbleItem"), yesScp, "None");
 	else   
 		CRAFT_START_CRAFT(idSpace, recipeName, totalCount, upDown)        
 	end
@@ -862,6 +860,9 @@ function CRAFT_START_CRAFT(idSpace, recipeName, totalCount, upDown)
     else
         cntText = string.format("%s %s", recipecls.ClassID, 1)
     end
+	
+	SetCraftState(1);
+	ui.SetHoldUI(true);
 
 	frame:SetUserValue("IDSPACE", idSpace);
 	item.DialogTransaction("SCR_ITEM_MANUFACTURE_" .. idSpace, resultlist, cntText, nameList);    
@@ -972,6 +973,7 @@ function CRAFT_DETAIL_CRAFT_EXEC_ON_FAIL(mainFrame, msg, str, time)
 	end
 	frame:SetUserValue("MANUFACTURING", 0);
 	SetCraftState(0)
+	ui.SetHoldUI(false);
 end
 
 function CRAFT_DETAIL_CRAFT_EXEC_ON_SUCCESS(frame, msg, str, time)
@@ -987,7 +989,8 @@ function CRAFT_DETAIL_CRAFT_EXEC_ON_SUCCESS(frame, msg, str, time)
 	local remainCount = GET_CRAFT_REMAIONCOUNT(queueFrame);
 	if recipeType == nil then
 		frame:SetUserValue("MANUFACTURING", 0);
-		SetCraftState(0)        
+		SetCraftState(0)
+		ui.SetHoldUI(false);
 		return;
 	elseif totalCount ~= remainCount and string.find(str, "Premium_boostToken") == nil then
 		if frame:GetUserIValue("MANUFACTURING") == 1 then
@@ -998,6 +1001,7 @@ function CRAFT_DETAIL_CRAFT_EXEC_ON_SUCCESS(frame, msg, str, time)
 
 	    frame:SetUserValue("MANUFACTURING", 0);
 	    SetCraftState(0)
+		ui.SetHoldUI(false);
 		return;
 	end
 
@@ -1042,7 +1046,8 @@ function CRAFT_DETAIL_CRAFT_EXEC_ON_SUCCESS(frame, msg, str, time)
                 ui.AddText("SystemMsgFrame", ClMsg('NotEnoughRecipe'));
 		        CLEAR_CRAFT_QUEUE(queueFrame);
 		        frame:SetUserValue("MANUFACTURING", 0);
-		        SetCraftState(0)                
+		        SetCraftState(0)
+				ui.SetHoldUI(false);         
                 return
             else    -- 레시피 아이템이 존재하면
                 if invItem.isLockState == false then
@@ -1054,7 +1059,8 @@ function CRAFT_DETAIL_CRAFT_EXEC_ON_SUCCESS(frame, msg, str, time)
                     ui.AddText("SystemMsgFrame", ClMsg('NotEnoughRecipe'));
 		            CLEAR_CRAFT_QUEUE(queueFrame);
 		            frame:SetUserValue("MANUFACTURING", 0);
-		            SetCraftState(0)                
+		            SetCraftState(0)
+					ui.SetHoldUI(false);
                     return
                 end
             end
@@ -1091,7 +1097,8 @@ function CRAFT_DETAIL_CRAFT_EXEC_ON_SUCCESS(frame, msg, str, time)
             ui.AddText("SystemMsgFrame", ClMsg('NotEnoughRecipe'));
 		    CLEAR_CRAFT_QUEUE(queueFrame);
 		    frame:SetUserValue("MANUFACTURING", 0);
-		    SetCraftState(0)                
+			SetCraftState(0)
+			ui.SetHoldUI(false);             
             return
         end
         session.AddItemID(ordered_list[i], map_cnt[i]);
@@ -1104,7 +1111,8 @@ function CRAFT_DETAIL_CRAFT_EXEC_ON_SUCCESS(frame, msg, str, time)
         ui.AddText("SystemMsgFrame", ClMsg('NotEnoughRecipe'));
 		CLEAR_CRAFT_QUEUE(queueFrame);
 		frame:SetUserValue("MANUFACTURING", 0);
-		SetCraftState(0)                
+		SetCraftState(0)
+		ui.SetHoldUI(false);     
         return
     end 
     

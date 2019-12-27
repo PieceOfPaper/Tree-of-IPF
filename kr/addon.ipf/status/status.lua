@@ -2,8 +2,7 @@
 MAX_INV_COUNT = 4999;
 
 function STATUS_ON_INIT(addon, frame)
-
-    addon:RegisterMsg('PC_PROPERTY_UPDATE', 'STATUS_UPDATE');
+    addon:RegisterMsg('PC_PROPERTY_UPDATE_TO_STATUS', 'STATUS_UPDATE');
     addon:RegisterMsg('PC_PROPERTY_UPDATE_DETAIL', 'SCR_PC_PROPERTY_UPDATE_DETAIL');
     addon:RegisterOpenOnlyMsg('STAT_UPDATE', 'STATUS_UPDATE');
     addon:RegisterMsg('RESET_STAT_UP', 'RESERVE_RESET');
@@ -864,260 +863,137 @@ function STATUS_INFO()
     y = y + expupGBox:GetHeight() + 10;
 
     local returnY = STATUS_HIDDEN_JOB_UNLOCK_VIEW(pc, opc, frame, gboxctrl, y);
-    if returnY ~= y then
-        y = returnY + 3;
-    end
+    if returnY ~= y then y = returnY + 3; end
 
     local returnY = STATUS_ATTRIBUTE_VALUE_NEW(pc, opc, frame, gboxctrl, "MHP", y);
-    if returnY ~= y then
-        y = returnY + 3;
-    end
+    if returnY ~= y then y = returnY + 3; end
     returnY = STATUS_ATTRIBUTE_VALUE_NEW(pc, opc, frame, gboxctrl, "MSP", y);
-    if returnY ~= y then
-        y = returnY + 3;
-    end
+    if returnY ~= y then y = returnY + 3; end
     returnY = STATUS_ATTRIBUTE_VALUE_NEW(pc, opc, frame, gboxctrl, "RHP", y);
-    if returnY ~= y then
-        y = returnY + 3;
-    end
+    if returnY ~= y then y = returnY + 3; end
     returnY = STATUS_ATTRIBUTE_VALUE_NEW(pc, opc, frame, gboxctrl, "RSP", y);
     y = returnY + 24;
 
+
     returnY = STATUS_ATTRIBUTE_VALUE_RANGE_NEW(pc, opc, frame, gboxctrl, "PATK", "MINPATK", "MAXPATK", y);
-    if returnY ~= y then
-        y = returnY + 3;
-    end
+    if returnY ~= y then y = returnY + 3; end
     returnY = STATUS_ATTRIBUTE_VALUE_RANGE_NEW(pc, opc, frame, gboxctrl, "PATK_SUB", "MINPATK_SUB", "MAXPATK_SUB", y);
-    if returnY ~= y then
-        y = returnY + 3;
-    end
+    if returnY ~= y then y = returnY + 3; end
     returnY = STATUS_ATTRIBUTE_VALUE_RANGE_NEW(pc, opc, frame, gboxctrl, "MATK", "MINMATK", "MAXMATK", y);
-    if returnY ~= y then
-        y = returnY + 3;
-    end
+    if returnY ~= y then y = returnY + 3; end
     returnY = STATUS_ATTRIBUTE_VALUE_NEW(pc, opc, frame, gboxctrl, "HEAL_PWR", y);
-    if returnY ~= y then
-        y = returnY + 3;
-    end
+    if returnY ~= y then y = returnY + 3; end
     returnY = STATUS_ATTRIBUTE_VALUE_NEW(pc, opc, frame, gboxctrl, "SR", y);
-    if returnY ~= y then
-        y = returnY + 3;
-    end
+    if returnY ~= y then y = returnY + 3; end
     returnY = STATUS_ATTRIBUTE_VALUE_NEW(pc, opc, frame, gboxctrl, "HR", y);
-    if returnY ~= y then
-        y = returnY + 3;
-    end
+    if returnY ~= y then y = returnY + 3; end
     returnY = STATUS_ATTRIBUTE_VALUE_NEW(pc, opc, frame, gboxctrl, "MHR", y);
-    if returnY ~= y then
-        y = returnY + 3;
-    end
+    if returnY ~= y then y = returnY + 3; end
     returnY = STATUS_ATTRIBUTE_VALUE_NEW(pc, opc, frame, gboxctrl, "BLK_BREAK", y);
-    if returnY ~= y then
-        y = returnY + 3;
-    end
+    if returnY ~= y then y = returnY + 3; end
     returnY = STATUS_ATTRIBUTE_VALUE_NEW(pc, opc, frame, gboxctrl, "CRTATK", y);
-    if returnY ~= y then
-        y = returnY + 3;
-    end
+    if returnY ~= y then y = returnY + 3; end
     returnY = STATUS_ATTRIBUTE_VALUE_NEW(pc, opc, frame, gboxctrl, "CRTMATK", y);
-    if returnY ~= y then
-        y = returnY + 3;
-    end
+    if returnY ~= y then y = returnY + 3; end
     returnY = STATUS_ATTRIBUTE_VALUE_NEW(pc, opc, frame, gboxctrl, "CRTHR", y);
     y = returnY + 10;
 
+
     returnY = STATUS_ATTRIBUTE_VALUE_NEW(pc, opc, frame, gboxctrl, "DEF", y);
-    if returnY ~= y then
-        y = returnY + 3;
-    end
+    if returnY ~= y then y = returnY + 3; end
     returnY = STATUS_ATTRIBUTE_VALUE_NEW(pc, opc, frame, gboxctrl, "MDEF", y);
-    if returnY ~= y then
-        y = returnY + 3;
-    end
+    if returnY ~= y then y = returnY + 3; end
     returnY = STATUS_ATTRIBUTE_VALUE_NEW(pc, opc, frame, gboxctrl, "SDR", y);
-    if returnY ~= y then
-        y = returnY + 3;
-    end
+    if returnY ~= y then y = returnY + 3; end
     returnY = STATUS_ATTRIBUTE_VALUE_NEW(pc, opc, frame, gboxctrl, "DR", y);
-    if returnY ~= y then
-        y = returnY + 3;
-    end
+    if returnY ~= y then y = returnY + 3; end
     returnY = STATUS_ATTRIBUTE_VALUE_NEW(pc, opc, frame, gboxctrl, "BLK", y);
-    if returnY ~= y then
-        y = returnY + 3;
-    end
+    if returnY ~= y then y = returnY + 3; end
     returnY = STATUS_ATTRIBUTE_VALUE_NEW(pc, opc, frame, gboxctrl, "CRTDR", y);
     y = returnY + 10;
 
+
     returnY = STATUS_ATTRIBUTE_VALUE_DIVISIONBYTHOUSAND_NEW(pc, opc, frame, gboxctrl, "MaxSta", y);
-    if returnY ~= y then
-        y = returnY + 3;
-    end
+    if returnY ~= y then y = returnY + 3; end
     returnY = STATUS_ATTRIBUTE_VALUE_NEW(pc, opc, frame, gboxctrl, "NormalASPD", y);
-    if returnY ~= y then
-        y = returnY + 3;
-    end
+    if returnY ~= y then y = returnY + 3; end
     returnY = STATUS_ATTRIBUTE_VALUE_NEW(pc, opc, frame, gboxctrl, "SkillASPD", y);
-    if returnY ~= y then
-        y = returnY + 3;
-    end
+    if returnY ~= y then y = returnY + 3; end
     returnY = STATUS_ATTRIBUTE_VALUE_NEW(pc, opc, frame, gboxctrl, "MSPD", y);
-    if returnY ~= y then
-        y = returnY + 3;
-    end
+    if returnY ~= y then y = returnY + 3; end
     returnY = STATUS_ATTRIBUTE_VALUE_WITH_PERCENT_SYMBOL(pc, opc, frame, gboxctrl, "CastingSpeed", y);
-    if returnY ~= y then
-        y = returnY + 3;
-    end
+    if returnY ~= y then y = returnY + 3; end
     returnY = STATUS_ATTRIBUTE_VALUE_WITH_PERCENT_SYMBOL(pc, opc, frame, gboxctrl, "HateRate", y);
-    if returnY ~= y then
-        y = returnY + 3;
-    end
+    if returnY ~= y then y = returnY + 3; end
     returnY = STATUS_ATTRIBUTE_VALUE_NEW(pc, opc, frame, gboxctrl, "MaxWeight", y);
-    if returnY ~= y then
-        y = returnY + 3;
-    end
+    if returnY ~= y then y = returnY + 3; end
     returnY = STATUS_ATTRIBUTE_VALUE_NEW(pc, opc, frame, gboxctrl, "LootingChance", y);
     y = returnY + 10;
 
-    returnY = STATUS_ATTRIBUTE_VALUE_NEW(pc, opc, frame, gboxctrl, "Fire_Atk", y);
-    if returnY ~= y then
-        y = returnY + 3;
-    end
-    returnY = STATUS_ATTRIBUTE_VALUE_NEW(pc, opc, frame, gboxctrl, "Ice_Atk", y);
-    if returnY ~= y then
-        y = returnY + 3;
-    end
-    returnY = STATUS_ATTRIBUTE_VALUE_NEW(pc, opc, frame, gboxctrl, "Lightning_Atk", y);
-    if returnY ~= y then
-        y = returnY + 3;
-    end
-    returnY = STATUS_ATTRIBUTE_VALUE_NEW(pc, opc, frame, gboxctrl, "Soul_Atk", y);
-    if returnY ~= y then
-        y = returnY + 3;
-    end
-    returnY = STATUS_ATTRIBUTE_VALUE_NEW(pc, opc, frame, gboxctrl, "Earth_Atk", y);
-    if returnY ~= y then
-        y = returnY + 3;
-    end
-    returnY = STATUS_ATTRIBUTE_VALUE_NEW(pc, opc, frame, gboxctrl, "Poison_Atk", y);
-    if returnY ~= y then
-        y = returnY + 3;
-    end
-    returnY = STATUS_ATTRIBUTE_VALUE_NEW(pc, opc, frame, gboxctrl, "Holy_Atk", y);
-    if returnY ~= y then
-        y = returnY + 3;
-    end
-    returnY = STATUS_ATTRIBUTE_VALUE_NEW(pc, opc, frame, gboxctrl, "Dark_Atk", y);
-    y = returnY + 10;
-
-    returnY = STATUS_ATTRIBUTE_VALUE_NEW(pc, opc, frame, gboxctrl, "ResFire", y);
-    if returnY ~= y then
-        y = returnY + 3;
-    end
-    returnY = STATUS_ATTRIBUTE_VALUE_NEW(pc, opc, frame, gboxctrl, "ResIce", y);
-    if returnY ~= y then
-        y = returnY + 3;
-    end
-    returnY = STATUS_ATTRIBUTE_VALUE_NEW(pc, opc, frame, gboxctrl, "ResLightning", y);
-    if returnY ~= y then
-        y = returnY + 3;
-    end
-    returnY = STATUS_ATTRIBUTE_VALUE_NEW(pc, opc, frame, gboxctrl, "ResSoul", y);
-    if returnY ~= y then
-        y = returnY + 3;
-    end
-    returnY = STATUS_ATTRIBUTE_VALUE_NEW(pc, opc, frame, gboxctrl, "ResEarth", y);
-    if returnY ~= y then
-        y = returnY + 3;
-    end
-    returnY = STATUS_ATTRIBUTE_VALUE_NEW(pc, opc, frame, gboxctrl, "ResSoul", y);
-    if returnY ~= y then
-        y = returnY + 3;
-    end
-    returnY = STATUS_ATTRIBUTE_VALUE_NEW(pc, opc, frame, gboxctrl, "ResPoison", y);
-    if returnY ~= y then
-        y = returnY + 3;
-    end
-    returnY = STATUS_ATTRIBUTE_VALUE_NEW(pc, opc, frame, gboxctrl, "ResHoly", y);
-    if returnY ~= y then
-        y = returnY + 3;
-    end
-    returnY = STATUS_ATTRIBUTE_VALUE_NEW(pc, opc, frame, gboxctrl, "ResDark", y);
-    y = returnY + 10;
+    returnY = STATUS_ATTRIBUTE_VALUE_NEW(pc, opc, frame, gboxctrl, "Add_Damage_Atk", y);
+    if returnY ~= y then y = returnY + 3; end
+    returnY = STATUS_ATTRIBUTE_VALUE_NEW(pc, opc, frame, gboxctrl, "ResAdd_Damage", y);
+    y = returnY + 10;  -- 종류가 바뀌는 부분
 
 
     returnY = STATUS_ATTRIBUTE_VALUE_NEW(pc, opc, frame, gboxctrl, "Aries_Atk", y);
-    if returnY ~= y then
-        y = returnY + 3;
-    end
-
+    if returnY ~= y then y = returnY + 3; end
     returnY = STATUS_ATTRIBUTE_VALUE_NEW(pc, opc, frame, gboxctrl, "Slash_Atk", y);
-    if returnY ~= y then
-        y = returnY + 3;
-    end
-
+    if returnY ~= y then y = returnY + 3; end
     returnY = STATUS_ATTRIBUTE_VALUE_NEW(pc, opc, frame, gboxctrl, "Strike_Atk", y);
-    y = returnY + 10;
+    y = returnY + 10; -- 종류가 달라지면 10만큼 더 아래로
 
 
     returnY = STATUS_ATTRIBUTE_VALUE_NEW(pc, opc, frame, gboxctrl, "DefAries", y);
-    if returnY ~= y then
-        y = returnY + 3;
-    end
-
+    if returnY ~= y then y = returnY + 3; end
     returnY = STATUS_ATTRIBUTE_VALUE_NEW(pc, opc, frame, gboxctrl, "DefSlash", y);
-    if returnY ~= y then
-        y = returnY + 3;
-    end
-
+    if returnY ~= y then y = returnY + 3; end
     returnY = STATUS_ATTRIBUTE_VALUE_NEW(pc, opc, frame, gboxctrl, "DefStrike", y);
     y = returnY + 10;
 
+
     returnY = STATUS_ATTRIBUTE_VALUE_NEW(pc, opc, frame, gboxctrl, "SmallSize_Atk", y);
-    if returnY ~= y then
-        y = returnY + 3;
-    end
+    if returnY ~= y then y = returnY + 3; end
     returnY = STATUS_ATTRIBUTE_VALUE_NEW(pc, opc, frame, gboxctrl, "MiddleSize_Atk", y);
-    if returnY ~= y then
-        y = returnY + 3;
-    end
+    if returnY ~= y then y = returnY + 3; end
     returnY = STATUS_ATTRIBUTE_VALUE_NEW(pc, opc, frame, gboxctrl, "LargeSize_Atk", y);
+    if returnY ~= y then y = returnY + 3; end
+    returnY = STATUS_ATTRIBUTE_VALUE_NEW(pc, opc, frame, gboxctrl, "Ghost_Atk", y);    
     y = returnY + 10;
+
+
+    returnY = STATUS_ATTRIBUTE_VALUE_NEW(pc, opc, frame, gboxctrl, "MiddleSize_Def", y);
+    y = returnY + 10;
+    
 
     returnY = STATUS_ATTRIBUTE_VALUE_NEW(pc, opc, frame, gboxctrl, "Cloth_Atk", y);
-    if returnY ~= y then
-        y = returnY + 3;
-    end
+    if returnY ~= y then y = returnY + 3; end
     returnY = STATUS_ATTRIBUTE_VALUE_NEW(pc, opc, frame, gboxctrl, "Leather_Atk", y);
-    if returnY ~= y then
-        y = returnY + 3;
-    end
+    if returnY ~= y then y = returnY + 3; end
     returnY = STATUS_ATTRIBUTE_VALUE_NEW(pc, opc, frame, gboxctrl, "Iron_Atk", y);
-    if returnY ~= y then
-        y = returnY + 3;
-    end
-    returnY = STATUS_ATTRIBUTE_VALUE_NEW(pc, opc, frame, gboxctrl, "Ghost_Atk", y);
+    y = returnY + 10; 
+
+
+    returnY = STATUS_ATTRIBUTE_VALUE_NEW(pc, opc, frame, gboxctrl, "Cloth_Def", y);
+    if returnY ~= y then y = returnY + 3; end
+    returnY = STATUS_ATTRIBUTE_VALUE_NEW(pc, opc, frame, gboxctrl, "Leather_Def", y);
+    if returnY ~= y then y = returnY + 3; end
+    returnY = STATUS_ATTRIBUTE_VALUE_NEW(pc, opc, frame, gboxctrl, "Iron_Def", y);
     y = returnY + 10;
 
+    
     returnY = STATUS_ATTRIBUTE_VALUE_NEW(pc, opc, frame, gboxctrl, "Forester_Atk", y);
-    if returnY ~= y then
-        y = returnY + 3;
-    end
-    returnY = STATUS_ATTRIBUTE_VALUE_NEW(pc, opc, frame, gboxctrl, "Widling_Atk", y);
-    if returnY ~= y then
-        y = returnY + 3;
-    end
+    if returnY ~= y then y = returnY + 3; end
+    returnY = STATUS_ATTRIBUTE_VALUE_NEW(pc, opc, frame, gboxctrl, "Widling_Atk", y);    
+    if returnY ~= y then y = returnY + 3; end
     returnY = STATUS_ATTRIBUTE_VALUE_NEW(pc, opc, frame, gboxctrl, "Klaida_Atk", y);
-    if returnY ~= y then
-        y = returnY + 3;
-    end
+    if returnY ~= y then y = returnY + 3; end
     returnY = STATUS_ATTRIBUTE_VALUE_NEW(pc, opc, frame, gboxctrl, "Paramune_Atk", y);
-    if returnY ~= y then
-        y = returnY + 3;
-    end
+    if returnY ~= y then y = returnY + 3; end
     returnY = STATUS_ATTRIBUTE_VALUE_NEW(pc, opc, frame, gboxctrl, "Velnias_Atk", y);
     y = returnY + 10;
+
+    -- Property Name은  calc_property_pc.lua 에서 SCR_GET_Cloth_ATK 와 일치
 
     -- STATUS_ATTRIBUTE_VALUE_RANGE(pc, opc, frame, gboxctrl, "PATK", "MINPATK", "MAXPATK");
     -- STATUS_ATTRIBUTE_VALUE_RANGE(pc, opc, frame, gboxctrl, "MATK", "MINMATK", "MAXMATK");
@@ -1445,52 +1321,91 @@ function STATUS_HIDDEN_JOB_UNLOCK_VIEW(pc, opc, frame, gboxctrl, y)
     return y
 end
 
-function STATUS_ATTRIBUTE_VALUE_NEW(pc, opc, frame, gboxctrl, attibuteName, y)
-    local controlSet = gboxctrl:CreateOrGetControlSet('status_stat', attibuteName, 0, y);
+local color_attribute = {}
+color_attribute['Cloth_Def'] = 'Cloth_Def_status'
+color_attribute['Leather_Def'] = 'Leather_Def_status'
+color_attribute['Iron_Def'] = 'Iron_Def_status'
+color_attribute['MiddleSize_Def'] = 'MiddleSize_Def_status'
+color_attribute['ResAdd_Damage'] = 'ResAdd_Damage_status'
+
+color_attribute['SmallSize_Atk'] = 'SmallSize_Atk_status'
+color_attribute['MiddleSize_Atk'] = 'MiddleSize_Atk_status'
+color_attribute['LargeSize_Atk'] = 'LargeSize_Atk_status'
+color_attribute['Cloth_Atk'] = 'Cloth_Atk_status'
+color_attribute['Leather_Atk'] = 'Leather_Atk_status'
+color_attribute['Iron_Atk'] = 'Iron_Atk_status'
+color_attribute['Forester_Atk'] = 'Forester_Atk_status'
+color_attribute['Widling_Atk'] = 'Widling_Atk_status'
+color_attribute['Klaida_Atk'] = 'Klaida_Atk_status'
+color_attribute['Paramune_Atk'] = 'Paramune_Atk_status'
+color_attribute['Velnias_Atk'] = 'Velnias_Atk_status'
+color_attribute['Ghost_Atk'] = 'Ghost_Atk_status'
+color_attribute['Add_Damage_Atk'] = 'Add_Damage_Atk_status'
+
+function STATUS_ATTRIBUTE_VALUE_NEW(pc, opc, frame, gboxctrl, attributeName, y)        
+    local controlSet = gboxctrl:CreateOrGetControlSet('status_stat', attributeName, 0, y);
     tolua.cast(controlSet, "ui::CControlSet");
     local title = GET_CHILD(controlSet, "title", "ui::CRichText");
-    title:SetText(ScpArgMsg(attibuteName));
-
-    if attibuteName == 'SR' then
+    if color_attribute[attributeName] ~= nil then        
+        title:SetText(ScpArgMsg(color_attribute[attributeName]));
+    else
+        title:SetText(ScpArgMsg(attributeName));
+    end
+    
+    if attributeName == 'SR' then
         title:SetTextTooltip(ScpArgMsg("StatusTooltipMsg2"))
-    elseif attibuteName == 'SDR' then
-        title:SetTextTooltip(ScpArgMsg("StatusTooltipMsg3"))
-    elseif attibuteName == 'LootingChance' then
+    elseif attributeName == 'SDR' then
+        title:SetTextTooltip(ScpArgMsg("StatusTooltipMsg3"))    
+    elseif attributeName == 'LootingChance' then
         title:SetTextTooltip(ScpArgMsg("StatusTooltipMsgLootingChance"))
+    elseif attributeName == 'RHP' or attributeName == 'RSP' then
+        title:SetTextTooltip(ScpArgMsg('StatusTooltipMsgRHPRSP'))
     end
 
     local stat = GET_CHILD(controlSet, "stat", "ui::CRichText");
     title:SetUseOrifaceRect(true)
     stat:SetUseOrifaceRect(true)
 
-    -- stat:SetText('120');
-    local grayStyle, value = SET_VALUE_ZERO(pc[attibuteName]);
-	
+    -- stat:SetText('120');    
+    local grayStyle, value = SET_VALUE_ZERO(pc[attributeName]);
+    
     if 1 == grayStyle then
         stat:SetText('');
         controlSet:Resize(controlSet:GetWidth(), stat:GetHeight());
         return y + controlSet:GetHeight();
     end
-
-    if opc ~= nil and opc[attibuteName] ~= value then
+    
+    if opc ~= nil and opc[attributeName] ~= value then
         local colBefore = frame:GetUserConfig("BEFORE_STAT_COLOR");
         local colStr = frame:GetUserConfig("ADD_STAT_COLOR")
 
-        local beforeGray, beforeValue = SET_VALUE_ZERO(opc[attibuteName]);
-
+        local beforeGray, beforeValue = SET_VALUE_ZERO(opc[attributeName]);
+    
         if beforeValue ~= value then
-            stat:SetText(colBefore .. beforeValue .. ScpArgMsg("Auto_{/}__{/}") .. colStr .. value);
+            stat:SetText(colBefore .. beforeValue .. ScpArgMsg("Auto_{/}__{/}") .. colStr .. value);            
         else
-            stat:SetText(value);
+            stat:SetText(value); 
         end
     else
-        stat:SetText(value);
+        value = get_percent_format(attributeName, value)        
+        stat:SetText(value);        
     end
-
+    
     controlSet:Resize(controlSet:GetWidth(), stat:GetHeight());
     return y + controlSet:GetHeight();
 end
 
+function get_percent_format(attribute_name, value)
+    local func_name = string.format('get_%s_ratio_for_status', attribute_name);
+    local func = _G[func_name]
+    
+    if func == nil then
+        return value
+    end
+
+    value = func(value)
+    return value
+end
 
 
 function STATUS_ITEM_RARE_OPTION_VALUE(pc, opc, frame, gboxctrl, attibuteName, y)

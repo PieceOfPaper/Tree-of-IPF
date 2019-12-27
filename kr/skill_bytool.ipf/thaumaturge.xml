@@ -26,7 +26,7 @@
 					<Str Str="SwellHands_Buff" />
 					<Num FuncTxt="return obj.Level" Num="3" UseFunc="1" />
 					<Num Num="0" />
-					<Num FuncTxt="return 300000" Num="300" UseFunc="1" />
+                    <Num FuncTxt="return 1800000" Num="300" UseFunc="1" />
 					<Num Num="1" />
 					<Num Num="100" />
 					<Num Num="0" />
@@ -100,6 +100,16 @@
 				<Scp Client="YES" Scp="C_SOUND" Time="1000" UseSleep="NO">
 					<Str Str="skl_eff_transmitprana_light_2" />
 				</Scp>
+                <Scp Client="NO" Scp="SKL_TGT_REMOVE_DEBUFF" Time="110" UseSleep="NO">
+                <Str FuncTxt="local func_name = 'get_remove_debuff_tooltip_' .. TryGetProp(obj, 'ClassName', 'None')
+               local func = _G[func_name]
+               if func == nil then return end
+               return func(obj.Level)" Str="0" UseFunc="1"/>
+                <Num FuncTxt="return TryGetProp(obj, 'MaxR', 100)"  UseFunc="1"/>
+                <Num FuncTxt="local x, y, z = GetPos(self) return x"  UseFunc="1"/>
+                <Num FuncTxt="local x, y, z = GetPos(self) return y"  UseFunc="1"/>
+                <Num FuncTxt="local x, y, z = GetPos(self) return z"  UseFunc="1"/>     
+               </Scp>
 			</EtcList>
 		</MainSkl>
 	</Skill>
