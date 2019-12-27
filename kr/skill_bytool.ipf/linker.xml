@@ -518,7 +518,7 @@
 				<Scp Client="NO" Scp="SKL_MAKE_PARTY_LINK" Time="0" UseSleep="NO">
 					<Num Num="200" />
 					<Str Str="Linker_Sacrifice" />
-					<Num FuncTxt="return 5 + obj.Level" Num="10" UseFunc="1" />
+					<Num FuncTxt="return 11 * obj.Level" Num="10" UseFunc="1" />
 					<Str Str="Linker2" />
 					<Num Num="0" />
 					<Num Num="0.30000001" />

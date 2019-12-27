@@ -700,6 +700,7 @@
 		<Class ClassID="4255" ClassName="NoUseYourLevel" Data="200레벨 이상은 해당 아이템을 사용 할 수 없습니다."/>
 		<Class ClassID="4256" ClassName="CanUseGreaterThan430" Data="430레벨 이상 랜덤 옵션 아이템에만 사용할 수 있습니다."/>
 		<Class ClassID="4257" ClassName="Ark" Data="아크"/>
+		<Class ClassID="4258" ClassName="LegendMaterial" Data="레전드 재료"/>
 	</Category>
 	<Category Name="ItemTooltip">
 		<Class ClassID="5001" ClassName="CoolDown : {Sec} Sec" Data="재사용 대기시간 : {Sec}초"/>
@@ -1558,7 +1559,7 @@
 		<Class ClassID="21263" ClassName="DungeonInfo" Data="던전 정보"/>
 		<Class ClassID="21264" ClassName="Helmet_M_Category" Data="[프리미엄]남자 헬멧"/>
 		<Class ClassID="21265" ClassName="Helmet_F_Category" Data="[프리미엄]여자 헬멧"/>
-		<Class ClassID="21266" ClassName="StatusTooltipMsgLootingChance" Data="미감정 장비 아이템의 드롭 확률 보너스"/>
+		<Class ClassID="21266" ClassName="StatusTooltipMsgLootingChance" Data="다음 아이템의 드롭 확률 보너스{nl} - 미감정 장비 아이템{nl} - 레전드 재료"/>
 		<Class ClassID="21267" ClassName="MaxInputLen{Local}{Eng}" Data="최대 한글 {Local}글자, 영문 {Eng}글자 까지 입력이 가능합니다."/>
 		<Class ClassID="21268" ClassName="IndunAdmissionItemPossession" Data="던전 입장 아이템 보유량"/>
 		<Class ClassID="21269" ClassName="IndunAdmissionItem" Data="던전 입장 아이템 소모량"/>
@@ -1647,7 +1648,7 @@
 		<Class ClassID="21350" ClassName="JobExp" Data="클래스 경험치"/>
 		<Class ClassID="21358" ClassName="SkillPointPotion" Data="스킬 포인트 추가"/>
 		<Class ClassID="21359" ClassName="StatusTooltipMsgRHPRSP" Data="괄호 안의 값이 실제 적용되는 수치"/>
-		<Class ClassID="21360" ClassName="StartCasualGamble" Data="여신의 축복 이벤트가 시작되었습니다."/>		
+		<Class ClassID="21360" ClassName="StartCasualGamble" Data="여신의 축복 이벤트가 시작되었습니다."/>
 	</Category>
 	<Category Name="ChatText">
 		<Class ClassID="22001" ClassName="Guard" Data="방어"/>
@@ -4741,6 +4742,8 @@
 		<Class ClassID="27182" ClassName="GACHA_SITEM_GET_ALLMSG" Data="{s24}축하드립니다!{nl}{PC} 님이 레티샤의 시크릿 큐브에서{nl}{ITEMNAME} 를(을) 획득하셨습니다!"/>
 		<Class ClassID="27183" ClassName="GACHA_SITEM_GET_ALLMSG_2" Data="{s24}축하드립니다!{nl}{PC} 님이 복각: 축복받은 여신의 큐브에서{nl}{ITEMNAME} 를(을) 획득하셨습니다!"/>
 		<Class ClassID="27184" ClassName="GACHA_SITEM_GET_ALLMSG_3" Data="{s24}축하드립니다!{nl}{PC} 님이 가비야의 은총이 담긴 깃털 장식으로{nl}{ITEMNAME} 를(을) 획득하셨습니다!"/>
+		<Class ClassID="27185" ClassName="GACHA_SITEM_GET_ALLMSG_4" Data="{s24}{PC} 님이 {MAP} 에서 {ITEMNAME}를(을) 획득하셨습니다!"/>
+		<Class ClassID="27186" ClassName="GACHA_SITEM_GET_ALLMSG_5" Data="{s24}{PC} 님이 {MAP} 챌린지 모드에서 {ITEMNAME}를(을) 획득하셨습니다!"/>
 		<Class ClassID="27200" ClassName="MOLE_BINGO_MSG1" Data="{SEC}초 안에 빙고를 맞춰 {POINT}점을 달성하세요!"/>
 		<Class ClassID="27201" ClassName="MOLE_BINGO_MSG2" Data="{POINT}점 달성!{nl}보상{ITEM}"/>
 		<Class ClassID="27202" ClassName="MOLE_BINGO_MSG3" Data="두더지 잡기 빙고가 종료됩니다{nl}점수 : {POINT} 달성{nl}팀 최고점수 : {MAXPOINT}"/>
@@ -6364,7 +6367,7 @@
 		<Class ClassID="50536" ClassName="HIDDEN_BULLET_MSTEP3_MSGM1" Data="마기가 서린 몬스터의 살점을 충분합니다"/>
 		<Class ClassID="50537" ClassName="JOB_MATADOR1_ITEM_MSG5" Data="획득 점수가 20점 미만이여서 2단계 마타도르의 소양 퀘스트를 실패했습니다"/>
 		<Class ClassID="50538" ClassName="JOB_MATADOR1_ITEM_MSG14" Data="획득 점수가 25점 미만이여서 3단계 마타도르의 소양 퀘스트를 실패했습니다"/>
-		<Class ClassID="50540" ClassName="CHAR318_MON_NAME1" Data="기현상의 붉은 스피온"/>
+		<Class ClassID="50539" ClassName="WTREES22_3_SUBQ3_CHAT3" Data="보조 장치가 다시 켜졌어요"/>		<Class ClassID="50540" ClassName="CHAR318_MON_NAME1" Data="기현상의 붉은 스피온"/>
 		<Class ClassID="50541" ClassName="CHAR318_MON_NAME2" Data="기현상의 피렌트"/>
 		<Class ClassID="50542" ClassName="CHAR318_MON_NAME3" Data="기현상의 푸른 레푸스버니"/>
 		<Class ClassID="50543" ClassName="CHAR120_HOSHINBOO_ITEM_USE" Data="호신부 사용 중"/>
@@ -7012,6 +7015,11 @@
 		<Class ClassID="60392" ClassName="MISSIONSHOP_NPC_01_SELECT1_MSG5" Data="{#003399}링크스마스 폐허{/} 의뢰 확인"/>
 		<Class ClassID="60393" ClassName="MISSIONSHOP_NPC_01_SELECT1_MSG6" Data="{#003399}종언의 길{/} 의뢰 확인"/>
 		<Class ClassID="60394" ClassName="MISSIONSHOP_NPC_01_COMB_RESULT_MSG_1" Data="의뢰의 목적지는 {MAP}입니다.{nl}건투를 빕니다."/>
+		<Class ClassID="60395" ClassName="MISSIONSHOP_NPC_01_COMB_RESULT_MSG_2" Data="더 이상 수락할 수 있는 퀘스트가 없습니다"/>
+		<Class ClassID="60396" ClassName="MISSIONSHOP_NPC_01_COMB_RESULT_MSG_3" Data="이번엔 의뢰를 {COUNT} 개 선택하셨군요.{nl}그럼 잘 부탁드립니다."/>
+		<Class ClassID="60397" ClassName="MISSIONSHOP_NPC_01_COMB_RESULT_MSG_4" Data="이 지역의 모든 의뢰 수락"/>
+		<Class ClassID="60398" ClassName="MISSIONSHOP_NPC_01_COMB_RESULT_MSG_5" Data="[진행 중]"/>
+		<Class ClassID="60399" ClassName="MISSIONSHOP_NPC_01_COMB_RESULT_MSG_6" Data="{#003399}[완료]{/}"/>
 		<Class ClassID="66000" ClassName="MASSIVE_CONTENTS_SHOP_NAME" Data="왕국 보급품"/>
 		<Class ClassID="67243" ClassName="GT_INCOUNT_COMPARE_1" Data="파티 구성원 중, 남은 입장 횟수가 0인 파티원이 있습니다{nl}롤로팬서 구간까지 도전할 수 있습니다"/>
 		<Class ClassID="67244" ClassName="GT_INCOUNT_COMPARE_2" Data="파티 구성원 중, 남은 입장 횟수가 0인 파티원이 있습니다{nl}롤로팬서 구간까지 도전할 수 있습니다"/>
@@ -8784,6 +8792,7 @@
 		<Class ClassID="81090" ClassName="F_CASTLE_99_MQ_05_MSG3" Data="카르타스의 기운을 확인했습니다"/>
 		<Class ClassID="81091" ClassName="D_CASTLE_19_1_MQ_03_MSG5" Data="네링가가 이미 주변을 맴돌고 있습니다"/>
 		<Class ClassID="81092" ClassName="F_CASTLE_99_MQ_05_MSG4" Data="시간이 없습니다. 카르타스의 기운을 어서 쫓아가죠."/>
+		<Class ClassID="81093" ClassName="PRISON_81_MQ_4_CHECK_MSG1" Data="지니고 있던 속박의 영혼석에 반응해 속박 마법진이 부서졌습니다{nl}자나스의 영혼과 대화하세요"/>
 		<Class ClassID="81100" ClassName="ROKAS24_ALCHEMIST_OTHER_MSG1" Data="룬 스톤에 대해 묻는다"/>
 		<Class ClassID="90001" ClassName="CORAL_32_2_SQ_6_FAIL2" Data="퀘스트를 포기했습니다"/>
 		<Class ClassID="90002" ClassName="DCAPITAL_20_5_SQ_30" Data="작은 돌 파편을 얻었습니다"/>
@@ -9231,6 +9240,7 @@
 		<Class ClassID="101143" ClassName="GodProtectionItemToCabinet" Data="아이템이 마켓 보관함으로 지급되었습니다."/>
 		<Class ClassID="101144" ClassName="WorldEventReceivableItemNotice" Data="수령 가능한 {#ff0000}월드 이벤트 보상 아이템{#000000}이 있습니다.{nl}{#0000ff}[마켓 수령함]{#000000}에서 수령 가능합니다."/>
 		<Class ClassID="101145" ClassName="WorldEventReceivableSilverNotice" Data="수령 가능한 {#ff0000}월드 이벤트 보상 실버{#000000}가 있습니다.{nl}{#0000ff}[마켓 수령함]{#000000}에서 수령 가능합니다."/>
+		<Class ClassID="101146" ClassName="firstPartyLeaderEnter" Data="파티장이 먼저 입장해야 합니다."/>
 	</Category>
 	<Category Name="Guild">
 		<Class ClassID="102001" ClassName="GuildMember{Cur}/{Max}People,OnLine{On}People" Data="길드원 ( {Cur} / {Max} 명, 온라인 {On} 명 )"/>

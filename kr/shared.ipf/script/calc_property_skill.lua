@@ -198,6 +198,12 @@ function SCR_Get_SpendSP(skill)
     if skill.ClassName == "Scout_Cloaking" and IsBattleState(pc) == 1 and (IsPVPServer(pc) == 1 or IsPVPField(pc) == 1) then
         return 0
     end
+
+	if IsBuffApplied(pc, "ManaAmplify_Buff") == "YES" then
+        value = value * 1.5
+    end
+
+
     return math.floor(value);
 end
 
@@ -7711,7 +7717,9 @@ function SCR_Get_IceBolt_SkillFactor(skill)
 end
 
 function SCR_GET_ReflectShield_Bufftime(skill)
-    local value = 300
+	local pc = GetSkillOwner(skill);
+    local lv = TryGetProp(pc, "Lv", 1)
+    local value = math.floor((200 + ((lv - 1) * 18)) / 20)
     
     return value;
 end
@@ -8479,7 +8487,7 @@ end
 
 function SCR_GET_Bear_Ratio(skill)
     local value = skill.Level * 2;
-    value = math.floor(value * SCR_REINFORCEABILITY_TOOLTIP(skill))
+    value = value * SCR_REINFORCEABILITY_TOOLTIP(skill)
     return value;
 end
 
@@ -10024,16 +10032,18 @@ end
 
 
 function SCR_Get_UmbilicalCord_Ratio(skill)
-
     local pc = GetSkillOwner(skill);
     local value = 0;
 
-    if pc ~= nil then
-        value = pc.DEF
-    end
-
+    local casterSTR = TryGetProp(pc, "STR", 0);
+    local casterCON = TryGetProp(pc, "CON", 0);
+    local casterINT = TryGetProp(pc, "INT", 0);
+    local casterMNA = TryGetProp(pc, "MNA", 0);
+    local casterDEX = TryGetProp(pc, "DEX", 0);
+    local casterStat = casterSTR + casterCON + casterINT + casterMNA + casterDEX
+    
+    value = math.floor(casterStat / 15)
     return value;
-
 end
 
 function SCR_Get_UmbilicalCord_Ratio2(skill)
@@ -10438,7 +10448,7 @@ end
 
 function SCR_Get_UmbilicalCord_Bufftime(skill)
 
-    local value = 5 + skill.Level
+    local value = 11 * skill.Level
     
     return value
     
@@ -13226,3 +13236,11 @@ function SCR_GET_SKL_COOLDOWN_BlossomSlash(skill)
     
     return math.floor(ret);
 end
+
+function SCR_GET_Crusader_Chants_Heal_Ratio(skill)
+    local pc = GetSkillOwner(skill);
+    local skills = GetSkill(pc, 'Crusader_Chants')
+    value = 100 + skills.Level * 80
+    return math.floor(value)
+end
+

@@ -95,7 +95,8 @@
 					<Str Str="SKL_CANNONBARRAGE" />
 					<Num Num="1" />
 					<Num Num="1" />
-				</Scp>
+				<Num Num="1" />
+                </Scp>
 				<Scp Client="YES_Time" Scp="C_FORCE_EFT" Time="450" UseSleep="NO">
 					<Str_Arg Arg="0.60000002" Str="I_archer_canon_force2#Dummy_effect_canon" />
 					<Str Str="arrow_cast" />
@@ -200,7 +201,8 @@
 							<Str Str="SKL_KNEELINGSHOT_CANNONBARRAGE" />
 							<Num Num="1" />
 							<Num Num="1" />
-						</Scp>
+						<Num Num="1" />
+                        </Scp>
 						<Scp Client="YES_Time" Scp="C_FORCE_EFT" Time="450" UseSleep="NO">
 							<Str_Arg Arg="0.60000002" Str="I_archer_canon_force2#Dummy_effect_canon" />
 							<Str Str="arrow_cast" />
@@ -294,7 +296,8 @@
 					<Str Str="SKL_CANNONBLAST" />
 					<Num Num="1" />
 					<Num Num="1" />
-				</Scp>
+				<Num Num="1" />
+                </Scp>
 				<Scp Client="YES" Scp="C_VOICE_SOUND" Time="100" UseSleep="NO">
 					<Str Str="voice_war_atk_medium" />
 					<Str Str="voice_atk_medium_war_f" />
@@ -340,7 +343,8 @@
 							<Str Str="SKL_KNEELINGSHOT_CANNONBLAST" />
 							<Num Num="1" />
 							<Num Num="1" />
-						</Scp>
+						<Num Num="1" />
+                        </Scp>
 						<Scp Client="YES" Scp="C_VOICE_SOUND" Time="100" UseSleep="NO">
 							<Str Str="voice_war_atk_medium" />
 							<Str Str="voice_atk_medium_war_f" />
@@ -374,7 +378,8 @@
 					<Str Str="SKL_SHOOTDOWN" />
 					<Num Num="1" />
 					<Num Num="1" />
-				</Scp>
+				<Num Num="1" />
+                </Scp>
 				<Scp Client="YES" Scp="C_VOICE_SOUND" Time="400" UseSleep="NO">
 					<Str Str="voice_war_atk_short" />
 					<Str Str="voice_atk_short_war_f" />
@@ -440,7 +445,8 @@
 							<Str Str="SKL_KNEELINGSHOT_SHOOTDOWN" />
 							<Num Num="1" />
 							<Num Num="1" />
-						</Scp>
+						<Num Num="1" />
+                        </Scp>
 						<Scp Client="YES" Scp="C_VOICE_SOUND" Time="400" UseSleep="NO">
 							<Str Str="voice_war_atk_short" />
 							<Str Str="voice_atk_short_war_f" />
@@ -549,7 +555,8 @@
 					<Str Str="SKL_SIEGEBURST" />
 					<Num Num="1" />
 					<Num Num="1" />
-				</Scp>
+				<Num Num="1" />
+                </Scp>
 				<Scp Client="NO" Scp="SKL_SET_IMMUNE_STATE" Time="0" UseSleep="NO">
 					<Str Str="Skill_SuperArmor_Buff" />
 					<Num Num="100" />
@@ -624,7 +631,8 @@
 							<Str Str="SKL_KNEELINGSHOT_SIEGEBURST" />
 							<Num Num="1" />
 							<Num Num="1" />
-						</Scp>
+						<Num Num="1" />
+                        </Scp>
 						<Scp Client="YES" Scp="C_VOICE_SOUND" Time="400" UseSleep="NO">
 							<Str Str="voice_archer_m_siegeburst_shot" />
 							<Str Str="voice_archer_siegeburst_shot" />
@@ -691,7 +699,8 @@
 							<Str Str="SKL_SIEGEBURST" />
 							<Num Num="1" />
 							<Num Num="1" />
-						</Scp>
+						<Num Num="1" />
+                        </Scp>
 						<Scp Client="YES" Scp="C_VOICE_SOUND" Time="400" UseSleep="NO">
 							<Str Str="voice_archer_m_siegeburst_shot" />
 							<Str Str="voice_archer_siegeburst_shot" />
@@ -770,7 +779,8 @@
 							<Str Str="SKL_KNEELINGSHOT_SIEGEBURST" />
 							<Num Num="1" />
 							<Num Num="1" />
-						</Scp>
+						<Num Num="1" />
+                        </Scp>
 						<Scp Client="YES" Scp="C_VOICE_SOUND" Time="400" UseSleep="NO">
 							<Str Str="voice_archer_m_siegeburst_shot" />
 							<Str Str="voice_archer_siegeburst_shot" />
@@ -830,7 +840,8 @@
 					<Str Str="SKL_CANNONSHOT" />
 					<Num Num="1" />
 					<Num Num="1" />
-				</Scp>
+				<Num Num="1" />
+                </Scp>
 				<Scp Client="YES_Time" Scp="C_FORCE_EFT" Time="450" UseSleep="NO">
 					<Str_Arg Arg="1" Str="I_archer_canon_force4#Dummy_effect_canon" />
 					<Str Str="arrow_cast" />
@@ -881,7 +892,8 @@
 							<Str Str="SKL_KNEELINGSHOT_CANNONSHOT" />
 							<Num Num="1" />
 							<Num Num="1" />
-						</Scp>
+						<Num Num="1" />
+                        </Scp>
 						<Scp Client="YES_Time" Scp="C_FORCE_EFT" Time="450" UseSleep="NO">
 							<Str_Arg Arg="0.60000002" Str="I_archer_canon_force2#Dummy_effect_canon" />
 							<Str Str="arrow_cast" />

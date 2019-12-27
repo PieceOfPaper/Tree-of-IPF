@@ -6788,6 +6788,7 @@
 		<image name="Collar_solidarity_medal" file="\skin\Collar_skin.tga" imgrect="124 0 30 30" CMM_Caption="결속의 증표 칭호"/>
 		<image name="Collar_event_1806_soccer" file="\skin\Collar_skin.tga" imgrect="155 0 30 30" CMM_Caption="2018 축구 칭호"/>
 		<image name="Collar_PoPo_Vacation" file="\skin\Collar_skin.tga" imgrect="62 31 30 30" CMM_Caption="스팀 2019여름 팬아트 "/>
+		<image name="Collar_One_of_A_Kind" file="\skin\Collar_skin.tga" imgrect="93 31 30 30" CMM_Caption="2019 스팀 겨울 팬아트"/>
 	</imagelist>
 	<imagelist category="testse_image">
 		<image name="indun_soulcrystal_bg" file="\skin\indun_skin.tga" imgrect="614 552 84 86" CMM_Caption="소울크리스탈 횟수제한 UI"/>
@@ -7323,6 +7324,8 @@
 		<image name="very_nice_stamp_eng" file="\skin\stamp_tour.tga" imgrect="1079 340 124 124" CMM_Caption="a++ 도장"/>
 		<image name="casual_gambling_slot" file="\skin\god_protect_skin.tga" imgrect="714 391 110 110" CMM_Caption="캐주얼 던전 겜블 슬롯"/>
 		<image name="gold_arrow_below" file="\skin\monstercard.tga" imgrect="1 915 65 81" CMM_Caption="황금화살표 아래 방향"/>
+		<image name="vaivora_decorate_attendance" file="\skin\attendance_sheet_skin.tga" imgrect="1 1004 329 116" CMM_Caption="2020 출석체크 타이틀 데코레이션"/>
+		<image name="rainbow_attendance" file="\skin\attendance_sheet_skin.tga" imgrect="1 1121 323 119" CMM_Caption="2020 출석체크 레인보우"/>
 	</imagelist>
 	<imagelist category="je_button">
 		<image name="menu_guild_info" file="\skin\guild_skin.tga" imgrect="165 298 45 45" CMM_Caption="길드 정보"/>
@@ -8513,6 +8516,21 @@
 		<image name="kupole_emotion06" file="\icon\emoticon\kupole_emotion06.png" imgrect="0 0 128 128"/>
 		<image name="medeina_emotion02" file="\icon\emoticon\medeina_emotion01.png" imgrect="0 0 128 128"/>
 		<image name="medeina_emotion01" file="\icon\emoticon\medeina_emotion02.png" imgrect="0 0 128 128"/>
+		<image name="bakarine_emotion55" file="\icon\emoticon\bakarine_emotion01.png" imgrect="0 0 128 128"/>
+		<image name="bakarine_emotion56" file="\icon\emoticon\bakarine_emotion02.png" imgrect="0 0 128 128"/>
+		<image name="bakarine_emotion57" file="\icon\emoticon\bakarine_emotion03.png" imgrect="0 0 128 128"/>
+		<image name="bakarine_emotion58" file="\icon\emoticon\bakarine_emotion08.png" imgrect="0 0 128 128"/>
+		<image name="bakarine_emotion59" file="\icon\emoticon\bakarine_emotion04.png" imgrect="0 0 128 128"/>
+		<image name="bakarine_emotion60" file="\icon\emoticon\bakarine_emotion10.png" imgrect="0 0 128 128"/>
+		<image name="bakarine_emotion61" file="\icon\emoticon\bakarine_emotion06.png" imgrect="0 0 128 128"/>
+		<image name="bakarine_emotion62" file="\icon\emoticon\bakarine_emotion09.png" imgrect="0 0 128 128"/>
+		<image name="bakarine_emotion63" file="\icon\emoticon\bakarine_emotion05.png" imgrect="0 0 128 128"/>
+		<image name="bakarine_emotion64" file="\icon\emoticon\bakarine_emotion07.png" imgrect="0 0 128 128"/>
+		<image name="bakarine_emotion65" file="\icon\emoticon\bakarine_emotion11.png" imgrect="0 0 128 128"/>
+		<image name="bakarine_emotion66" file="\icon\emoticon\bakarine_emotion12.png" imgrect="0 0 128 128"/>
+		<image name="bakarine_emotion67" file="\icon\emoticon\bakarine_emotion13.png" imgrect="0 0 128 128"/>
+		<image name="bakarine_emotion68" file="\icon\emoticon\bakarine_emotion14.png" imgrect="0 0 128 128"/>
+		<image name="bakarine_emotion69" file="\icon\emoticon\bakarine_emotion15.png" imgrect="0 0 128 128"/>
 	</imagelist>
 	<imagelist category="itemtooltip_image">
 		<image name="circle_gem" file="\skin\tooltip_skin_3.tga" imgrect="805 228 30 30"/>
@@ -10093,6 +10111,8 @@
 		<image name="icon_ability_archer_arbalester16" file="\icon\buff_icon3.tga" imgrect="128 256 128 128" CMM_Caption="아발리스터 버프01"/>
 		<image name="icon_ability_archer_arbalester17" file="\icon\buff_icon3.tga" imgrect="256 256 128 128" CMM_Caption="아발리스터 버프02"/>
 		<image name="icon_ability_Wizard_terramancer17" file="\icon\buff_icon3.tga" imgrect="384 256 128 128" CMM_Caption="테라맨서 버프"/>
+		<image name="icon_newb_return_personal" file="\icon\buff_icon3.tga" imgrect="640 256 128 128" CMM_Caption="신규,복귀_개인"/>
+		<image name="icon_newb_return_party" file="\icon\buff_icon3.tga" imgrect="768 256 128 128" CMM_Caption="신규,복귀_파티"/>
 	</imagelist>
 	<imagelist category="housing_bufficon">
 		<image name="icon_Weapon_Klaida" file="\icon\icon_hosing_buff.tga" imgrect="0 0 128 128"/>

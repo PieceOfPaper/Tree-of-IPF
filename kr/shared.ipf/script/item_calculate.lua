@@ -1472,9 +1472,13 @@ function SCR_GET_STA_COOLDOWN(item)
   return item.ItemCoolDown;
 end
 
-function SCR_GET_HP_COOLDOWN(item)
+function SCR_GET_HP_COOLDOWN(item)    
+    local owner = GetItemOwner(item)    
+    if owner == nil then
+        return 30000
+    end
+    
     ---GuildColony POTION_TP CoolTime Setting---
-    local owner = GetItemOwner(item)
     local iscolonyzone = IsJoinColonyWarMap(owner)
     if iscolonyzone == 1 then
         if item.CoolDownGroup == "HPPOTION_TP" then

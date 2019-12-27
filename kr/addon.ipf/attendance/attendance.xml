@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by IMC (IMCGames Co., Ltd) -->
-<uiframe name="attendance" x="0" y="0" width="1100" height="680" create="open">
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<uiframe name="attendance" x="0" y="0" width="1100" height="799" create="open">
 	<frame fasthide="true" layout_gravity="center center" margin="0 0 0 0"/>
 	<input moveable="true" hittestframe="true" moveintitlebar="false" resize="true"/>
 	<draw drawframe="false" drawtitlebar="false"/>
@@ -10,11 +10,14 @@
 	<animation frameOpenAnim="chat_balloon_start" frameCloseAnim="chat_balloon_end" margin="-100 -100 0 0"/>
 	<userconfig NORMAL_BG="attendance_nomal_bg" SPECIAL_BG="attendance_special_bg" SPECIAL_DATE_FONTNAME="white_18" REWARD_MARGIN_HORZ="-7" REWARD_MARGIN_VERT="-7" REWARD_WEEK_SLOT_OFFSET_Y="108"/>
 	<controls>
-		<groupbox name="bgBox" rect="0 0 1100 475" margin="0 0 0 0" draw="true" layout_gravity="left top" skin="test_h_scroll_skin" hittest="false"/>
-		<groupbox name="titleBox" rect="0 0 495 75" parent="bgBox" margin="0 3 0 0" draw="true" layout_gravity="center top" skin="test_h_redribbon_skin" hittest="false"/>
+		<groupbox name="titlebgBox" rect="0 0 329 119" margin="0 0 0 0" draw="false" layout_gravity="center top" skin="None" hittest="false" scrollbar="false"/>
+		<picture name="title_pic_rainbow" parent="titlebgBox" margin="0 13 0 0" rect="0 0 329 119" hittest="false" image="rainbow_attendance" stretch="true" changecursor="false" layout_gravity="center top"/>
+		<picture name="title_pic_decorate" parent="titlebgBox" margin="0 13 0 0" rect="0 0 329 116" hittest="false" image="vaivora_decorate_attendance" stretch="true" changecursor="false" layout_gravity="center top"/>
+		<groupbox name="bgBox" rect="0 0 1100 475" margin="0 100 0 0" draw="true" layout_gravity="left top" skin="test_h_scroll_skin" hittest="false"/>
+		<groupbox name="titleBox" rect="0 0 495 75" parent="bgBox" margin="0 0 0 0" draw="true" layout_gravity="center top" skin="test_h_redribbon_skin" hittest="false"/>
 		<richtext name="titleText" rect="0 0 600 75" parent="titleBox" margin="0 3 0 0" layout_gravity="center center" format="{@st43}{s20}%s" param1="name" param1_def="" fontname="white_18_b_ol" hittest="false"/>
-		<button name="closeBtn" rect="0 0 37 37" margin="0 41 60 0" layout_gravity="right top" image="gold_close_button" texttooltip="출석 UI를 닫습니다." LBtnUpScp="ui.CloseFrame('attendance')"/>
-		<groupbox name="rewardBox" rect="0 0 765 224" margin="0 85 0 0" layout_gravity="center top" skin="test_frame_midle"/>
+		<button name="closeBtn" rect="0 0 37 37" margin="0 141 60 0" layout_gravity="right top" image="gold_close_button" texttooltip="출석 UI를 닫습니다." LBtnUpScp="ui.CloseFrame('attendance')"/>
+		<groupbox name="rewardBox" parent="" rect="0 0 765 224" margin="0 185 0 0" layout_gravity="center top" skin="test_frame_midle"/>
 		<groupbox name="dayBox" parent="bgBox" rect="0 0 180 80" margin="150 0 0 70" layout_gravity="left bottom" skin="test_browntitle_skin" hittest="false"/>
 		<richtext name="dayText" rect="0 0 180 30" parent="dayBox" margin="0 8 0 0" layout_gravity="center top" caption="출석 체크 기간" fontname="white_16_b_ol" hittest="false"/>
 		<richtext name="periodText1" rect="0 0 180 30" parent="dayBox" margin="10 33 0 0" layout_gravity="left top" caption="yyyy.mm.dd" fontname="black_16_b"/>

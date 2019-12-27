@@ -7,19 +7,13 @@
                 <Frame Type="FAN" Time="9799" HitCount="1" TermMin="0" TermMax="0" PosType="0" Dist="0" RandDist="0" RandomPerHit="0" Angle="0" AniTime="9999" RotAngle="0" ForceATK="0"/>
             </HitList>
             <EtcList>
-                <Scp Scp="MONSKL_C_PLAY_ANIM" Client="YES" UseSleep="NO" Time="0">
-                    <Str Str="BUFF"/>
-                    <Num Num="1"/>
-                    <Num Num="1"/>
-                    <Num Num="0"/>
-                </Scp>
                 <Scp Scp="C_VOICE_SOUND" Client="YES" UseSleep="NO" Time="100">
                     <Str Str="voice_scout_m_barong_shot"/>
                     <Str Str="voice_scout_f_barong_shot"/>
                 </Scp>
                 <Scp Scp="MONSKL_CRE_MON" Client="NO" UseSleep="NO" Time="300">
                     <Str Str="pcskill_Barong"/>
-                    <Pos Angle="0" Dist="30" Rand="30"/>
+                    <Pos Angle="0" Dist="0" Rand="30" />
                     <Angle Angle="0"/>
                     <Str Str="" UseFunc="1" FuncTxt="return self.Name"/>
                     <Str Str="PC_Summon"/>
@@ -222,23 +216,17 @@ return 10000 + addTime * 1000"/>
                 <Frame Type="FAN" Time="9799" HitCount="1" TermMin="0" TermMax="0" PosType="0" Dist="0" RandDist="0" RandomPerHit="0" Angle="0" AniTime="9999" RotAngle="0" ForceATK="0"/>
             </HitList>
             <EtcList>
-                <Scp Scp="MONSKL_C_PLAY_ANIM" Client="YES" UseSleep="NO" Time="0">
-                    <Str Str="SKL_KELETIHAN"/>
-                    <Num Num="1.5"/>
-                    <Num Num="1"/>
-                    <Num Num="0"/>
-                </Scp>
                 <Scp Scp="C_VOICE_SOUND" Client="YES" UseSleep="NO" Time="100">
                     <Str Str="voice_scout_m_keletihan_shot"/>
                     <Str Str="voice_scout_f_keletihan_shot"/>
                 </Scp>
-                <Scp Scp="C_EFFECT_POS" Client="YES" UseSleep="NO" Time="300">
+                <Scp Scp="C_EFFECT_POS" Client="YES" UseSleep="NO" Time="200">
                     <Str_Arg Str="I_Scout_Keletihan" Arg="1.2"/>
                     <Pos Angle="0" Dist="100"/>
                     <Num Num="0"/>
                     <Str Str="None"/>
                 </Scp>
-                <Scp Scp="SKL_SET_TARGET_CIRCLE" Client="NO" UseSleep="NO" Time="600">
+                <Scp Scp="SKL_SET_TARGET_CIRCLE" Client="NO" UseSleep="NO" Time="300">
                     <Pos Angle="0" Dist="100"/>
                     <Num Num="150"/>
                     <Num Num="5" UseFunc="1" FuncTxt="local value = 7 + (self.SR/5);
@@ -250,7 +238,7 @@ return 10000 + addTime * 1000"/>
                     <Num Num="0"/>
                     <Num Num="1"/>
                 </Scp>
-                <Scp Scp="SKL_TGT_BUFF" Client="NO" UseSleep="NO" Time="600">
+                <Scp Scp="SKL_TGT_BUFF" Client="NO" UseSleep="NO" Time="300">
                     <Str Str="Keletihan_Debuff"/>
                     <Num Num="1" UseFunc="1" FuncTxt="return obj.Level;"/>
                     <Num Num="0"/>
@@ -260,7 +248,7 @@ return 10000 + addTime * 1000"/>
                     <Num Num="0"/>
                     <Num Num="0"/>
                 </Scp>
-                <Scp Client="NO" Scp="SKL_TGT_REMOVE_BUFF" Time="700" UseSleep="NO">
+                <Scp Client="NO" Scp="SKL_TGT_REMOVE_BUFF" Time="300" UseSleep="NO">
                 <Str FuncTxt="local func_name = 'get_remove_buff_tooltip_' .. TryGetProp(obj, 'ClassName', 'None')
                local func = _G[func_name]
                if func == nil then return end

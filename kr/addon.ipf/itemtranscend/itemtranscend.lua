@@ -270,6 +270,7 @@ function SET_TRANSCEND_RESET(frame)
 
 	local gbox = frame:GetChild("gbox");
 	local reg = GET_CHILD_RECURSIVELY(gbox, "reg");
+	reg:SetTextByKey("value", ScpArgMsg('ItemDecomposeWarningProp_Transcend'))
 end
 
 -- 올려져있는 재료 아이템 클릭시 
@@ -556,6 +557,7 @@ function TRANSCEND_SET_MATERIAL_ITEM(frame, iesID, count)
 	local needTxt = string.format("{@st43b}{s16}%s{/}{nl}%s{/}{nl}%s{/}", ScpArgMsg("ITEMTRANSCEND_MTRL_NUM_TOOLTIP{font}", "font", tooltipFont), ScpArgMsg("ITEMTRANSCEND_GUIDE_SECOND"), GET_TRANSCEND_MAXCOUNT_TXT(targetObj));	
 	local gbox = frame:GetChild("gbox");
 	local reg = GET_CHILD_RECURSIVELY(gbox, "reg");
+	reg:SetTextByKey("value", ScpArgMsg('ItemDecomposeWarningProp_Transcend'))
 end
 
 
@@ -645,6 +647,7 @@ function _ITEMTRANSCEND_EXEC(checkRebuildFlag)
 	
 	local gbox = frame:GetChild("gbox");
 	local reg = GET_CHILD_RECURSIVELY(gbox, "reg");
+	reg:SetTextByKey("value", ScpArgMsg('ItemDecomposeWarningProp_Transcend'))
 
 	slot_material:StopActiveUIEffect();
 	local materialCount = slot_material:GetIcon():GetInfo().count;	

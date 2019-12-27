@@ -42,6 +42,28 @@ function get_hp_recovery_ratio(pc, value)
     return math.floor(ratio)
 end
 
+-- sp 자연회복 가능 여부
+function get_sp_recovery_enable(pc)
+    local buffKeywordList = { "Curse", "Formation", "SpDrain", "UnrecoverableSP", "NoneRecoverableSP" };
+    for i = 1, #buffKeywordList do
+        if GetBuffByProp(pc, 'Keyword', buffKeywordList[i]) ~= nil then
+            return 0
+        end
+    end
+
+    return 1
+end
+
+function get_sp_recovery_time(pc)
+    local value = SCR_GET_RSPTIME(pc)
+    
+    if IsBuffApplied(pc, 'ManaAmplify_Debuff') == 'YES' then
+        value = 20000
+    end
+
+    return value
+end
+
 -- hp 회복력
 function get_RHP_ratio_for_status(value)
     local applied_value = get_hp_recovery_ratio(nil, value)
