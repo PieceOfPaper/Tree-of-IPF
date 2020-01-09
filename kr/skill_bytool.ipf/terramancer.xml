@@ -355,14 +355,6 @@
             </ToolScp>
         </KeyInputStart>
         <KeyInputEnd>
-            <ToolScp Scp="MONSKL_PAD_MOVE_BY_SPEED" Client="NO" UseSleep="NO">
-                <Str Str="TerraMancer_RollingStone_DamagePad"/>
-                <Num Num="0"/>
-                <Pos Angle="0" Dist="0" PosType="1"/>
-                <Num Num="50"/>
-                <Num Num="0"/>
-                <Num Num="0"/>
-            </ToolScp>
             <ToolScp Scp="MONSKL_C_RESET_CASTING_ANIM" Client="YES" UseSleep="NO"/>
             <ToolScp Scp="C_EFFECT_DETACH" Client="YES" UseSleep="NO">
                 <Str_Arg Str="F_cleric_Implosion_cast_loop" Arg="1"/>

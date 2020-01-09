@@ -1407,7 +1407,8 @@
 	</controlset>
 	<controlset name="postbox_list2" hittest="true" width="430" height="60" hittestset="true" draw="true" skin="test_skin_01" stateskin="false">
 		<controls>
-			<richtext name="title" margin="7 5 0 0" rect="0 0 400 30" format="%s" param1="value" param1_def="PostBoxTitles" textalign="left center" resizebytext="false" spacey="0" maxwidth="0" fontname="brown_16_b" fixwidth="true" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top" hittest="false" omitbywidth="true"/>
+			<richtext name="title" margin="7 5 0 0" rect="0 0 350 30" format="%s" param1="value" param1_def="PostBoxTitles" textalign="left center" resizebytext="false" spacey="0" maxwidth="0" fontname="brown_16_b" fixwidth="true" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top" hittest="false" omitbywidth="true"/>
+			<picture name="pic_postNew" margin="0 3 7 0" rect="0 0 35 35" image="collection_new" layout_gravity="right top" hittest="true" stretch="true" changecursor="false" visible="true"/>
 			<labelline name="labelline_1" margin="8 37 0 0" rect="0 0 410 1" skin="labelline_def" layout_gravity="left top"/>
 			<labelline name="labelline_2" margin="8 0 0 47" rect="0 0 410 1" skin="labelline_def" layout_gravity="left bottom"/>
 			<button name="btn_delete" margin="2 0 0 3" rect="0 0 45 45" image="M-delete_btn" layout_gravity="left bottom" caption="" clicksound="button_click_big" oversound="button_over" LBtnUpScp="POSTBOX_DELETE"/>

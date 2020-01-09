@@ -10,7 +10,7 @@
 	<sound opensound="sys_map_open" closesound="sys_map_close"/>
 	<animation frameOpenAnim="chat_balloon_start" frameCloseAnim="chat_balloon_end2"/>
 	<script OpenScp="OPEN_WORLDMAP" CloseScp="CLOSE_WORLDMAP"/>
-	<userconfig COLONY_LEAGUE1_NOT_OCCUPIED_IMG="colonymap_unoccupation2" COLONY_LEAGUE2_NOT_OCCUPIED_IMG="colonymap_unoccupation" COLONY_PROGRESS_IMG="colonymap_in_progress" COLONY_IMG_SIZE="74"/>
+	<userconfig COLONY_LEAGUE1_NOT_OCCUPIED_IMG="colonymap_unoccupation2" COLONY_LEAGUE2_NOT_OCCUPIED_IMG="colonymap_unoccupation" COLONY_PROGRESS_IMG="colonymap_in_progress" COLONY_IMG_SIZE="74" UNCONFIREMED_WARP_FONT_COLOR="{#FF5E00}"/>
 	<controls>
 		<groupbox name="gb" margin="0 0 0 0" rect="0 0 1920 1080" hittestbox="true" skin="fullblack_bg" layout_gravity="center center" LBtnUpScp="WORLDMAP_LBTNUP" LBtnDownScp="WORLDMAP_LBTNDOWN" MouseWheelScp="WORLDMAP_MOUSEWHEEL" changecursor="false" stretch="true"/>
 		<picture name="pic" rect="0 0 3480 7250" margin="0 0 0 0" layout_gravity="left top" image="worldmap_s_bg" stretch="true" hittest="true" LBtnUpScp="WORLDMAP_LBTNUP" LBtnDownScp="WORLDMAP_LBTNDOWN" MouseWheelScp="WORLDMAP_MOUSEWHEEL"/>
@@ -21,12 +21,12 @@
 		<button name="open_map" rect="0 0 120 40" margin="0 18 120 0" layout_gravity="right top" LBtnUpScp="CLOSE_AND_OPEN_UI" LBtnUpArgStr="map" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" caption="{@st42b}지역{/}" skin="test_gray_button" clicksound="button_click_big" oversound="button_over" texttooltip="{@st59}지도를 엽니다{/}"/>
 		<button name="btn_plus" rect="0 0 44 44" margin="0 340 210 0" layout_gravity="right top" LBtnUpScp="WORLDMAP_CHANGESIZE" LBtnUpArgNum="1" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" image="btn_worldmap_zoomin" clicksound="button_click_big" oversound="button_over" texttooltip="{@st59}지도를 확대합니다{/}"/>
 		<button name="btn_minus" rect="0 0 44 44" margin="0 340 100 0" layout_gravity="right top" LBtnUpScp="WORLDMAP_CHANGESIZE" LBtnUpArgNum="-1" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" image="btn_worldmap_zoomout" clicksound="button_click_big" oversound="button_over" texttooltip="{@st59}지도를 축소합니다{/}"/>
-		<button name="btn_lastwarp" rect="0 0 44 44" margin="0 380 205 0" layout_gravity="right top" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" image="button_accept_img" clicksound="button_click_big" oversound="button_over" texttooltip="{@st59}마지막 워프 지역을 봅니다{/}" LBtnUpScp="WORLDMAP_LOCATE_LASTWARP"/>
-		<button name="btn_nowpos" rect="0 0 44 44" margin="0 380 155 0" layout_gravity="right top" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" image="button_pos_img" clicksound="button_click_big" oversound="button_over" texttooltip="{@st59}현재 위치를 봅니다{/}" LBtnUpScp="WORLDMAP_LOCATE_NOWPOS"/>
-		<button name="btn_dungeon" rect="0 0 44 44" margin="0 380 105 0" layout_gravity="right top" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" image="button_dungeon_img" clicksound="button_click_big" oversound="button_over" texttooltip="{@st59}추천 던전 위치를 봅니다{/}" LBtnUpScp="WORLDMAP_LOCATE_RECOMMENDDED_DUNGEON"/>
+		<button name="btn_lastwarp" rect="0 0 44 44" margin="0 380 175 0" layout_gravity="right top" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" image="button_accept_img" clicksound="button_click_big" oversound="button_over" texttooltip="{@st59}마지막 워프 지역을 봅니다{/}" LBtnUpScp="WORLDMAP_LOCATE_LASTWARP"/>
+		<button name="btn_nowpos" rect="0 0 44 44" margin="0 380 125 0" layout_gravity="right top" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" image="button_pos_img" clicksound="button_click_big" oversound="button_over" texttooltip="{@st59}현재 위치를 봅니다{/}" LBtnUpScp="WORLDMAP_LOCATE_NOWPOS"/>
 		<groupbox name="editSkin" margin="0 430 10 0" rect="0 0 350 38" hittestbox="false" skin="test_weight_skin" layout_gravity="right top"/>
 		<edit name="input_search" margin="0 436 70 0" rect="0 0 280 26" fontname="white_18_ol" maxlen="16" EnterKeyScp="WORLDMAP_SEARCH_BY_NAME" numbermode="false" drawbackground="false" OffsetForDraw="0 -1" skin="None" layout_gravity="right top" typingsound="chat_typing"/>
 		<button name="btn_search" image="inven_s" margin="0 430 10 0" rect="0 0 60 38" layout_gravity="right top" LBtnUpScp="WORLDMAP_SEARCH_BY_NAME" oversound="button_over" clicksound="button_click_big"/>
-		<checkbox name="showAllWorldMap" rect="0 0 120 30" margin="0 480 120 0" layout_gravity="right top" ConfigName="ShowAllWorldMap" LBtnUpScp="UPDATE_SHOW_ALL_WORLDMAP" caption="{@st66w}모든 맵 표시{/}" clicksound="button_click_big" oversound="button_over"/>
+		<checkbox name="showAllWorldMap" rect="0 0 120 30" margin="0 480 120 0" layout_gravity="right top" ConfigName="ShowAllWorldMap" LBtnUpScp="UPDATE_SHOW_ALL_WORLDMAP" caption="{@st42b}{ds}{s18}모든 맵 표시{/}" clicksound="button_click_big" oversound="button_over"/>
+		<checkbox name="showUnConfirmedWarp" rect="0 0 120 30" margin="0 514 95 0" layout_gravity="right top" ConfigName="showUnConfirmedWarp" LBtnUpScp="UPDATE_UNCONFIRME_WARP_WORLDMAP" caption="{@st42b}{ds}{s18}{#FF5E00}미확인 여신상 표시{/}" clicksound="button_click_big" oversound="button_over" checked="false"/>
 	</controls>
 </uiframe>

@@ -124,7 +124,7 @@
 			<HitList>
 				<Frame Type="FAN" Time="9799" HitCount="1" TermMin="0" TermMax="0" PosType="0" Dist="0" RandDist="0" RandomPerHit="0" Angle="0" SklAngle="0.17453292" AniTime="9999" RotAngle="0" ForceATK="0"/>
 			</HitList>
-			<EtcList>				
+			<EtcList>
 				<Scp Scp="MONSKL_C_PLAY_ANIM" Client="YES" UseSleep="NO" Time="0">
 					<Str Str="SKL_RITIRARSI"/>
 					<Num Num="1"/>
@@ -160,11 +160,11 @@
 					<Num Num="0"/>
 				</Scp>
 				<Scp Client="NO" Scp="SKL_TGT_REMOVE_DEBUFF" Time="450" UseSleep="NO">
-                <Str FuncTxt="local func_name = 'get_remove_debuff_tooltip_' .. TryGetProp(obj, 'ClassName', 'None')
+					<Str FuncTxt="local func_name = 'get_remove_debuff_tooltip_' .. TryGetProp(obj, 'ClassName', 'None')
                local func = _G[func_name]
                if func == nil then return end
                return func(obj.Level)" Str="0" UseFunc="1"/>
-               </Scp>
+				</Scp>
 				<Scp Scp="SKL_TGT_MOVE" Client="NO" UseSleep="YES" Time="900">
 					<Num Num="30"/>
 					<Num Num="65"/>
@@ -175,7 +175,7 @@
 					<Num Num="0.34999999"/>
 					<Num Num="0.69999999"/>
 					<Num Num="0"/>
-				</Scp>								
+				</Scp>
 				<Scp Scp="MONSKL_C_STOP_ANIM" Client="YES" UseSleep="NO" Time="1200"/>
 			</EtcList>
 		</MainSkl>
@@ -212,17 +212,17 @@
 					<Str Str="Recupero_Buff"/>
 					<Num FuncTxt="return obj.Level" Num="1" UseFunc="1"/>
 					<Num Num="0"/>
-					<Num Num="500" UseFunc="1" FuncTxt="local abil = GetAbility(self, &quot;Arditi11&quot;) local value = 500 if abil ~= nil and abil.ActiveState == 1 then value = 30000 end  return value" />
+					<Num Num="500" UseFunc="1" FuncTxt="local abil = GetAbility(self, &quot;Arditi11&quot;) local value = 500 if abil ~= nil and abil.ActiveState == 1 then value = 30000 end  return value"/>
 					<Num Num="1"/>
 					<Num Num="100"/>
 					<Num Num="0"/>
 				</Scp>
 				<Scp Client="NO" Scp="SKL_TGT_REMOVE_DEBUFF" Time="650" UseSleep="NO">
-                <Str FuncTxt="local func_name = 'get_remove_debuff_tooltip_' .. TryGetProp(obj, 'ClassName', 'None')
+					<Str FuncTxt="local func_name = 'get_remove_debuff_tooltip_' .. TryGetProp(obj, 'ClassName', 'None')
                local func = _G[func_name]
                if func == nil then return end
                return func(obj.Level)" Str="0" UseFunc="1"/>
-               </Scp>
+				</Scp>
 			</EtcList>
 		</MainSkl>
 	</Skill>
@@ -256,14 +256,14 @@
 					<Str Str="voice_atk_long_cast_f"/>
 				</Scp>
 			</EtcList>
-      <ResultList>
-        <ToolScp Client="NO" Scp="S_R_TGT_Decrease_heal_debuff" UseSleep="NO">
-          <Str FuncTxt="local func_name = 'get_decrease_heal_debuff_tooltip_' .. TryGetProp(skill, 'ClassName', 'None')
+			<ResultList>
+				<ToolScp Client="NO" Scp="S_R_TGT_Decrease_heal_debuff" UseSleep="NO">
+					<Str FuncTxt="local func_name = 'get_decrease_heal_debuff_tooltip_' .. TryGetProp(skill, 'ClassName', 'None')
                local func = _G[func_name]
                if func == nil then return end
                return func(skill.Level)" Str="0" UseFunc="1"/>
-        </ToolScp>
-      </ResultList>
+				</ToolScp>
+			</ResultList>
 		</MainSkl>
 	</Skill>
 	<Skill Name="Arditi_Taglio">
@@ -287,7 +287,7 @@
 				<Num Num="0"/>
 				<Num Num="1"/>
 				<Num Num="0"/>
-				<Str_Arg Arg="0" Str="None" />
+				<Str_Arg Arg="0" Str="None"/>
 				<Str Str="None"/>
 				<Num Num="0"/>
 				<Num Num="0"/>
@@ -302,7 +302,7 @@
 		<KeyInputStart>
 			<ToolScp Client="NO" Scp="SKL_BUFF" UseSleep="NO">
 				<Str Str="Taglio_Buff"/>
-				<Num FuncTxt="return obj.Level" Num="1" UseFunc="1" />
+				<Num FuncTxt="return obj.Level" Num="1" UseFunc="1"/>
 				<Num Num="0"/>
 				<Num Num="0"/>
 				<Num Num="1"/>
@@ -328,7 +328,7 @@
 				<Num Num="0"/>
 				<Str Str="voice_war_atk_long_cast"/>
 			</ToolScp>
-			</KeyInputStart>
+		</KeyInputStart>
 		<KeyInputEnd>
 			<ToolScp Client="NO" Scp="SKL_BUFF_REMOVE" UseSleep="NO">
 				<Str Str="Taglio_Buff"/>
@@ -344,7 +344,7 @@
 				<Str Str="voice_war_atk_long_cast"/>
 			</ToolScp>
 		</KeyInputEnd>
-		<MainSkl JumpFlee="NO" MSPDToUsePos="0"ScrLock="None">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
 			<HitList>
 				<Frame Angle="0" AniTime="10199" Dist="0" ForceATK="0" HitCount="1" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" TermMax="0" TermMin="0" Time="9999" Type="FAN"/>
 			</HitList>

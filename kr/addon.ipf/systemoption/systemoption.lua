@@ -43,7 +43,17 @@ function INIT_LANGUAGE_CONFIG(frame)
 	for i = 0 , cnt - 1 do
 
 		local lanUIString = option.GetPossibleCountryUIName(i);
-		catelist:AddItem(i, lanUIString);
+		local NationGroup = GetServerNation();
+		
+		if (lanUIString ~= "kr") then 
+			if NationGroup == "GLOBAL" then
+				if (lanUIString ~= "Japanese")then
+					catelist:AddItem(i, lanUIString);
+				end
+			else
+				catelist:AddItem(i, lanUIString);
+			end
+		end
 
 		local lanString = option.GetPossibleCountry(i);
 
@@ -102,13 +112,14 @@ function INIT_SCREEN_CONFIG(frame)
 end
 
 function INIT_SOUND_CONFIG(frame)
-
+	
 	SET_SLIDE_VAL(frame, "soundVol", "soundVol_text", config.GetSoundVolume());
 	SET_SLIDE_VAL(frame, "musicVol", "musicVol_text", config.GetMusicVolume());
 	SET_SLIDE_VAL(frame, "flutingVol", "flutingVol_text", config.GetFlutingVolume());
 	SET_SLIDE_VAL(frame, "totalVol", "totalVol_text", config.GetTotalVolume());	
 	SET_SLIDE_VAL(frame, "effect_transparency_my_value", "effect_transparency_my", config.GetMyEffectTransparency());
 	SET_SLIDE_VAL(frame, "effect_transparency_other_value", "effect_transparency_other", config.GetOtherEffectTransparency());
+	SET_SLIDE_VAL(frame, "effect_transparency_boss_monster_value", "effect_transparency_boss_monster", config.GetBossMonsterEffectTransparency());
 
 	local isOtherFlutingEnable = config.IsEnableOtherFluting();
 	local chkOtherFlutingEnable = GET_CHILD_RECURSIVELY(frame, "check_fluting");
@@ -701,6 +712,13 @@ function CONFIG_OTHER_EFFECT_TRANSPARENCY(frame, ctrl, str, num)
 	SET_SLIDE_VAL(frame, "effect_transparency_other_value", "effect_transparency_other", config.GetOtherEffectTransparency());
 end
 
+function CONFIG_BOSSMON_EFECT_TRANSPARENCY(frame, ctrl, str, num)
+	tolua.cast(ctrl, "ui::CSlideBar");
+	config.SetBossMonsterEffectTransparency(ctrl:GetLevel());
+	
+	SET_SLIDE_VAL(frame, "effect_transparency_boss_monster_value", "effect_transparency_boss_monster", config.GetBossMonsterEffectTransparency());
+end
+
 function CONFIG_OTHER_PC_EFFECT(frame, ctrl, str, num)
 	local isEnable = ctrl:IsChecked();
 	if isEnable == 0 then
@@ -723,8 +741,12 @@ function EFFECT_TRANSPARENCY_ON()
 	local frame = ui.GetFrame("systemoption");
 	local effect_transparency_my_value = GET_CHILD_RECURSIVELY(frame, "effect_transparency_my_value", "ui::CSlideBar");
 	effect_transparency_my_value:SetEnable(1);
+
 	local effect_transparency_other_value = GET_CHILD_RECURSIVELY(frame, "effect_transparency_other_value", "ui::CSlideBar");
 	effect_transparency_other_value:SetEnable(1);
+
+	local effect_transparency_boss_monster_value = GET_CHILD_RECURSIVELY(frame, "effect_transparency_boss_monster_value", "ui::CSlideBar");
+	effect_transparency_boss_monster_value:SetEnable(1);
 end
 
 function EFFECT_TRANSPARENCY_OFF()
@@ -741,6 +763,11 @@ function EFFECT_TRANSPARENCY_OFF()
 	effect_transparency_other_value:SetLevel(255);
 	CONFIG_OTHER_EFFECT_TRANSPARENCY(frame, effect_transparency_other_value, "", 0);
 	effect_transparency_other_value:SetEnable(0);
+
+	local effect_transparency_boss_monster_value = GET_CHILD_RECURSIVELY(frame, "effect_transparency_boss_monster_value", "ui::CSlideBar");
+	effect_transparency_boss_monster_value:SetLevel(255);
+	CONFIG_BOSSMON_EFECT_TRANSPARENCY(frame, effect_transparency_boss_monster_value, "", 0);
+	effect_transparency_boss_monster_value:SetEnable(0);
 end
 
 function CONFIG_TEXTEFFECT_NOT_SHOW(frame, ctrl, str, num)

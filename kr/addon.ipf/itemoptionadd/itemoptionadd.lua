@@ -504,7 +504,8 @@ function ITEMOPTIONADD_EXEC(frame)
 
 	if (TryGetProp(obj, 'InheritanceItemName', 'None') ~= 'None' and TryGetProp(obj_add, 'InheritanceItemName', 'None') ~= 'None')
 		or TryGetProp(obj, 'InheritanceRandomItemName', 'None') ~= 'None' and TryGetProp(obj_add, 'InheritanceRandomItemName', 'None') ~= 'None' then 
-		clmsg = ScpArgMsg("ExistingIcordeleted");
+		ui.SysMsg(ClMsg("AlearyIcorAdded"));
+		return;
 	end
 
 	ui.MsgBox_NonNested(clmsg, frame:GetName(), "_ITEMOPTIONADD_EXEC", "_ITEMOPTIONADD_CANCEL");

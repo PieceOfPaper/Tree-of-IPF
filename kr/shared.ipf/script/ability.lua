@@ -38,6 +38,27 @@ function CHECK_ABILITY_LOCK(pc, ability, isEnableLogging)
     else
         jobHistory = GetMyJobHistoryString();
     end
+
+    -- ability.xml 파일 내 정의된 Job값, 즉 특성 획득에 필요한 직업을 획득하였는가?
+    do
+        local requiredJobObtained = false
+
+        local jobHistoryList = StringSplit(jobHistory, ";")
+        local abilityJobList = StringSplit(ability.Job, ";")
+
+        for i = 1, #jobHistoryList do
+            for j = 1, #abilityJobList do
+                if jobHistoryList[i] == abilityJobList[j] then
+                    requiredJobObtained = true
+                end
+            end
+        end
+
+        if requiredJobObtained == false then
+            LOGGING_ABILITY_CHECK(isEnableLogging, ability.ClassName, "[LOCK] required job not obtained");
+            return "LOCK"
+        end
+    end
     
     if string.find(ability.Job, ";") == nil then
         

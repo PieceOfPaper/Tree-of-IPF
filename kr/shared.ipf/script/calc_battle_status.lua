@@ -77,7 +77,7 @@ end
 
 -- 추가 공격력 관련
 function get_calc_atk_value_for_status(pc, prop_value)
-    local value = prop_value / (pc.Lv * ITEM_ATK_POINT_MULTIPLE)
+    local value = prop_value / (pc.Lv * ITEM_ATK_POINT_MULTIPLE * 1.5)
     value = value * 100
 
     if value > 100 then

@@ -50,7 +50,7 @@
                     </ToolScp>
                 </StartScpList>
                 <ObjList>
-                    <Obj Type="Monster" MonType="40001" Pos="-2771.54#257.49#-4317.93" angle="91" genCount="1" genTime="20000" objectKey="0" autoDestroy="0" propList="&apos;Name&apos; &apos;대지의 탑 17층&apos; &apos;Enter&apos; &apos;G_TOWER_WARP_TO_37&apos; &apos;Range&apos; &apos;50&apos; ">
+                    <Obj Type="Monster" MonType="40001" Pos="-2771.54#257.49#-4317.93" angle="91" genCount="1" genTime="20000" objectKey="0" autoDestroy="0" propList="&apos;Name&apos; &apos;대지의 탑 37층&apos; &apos;Enter&apos; &apos;G_TOWER_WARP_TO_37&apos; &apos;Range&apos; &apos;50&apos; ">
                         <SelfAI ActiveMessageMapInBattle="1">
                             <StartList>
                                 <ToolScp Scp="S_AI_SERCH_OBJ_PLAY" Client="NO" UseSleep="NO">
@@ -685,5 +685,5 @@
                 <Str Str="M_GTOWER_2_4"/>
             </ToolScp>
         </EnterList>
-        </Game>
+    </Game>
 </GameList>

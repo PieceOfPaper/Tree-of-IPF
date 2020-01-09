@@ -1259,13 +1259,11 @@ end
 
 -- 2019Halloween_effect / moon effect
 function HalloweenMoon_effect_ENTER(actor, obj, buff)
-    if actor:GetBuff():IsUse2DEffect() == false then
-        actor:GetBuff():SetUse2DEffect(true);
-    end
+    actor:GetBuff():SetUse2DEffect(false);
 end
 
 function HalloweenMoon_effect_LEAVE(actor, obj, buff)
-    actor:GetBuff():SetUse2DEffect(false);
+    
 end
 
 -- doll_gabia

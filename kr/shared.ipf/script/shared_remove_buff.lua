@@ -159,7 +159,7 @@ end
 
 -- 레티아리이 - 투망 던지기
 function get_remove_buff_tooltip_Retiarii_ThrowingFishingNet(level)
-    local percent = 5 * tonumber(level)    
+    local percent = 15 * tonumber(level)    
     if percent > 100 then
         percent = 100
     end

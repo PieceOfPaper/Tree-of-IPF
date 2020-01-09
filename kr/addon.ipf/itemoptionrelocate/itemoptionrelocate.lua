@@ -398,13 +398,32 @@ function OPTION_RELOCATE_BUTTON_CLICK(frame, ctrl)
 		return;
 	end
 
-	local msg = ClMsg('ItemOptionRelocate_Check_Message_Awake');
 	local relocateType = frame:GetUserValue("RELOCATE_TYPE");
-	if relocateType == 'ENCHANT' then
-		msg = ClMsg('ItemOptionRelocate_Check_Message_Enchant');
-	end
+	if relocateType == 'AWAKE' then
+		local msg = ClMsg('ItemOptionRelocate_Check_Message_Awake');
+		WARNINGMSGBOX_FRAME_OPEN(msg, '_ITEMOPTIONRELOCATE_START', 'None');
+	elseif relocateType == 'ENCHANT' then		
+		local slot1 = GET_CHILD_RECURSIVELY(frame, "slot1");
+		local slot2 = GET_CHILD_RECURSIVELY(frame, "slot2");
 
-	WARNINGMSGBOX_FRAME_OPEN(msg, '_ITEMOPTIONRELOCATE_START', 'None');
+		local dest_item = GET_SLOT_ITEM(slot2);
+		local src_item = GET_SLOT_ITEM(slot1);
+		if dest_item == nil or src_item == nil then
+			return;
+		end
+
+		local dest_Obj = GetIES(dest_item:GetObject());
+		local src_Obj = GetIES(src_item:GetObject());
+
+		if IS_OPTION_RELOCATE_ENABLE_MARKET_TRADE_ITEM(dest_Obj) == false and IS_OPTION_RELOCATE_ENABLE_MARKET_TRADE_ITEM(src_Obj) == true then
+			local msg = ScpArgMsg('ItemOptionRelocate_Check_Message_Enchant{ITEM}', 'ITEM', dest_Obj.Name);
+			WARNINGMSGBOX_FRAME_OPEN(msg, '_ITEMOPTIONRELOCATE_START', 'None', dest_item:GetIESID());
+		else
+			local msg = ClMsg('ItemOptionRelocate_Check_Message_Enchant');
+			WARNINGMSGBOX_FRAME_OPEN(msg, '_ITEMOPTIONRELOCATE_START', 'None');
+		end
+
+	end
 end
 
 function _ITEMOPTIONRELOCATE_START()	

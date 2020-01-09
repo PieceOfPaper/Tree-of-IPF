@@ -131,6 +131,8 @@ function BEFORE_APPLIED_TOKEN_OPEN(invItem)
 		arg1 = 10800 -- 3시간
 	elseif itemobj.ClassName == "PremiumToken_15d" or itemobj.ClassName == "PremiumToken_15d_Steam" or itemobj.ClassName == "PremiumToken_15d_vk" then
 		arg1 = 1296000 -- 15일
+	elseif itemobj.ClassName == "PremiumToken_14d_event" then
+		arg1 = 1209600 -- 14일
 	end
 	local endTime = GET_TIME_TXT(arg1, 1)
 	local endTxt = frame:GetChild("endTime");

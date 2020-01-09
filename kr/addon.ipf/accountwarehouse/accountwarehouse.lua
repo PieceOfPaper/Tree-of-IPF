@@ -26,26 +26,27 @@ local function get_valid_index()
     local sortedCnt = sortedGuidList:Count();    
     
     local start_index = (current_tab_index * max_slot_per_tab)
-    local last_index =(start_index + max_slot_per_tab) -1
+    local last_index = (start_index + max_slot_per_tab) -1
     
     local __set = {}
     for i = 0, sortedCnt - 1 do
         local guid = sortedGuidList:Get(i)
-        if tostring(guid) ~= '0' then
-            local invItem = itemList:GetItemByGuid(guid)        
+        local invItem = itemList:GetItemByGuid(guid)
+        local obj = GetIES(invItem:GetObject());
+        if obj.ClassName ~= MONEY_NAME then
             if start_index <= invItem.invIndex and invItem.invIndex <= last_index and __set[invItem.invIndex] == nil then
-                __set[invItem.invIndex] = 1            
+                __set[invItem.invIndex] = 1
             end
         end
     end
 
-    local index = start_index    
-    for k, v in pairs(__set) do        
+    local index = start_index
+    for k, v in pairs(__set) do
         if __set[index] ~= 1 then
             break
         else
             index = index + 1
-        end    
+        end
     end
     
     return index
@@ -125,15 +126,14 @@ local function _CHECK_ACCOUNT_WAREHOUSE_SLOT_COUNT_TO_PUT(insertItem)
         local guid = guidList:Get(i);
         local invItem = itemList:GetItemByGuid(guid);
         local obj = GetIES(invItem:GetObject());
-        if insertItem == nil then
-            if obj.ClassName ~= MONEY_NAME and invItem.invIndex < max_slot_per_tab then
-                itemCnt = itemCnt + 1;
-            end
-        else
-            if obj.ClassName ~= MONEY_NAME and insertItem.ClassName ~= obj.ClassName and invItem.invIndex < max_slot_per_tab then
-                itemCnt = itemCnt + 1;
-            end
+        if obj.ClassName ~= MONEY_NAME and invItem.invIndex < max_slot_per_tab then
+            itemCnt = itemCnt + 1;
         end
+    end
+
+    if slotCount <= itemCnt and index < max_slot_per_tab then
+        ui.SysMsg(ClMsg('CannotPutBecauseMasSlot'));
+        return false;
     end
     
     if slotCount <= index and index < max_slot_per_tab then
@@ -206,7 +206,7 @@ function PUT_ACCOUNT_ITEM_TO_WAREHOUSE_BY_INVITEM(frame, invItem, slot, fromFram
             end
         end
 
-        if invItem.count > 1 then
+        if invItem.count > 1 then            
             INPUT_NUMBER_BOX(frame, ScpArgMsg("InputCount"), "EXEC_PUT_ITEM_TO_ACCOUNT_WAREHOUSE", maxCnt, 1, maxCnt, nil, tostring(invItem:GetIESID()));
         else
             if maxCnt <= 0 then
@@ -216,7 +216,7 @@ function PUT_ACCOUNT_ITEM_TO_WAREHOUSE_BY_INVITEM(frame, invItem, slot, fromFram
 
             local slotset = GET_CHILD_RECURSIVELY(frame, 'slotset');
             local goal_index = get_valid_index()                  
-            if invItem.hasLifeTime == true then
+            if invItem.hasLifeTime == true then                
                 local yesscp = string.format('item.PutItemToWarehouse(%d, "%s", "%s", %d, %d)', IT_ACCOUNT_WAREHOUSE, invItem:GetIESID(), tostring(invItem.count), frame:GetUserIValue('HANDLE'), goal_index);
                 ui.MsgBox(ScpArgMsg('PutLifeTimeItemInWareHouse{NAME}', 'NAME', itemCls.Name), yesscp, 'None');
                 return;
@@ -255,6 +255,32 @@ function PUT_ACCOUNT_ITEM_TO_WAREHOUSE(parent, slot)
     PUT_ACCOUNT_ITEM_TO_WAREHOUSE_BY_INVITEM(frame, invItem, slot, fromFrame);
 end
 
+-- return bool, index
+local function get_exist_item_index(insertItem)
+    local ret1 = false
+    local ret2 = -1
+    
+    if geItemTable.IsStack(insertItem.ClassID) == 1 then
+        local itemList = session.GetEtcItemList(IT_ACCOUNT_WAREHOUSE);    
+        local sortedGuidList = itemList:GetSortedGuidList();    
+        local sortedCnt = sortedGuidList:Count();
+        
+        for i = 0, sortedCnt - 1 do
+            local guid = sortedGuidList:Get(i);
+            local invItem = GetObjectByGuid(guid)
+            local invItem_obj = itemList:GetItemByGuid(guid)
+            if insertItem.ClassID == invItem.ClassID then
+                ret1 = true
+                ret2 = invItem_obj.invIndex
+                break
+            end
+        end
+        return ret1, ret2
+    else
+        return false, -1
+    end
+end
+
 function EXEC_PUT_ITEM_TO_ACCOUNT_WAREHOUSE(frame, count, inputframe)
     inputframe:ShowWindow(0);
     local iesid = inputframe:GetUserValue("ArgString");
@@ -264,7 +290,13 @@ function EXEC_PUT_ITEM_TO_ACCOUNT_WAREHOUSE(frame, count, inputframe)
     end
 
     local slotset = GET_CHILD_RECURSIVELY(frame, 'slotset');
-    local goal_index = get_valid_index()    
+    local goal_index = get_valid_index()
+
+    local exist, index = get_exist_item_index(insertItem)
+    if exist == true and index >= 0 then
+        goal_index = index
+    end
+    
     item.PutItemToWarehouse(IT_ACCOUNT_WAREHOUSE, iesid, tostring(count), frame:GetUserIValue("HANDLE"), goal_index);
     new_add_item[#new_add_item + 1] = iesid
     if geItemTable.IsStack(insertItem.ClassID) == 1 then
@@ -356,11 +388,11 @@ function ON_ACCOUNT_WAREHOUSE_ITEM_LIST(frame, msg, argStr, argNum, tab_index)
     saveMoney:SetTextByKey('value', 0);
 
     local start_index = (tab_index * max_slot_per_tab)
-    local last_index =(start_index + max_slot_per_tab) -1
+    local last_index = (start_index + max_slot_per_tab) - 1
     for i = 0, sortedCnt - 1 do
         local guid = sortedGuidList:Get(i);
         local invItem = itemList:GetItemByGuid(guid);
-        -- 현재 탭이 몇번이냐에 따라 그려주는 index의 번호를 선택해야 한다.            
+        -- 현재 탭이 몇번이냐에 따라 그려주는 index의 번호를 선택해야 한다.         
         if start_index <= invItem.invIndex and invItem.invIndex <= last_index then
             _DRAW_ITEM(invItem, slotset, saveMoney);
             isShowMap[guid] = true;

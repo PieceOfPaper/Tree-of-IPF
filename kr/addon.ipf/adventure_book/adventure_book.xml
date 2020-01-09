@@ -7,6 +7,7 @@
 	<option visible="false" hideable="true" closebutton="false" moveable="true" alwaysVisible="false"/>
 	<layer layerlevel="100"/>
 	<animation frameOpenAnim="chat_balloon_start" frameCloseAnim="chat_balloon_end" margin="-100 -100 0 0"/>
+	<sound opensound="skill_window_open" closesound="skill_window_close"/>
 	<script OpenScp="OPEN_ADVENTURE_BOOK" CloseScp="CLOSE_ADVENTURE_BOOK"/>
 	<userconfig INDUN_DETAIL_MINIMAP_SKIN="blackbg1" MINIMAP_WIDTH="440" MINIMAP_HEIGHT="360" LIST_ELEM_COUNT="50" FISH_ELEM_SIZE="65" JOB_ELEM_WIDTH="100" JOB_ELEM_HEIGHT="100" INDUN_ELEM_HEIGHT="65" MONSTER_ELEM_HEIGHT="65" MONSTER_PLACE_HEIGHT="25" ITEM_ELEM_HEIGHT="65" ITEM_INFO_PROP_HEIGHT="30" ITEM_INFO_PROP_Y="40" ACHIEVE_ELEM_HEIGHT="30" QUEST_ELEM_HEIGHT="30" SELLER_ELEM_HEIGHT="65" SELLER_ABILITY_HEIGHT="65" REGION_ELEM_HEIGHT="40" MAP_ELEM_HEIGHT="30" CRAFT_MATERIAL_HEIGHT="50" CRAFT_MATERIAL_MARGIN_TOP="20" CRAFT_MATERIAL_MARGIN_BOTTOM="20" CRAFT_ELEM_HEIGHT="65" SIHOUETTE_COLOR_TONE="FF444444" CRAFT_INFO_PROP_ADD_HEIGHT="0" MAP_VISITED_FONT="adven_map_font" MAP_NOT_VISITED_FONT="black_18_b" QUEST_EVEN_BG_SKIN="chat_window_2" MAP_REWARD_OPEN="M_message_open" MAP_REWARD_CLOSE="M_message_unopen"/>
 	<controls>

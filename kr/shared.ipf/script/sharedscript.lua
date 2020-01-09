@@ -108,6 +108,29 @@ date_time.is_between_time = function(start_datetime, end_datetime)
     end
 end
 
+-- start_datetime, end_datetime = yyyy-mm-dd hh:mm:ss (string)
+-- 특정 시간(time , string)이 start, end 사이에 존재하는가
+date_time.is_this_time_between_time = function(start_datetime, time, end_datetime)
+    if start_datetime == nil or end_datetime == nil or start_datetime == 'None' or end_datetime == 'None' then
+        return false
+    end
+
+    local lua_start_datetime = date_time.get_lua_datetime_from_str(start_datetime)
+    local lua_end_datetime = date_time.get_lua_datetime_from_str(end_datetime)
+
+    if lua_start_datetime == nil or lua_end_datetime == nil then
+        return false
+    end
+
+    local now = date_time.get_lua_datetime_from_str(time)
+    if lua_start_datetime <= now and now <= lua_end_datetime then
+        return true
+    else
+        return false
+    end
+end
+
+
 -- 루아 시간을 yyyy-mm-dd hh:mm:ss 로 변환한다
 date_time.lua_datetime_to_str = function(lua_datetime)
     local ret_time = os.date('*t', lua_datetime)

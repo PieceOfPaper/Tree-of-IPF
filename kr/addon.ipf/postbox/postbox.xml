@@ -10,16 +10,18 @@
 	<script OpenScp="POSTBOX_OPEN"/>
 	<sound opensound="window_open" closesound="window_close"/>
 	<effect open="auctionOpen" close="auctionClose"/>
+	<userconfig URL_ICON="{img star_mark 20 20}" />
 	<controls>
 		<groupbox name="bg" rect="0 0 470 970" margin="0 30 0 0" layout_gravity="center top" draw="true" hittestbox="false" resizebyparent="false" resizebyresolution="true" scrollbar="true" skin="test_frame_low"/>
 		<groupbox name="pip4" rect="0 0 470 130" margin="0 0 0 0" layout_gravity="center top" draw="true" hittestbox="false" resizebyparent="false" scrollbar="false" skin="test_frame_top"/>
-		<richtext name="title" rect="0 0 100 30" margin="0 16 3 0" layout_gravity="center top" caption="{@st43}메시지함"/>
+		<richtext name="title" rect="0 0 100 30" margin="0 16 3 0" layout_gravity="center top" format="{@st43}메시지함(%s/%s)" param1="current" param1_def="0" param2="max" param2_def="0"/>
 		<button name="close" rect="0 0 44 44" margin="0 20 28 0" layout_gravity="right top" LBtnUpArgNum="" LBtnUpScp="ui.CloseFrame(&apos;postbox&apos;)" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" clicksound="button_click_big" image="testclose_button" oversound="button_over" texttooltip="{@st59}메시지 함을 닫습니다{/}"/>		
 		<groupbox name="gbox_msgList" rect="0 0 450 420" margin="10 140 0 0" layout_gravity="left top" draw="false" hittestbox="false" resizebyresolution="true" scrollbar="true" skin="test_frame_midle"/>
 		<tab name="itembox" rect="0 0 400 40" margin="52 90 0 0" layout_gravity="left top" clicksound="inven_arrange" imagetype="false" itemspc="0" oversound="button_cursor_over_2" skin="tab2"/>
 		<tabitem name="tab_normal" parent="itembox" layout_gravity="left top" caption="{@st66b}전체" skinspace="20" width="180"/>
 		<tabitem name="tab_new" parent="itembox" layout_gravity="left top" caption="{@st66b}안읽은 메시지함" skinspace="20" width="180"/>
-		<groupbox name="gbox_list" rect="0 0 450 850" margin="10 130 0 0" layout_gravity="left top" draw="true" hittestbox="false" resizebyresolution="true" scrollbar="true" skin="test_frame_midle" tabname="tab_normal"/>
-		<groupbox name="gbox_new" rect="0 0 450 850" margin="10 130 0 0" layout_gravity="left top" draw="true" hittestbox="false" resizebyresolution="true" scrollbar="true" skin="test_frame_midle" tabname="tab_new"/>
+		<groupbox name="gbox_list" rect="0 0 450 800" margin="10 130 0 0" layout_gravity="left top" draw="true" hittestbox="false" resizebyresolution="true" scrollbar="true" skin="test_frame_midle" tabname="tab_normal"/>
+		<groupbox name="gbox_new" rect="0 0 450 800" margin="10 130 0 0" layout_gravity="left top" draw="true" hittestbox="false" resizebyresolution="true" scrollbar="true" skin="test_frame_midle" tabname="tab_new"/>
+		<richtext name="scrolltip" parent="bg" rect="0 0 240 30" margin="0 0 0 25" layout_gravity="center bottom" caption="{@st66}TIP. 스크롤을 내리면 남은 목록을 요청합니다." fontname="white_16_b_ds_ol" hittest="false"/>
 	</controls>
 </uiframe>
