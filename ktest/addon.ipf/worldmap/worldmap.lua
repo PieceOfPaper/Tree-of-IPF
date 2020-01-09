@@ -249,6 +249,8 @@ function CREATE_ALL_WORLDMAP_CONTROLS(frame, parentGBox, makeWorldMapImage, chan
 	open_map:ShowWindow(1)
 	local showAllWorldMapCheckBox = GET_CHILD_RECURSIVELY(frame, "showAllWorldMap")
 	showAllWorldMapCheckBox:ShowWindow(0)
+	local showUnConfirmedWarpCheckBox = GET_CHILD_RECURSIVELY(frame, "showUnConfirmedWarp")
+	showUnConfirmedWarpCheckBox:ShowWindow(0)
 	for i=0, cnt-1 do
 		local mapCls = GetClassByIndexFromList(clsList, i);
 		if mapCls.WorldMap ~= "None" then
@@ -489,6 +491,47 @@ function CREATE_ALL_WARP_CONTROLS(frame, parentGBox, makeWorldMapImage, changeDi
 		end
 	end
 
+	-- 미확인 여신상 위치 출력
+	local unwarp_result = GET_UNCONFIRME_WARP_LIST();
+	local isUnConfirmeWarp = frame:GetUserIValue("isUnConfirmeWarp");
+	local showUnConfirmedWarpCheckBox = GET_CHILD_RECURSIVELY(frame, "showUnConfirmedWarp");
+	showUnConfirmedWarpCheckBox:SetCheck(isUnConfirmeWarp);
+	showUnConfirmedWarpCheckBox:ShowWindow(1);
+	if isUnConfirmeWarp == 1 then
+		for index = 1, #unwarp_result do
+			local info = unwarp_result[index];
+            if predraw_class_name ~= info.Zone then
+                local mapCls = GetClass("Map", info.Zone);
+			    local warpcost = geMapTable.CalcWarpCostBind(AMMEND_NOW_ZONE_NAME(nowZoneName), info.Zone);
+			    if mapCls.WorldMap ~= "None" then
+				    local x, y, dir, index = GET_WORLDMAP_POSITION(mapCls.WorldMap);
+				
+				    if currentDirection == dir then
+					    local picX = startX + x * spaceX * sizeRatio + 60;
+					    local picY = startY - y * spaceY * sizeRatio + 30;
+					    local searchRate = session.GetMapFogSearchRate(mapCls.ClassName);
+					    local gBoxName = "ZONE_GBOX_" .. x .. "_" .. y;
+
+					    if (warpcost < 1000000) then
+						    local brushX = startX + x * spaceX;
+						    local brushY = pictureStartY - y * spaceY;
+						    if GET_CHILD_RECURSIVELY(pic, gBoxName) == nil then 
+							    local gbox = pic:CreateOrGetControl("groupbox", gBoxName, picX, picY, 130, 24)
+							    gbox:SetSkinName("downbox");
+							    gbox:ShowWindow(1);
+						    end
+							
+						    ON_UNCONFIREMED_WARP_SUB(frame, pic, index, gBoxName, nowZoneName, warpcost, false, makeWorldMapImage, mapCls, info, picX, picY, brushX, brushY, 1);
+
+						    local gbox = GET_CHILD_RECURSIVELY(pic, gBoxName)
+						    GBOX_AUTO_ALIGN(gbox, 0, 0, 0, true, true);
+					    end				
+				    end
+			    end
+            end			
+		end
+	end
+
 	if makeWorldMapImage == true then
 		ui.CreateCloneImageSkin("worldmap_" .. currentDirection .."_fog", "worldmap_" .. currentDirection .."_current");
 		ui.DrawBrushes("worldmap_" .. currentDirection .."_current", "worldmap_" .. currentDirection .."_bg")
@@ -619,11 +662,8 @@ function CREATE_WORLDMAP_MAP_CONTROLS(parentGBox, makeWorldMapImage, changeDirec
                         	local taxCityMapID = taxRateInfo:GetCityMapID();
                             local taxCityName = TryGetProp(GetClassByType("Map", taxCityMapID), "Name")
                             local taxRate = taxRateInfo:GetTaxRate();
-							if colonyLeague.ColonyLeague == 1 then
-								occupyTextTooltip = "["..ClMsg('ColonyLeague_World_map_1st').."]".."{nl}"..ClMsg('ColonyTax_Guild_World_map')..taxGuildName.."{nl}"..ClMsg('ColonyTax_City_World_map')..taxCityName
-								if session.colonytax.IsEnabledColonyTaxShop() == 1 then
-									occupyTextTooltip = occupyTextTooltip.."{nl}"..ClMsg('ColonyTax_Rate_World_map')..taxRate..ClMsg('PercentSymbol')
-								end
+                            if colonyLeague.ColonyLeague == 1 then
+                                occupyTextTooltip = "["..ClMsg('ColonyLeague_World_map_1st').."]".."{nl}"..ClMsg('ColonyTax_Guild_World_map')..taxGuildName.."{nl}"..ClMsg('ColonyTax_City_World_map')..taxCityName.."{nl}"..ClMsg('ColonyTax_Rate_World_map')..taxRate..ClMsg('PercentSymbol')
                             elseif colonyLeague.ColonyLeague == 2 then
                                 occupyTextTooltip = "["..ClMsg('ColonyLeague_World_map_2nd').."]".."{nl}"..ClMsg('ColonyTax_Guild_World_map')..taxGuildName
                             end
@@ -981,16 +1021,6 @@ function GET_RECOMMENDDED_DUNGEON(dungeonlist)
 	return dungeon;
 end
 
-
-function WORLDMAP_LOCATE_RECOMMENDDED_DUNGEON(parent, ctrl)
-	local recommendlist = GET_DUNGEON_LIST(-10, 3)
-	local recommendded = GET_RECOMMENDDED_DUNGEON(recommendlist);
-
-	if TryGetProp(recommendded, "ClassName") ~= nil then
-		LOCATE_WORLDMAP_POS(parent:GetTopParentFrame(), recommendded.ClassName);
-	end
-end
-
 function LOCATE_WORLDMAP_POS(frame, mapName)
 	local gBox = GET_WORLDMAP_GROUPBOX(frame);
 	local mapCls = GetClass("Map", mapName);
@@ -1210,6 +1240,26 @@ function GET_INTE_WARP_LIST()
     return result
 end
 
+function GET_UNCONFIRME_WARP_LIST()
+	local sObj_main = GET_MAIN_SOBJ();
+	if sObj_main == nil then
+		return nil;
+	end
+	
+	local gentype_classcount = GetClassCount('camp_warp')
+    local result = {}
+    if gentype_classcount > 0 then
+        for i = 0 , gentype_classcount-1 do
+            local cls = GetClassByIndex('camp_warp', i);
+    		if sObj_main[cls.ClassName] == 0 then
+                result[#result + 1] = cls
+            end
+        end
+    end
+    
+    return result
+end
+
 function AMMEND_NOW_ZONE_NAME(nowZoneName)
 	local nowMapCls = GetClass('Map', nowZoneName)
 	local mapList, mapCnt = GetClassList('Map')
@@ -1252,6 +1302,34 @@ function ON_INTE_WARP_SUB(frame, pic, index, gBoxName, nowZoneName, warpcost, ca
 			nameRechText:SetTextFixWidth(1);
 			nameRechText:Resize(125 , set:GetHeight())
 		end
+		if makeWorldMapImage == true then
+			ui.AddBrushArea(brushX + set:GetWidth() / 2, brushY + set:GetHeight() / 2, set:GetWidth() + WORLDMAP_ADD_SPACE);
+		end
+	else
+		local set = gbox:CreateOrGetControlSet('warpAreaName', setName, 0, 0);
+		set = tolua.cast(set, "ui::CControlSet");
+		set:SetTooltipNumArg(warpcost)        
+	end
+end
+
+function ON_UNCONFIREMED_WARP_SUB(frame, pic, index, gBoxName, nowZoneName, warpcost, calcOnlyPosition, makeWorldMapImage, mapCls, info, picX, picY, brushX, brushY, bySkill)
+	local gbox = pic:CreateOrGetControl("groupbox", gBoxName, picX, picY, 130, 24)
+	local setName = "WARP_CTRLSET_" .. index;
+
+	if calcOnlyPosition == false or GET_CHILD_RECURSIVELY(gbox, setName) == nil then
+		local set = gbox:CreateOrGetControlSet('warpAreaName', setName, 0, 0);
+		set = tolua.cast(set, "ui::CControlSet");
+		set:SetOverSound('button_over');
+
+		local nameRechText = GET_CHILD_RECURSIVELY(set, "areaname", "ui::CRichText");
+		local UNCONFIREMED_WARP_FONT_COLOR = frame:GetUserConfig("UNCONFIREMED_WARP_FONT_COLOR");
+		nameRechText:SetTextByKey("mapname", UNCONFIREMED_WARP_FONT_COLOR..GET_WARP_NAME_TEXT(mapCls, info, nowZoneName));
+
+		if nameRechText:GetWidth() > 130 then
+			nameRechText:SetTextFixWidth(1);
+			nameRechText:Resize(125 , set:GetHeight())
+		end
+		
 		if makeWorldMapImage == true then
 			ui.AddBrushArea(brushX + set:GetWidth() / 2, brushY + set:GetHeight() / 2, set:GetWidth() + WORLDMAP_ADD_SPACE);
 		end
@@ -1522,6 +1600,18 @@ function UPDATE_SHOW_ALL_WORLDMAP(frame)
 		frame:SetUserValue("isShowAllMap", 1)
 	else
 		frame:SetUserValue("isShowAllMap", 0)
+	end
+
+	UPDATE_WORLDMAP_CONTROLS(frame);
+
+end
+
+function UPDATE_UNCONFIRME_WARP_WORLDMAP(frame)
+	local isUnConfirmeWarp = frame:GetUserIValue("isUnConfirmeWarp")
+	if isUnConfirmeWarp == 0 then
+		frame:SetUserValue("isUnConfirmeWarp", 1)
+	else
+		frame:SetUserValue("isUnConfirmeWarp", 0)
 	end
 
 	UPDATE_WORLDMAP_CONTROLS(frame);

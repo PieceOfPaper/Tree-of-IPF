@@ -135,7 +135,7 @@ function INDUNINFO_CREATE_CATEGORY(frame)
                 end
             elseif categoryCtrl ~= nil and category ~= 'None' then
                 local add_flag = true;
-                if missionIndunAdded == true then
+                if indunCls.DungeonType == 'MissionIndun' and missionIndunAdded == true then
                     add_flag = false;
                 end
 

@@ -345,7 +345,7 @@ return obj.Level;"/>
 			</ToolScp>
 		</updateEvent>
 	</PadSkill>
-	<PadSkill Name="Archer_SpikeShooter" CheckerType="5" UpdateTerm="1500" ApplyFlyMon="1" Relation="2" IsMineType="0">
+	<PadSkill Name="Archer_SpikeShooter" CheckerType="5" UpdateTerm="1500" ApplyFlyMon="1" Relation="2" IsMagicType="0">
 		<createEvent>
 			<ToolScp Scp="PAD_FUNC_UPDATE_DIRECT" Client="NO" UseSleep="NO">
 				<Str Str="CREATE_SPIKE_SHOOTER"/>
@@ -5307,12 +5307,12 @@ return &quot;E_cleric_ProtectionOfGoddess_ground_end_violet&quot;, 1.1;
             </ToolScp>
         </destroyEvent>
         <enterEvent>
-            <ToolScp Scp="PAD_TGT_BUFF_AFTER_CHECK_BUFF" Client="NO" UseSleep="NO">
+            <ToolScp Scp="PAD_TGT_BUFF" Client="NO" UseSleep="NO">
                 <Str Str="ENEMY"/>
                 <Num Num="0"/>
                 <Num Num="0"/>
                 <Str Str="ProtectionOfGoddessDamage_Debuff"/>
-                <Str Str="ProtectionOfGoddessDamage_Debuff"/>
+				
                 <Num Num="1"/>
                 <Num Num="0"/>
                 <Num Num="4000"/>
@@ -5421,12 +5421,12 @@ return &quot;E_cleric_ProtectionOfGoddess_ground_end_red&quot;, 1.1;
             </ToolScp>
         </destroyEvent>
         <enterEvent>
-            <ToolScp Scp="PAD_TGT_BUFF_AFTER_CHECK_BUFF" Client="NO" UseSleep="NO">
+            <ToolScp Scp="PAD_TGT_BUFF" Client="NO" UseSleep="NO">
                 <Str Str="FRIEND"/>
                 <Num Num="0"/>
                 <Num Num="0"/>
                 <Str Str="ProtectionOfGoddessHeal_Buff"/>
-                <Str Str="ProtectionOfGoddessHeal_Buff"/>
+				
                 <Num Num="1"/>
                 <Num Num="0"/>
                 <Num Num="4000"/>
@@ -6730,6 +6730,31 @@ return value;"/>
             </ToolScp>
         </updateEvent>
     </PadSkill>
+	<PadSkill Name="EVENT_2001_NEWYEAR_INIT_PAD" CheckerType="0" Range="80" UpdateTerm="100">
+		<createEvent>
+			<ToolScp Scp="PAD_ADD_LIFE" Client="NO" UseSleep="NO">
+				<Num Num="10000"/>
+				<Num Num="100"/>
+			</ToolScp>
+			<ToolScp Scp="C_PAD_EFFECT_POS" Client="YES" UseSleep="NO">
+				<Str_Arg Str="F_buff_basic059_ground_green" Arg="3.5"/>
+				<Pos Angle="0" Dist="0"/>
+				<Num Num="10000"/>
+				<Str_Arg Str="None" Arg="1"/>
+			</ToolScp>
+		</createEvent>
+		<leaveEvent>
+			<ToolScp Scp="DO_NOT_ESCAPE_PAD" Client="NO" UseSleep="NO">
+				<Pos Angle="0" Dist="0"/>
+			</ToolScp>
+		</leaveEvent>
+		<updateEvent>
+			<ToolScp Scp="PAD_ADD_LIFE" Client="NO" UseSleep="NO">
+				<Num Num="-100"/>
+				<Num Num="0"/>
+			</ToolScp>
+		</updateEvent>
+	</PadSkill>
 	<PadSkill Name="Elementalist_FreezingSphere" CheckerType="0" PadHeight="10" Range="50" UpdateTerm="400">
 		<createEvent>
 			<ToolScp Scp="C_PAD_EFFECT_POS" Client="YES" UseSleep="NO">
@@ -15167,6 +15192,19 @@ return value;"/>
 			<ToolScp Scp="PAD_FUNC_UPDATE_RUNSCRIPT" Client="NO" UseSleep="NO">
 				<Str Str="SCR_FIREBALL_HIT_SKL_STORMDUST"/>
 			</ToolScp>
+			<ToolScp Scp="PAD_BUFF_CHECK_BUFF_ENEMY" Client="NO" UseSleep="NO">
+                <Str Str="ENEMY"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+                <Str Str="StormDust_Debuff"/>
+                <Str Str="StormDust_Debuff"/>
+                <Num Num="1" UseFunc="1" FuncTxt="return obj.Level;"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+                <Num Num="1"/>
+                <Num Num="100"/>
+            </ToolScp>
+        
 		</updateEvent>
 	</PadSkill>
 	<PadSkill Name="SubWeapon_SnowSpray" CheckerType="1" Dist="134.32362" Angle="2.0511272" Range="25" InnerRange="15" UpdateTerm="250" ApplyFlyMon="1" EnableSearch="0">
@@ -21685,4 +21723,29 @@ return time"/>
 			</ToolScp>
 		</leaveEvent>
 	</PadSkill>
+    <PadSkill Name="EVENT_2001_NEWYEAR_INIT_PAD" CheckerType="0" Range="100" UpdateTerm="100">
+        <createEvent>
+            <ToolScp Scp="PAD_ADD_LIFE" Client="NO" UseSleep="NO">
+                <Num Num="10000"/>
+                <Num Num="100"/>
+            </ToolScp>
+            <ToolScp Scp="C_PAD_EFFECT_POS" Client="YES" UseSleep="NO">
+                <Str_Arg Str="F_buff_basic059_ground_green" Arg="3.5"/>
+                <Pos Angle="0" Dist="0"/>
+                <Num Num="10000"/>
+                <Str_Arg Str="None" Arg="1.0"/>
+            </ToolScp>
+        </createEvent>
+        <leaveEvent>
+            <ToolScp Scp="DO_NOT_ESCAPE_PAD" Client="NO" UseSleep="NO">
+                <Pos Angle="0" Dist="0"/>
+            </ToolScp>
+        </leaveEvent>
+        <updateEvent>
+            <ToolScp Scp="PAD_ADD_LIFE" Client="NO" UseSleep="NO">
+                <Num Num="-100"/>
+                <Num Num="0"/>
+            </ToolScp>
+        </updateEvent>
+    </PadSkill>
 </PadSkills>

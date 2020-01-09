@@ -373,7 +373,7 @@
 					<Str Str="ThrowingFishingNet_Debuff" />
 					<Num Num="1" />
 					<Num Num="0" />
-					<Num FuncTxt="local time = 2500 + obj.Level * 500 + (GetExProp(self, 'ITEM_THROWINGFISHINGNET_TIMEUP')); local target = GetSkillTarget(self); if target ~= nil then     if IS_PC(target) == true then         time = time * 0.33;     else         if TryGetProp(target, 'MonRank') == 'Boss' then             time = time * 0.5;         end     end end return time;" Num="7000" UseFunc="1" />
+					<Num FuncTxt="local time = 5000 + obj.Level * 1000 + (GetExProp(self, 'ITEM_THROWINGFISHINGNET_TIMEUP')); local target = GetSkillTarget(self); if target ~= nil then     if IS_PC(target) == true then         time = time * 0.33;     else         if TryGetProp(target, 'MonRank') == 'Boss' then             time = time * 0.5;         end     end end return time;" Num="7000" UseFunc="1" />
 					<Num Num="1" />
 					<Num Num="100" />
 					<Num Num="0" />
@@ -464,7 +464,7 @@
 					<Num Num="1" />
 					<Num Num="1" />
 					<Str Str="FishingNetsDraw_Debuff" />
-                    <Num FuncTxt="return 3000 + obj.Level * 300" UseFunc="1" Num="3000" />
+                    <Num FuncTxt="return 2500 + obj.Level * 1000" UseFunc="1" Num="3000" />
 				</Scp>
 			</EtcList>
 		</MainSkl>

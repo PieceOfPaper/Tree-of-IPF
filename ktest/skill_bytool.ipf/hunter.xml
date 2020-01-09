@@ -76,7 +76,13 @@
 				<Num Num="0" />
 				<Num Num="0" />
 				<Num Num="1" />
-				<Num Num="200" />
+                <Num FuncTxt="
+                local value = 130
+                local skl = GetClassByType(&quot;Skill&quot;, obj.type)
+                if skl ~= nil then
+                    value = TryGetProp(skl, &quot;MaxR&quot;, 0)
+                end
+                return value" UseFunc="1" Num="130" />
                 <Num Num="0" />
 				<Num Num="0" />
 				<Num Num="0" />

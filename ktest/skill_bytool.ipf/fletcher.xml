@@ -246,7 +246,7 @@
 					<Num Num="0" />
 					<Num Num="1" />
 				</Scp>
-				<Scp Client="YES" Scp="C_EFFECT_ATTACH" Time="350" UseSleep="NO">
+                <Scp Client="YES" Scp="C_EFFECT_ATTACH" Time="300" UseSleep="NO">
 					<Str_Arg Arg="0.5" Str="F_archer_shot_light_red#Dummy_arrow_effect" />
 					<Num Num="1" />
 					<Pos Angle="0" Dist="0" />
@@ -280,7 +280,7 @@
 							<Num Num="0" />
 							<Num Num="1" />
 						</Scp>
-						<Scp Client="YES" Scp="C_EFFECT_ATTACH" Time="350" UseSleep="NO">
+                        <Scp Client="YES" Scp="C_EFFECT_ATTACH" Time="300" UseSleep="NO">
 							<Str_Arg Arg="0.5" Str="F_archer_shot_light_red#Dummy_arrow_effect" />
 							<Num Num="1" />
 							<Pos Angle="0" Dist="0" />
@@ -524,7 +524,7 @@
 					<ResultList>
 						<ToolScp Client="NO" Scp="S_R_TGTBUFF" UseSleep="NO">
 							<Str Str="BroadHead_Debuff" />
-							<Num FuncTxt="return obj.Level" Num="1" UseFunc="1" />
+                            <Num FuncTxt="return skill.Level" Num="1" UseFunc="1" />
 							<Num Num="0" />
 							<Num FuncTxt="return 5000 + skill.Level * 500" Num="6000" UseFunc="1" />
 							<Num Num="1" />

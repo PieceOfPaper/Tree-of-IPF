@@ -5,6 +5,12 @@ function CHAT_EMOTICON_ON_INIT(addon, frame)
 end
 
 function CHAT_EMOTICON_OPEN(frame)
+		
+	local list, listCnt = GetClassList("chat_emoticons");
+	local emoticons = GET_CHILD_RECURSIVELY(frame, "emoticons", "ui::CSlotSet");
+	emoticons:SetColRow(emoticons:GetCol(), math.ceil(listCnt/10))
+	emoticons:CreateSlots()
+	
 	CHAT_EMOTICON_MAKELIST(frame);
 	frame:RunUpdateScript("_CHAT_EMOTICON_UPDATE", 0.001);
 	frame:SetDuration(3);
@@ -34,7 +40,7 @@ end
 
 function CHAT_EMOTICON_MAKELIST(frame)
 
-	local emoticons = GET_CHILD(frame, "emoticons", "ui::CSlotSet");
+	local emoticons = GET_CHILD_RECURSIVELY(frame, "emoticons", "ui::CSlotSet");
 	local cnt = emoticons:GetSlotCount();
 	local etc = GetMyEtcObject();
 	local index = 0;

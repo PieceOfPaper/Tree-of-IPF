@@ -11469,7 +11469,7 @@ function SCR_GET_SubweaponCancel_Ratio(skill)
 end
 
 function SCR_GET_FishingNetsDraw_Ratio(skill)
-    local value = 3 + (0.3 * skill.Level);
+    local value = 2.5 + skill.Level;
     return value;
 end
 
@@ -11487,7 +11487,7 @@ end
 
 function SCR_GET_ThrowingFishingNet_Ratio(skill)
     local pc = GetSkillOwner(skill);
-    local value = 2.5 + skill.Level * 0.5;
+    local value = 5 + skill.Level * 1;
     
     return value;
 end
@@ -12419,7 +12419,7 @@ end
 -- TigerHunter_Tracking
 function SCR_GET_Tracking_Time(skill)
     local pc = GetSkillOwner(skill)
-    local value = 11 + skill.Level * 0.6
+    local value = 10 + skill.Level * 4
     
     local abil = GetAbility(pc, "TigerHunter2");
     if abil ~= nil and abil.ActiveState == 1 then
@@ -12430,7 +12430,7 @@ function SCR_GET_Tracking_Time(skill)
 end
 
 function SCR_GET_Tracking_Ratio(skill)
-    local value = 10 + (skill.Level * 6)
+    local value = 20 * skill.Level
     return value
 end
 
@@ -12447,12 +12447,12 @@ function SCR_GET_EyeofBeast_Time(skill)
 end
 
 function SCR_GET_EyeofBeast_Ratio(skill)
-    local value = skill.Level * 3
+    local value = skill.Level * 6
     return value
 end
 
 function SCR_GET_EyeofBeast_Ratio2(skill)
-    local value = skill.Level * 5
+    local value = skill.Level * 10
     return value
 end
 
@@ -12529,6 +12529,18 @@ end
 
 function SCR_GET_Taglio_Ratio(skill)
     local value = 10
+    return value
+end
+
+function SCR_GET_QuckDraw_Ratio(skill)
+    local value = skill.Level * 0.1
+    return value
+end
+
+function SCR_GET_Fanning_Ratio(skill)
+    local pc = GetSkillOwner(skill)
+    local value = math.floor(TryGetProp(pc, 'SR', 0) / 7) + 4
+    value = math.min(value, 10)
     return value
 end
 

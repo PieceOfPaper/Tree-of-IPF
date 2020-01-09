@@ -651,7 +651,7 @@ return func(skill.Level)" Str="0" UseFunc="1"/>
                     local targetDir = DirToAngle(targetx, targetz)
                     local relativeAngle = attackerDir - targetDir
                     local revAngle = angle * -1
-                    if GetExProp(from, 'IS_BACKATTACK') == 1 or (angle/2s &gt;= relativeAngle and 0 &lt;= relativeAngle) or (revAngle/2 &lt;= relativeAngle and 0 &gt;= relativeAngle) then
+                    if GetExProp(from, &quot;IS_BACKATTACK&quot;) == 1 or (angle/2 &gt;= relativeAngle and 0 &lt;= relativeAngle) or (revAngle/2 &lt;= relativeAngle and 0 &gt;= relativeAngle) then
                     value = value * 1.5
                     end
                     return value" />

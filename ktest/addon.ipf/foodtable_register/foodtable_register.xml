@@ -8,10 +8,10 @@
 	<layer layerlevel="80"/>
 	<option closebutton="false"/>
 	<sound opensound="window_open" closesound="window_close"/>
-  <script OpenScp="OPEN_FOODTABLE_REGISTER"/>
+	<script OpenScp="OPEN_FOODTABLE_REGISTER"/>
 	<controls>
 		<groupbox name="bg" rect="0 0 500 1000" margin="0 30 0 0" layout_gravity="center top" draw="true" hittestbox="false" resizebyparent="false" resizebyresolution="true" scrollbar="true" skin="test_frame_low"/>
-		<groupbox name="bg_mid" rect="0 0 480 530" margin="10 390 0 0" layout_gravity="left top" draw="true" hittestbox="false" resizebyparent="false" resizebyresolution="true" scrollbar="true" skin="test_frame_midle"/>
+		<groupbox name="bg_mid" rect="0 0 480 523" margin="10 390 0 0" layout_gravity="left top" draw="true" hittestbox="false" resizebyparent="false" resizebyresolution="true" scrollbar="true" skin="test_frame_midle"/>
 		<groupbox name="pipwin_top" rect="0 0 500 117" margin="0 0 0 0" layout_gravity="center top" draw="true" hittestbox="false" resizebyparent="false" scrollbar="false" skin="pipwin_top_warrior"/>
 		<groupbox name="gbox" rect="0 0 502 960" margin="0 60 0 0" layout_gravity="center top" draw="false" hittestbox="false" resizebyresolution="true" scrollbar="false" skin="gem_socket_bg"/>
 		<richtext name="richtext_1" rect="0 0 120 24" margin="10 17 0 0" layout_gravity="center top" caption="{@st43}배식 테이블" drawbackground="false" fixwidth="false" fontname="white_16_ol" maxwidth="0" resizebytext="true" slideshow="false" spacey="0" textalign="left top" updateparent="false"/>
@@ -23,6 +23,7 @@
 		<richtext name="t_time_1" parent="gbox" rect="0 0 200 26" margin="20 350 0 0" layout_gravity="left top" caption="{@st41b}소비재료 및 비용" drawbackground="false" fixwidth="false" fontname="white_22_ol" maxwidth="0" resizebytext="true" slideshow="false" spacey="0" textalign="left center" updateparent="false"/>
 		<richtext name="silver_text" parent="gbox" rect="0 0 200 26" margin="0 350 20 0" layout_gravity="right top" drawbackground="false" fixwidth="true" fontname="white_16_ol" format="{@st42}%s{/}" maxwidth="0" param1="value" param1_def="10000" resizebytext="false" slideshow="false" spacey="0" textalign="right center" updateparent="false"/>
 		<groupbox name="gbox_material" parent="gbox" rect="0 0 465 100" margin="17 385 0 0" layout_gravity="left top" hittestbox="false" skin="none"/>
-    <groupbox name="optionBox" parent="gbox" rect="0 0 465 100" margin="17 490 0 0" layout_gravity="left top" draw="false"/>
+		<groupbox name="optionBox" parent="gbox" rect="0 0 465 150" margin="17 490 0 0" layout_gravity="left top" draw="false"/>
+		<richtext name="share_text" parent="gbox" rect="0 0 240 26" margin="15 0 0 85" layout_gravity="left bottom" drawbackground="false" caption="{@st66}배식 테이블의 음식은 기본적으로 나와 나의 파티원에게 제공됩니다." fontname="white_16_b_ds_ol" hittest="false"/>
 	</controls>
 </uiframe>

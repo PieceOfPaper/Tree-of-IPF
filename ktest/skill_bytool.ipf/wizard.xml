@@ -1888,6 +1888,20 @@
 					<Num Num="100" />
 					<Num Num="0" />
 				</Scp>
+                                <Scp Scp="SKL_BUFF" Client="NO" UseSleep="NO" Time="200">
+                    <Str Str="None" UseFunc="1" FuncTxt="local str = &quot;None&quot;
+                    local abil = GetAbility(self, &quot;Wizard34&quot;)
+                    if abil ~= nil then
+                        str = &quot;ManaAmplify_Debuff&quot;
+                    end
+                    return str"/>
+                    <Num Num="1" UseFunc="1" FuncTxt="return obj.Level"/>
+                    <Num Num="0"/>
+                    <Num Num="30000"/>
+                    <Num Num="1"/>
+                    <Num Num="100"/>
+                    <Num Num="0"/>
+                </Scp>
 			</EtcList>
 		</MainSkl>
 		<ByCondSkills>

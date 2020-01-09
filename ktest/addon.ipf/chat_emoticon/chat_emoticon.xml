@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
-<uiframe name="chat_emoticon" x="0" y="0" width="430" height="250" create="open">
+<uiframe name="chat_emoticon" x="0" y="0" width="450" height="250" create="open">
 	<skin frameskin="pip_gridbox"/>
 	<frame title="{@st43}게임설정{/}" fasthide="true" titlepos="0 -12" layout_gravity="center bottom" margin="0 0 0 0"/>
 	<draw drawframe="true" drawtitlebar="false"/>
@@ -10,7 +10,7 @@
 	<sound opensound="win_open" closesound="win_close"/>
 	<script OpenScp="CHAT_EMOTICON_OPEN" lostFocusScp="CHAT_EMOTICON_CLOSE"/>
 	<controls>
-
-		<slotset name="emoticons" rect="0 0 420 20" margin="0 0 0 0" layout_gravity="center center" LBtnUpScp="CHAT_EMOTICON_SELECT" col="10" cursoronresize="true" dropsound="icon_get_down" enablepop="false" enableselect="true" hideindrag="true" maxselect="4" movepop="false" picksound="icon_pick_up" row="6" size="42 42" skin="invenslot" spc="0 0"/>
+		<groupbox name="gbox" rect="0 0 450 240" margin="0 0 0 0" layout_gravity="center center" draw="false" scrollbar="true"/>
+		<slotset name="emoticons" parent="gbox" rect="0 0 420 20" margin="3 0 0 0" layout_gravity="left top" LBtnUpScp="CHAT_EMOTICON_SELECT" col="10" cursoronresize="true" dropsound="icon_get_down" enablepop="false" enableselect="true" hideindrag="true" maxselect="4" movepop="false" picksound="icon_pick_up" row="6" size="42 42" skin="invenslot" spc="0 0"/>
 	</controls>
 </uiframe>

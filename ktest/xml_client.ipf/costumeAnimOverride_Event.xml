@@ -907,8 +907,24 @@
 					</Event>
 				</Job>
 			</Motion>
-			<Motion Name="Default">
+			<Motion Name="REST">
+				<Job Name="All" LoopTime="800">
+					<Event>
+						<Particle frame="5" attachNode="Dummy_effL" particleName="F_levitation005_dark_violet3_re" useAttach="true" hiddenObj="false" scale="1" pause="true" use2DEffect="true" soft2DValue="20"/>
+						<Particle frame="5" attachNode="Dummy_effR" particleName="F_levitation005_dark_violet3" useAttach="true" hiddenObj="false" scale="1" pause="true" use2DEffect="true" soft2DValue="20"/>
+					</Event>
+				</Job>
+			</Motion>
+			<Motion Name="STD">
 				<Job Name="All">
+					<Event>
+						<Particle frame="5" attachNode="Dummy_effL" particleName="F_levitation005_dark_violet3_re" useAttach="true" hiddenObj="false" scale="1" pause="true" use2DEffect="true" soft2DValue="20"/>
+						<Particle frame="5" attachNode="Dummy_effR" particleName="F_levitation005_dark_violet3" useAttach="true" hiddenObj="false" scale="1" pause="true" use2DEffect="true" soft2DValue="20"/>
+					</Event>
+				</Job>
+			</Motion>
+			<Motion Name="Default">
+				<Job Name="All" LoopTime="500">
 					<Event>
 						<Particle frame="5" attachNode="Dummy_effL" particleName="F_levitation005_dark_violet3_re" useAttach="true" hiddenObj="false" scale="1" pause="true" use2DEffect="true" soft2DValue="20"/>
 						<Particle frame="5" attachNode="Dummy_effR" particleName="F_levitation005_dark_violet3" useAttach="true" hiddenObj="false" scale="1" pause="true" use2DEffect="true" soft2DValue="20"/>
@@ -1928,6 +1944,28 @@
 						<Particle frame="5" attachNode="Dummy_effect02" particleName="F_smoke191_blue" useAttach="true" hiddenObj="false" scale="1" pause="true" use2DEffect="true" soft2DValue="0"/>
 						<Particle frame="20" attachNode="Dummy_effect01" particleName="F_smoke191_blue" useAttach="false" hiddenObj="false" scale="1" pause="true" use2DEffect="true" soft2DValue="0"/>
 						<Particle frame="20" attachNode="Dummy_effect02" particleName="F_smoke191_blue" useAttach="false" hiddenObj="false" scale="1" pause="true" use2DEffect="true" soft2DValue="0"/>
+					</Event>
+				</Job>
+			</Motion>
+		</Class>
+		<Class Costume="wing_gabia">
+			<Motion Name="RUN">
+				<Job Name="All">
+					<Event>
+						<Particle frame="5" attachNode="dummy001" particleName="I_fire_wing002" useAttach="true" hiddenObj="false" scale="0.4" pause="true" use2DEffect="true" soft2DValue="20"/>
+						<Particle frame="5" attachNode="dummy002" particleName="I_fire_wing002" useAttach="true" hiddenObj="false" scale="0.4" pause="true" use2DEffect="true" soft2DValue="20"/>
+						<Particle frame="10" attachNode="dummy001" particleName="I_fire_wing002" useAttach="true" hiddenObj="false" scale="0.4" pause="true" use2DEffect="true" soft2DValue="20"/>
+						<Particle frame="10" attachNode="dummy002" particleName="I_fire_wing002" useAttach="true" hiddenObj="false" scale="0.4" pause="true" use2DEffect="true" soft2DValue="20"/>
+					</Event>
+				</Job>
+			</Motion>
+			<Motion Name="Default">
+				<Job Name="All" LoopTime="500">
+					<Event>
+						<Particle frame="5" attachNode="dummy001" particleName="I_fire_wing002" useAttach="true" hiddenObj="false" scale="0.4" pause="true" use2DEffect="true" soft2DValue="20"/>
+						<Particle frame="5" attachNode="dummy002" particleName="I_fire_wing002" useAttach="true" hiddenObj="false" scale="0.4" pause="true" use2DEffect="true" soft2DValue="20"/>
+						<Particle frame="5" attachNode="dummy003" particleName="I_fire_wing002_1" useAttach="true" hiddenObj="false" scale="0.25" pause="true" use2DEffect="true" soft2DValue="20"/>
+						<Particle frame="5" attachNode="dummy004" particleName="I_fire_wing002_1" useAttach="true" hiddenObj="false" scale="0.25" pause="true" use2DEffect="true" soft2DValue="20"/>
 					</Event>
 				</Job>
 			</Motion>
@@ -3075,15 +3113,43 @@
 			</Motion>
 		</Class>
 		<Class Costume="wing_guilty">
-			<Motion Name="Default">
+			<Motion Name="RUN">
 				<Job Name="All">
 					<Event>
 						<Particle frame="5" attachNode="Dummy_effL" particleName="F_levitation005_dark_violet3_re" useAttach="true" hiddenObj="false" scale="1" pause="true" use2DEffect="true" soft2DValue="20"/>
 						<Particle frame="5" attachNode="Dummy_effR" particleName="F_levitation005_dark_violet3" useAttach="true" hiddenObj="false" scale="1" pause="true" use2DEffect="true" soft2DValue="20"/>
 						<Particle frame="5" attachNode="Dummy_effR" particleName="F_spread_out031_fether_black2" useAttach="false" hiddenObj="false" scale="1" pause="true" use2DEffect="true" soft2DValue="20"/>
-						<Particle frame="5" attachNode="Dummy_effR" particleName="F_spread_out031_fether_black3" useAttach="false" hiddenObj="false" scale="1" pause="true" use2DEffect="true" soft2DValue="20"/>
+						<Particle frame="20" attachNode="Dummy_effR" particleName="F_spread_out031_fether_black3" useAttach="false" hiddenObj="false" scale="1" pause="true" use2DEffect="true" soft2DValue="20"/>
 						<Particle frame="5" attachNode="Dummy_effL" particleName="F_spread_out031_fether_black2" useAttach="false" hiddenObj="false" scale="1" pause="true" use2DEffect="true" soft2DValue="20"/>
-						<Particle frame="5" attachNode="Dummy_effL" particleName="F_spread_out031_fether_black3" useAttach="false" hiddenObj="false" scale="1" pause="true" use2DEffect="true" soft2DValue="20"/>
+						<Particle frame="20" attachNode="Dummy_effL" particleName="F_spread_out031_fether_black3" useAttach="false" hiddenObj="false" scale="1" pause="true" use2DEffect="true" soft2DValue="20"/>
+					</Event>
+				</Job>
+			</Motion>
+			<Motion Name="REST">
+				<Job Name="All" LoopTime="800">
+					<Event>
+						<Particle frame="5" attachNode="Dummy_effL" particleName="F_levitation005_dark_violet3_re" useAttach="true" hiddenObj="false" scale="1" pause="true" use2DEffect="true" soft2DValue="20"/>
+						<Particle frame="5" attachNode="Dummy_effR" particleName="F_levitation005_dark_violet3" useAttach="true" hiddenObj="false" scale="1" pause="true" use2DEffect="true" soft2DValue="20"/>
+					</Event>
+				</Job>
+			</Motion>
+			<Motion Name="STD">
+				<Job Name="All">
+					<Event>
+						<Particle frame="5" attachNode="Dummy_effL" particleName="F_levitation005_dark_violet3_re" useAttach="true" hiddenObj="false" scale="1" pause="true" use2DEffect="true" soft2DValue="20"/>
+						<Particle frame="5" attachNode="Dummy_effR" particleName="F_levitation005_dark_violet3" useAttach="true" hiddenObj="false" scale="1" pause="true" use2DEffect="true" soft2DValue="20"/>
+					</Event>
+				</Job>
+			</Motion>
+			<Motion Name="Default">
+				<Job Name="All" LoopTime="500">
+					<Event>
+						<Particle frame="5" attachNode="Dummy_effL" particleName="F_levitation005_dark_violet3_re" useAttach="true" hiddenObj="false" scale="1" pause="true" use2DEffect="true" soft2DValue="20"/>
+						<Particle frame="5" attachNode="Dummy_effR" particleName="F_levitation005_dark_violet3" useAttach="true" hiddenObj="false" scale="1" pause="true" use2DEffect="true" soft2DValue="20"/>
+						<Particle frame="5" attachNode="Dummy_effR" particleName="F_spread_out031_fether_black2" useAttach="false" hiddenObj="false" scale="1" pause="true" use2DEffect="true" soft2DValue="20"/>
+						<Particle frame="20" attachNode="Dummy_effR" particleName="F_spread_out031_fether_black3" useAttach="false" hiddenObj="false" scale="1" pause="true" use2DEffect="true" soft2DValue="20"/>
+						<Particle frame="5" attachNode="Dummy_effL" particleName="F_spread_out031_fether_black2" useAttach="false" hiddenObj="false" scale="1" pause="true" use2DEffect="true" soft2DValue="20"/>
+						<Particle frame="20" attachNode="Dummy_effL" particleName="F_spread_out031_fether_black3" useAttach="false" hiddenObj="false" scale="1" pause="true" use2DEffect="true" soft2DValue="20"/>
 					</Event>
 				</Job>
 			</Motion>
@@ -4143,6 +4209,26 @@
 						<Particle frame="5" attachNode="Dummy_effect02" particleName="F_smoke191_blue" useAttach="true" hiddenObj="false" scale="1" pause="true" use2DEffect="true" soft2DValue="0"/>
 						<Particle frame="20" attachNode="Dummy_effect01" particleName="F_smoke191_blue" useAttach="false" hiddenObj="false" scale="1" pause="true" use2DEffect="true" soft2DValue="0"/>
 						<Particle frame="20" attachNode="Dummy_effect02" particleName="F_smoke191_blue" useAttach="false" hiddenObj="false" scale="1" pause="true" use2DEffect="true" soft2DValue="0"/>
+					</Event>
+				</Job>
+			</Motion>
+		</Class>
+		<Class Costume="wing_gabia">
+			<Motion Name="RUN">
+				<Job Name="All">
+					<Event>
+						<Particle frame="5" attachNode="dummy001" particleName="I_fire_wing002" useAttach="true" hiddenObj="false" scale="0.4" pause="true" use2DEffect="true" soft2DValue="20"/>
+						<Particle frame="5" attachNode="dummy002" particleName="I_fire_wing002" useAttach="true" hiddenObj="false" scale="0.4" pause="true" use2DEffect="true" soft2DValue="20"/>
+						<Particle frame="10" attachNode="dummy001" particleName="I_fire_wing002" useAttach="true" hiddenObj="false" scale="0.4" pause="true" use2DEffect="true" soft2DValue="20"/>
+						<Particle frame="10" attachNode="dummy002" particleName="I_fire_wing002" useAttach="true" hiddenObj="false" scale="0.4" pause="true" use2DEffect="true" soft2DValue="20"/>
+					</Event>
+				</Job>
+			</Motion>
+			<Motion Name="Default">
+				<Job Name="All" LoopTime="500">
+					<Event>
+						<Particle frame="5" attachNode="dummy001" particleName="I_fire_wing002" useAttach="true" hiddenObj="false" scale="0.4" pause="true" use2DEffect="true" soft2DValue="20"/>
+						<Particle frame="5" attachNode="dummy002" particleName="I_fire_wing002" useAttach="true" hiddenObj="false" scale="0.4" pause="true" use2DEffect="true" soft2DValue="20"/>
 					</Event>
 				</Job>
 			</Motion>

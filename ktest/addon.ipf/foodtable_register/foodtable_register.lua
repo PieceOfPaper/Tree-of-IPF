@@ -88,21 +88,42 @@ function _FOODTABLE_REG_EXEC()
 	local sklCls = GetClass("Skill", skillName);
 	local tableInfo = session.camp.GetCurrentTableInfo();
     local shared = tableInfo:GetSharedFood();
-	local titleEdit = GET_CHILD_RECURSIVELY(frame, 'TitleInput');
-    local title = titleEdit:GetText();
+	local title = "";
+	if shared == 1 then
+		local ctrlSet_guild = GET_CHILD_RECURSIVELY(frame, 'check_guild');
+		local titleEdit = GET_CHILD_RECURSIVELY(ctrlSet_guild, 'TitleInput');
+		title = titleEdit:GetText();
+	elseif shared == 2 then
+		local ctrlSet_all = GET_CHILD_RECURSIVELY(frame, 'check_all');
+		local titleEdit = GET_CHILD_RECURSIVELY(ctrlSet_all, 'TitleInput');
+		title = titleEdit:GetText();
+	end
 
     session.camp.RequestBuildFoodTable(sklCls.ClassID, shared, title);
 end
 
 function OPEN_FOODTABLE_REGISTER(frame)
 	local optionBox = GET_CHILD_RECURSIVELY(frame, 'optionBox');
-	local ctrlSet = optionBox:CreateOrGetControlSet('food_check_party', "check_Party", 15 , 0);
-	local checkBox = GET_CHILD(ctrlSet, "check_party", "ui::CCheckBox");
-	local titleBox = ctrlSet:GetChild('gBox');
+	
+	local ctrlSet_guild = optionBox:CreateOrGetControlSet('food_check_party', "check_guild", 15, 0);
+	local checkBox_guild = GET_CHILD(ctrlSet_guild, "check_party", "ui::CCheckBox");
+	local titleBox_guild = ctrlSet_guild:GetChild('gBox');
+	
+	local ctrlSet_all = optionBox:CreateOrGetControlSet('food_check_party', "check_all", 15, 30);
+	local checkBox_all = GET_CHILD(ctrlSet_all, "check_party", "ui::CCheckBox");
+	local titleBox_all = ctrlSet_all:GetChild('gBox');
 
-	checkBox:SetCheck(0);
-	checkBox:ShowWindow(1);
-    FOODTABLE_CHECK_BOX(ctrlSet, checkBox);
+	checkBox_guild:SetText(ClMsg('FreeFoodForGuild'));
+	checkBox_guild:SetEventScript(ui.LBUTTONUP, 'FOODTABLE_CHECK_BOX_FOR_GUILD');
+	checkBox_guild:SetCheck(0);
+	checkBox_guild:ShowWindow(1);
+    FOODTABLE_CHECK_BOX_FOR_GUILD(ctrlSet_guild, checkBox_guild);
+	
+	checkBox_all:SetText(ClMsg('FreeFoodForAll'));
+	checkBox_all:SetEventScript(ui.LBUTTONUP, 'FOODTABLE_CHECK_BOX_FOR_ALL');
+	checkBox_all:SetCheck(0);
+	checkBox_all:ShowWindow(1);
+    FOODTABLE_CHECK_BOX_FOR_ALL(ctrlSet_all, checkBox_all);
 end
 
 function FOODTABLE_CHECK_BOX(parent, ctrl)
@@ -112,4 +133,67 @@ function FOODTABLE_CHECK_BOX(parent, ctrl)
 
 	local titleBox = GET_CHILD(parent, "gBox", "ui::CGroupBox");
 	titleBox:SetVisible(share);
+end
+
+function FOODTABLE_CHECK_BOX_FOR_GUILD(parent, ctrl)
+	local topParent = parent:GetTopParentFrame();
+	local tableInfo = session.camp.GetCurrentTableInfo();
+
+	local checked_guild = ctrl:IsChecked();
+	local share = 0;
+	local isVisible = 0;
+
+	local ctrlSet_all = GET_CHILD_RECURSIVELY(topParent, 'check_all');
+	local checkBox_all = GET_CHILD(ctrlSet_all, 'check_party', 'ui::CCheckBox');
+	
+	local checked_all = checkBox_all:IsChecked();
+	if checked_guild == 1 then
+		if checked_all == 1 then
+			checkBox_all:SetCheck(0);
+			local titleBox_all = GET_CHILD(ctrlSet_all, "gBox", "ui::CGroupBox");
+			titleBox_all:SetVisible(0);
+		end
+
+		ctrlSet_all:SetMargin(15, 80, 0, 0);
+
+		share = 1;
+		isVisible = 1;
+	else
+		ctrlSet_all:SetMargin(15, 30, 0, 0);
+	end
+
+	tableInfo:SetSharedFood(share);
+
+	local titleBox = GET_CHILD(parent, "gBox", "ui::CGroupBox");
+	titleBox:SetVisible(isVisible);
+end
+
+function FOODTABLE_CHECK_BOX_FOR_ALL(parent, ctrl)
+	local topParent = parent:GetTopParentFrame();
+	local tableInfo = session.camp.GetCurrentTableInfo();
+
+	local checked_all = ctrl:IsChecked();
+	local share = 0;
+	local isVisible = 0;
+
+	local ctrlSet_guild = GET_CHILD_RECURSIVELY(topParent, 'check_guild');
+	local checkBox_guild = GET_CHILD(ctrlSet_guild, 'check_party', 'ui::CCheckBox');
+	local checked_guild = checkBox_guild:IsChecked();
+	if checked_all == 1 then
+		if checked_guild == 1 then
+			checkBox_guild:SetCheck(0);
+			local titleBox_guild = GET_CHILD(ctrlSet_guild, "gBox", "ui::CGroupBox");
+			titleBox_guild:SetVisible(0);
+
+			parent:SetMargin(15, 30, 0, 0);
+		end
+
+		share = 2;
+		isVisible = 1;
+	end
+
+	tableInfo:SetSharedFood(share);
+
+	local titleBox = GET_CHILD(parent, "gBox", "ui::CGroupBox");
+	titleBox:SetVisible(isVisible);
 end

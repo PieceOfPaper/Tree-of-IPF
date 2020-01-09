@@ -67,6 +67,9 @@ function CHECK_ABILITY_LOCK(pc, ability, isEnableLogging)
 			LOGGING_ABILITY_CHECK(isEnableLogging, ability.ClassName, "[" .. ret .. "] Result1");
 			
             return ret;
+        else
+            LOGGING_ABILITY_CHECK(isEnableLogging, ability.ClassName, "[LOCK] PC does not have require job");
+            return 'LOCK';
         end
     else
         local sList = StringSplit(jobHistory, ";");
@@ -94,6 +97,9 @@ function CHECK_ABILITY_LOCK(pc, ability, isEnableLogging)
                 end
             end
         end
+
+        LOGGING_ABILITY_CHECK(isEnableLogging, ability.ClassName, "[LOCK] PC does not have require job or UnlockScr failed");
+        return 'LOCK';
     end
 
     IMC_LOG("INFO_NORMAL", "abilityUnlock Error");

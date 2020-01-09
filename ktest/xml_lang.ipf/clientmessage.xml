@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by imc (imc) -->
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
 <idspace id="ClientMessage">
 	<Category Name="ErrorMsg">
 		<Class ClassID="1" Data="DirectX 9.0c 이상의 버전이 설치되어 있어야 합니다"/>
@@ -365,6 +365,7 @@
 		<Class ClassID="2324" ClassName="EnchantOptionRelocateDestItemLvMin100" Data="100레벨 이상의 장비만 등록 가능합니다."/>
 		<Class ClassID="2325" ClassName="EP12_PRE_REWARDS_FIX_MSG_1" Data="[초월]400레벨 케도란 장비(무기, 방패)를 초월한다"/>
 		<Class ClassID="2326" ClassName="EP12_PRE_REWARDS_FIX_MSG_2" Data="400레벨 케도란 장비(무기, 방패)의 초월이 완료되었습니다"/>
+		<Class ClassID="2327" ClassName="ItemOptionRelocate_Check_Message_Enchant{ITEM}" Data="{#fe7e00}[거래 가능]{/}아이템 옵션을 {#fe7e00}[거래 불가]{/}아이템으로 이전시, {nl} {#fe7e00}[거래 불가]{/}아이템 옵션을 다시 {#fe7e00}[거래 가능]{/}아이템으로 이전 할 수 없습니다. {nl} {nl}정말{#fe7e00}[{ITEM}]{/}을/를 이전하시려면 숫자 [0000]을 입력해주세요"/>
 	</Category>
 	<Category Name="ClassContents">
 		<Class ClassID="2500" ClassName="FullWeeklyGainClassResetExp" Data="주간 획득 가능한 클래스 변경 포인트를 모두 달성하였습니다."/>
@@ -1297,6 +1298,8 @@
 		<Class ClassID="20004" ClassName="IncreaseRSPTIME{Value}For{Time}Minute" Data="{Time}분 동안 SP회복시간이 {Value}초 감소합니다."/>
 		<Class ClassID="20005" ClassName="IncreaseSR{Value}For{Time}Minute" Data="{Time}분 동안 광역 공격 비율이 {Value} 증가합니다."/>
 		<Class ClassID="20006" ClassName="IncreaseSDR{Value}For{Time}Minute" Data="{Time}분 동안 광역 방어 비율이 {Value} 증가합니다."/>
+		<Class ClassID="20007" ClassName="FreeFoodForGuild" Data="{@st66b}길드원에게 음식 제공{/}"/>
+		<Class ClassID="20008" ClassName="FreeFoodForAll" Data="{@st66b}모두에게 음식 제공{/}"/>
 	</Category>
 	<Category Name="UIText">
 		<Class ClassID="21001" ClassName="Confirm" Data="확인"/>
@@ -9003,6 +9006,21 @@
 		<Class ClassID="90208" ClassName="CasualGamble_GET_ALLMSG" Data="{s24}축하드립니다!{nl}{PC} 님이 [여신의 축복]을 통해{nl}{ITEMNAME} 를(을) {count}개 획득하셨습니다!"/>
 		<Class ClassID="90209" ClassName="F_TABLELAND_28_2_NPC_CRU_01" Data="이곳은 위험하니 조심히 벗어나시길 바랍니다."/>
 		<Class ClassID="90210" ClassName="F_TABLELAND_28_2_NPC_CRU_02" Data="추위가 더욱 심해지고 있으니 몸을 충분히 데우세요."/>
+		<Class ClassID="90211" ClassName="EVENT_2001_NEWYEAR_GIVE_ITEM_LIMIT{ITEMNAME}" Data="오늘 획득 가능한 {ITEMNAME}을(를) 모두 획득하셨습니다."/>
+		<Class ClassID="90212" ClassName="2001_NEWYEAR_SEL_MSG1" Data="{#003399}복항아리 대축제{/} 이벤트 안내"/>
+		<Class ClassID="90213" ClassName="2001_NEWYEAR_SEL_MSG2" Data="{#003399}복항아리 대축제{/} 이벤트 던전 입장"/>
+		<Class ClassID="90214" ClassName="2001_NEWYEAR_SEL_MSG3" Data="{#003399}복항아리 대축제{/} 이벤트 상점 열기"/>
+		<Class ClassID="90215" ClassName="EVENT_2001_NEWYEAR_CHECK_ITEM_COUNT{LUCKYTICKET}{GOLDENTICKET}{TICKET}{CONTENTS_TICKET}" Data="오늘은 새해 복주머니 당첨권을 {LUCKYTICKET}개, 새해 황금 복주머니 교환권을 {GOLDENTICKET}개 획득 하였으며, 2020 대축제 교환권을 이벤트 던전에서 {TICKET}개, 콘텐츠 이용으로 {CONTENTS_TICKET}개 획득 하였습니다."/>
+		<Class ClassID="90216" ClassName="EVENT_2001_NEWYEAR_SHOP" Data="복항아리 대축제 이벤트 상점"/>
+		<Class ClassID="90217" ClassName="EVENT_2001_NEWYEAR_POT_DESTROY" Data="항아리 부수는 중"/>
+		<Class ClassID="90218" ClassName="EVENT_2001_NEWYEAR_MONSTER_CHAT_1" Data="히히 놀랐지?"/>
+		<Class ClassID="90219" ClassName="EVENT_2001_NEWYEAR_MONSTER_CHAT_2" Data="받아라 특제 끈끈이!"/>
+		<Class ClassID="90220" ClassName="EVENT_2001_NEWYEAR_MONSTER_CHAT_3" Data="그렇게 빨리 뛰면 다쳐!"/>
+		<Class ClassID="90221" ClassName="EVENT_2001_NEWYEAR_MISSION_CLEAR" Data="[이벤트]새해 복주머니 당첨권을 10장 획득하였습니다.{nl}5초 후 입장했던 장소로 이동합니다."/>
+		<Class ClassID="90222" ClassName="EVENT_2001_NEWYEAR_MISSION_FAIL" Data="이벤트가 종료되었습니다. 5초 후 입장했던 장소로 이동합니다."/>
+		<Class ClassID="90223" ClassName="EVENT_2001_NEWYEAR_BONUS_FAIL" Data="3분이 경과하였습니다. 더 이상 추가 보상을 획득하실 수 없습니다."/>
+		<Class ClassID="90224" ClassName="EVENT_2001_NEWYEAR_ABUSE_MSG1" Data="일정 시간 움직임이 없으면 아이템을 획득하실 수 없습니다.{nl}30초 후에도 움직임이 없을 시 던전이 끝날 때 까지 이벤트 아이템을 획득하실 수 없습니다."/>
+		<Class ClassID="90225" ClassName="EVENT_2001_NEWYEAR_ABUSE_MSG2" Data="더 이상 보상을 획득하실 수 없습니다."/>
 	</Category>
 	<Category Name="BattleText">
 		<Class ClassID="100001" ClassName="ADD_DAMAGE_{Auto_1}!" Data="추가 데미지 {Auto_1}!"/>
@@ -10117,6 +10135,7 @@
 		<Class ClassID="118013" ClassName="KorAnotherWorldExistFamilyName" Data="이미 사용 중이거나, 사용할 수 없는 팀 이름입니다."/>
 		<Class ClassID="118014" ClassName="MoveBarrackLayer{target}" Data="숙소{target}(으)로 변경했습니다."/>
 		<Class ClassID="118015" ClassName="CantMoveBarrackLayer" Data="숙소 레이어 변경에 실패했습니다."/>
+		<Class ClassID="118016" ClassName="PostboxPeriodAttentionMsg" Data="삭제 예정 시간이 얼마 남지 않은 우편이 존재합니다."/>
 	</Category>
 	<Category Name="Collection">
 		<Class ClassID="119001" ClassName="CollectionEffect" Data="컬렉션 효과"/>
@@ -13558,6 +13577,7 @@
 		<Class ClassID="300187" ClassName="Select_Arts" Data="신비한 서를 선택하세요"/>
 		<Class ClassID="300188" ClassName="needMoreItem" Data="가비야의 은총이 담긴 깃털 부족합니다."/>
 		<Class ClassID="300189" ClassName="Event_Theme" Data="[이벤트] 가비야 테마"/>
+		<Class ClassID="300192" ClassName="PremiumToken_14d_event" Data="[이벤트]토큰:14일[증정용]"/>
 	</Category>
 	<Category Name="TPHistory">
 		<Class ClassID="301001" ClassName="RemainLogoutPC" Data="로그아웃 PC 만들기"/>

@@ -163,9 +163,9 @@ function REQ_EVENT_1910_HALLOWEEN_SHOP_OPEN()
 end
 
 function REQ_EVENT1912_4TH_SHOP_OPEN()
-    local frame = ui.GetFrame("earthtowershop");
-    frame:SetUserValue("SHOP_TYPE", 'Event4thShop1912');
-    ui.OpenFrame('earthtowershop');
+--    local frame = ui.GetFrame("earthtowershop");
+--    frame:SetUserValue("SHOP_TYPE", 'Event4thShop1912');
+--    ui.OpenFrame('earthtowershop');
 end
 
 function REQ_SELL_TPSHOP1912_SHOP_OPEN()
@@ -186,6 +186,11 @@ function REQ_EVENT1912_GREWUP_SHOP_OPEN()
     ui.OpenFrame('earthtowershop');
 end
 
+function REQ_EVENT_2001_NEWYEAR_SHOP_OPEN()
+    local frame = ui.GetFrame("earthtowershop");
+    frame:SetUserValue("SHOP_TYPE", 'NewYearShop');
+    ui.OpenFrame('earthtowershop');
+end
 
 function EARTH_TOWER_SHOP_OPEN(frame)
     if frame == nil then
@@ -293,6 +298,9 @@ function EARTH_TOWER_INIT(frame, shopType)
     elseif shopType == 'GrewUpShop' then
         title:SetText('{@st43}'..ScpArgMsg("NEW_CHAR_SHOP_1"));
         close:SetTextTooltip(ScpArgMsg('CloseUI{NAME}', 'NAME', ScpArgMsg("NEW_CHAR_SHOP_1")));
+    elseif shopType == 'NewYearShop' then
+        title:SetText('{@st43}'..ScpArgMsg("EVENT_2001_NEWYEAR_SHOP"));
+        close:SetTextTooltip(ScpArgMsg('CloseUI{NAME}', 'NAME', ScpArgMsg("EventShop")));
     end
 
 
@@ -781,6 +789,8 @@ function EARTH_TOWER_SHOP_TRADE_ENTER()
         item.DialogTransaction("BUY_TPSHOP1912_SHOP_1_TREAD1", resultlist, cntText);
     elseif shopType == 'GrewUpShop' then
         item.DialogTransaction("EVENT1912_GREWUP_SHOP_1_TREAD1", resultlist, cntText);
+    elseif shopType == 'NewYearShop' then
+        item.DialogTransaction("EVENT_2001_NEWYEAR_SHOP_1_THREAD1", resultlist, cntText);
 	end
 end
 
