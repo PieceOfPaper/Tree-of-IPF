@@ -367,6 +367,8 @@
 		<Class ClassID="2326" ClassName="EP12_PRE_REWARDS_FIX_MSG_2" Data="400레벨 케도란 장비(무기, 방패)의 초월이 완료되었습니다"/>
 		<Class ClassID="2327" ClassName="ItemOptionRelocate_Check_Message_Enchant{ITEM}" Data="{#fe7e00}[거래 가능]{/}아이템 옵션을 {#fe7e00}[거래 불가]{/}아이템으로 이전시, {nl} {#fe7e00}[거래 불가]{/}아이템 옵션을 다시 {#fe7e00}[거래 가능]{/}아이템으로 이전 할 수 없습니다. {nl} {nl}정말{#fe7e00}[{ITEM}]{/}을/를 이전하시려면 숫자 [0000]을 입력해주세요"/>
 		<Class ClassID="2328" ClassName="AlearyIcorAdded" Data="아이커 장착 해제를 통해 아이커 장착 해제 후 아이커 장착이 가능합니다."/>
+		<Class ClassID="2329" ClassName="StackOverItemExist" Data="인벤토리에 여신의 축복의 상품 중 최대 수량을 가진 아이템이 존재합니다."/>
+		<Class ClassID="2330" ClassName="StackOverItemExist1" Data="인벤토리에 여신의 가호의 상품 중 최대 수량을 가진 아이템이 존재합니다."/>
 	</Category>
 	<Category Name="ClassContents">
 		<Class ClassID="2500" ClassName="FullWeeklyGainClassResetExp" Data="주간 획득 가능한 클래스 변경 포인트를 모두 달성하였습니다."/>
