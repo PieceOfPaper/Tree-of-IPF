@@ -334,9 +334,8 @@ function CLICK_POSTBOX_LETTER(frame, ctrl, argStr, argNum)
 	local letterID = ctrl:GetUserValue("LETTER_ID");
 	local dbType = ctrl:GetUserIValue("DB_TYPE");
 	EXEC_READ_POSTBOX(letterID, dbType);
-
-	if argStr ~= nil then
-		-- argStr이 nil이 아니면 url이다.
+	if argStr ~= nil and argStr ~= ""  then
+		-- argStr이 nil 또는 ""이 아니면 url이다.
 		login.OpenURL(argStr); 
 	end
 end

@@ -1286,7 +1286,7 @@ function MAKE_QUEST_INFO_COMMON(pc, questIES, picture, result)
     			local npcProp = mapProp:GetNPCPropByDialog(questIES[questnpc_state..'NPC']);
     			if npcProp~= nil then
     				local genList = npcProp.GenList;
-    				if genList ~= nil then
+    				if genList ~= nil and genList:Count() > 0 then
         				local genPos = genList:Element(0);
        
         				picture:SetImage("questinfo_return");
