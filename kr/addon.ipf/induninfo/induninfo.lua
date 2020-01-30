@@ -1750,10 +1750,16 @@ end
 
 -- 입장하기 버튼 클릭
 function WEEKLY_BOSS_JOIN_ENTER_CLICK(parent,ctrl)
+    ui.MsgBox(ClMsg('EnterRightNow'), 'WEEKLY_BOSS_JOIN_ENTER_CLICK_MSG()', 'None');
+end     
+
+function WEEKLY_BOSS_JOIN_ENTER_CLICK_MSG()
+    local frame = ui.GetFrame("induninfo");
+    local ctrl = GET_CHILD_RECURSIVELY(frame,"joinenter")
     if ctrl:GetTextByKey('cur') < ctrl:GetTextByKey('max') or session.weeklyboss.GetNowWeekNum() == 1 then
         ReqEnterWeeklyBossIndun()
     else
         ui.SysMsg(ScpArgMsg('IRREDIAN1131_DLG_LANG_1_CANT'));
     end
-end     
+end
 --------------------------------- 주간 보스 레이드 ---------------------------------
