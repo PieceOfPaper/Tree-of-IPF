@@ -1308,7 +1308,11 @@ function GET_ITEM_NAME_WITH_LEVEL(item, itemLv)
 	end
 
 	if IS_ENCHANT_JEWELL_ITEM(item) == true then
-		return '['..string.format('LV. %d', itemLv)..'] '..item.Name;
+		if TryGetProp(item, 'NumberArg1', 0) > 0 then
+			return '['..string.format('LV. %d', TryGetProp(item, 'NumberArg1', 0))..'] '..item.Name;
+		else
+			return '['..string.format('LV. %d', itemLv)..'] '..item.Name;
+		end
 	end
 
 	return item.Name;

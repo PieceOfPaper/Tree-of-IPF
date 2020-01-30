@@ -1,6 +1,7 @@
 -- inuninfo.lua
 function INDUNINFO_ON_INIT(addon, frame)
     addon:RegisterMsg('CHAT_INDUN_UI_OPEN', 'INDUNINFO_CHAT_OPEN');
+	addon:RegisterMsg('WEEKLY_BOSS_UI_UPDATE', 'WEEKLY_BOSS_UI_UPDATE');
 
     g_selectedIndunTable = {};
 end
@@ -12,7 +13,9 @@ g_indunCategoryList = nil;
     contents_info.xml 데이터 중에서 ResetGroupID임
     indun.xml의 PlayPerResetType과 중복을 피하기 위해 음수로 추가해보았음
 ]] 
-g_contentsCategoryList = { -100, -200 }
+g_contentsCategoryList = nil
+
+g_weeklyBossCategory = 804
 
 function PUSH_BACK_UNIQUE_INTO_INDUN_CATEGORY_LIST(cateType)
     if g_indunCategoryList == nil then        
@@ -24,6 +27,20 @@ function PUSH_BACK_UNIQUE_INTO_INDUN_CATEGORY_LIST(cateType)
         end
     end
     g_indunCategoryList[#g_indunCategoryList + 1] = cateType;
+end
+
+function PUSH_BACK_CONTENTS_INFO_CONTENTS_CATEGORY_LIST(cateType)
+    if g_contentsCategoryList == nil then
+        g_contentsCategoryList = { -100, -200 }
+    end
+
+    for i = 1, #g_contentsCategoryList do
+        if g_contentsCategoryList[i] == cateType then
+            return
+        end
+    end
+
+    g_contentsCategoryList[#g_contentsCategoryList + 1] = cateType
 end
 
 function UI_TOGGLE_INDUN()
@@ -46,15 +63,68 @@ function INDUNINFO_UI_OPEN(frame)
         session.barrack.RequestCharacterIndunInfo();
     end
 
+    local now_time = geTime.GetServerSystemTime()
+    local weekly_boss_endtime = session.weeklyboss.GetWeeklyBossEndTime()
+    if session.weeklyboss.GetNowWeekNum() == 0 then
+        weekly_boss.RequestWeeklyBossNowWeekNum();                  -- 현재 week_num 요청
+    elseif imcTime.IsLaterThan(now_time,weekly_boss_endtime) ~= 0 then
+        weekly_boss.RequestWeeklyBossNowWeekNum();                  -- 현재 week_num 요청
+    end
+
+    
+    local tab = GET_CHILD_RECURSIVELY(frame, "tab");
+	if tab ~= nil then
+		tab:SelectTab(0);
+	end
     
     INDUNINFO_RESET_USERVALUE(frame);
     INDUNINFO_CREATE_CATEGORY(frame);
+
+    TOGGLE_INDUNINFO(frame,0)
+end
+
+function TOGGLE_WEEKLYBOSSINFO(frame, type)
+    local WeeklyBossbox = GET_CHILD_RECURSIVELY(frame, 'WeeklyBossbox');
+    WeeklyBossbox:ShowWindow(type);
+
+    local contentBox = GET_CHILD_RECURSIVELY(frame, 'contentBox');
+    contentBox:ShowWindow(1 - type);
+    local categoryBox = GET_CHILD_RECURSIVELY(frame, 'categoryBox');
+    categoryBox:ShowWindow(1 - type);
+    local bottomBox = GET_CHILD_RECURSIVELY(frame, 'bottomBox');
+    bottomBox:ShowWindow(1 - type);
+end
+
+function SET_WEEKLYBOSS_INDUN_COUNT(frame)
+    local button = GET_CHILD_RECURSIVELY(frame,"joinenter")
+    local indunCls = GetClassByNumProp("Indun","PlayPerResetType",g_weeklyBossCategory)
+    local acc_obj = GetMyAccountObj()
+    button:SetTextByKey('cur', acc_obj['IndunWeeklyEnteredCount_'..g_weeklyBossCategory]);
+    button:SetTextByKey('max', indunCls.PlayPerReset);
+end
+
+function TOGGLE_INDUNINFO(frame,type)
+    TOGGLE_WEEKLYBOSSINFO(frame, 0);
+
+    local indunbox = GET_CHILD_RECURSIVELY(frame,'indunbox')
+    indunbox:ShowWindow(1 - type)
+    local lvAscendRadio = GET_CHILD_RECURSIVELY(frame,'lvAscendRadio')
+    lvAscendRadio:ShowWindow(1 - type)
+    local lvDescendRadio = GET_CHILD_RECURSIVELY(frame,'lvDescendRadio')
+    lvDescendRadio:ShowWindow(1 - type)
+    if type == 1 then
+        local resetInfoText = GET_CHILD_RECURSIVELY(frame, 'resetInfoText'); 
+        resetInfoText:ShowWindow(0)
+        local resetInfoText_Week = GET_CHILD_RECURSIVELY(frame, 'resetInfoText_Week');
+        resetInfoText_Week:ShowWindow(0)
+    end
 end
 
 function INDUNINFO_UI_CLOSE(frame)
     INDUNMAPINFO_UI_CLOSE();
     ui.CloseFrame('induninfo');
     ui.CloseFrame('indun_char_status');
+    ui.CloseFrame('weeklyboss_patterninfo');
 end
 
 function INDUNINFO_CREATE_CATEGORY(frame)
@@ -74,14 +144,14 @@ function INDUNINFO_CREATE_CATEGORY(frame)
         if indunCls ~= nil then            
             local resetGroupID = indunCls.PlayPerResetType;
             local category = indunCls.Category;
-            local categoryCtrl = categoryBox:GetChild('CATEGORY_CTRL_'..resetGroupID);            
+            local categoryCtrl = categoryBox:GetChild('CATEGORY_CTRL_'..resetGroupID);
             if categoryCtrl == nil and category ~= 'None' then
-                PUSH_BACK_UNIQUE_INTO_INDUN_CATEGORY_LIST(resetGroupID);                
+                PUSH_BACK_UNIQUE_INTO_INDUN_CATEGORY_LIST(resetGroupID);
 
                 resetGroupTable[resetGroupID] = 1;
-                categoryCtrl = categoryBox:CreateOrGetControlSet('indun_cate_ctrl', 'CATEGORY_CTRL_'..resetGroupID, 0, i*50);
+                categoryCtrl = categoryBox:CreateOrGetControlSet('indun_cate_ctrl', 'CATEGORY_CTRL_'..resetGroupID, 0, i * 50);
 
-                local name = categoryCtrl:GetChild("name");                
+                local name = categoryCtrl:GetChild("name");
                 local btn = categoryCtrl:GetChild("button");
                 local countText = categoryCtrl:GetChild('countText');
                 local cyclePicImg = GET_CHILD_RECURSIVELY(categoryCtrl, 'cycleCtrlPic')   --주/일 표시 이미지
@@ -112,7 +182,7 @@ function INDUNINFO_CREATE_CATEGORY(frame)
                         cyclePicImg:Resize(cyclePicImg:GetOriginalWidth() + 11, cyclePicImg:GetOriginalHeight());
                     elseif IsBuffApplied(pc, "Event_Unique_Raid_Bonus_Limit") == "YES" then
                         local accountObject = GetMyAccountObj(pc)
-                        if TryGetProp(accountObject,"EVENT_UNIQUE_RAID_BONUS_LIMIT") > 0 then
+                        if TryGetProp(accountObject ,"EVENT_UNIQUE_RAID_BONUS_LIMIT") > 0 then
                             cyclePicImg:SetImage('indun_icon_event_l_eng')
                             local margin = cyclePicImg:GetOriginalMargin();
                             cyclePicImg:SetMargin(margin.left, margin.top, margin.right + 20, margin.bottom);
@@ -159,6 +229,7 @@ function INDUNINFO_CREATE_CATEGORY(frame)
             local category = contentsCls.Category
             local categoryCtrl = categoryBox:GetChild('CATEGORY_CTRL_'..resetGroupID)
             if categoryCtrl == nil and category ~= 'None' then
+                PUSH_BACK_CONTENTS_INFO_CONTENTS_CATEGORY_LIST(resetGroupID);
                 resetGroupTable[resetGroupID] = 1;
                 categoryCtrl = categoryBox:CreateOrGetControlSet('indun_cate_ctrl', 'CATEGORY_CTRL_'..resetGroupID, 0, i * 50);
 
@@ -251,7 +322,7 @@ function INDUNINFO_CATEGORY_LBTN_CLICK(categoryCtrl, ctrl)
     local topFrame = categoryCtrl:GetTopParentFrame();
     local preSelectType = topFrame:GetUserIValue('SELECT');
     local selectedResetGroupID = categoryCtrl:GetUserIValue('RESET_GROUP_ID');
-    if preSelectType == selectedResetGroupID then    
+    if preSelectType == selectedResetGroupID then
         return;
     end
 
@@ -327,13 +398,13 @@ function INDUNINFO_CATEGORY_LBTN_CLICK(categoryCtrl, ctrl)
             end
         end
     else
-    local indunClsList, cnt = GetClassList('Indun');    
-    local showCnt = 0;    
+        local indunClsList, cnt = GetClassList('Indun');    
+        local showCnt = 0;
         local missionIndunCnt = 0; -- 신규 레벨던전 7곳의 로테이션은 해당 인던의 클래스가 indun.xml에 들어 있는 순서대로 일 ~ 토로 배정됨
-    for i = 0, cnt - 1 do
-        local indunCls = GetClassByIndexFromList(indunClsList, i);
+        for i = 0, cnt - 1 do
+            local indunCls = GetClassByIndexFromList(indunClsList, i);
             local add_flag = false;
-        if indunCls.PlayPerResetType == selectedResetGroupID and indunCls.Category ~= 'None' then
+            if indunCls.PlayPerResetType == selectedResetGroupID and indunCls.Category ~= 'None' then
                 local dungeonType = TryGetProp(indunCls, 'DungeonType')
                 if dungeonType == 'MissionIndun' then
                     local sysTime = geTime.GetServerSystemTime();
@@ -348,55 +419,55 @@ function INDUNINFO_CATEGORY_LBTN_CLICK(categoryCtrl, ctrl)
             end
 
             if add_flag == true then
-            local indunDetailCtrl = indunListBox:CreateOrGetControlSet('indun_detail_ctrl', 'DETAIL_CTRL_'..indunCls.ClassID, 0, 0);
-            indunDetailCtrl = tolua.cast(indunDetailCtrl, 'ui::CControlSet');
-            indunDetailCtrl:SetUserValue('INDUN_CLASS_ID', indunCls.ClassID);
-            indunDetailCtrl:SetEventScript(ui.LBUTTONUP, 'INDUNINFO_DETAIL_LBTN_CLICK');
+                local indunDetailCtrl = indunListBox:CreateOrGetControlSet('indun_detail_ctrl', 'DETAIL_CTRL_'..indunCls.ClassID, 0, 0);
+                indunDetailCtrl = tolua.cast(indunDetailCtrl, 'ui::CControlSet');
+                indunDetailCtrl:SetUserValue('INDUN_CLASS_ID', indunCls.ClassID);
+                indunDetailCtrl:SetEventScript(ui.LBUTTONUP, 'INDUNINFO_DETAIL_LBTN_CLICK');
 
-            local infoText = indunDetailCtrl:GetChild('infoText');
-            local nameText = indunDetailCtrl:GetChild('nameText');
-            
-            infoText:SetTextByKey('level', indunCls.Level);
-            nameText:SetTextByKey('name', indunCls.Name);                
-            if showCnt == 0 then -- 디폴트는 리스트의 첫번째
-                indunListBox:SetUserValue('FIRST_INDUN_ID', indunCls.ClassID)
-                INDUNINFO_DETAIL_LBTN_CLICK(indunListBox, indunDetailCtrl);
-            end
-            showCnt = showCnt + 1;
-            g_selectedIndunTable[showCnt] = indunCls;
-            -- 주간 입장 텍스트 설정
-            local resetInfoText = GET_CHILD_RECURSIVELY(topFrame, 'resetInfoText');             --"입장 횟수는 매일 %s시에 초기화 됩니다."
-            local resetInfoText_Week = GET_CHILD_RECURSIVELY(topFrame, 'resetInfoText_Week');   --"입장 횟수는 매주 월요일 %s시에 초기화 됩니다."
-
-            local resetTime = INDUN_RESET_TIME % 12;
-            local ampm = ClMsg('AM');
-            if indunCls.DungeonType == "Event" then     
-                if indunCls.ResetTime > 12 then
-                    ampm = ClMsg('PM');
+                local infoText = indunDetailCtrl:GetChild('infoText');
+                local nameText = indunDetailCtrl:GetChild('nameText');
+                
+                infoText:SetTextByKey('level', indunCls.Level);
+                nameText:SetTextByKey('name', indunCls.Name);                
+                if showCnt == 0 then -- 디폴트는 리스트의 첫번째
+                    indunListBox:SetUserValue('FIRST_INDUN_ID', indunCls.ClassID)
+                    INDUNINFO_DETAIL_LBTN_CLICK(indunListBox, indunDetailCtrl);
                 end
-                resetTime = indunCls.ResetTime % 12;
-            else
-                if INDUN_RESET_TIME > 12 then
-                    ampm = ClMsg('PM');
-                end
-            end
+                showCnt = showCnt + 1;
+                g_selectedIndunTable[showCnt] = indunCls;
+                -- 주간 입장 텍스트 설정
+                local resetInfoText = GET_CHILD_RECURSIVELY(topFrame, 'resetInfoText');             --"입장 횟수는 매일 %s시에 초기화 됩니다."
+                local resetInfoText_Week = GET_CHILD_RECURSIVELY(topFrame, 'resetInfoText_Week');   --"입장 횟수는 매주 월요일 %s시에 초기화 됩니다."
 
-            --주간 입장인지, 일간 입장인지 
-            if indunCls.WeeklyEnterableCount ~= nil then
-                if indunCls.WeeklyEnterableCount ~= 0 and indunCls.WeeklyEnterableCount > 0 then    --주간
-                    local resetText_wkeely = string.format('%s %s', ampm, resetTime);
-                    resetInfoText_Week:SetTextByKey('resetTime', resetText_wkeely);
-                    resetInfoText:ShowWindow(0);
-                    resetInfoText_Week:ShowWindow(1);
-                else                                                                                --일간
-                    local resetText = string.format('%s %s', ampm, resetTime);
-                    resetInfoText:SetTextByKey('resetTime', resetText);
-                    resetInfoText_Week:ShowWindow(0);
-                    resetInfoText:ShowWindow(1);
+                local resetTime = INDUN_RESET_TIME % 12;
+                local ampm = ClMsg('AM');
+                if indunCls.DungeonType == "Event" then     
+                    if indunCls.ResetTime > 12 then
+                        ampm = ClMsg('PM');
+                    end
+                    resetTime = indunCls.ResetTime % 12;
+                else
+                    if INDUN_RESET_TIME > 12 then
+                        ampm = ClMsg('PM');
+                    end
+                end
+
+                --주간 입장인지, 일간 입장인지 
+                if indunCls.WeeklyEnterableCount ~= nil then
+                    if indunCls.WeeklyEnterableCount ~= 0 and indunCls.WeeklyEnterableCount > 0 then    --주간
+                        local resetText_wkeely = string.format('%s %s', ampm, resetTime);
+                        resetInfoText_Week:SetTextByKey('resetTime', resetText_wkeely);
+                        resetInfoText:ShowWindow(0);
+                        resetInfoText_Week:ShowWindow(1);
+                    else    --일간
+                        local resetText = string.format('%s %s', ampm, resetTime);
+                        resetInfoText:SetTextByKey('resetTime', resetText);
+                        resetInfoText_Week:ShowWindow(0);
+                        resetInfoText:ShowWindow(1);
+                    end
                 end
             end
         end
-    end
     end
     GBOX_AUTO_ALIGN(indunListBox, 0, 2, 0, true, true);
 
@@ -411,7 +482,7 @@ function GET_CURRENT_ENTERANCE_COUNT(resetGroupID)
     if etc == nil or acc_obj == nil then
         return 0;
     end
-    
+
     if resetGroupID < 0 then
         local contentsClsList, count = GetClassList('contents_info')
         local contentsCls = nil
@@ -440,7 +511,7 @@ function GET_CURRENT_ENTERANCE_COUNT(resetGroupID)
     if indunCls.WeeklyEnterableCount ~= nil and indunCls.WeeklyEnterableCount ~= "None" and indunCls.WeeklyEnterableCount ~= 0 then
         if indunCls.UnitPerReset == 'PC' then
             return(etc['IndunWeeklyEnteredCount_'..resetGroupID])   --매주 남은 횟수
-        else            
+        else     
             return(acc_obj['IndunWeeklyEnteredCount_'..resetGroupID])   --매주 남은 횟수
         end        
     else
@@ -470,39 +541,39 @@ function GET_MAX_ENTERANCE_COUNT(resetGroupID)
 
         return contentsCls.EnterableCount
     else
-    local indunClsList, cnt = GetClassList('Indun');
-    local indunCls = nil;
-    for i = 0, cnt - 1 do
-        indunCls = GetClassByIndexFromList(indunClsList, i);
-        if indunCls ~= nil and indunCls.PlayPerResetType == resetGroupID and indunCls.Category ~= 'None' then
-            break;
-        end
-    end
-    
-    local infinity = TryGetProp(indunCls, 'EnableInfiniteEnter', 'NO')
-    if indunCls.AdmissionItemName ~= "None" or infinity == 'YES' then
-        local a = "{img infinity_text 20 10}"
-        if indunCls.DungeonType == "Raid" or indunCls.DungeonType == "GTower" then
-            if indunCls.WeeklyEnterableCount > TryGetProp(etc, "IndunWeeklyEnteredCount_"..tostring(TryGetProp(indunCls, "PlayPerResetType"))) then
-                return indunCls.WeeklyEnterableCount;
+        local indunClsList, cnt = GetClassList('Indun');
+        local indunCls = nil;
+        for i = 0, cnt - 1 do
+            indunCls = GetClassByIndexFromList(indunClsList, i);
+            if indunCls ~= nil and indunCls.PlayPerResetType == resetGroupID and indunCls.Category ~= 'None' then
+                break;
             end
         end
         
-        return a;
+        local infinity = TryGetProp(indunCls, 'EnableInfiniteEnter', 'NO')
+        if indunCls.AdmissionItemName ~= "None" or infinity == 'YES' then
+            local a = "{img infinity_text 20 10}"
+            if indunCls.DungeonType == "Raid" or indunCls.DungeonType == "GTower" then
+                if indunCls.WeeklyEnterableCount > TryGetProp(etc, "IndunWeeklyEnteredCount_"..tostring(TryGetProp(indunCls, "PlayPerResetType"))) then
+                    return indunCls.WeeklyEnterableCount;
+                end
+            end
+            
+            return a;
+        end
+        
+        local bonusCount = 0;
+        -- local isTokenState = session.loginInfo.IsPremiumState(ITEM_TOKEN);    
+        -- if isTokenState == true then
+        --     bonusCount = indunCls.PlayPerReset_Token
+        -- end
+        --bonus는 빼버려도 될듯
+        if indunCls.WeeklyEnterableCount ~= nil and indunCls.WeeklyEnterableCount ~= "None" and indunCls.WeeklyEnterableCount ~= 0 then
+            return indunCls.WeeklyEnterableCount + bonusCount;  --매주 max
+        else
+            return indunCls.PlayPerReset + bonusCount;          --매일 max
+        end
     end
-    
-    local bonusCount = 0;
-    -- local isTokenState = session.loginInfo.IsPremiumState(ITEM_TOKEN);    
-    -- if isTokenState == true then
-    --     bonusCount = indunCls.PlayPerReset_Token
-    -- end
-    --bonus는 빼버려도 될듯
-    if indunCls.WeeklyEnterableCount ~= nil and indunCls.WeeklyEnterableCount ~= "None" and indunCls.WeeklyEnterableCount ~= 0 then
-        return indunCls.WeeklyEnterableCount + bonusCount;  --매주 max
-    else
-        return indunCls.PlayPerReset + bonusCount;          --매일 max
-    end
-end
 end
 
 function GET_RESET_CYCLE(resetGroupID)
@@ -529,37 +600,37 @@ function GET_RESET_CYCLE(resetGroupID)
             isWeekCycle = false
         end
     else
-    local indunClsList, cnt = GetClassList('Indun');
-    local indunCls = nil;
-    for i = 0, cnt - 1 do
-        indunCls = GetClassByIndexFromList(indunClsList, i);
-        if indunCls ~= nil and indunCls.PlayPerResetType == resetGroupID and indunCls.Category ~= 'None' then
-            break;
+        local indunClsList, cnt = GetClassList('Indun');
+        local indunCls = nil;
+        for i = 0, cnt - 1 do
+            indunCls = GetClassByIndexFromList(indunClsList, i);
+            if indunCls ~= nil and indunCls.PlayPerResetType == resetGroupID and indunCls.Category ~= 'None' then
+                break;
+            end
         end
-    end
 
-    if indunCls.UnitPerReset == 'ACCOUNT' then
-        etc = GetMyAccountObj()
-    end
-
-    local nowCount = TryGetProp(etc, "InDunCountType_"..tostring(TryGetProp(indunCls, "PlayPerResetType")));
-    
-    if indunCls.WeeklyEnterableCount ~= nil and indunCls.WeeklyEnterableCount ~= "None" and indunCls.WeeklyEnterableCount ~= 0 then
-        nowCount = TryGetProp(etc, "IndunWeeklyEnteredCount_"..tostring(TryGetProp(indunCls, "PlayPerResetType")));
-        if indunCls.DungeonType == "Raid" or indunCls.DungeonType == "GTower" then
-            if nowCount < indunCls.WeeklyEnterableCount then
-                isWeekCycle = true;
+        if indunCls.UnitPerReset == 'ACCOUNT' then
+            etc = GetMyAccountObj()
+        end
+        
+        local nowCount = TryGetProp(etc, "InDunCountType_"..tostring(TryGetProp(indunCls, "PlayPerResetType")));
+        
+        if indunCls.WeeklyEnterableCount ~= nil and indunCls.WeeklyEnterableCount ~= "None" and indunCls.WeeklyEnterableCount ~= 0 then
+            nowCount = TryGetProp(etc, "IndunWeeklyEnteredCount_"..tostring(TryGetProp(indunCls, "PlayPerResetType")));
+            if indunCls.DungeonType == "Raid" or indunCls.DungeonType == "GTower" then
+                if nowCount < indunCls.WeeklyEnterableCount then
+                    isWeekCycle = true;
+                else
+                    isWeekCycle = false;
+                end
             else
-                isWeekCycle = false;
+            --return 'token_on'   --횟수가 매주 리셋되는 던전
+            isWeekCycle = true;
             end
         else
-        --return 'token_on'   --횟수가 매주 리셋되는 던전
-        isWeekCycle = true;
+            --return 'token_off'  --횟수가 매일 리셋되는 던전
+            isWeekCycle = false;
         end
-    else
-        --return 'token_off'  --횟수가 매일 리셋되는 던전
-        isWeekCycle = false;
-    end
     end
     return isWeekCycle;
 end
@@ -600,8 +671,8 @@ function INDUNINFO_DETAIL_LBTN_CLICK(parent, detailCtrl)
     if resetGroupID < 0 then
         INDUNINFO_MAKE_DETAIL_INFO_BOX_OTHER(topFrame, indunClassID)
     else
-    INDUNINFO_MAKE_DETAIL_INFO_BOX(topFrame, indunClassID);
-end
+        INDUNINFO_MAKE_DETAIL_INFO_BOX(topFrame, indunClassID);
+    end
 end
 
 -- induninfo와 indunenter에서 보상 드랍박스 만드는 데 완전 동일한 로직 사용중이고 또 너무 길어보여서 리스트에 아이템 채우는 부분만 분리했음
@@ -681,20 +752,20 @@ function INDUNINFO_DROPBOX_ITEM_LIST(parent, control)
         dungeonType = TryGetProp(indunCls, 'DungeonType')
         indunRewardItem = TryGetProp(indunCls, 'Reward_Item')
     end
-
+    
     if indunRewardItem ~= nil and indunRewardItem ~= 'None' then
         groupList = SCR_STRING_CUT(indunRewardItem, '/')
     end
-
+    
     local indunRewardItemList = { };
     indunRewardItemList['weaponBtn'] = { };
     indunRewardItemList['subweaponBtn'] = { };
     indunRewardItemList['armourBtn'] = { };
     indunRewardItemList['accBtn'] = { };
     indunRewardItemList['materialBtn'] = { };
-
+    
     local allIndunRewardItemList, allIndunRewardItemCount = GetClassList('reward_indun');
-
+    
     if groupList ~= nil then
         for i = 1, #groupList do
             -- 신규 레벨던전의 경우 'ClassName;1'의 형식으로 보상 이름이 들어가있을 수 있어서 ';'으로 파싱 한번 더해줌
@@ -704,14 +775,14 @@ function INDUNINFO_DROPBOX_ITEM_LIST(parent, control)
             local itemGroupName = TryGetProp(itemCls, 'GroupName')
             if itemGroupName == 'Cube' then
                 -- 큐브 재개봉 시스템 개편에 따른 변경사항으로 보상 아이템 목록 보여주는 부분 큐브 대신 구성품으로 풀어서 보여주도록 변경함
-            local itemStringArg = TryGetProp(itemCls, 'StringArg')
-            for j = 0, allIndunRewardItemCount - 1  do
-                local indunRewardItemClass = GetClassByIndexFromList(allIndunRewardItemList, j);
-                if indunRewardItemClass ~= nil and TryGetProp(indunRewardItemClass, 'Group') == itemStringArg then
+                local itemStringArg = TryGetProp(itemCls, 'StringArg')
+                for j = 0, allIndunRewardItemCount - 1  do
+                    local indunRewardItemClass = GetClassByIndexFromList(allIndunRewardItemList, j);
+                    if indunRewardItemClass ~= nil and TryGetProp(indunRewardItemClass, 'Group') == itemStringArg then
                         CHECK_AND_FILL_REWARD_DROPBOX(indunRewardItemList, indunRewardItemClass.ItemName)
-                                end
-                                    end
-                                else 
+                    end
+                end
+            else
                 CHECK_AND_FILL_REWARD_DROPBOX(indunRewardItemList, itemName)
             end
         end
@@ -747,7 +818,7 @@ function INDUNINFO_MAKE_DROPBOX(parent, control)
     local frame = ui.GetFrame('induninfo');
     local rewardBox = GET_CHILD_RECURSIVELY(frame, 'rewardBox');
     local controlName = control:GetName();
-    
+
     local btnList, imgList = GET_INDUNINFO_MAKE_DROPBOX_BTN_LIST();
     for i = 1, #btnList do
         local btnName = btnList[i];
@@ -878,7 +949,7 @@ function GET_INDUNINFO_DROPBOX_LIST_MOUSE_OUT()
     end
 end
 
-function INDUNINFO_MAKE_DETAIL_INFO_BOX(frame, indunClassID)    
+function INDUNINFO_MAKE_DETAIL_INFO_BOX(frame, indunClassID)
     local indunCls = GetClassByType('Indun', indunClassID);
     local etc = GetMyEtcObject();
     if indunCls == nil or etc == nil then
@@ -939,11 +1010,11 @@ function INDUNINFO_MAKE_DETAIL_INFO_BOX(frame, indunClassID)
     local etc = GetMyEtcObject();
     local nowCount = TryGetProp(etc, "InDunCountType_"..tostring(TryGetProp(indunCls, "PlayPerResetType")));
     local addCount = math.floor(nowCount * admissionPlayAddItemCount);
-    
+
     if admissionItemCount == nil then
         admissionItemCount = 0;
     end
-    
+
     admissionItemCount = math.floor(admissionItemCount);
     
     if indunCls.UnitPerReset == 'ACCOUNT' then
@@ -957,7 +1028,7 @@ function INDUNINFO_MAKE_DETAIL_INFO_BOX(frame, indunClassID)
             addCount = 0;
         end
     end
-    
+
     if admissionItemName == "None" or admissionItemName == nil then
         -- if isTokenState == true then
         --     tokenStatePic:SetImage(TOKEN_STATE_IMAGE);
@@ -1009,7 +1080,7 @@ function INDUNINFO_MAKE_DETAIL_INFO_BOX(frame, indunClassID)
         --     tokenStatePic:SetTextTooltip(ScpArgMsg('YouCanLittleIndunAdmissionItemWithToken', 'COUNT', indunCls.PlayPerReset_Token, 'TOKEN_STATE', ClMsg('NotApplied')));
         -- end
         -- local nowAdmissionItemCount = admissionItemCount + addCount - isTokenState
-        
+
         local nowAdmissionItemCount = admissionItemCount
 
 --        if SCR_RAID_EVENT_20190102(nil, false) == true and admissionItemName == 'Dungeon_Key01' then
@@ -1026,7 +1097,7 @@ function INDUNINFO_MAKE_DETAIL_INFO_BOX(frame, indunClassID)
         else
             nowAdmissionItemCount  = admissionItemCount + addCount
         end
-        
+
         countItemData:SetTextByKey('admissionitem', '  {img '..indunAdmissionItemImage..' 30 30}  '..nowAdmissionItemCount..'')
 
         local countBox = GET_CHILD_RECURSIVELY(frame, 'countBox');
@@ -1287,11 +1358,11 @@ function INDUNINFO_SORT_BY_LEVEL(parent, ctrl)
     local topFrame = parent:GetTopParentFrame();
     local resetGroupID = topFrame:GetUserIValue('SELECT')
     local radioBtn = GET_CHILD_RECURSIVELY(topFrame, 'lvAscendRadio');
-    local selectedBtn = radioBtn:GetSelectedButton();    
+    local selectedBtn = radioBtn:GetSelectedButton();
     if selectedBtn:GetName() == 'lvAscendRadio' then
-        table.sort(g_selectedIndunTable, SORT_BY_LEVEL_BASE_NAME);        
+        table.sort(g_selectedIndunTable, SORT_BY_LEVEL_BASE_NAME);
     else
-        table.sort(g_selectedIndunTable, SORT_BY_LEVEL_REVERSE);        
+        table.sort(g_selectedIndunTable, SORT_BY_LEVEL_REVERSE);
     end
 
     local indunListBox = GET_CHILD_RECURSIVELY(topFrame, 'INDUN_LIST_BOX');    
@@ -1320,11 +1391,11 @@ function INDUNINFO_SORT_BY_LEVEL(parent, ctrl)
     end
     
     local firstSelectedID = indunListBox:GetUserIValue('FIRST_INDUN_ID');
-    if resetGroupID < 0 then
-        INDUNINFO_MAKE_DETAIL_INFO_BOX_OTHER(topFrame, firstSelectedID)
-    else
-        INDUNINFO_MAKE_DETAIL_INFO_BOX(topFrame, firstSelectedID);
-    end
+        if resetGroupID < 0 then
+            INDUNINFO_MAKE_DETAIL_INFO_BOX_OTHER(topFrame, firstSelectedID)
+        else
+            INDUNINFO_MAKE_DETAIL_INFO_BOX(topFrame, firstSelectedID);
+        end
     indunListBox:SetUserValue('SELECTED_DETAIL', firstSelectedID);
 end
 
@@ -1364,13 +1435,24 @@ function INDUNINFO_OPEN_INDUN_MAP(parent, ctrl)
     if resetGroupID < 0 then
         OPEN_INDUN_MAP_INFO(indunClassID, mapID, resetGroupID);
     else
-    OPEN_INDUN_MAP_INFO(indunClassID, mapID);
-end
+        OPEN_INDUN_MAP_INFO(indunClassID, mapID);
+    end
 end
 
 function INDUN_CANNOT_YET(msg)
     ui.SysMsg(ScpArgMsg(msg));
     ui.OpenFrame("party");
+end
+
+function INDUNINFO_TAB_CHANGE(parent, ctrl)
+	local frame = parent:GetTopParentFrame();
+	local tab = GET_CHILD(frame, "tab");
+	local index = tab:GetSelectItemIndex();
+	if index == 0 then
+		INDUNINFO_UI_OPEN(frame);
+    elseif index == 1 then
+        WEEKLYBOSSINFO_UI_OPEN(frame);
+	end
 end
 
 function INDUNINFO_MOVE_TO_ENTER_NPC(frame, ctrl)
@@ -1399,3 +1481,279 @@ function INDUNINFO_MOVE_TO_ENTER_NPC(frame, ctrl)
     local indunClsID = ctrl:GetUserValue('MOVE_INDUN_CLASSID');
     control.CustomCommand('MOVE_TO_ENTER_NPC', indunClsID, 0, 0);
 end
+
+--------------------------------- 주간 보스 레이드 --------------------------------- 
+function  WEEKLYBOSSINFO_UI_OPEN(frame)
+    WEEKLY_BOSS_DATA_REUQEST();
+
+    TOGGLE_WEEKLYBOSSINFO(frame, 1);
+    
+    local frame = ui.GetFrame('induninfo');
+    
+    SET_WEEKLYBOSS_INDUN_COUNT(frame)
+end
+
+function WEEKLY_BOSS_SEASON_SELECT(frame,ctrl)
+
+end
+
+function WEEKLY_BOSS_DATA_REUQEST()
+    local frame = ui.GetFrame("induninfo")
+    local rank_gb = GET_CHILD_RECURSIVELY(frame, "rank_gb");
+    rank_gb:EnableHitTest(0);
+    ReserveScript("HOLD_RANKUI_UNFREEZE()", 1);
+
+    local week_num =  WEEKLY_BOSS_RANK_WEEKNUM_NUMBER();
+    if week_num < 1 then
+        return;
+    end
+    weekly_boss.RequestWeeklyBossAbsoluteRewardList(week_num);  -- 누적대미지 보상 목록 요청
+    weekly_boss.RequestWeeklyBossRankingRewardList(week_num);   -- 랭킹 보상 목록 요청
+    weekly_boss.RequestGetReceiveAbsoluteReward(week_num);      -- 내가 수령한 누적대미지 보상 정보 요청
+    weekly_boss.RequestGetReceiveRankingReward(week_num);       -- 내가 수령한 랭킹 보상 정보 요청
+
+    -- 랭킹 정보
+    local jobID = WEEKLY_BOSS_RANK_JOBID_NUMBER();
+    weekly_boss.RequestWeeklyBossRankingInfoList(week_num, jobID);
+
+    -- 보스 정보
+    weekly_boss.RequestWeeklyBossStartTime(week_num);           -- 해당 주간 보스 시작 시간 정보 요청
+    weekly_boss.RequestWeeklyBossEndTime(week_num);             -- 해당 주간 보스 종료 시간 정보 요청
+    weekly_boss.RequestWeeklyBossPatternInfo(week_num);             -- 해당 주간 보스 종료 시간 정보 요청
+    
+    local rankListBox = GET_CHILD_RECURSIVELY(frame, "rankListBox", "ui::CGroupBox");
+    rankListBox:RemoveAllChild();
+end
+
+function HOLD_RANKUI_UNFREEZE()
+    local frame = ui.GetFrame("induninfo");    
+    local rank_gb = GET_CHILD_RECURSIVELY(frame, "rank_gb");
+    rank_gb:EnableHitTest(1);
+end
+
+-- 갱신된 정보에 맞게 UI 수정 
+function WEEKLY_BOSS_UI_UPDATE()
+    local frame = ui.GetFrame("induninfo")
+    local week_num = WEEKLY_BOSS_RANK_WEEKNUM_NUMBER();
+    -- 몬스터 정보
+    local weeklybossPattern = session.weeklyboss.GetPatternInfo();
+    local monClsName = weeklybossPattern.MonsterClassName
+    local monCls = GetClass("Monster",monClsName)
+    if monCls ~= nil then
+        local monster_icon_pic = GET_CHILD_RECURSIVELY(frame, 'monster_icon_pic');
+        monster_icon_pic:SetImage(monCls.Icon);
+        
+        local monster_attr1 = GET_CHILD_RECURSIVELY(frame, "monster_attr1", "ui::CControlSet");
+        local monster_attr2 = GET_CHILD_RECURSIVELY(frame, "monster_attr2", "ui::CControlSet");
+        local monster_attr3 = GET_CHILD_RECURSIVELY(frame, "monster_attr3", "ui::CControlSet");
+        local monster_attr4 = GET_CHILD_RECURSIVELY(frame, "monster_attr4", "ui::CControlSet");
+        local monster_attr5 = GET_CHILD_RECURSIVELY(frame, "monster_attr5", "ui::CControlSet");
+        local monster_attr6 = GET_CHILD_RECURSIVELY(frame, "monster_attr6", "ui::CControlSet");
+        
+        SET_TEXT(monster_attr1, "attr_name_text", "value", ScpArgMsg('Name'));
+        SET_TEXT(monster_attr2, "attr_name_text", "value", ScpArgMsg('RaceType'));
+        SET_TEXT(monster_attr3, "attr_name_text", "value", ScpArgMsg('Attribute'));
+        SET_TEXT(monster_attr4, "attr_name_text", "value", ScpArgMsg('MonInfo_ArmorMaterial'));
+        SET_TEXT(monster_attr5, "attr_name_text", "value", ScpArgMsg('Level'));
+        SET_TEXT(monster_attr6, "attr_name_text", "value", ScpArgMsg('Area'));
+
+        SET_TEXT(monster_attr1, "attr_value_text", "value", monCls.Name);
+        SET_TEXT(monster_attr2, "attr_value_text", "value", ScpArgMsg(weeklybossPattern.RaceType));
+        SET_TEXT(monster_attr3, "attr_value_text", "value", ScpArgMsg("MonInfo_Attribute_"..weeklybossPattern.Attribute));
+        SET_TEXT(monster_attr4, "attr_value_text", "value", ScpArgMsg(weeklybossPattern.ArmorMaterial));
+        SET_TEXT(monster_attr5, "attr_value_text", "value", monCls.Level);
+        local attr5_value_text = GET_CHILD_RECURSIVELY(monster_attr6,"attr_value_text")
+        local mapCls = GetClassByType("Map",weeklybossPattern.mapClassID)
+        if mapCls ~= nil then
+            SET_TEXT(monster_attr6, "attr_value_text", "value", mapCls.Name);
+        end
+    end
+    
+    -- 전투 정보
+    local myrank = session.weeklyboss.GetMyRankInfo(week_num);          -- 계열 등수
+    local totalcnt = session.weeklyboss.GetTotalRankCount(week_num);    -- 계열별 전체 도전 유저
+    local myrank_p = (myrank/totalcnt) * 100;
+    myrank_p = string.format("%.2f",myrank_p)
+    if totalcnt <= 0 then
+        myrank_p = 0;
+    end
+    local mydamage = session.weeklyboss.GetMyDamageInfoToString(week_num);                  -- 도전 1회 최고 점수
+    local accumulateDamage = session.weeklyboss.GetWeeklyBossAccumulatedDamage(week_num);   -- 누적 대미지
+    
+    local battle_info_attr = GET_CHILD_RECURSIVELY(frame, "battle_info_attr", "ui::CControlSet");
+    SET_TEXT(battle_info_attr, "attr_value_text_1", "rank", myrank);
+    SET_TEXT(battle_info_attr, "attr_value_text_1", "rank_p", myrank_p);
+    SET_TEXT(battle_info_attr, "attr_value_text_2", "value", STR_KILO_CHANGE(mydamage));
+    SET_TEXT(battle_info_attr, "attr_value_text_3", "value", STR_KILO_CHANGE(accumulateDamage));
+    
+    -- 제한 시간     
+    local starttime = session.weeklyboss.GetWeeklyBossStartTime();
+    local endtime = session.weeklyboss.GetWeeklyBossEndTime();
+    local durtime = imcTime.GetDifSec(endtime, starttime);
+    local systime = geTime.GetServerSystemTime();
+    local difsec = imcTime.GetDifSec(endtime, systime);
+
+    local gauge = GET_CHILD_RECURSIVELY(frame, "gauge", "ui::CGauge");
+    local battle_info_time_text = GET_CHILD_RECURSIVELY(frame, "battle_info_time_text", "ui::CRichText");
+    
+    if 0 < difsec then
+        gauge:SetPoint(durtime - difsec, durtime);
+        
+        local textstr = GET_TIME_TXT(difsec) .. ClMsg("After_Exit");
+        battle_info_time_text:SetTextByKey("value", textstr);
+        
+        battle_info_time_text:SetUserValue("REMAINSEC", difsec);
+        battle_info_time_text:SetUserValue("STARTSEC", imcTime.GetAppTime());
+        battle_info_time_text:RunUpdateScript("WEEKLY_BOSS_REMAIN_END_TIME");
+    elseif difsec < 0 then
+        gauge:SetPoint(1, 1);
+        
+        local textstr = ClMsg("Already_Exit_Raid");
+        battle_info_time_text:SetTextByKey("value", textstr);
+        battle_info_time_text:StopUpdateScript("WEEKLY_BOSS_REMAIN_END_TIME");
+    end
+
+    -- 입장 횟수
+    -- 입장 제한
+    local joinButton = GET_CHILD_RECURSIVELY(frame,"joinenter")
+    if week_num ~= session.weeklyboss.GetNowWeekNum() then
+        joinButton:SetEnable(0)
+    else
+        joinButton:SetEnable(1)
+    end
+    --시즌 갱신
+    WEEKLY_BOSS_SEASON_UPDATE();
+    -- 랭킹 LIST 갱신
+    WEEKLY_BOSS_RANK_UPDATE();
+
+end
+
+function WEEKLY_BOSS_SEASON_UPDATE()
+    local weekNum = session.weeklyboss.GetNowWeekNum();
+    local frame = ui.GetFrame("induninfo")
+    local tabControl = GET_CHILD_RECURSIVELY(frame, "season_tab", "ui::CTabControl");
+    local cnt = tabControl:GetItemCount()
+    for i = 0,cnt-1 do
+        if weekNum - i > 0 then
+            tabControl:ChangeCaption(i,"{@st42b}{s16}"..tostring(weekNum - i), false)
+        else
+            tabControl:ChangeCaption(i,"{@st42b}{s16}-", false)
+        end
+    end
+end
+
+-- 주간 보스 남은시간 표시
+function WEEKLY_BOSS_REMAIN_END_TIME(ctrl)
+	local elapsedSec = imcTime.GetAppTime() - ctrl:GetUserIValue("STARTSEC");
+	local startSec = ctrl:GetUserIValue("REMAINSEC");
+    startSec = startSec - elapsedSec;
+	if 0 > startSec then
+		ctrl:SetFontName("red_18");
+        ctrl:StopUpdateScript("WEEKLY_BOSS_REMAIN_END_TIME");
+        ctrl:ShowWindow(0);
+        return 0;
+	end 
+    
+	local timeTxt = GET_TIME_TXT(startSec);
+    ctrl:SetTextByKey("value", timeTxt);
+    
+	return 1;
+end
+
+-- rank list 
+function WEEKLY_BOSS_RANK_UPDATE()
+    local frame = ui.GetFrame("induninfo")
+    local rankListBox = GET_CHILD_RECURSIVELY(frame, "rankListBox", "ui::CGroupBox");
+    rankListBox:RemoveAllChild();
+
+    local cnt = session.weeklyboss.GetRankInfoListSize();
+    if cnt == 0 then
+        return;
+    end
+
+    local Width = frame:GetUserConfig("SCROLL_BAR_TRUE_WIDTH");
+    if cnt < 6 then
+        Width = frame:GetUserConfig("SCROLL_BAR_FALSE_WIDTH");
+    end
+    
+    for i = 1, cnt do
+        local ctrlSet = rankListBox:CreateControlSet("content_status_board_rank_attribute", "CTRLSET_" .. i,  ui.LEFT, ui.TOP, 0, (i - 1) * 73, 0, 0);
+        ctrlSet:Resize(Width, ctrlSet:GetHeight());
+        local attr_bg = GET_CHILD(ctrlSet, "attr_bg");
+        attr_bg:Resize(Width, attr_bg:GetHeight());
+
+        local rankpic = GET_CHILD(ctrlSet, "attr_rank_pic");
+        local attr_rank_text = GET_CHILD(ctrlSet, "attr_rank_text");
+
+        if i <= 3 then
+            rankpic:SetImage('raid_week_rank_0'..i)
+            rankpic:ShowWindow(1);
+
+            attr_rank_text:ShowWindow(0);
+        else
+            rankpic:ShowWindow(0);
+
+            attr_rank_text:SetTextByKey("value", i);
+            attr_rank_text:ShowWindow(1);
+        end
+
+        local damage = session.weeklyboss.GetRankInfoDamage(i - 1);
+        local teamname = session.weeklyboss.GetRankInfoTeamName(i - 1);
+
+        local name = GET_CHILD(ctrlSet, "attr_name_text", "ui::CRichText");
+        name:SetTextByKey("value", teamname);
+
+        local value = GET_CHILD(ctrlSet, "attr_value_text", "ui::CRichText");
+        value:SetTextByKey("value", STR_KILO_CHANGE(damage));
+    
+    end
+
+end
+
+-- 페이지 컨트롤 page
+function WEEKLY_BOSS_RANK_WEEKNUM_NUMBER()
+    local frame = ui.GetFrame('induninfo');
+    local tabcontrol = GET_CHILD_RECURSIVELY(frame, "season_tab", "ui::CTabControl");
+	if tabcontrol == nil then
+		return 0;
+    end
+    
+    local tabidx = tabcontrol:GetSelectItemIndex();
+	return session.weeklyboss.GetNowWeekNum() - tabidx;
+end
+
+-- 계열 탭 jobid 
+function WEEKLY_BOSS_RANK_JOBID_NUMBER()
+    local frame = ui.GetFrame('induninfo');
+    local classtype_tab = GET_CHILD_RECURSIVELY(frame, "classtype_tab", "ui::CTabControl");
+    local index = classtype_tab:GetSelectItemIndex();
+
+    jobID = string.format('%s001', index+1);
+    return jobID;
+end
+
+function WEEKLY_BOSS_PATTERN_UI_OPEN()
+    ui.ToggleFrame("weeklyboss_patterninfo");
+end
+
+-- 누적 대미지 보상 버튼 클릭
+function WEEKLY_BOSS_TOTAL_DAMAGE_REWARD_CLICK()
+    local week_num = WEEKLY_BOSS_RANK_WEEKNUM_NUMBER();
+    WEEKLYBOSSREWARD_SHOW(1);
+end
+
+-- 계열 순위 보상 버튼 클릭
+function WEEKLY_BOSS_RANK_REWARD_CLICK()
+    local week_num = WEEKLY_BOSS_RANK_WEEKNUM_NUMBER();
+    WEEKLYBOSSREWARD_SHOW(0);
+end
+
+-- 입장하기 버튼 클릭
+function WEEKLY_BOSS_JOIN_ENTER_CLICK(parent,ctrl)
+    if ctrl:GetTextByKey('cur') < ctrl:GetTextByKey('max') then
+        ReqEnterWeeklyBossIndun()
+    else
+        ui.SysMsg(ScpArgMsg('IRREDIAN1131_DLG_LANG_1_CANT'));
+    end
+end     
+--------------------------------- 주간 보스 레이드 ---------------------------------

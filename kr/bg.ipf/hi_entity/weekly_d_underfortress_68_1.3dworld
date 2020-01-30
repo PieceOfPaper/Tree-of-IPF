@@ -1,0 +1,24 @@
+<?xml version="1.0" standalone="yes"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by Bo-yeon Kang (IMCGames Co., Ltd) -->
+<!-- edited with XMLSpy v2006 U (http://www.altova.com) by MyHome (EMBRACE) -->
+<World>
+	<ModelDir IpfName="bg_hi3" Path="\weekly_raid\weekly_d_underfortress_68_1\"/>
+	<AutoHeightMap Length="1000 -2000" Offset="0 0" Height="2500 -1800"/>
+	<Water File="normal.png" Length="500 500" Size="1024 1024"/>
+	<ShaTexDir IpfName="bg_hi3" Path="\weekly_raid\weekly_d_underfortress_68_1\"/>
+	<LightMap File="weekly_d_underfortress_68_1_lightmap.jpg" Length="650.0 650.0" Offset="-729.706 116.063" Size="1024 1024"/>
+	<SubModelDir IpfName="bg_hi3" Path="\weekly_raid\weekly_d_underfortress_68_1\"/>
+	<TexDir IpfName="bg_texture" Path="\underfortress\"/>
+	<Model File="weekly_d_underfortress_68_1_water.xac" Model="weekly_d_underfortress_68_1_water" pos="-293.5854 -35.3474 307.2108" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="weekly_d_underfortress_68_1_blend02.xac" Model="weekly_d_underfortress_68_1_blend02" ShadowMap="weekly_d_underfortress_68_1_blend02" pos="-836.4434 351.8177 43.5192" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="weekly_d_underfortress_68_1_fog.xac" Model="weekly_d_underfortress_68_1_fog" pos="-730.4833 348.4307 281.4352" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="weekly_d_underfortress_68_1_blend01.xac" Model="weekly_d_underfortress_68_1_blend01" ShadowMap="weekly_d_underfortress_68_1_blend01" pos="-878.9547 312.5800 225.9094" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="weekly_d_underfortress_68_1_grass.xac" Model="weekly_d_underfortress_68_1_grass" ShadowMap="weekly_d_underfortress_68_1_grass" pos="-742.1028 301.6571 317.2205" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="weekly_d_underfortress_68_1_model_03.xac" Model="weekly_d_underfortress_68_1_model_03" ShadowMap="weekly_d_underfortress_68_1_model_03" pos="-709.9769 146.2430 827.4120" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="weekly_d_underfortress_68_1_model_04.xac" Model="weekly_d_underfortress_68_1_model_04" ShadowMap="weekly_d_underfortress_68_1_model_04" pos="-567.0510 197.9159 880.9458" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="weekly_d_underfortress_68_1_model_01.xac" Model="weekly_d_underfortress_68_1_model_01" ShadowMap="weekly_d_underfortress_68_1_model_01" pos="-1226.5649 282.5285 -175.0460" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="weekly_d_underfortress_68_1_model_02.xac" Model="weekly_d_underfortress_68_1_model_02" ShadowMap="weekly_d_underfortress_68_1_model_02" pos="-510.0591 224.7643 -10.3080" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="weekly_d_underfortress_68_1_gr_a.xac" Model="weekly_d_underfortress_68_1_gr_a" ShadowMap="weekly_d_underfortress_68_1_gr_a" pos="-419.1292 226.6862 162.5496" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="weekly_d_underfortress_68_1_ground.xac" Model="weekly_d_underfortress_68_1_ground" ShadowMap="weekly_d_underfortress_68_1_ground" pos="-861.1466 302.6630 375.5946" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="weekly_d_underfortress_68_1_b_model.xac" Model="weekly_d_underfortress_68_1_b_model" ShadowMap="weekly_d_underfortress_68_1_b_model" pos="-768.2716 112.7119 319.2899" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+</World>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<uiframe name="weeklyboss_patterninfo" x="0" y="0" width="400" height="530" create="open">
+	<frame fasthide="true" layout_gravity="center center" margin="745 -35 0 0"/>
+	<input hittestframe="true" moveintitlebar="false"/>
+	<draw drawtitlebar="false"/>
+    <skin frameskin="test_frame_low"/>
+	<layer layerlevel="102"/>
+	<script OpenScp="WEEKLYBOSS_PATTERNINFO_UI_OPEN" CloseScp="WEEKLYBOSS_PATTERNINFO_UI_CLOSE"/>
+	<sound opensound="skill_window_open" closesound="skill_window_close"/>
+	<animation frameOpenAnim="chat_balloon_start" frameCloseAnim="chat_balloon_end" margin="-100 -100 0 0"/>
+    <controls>
+		<groupbox name="titleBox" rect="0 0 382 40" margin="9 10 0 0" resizebyparent="true" layout_gravity="left top" draw="false" image="test_com_namebg" hittest="true"/>
+		<richtext name="titleText" rect="0 0 382 40" parent="titleBox" margin="10 0 0 0" layout_gravity="left center" caption="{@st43b}{s20}주간 패턴 정보"/>
+		<button name="closeBtn" rect="0 0 34 34" margin="0 0 0 0" parent="titleBox" layout_gravity="right top" LBtnUpScp="WEEKLYBOSS_PATTERNINFO_UI_CLOSE" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" clicksound="button_click_big" image="testclose_button" oversound="button_over" texttooltip="{@st59}주간 패턴 정보 창을 닫습니다{/}"/>
+		<groupbox name="patternListBox" rect="0 0 381 462" margin="9 55 0 0" resizebyparent="true" layout_gravity="left top" skin="test_frame_midle" hittest="true" scrollbar="true"/>
+    </controls>
+</uiframe>

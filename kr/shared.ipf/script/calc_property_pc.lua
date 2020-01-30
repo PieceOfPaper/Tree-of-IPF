@@ -2209,7 +2209,7 @@ function SCR_Get_MSPD(self)
     
     if IsBuffApplied(self, 'Taglio_Buff') == 'YES' then
         isDashRun = 0
-        return value;
+        --return value;
     end
     if isDashRun > 0 then    -- 대시 런 --
         local dashRunAddValue = 10
@@ -2646,8 +2646,11 @@ function SCR_Get_Sta_Run(self)
     
     value = value + (value * addRateConsumptionSTA);
     
+    -- 이런 버프 늘어나면 구조화 필요
     if IsBuffApplied(self, 'Sprint_Buff') == 'YES' then
         value = 0;
+    elseif IsBuffApplied(self, 'Stamina_Max_buff') == 'YES' then
+        value = SCR_FIELD_DUNGEON_CONSUME_DECREASE(self, 'Sta_Run', value);
     end
 
     return math.floor(value);

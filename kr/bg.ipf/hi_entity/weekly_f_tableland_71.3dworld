@@ -1,0 +1,19 @@
+<?xml version="1.0" standalone="yes"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by Bo-yeon Kang (IMCGames Co., Ltd) -->
+<!-- edited with XMLSpy v2006 U (http://www.altova.com) by MyHome (EMBRACE) -->
+<World>
+	<ModelDir IpfName="bg_hi3" Path="\weekly_raid\weekly_f_tableland_71\"/>
+	<SubModelDir IpfName="bg_hi" Path="\field\f_tableland_71\"/>
+	<AutoHeightMap Length="4400.0 4400.0" Offset="296.197 -131.095" Height="4000 -4000"/>
+	<LightMap File="f_tableland_71_lightmap.jpg" Length="4700.0 4700.0" Offset="76.885 132.281" Size="1024 1024"/>
+	<TexDir IpfName="bg_texture" Path="\tableland\"/>
+	<ShaTexDir IpfName="bg_hi3" Path="\weekly_raid\weekly_f_tableland_71\"/>
+	<SubShaTexDir IpfName="bg_hi3" Path="\weekly_raid\weekly_f_tableland_71\"/>
+	<Model File="weekly_f_tableland_71_ground.xac" Model="weekly_f_tableland_71_ground" ShadowMap="weekly_f_tableland_71_ground" pos="-788.1755 366.3596 -671.7697" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="weekly_f_tableland_71_model.xac" Model="weekly_f_tableland_71_model" ShadowMap="weekly_f_tableland_71_model" pos="-990.8838 320.8156 -696.8909" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="weekly_f_tableland_71_bl_02.xac" Model="weekly_f_tableland_71_bl_02" ShadowMap="weekly_f_tableland_71_bl_02" pos="-953.7787 339.9336 -692.0198" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="weekly_f_tableland_71_tree.xac" Model="weekly_f_tableland_71_tree" ShadowMap="weekly_f_tableland_71_tree" pos="-266.8195 454.5046 -904.6167" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="weekly_f_tableland_71_grass.xac" Model="weekly_f_tableland_71_grass" ShadowMap="weekly_f_tableland_71_grass" pos="-786.1868 394.1280 -576.2410" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="weekly_f_tableland_71_bl_01.xac" Model="weekly_f_tableland_71_bl_01" ShadowMap="weekly_f_tableland_71_bl_01" pos="-1015.3752 380.1950 -739.5086" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="weekly_f_tableland_71_b_model.xac" Model="weekly_f_tableland_71_b_model" ShadowMap="weekly_f_tableland_71_b_model" pos="-750.3158 284.9506 136.7920" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+</World>

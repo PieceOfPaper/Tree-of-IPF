@@ -629,18 +629,23 @@ function REMOVE_FROM_TREEGROUP(treegroupname)
 end
 
 function INVENTORY_ON_MSG(frame, msg, argStr, argNum)
-    if msg == 'INV_ITEM_LIST_GET' or msg == 'RESET_ABILITY_UP' then
+	if msg == 'INV_ITEM_LIST_GET' or msg == 'RESET_ABILITY_UP' then
         INVENTORY_LIST_GET(frame)
-		STATUS_EQUIP_SLOT_SET(frame);
-    end
-
-    if msg == 'UPDATE_ITEM_REPAIR' or msg == 'UPDATE_ITEM_APPRAISAL' then
-    	INVENTORY_LIST_GET(frame, nil, nil, argStr)
 		STATUS_EQUIP_SLOT_SET(frame);
 	end
 	
-    if msg == 'INV_ITEM_ADD' then
-        TEMP_INV_ADD(frame, argNum)
+	if msg == 'UPDATE_ITEM_REPAIR' or msg == 'UPDATE_ITEM_APPRAISAL' then
+    	INVENTORY_LIST_GET(frame, nil, nil, argStr)
+		STATUS_EQUIP_SLOT_SET(frame);
+	end
+
+	if msg == "UPDATE_ITEM_TRANSCEND_SCROLL" then
+		INVENTORY_UPDATE_ITEM_BY_GUID(frame, argStr);
+		STATUS_EQUIP_SLOT_SET(frame);
+	end
+	
+	if msg == 'INV_ITEM_ADD' then
+		TEMP_INV_ADD(frame, argNum);
 	end
 	
 	if  msg == 'EQUIP_ITEM_LIST_GET' then
@@ -1617,7 +1622,7 @@ function TRY_TO_USE_WARP_ITEM(invitem, itemobj)
 		end
 	end
 	
-	if IsBuffApplied(pc, 'Event_Penalty') == 'YES' or IsBuffApplied(pc, 'PVP_MINE_BUFF1') == 'YES' or IsBuffApplied(pc, 'PVP_MINE_BUFF2') == 'YES' then
+	if IsBuffApplied(pc, 'WEEKLY_BOSS_RAID_BUFF') == 'YES' or IsBuffApplied(pc, 'Event_Penalty') == 'YES' or IsBuffApplied(pc, 'PVP_MINE_BUFF1') == 'YES' or IsBuffApplied(pc, 'PVP_MINE_BUFF2') == 'YES' then
 		ui.SysMsg(ScpArgMsg("CannotUseThieInThisMap"));
 		return 0;
 	end

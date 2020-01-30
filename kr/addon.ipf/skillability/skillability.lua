@@ -191,7 +191,7 @@ function SKILLABILITY_MAKE_JOB_TAB(frame)
         gb:SetTabChangeScp("SKILLABILITY_ON_CHANGE_TAB");
     end
     SKILLABILITY_ON_CHANGE_TAB(frame);
-	frame:SetUserValue("CLICK_ABIL_ACTIVE_TIME", imcTime.GetAppTime());
+    frame:SetUserValue("CLICK_ABIL_ACTIVE_TIME", imcTime.GetAppTime());
 end
 
 function SKILLABILITY_ON_OPEN(frame)
@@ -200,7 +200,8 @@ function SKILLABILITY_ON_OPEN(frame)
     
     local jobObj = info.GetJob(session.GetMyHandle());
 	local jobCtrlTypeName = GetClassString('Job', jobObj, 'CtrlType');
-	ui.ReqRedisSkillPoint(jobCtrlTypeName);
+    ui.ReqRedisSkillPoint(jobCtrlTypeName);
+    ui.UpdateKeyboardSelectChildByFrameName("skillability");
 end
 
 function SKILLABILITY_ON_CHANGE_TAB(frame)
@@ -1099,7 +1100,7 @@ function ON_COMMIT_SKILLABILITY(parent, btn)
     if isReqSkill then
         --imcSound.PlaySoundItem('statsup');
 		--frame:ShowWindow(0);
-	end
+    end
 end
 
 function ON_SKILLABILITY_BUY_ABILITY_POINT(frame, msg, argmsg, argnum)
@@ -1286,29 +1287,7 @@ function UI_TOGGLE_SKILLTREE()
 end
 
 function ON_POPULAR_SKILL_INFO(frame)
-    local gb = SKILLABILITY_GET_SELECTED_TAB_GROUPBOX(frame);
-    local skilltree_gb = GET_CHILD_RECURSIVELY(gb, "skilltree_gb");
-    local jobClsName = gb:GetUserValue("JobClsName");
-    if jobClsName == "Common" then
-        return;
-    end
-
-    local treelist = GET_TREE_INFO_VEC(jobClsName)
-    local topSkillName1 = ui.GetRedisHotSkillByRanking(jobClsName, 1);
-    local topSkillName2 = ui.GetRedisHotSkillByRanking(jobClsName, 2);
-	for i = 1, #treelist do
-        local info = treelist[i];
-        local cls = info["class"];
-        local ctrlset = skilltree_gb:GetControlSet("skillability_skillset", "SKILL_"..cls.SkillName);
-        local hotimg = GET_CHILD(ctrlset, "hitimg");
-        if topSkillName1 == cls.SkillName then
-            hotimg:SetImage("Hit_indi_icon");
-        elseif topSkillName2 == cls.SkillName then
-            hotimg:SetImage("Hit_indi_icon");
-        else
-            hotimg:SetImage("None_Mark");
-        end
-	end
+    -- #63405 스킬 HOT 표시 UI 제거 일감으로 관련내용 삭제
 end
     
 function ON_UPDATE_COMMON_SKILL_LIST(frame, msg, argStr, argNum)

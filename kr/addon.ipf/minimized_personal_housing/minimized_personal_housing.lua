@@ -9,20 +9,25 @@ end
 function MINIMIZED_PERSONAL_HOUSING_OPEN_EDIT_MODE(frame, msg, argStr, argNum)
 	local mapprop = session.GetCurrentMapProp();
 	local mapCls = GetClassByType("Map", mapprop.type);
-
+	
+	local btn_request_leave = GET_CHILD_RECURSIVELY(frame, "btn_request_leave");
+	
 	local housingPlaceClass = GetClass("Housing_Place", mapCls.ClassName);
 	if housingPlaceClass == nil then
+		btn_request_leave:ShowWindow(0);
 		frame:ShowWindow(0);
 		return
 	end
 
 	local housingPlaceType = TryGetProp(housingPlaceClass, "Type");
 	if housingPlaceType ~= "Personal" then
+		btn_request_leave:ShowWindow(0);
 		frame:ShowWindow(0);
 		return;
 	end
 	
 	frame:ShowWindow(1);
+	btn_request_leave:ShowWindow(1);
 end
 
 function SCR_SET_PERSONAL_HOUSE_NAME(frame, msg, argStr, argNum)
@@ -39,18 +44,23 @@ function SCR_SET_PERSONAL_HOUSE_NAME(frame, msg, argStr, argNum)
 		return;
 	end
 	
-	local aidString = argStr;
-
 	local house_name = GET_CHILD_RECURSIVELY(frame, "house_name");
 	
-	local partyMemberList = session.party.GetPartyMemberList(PARTY_NORMAL);
-	local memberCount = partyMemberList:Count();
-	for i = 0, memberCount - 1 do
-		local memberInfo = partyMemberList:Element(i);
-		if memberInfo ~= nil then
-			if memberInfo:GetAID() == aidString then
-				house_name:SetTextByKey("value", memberInfo:GetName());
-				break;
+	local aidString = argStr;
+	local myAID = session.loginInfo.GetAID();
+	if aidString == myAID then
+		local myHandle = session.GetMyHandle();
+		house_name:SetTextByKey("value", info.GetFamilyName(myHandle));
+	else
+		local partyMemberList = session.party.GetPartyMemberList(PARTY_NORMAL);
+		local memberCount = partyMemberList:Count();
+		for i = 0, memberCount - 1 do
+			local memberInfo = partyMemberList:Element(i);
+			if memberInfo ~= nil then
+				if memberInfo:GetAID() == aidString then
+					house_name:SetTextByKey("value", memberInfo:GetName());
+					break;
+				end
 			end
 		end
 	end
@@ -63,10 +73,9 @@ function SCR_PERSONAL_HOUSING_IS_REALLY_OUT(frame, msg, argstr, argnum)
 end
 
 function ON_PERSONAL_HOUSING_IS_REALLY_OUT()
-    housing.RequestLeavePersonalHouse();
-end
-
-
-function BTN_MINIMIZED_PERSONAL_HOUSING_OPEN_EDIT_MODE(parent, btn)
---	housing.RequestLeavePersonalHouse();
+	local frame = ui.GetFrame("minimized_personal_housing");
+	local btn_request_leave = GET_CHILD_RECURSIVELY(frame, "btn_request_leave");
+	btn_request_leave:ShowWindow(0);
+	
+	housing.RequestLeavePersonalHouse();
 end

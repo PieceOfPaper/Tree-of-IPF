@@ -100,6 +100,14 @@
 					<Num Num="1" />
 					<Num Num="100" />
 				</Scp>
+				<Scp Client="NO" Scp="SKL_TGT_BUFF" Time="700" UseSleep="NO">
+					<Str Str="DivineStigma_Damage_Debuff"/>
+					<Num FuncTxt="return obj.Level;" Num="0" UseFunc="1"/>
+					<Num Num="0"/>
+					<Num Num="15000"/>
+					<Num Num="1"/>
+					<Num Num="100"/>
+				</Scp>
 				<Scp Client="NO" Scp="SKL_TGT_REMOVE_BUFF" Time="100" UseSleep="NO">
                 <Str FuncTxt="local func_name = 'get_remove_buff_tooltip_' .. TryGetProp(obj, 'ClassName', 'None')
                local func = _G[func_name]

@@ -130,6 +130,16 @@ function UPDATE_MINIMAP(frame)
 		return;
 	end
 
+	local curmapname = session.GetMapName();
+	local housingPlaceClass = GetClass("Housing_Place", curmapname);
+	if housingPlaceClass ~= nil then
+		local placeType = TryGetProp(housingPlaceClass, "Type");
+		if placeType == "Personal" then
+			frame:ShowWindow(0);
+			return;
+		end
+	end
+
 	local mylevel = info.GetLevel(session.GetMyHandle());
 	SET_MINIMAPSIZE(___cursize);
 

@@ -2038,6 +2038,19 @@ function NUM_KILO_CHANGE(num)
     return str
 end
 
+function STR_KILO_CHANGE(num)
+    local padding = 3 - string.len(num) % 3
+    if padding == 3 then
+        padding = 0
+    end
+    for i = 1,padding do
+        num = '0' .. num
+    end
+    num = string.gsub(num,"[0-9][0-9][0-9]",function(w) return w..',' end)
+    num = string.sub(num,padding+1,string.len(num) - 1)
+    return num
+end
+
 function SCR_POSSIBLE_UI_OPEN_CHECK(pc, questIES, subQuestZoneList, chType)
     local ret = "HIDE"
     if questIES.PossibleUI_Notify == 'NO' then
@@ -3239,4 +3252,12 @@ function GET_MODIFIED_PROPERTIES_STRING(item, invitem)
         str = str .. invitem:GetAdditionalModifiedString();
     end
     return str;
+end
+
+function RANDOM_SHUFFLE(tbl)
+    for i = #tbl, 2, -1 do
+        local j = math.random(i);
+        tbl[i], tbl[j] = tbl[j], tbl[i];
+    end
+    return tbl
 end

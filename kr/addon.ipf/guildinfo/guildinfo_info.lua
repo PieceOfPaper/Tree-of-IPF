@@ -6,6 +6,7 @@ function GUILDINFO_INFO_INIT(parent, infoBox)
     GUILDINFO_INFO_INIT_TOWER(infoBox, guildObj);
     GUILDINFO_INFO_INIT_BENEFIT(infoBox, guildObj);
     GUILDINFO_INFO_INIT_ABILITY(infoBox, guildObj);
+    ui.UpdateKeyboardSelectChildByFrameName("guildinfo");
     ui.CloseFrame('guild_authority_popup');
 end
 

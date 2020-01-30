@@ -13,7 +13,7 @@
 		<picture name="bgBox" rect="0 0 380 100" margin="0 0 0 0" layout_gravity="left top" image="induncount_gauge_bg" stretch="true"/>
 		<groupbox name="infobox" rect="0 0 200 30" margin="8 8 0 0" draw="false" layout_gravity="left top"/>
 		<picture name="monPic" rect="0 0 40 30" parent="infobox" margin="5 0 0 0" layout_gravity="left center" image="induncount_monpic"/>
-		<richtext name="infoText" rect="0 0 100 30" parent="infobox" margin="30 0 0 0" layout_gravity="left center" caption="인던 달성률" fontname="white_18_b_ol"/>
+		<richtext name="infoText" rect="0 0 100 30" parent="infobox" margin="30 0 0 0" layout_gravity="left center" caption="달성률" fontname="white_18_b_ol"/>
 		<groupbox name="Gaugebox" rect="0 0 281 18" margin="28 42 0 0" draw="false" layout_gravity="left top"/>
 		<gauge name="rewardGauge" rect="0 0 270 18" parent="Gaugebox" margin="0 0 0 0" layout_gravity="center top" skin="induncount_gauge" inverse="false" point="50" maxpoint="100"/>
 		<picture name="GaugePic1" rect="0 0 6 18" parent="Gaugebox" margin="0 0 0 0 " layout_gravity="left center" image="induncount_gauge_L"/>

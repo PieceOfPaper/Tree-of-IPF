@@ -5481,6 +5481,13 @@ function SCR_PRE_ITEM_Escape(self, argObj, BuffName, arg1, arg2)
             SendAddOnMsg(self, "NOTICE_Dm_!", ScpArgMsg("EscapeDisabled"), 5);
             return 0
         end
+        
+        local keyword = TryGetProp(obj, "Keyword", "None")
+        local keywordList = StringSplit(keyword, ";");
+        if table.find(keywordList, "WeeklyBossMap") > 0 then
+            SendAddOnMsg(self, "NOTICE_Dm_!", ScpArgMsg("CannotUseThieInThisMap"), 3);
+            return 0;
+        end
     end
     
     return 1;

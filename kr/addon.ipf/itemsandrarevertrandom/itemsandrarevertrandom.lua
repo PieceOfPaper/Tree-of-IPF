@@ -5,21 +5,13 @@ end
 
 -- 산드라의 돋보기 아이템을 이용해서 UI 오픈
 function OPEN_SANDRAREVERT_RANDOM(invItem)
-	local itemrandomreset = ui.GetFrame('itemrandomreset');
-	if itemrandomreset ~= nil and itemrandomreset:IsVisible() == 1 then
-		return;
+	for i = 1, #revertrandomitemlist do
+		local frame = ui.GetFrame(revertrandomitemlist[i]);
+		if frame ~= nil and frame:IsVisible() == 1 and revertrandomitemlist[i] ~= "itemsandrarevertrandom" then
+			return;
+		end
 	end
 
-	local itemrevertrandom = ui.GetFrame('itemrevertrandom');
-	if itemrevertrandom ~= nil and itemrevertrandom:IsVisible() == 1 then
-		return;
-	end
-
-	local itemunrevertrandom = ui.GetFrame('itemunrevertrandom');
-	if itemunrevertrandom ~= nil and itemunrevertrandom:IsVisible() == 1 then
-		return;
-	end
-	
 	local frame = ui.GetFrame('itemsandrarevertrandom');
 	frame:SetUserValue('REVERTITEM_GUID', invItem:GetIESID());	 
 	frame:ShowWindow(1);
@@ -339,6 +331,7 @@ function _ITEM_SANDRAREVERT_RANDOM_EXEC()
 end
 
 function SUCCESS_SANDRAREVERT_RANDOM_OPTION(frame, msg, argStr, argNum)
+	print("SUCCESS_SANDRAREVERT_RANDOM_OPTION")
 	local RESET_SUCCESS_EFFECT_NAME = frame:GetUserConfig('RESET_SUCCESS_EFFECT');
 	local EFFECT_SCALE = tonumber(frame:GetUserConfig('EFFECT_SCALE'));
 	local EFFECT_DURATION = tonumber(frame:GetUserConfig('EFFECT_DURATION'));

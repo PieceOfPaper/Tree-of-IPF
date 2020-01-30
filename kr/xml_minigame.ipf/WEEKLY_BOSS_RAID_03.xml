@@ -1,0 +1,250 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by asdasd (IMCGames Co., Ltd) -->
+<GameList>
+	<Game Name="WEEKLY_BOSS_RAID_03" minLv="0" maxLv="0" mapName="shadow_raid_mini_dungeon" playerCountCheckDestroy="1" startWaitSec="-1">
+		<StageList>
+			<Stage Name="READY">
+				<ObjList/>
+				<StageEvents>
+					<Event execMS="9000" execCount="1" eventName="START 실행" execWithStart="0">
+						<execList>
+							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+								<Str Str="START"/>
+							</ToolScp>
+						</execList>
+					</Event>
+					<Event execMS="10000" execCount="1" eventName="3" execWithStart="0">
+						<execList>
+							<ToolScp Scp="MGAME_MSG_SIMPLE" Client="YES" UseSleep="NO">
+								<Str Str="{@st55_a}"/>
+								<Str Str="3"/>
+								<Num Num="1"/>
+							</ToolScp>
+						</execList>
+					</Event>
+					<Event execMS="11000" execCount="1" eventName="2" execWithStart="0">
+						<execList>
+							<ToolScp Scp="MGAME_MSG_SIMPLE" Client="YES" UseSleep="NO">
+								<Str Str="{@st55_a}"/>
+								<Str Str="2"/>
+								<Num Num="1"/>
+							</ToolScp>
+						</execList>
+					</Event>
+					<Event execMS="12000" execCount="1" eventName="1" execWithStart="0">
+						<execList>
+							<ToolScp Scp="MGAME_MSG_SIMPLE" Client="YES" UseSleep="NO">
+								<Str Str="{@st55_a}"/>
+								<Str Str="1"/>
+								<Num Num="1"/>
+							</ToolScp>
+						</execList>
+					</Event>
+					<Event execMS="13000" execCount="1" eventName="start" execWithStart="0">
+						<execList>
+							<ToolScp Scp="MGAME_MSG_SIMPLE" Client="YES" UseSleep="NO">
+								<Str Str="{@st55_a}"/>
+								<Str Str="전투 시작!"/>
+								<Num Num="1"/>
+							</ToolScp>
+						</execList>
+					</Event>
+					<Event execCount="1" eventName="Ready">
+						<execList>
+							<ToolScp Scp="MGAME_MSG_SIMPLE" Client="YES" UseSleep="NO">
+								<Str Str="{@st55_a}"/>
+								<Str Str="잠시 후 주간 보스 레이드가 시작됩니다."/>
+								<Num Num="3"/>
+							</ToolScp>
+						</execList>
+					</Event>
+					<Event execMS="13000" execCount="1" eventName="TIMER 실행" execWithStart="0">
+						<execList>
+							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+								<Str Str="TIMER"/>
+							</ToolScp>
+						</execList>
+					</Event>
+				</StageEvents>
+			</Stage>
+			<Stage Name="START" AutoStart="0">
+				<ObjList>
+					<Obj Type="Monster" MonType="59370" Pos="-172.43#2.67#172.66" genCount="1" genTime="20000" objectKey="0"/>
+				</ObjList>
+				<StageEvents>
+					<Event execMS="4000" execCount="1" eventName="Boss_Set" execWithStart="0">
+						<execList>
+							<ToolScp Scp="MGAME_EVT_SCRIPT_ARG" Client="NO" UseSleep="NO">
+								<Str Str="SCR_WEEKLY_BOSS_RAID_CUSTOM_LOG"/>
+								<Str Str="Start"/>
+								<Num Num="0"/>
+							</ToolScp>
+						</execList>
+					</Event>
+					<Event execCount="1" eventName="소울크리스탈제한">
+						<execList>
+							<ToolScp Scp="GAME_ST_EVT_EXEC_SOUL_CRISTAL_LIMIT" Client="NO" UseSleep="NO">
+								<Num Num="1"/>
+								<Num Num="0"/>
+							</ToolScp>
+						</execList>
+					</Event>
+				</StageEvents>
+			</Stage>
+			<Stage Name="TIMER" AutoStart="0">
+				<StartScpList>
+					<ToolScp Scp="MGAME_SET_TIMEOUT" Client="NO" UseSleep="NO">
+						<Num Num="600"/>
+					</ToolScp>
+				</StartScpList>
+				<ObjList/>
+				<StageEvents>
+					<Event execMS="0" execCount="1" eventName="TimeOut">
+						<condList>
+							<ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+								<Num Num="600"/>
+							</ToolScp>
+						</condList>
+						<execList>
+							<ToolScp Scp="MGAME_EVT_SCRIPT_ARG" Client="NO" UseSleep="NO">
+								<Str Str="SCR_WEEKLY_BOSS_RAID_MVAL_SET"/>
+								<Str Str="TimeOut"/>
+								<Num Num="0"/>
+							</ToolScp>
+							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+								<Str Str="END"/>
+							</ToolScp>
+							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
+								<Str Str="START"/>
+							</ToolScp>
+							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
+								<Str Str="TIMER"/>
+							</ToolScp>
+						</execList>
+					</Event>
+					<Event execMS="0" eventName="BossKill">
+						<condList>
+							<ToolScp Scp="MGAME_EVT_COND_MONCNT_ALIVE" Client="NO" UseSleep="NO">
+								<MGameObj List="START/0"/>
+								<Num Num="0"/>
+							</ToolScp>
+						</condList>
+						<execList>
+							<ToolScp Scp="MGAME_EVT_SCRIPT_ARG" Client="NO" UseSleep="NO">
+								<Str Str="SCR_WEEKLY_BOSS_RAID_MVAL_SET"/>
+								<Str Str="BossKill"/>
+								<Num Num="0"/>
+							</ToolScp>
+							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+								<Str Str="END"/>
+							</ToolScp>
+							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
+								<Str Str="START"/>
+							</ToolScp>
+							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
+								<Str Str="TIMER"/>
+							</ToolScp>
+						</execList>
+					</Event>
+					<Event execMS="0" eventName="PCDead">
+						<condList>
+							<ToolScp Scp="MGAME_EVT_COND_PCCNT_IMMEDIATELY" Client="NO" UseSleep="NO">
+								<Num Num="0"/>
+							</ToolScp>
+						</condList>
+						<execList>
+							<ToolScp Scp="MGAME_EVT_SCRIPT_ARG" Client="NO" UseSleep="NO">
+								<Str Str="SCR_WEEKLY_BOSS_RAID_MVAL_SET"/>
+								<Str Str="PCDead"/>
+								<Num Num="0"/>
+							</ToolScp>
+							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+								<Str Str="END"/>
+							</ToolScp>
+							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
+								<Str Str="START"/>
+							</ToolScp>
+							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
+								<Str Str="TIMER"/>
+							</ToolScp>
+						</execList>
+					</Event>
+					<Event execMS="0" eventName="PCExist">
+						<condList>
+							<ToolScp Scp="MGAME_EVT_COND_PCCNT_OUT" Client="NO" UseSleep="NO">
+								<Num Num="0"/>
+							</ToolScp>
+						</condList>
+						<execList>
+							<ToolScp Scp="MGAME_EVT_SCRIPT_ARG" Client="NO" UseSleep="NO">
+								<Str Str="SCR_WEEKLY_BOSS_RAID_MVAL_SET"/>
+								<Str Str="PCExist"/>
+								<Num Num="0"/>
+							</ToolScp>
+							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+								<Str Str="END"/>
+							</ToolScp>
+							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
+								<Str Str="START"/>
+							</ToolScp>
+							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
+								<Str Str="TIMER"/>
+							</ToolScp>
+						</execList>
+					</Event>
+				</StageEvents>
+			</Stage>
+			<Stage Name="END" AutoStart="0">
+				<StartScpList>
+					<ToolScp Scp="MGAME_CONTENT_LOG_STR" Client="NO" UseSleep="NO">
+						<Str Str="WeeklyBossRaid"/>
+					</ToolScp>
+				</StartScpList>
+				<ObjList/>
+				<StageEvents>
+					<Event execCount="1" eventName="몬스터 정지">
+						<execList>
+							<ToolScp Scp="MGAME_EVT_SCRIPT" Client="NO" UseSleep="NO">
+								<Str Str="SCR_STAGE_END_STOPDEBUFF_MON"/>
+							</ToolScp>
+							<ToolScp Scp="MGAME_EVT_SCRIPT_ARG" Client="NO" UseSleep="NO">
+								<Str Str="SCR_WEEKLY_BOSS_RAID_CUSTOM_LOG"/>
+								<Str Str="End"/>
+								<Num Num="0"/>
+							</ToolScp>
+						</execList>
+					</Event>
+					<Event execCount="1" eventName="스코어보드">
+						<execList>
+							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+								<Str Str="ReTurnCity"/>
+							</ToolScp>
+						</execList>
+					</Event>
+				</StageEvents>
+			</Stage>
+			<Stage Name="ReTurnCity" AutoStart="0">
+				<ObjList/>
+				<StageEvents>
+					<Event execMS="10000" execCount="1" eventName="존으로 돌아가기" execWithStart="0">
+						<execList>
+							<ToolScp Scp="MGAME_RETURN" Client="NO" UseSleep="NO"/>
+							<ToolScp Scp="MGAME_END" Client="NO" UseSleep="NO">
+								<Num Num="1"/>
+							</ToolScp>
+						</execList>
+					</Event>
+					<Event execCount="1" eventName="10&apos;s">
+						<execList>
+							<ToolScp Scp="MGAME_MSG_ICON" Client="YES" UseSleep="NO">
+								<Str Str="{@st55_a}10초 후 입장했던 곳으로 돌아갑니다."/>
+								<Str Str="Clear"/>
+								<Num Num="5"/>
+							</ToolScp>
+						</execList>
+					</Event>
+				</StageEvents>
+			</Stage>
+		</StageList>
+	</Game>
+</GameList>

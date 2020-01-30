@@ -744,18 +744,23 @@ function UPDATE_FEE_INFO(frame, free, count, price)
 	
 	--소수점 단위 버림
 	local totalPrice = math.mul_int_for_lua(price, count);
-	local registerFeeValue = math.max(math.floor(tonumber(math.mul_int_for_lua(math.mul_int_for_lua(totalPrice, free), 0.01))), 1);	
+	local total_price_fee = math.mul_int_for_lua(totalPrice, free)
+	local fee_ratio = math.mul_int_for_lua(total_price_fee, tostring(0.01))
+	local registerFeeValue = math.max( math.floor(tonumber(fee_ratio)), 1);
 	local feeValue = 0;
 	local isTokenState = session.loginInfo.IsPremiumState(ITEM_TOKEN);
 	local isPremiumStateNexonPC = session.loginInfo.IsPremiumState(NEXON_PC);
-	if isTokenState == true then
-		feeValue = tonumber(math.mul_for_lua(GetCashValue(ITEM_TOKEN, "marketSellCom"), 0.01));		
+	if isTokenState == true then		
+		feeValue = tonumber(math.mul_int_for_lua(GetCashValue(ITEM_TOKEN, "marketSellCom"), 0.01));		
+		
 	elseif isPremiumStateNexonPC == true then
-		feeValue = tonumber(math.mul_for_lua(GetCashValue(NEXON_PC, "marketSellCom"), 0.01));		
+		feeValue = tonumber(math.mul_int_for_lua(GetCashValue(NEXON_PC, "marketSellCom"), 0.01));		
+		
 	else
-		feeValue = tonumber(math.mul_for_lua(GetCashValue(NONE_PREMIUM, "marketSellCom"), 0.01))		
+		feeValue = tonumber(math.mul_int_for_lua(GetCashValue(NONE_PREMIUM, "marketSellCom"), 0.01))		
+		
 	end	
-
+	
 	feeValue = math.mul_int_for_lua(totalPrice, feeValue)
 	feeValue = tonumber(feeValue)
 	feeValue = math.floor(feeValue)

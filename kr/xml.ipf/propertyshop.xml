@@ -2,28 +2,8 @@
 <!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by imc (imc) -->
 <PropertyShop>
 	<Shop Name="PVPShop" PointScript="GET_PVP_POINT">
-		<Item Script="None" Name="egg_007" Count="1" Price="18000" DailyBuyLimit="1"/>
-		<Item Script="None" Name="NECK05_005" Count="1" Price="4320" DailyBuyLimit="1"/>
-		<Item Script="None" Name="BRC05_005" Count="1" Price="2880" DailyBuyLimit="1"/>
-		<Item Script="None" Name="NECK05_007" Count="1" Price="4320" DailyBuyLimit="1"/>
-		<Item Script="None" Name="BRC05_007" Count="1" Price="2880" DailyBuyLimit="1"/>
-		<Item Script="None" Name="NECK05_006" Count="1" Price="4320" DailyBuyLimit="1"/>
-		<Item Script="None" Name="BRC05_006" Count="1" Price="2880" DailyBuyLimit="1"/>
-		<Item Script="None" Name="Hat_628134" Count="1" Price="3500" DailyBuyLimit="1"/>
-		<Item Script="None" Name="Hat_628135" Count="1" Price="3500" DailyBuyLimit="1"/>
-		<Item Script="None" Name="Hat_628025" Count="1" Price="3500" DailyBuyLimit="1"/>
-		<Item Script="None" Name="Hat_628092" Count="1" Price="3500" DailyBuyLimit="1"/>
-		<Item Script="None" Name="Hat_628111" Count="1" Price="3500" DailyBuyLimit="1"/>
-		<Item Script="None" Name="Hat_628119" Count="1" Price="3500" DailyBuyLimit="1"/>
-		<Item Script="None" Name="Hat_628086" Count="1" Price="3500" DailyBuyLimit="1"/>
-		<Item Script="None" Name="Hat_628019" Count="1" Price="3500" DailyBuyLimit="1"/>
-		<Item Script="None" Name="Hat_628071" Count="1" Price="3500" DailyBuyLimit="1"/>
-		<Item Script="None" Name="Hat_628012" Count="1" Price="3500" DailyBuyLimit="1"/>
-		<Item Script="None" Name="GIMMICK_Drug_PMATK2" Count="5" Price="80" DailyBuyLimit="3"/>
-		<Item Script="None" Name="GIMMICK_Drug_Restore01" Count="5" Price="80" DailyBuyLimit="3"/>
-		<Item Script="None" Name="GIMMICK_Drug_PMDEF2" Count="5" Price="80" DailyBuyLimit="3"/>
-		<Item Script="None" Name="misc_gemExpStone_randomQuest5" Count="1" Price="1200" DailyBuyLimit="1"/>
-		<Item Script="None" Name="Uphille_Power_Potion1" Count="1" Price="20" DailyBuyLimit="0"/>
+		<Item Script="None" Name="misc_pvp_mine2" Count="14" Price="1" DailyBuyLimit="0"/>
+		<Item Script="None" Name="misc_pvp_mine2" Count="1400" Price="100" DailyBuyLimit="0"/>
 	</Shop>
 	<Shop Name="MINEShop" PointScript="GET_PVP_MINE_POINT">
 		<Item Script="None" Name="Point_Stone_100" Count="1" Price="200" DailyBuyLimit="0"/>

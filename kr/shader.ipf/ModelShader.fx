@@ -1190,15 +1190,21 @@ OUT_COLOR PS_TEST(VS_OUT In)
 	Out.rgb *= g_lightColor.rgb * g_lightColor.w;
 #endif
 
+#ifdef ENABLE_INSTANCING
+	int instanceID = In.worldz_tmIndex_fog.y;
+
+	float4 blendColor = g_InstanceVecArray[g_InstanceCount + instanceID];
+#else
+	float4 blendColor = g_BlendColor;
+#endif
+
+	Out.rgb *= blendColor.rgb * 2.f;
+	Out.a *= blendColor.a;
+
 	if (g_FogColor.w > 0)
 	{
 		Out.rgb = lerp(g_FogColor.rgb, Out.rgb, In.worldz_tmIndex_fog.z);
 	}
-
-	float chk = step(1.0f, In.worldPos.w);
-	Out.r += (sin(g_timeStamp * 10) / 5 + 0.1f) * chk;
-	Out.g += (sin(g_timeStamp * 10 + 1.04) / 5 + 0.1f) * chk;
-	Out.b += (sin(g_timeStamp * 10 + 2.08) / 5 + 0.1f) * chk;
 
 	Out.a *= g_AlphaBlending;
 
@@ -1502,6 +1508,7 @@ OUT_COLOR PS_BillBoardHead(VS_OUT In, uniform const bool isLowQuality)
 	Out.rgb *= g_lightColor.rgb * g_lightColor.w;
 
 	OUT_COLOR color = (OUT_COLOR)0;
+
 	color.albedo = Out;
 	color.depth = CalcDepth(In.outDepth.w, In.worldPos.y, In.posWV);
 	color.depth.a = alpha;
@@ -1599,6 +1606,37 @@ technique DefaultVertexTq
 	{
 		CullMode = ccw;
 
+		VertexShader = compile vs_3_0 VS_ModelShader(false);
+		PixelShader = compile ps_3_0 PS_TEST();
+	}
+}
+
+technique DefaultVertexAlphaTq
+{
+	pass P0
+	{
+		AlphaTestEnable = true;
+		AlphaRef = 0xfd;
+		AlphaFunc = Greater;
+		CullMode = none;
+		AlphaBlendEnable = false;
+		ZEnable = true;
+		ZFunc = LessEqual;
+		ZWriteEnable = true;
+		VertexShader = compile vs_3_0 VS_ModelShader(false);
+		PixelShader = compile ps_3_0 PS_TEST();
+	}
+
+	pass P1
+	{
+		AlphaTestEnable = true;
+		AlphaRef = 0x01;
+		AlphaFunc = Greater;
+		CullMode = none;
+		AlphaBlendEnable = true;
+		ZEnable = true;
+		ZFunc = LessEqual;
+		ZWriteEnable = true;
 		VertexShader = compile vs_3_0 VS_ModelShader(false);
 		PixelShader = compile ps_3_0 PS_TEST();
 	}
@@ -1979,16 +2017,13 @@ technique CharacterOutlineShadingTq_LowQuality
 
 technique BillboardHeadTq
 {
+#ifdef ENABLE_FACE
 	pass P0
 	{
 		SRGBWRITEENABLE = FALSE;
 		CullMode = none;
 		AlphaTestEnable = true;
-#ifdef ENABLE_FACE
 		AlphaRef = 0x90;
-#else
-		AlphaRef = 0x30;
-#endif
 		AlphaFunc = Greater;
 		ZEnable = true;
 		ZFunc = LessEqual;
@@ -1996,6 +2031,35 @@ technique BillboardHeadTq
 		VertexShader = compile vs_3_0 VS_ModelShader(false);
 		PixelShader = compile ps_3_0 PS_BillBoardHead(false);
 	}
+#else
+	pass P0
+	{
+		SRGBWRITEENABLE = FALSE;
+		CullMode = none;
+		AlphaTestEnable = true;
+		AlphaRef = 0x90;
+		AlphaFunc = Greater;
+		ZEnable = true;
+		ZFunc = LessEqual;
+		ZWriteEnable = true;
+		VertexShader = compile vs_3_0 VS_ModelShader(false);
+		PixelShader = compile ps_3_0 PS_BillBoardHead(false);
+	}
+
+	pass P1
+	{
+		SRGBWRITEENABLE = FALSE;
+		CullMode = none;
+		AlphaTestEnable = true;
+		AlphaRef = 0x30;
+		AlphaFunc = Greater;
+		ZEnable = true;
+		ZFunc = LessEqual;
+		ZWriteEnable = false;
+		VertexShader = compile vs_3_0 VS_ModelShader(false);
+		PixelShader = compile ps_3_0 PS_BillBoardHead(false);
+	}
+#endif
 }
 
 technique BillboardHeadTq_Low

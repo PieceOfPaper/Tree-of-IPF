@@ -27,7 +27,15 @@ function POPUP_CHANNEL_LIST(parent)
 	if mapName == 'guild_agit_1' or mapName == 'guild_agit_extension' then
 		return;
 	end
-    
+	
+	local housingPlaceClass = GetClass("Housing_Place", mapName);
+	if housingPlaceClass ~= nil then
+		local housingPlaceType = TryGetProp(housingPlaceClass, "Type");
+		if housingPlaceType == "Personal" then
+			return;
+		end
+	end
+
     if parent:GetUserValue("ISOPENDROPCHANNELLIST") == "YES" then
         parent:SetUserValue("ISOPENDROPCHANNELLIST", "NO");
         return;

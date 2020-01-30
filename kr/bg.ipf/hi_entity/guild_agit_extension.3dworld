@@ -1,10 +1,11 @@
 <?xml version="1.0" standalone="yes"?>
-<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by Bo-yeon Kang (IMCGames Co., Ltd) -->
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by Hey (IMCGames Co., Ltd) -->
 <!-- edited with XMLSpy v2006 U (http://www.altova.com) by Administrator (EMBRACE) -->
 <World>
 	<ModelDir IpfName="bg_hi3" Path="\guild_agit_extension\"/>
 	<TexDir IpfName="bg_texture" Path="\guild_agit_extension\"/>
 	<LightMap File="guild_agit_extension_lightmap.jpg" Length="3600.0 3600.0" Offset="-496.778 766.962" Size="1024 1024"/>
+	<Water File="normal.png" Length="500 500" Size="1024 1024"/>
 	<SubTexDir IpfName="bg_texture" Path="\highlander\"/>
 	<SubTexDir IpfName="bg_texture" Path="\barrack\"/>
 	<ShaTexDir IpfName="bg_hi3" Path="\guild_agit_extension\"/>

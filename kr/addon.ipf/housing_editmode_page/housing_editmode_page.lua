@@ -61,6 +61,7 @@ function REFRESH_HOUSING_PAGE_INFO(pageIndex, title)
 		edit_page_title:SetEnable(1);
 	else
 		edit_page_title:SetEnable(0);
+		edit_page_title:ReleaseFocus();
 	end
 end
 
