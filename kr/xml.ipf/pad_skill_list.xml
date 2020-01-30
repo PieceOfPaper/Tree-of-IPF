@@ -17755,6 +17755,9 @@ end"/>
 				<Str_Arg Str="None" Arg="1"/>
 				<Num Num="1"/>
 			</ToolScp>
+            <ToolScp Scp="PAD_USEABLE_FUNCNAME" Client="NO" UseSleep="NO">
+                <Str Str="SCR_PAD_USEABLE_WEEKLY_BOSS_AND_PC_CHECK"/>
+            </ToolScp>
 		</createEvent>
 		<updateEvent>
 			<ToolScp Scp="PAD_ADD_LIFE" Client="NO" UseSleep="NO">

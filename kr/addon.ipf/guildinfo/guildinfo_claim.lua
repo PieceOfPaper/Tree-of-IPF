@@ -11,7 +11,6 @@ local checkboxList = {}
 local aidx_claimIDTable = {}
 
 function GET_SELECTED_CONTROL()
-    --print(selectedTitle)
     return 0, selectedTitle;
 end
 
@@ -148,19 +147,17 @@ function GUILDMEMBER_LIST_GET()
     local memberList = GET_CHILD_RECURSIVELY(frame, "claimMemberList")
     if memberList:GetChildCount() ~= 0 then
         memberList:RemoveAllChild()
+		member_droplists = {};
     end
     local count = list:Count();
     local guild = GET_MY_GUILD_INFO();
     for i = 0 , count - 1 do
         local partyMemberInfo = list:Element(i);  
-
         if partyMemberInfo:GetAID() ~= guild.info:GetLeaderAID() then
-            local memberCtrlSet = memberList:CreateOrGetControlSet("guild_claim_set", partyMemberInfo:GetName(), 0, 0);
+            local memberCtrlSet = memberList:CreateOrGetControlSet("guild_claim_set", partyMemberInfo:GetAID(), 0, 0);
             
             local memberText = GET_CHILD_RECURSIVELY(memberCtrlSet, "memberNameLabel", "ui::CRichText");
             memberText:SetText(partyMemberInfo:GetName());
-
-           
             -- job
             local jobID = partyMemberInfo:GetIconInfo().job;
             local jobCls = GetClassByType('Job', jobID);
@@ -175,7 +172,6 @@ function GUILDMEMBER_LIST_GET()
             local memberLvl = GET_CHILD_RECURSIVELY(memberCtrlSet, "memberLvlLabel");
             memberLvl:SetText(partyMemberInfo:GetLevel())
 
-
             local memberObj = GetIES(partyMemberInfo:GetObject());
             local membercontribLabel = GET_CHILD_RECURSIVELY(memberCtrlSet, "memberContribLabel");
             membercontribLabel:SetText(memberObj.Contribution)
@@ -183,7 +179,9 @@ function GUILDMEMBER_LIST_GET()
             local memberTitleList = GET_CHILD_RECURSIVELY(memberCtrlSet, "claimList", "ui::CDropList")
             memberTitleList:SetUserValue("account_idx", partyMemberInfo:GetAID() )
             memberTitleList:AddItem("", "", 0)
-            member_droplists[tostring(partyMemberInfo:GetAID())] = memberTitleList;
+
+			member_droplists[#member_droplists + 1] = partyMemberInfo:GetAID();
+
             local i = 1
             if titleList ~= nil then                    
                 for index, titleName in pairs(titleList) do
@@ -194,6 +192,7 @@ function GUILDMEMBER_LIST_GET()
             GetPlayerMemberTitle("ON_PLAYER_MEMBER_TITLE_GET", partyMemberInfo:GetAID());
         end
     end
+
     GBOX_AUTO_ALIGN(memberList, 0, 0, 45, true, false, true)
 
 end
@@ -207,12 +206,17 @@ function ON_PLAYER_MEMBER_TITLE_GET(code, ret_json)
         return;
     end
     local decoded_json = json.decode(ret_json)
-    local selectedDropList = member_droplists[decoded_json['aidx']];
-    aidx_claimIDTable[decoded_json['aidx']] = decoded_json['title_id']
-     if selectedDropList ~= nil then
-        selectedDropList:SelectItemByKey(decoded_json['title_id'])
+	
+    local frame = ui.GetFrame("guildinfo");
+    local memberList = GET_CHILD_RECURSIVELY(frame, "claimMemberList")
+    if memberList:GetChildCount() ~= 0 then
+		local selectedDropList = memberList:GetControlSet("guild_claim_set", decoded_json['aidx']);
+		if selectedDropList ~= nil then
+			selectedDropList:SelectItemByKey(decoded_json['title_id'])
+		end
+
+		aidx_claimIDTable[decoded_json['aidx']] = decoded_json['title_id']
     end
-    
 end
 
 function SAVE_TITLE(frame, control)

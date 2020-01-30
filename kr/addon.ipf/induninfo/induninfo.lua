@@ -1750,7 +1750,7 @@ end
 
 -- 입장하기 버튼 클릭
 function WEEKLY_BOSS_JOIN_ENTER_CLICK(parent,ctrl)
-    if ctrl:GetTextByKey('cur') < ctrl:GetTextByKey('max') then
+    if ctrl:GetTextByKey('cur') < ctrl:GetTextByKey('max') or session.weeklyboss.GetNowWeekNum() == 1 then
         ReqEnterWeeklyBossIndun()
     else
         ui.SysMsg(ScpArgMsg('IRREDIAN1131_DLG_LANG_1_CANT'));
