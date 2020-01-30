@@ -40,6 +40,9 @@ function BTN_MINIMIZED_GUILD_HOUSING_OPEN_EDIT_MODE(parent, btn)
 
 		btn:SetUserValue("Time", imcTime.GetAppTime() + 5);
 	else
+		housing.CancelArrangingMovingMove();
+		ui.CloseFrame("housing_editmode_control");
+
 		ON_HOUSING_EDITMODE_CLOSE();
 		
 		local time = tonumber(btn:GetUserValue("Time"));

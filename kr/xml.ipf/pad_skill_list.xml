@@ -7878,6 +7878,66 @@ return obj.Level"/>
 			</ToolScp>
 		</updateEvent>
 	</PadSkill>
+	<PadSkill Name="FieldRift_Ice_Wall" CheckerType="1" Dist="377.78418" Angle="2.3853049" Range="20" InnerRange="20" ApplyFlyMon="1" AllowOverlap="1" IsMagicType="0" IsMineType="0">
+		<createEvent>
+			<ToolScp Scp="C_PAD_EFFECT_POS" Client="YES" UseSleep="NO">
+				<Str_Arg Str="F_spread_in021_ice2" Arg="0.30000001"/>
+				<Pos Angle="0" Dist="0"/>
+				<Num Num="0"/>
+				<Str_Arg Str="None" Arg="1"/>
+			</ToolScp>
+			<ToolScp Scp="PAD_ADD_LIFE" Client="NO" UseSleep="NO">
+				<Num Num="90000"/>
+				<Num Num="99990"/>
+			</ToolScp>
+			<ToolScp Scp="PAD_CRE_MON" Client="NO" UseSleep="NO">
+				<Str Str="weekly_icewall"/>
+				<Pos Angle="0" Dist="0" PosType="11"/>
+				<Angle Angle="1.5707964"/>
+				<Num Num="0"/>
+				<Num Num="30000"/>
+				<MonProp List="!SCR_SUMMON_WEEKLY_ICEWALL#1"/>
+				<Str_Arg Str="None" Arg="1"/>
+				<Num Num="0"/>
+				<Str Str="WEEKLY_ICEWALL"/>
+				<Str Str="INIT_ICEWALL_MONSTER"/>
+				<Num Num="1"/>
+				<Str Str="SET_CASTER_ICEWALL"/>
+			</ToolScp>
+		</createEvent>
+		<destroyEvent>
+			<ToolScp Scp="C_EFFECT_REMOVE_KEY" Client="YES" UseSleep="NO">
+				<Str Str="newbless"/>
+				<Num Num="0.5"/>
+			</ToolScp>
+		</destroyEvent>
+		<enterEvent>
+			<ToolScp Scp="PAD_TGT_BUFF" Client="NO" UseSleep="NO">
+				<Str Str="ENEMY"/>
+				<Num Num="0"/>
+				<Num Num="0"/>
+				<Str Str="FIELDRIFT_ICE_WALL_DEBUFF"/>
+				<Num Num="1"/>
+				<Num Num="0"/>
+				<Num Num="10000"/>
+				<Num Num="1"/>
+				<Num Num="100"/>
+				<Num Num="0"/>
+			</ToolScp>
+			<ToolScp Scp="PAD_TGT_DAMAGE" Client="NO" UseSleep="NO">
+				<Str Str="ENEMY"/>
+				<Num Num="1"/>
+				<Num Num="0"/>
+				<Num Num="0"/>
+			</ToolScp>
+		</enterEvent>
+		<updateEvent>
+			<ToolScp Scp="PAD_ADD_LIFE" Client="NO" UseSleep="NO">
+				<Num Num="-100"/>
+				<Num Num="0"/>
+			</ToolScp>
+		</updateEvent>
+	</PadSkill>
 	<PadSkill Name="FieldRift_Meteo" CheckerType="0" Dist="270.54889" Angle="-2.1800234" ApplyFlyMon="1" AllowOverlap="1" EnableSearch="0" IsMineType="0">
 		<createEvent>
 			<ToolScp Scp="PAD_ADD_LIFE" Client="NO" UseSleep="NO">
@@ -7909,12 +7969,48 @@ return obj.Level"/>
 				<Num Num="999999"/>
 			</ToolScp>
 			<ToolScp Scp="PAD_MSL_FALL" Client="NO" UseSleep="NO">
-				<Num Num="45"/>
-				<Num Num="100"/>
+				<Num Num="60"/>
+				<Num Num="300"/>
 				<Str_Arg Str="I_wizard_meteorfall_force_dropfire_arts" Arg="4"/>
 				<Str_Arg Str="F_burstup030_fire" Arg="0.40000001"/>
 				<Str_Arg Str="None" Arg="1"/>
-				<Num Num="30"/>
+				<Num Num="40"/>
+				<Num Num="1"/>
+				<Num Num="2"/>
+				<Num Num="600"/>
+				<Num Num="2"/>
+				<Num Num="1000"/>
+				<Num Num="1"/>
+				<Num Num="0"/>
+				<Num Num="0"/>
+				<Str_Arg Str="F_sys_target_pc2##0.5" Arg="2"/>
+				<Num Num="0"/>
+			</ToolScp>
+			<ToolScp Scp="PAD_MSL_FALL" Client="NO" UseSleep="NO">
+				<Num Num="100"/>
+				<Num Num="300"/>
+				<Str_Arg Str="I_wizard_meteorfall_force_dropfire_arts" Arg="4"/>
+				<Str_Arg Str="F_burstup030_fire" Arg="0.40000001"/>
+				<Str_Arg Str="None" Arg="1"/>
+				<Num Num="40"/>
+				<Num Num="1"/>
+				<Num Num="2"/>
+				<Num Num="600"/>
+				<Num Num="2"/>
+				<Num Num="1000"/>
+				<Num Num="1"/>
+				<Num Num="0"/>
+				<Num Num="0"/>
+				<Str_Arg Str="F_sys_target_pc2##0.5" Arg="2"/>
+				<Num Num="0"/>
+			</ToolScp>
+			<ToolScp Scp="PAD_MSL_FALL" Client="NO" UseSleep="NO">
+				<Num Num="100"/>
+				<Num Num="300"/>
+				<Str_Arg Str="I_wizard_meteorfall_force_dropfire_arts" Arg="4"/>
+				<Str_Arg Str="F_burstup030_fire" Arg="0.40000001"/>
+				<Str_Arg Str="None" Arg="1"/>
+				<Num Num="40"/>
 				<Num Num="1"/>
 				<Num Num="2"/>
 				<Num Num="600"/>
@@ -17328,10 +17424,10 @@ end"/>
 			</ToolScp>
 		</enterEvent>
 	</PadSkill>
-	<PadSkill Name="Weekly_Evil_Pillar" CheckerType="0" PadHeight="0" Dist="114.69501" Angle="-0.82649082" Range="30" AllowOverlap="1" EnableSearch="0" IsMagicType="0" IsMineType="0">
+	<PadSkill Name="Weekly_Evil_Pillar" CheckerType="0" PadHeight="0" Dist="89.32341" Angle="1.4564043" Range="30" AutoPos="1" ApplyFlyMon="1" SpinRate="0.5" AllowOverlap="1" EnableSearch="0" IsMagicType="0" IsMineType="0">
 		<createEvent>
 			<ToolScp Scp="PAD_ADD_LIFE" Client="NO" UseSleep="NO">
-				<Num Num="25000"/>
+				<Num Num="45000"/>
 				<Num Num="1"/>
 			</ToolScp>
 			<ToolScp Scp="C_PAD_EFFECT_POS" Client="YES" UseSleep="NO">
@@ -17371,29 +17467,54 @@ end"/>
 			</ToolScp>
 		</updateEvent>
 	</PadSkill>
-	<PadSkill Name="Weekly_FallingRock" CheckerType="0" Dist="13.071997" Angle="-0.28712228" Range="45" UpdateTerm="100" ApplyFlyMon="1" AllowOverlap="1" EnableSearch="0" IsMineType="0">
+	<PadSkill Name="Weekly_Evil_Pillar_2" CheckerType="0" PadHeight="0" Dist="89.32341" Angle="1.4564043" Range="30" ApplyFlyMon="1" AllowOverlap="1" EnableSearch="0" IsMagicType="0" IsMineType="0">
+		<createEvent>
+			<ToolScp Scp="PAD_ADD_LIFE" Client="NO" UseSleep="NO">
+				<Num Num="45000"/>
+				<Num Num="1"/>
+			</ToolScp>
+			<ToolScp Scp="C_PAD_EFFECT_POS" Client="YES" UseSleep="NO">
+				<Str_Arg Str="F_burstup052_grey" Arg="0.69999999"/>
+				<Pos Angle="0" Dist="0"/>
+				<Num Num="0"/>
+				<Str_Arg Str="None" Arg="0.5"/>
+				<Num Num="0"/>
+			</ToolScp>
+		</createEvent>
+		<leaveEvent>
+			<ToolScp Scp="PAD_TGT_BUFF_MON" Client="NO" UseSleep="NO">
+				<Str Str="ENEMY"/>
+				<Num Num="0"/>
+				<Num Num="0"/>
+				<Str Str="Weekly_Evil_Pillar_Debuff"/>
+				<Num Num="1"/>
+				<Num Num="0"/>
+				<Num Num="10000"/>
+				<Num Num="1"/>
+				<Num Num="100"/>
+			</ToolScp>
+		</leaveEvent>
+		<updateEvent>
+			<ToolScp Scp="PAD_DAMAGE_ENEMY" Client="NO" UseSleep="NO">
+				<Num Num="1"/>
+				<Num Num="0"/>
+				<Num Num="0"/>
+				<Str_Arg Str="None" Arg="1"/>
+				<Num Num="0"/>
+				<Num Num="0"/>
+				<Str Str="None"/>
+			</ToolScp>
+			<ToolScp Scp="PAD_ADD_LIFE" Client="NO" UseSleep="NO">
+				<Num Num="-500"/>
+				<Num Num="1"/>
+			</ToolScp>
+		</updateEvent>
+	</PadSkill>
+	<PadSkill Name="Weekly_FallingRock" CheckerType="0" Dist="13.071997" Angle="-0.28712228" Range="45" AllowOverlap="1" EnableSearch="0" IsMineType="0">
 		<createEvent>
 			<ToolScp Scp="PAD_ADD_LIFE" Client="NO" UseSleep="NO">
 				<Num Num="5000"/>
 				<Num Num="1"/>
-			</ToolScp>
-			<ToolScp Scp="PAD_MSL_FALL" Client="NO" UseSleep="NO">
-				<Num Num="100"/>
-				<Num Num="300"/>
-				<Str_Arg Str="I_force018_trail_earth_long_stone2" Arg="2"/>
-				<Str_Arg Str="F_ground106_smokeUP" Arg="1"/>
-				<Str_Arg Str="None" Arg="1"/>
-				<Num Num="30"/>
-				<Num Num="0"/>
-				<Num Num="0.60000002"/>
-				<Num Num="200"/>
-				<Num Num="2"/>
-				<Num Num="1000"/>
-				<Num Num="1"/>
-				<Num Num="0"/>
-				<Num Num="0"/>
-				<Str_Arg Str="None" Arg="0.30000001"/>
-				<Num Num="0"/>
 			</ToolScp>
 		</createEvent>
 		<updateEvent>
@@ -17404,15 +17525,51 @@ end"/>
 				<Str_Arg Str="F_ground106_smokeUP" Arg="1"/>
 				<Str_Arg Str="None" Arg="1"/>
 				<Num Num="45"/>
-				<Num Num="0"/>
-				<Num Num="0.60000002"/>
-				<Num Num="200"/>
+				<Num Num="0.1"/>
+				<Num Num="0.89999998"/>
+				<Num Num="300"/>
 				<Num Num="2"/>
 				<Num Num="1000"/>
 				<Num Num="1"/>
 				<Num Num="0"/>
 				<Num Num="0"/>
-				<Str_Arg Str="None" Arg="0.30000001"/>
+				<Str_Arg Str="F_sys_target_monster##0.5" Arg="1"/>
+				<Num Num="0"/>
+			</ToolScp>
+			<ToolScp Scp="PAD_MSL_FALL" Client="NO" UseSleep="NO">
+				<Num Num="100"/>
+				<Num Num="100"/>
+				<Str_Arg Str="I_force018_trail_earth_long_stone2" Arg="2"/>
+				<Str_Arg Str="F_ground106_smokeUP" Arg="1"/>
+				<Str_Arg Str="None" Arg="1"/>
+				<Num Num="45"/>
+				<Num Num="0.1"/>
+				<Num Num="0.89999998"/>
+				<Num Num="300"/>
+				<Num Num="2"/>
+				<Num Num="1000"/>
+				<Num Num="1"/>
+				<Num Num="0"/>
+				<Num Num="0"/>
+				<Str_Arg Str="F_sys_target_monster##0.5" Arg="1"/>
+				<Num Num="0"/>
+			</ToolScp>
+			<ToolScp Scp="PAD_MSL_FALL" Client="NO" UseSleep="NO">
+				<Num Num="100"/>
+				<Num Num="150"/>
+				<Str_Arg Str="I_force018_trail_earth_long_stone2" Arg="2"/>
+				<Str_Arg Str="F_ground106_smokeUP" Arg="1"/>
+				<Str_Arg Str="None" Arg="1"/>
+				<Num Num="45"/>
+				<Num Num="0.1"/>
+				<Num Num="0.89999998"/>
+				<Num Num="300"/>
+				<Num Num="2"/>
+				<Num Num="1000"/>
+				<Num Num="1"/>
+				<Num Num="0"/>
+				<Num Num="0"/>
+				<Str_Arg Str="F_sys_target_monster##0.5" Arg="1"/>
 				<Num Num="0"/>
 			</ToolScp>
 			<ToolScp Scp="PAD_MSL_FALL" Client="NO" UseSleep="NO">
@@ -17422,15 +17579,33 @@ end"/>
 				<Str_Arg Str="F_ground106_smokeUP" Arg="1"/>
 				<Str_Arg Str="None" Arg="1"/>
 				<Num Num="45"/>
-				<Num Num="0"/>
-				<Num Num="0.60000002"/>
-				<Num Num="200"/>
+				<Num Num="0.1"/>
+				<Num Num="0.89999998"/>
+				<Num Num="300"/>
 				<Num Num="2"/>
 				<Num Num="1000"/>
 				<Num Num="1"/>
 				<Num Num="0"/>
 				<Num Num="0"/>
-				<Str_Arg Str="None" Arg="0.30000001"/>
+				<Str_Arg Str="F_sys_target_monster##0.5" Arg="1"/>
+				<Num Num="0"/>
+			</ToolScp>
+			<ToolScp Scp="PAD_MSL_FALL" Client="NO" UseSleep="NO">
+				<Num Num="100"/>
+				<Num Num="250"/>
+				<Str_Arg Str="I_force018_trail_earth_long_stone2" Arg="2"/>
+				<Str_Arg Str="F_ground106_smokeUP" Arg="1"/>
+				<Str_Arg Str="None" Arg="1"/>
+				<Num Num="45"/>
+				<Num Num="0.1"/>
+				<Num Num="0.89999998"/>
+				<Num Num="300"/>
+				<Num Num="2"/>
+				<Num Num="1000"/>
+				<Num Num="1"/>
+				<Num Num="0"/>
+				<Num Num="0"/>
+				<Str_Arg Str="F_sys_target_monster##0.5" Arg="1"/>
 				<Num Num="0"/>
 			</ToolScp>
 			<ToolScp Scp="PAD_MSL_FALL" Client="NO" UseSleep="NO">
@@ -17440,146 +17615,24 @@ end"/>
 				<Str_Arg Str="F_ground106_smokeUP" Arg="1"/>
 				<Str_Arg Str="None" Arg="1"/>
 				<Num Num="45"/>
-				<Num Num="0"/>
-				<Num Num="0.60000002"/>
-				<Num Num="200"/>
+				<Num Num="0.1"/>
+				<Num Num="0.89999998"/>
+				<Num Num="300"/>
 				<Num Num="2"/>
 				<Num Num="1000"/>
 				<Num Num="1"/>
 				<Num Num="0"/>
 				<Num Num="0"/>
-				<Str_Arg Str="None" Arg="0.30000001"/>
-				<Num Num="0"/>
-			</ToolScp>
-			<ToolScp Scp="PAD_MSL_FALL" Client="NO" UseSleep="NO">
-				<Num Num="100"/>
-				<Num Num="400"/>
-				<Str_Arg Str="I_force018_trail_earth_long_stone2" Arg="2"/>
-				<Str_Arg Str="F_ground106_smokeUP" Arg="1"/>
-				<Str_Arg Str="None" Arg="1"/>
-				<Num Num="45"/>
-				<Num Num="0"/>
-				<Num Num="0.60000002"/>
-				<Num Num="200"/>
-				<Num Num="2"/>
-				<Num Num="1000"/>
-				<Num Num="1"/>
-				<Num Num="0"/>
-				<Num Num="0"/>
-				<Str_Arg Str="None" Arg="0.30000001"/>
+				<Str_Arg Str="F_sys_target_monster##0.5" Arg="1"/>
 				<Num Num="0"/>
 			</ToolScp>
 			<ToolScp Scp="PAD_ADD_LIFE" Client="NO" UseSleep="NO">
-				<Num Num="-100"/>
+				<Num Num="-500"/>
 				<Num Num="1"/>
 			</ToolScp>
 		</updateEvent>
 	</PadSkill>
-	<PadSkill Name="Weekly_FallingRock" CheckerType="0" Dist="13.071997" Angle="-0.28712228" Range="45" UpdateTerm="100" ApplyFlyMon="1" AllowOverlap="1" EnableSearch="0" IsMineType="0">
-		<createEvent>
-			<ToolScp Scp="PAD_ADD_LIFE" Client="NO" UseSleep="NO">
-				<Num Num="5000"/>
-				<Num Num="1"/>
-			</ToolScp>
-			<ToolScp Scp="PAD_MSL_FALL" Client="NO" UseSleep="NO">
-				<Num Num="100"/>
-				<Num Num="300"/>
-				<Str_Arg Str="I_force018_trail_earth_long_stone2" Arg="2"/>
-				<Str_Arg Str="F_ground106_smokeUP" Arg="1"/>
-				<Str_Arg Str="None" Arg="1"/>
-				<Num Num="30"/>
-				<Num Num="0"/>
-				<Num Num="0.60000002"/>
-				<Num Num="200"/>
-				<Num Num="2"/>
-				<Num Num="1000"/>
-				<Num Num="1"/>
-				<Num Num="0"/>
-				<Num Num="0"/>
-				<Str_Arg Str="None" Arg="0.30000001"/>
-				<Num Num="0"/>
-			</ToolScp>
-		</createEvent>
-		<updateEvent>
-			<ToolScp Scp="PAD_MSL_FALL" Client="NO" UseSleep="NO">
-				<Num Num="100"/>
-				<Num Num="100"/>
-				<Str_Arg Str="I_force018_trail_earth_long_stone2" Arg="2"/>
-				<Str_Arg Str="F_ground106_smokeUP" Arg="1"/>
-				<Str_Arg Str="None" Arg="1"/>
-				<Num Num="45"/>
-				<Num Num="0"/>
-				<Num Num="0.60000002"/>
-				<Num Num="200"/>
-				<Num Num="2"/>
-				<Num Num="1000"/>
-				<Num Num="1"/>
-				<Num Num="0"/>
-				<Num Num="0"/>
-				<Str_Arg Str="None" Arg="0.30000001"/>
-				<Num Num="0"/>
-			</ToolScp>
-			<ToolScp Scp="PAD_MSL_FALL" Client="NO" UseSleep="NO">
-				<Num Num="100"/>
-				<Num Num="200"/>
-				<Str_Arg Str="I_force018_trail_earth_long_stone2" Arg="2"/>
-				<Str_Arg Str="F_ground106_smokeUP" Arg="1"/>
-				<Str_Arg Str="None" Arg="1"/>
-				<Num Num="45"/>
-				<Num Num="0"/>
-				<Num Num="0.60000002"/>
-				<Num Num="200"/>
-				<Num Num="2"/>
-				<Num Num="1000"/>
-				<Num Num="1"/>
-				<Num Num="0"/>
-				<Num Num="0"/>
-				<Str_Arg Str="None" Arg="0.30000001"/>
-				<Num Num="0"/>
-			</ToolScp>
-			<ToolScp Scp="PAD_MSL_FALL" Client="NO" UseSleep="NO">
-				<Num Num="100"/>
-				<Num Num="300"/>
-				<Str_Arg Str="I_force018_trail_earth_long_stone2" Arg="2"/>
-				<Str_Arg Str="F_ground106_smokeUP" Arg="1"/>
-				<Str_Arg Str="None" Arg="1"/>
-				<Num Num="45"/>
-				<Num Num="0"/>
-				<Num Num="0.60000002"/>
-				<Num Num="200"/>
-				<Num Num="2"/>
-				<Num Num="1000"/>
-				<Num Num="1"/>
-				<Num Num="0"/>
-				<Num Num="0"/>
-				<Str_Arg Str="None" Arg="0.30000001"/>
-				<Num Num="0"/>
-			</ToolScp>
-			<ToolScp Scp="PAD_MSL_FALL" Client="NO" UseSleep="NO">
-				<Num Num="100"/>
-				<Num Num="400"/>
-				<Str_Arg Str="I_force018_trail_earth_long_stone2" Arg="2"/>
-				<Str_Arg Str="F_ground106_smokeUP" Arg="1"/>
-				<Str_Arg Str="None" Arg="1"/>
-				<Num Num="45"/>
-				<Num Num="0"/>
-				<Num Num="0.60000002"/>
-				<Num Num="200"/>
-				<Num Num="2"/>
-				<Num Num="1000"/>
-				<Num Num="1"/>
-				<Num Num="0"/>
-				<Num Num="0"/>
-				<Str_Arg Str="None" Arg="0.30000001"/>
-				<Num Num="0"/>
-			</ToolScp>
-			<ToolScp Scp="PAD_ADD_LIFE" Client="NO" UseSleep="NO">
-				<Num Num="-100"/>
-				<Num Num="1"/>
-			</ToolScp>
-		</updateEvent>
-	</PadSkill>
-	<PadSkill Name="Weekly_FirePillar" CheckerType="0" Dist="122.91336" Angle="-0.1394898" Range="55" EnableSearch="0" IsMagicType="0" IsMineType="0">
+	<PadSkill Name="Weekly_FirePillar" CheckerType="0" Dist="122.91336" Angle="-0.1394898" Range="55" ApplyFlyMon="1" EnableSearch="0" IsMagicType="0" IsMineType="0">
 		<createEvent>
 			<ToolScp Scp="PAD_ADD_LIFE" Client="NO" UseSleep="NO">
 				<Num Num="10000"/>
@@ -17629,7 +17682,7 @@ end"/>
 			</ToolScp>
 		</updateEvent>
 	</PadSkill>
-	<PadSkill Name="Weekly_Ice_Wall" CheckerType="1" Dist="194.36009" Angle="-1.75211" Range="18" InnerRange="18" UpdateTerm="100" IsMagicType="0" IsMineType="0">
+	<PadSkill Name="Weekly_Ice_Wall" CheckerType="1" Dist="194.36009" Angle="-1.75211" Range="18" InnerRange="18" UpdateTerm="100" EnableSearch="0" IsMagicType="0" IsMineType="0">
 		<createEvent>
 			<ToolScp Scp="C_PAD_EFFECT_POS" Client="YES" UseSleep="NO">
 				<Str_Arg Str="F_spread_in021_ice2" Arg="0.30000001"/>
@@ -17689,14 +17742,11 @@ end"/>
 			</ToolScp>
 		</updateEvent>
 	</PadSkill>
-	<PadSkill Name="Weekly_RuneOfPower" CheckerType="0" Dist="156.2596" Angle="0.58792627" Range="65" UpdateTerm="1000" AllowOverlap="1" IsMineType="0">
+	<PadSkill Name="Weekly_RuneOfPower" CheckerType="0" Dist="156.2596" Angle="0.58792627" Range="65" UpdateTerm="1000" ApplyFlyMon="1" AllowOverlap="1" EnableSearch="0" IsMagicType="0" IsMineType="0">
 		<createEvent>
 			<ToolScp Scp="PAD_ADD_LIFE" Client="NO" UseSleep="NO">
 				<Num Num="30000"/>
 				<Num Num="1"/>
-			</ToolScp>
-			<ToolScp Scp="PAD_USEABLE_FUNCNAME" Client="NO" UseSleep="NO">
-				<Str Str="PAD_USEABLE_CHECK_Weekly_RuneOfPower"/>
 			</ToolScp>
 			<ToolScp Scp="C_PAD_EFFECT_POS" Client="YES" UseSleep="NO">
 				<Str_Arg Str="F_ground150_blood_red_loop" Arg="3"/>
@@ -17712,15 +17762,50 @@ end"/>
 				<Num Num="0"/>
 			</ToolScp>
 			<ToolScp Scp="PAD_BUFF_ENEMY_MON" Client="NO" UseSleep="NO">
-				<Str Str="FRIEND"/>
+				<Str Str="ALL"/>
 				<Num Num="0"/>
 				<Num Num="0"/>
 				<Str Str="Weekly_RuneOfPower_Buff"/>
 				<Num Num="1"/>
 				<Num Num="0"/>
-				<Num Num="30000"/>
+				<Num Num="15000"/>
 				<Num Num="1"/>
 				<Num Num="100"/>
+			</ToolScp>
+		</updateEvent>
+	</PadSkill>
+	<PadSkill Name="Weekly_Sleep" CheckerType="0" Dist="52.152973" Angle="2.7878106" Range="40" UpdateTerm="600" IsMagicType="0" IsMineType="0">
+		<createEvent>
+			<ToolScp Scp="PAD_ADD_LIFE" Client="NO" UseSleep="NO">
+				<Num Num="45000"/>
+				<Num Num="1"/>
+			</ToolScp>
+			<ToolScp Scp="C_PAD_EFFECT_POS" Client="YES" UseSleep="NO">
+				<Str_Arg Str="F_spread_in032_rize_yellow_loop" Arg="1"/>
+				<Pos Angle="0" Dist="0"/>
+				<Num Num="0"/>
+				<Str_Arg Str="None" Arg="1"/>
+				<Num Num="0"/>
+			</ToolScp>
+		</createEvent>
+		<enterEvent>
+			<ToolScp Scp="PAD_TGT_BUFF" Client="NO" UseSleep="NO">
+				<Str Str="ENEMY"/>
+				<Num Num="0"/>
+				<Num Num="-1"/>
+				<Str Str="UC_sleep"/>
+				<Num Num="2"/>
+				<Num Num="0"/>
+				<Num Num="8000"/>
+				<Num Num="1"/>
+				<Num Num="100"/>
+				<Num Num="0"/>
+			</ToolScp>
+		</enterEvent>
+		<updateEvent>
+			<ToolScp Scp="PAD_ADD_LIFE" Client="NO" UseSleep="NO">
+				<Num Num="-600"/>
+				<Num Num="0"/>
 			</ToolScp>
 		</updateEvent>
 	</PadSkill>

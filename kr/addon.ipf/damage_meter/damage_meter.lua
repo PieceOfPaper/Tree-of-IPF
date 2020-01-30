@@ -91,35 +91,37 @@ function WEEKLY_BOSS_UPDATE_DPS(frame,totalTime,elapsedTime)
         local info = session.dps.Get_alldpsInfoByIndex(i)
         if info:GetName() == bossName then
             local damage = info:GetStrDamage();
-            local sklID = info:GetSkillID();
-            local sklCls = GetClassByType("Skill",sklID)
-            local keyword = TryGetProp(sklCls,"Keyword","None")
-            keyword = StringSplit(keyword,';')
-            for i = 1,#keyword do
-                if keyword[i] == 'NormalSkill' then
-                    sklID = 1
-                    break;
+            if damage ~= '0' then
+                local sklID = info:GetSkillID();
+                local sklCls = GetClassByType("Skill",sklID)
+                local keyword = TryGetProp(sklCls,"Keyword","None")
+                keyword = StringSplit(keyword,';')
+                for i = 1,#keyword do
+                    if keyword[i] == 'NormalSkill' then
+                        sklID = 1
+                        break;
+                    end
                 end
-            end
-            --update gauge damage info
-            local function getIndex(table, val)
-                for i=1,#table do
-                   if table[i][1] == val then 
-                      return i
-                   end
+                --update gauge damage info
+                local function getIndex(table, val)
+                    for i=1,#table do
+                    if table[i][1] == val then 
+                        return i
+                    end
+                    end
+                    return #table+1
                 end
-                return #table+1
-            end
 
-            --add damage info
-            local info_idx = getIndex(damage_meter_info_total,sklID)
-            if damage_meter_info_total[info_idx] == nil then
-                damage_meter_info_total[info_idx] = {sklID,damage}
-            else
-                damage_meter_info_total[info_idx][2] = SumForBigNumberInt64(damage,damage_meter_info_total[info_idx][2])
-            end
+                --add damage info
+                local info_idx = getIndex(damage_meter_info_total,sklID)
+                if damage_meter_info_total[info_idx] == nil then
+                    damage_meter_info_total[info_idx] = {sklID,damage}
+                else
+                    damage_meter_info_total[info_idx][2] = SumForBigNumberInt64(damage,damage_meter_info_total[info_idx][2])
+                end
 
-            totalDamage = SumForBigNumberInt64(damage,totalDamage)
+                totalDamage = SumForBigNumberInt64(damage,totalDamage)
+            end
         end
     end
     table.sort(damage_meter_info_total,function(a,b) return IsGreaterThanForBigNumber(a[2],b[2])==1 end)
@@ -157,7 +159,8 @@ function UPDATE_DAMAGE_METER_GUAGE(frame,groupbox)
     end
     local maxDamage = damage_meter_info_total[1][2]
     local font = frame:GetUserConfig('GAUGE_FONT');
-    for i = 1, #damage_meter_info_total do
+    local cnt = math.min(10,#damage_meter_info_total)
+    for i = 1, cnt do
         local sklID = damage_meter_info_total[i][1]
         local damage = damage_meter_info_total[i][2]
         local skl = GetClassByType("Skill",sklID)
@@ -170,7 +173,7 @@ function UPDATE_DAMAGE_METER_GUAGE(frame,groupbox)
             local point = MultForBigNumberInt64(damage,"100")
             point = DivForBigNumberInt64(point,maxDamage)
             local skin = 'gauge_damage_meter_0'..math.min(i,4)
-
+            damage = font..STR_KILO_CHANGE(damage)
             DAMAGE_METER_GAUGE_SET(ctrlSet,font..skl.Name,point,font..damage,skin);
         end
     end

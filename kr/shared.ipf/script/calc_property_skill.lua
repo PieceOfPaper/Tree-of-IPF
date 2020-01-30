@@ -3759,7 +3759,10 @@ end
 function SCR_GET_JincanGu_Ratio(skill)
 
     local pc = GetSkillOwner(skill);
-    local value = (skill.Level/2) + 0.5
+    local value = skill.Level
+    if value > 10 then
+        value = 10
+    end
 
     return value;
 

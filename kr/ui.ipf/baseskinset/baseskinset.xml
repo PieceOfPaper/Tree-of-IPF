@@ -7370,6 +7370,10 @@
 		<image name="gold_arrow_below" file="\skin\monstercard.tga" imgrect="1 915 65 81" CMM_Caption="황금화살표 아래 방향"/>
 		<image name="vaivora_decorate_attendance" file="\skin\attendance_sheet_skin.tga" imgrect="1 1004 329 116" CMM_Caption="2020 출석체크 타이틀 데코레이션"/>
 		<image name="rainbow_attendance" file="\skin\attendance_sheet_skin.tga" imgrect="1 1121 323 119" CMM_Caption="2020 출석체크 레인보우"/>
+		<image name="challenge_gauge_no8" file="\skin\tooltip_skin_3.tga" imgrect="820 664 93 113" CMM_Caption="챌린지모드 8단계"/>
+		<image name="challenge_gauge_no9" file="\skin\tooltip_skin_3.tga" imgrect="914 664 93 113" CMM_Caption="챌린지모드 9단계"/>
+		<image name="challenge_gauge_no10" file="\skin\tooltip_skin_3.tga" imgrect="758 550 93 113" CMM_Caption="챌린지모드 10단계"/>
+		<image name="challenge_level_text" file="\skin\tooltip_skin_3.tga" imgrect="852 618 98 45" CMM_Caption="챌린지 레벨"/>
 	</imagelist>
 	<imagelist category="je_button">
 		<image name="menu_guild_info" file="\skin\guild_skin.tga" imgrect="165 298 45 45" CMM_Caption="길드 정보"/>
@@ -10729,6 +10733,8 @@
 		<image name="plate_achieve_weeklyrank_1" file="\skin\user_title_skin.tga" imgrect="215 112 214 34" CMM_Caption="주간보스_자우라"/>
 		<image name="plate_achieve_weeklyrank_2" file="\skin\user_title_skin.tga" imgrect="215 147 214 31" CMM_Caption="주간보스_헬가세르클"/>
 		<image name="plate_achieve_weeklyrank_3" file="\skin\user_title_skin.tga" imgrect="215 179 214 33" CMM_Caption="주간보스_누아엘레"/>
+		<image name="plate_achieve_moringponia_clear_twn" file="\skin\user_title_skin.tga" imgrect="215 213 214 37" CMM_Caption="moringponia_clear_대만"/>
+		<image name="plate_achieve_moringponia_first_kill_twn" file="\skin\user_title_skin.tga" imgrect="432 0 216 35" CMM_Caption="moringponia_first_kill_대만"/>
 	</imagelist>
 	<imagelist category="skin_hair">
 		<image name="icon_skintone_01_m01" file="\skin\skinhair\icon_skintone_01_m01.png" imgrect="0 0 80 80" CMM_Caption="남성 01"/>

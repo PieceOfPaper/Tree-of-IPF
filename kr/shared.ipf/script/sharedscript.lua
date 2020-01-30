@@ -3256,7 +3256,7 @@ end
 
 function RANDOM_SHUFFLE(tbl)
     for i = #tbl, 2, -1 do
-        local j = math.random(i);
+        local j = math.random(1, i);
         tbl[i], tbl[j] = tbl[j], tbl[i];
     end
     return tbl

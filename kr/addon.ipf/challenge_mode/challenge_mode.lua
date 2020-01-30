@@ -1,6 +1,6 @@
 function CHALLENGE_MODE_ON_INIT(addon, frame)
 	addon:RegisterMsg("UI_CHALLENGE_MODE_TOTAL_KILL_COUNT", "ON_CHALLENGE_MODE_TOTAL_KILL_COUNT");
-	addon:RegisterMsg("FIELD_DUNGEON_START_TIMER", "ON_FIELD_DUNGEON_START_TIMER");
+	addon:RegisterMsg("FIELD_DUNGEON_KILL_COUNT", "ON_FIELD_DUNGEON_KILL_COUNT");
 end
 
 function DIALOG_ACCEPT_CHALLENGE_MODE(handle)
@@ -52,6 +52,9 @@ function ON_CHALLENGE_MODE_TOTAL_KILL_COUNT(frame, msg, str, arg)
 	if msgList[1] == "SHOW" then
 		ui.OpenFrame("challenge_mode");
 		frame:ShowWindow(1);
+
+		local challenge_pic_logo = GET_CHILD(frame, "challenge_pic_logo", "ui::CPicture");
+		challenge_pic_logo:SetImage("challenge_text");
 		
 		local level = tonumber(msgList[2]);
 		local progressGauge = GET_CHILD(frame, "challenge_gauge_lv", "ui::CGauge");

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by asdasd (IMCGames Co., Ltd) -->
+<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by IMC (IMCGames Co., Ltd) -->
 <packeteffects>
     <Category ID="70">
         <Effect Name="EVENT_2001_NEWYEAR_INIT_PAD"/>
@@ -180,6 +180,8 @@
         <Effect Name="Weekly_Evil_Pillar"/>
         <Effect Name="F_explosion033_orange#Bip001 R Finger0Nub"/>
         <Effect Name="F_ground134_red_loop2##1.5"/>
+		<Effect Name="Weekly_Sleep"/>
+		<Effect Name="Weekly_Evil_Pillar_2"/>
     </Category>
     <Category ID="146">
         <Effect Name="beginner"/>
@@ -5113,6 +5115,7 @@
         <Effect Name="FieldRift_FallingRock"/>
         <Effect Name="I_wizard_meteorfall_force_dropfire_arts"/>
         <Effect Name="FieldRift_Meteo"/>
+        <Effect Name="FieldRift_Ice_Wall"/>
     </Category>
     <Category ID="45">
         <Effect Name="Cleric_Barrier"/>

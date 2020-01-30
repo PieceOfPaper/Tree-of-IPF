@@ -9047,7 +9047,7 @@
 		<Class ClassID="90230" ClassName="WeeklyBossResetSuccess" Data="주간 보스 레이드{nl}입장 횟수가 1 차감되었습니다."/>
 		<Class ClassID="90231" ClassName="RiftScrollFAIL" Data="차원 붕괴 지점 포탈 스크롤을 사용할 수 없는 지역입니다."/>
 		<Class ClassID="90232" ClassName="WeeklyBossEvent_MSG1" Data="[이벤트] 일정시간 움직임이 없거나 보스에게 데미지를 입히지 않은 경우 이벤트 보상을 획득하실 수 없습니다."/>
-		<Class ClassID="90233" ClassName="WeeklyBossEvent_MSG2" Data="주간 보스 레이드 5분 이상 생존 ({count}/10)"/>
+		<Class ClassID="90233" ClassName="WeeklyBossEvent_MSG2" Data="주간 보스 레이드 3분 이상 생존 ({count}/10)"/>
 		<Class ClassID="90234" ClassName="WeeklyBoss_GiveUp_MSG" Data="대미지가 기록되지 않으며, 횟수가 차감되지 않습니다.{nl}포기하시겠습니까?"/>
 	</Category>
 	<Category Name="BattleText">
@@ -13607,6 +13607,7 @@
 		<Class ClassID="300189" ClassName="Event_Theme" Data="[이벤트] 가비야 테마"/>
 		<Class ClassID="300192" ClassName="PremiumToken_14d_event" Data="[이벤트]토큰:14일[증정용]"/>
 		<Class ClassID="300193" ClassName="Premium_boostToken03_event01_team" Data="x8 경험의 서"/>
+		<Class ClassID="300194" ClassName="recycle_special" Data="스폐셜"/>
 	</Category>
 	<Category Name="TPHistory">
 		<Class ClassID="301001" ClassName="RemainLogoutPC" Data="로그아웃 PC 만들기"/>
@@ -14775,10 +14776,13 @@
 		<Class ClassID="591003" ClassName="Rift_Dungeon_Fail" Data="차원이 붕괴 되었습니다."/>
 		<Class ClassID="591004" ClassName="Rift_Dungeon_Really" Data="{Level} 단계를 선택하셨습니다. 입장 하시겠습니까?"/>
 		<Class ClassID="591005" ClassName="Rift_Dungeon_PlayCountOver" Data="더 이상 참여하실 수 없습니다."/>
-		<Class ClassID="591006" ClassName="Rift_Dungeon_Accept_ReJoin" Data="도전중인 차원 붕괴 지점이 있습니다. 재입장 하시겠습니까?"/>
+		<Class ClassID="591006" ClassName="Rift_Dungeon_Accept_ReJoin" Data="도전 중인 차원 붕괴 지점이 있습니다. 재입장 하시겠습니까?"/>
 		<Class ClassID="591007" ClassName="Rift_Dungeon_Low_Pc_Level" Data="{Level} 레벨 이상부터 입장 가능합니다."/>
 		<Class ClassID="591008" ClassName="Rift_Dungeon_Already_Exists_Portal" Data="차원 붕괴 포탈이 이미 열려있습니다."/>
 		<Class ClassID="591009" ClassName="Rift_Dungeon_Portal" Data="차원 붕괴 던전 포탈"/>
 		<Class ClassID="591010" ClassName="Rift_Dungeon_Percent_Level" Data="달성률({Level} 단계)"/>
+		<Class ClassID="591011" ClassName="Rift_Dungeon_Full" Data="도전 중인 파티가 너무 많습니다."/>
+		<Class ClassID="591012" ClassName="Rift_Dungeon_Created" Data="차원 붕괴 지점이 생성 되었습니다."/>
+		<Class ClassID="591013" ClassName="Rift_Dungeon_Not_Exists" Data="생성된 차원 붕괴 지점이 없습니다.{nl}파티 리더만 생성 가능합니다."/>
 	</Category>
 </idspace>

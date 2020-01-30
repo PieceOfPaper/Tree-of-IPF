@@ -1,4 +1,4 @@
-﻿
+
 function RECYCLE_SHOW_TO_MEDAL(parent, ctrl, str, num)
 	if ctrl ~= nil then
 	ctrl:SetSkinName("baseyellow_btn");
@@ -117,6 +117,12 @@ function CHECK_RECYCLE_SHOW_ITEM(frame, item)
 
 	if curSelectCate == 'Artefact' and TryGetProp(item, 'ClassType') ~= 'Artefact' then
 		return false;
+	end
+
+	if curSelectCate == 'recycle_special' then
+	    if TryGetProp(item, 'ClassType') ~= 'Doll' and TryGetProp(item, 'ClassType') ~= 'Wing' and TryGetProp(item, 'ClassType') ~= 'EffectCostume' then
+		    return false;
+		end
 	end
 
 	-- text check
@@ -911,6 +917,7 @@ function RECYCLE_MAKE_TREE(frame)
 	RECYCLE_CREATE_CATEGORY_ITEM(recycleCateTree, 'Wiz_costume_F');
 	RECYCLE_CREATE_CATEGORY_ITEM(recycleCateTree, 'Arc_costume_F');
 	RECYCLE_CREATE_CATEGORY_ITEM(recycleCateTree, 'Cle_costume_F');	
+	RECYCLE_CREATE_CATEGORY_ITEM(recycleCateTree, 'recycle_special');		
 	recycleCateTree:OpenNodeAll();
 end
 

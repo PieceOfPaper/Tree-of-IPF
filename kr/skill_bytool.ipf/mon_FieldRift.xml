@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by asdasd (IMCGames Co., Ltd) -->
+<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by IMC (IMCGames Co., Ltd) -->
 <ToolSkill>
     <Skill Name="Mon_FieldRift_pattern_Skill_1">
         <MainSkl ScrLock="None" JumpFlee="NO" MSPDToUsePos="0">
@@ -10,7 +10,7 @@
                 <Scp Scp="MONSKL_CRE_PAD_CELL_CURVE" Client="NO" UseSleep="NO" Time="0">
                     <Pos Angle="0" Dist="0" Rand="80" Height="1"/>
                     <Num Num="0" UseFunc="1" FuncTxt="return IMCRandom(-180,180)"/>
-                    <Str Str="Weekly_Ice_Wall"/>
+                    <Str Str="FieldRift_Ice_Wall"/>
                     <Num Num="4"/>
                     <Num Num="6"/>
                     <Num Num="3" UseFunc="1" FuncTxt="return IMCRandom(3,5)"/>
@@ -22,7 +22,7 @@
                     <Pos Angle="-0.014921223" Dist="89.896729" Rand="80"/>
                     <Num Num="0" UseFunc="1" FuncTxt="local anlgeList = {-90,0,90}
 return anlgeList[IMCRandom(1,3)]"/>
-                    <Str Str="Weekly_Ice_Wall"/>
+                    <Str Str="FieldRift_Ice_Wall"/>
                     <Num Num="3"/>
                     <Num Num="5"/>
                     <Num Num="3" UseFunc="1" FuncTxt="return IMCRandom(2,3)"/>
@@ -34,7 +34,7 @@ return anlgeList[IMCRandom(1,3)]"/>
                     <Pos Angle="-2.9326553" Dist="43.316818" Rand="90"/>
                     <Num Num="0" UseFunc="1" FuncTxt="local anlgeList = {-90,0,90}
 return anlgeList[IMCRandom(1,3)]"/>
-                    <Str Str="Weekly_Ice_Wall"/>
+                    <Str Str="FieldRift_Ice_Wall"/>
                     <Num Num="3"/>
                     <Num Num="5"/>
                     <Num Num="3" UseFunc="1" FuncTxt="return IMCRandom(2,4)"/>
@@ -59,7 +59,7 @@ return anlgeList[IMCRandom(1,3)]"/>
                     <Str Str="None"/>
                     <Num Num="0"/>
                     <Num Num="30000"/>
-                    <Str Str="ATK_COMMON"/>
+                    <Str Str="FieldRift_Ballist_Atk"/>
                     <MonProp/>
                 </Scp>
                 <Scp Scp="MONSKL_CRE_MON" Client="NO" UseSleep="NO" Time="0">
@@ -70,7 +70,7 @@ return anlgeList[IMCRandom(1,3)]"/>
                     <Str Str="None"/>
                     <Num Num="0"/>
                     <Num Num="30000"/>
-                    <Str Str="ATK_COMMON"/>
+                    <Str Str="FieldRift_Ballist_Atk"/>
                     <MonProp/>
                 </Scp>
             </EtcList>
@@ -339,7 +339,7 @@ return anlgeList[IMCRandom(1,3)]"/>
                     <Num Num="1"/>
                     <Str_Arg Str="I_force003_yellow" Arg="1"/>
                     <Str_Arg Str="F_buff_basic032_yellow_line" Arg="1"/>
-                    <Num Num="4"/>
+                    <Num Num="3"/>
                     <Str Str="thornball"/>
                     <Num Num="3"/>
                     <Str_Arg Str="I_explosion002_green" Arg="1"/>
@@ -354,7 +354,7 @@ return anlgeList[IMCRandom(1,3)]"/>
                     <Num Num="1"/>
                     <Str_Arg Str="I_force003_yellow" Arg="1"/>
                     <Str_Arg Str="F_buff_basic032_yellow_line" Arg="1"/>
-                    <Num Num="4"/>
+                    <Num Num="3"/>
                     <Str Str="thornball"/>
                     <Num Num="3"/>
                     <Str_Arg Str="I_explosion002_green" Arg="1"/>
@@ -369,7 +369,7 @@ return anlgeList[IMCRandom(1,3)]"/>
                     <Num Num="1"/>
                     <Str_Arg Str="I_force003_yellow" Arg="1"/>
                     <Str_Arg Str="F_buff_basic032_yellow_line" Arg="1"/>
-                    <Num Num="4"/>
+                    <Num Num="3"/>
                     <Str Str="thornball"/>
                     <Num Num="3"/>
                     <Str_Arg Str="I_explosion002_green" Arg="1"/>
@@ -384,7 +384,7 @@ return anlgeList[IMCRandom(1,3)]"/>
                     <Num Num="1"/>
                     <Str_Arg Str="I_force003_yellow" Arg="1"/>
                     <Str_Arg Str="F_buff_basic032_yellow_line" Arg="1"/>
-                    <Num Num="4"/>
+                    <Num Num="3"/>
                     <Str Str="thornball"/>
                     <Num Num="3"/>
                     <Str_Arg Str="I_explosion002_green" Arg="1"/>
@@ -399,7 +399,7 @@ return anlgeList[IMCRandom(1,3)]"/>
                     <Num Num="1"/>
                     <Str_Arg Str="I_force003_yellow" Arg="1"/>
                     <Str_Arg Str="F_buff_basic032_yellow_line" Arg="1"/>
-                    <Num Num="4"/>
+                    <Num Num="3"/>
                     <Str Str="thornball"/>
                     <Num Num="3"/>
                     <Str_Arg Str="F_explosion023" Arg="2"/>
