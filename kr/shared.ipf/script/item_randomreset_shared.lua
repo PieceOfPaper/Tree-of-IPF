@@ -250,7 +250,7 @@ function IS_ENABLE_4LINE_REVERT_RANDOM_ITEM(itemObj)
 				return false, 'Count';
 			end	
 		else
-			return false, 'None'
+			return false, 'NoRandom'
 		end		
 	else
 		if TryGetProp(itemObj, 'UseLv', 1) ~= 430 then
@@ -285,7 +285,7 @@ function IS_ENABLE_6LINE_REVERT_RANDOM_ITEM(itemObj)
 				return false, 'Count';
 			end	
 		else
-			return false
+			return false, 'NoRandom'
 		end		
 	else		
 		if TryGetProp(itemObj, 'UseLv', 1) ~= 430 then

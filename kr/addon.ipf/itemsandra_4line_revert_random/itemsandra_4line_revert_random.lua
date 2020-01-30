@@ -134,6 +134,8 @@ function ITEM_SANDRA_4LINE_REVERT_RANDOM_DROP(frame, icon, argStr, argNum)
 				ui.SysMsg(ScpArgMsg('CanUseLV430'))
 			elseif reason == 'Count' then
 				ui.SysMsg(ClMsg("4lineRevertRandomItemEnableRandomOptionCount"));
+			elseif reason == 'NoRandom' then
+				ui.SysMsg(ClMsg("OnlyUseRandomIcor"));			
 			end
 			return
 		end
@@ -430,7 +432,9 @@ function ITEM_SANDRA_4LINE_REVERT_RANDOM_INV_RBTN(itemObj, slot)
 			ui.SysMsg(ScpArgMsg('CanUseLV430'))
 		elseif reason == 'Count' then
 			ui.SysMsg(ClMsg("4lineRevertRandomItemEnableRandomOptionCount"));
-		end
+		elseif reason == 'NoRandom' then
+			ui.SysMsg(ClMsg("OnlyUseRandomIcor"));		
+		end		
 		return
 	end
 

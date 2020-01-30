@@ -1302,6 +1302,7 @@
 		<Class ClassID="10539" ClassName="6lineRevertRandomItemEnableRandomOptionCount" Data="옵션 개수가 6개 이하인 랜덤 옵션 아이템에만 사용 가능합니다."/>
 		<Class ClassID="10540" ClassName="DoSandra6LineRandomResetOptionCountNoReset" Data="산드라의 궁극의 돋보기는 소모됩니다.{nl} {nl}선택한 랜덤 옵션 아이템에 적용된 옵션 수치를 모두 최대치로 변경합니다.{nl} {nl}변경된 수치는 즉시 적용되며 이전으로 돌아갈 수 없습니다. 진행하시겠습니까?"/>
 		<Class ClassID="10541" ClassName="LackOfSandra6LineRevertRandomMaterial" Data="산드라의 궁극의 돋보기가 부족합니다."/>
+		<Class ClassID="10543" ClassName="OnlyUseRandomIcor" Data="랜덤 아이커에만 사용할 수 있습니다."/>
 		</Category>
 	<Category Name="FoodTable">
 		<Class ClassID="20001" ClassName="IncreaseHP{Value}For{Time}Minute" Data="{Time}분 동안 HP가 {Value}% 증가합니다."/>

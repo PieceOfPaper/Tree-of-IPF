@@ -61,6 +61,19 @@
                             </ToolScp>
                         </execList>
                     </Event>
+                    <Event execCount="1" eventName="EscapeMsg">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="15"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_MSG" Client="YES" UseSleep="NO">
+                                <Str Str="캐릭터가 움직일 수 없는 경우 &apos;/탈출&apos; 을 입력하시면 출발 지점으로 돌아갑니다.(재사용 시간 15초)"/>
+                                <Num Num="5"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
                 </StageEvents>
             </Stage>
             <Stage Name="Stage1" AutoStart="0">
