@@ -1756,7 +1756,7 @@ end
 function WEEKLY_BOSS_JOIN_ENTER_CLICK_MSG()
     local frame = ui.GetFrame("induninfo");
     local ctrl = GET_CHILD_RECURSIVELY(frame,"joinenter")
-    if ctrl:GetTextByKey('cur') < ctrl:GetTextByKey('max') or session.weeklyboss.GetNowWeekNum() == 1 then
+    if ctrl:GetTextByKey('cur') < ctrl:GetTextByKey('max') or session.weeklyboss.GetNowWeekNum() == 1 or session.weeklyboss.GetNowWeekNum() == 2 then
         ReqEnterWeeklyBossIndun()
     else
         ui.SysMsg(ScpArgMsg('IRREDIAN1131_DLG_LANG_1_CANT'));
