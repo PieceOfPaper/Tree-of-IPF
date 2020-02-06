@@ -48,9 +48,6 @@
                             <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
                                 <Str Str="Update"/>
                             </ToolScp>
-                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
-                                <Str Str="Start"/>
-                            </ToolScp>
                             <ToolScp Scp="MGAME_EXEC_GIVE_BUFF" Client="NO" UseSleep="NO">
                                 <Str Str="Event_2020_Bonus"/>
                                 <Num Num="1"/>
@@ -68,6 +65,9 @@
                             </ToolScp>
                         </condList>
                         <execList>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
+                                <Str Str="Start"/>
+                            </ToolScp>
                             <ToolScp Scp="MGAME_MSG" Client="YES" UseSleep="NO">
                                 <Str Str="캐릭터가 움직일 수 없는 경우 &apos;/탈출&apos; 을 입력하시면 출발 지점으로 돌아갑니다.(재사용 시간 15초)"/>
                                 <Num Num="5"/>
@@ -435,7 +435,7 @@
                         <Str Str="SUCCESS_COUNT"/>
                         <Str Str="bar"/>
                         <Str Str="[이벤트]새해 복주머니 당첨권 획득"/>
-                        <Num Num="10"/>
+                        <Num Num="25"/>
                         <Num Num="1"/>
                     </ToolScp>
                 </StartScpList>
@@ -460,7 +460,7 @@
                             <ToolScp Scp="SCR_MGAME_VALUE_CHECK_2" Client="NO" UseSleep="NO">
                                 <Str Str="SUCCESS_COUNT"/>
                                 <Str Str="OVER"/>
-                                <Num Num="10"/>
+                                <Num Num="25"/>
                             </ToolScp>
                         </condList>
                         <execList>

@@ -9031,13 +9031,13 @@
 		<Class ClassID="90212" ClassName="2001_NEWYEAR_SEL_MSG1" Data="{#003399}복항아리 대축제{/} 이벤트 안내"/>
 		<Class ClassID="90213" ClassName="2001_NEWYEAR_SEL_MSG2" Data="{#003399}복항아리 대축제{/} 이벤트 던전 입장"/>
 		<Class ClassID="90214" ClassName="2001_NEWYEAR_SEL_MSG3" Data="{#003399}복항아리 대축제{/} 이벤트 상점 열기"/>
-		<Class ClassID="90215" ClassName="EVENT_2001_NEWYEAR_CHECK_ITEM_COUNT{FORTUNECOOKIE}{LUCKYTICKET}{GOLDENTICKET}{TICKET}{CONTENTS_TICKET}" Data="[이벤트 아이템 획득 정보]{nl}[이벤트]포춘 쿠키 {#ff6d00}({FORTUNECOOKIE}/5){/}{nl}[이벤트]새해 복주머니 당첨권 {#ff6d00}({LUCKYTICKET}/50){/}{nl}[이벤트]새해 황금 복주머니 교환권{#ff6d00}({GOLDENTICKET}/25){/}{nl}[이벤트]2020 대축제 교환권 {#00BFFF}이벤트 던전{/}{#ff6d00}({TICKET}/500){/} {#00BFFF}콘텐츠{/}{#ff6d00}({CONTENTS_TICKET}/500){/}{nl}{#ff0000}※매일 오전 6시에 초기화 됩니다.{/}"/>
+		<Class ClassID="90215" ClassName="EVENT_2001_NEWYEAR_CHECK_ITEM_COUNT{FORTUNECOOKIE}{LUCKYTICKET}{GOLDENTICKET}{TICKET}{CONTENTS_TICKET}" Data="[이벤트 아이템 획득 정보]{nl}[이벤트]포춘 쿠키 {#ff6d00}({FORTUNECOOKIE}/10){/}{nl}[이벤트]새해 복주머니 당첨권 {#ff6d00}({LUCKYTICKET}/50){/}{nl}[이벤트]새해 황금 복주머니 교환권{#ff6d00}({GOLDENTICKET}/26){/}{nl}[이벤트]2020 대축제 교환권 {#00BFFF}이벤트 던전{/}{#ff6d00}({TICKET}/500){/} {#00BFFF}콘텐츠{/}{#ff6d00}({CONTENTS_TICKET}/500){/}{nl}{#ff0000}※매일 오전 6시에 초기화 됩니다.{/}"/>
 		<Class ClassID="90216" ClassName="EVENT_2001_NEWYEAR_SHOP" Data="복항아리 대축제 이벤트 상점"/>
 		<Class ClassID="90217" ClassName="EVENT_2001_NEWYEAR_POT_DESTROY" Data="항아리 부수는 중"/>
 		<Class ClassID="90218" ClassName="EVENT_2001_NEWYEAR_MONSTER_CHAT_1" Data="히히 놀랐지?"/>
 		<Class ClassID="90219" ClassName="EVENT_2001_NEWYEAR_MONSTER_CHAT_2" Data="받아라 특제 끈끈이!"/>
 		<Class ClassID="90220" ClassName="EVENT_2001_NEWYEAR_MONSTER_CHAT_3" Data="그렇게 빨리 뛰면 다쳐!"/>
-		<Class ClassID="90221" ClassName="EVENT_2001_NEWYEAR_MISSION_CLEAR" Data="[이벤트]새해 복주머니 당첨권을 10장 획득하였습니다.{nl}15초 후 입장했던 장소로 이동합니다."/>
+		<Class ClassID="90221" ClassName="EVENT_2001_NEWYEAR_MISSION_CLEAR" Data="[이벤트]새해 복주머니 당첨권을 25장 획득하였습니다.{nl}15초 후 입장했던 장소로 이동합니다."/>
 		<Class ClassID="90222" ClassName="EVENT_2001_NEWYEAR_MISSION_FAIL" Data="이벤트가 종료되었습니다. 15초 후 입장했던 장소로 이동합니다."/>
 		<Class ClassID="90223" ClassName="EVENT_2001_NEWYEAR_BONUS_FAIL" Data="3분이 경과하였습니다. 더 이상 추가 보상을 획득하실 수 없습니다."/>
 		<Class ClassID="90224" ClassName="EVENT_2001_NEWYEAR_ABUSE_MSG1" Data="일정 시간 움직임이 없으면 아이템을 획득하실 수 없습니다.{nl}30초 후에도 움직임이 없을 시 던전이 끝날 때 까지 이벤트 아이템을 획득하실 수 없습니다."/>

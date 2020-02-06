@@ -1750,14 +1750,22 @@ end
 
 -- 입장하기 버튼 클릭
 function WEEKLY_BOSS_JOIN_ENTER_CLICK(parent,ctrl)
-    ui.MsgBox(ClMsg('EnterRightNow'), 'WEEKLY_BOSS_JOIN_ENTER_CLICK_MSG()', 'None');
+    ui.MsgBox(ClMsg('EnterRightNow'), 'WEEKLY_BOSS_JOIN_ENTER_CLICK_MSG(0)', 'None');
 end     
 
-function WEEKLY_BOSS_JOIN_ENTER_CLICK_MSG()
+-- 연습모드 버튼 클릭
+function WEEKLY_BOSS_JOIN_PRACTICE_ENTER_CLICK(parent,ctrl)
+    ui.MsgBox(ClMsg('EnterRightNow'), 'WEEKLY_BOSS_JOIN_ENTER_CLICK_MSG(1)', 'None');
+end     
+
+
+function WEEKLY_BOSS_JOIN_ENTER_CLICK_MSG(type)
     local frame = ui.GetFrame("induninfo");
     local ctrl = GET_CHILD_RECURSIVELY(frame,"joinenter")
-    if ctrl:GetTextByKey('cur') < ctrl:GetTextByKey('max') or session.weeklyboss.GetNowWeekNum() == 1 or session.weeklyboss.GetNowWeekNum() == 2 then
-        ReqEnterWeeklyBossIndun()
+    if type == 1 then
+        ReqEnterWeeklyBossIndun(type)
+    elseif ctrl:GetTextByKey('cur') < ctrl:GetTextByKey('max') or session.weeklyboss.GetNowWeekNum() == 1 or session.weeklyboss.GetNowWeekNum() == 2 then
+        ReqEnterWeeklyBossIndun(type)
     else
         ui.SysMsg(ScpArgMsg('IRREDIAN1131_DLG_LANG_1_CANT'));
     end
