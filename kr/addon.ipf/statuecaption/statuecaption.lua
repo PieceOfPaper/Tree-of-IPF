@@ -11,7 +11,7 @@ function StatueCaption_PVPStatue(handle, funcArg, familyName, pcName)
 
 	funcArg = tonumber(funcArg);
 	local pvpType = math.floor(funcArg / 100);
-	local ranking = math.mod(funcArg, 100);
+	local ranking = math.fmod(funcArg, 100);
 	local title = GET_CHILD(frame, "title");
 	local aniName = "None";
 	local shaderName = "Statue";
@@ -42,7 +42,7 @@ function StatueCaption_JournalStatue(handle, funcArg, familyName, pcName)
 
 	funcArg = tonumber(funcArg);
 	local pvpType = math.floor(funcArg / 100);
-	local ranking = math.mod(funcArg, 100);
+	local ranking = math.fmod(funcArg, 100);
 	local title = GET_CHILD(frame, "title");
 	local aniName = "None";
 	local shaderName = "Statue";
@@ -66,7 +66,7 @@ function StatueCaption_FishRubbingStatue(handle, funcArg, familyName, pcName)
 
 	funcArg = tonumber(funcArg);
 	local pvpType = math.floor(funcArg / 100);
-	local ranking = math.mod(funcArg, 100);
+	local ranking = math.fmod(funcArg, 100);
 	local title = GET_CHILD(frame, "title");
 	local aniName = "BIGFISH";
 	local shaderName = "GoldStatue";

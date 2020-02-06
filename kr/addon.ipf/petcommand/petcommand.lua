@@ -12,7 +12,7 @@ function INSERT_PET_RINGCOMMAND(bg, name, img, text, toolTipText, angle, index, 
 
 	local totalAngle = 140;
 	local startIndex = (totalCount / 2);
-	if math.mod(totalCount, 2) == 0 then
+	if math.fmod(totalCount, 2) == 0 then
 		startIndex = startIndex - 0.5;
 	end
 	
