@@ -2882,7 +2882,7 @@ function QUESTINFOSET_2_QUEST_ANGLE(frame, msg, argStr, argNum)
 									local genType = 0;
 									local count = 0;
 									local x, y, z, range = 0;
-									for locationMapName in string.gfind(mapPointGroupStr, "%S+") do
+									for locationMapName in string.gmatch(mapPointGroupStr, "%S+") do
 										if count == 0 and locationMapName ~= mapName then
 											count = 0;
 											roundCount = roundCount + 1;

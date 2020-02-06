@@ -16,8 +16,8 @@ function DAMAGE_METER_UI_OPEN(frame,msg,strArg,numArg)
     button:SetEnable(1)
 end
 
-function WEEKLYBOSS_DPS_INIT(frame,bossName,appTime)
-    DAMAGE_METER_SET_WEEKLY_BOSS(frame,bossName);
+function WEEKLYBOSS_DPS_INIT(frame,handle,appTime)
+    DAMAGE_METER_SET_WEEKLY_BOSS(frame,tonumber(handle));
 
     frame:SetUserValue("NOW_TIME",appTime)
     frame:SetUserValue("END_TIME",appTime + 60*7)
@@ -39,9 +39,8 @@ function DAMAGE_METER_RESET_GAUGE(frame)
     DAMAGE_METER_WEEKLY_BOSS_TOTAL_DAMAGE(frame,0)
 end
 
-function DAMAGE_METER_SET_WEEKLY_BOSS(frame,bossName)
-    local cls = GetClass("Monster",bossName)
-    frame:SetUserValue("WEEKLY_BOSS_NAME",cls.Name)
+function DAMAGE_METER_SET_WEEKLY_BOSS(frame,handle)
+    frame:SetUserValue("WEEKLY_BOSS_HANDLE",handle)
 end
 
 function DAMAGE_METER_WEEKLY_BOSS_TOTAL_DAMAGE(frame,accDamage)
@@ -86,10 +85,10 @@ function WEEKLY_BOSS_UPDATE_DPS(frame,totalTime,elapsedTime)
     local gaugeCnt = damageRankGaugeBox:GetChildCount()
     local maxGaugeCount = 5
 
-    local bossName = frame:GetUserValue("WEEKLY_BOSS_NAME")
+    local handle = tonumber(frame:GetUserValue("WEEKLY_BOSS_HANDLE"))
     for i = idx, cnt - 1 do
         local info = session.dps.Get_alldpsInfoByIndex(i)
-        if info:GetName() == bossName then
+        if info:GetHandle() == handle then
             local damage = info:GetStrDamage();
             if damage ~= '0' then
                 local sklID = info:GetSkillID();
@@ -101,6 +100,9 @@ function WEEKLY_BOSS_UPDATE_DPS(frame,totalTime,elapsedTime)
                         sklID = 1
                         break;
                     end
+                end
+                if table.find(keyword, "pcSummonSkill") > 0 then
+                    sklID = 163915
                 end
                 --update gauge damage info
                 local function getIndex(table, val)

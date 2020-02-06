@@ -2,6 +2,8 @@ random_item = { }
 date_time = { }
 account_warehouse = {} 
 
+unpack = unpack or table.unpack
+
 random_item.is_sealed_random_item = function(itemobj)
     if IS_EQUIP(itemobj) == false then
         return false;

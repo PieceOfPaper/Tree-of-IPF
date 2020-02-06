@@ -1,5 +1,6 @@
 <?xml version='1.0' encoding='utf-8'?>
-<ToolSkill><Skill Name="Cleric_PatronSaint">
+<ToolSkill>
+    <Skill Name="Cleric_PatronSaint">
 		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
 			<HitList>
 				<Frame Angle="0" AniTime="9999" Dist="0" ForceATK="0" HitCount="1" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="9799" Type="FAN" />
@@ -551,30 +552,30 @@
 	</Skill>
 	<Skill Name="Cleric_Heal">
 		<KeyInput>
-			<ToolScp Client="YES" Scp="SKL_PARTY_TARGET_BY_KEY" UseSleep="NO">
+			<ToolScp Scp="SKL_PARTY_TARGET_BY_KEY" Client="YES" UseSleep="NO">
 				<Num Num="1" />
 			</ToolScp>
 		</KeyInput>
-		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+		<MainSkl ScrLock="None" JumpFlee="NO" MSPDToUsePos="0" >
 			<HitList>
-				<Frame Angle="0" AniTime="300" Dist="0" ForceATK="0" HitCount="1" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453299" TermMax="0" TermMin="0" Time="0" Type="FAN" />
+				<Frame Type="FAN" Time="0" HitCount="1" TermMin="0" TermMax="0" PosType="0" Dist="0" RandDist="0" RandomPerHit="0" Angle="0" SklAngle="0.17453299" AniTime="300" RotAngle="0" ForceATK="0"/>
 			</HitList>
 			<EtcList>
-				<Scp Client="NO" Scp="SKL_SET_TARGET_CLIENT_TARGETTING" Time="0" UseSleep="NO" />
-				<Scp Client="YES" Scp="MONSKL_C_PLAY_ANIM" Time="0" UseSleep="NO">
+				<Scp Scp="SKL_SET_TARGET_CLIENT_TARGETTING" Client="NO" UseSleep="NO" Time="0" />
+				<Scp Scp="MONSKL_C_PLAY_ANIM" Client="YES" UseSleep="NO" Time="0" >
 					<Str Str="SKL_BUFF" />
 					<Num Num="3" />
 					<Num Num="1" />
 					<Num Num="1" />
 				</Scp>
-				<Scp Client="YES" Scp="C_VOICE_SOUND" Time="100" UseSleep="NO">
+				<Scp Scp="C_VOICE_SOUND" Client="YES" UseSleep="NO" Time="100" >
 					<Str Str="voice_cleric_m_heal_shot" />
 					<Str Str="voice_cleric_heal_shot" />
 				</Scp>
-				<Scp Client="NO" Scp="SKL_CONSUME_SP" Time="100" UseSleep="NO">
-					<Num FuncTxt="local baseSP = TryGetProp(obj, &quot;SpendSP&quot;, 0) local addValue = 0 if IsBuffApplied(self, 'Heal_Overload_Buff') == 'YES' then addValue = baseSP local over = GetBuffOver(self, &quot;Heal_Overload_Buff&quot;) addValue = math.floor(addValue * over * 0.5) end local mnaValue = TryGetProp(self, &quot;MNA&quot;, 0) * 0.2 if mnaValue &gt; baseSP / 2 then mnaValue = baseSP / 2 end mnaValue = math.floor(mnaValue) addValue = addValue - math.floor(mnaValue) return addValue;" Num="0" UseFunc="1" />
+				<Scp Scp="SKL_CONSUME_SP" Client="NO" UseSleep="NO" Time="100" >
+					<Num Num="0" UseFunc="1" FuncTxt="local baseSP = TryGetProp(obj, &quot;SpendSP&quot;, 0) local addValue = 0 if IsBuffApplied(self, 'Heal_Overload_Buff') == 'YES' then addValue = baseSP local over = GetBuffOver(self, &quot;Heal_Overload_Buff&quot;) addValue = math.floor(addValue * over * 0.5) end local mnaValue = TryGetProp(self, &quot;MNA&quot;, 0) * 0.2 if mnaValue > baseSP / 2 then mnaValue = baseSP / 2 end mnaValue = math.floor(mnaValue) addValue = addValue - math.floor(mnaValue) return addValue;"/>
 				</Scp>
-				<Scp Client="NO" Scp="SKL_TGT_BUFF" Time="200" UseSleep="NO">
+				<Scp Scp="SKL_TGT_BUFF" Client="NO" UseSleep="NO" Time="200" >
 					<Str Str="Heal_Buff" />
 					<Num Num="1" />
 					<Num Num="0" />
@@ -584,16 +585,27 @@
 					<Num Num="0" />
 					<Num Num="1" />
 				</Scp>
-				<Scp Client="NO" Scp="SKL_BUFF" Time="200" UseSleep="NO">
+				<Scp Scp="SKL_BUFF" Client="NO" UseSleep="NO" Time="200" >
 					<Str Str="Heal_Overload_Buff" />
 					<Num Num="1" />
 					<Num Num="0" />
-					<Num FuncTxt="local value = 3500 local jobHistory = GetJobHistoryString(self); if string.find(jobHistory, &quot;Char4_2&quot;) ~= nil then value = value - 300 end if string.find(jobHistory, &quot;Char4_14&quot;) ~= nil then value = value - 700 end return value" Num="3500" UseFunc="1" />
+					<Num Num="3500" UseFunc="1" FuncTxt="local value = 3500
+local jobHistory = GetJobHistoryString(self);
+if string.find(jobHistory, &quot;Char4_14&quot;) ~= nil then
+    value = value - 700
+end
+local jobList = GetJobHistoryList(self)
+for i = 1, #jobList do
+    if jobList[i] == 4002 then
+        value = value - 300
+    end
+end
+return value"/>
 					<Num Num="1" />
 					<Num Num="100" />
 					<Num Num="0" />
 				</Scp>
-				<Scp Client="YES" Scp="C_SOUND" Time="200" UseSleep="NO">
+				<Scp Scp="C_SOUND" Client="YES" UseSleep="NO" Time="200" >
 					<Str Str="skl_cleric_heal_shot" />
 				</Scp>
 			</EtcList>
@@ -856,4 +868,4 @@
 			</ResultList>
 		</MainSkl>
 	</Skill>
-	</ToolSkill>
+</ToolSkill>

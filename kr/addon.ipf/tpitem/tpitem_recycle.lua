@@ -50,6 +50,8 @@ function RECYCLE_SHOW_TO_ITEM(parent, ctrl, str, num)
 	rcycle_mainBuyText:ShowWindow(1)
 	rcycle_mainSellText:ShowWindow(0)
 
+	frame:SetUserValue('RECYCLE_SELECTED_CATEGORY', 'TotalTabName')
+
 	UPDATE_RECYCLE_BASKET_MONEY(frame,"buy");	
 	RECYCLE_CREATE_BUY_LIST();
 	RECYCLE_CATE_SELECT(frame, true);

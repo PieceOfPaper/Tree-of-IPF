@@ -101,11 +101,11 @@
 					<Str Str="voice_wiz_m_stan_shot" />
 					<Str Str="voice_wiz_f_stan_shot" />
 				</Scp>
-				<Scp Client="YES" Scp="C_SHOW_PARTS_MODEL" Time="1200" UseSleep="NO">
+                <Scp Client="YES" Scp="C_SHOW_PARTS_MODEL" Time="600" UseSleep="NO">
 					<Str Str="LH" />
 					<Num Num="1" />
 				</Scp>
-				<Scp Client="YES" Scp="C_SHOW_PARTS_MODEL" Time="1200" UseSleep="NO">
+                <Scp Client="YES" Scp="C_SHOW_PARTS_MODEL" Time="600" UseSleep="NO">
 					<Str Str="RH" />
 					<Num Num="1" />
 				</Scp>
@@ -249,6 +249,7 @@
 					<Num Num="3" />
 					<Num Num="40" />
 				</ToolScp>
+                            
 			</ResultList>
 		</MainSkl>
 	</Skill>

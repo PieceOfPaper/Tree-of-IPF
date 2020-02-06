@@ -1,5 +1,6 @@
 <?xml version='1.0' encoding='utf-8'?>
-<ToolSkill><Skill Name="Pyromancer_FlameGround">
+<ToolSkill>
+    <Skill Name="Pyromancer_FlameGround">
 		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
 			<HitList>
 				<Frame Angle="0" AniTime="0" Dist="0" ForceATK="0" HitCount="1" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="0" Type="FAN" />
@@ -14,11 +15,11 @@
 					<Num Num="0" />
 					<Num Num="0" />
 				</Scp>
-				<Scp Client="YES" Scp="C_VOICE_SOUND" Time="400" UseSleep="NO">
+                <Scp Client="YES" Scp="C_VOICE_SOUND" Time="200" UseSleep="NO">
 					<Str Str="voice_war_atk_medium" />
 					<Str Str="voice_atk_medium_war_f" />
 				</Scp>
-				<Scp Client="NO" Scp="SKL_TGT_BUFF_ABIL" Time="800" UseSleep="NO">
+                <Scp Client="NO" Scp="SKL_TGT_BUFF_ABIL" Time="400" UseSleep="NO">
 					<Str Str="Pyromancer27" />
 					<Str Str="FlameGround_Debuff" />
 					<Num Num="1" />
@@ -28,7 +29,7 @@
 					<Num Num="1" />
 					<Num Num="100" />
 				</Scp>
-				<Scp Client="NO" Scp="MONSKL_CRE_PAD" Time="800" UseSleep="NO">
+                <Scp Client="NO" Scp="MONSKL_CRE_PAD" Time="400" UseSleep="NO">
 					<Pos Angle="2.5515406" Dist="0.9648186" />
 					<Angle Angle="0" />
 					<Str Str="Pyromancer_FlameGround" />
@@ -59,7 +60,7 @@
 				<Num Num="0" />
 				<Num Num="0" />
 				<Num Num="0" />
-                <Num Num="0" />
+                <Str Str="None"/>
                 <Str Str="Pyromancer30" />
 			</ToolScp>
 		</KeyInput>
@@ -72,31 +73,31 @@
 					<Str Str="voice_wiz_m_prominence_shot" />
 					<Str Str="voice_wiz_prominence_shot" />
 				</Scp>
-                <Scp Client="NO" Scp="MONSKL_CRE_PAD_BY_ABILITY_INACTIVE" Time="900" TimeSync="0" UseSleep="NO">
+                <Scp Client="NO" Scp="MONSKL_CRE_PAD_BY_ABILITY_INACTIVE" Time="300" TimeSync="0" UseSleep="NO">
 					<Pos Angle="0" Dist="0" PosType="3" />
 					<Angle Angle="0" />
 					<Str Str="prominence" />
                     <Str Str="Pyromancer30" />
 				</Scp>
-                <Scp Client="NO" Scp="MONSKL_CRE_PAD_BY_ABILITY" Time="900" UseSleep="NO">
+                <Scp Client="NO" Scp="MONSKL_CRE_PAD_BY_ABILITY" Time="300" UseSleep="NO">
                     <Pos Angle="0" Dist="60" PosType="0" />
                     <Angle Angle="0" />
                     <Str Str="Pyromancer_MovingFireBall_1" />
                     <Str Str="Pyromancer30" />
                 </Scp>
-                <Scp Client="NO" Scp="MONSKL_CRE_PAD_BY_ABILITY" Time="900" UseSleep="NO">
+                <Scp Client="NO" Scp="MONSKL_CRE_PAD_BY_ABILITY" Time="300" UseSleep="NO">
                     <Pos Angle="90" Dist="60" PosType="0" />
                     <Angle Angle="0" />
                     <Str Str="Pyromancer_MovingFireBall_2" />
                     <Str Str="Pyromancer30" />
                 </Scp>
-                <Scp Client="NO" Scp="MONSKL_CRE_PAD_BY_ABILITY" Time="900" UseSleep="NO">
+                <Scp Client="NO" Scp="MONSKL_CRE_PAD_BY_ABILITY" Time="300" UseSleep="NO">
                     <Pos Angle="180" Dist="60" PosType="0" />
                     <Angle Angle="0" />
                     <Str Str="Pyromancer_MovingFireBall_3" />
                     <Str Str="Pyromancer30" />
                 </Scp>
-                <Scp Client="NO" Scp="MONSKL_CRE_PAD_BY_ABILITY" Time="900" UseSleep="NO">
+                <Scp Client="NO" Scp="MONSKL_CRE_PAD_BY_ABILITY" Time="300" UseSleep="NO">
                     <Pos Angle="270" Dist="60" PosType="0" />
                     <Angle Angle="0" />
                     <Str Str="Pyromancer_MovingFireBall_4" />
@@ -579,7 +580,7 @@
 					<Num Num="0" />
 				</Scp>
 				<Scp Client="NO" LoopTime="500" Scp="SKL_CONSUME_SP" Time="650" UseSleep="NO">
-					<Num FuncTxt="local value = 20 local lv = self.Lv local bylvCorrect = lv - 300 if bylvCorrect &lt; 0 then     bylvCorrect = bylvCorrect * 2.75 / 1000 elseif bylvCorrect &gt;= 0 then     bylvCorrect = bylvCorrect * 1.25 / 1000 end value = value * (1 + bylvCorrect) local abil = GetAbility(self, 'Pyromancer4') if abil ~= nil and abil.ActiveState == 1 then value = value * 1.3 end return math.floor(value)" Num="5" UseFunc="1" />
+                    <Num FuncTxt="local value = 20 local lv = self.Lv local bylvCorrect = lv - 300 if bylvCorrect &lt; 0 then     bylvCorrect = bylvCorrect * 2.75 / 1000 elseif bylvCorrect >= 0 then     bylvCorrect = bylvCorrect * 1.25 / 1000 end value = value * (1 + bylvCorrect) local abil = GetAbility(self, 'Pyromancer4') if abil ~= nil and abil.ActiveState == 1 then value = value * 1.3 end return math.floor(value)" Num="5" UseFunc="1"/>
 				</Scp>
 				<Scp Client="NO" LoopTime="300" Scp="SKL_HIT_SQUARE" Time="700" UseSleep="NO">
 					<PosDist Angle="0" Dist="0" />

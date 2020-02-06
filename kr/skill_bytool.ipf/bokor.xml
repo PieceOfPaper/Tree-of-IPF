@@ -1,5 +1,6 @@
 <?xml version='1.0' encoding='utf-8'?>
-<ToolSkill><Skill Name="Bokor_ZombieCapsule">
+<ToolSkill>
+    <Skill Name="Bokor_ZombieCapsule">
 		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
 			<EtcList>
 				<Scp Client="NO" Scp="SKL_RUN_SCRIPT_SLEEP" Time="0" UseSleep="YES">
@@ -526,7 +527,7 @@
 					<Str Str="voice_cleric_m_hexing_shot" />
 					<Str Str="voice_cleric_hexing_shot" />
 				</Scp>
-				<Scp Client="YES_Time" Scp="C_FORCE_EFT" Time="600" UseSleep="NO">
+                <Scp Client="YES_Time" Scp="C_FORCE_EFT" Time="250" UseSleep="NO">
 					<Str_Arg Arg="0.60000002" Str="I_cleric_hexing_force_dark" />
 					<Str Str="None" />
 					<Str_Arg Arg="0.69999999" Str="F_cleric_hexing_hit_smoke" />

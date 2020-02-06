@@ -36,18 +36,18 @@
 				<Scp Client="YES" Scp="C_SOUND" Time="300" UseSleep="NO">
 					<Str Str="skl_eff_heavygravity_shot" />
 				</Scp>
-				<Scp Client="YES" Scp="C_SHOCKWAVE" Time="500" UseSleep="NO">
+                <Scp Client="YES" Scp="C_SHOCKWAVE" Time="400" UseSleep="NO">
 					<Num Num="5" />
 					<Num Num="1" />
 					<Num Num="60" />
 					<Num Num="999" />
 				</Scp>
-				<Scp Client="NO" Scp="MONSKL_CRE_PAD" Time="500" UseSleep="NO">
+                <Scp Client="NO" Scp="MONSKL_CRE_PAD" Time="400" UseSleep="NO">
 					<Pos Angle="0" Dist="2.722733e-38" PosType="3" />
 					<Angle Angle="0" />
 					<Str Str="HeavyGravity_PAD" />
 				</Scp>
-				<Scp Client="YES" Scp="C_SHOCKWAVE" Time="600" UseSleep="NO">
+                <Scp Client="YES" Scp="C_SHOCKWAVE" Time="480" UseSleep="NO">
 					<Num Num="2" />
 					<Num Num="5.5" />
 					<Num Num="60" />
@@ -368,7 +368,7 @@
 					<Num Num="1" />
 					<Num Num="100" />
 				</Scp>
-				<Scp Client="YES" Scp="C_SHOCKWAVE" Time="1200" UseSleep="NO">
+                <Scp Client="YES" Scp="C_SHOCKWAVE" Time="1000" UseSleep="NO">
 					<Num Num="2" />
 					<Num Num="6.5" />
 					<Num Num="60" />

@@ -1,5 +1,6 @@
 <?xml version='1.0' encoding='utf-8'?>
-<ToolSkill><Skill Name="Kabbalist_TheTreeOfSepiroth">
+<ToolSkill>
+<Skill Name="Kabbalist_TheTreeOfSepiroth">
 		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
 			<EtcList>
 				<Scp Client="NO" Scp="MONSKL_CRE_PAD" Time="600" UseSleep="NO">
@@ -34,11 +35,11 @@
 					<Num Num="0" />
 				</Scp>
                 <Scp Client="NO" Scp="SKL_TGT_REMOVE_BUFF" Time="100" UseSleep="NO">
-                <Str FuncTxt="local func_name = 'get_remove_buff_tooltip_' .. TryGetProp(obj, 'ClassName', 'None')
+                    <Str FuncTxt="local func_name = 'get_remove_buff_tooltip_' .. TryGetProp(obj, 'ClassName', 'None')
                local func = _G[func_name]
                if func == nil then return end
                return func(obj.Level)" Str="0" UseFunc="1"/>
-              </Scp>  
+                </Scp>
 			</EtcList>
 		</MainSkl>
 	</Skill>
@@ -116,7 +117,10 @@
 				<Str_Arg Arg="1" Str="F_cleric_ausirine_shot_ground" />
 				<Num Num="0.5" />
 			</ToolScp>
-		</KeyInputEnd>
+		<ToolScp Scp="C_SKL_LOCK_ROTATE" Client="YES" UseSleep="NO">
+                <Num Num="1"/>
+            </ToolScp>
+        </KeyInputEnd>
 		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
 			<EtcList>
 				<Scp Client="NO" Scp="SKL_RUN_SCRIPT" Time="0" TimeSync="0" UseSleep="NO">

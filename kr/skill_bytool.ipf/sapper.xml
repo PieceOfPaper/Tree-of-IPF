@@ -98,16 +98,16 @@
 		</MainSkl>
 	</Skill>
 	<Skill Name="Sapper_StakeStockades">
-		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+        <MainSkl ScrLock="None" JumpFlee="NO" MSPDToUsePos="0">
 			<HitList>
-				<Frame Angle="0" AniTime="10999" Dist="0" ForceATK="0" HitCount="1" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" TermMax="0" TermMin="0" Time="10799" Type="FAN" />
+                <Frame Type="FAN" Time="10799" HitCount="1" TermMin="0" TermMax="0" PosType="0" Dist="0" RandDist="0" RandomPerHit="0" Angle="0" AniTime="10999" RotAngle="0" ForceATK="0"/>
 			</HitList>
 			<EtcList>
-				<Scp Client="YES" Scp="C_VOICE_SOUND" Time="100" UseSleep="NO">
+                <Scp Scp="C_VOICE_SOUND" Client="YES" UseSleep="NO" Time="100">
 					<Str Str="voice_archer_m_camouflage_shot" />
 					<Str Str="voice_archer_camouflage_shot" />
 				</Scp>
-				<Scp Client="NO" Scp="MONSKL_CRE_PAD" Time="650" UseSleep="NO">
+                <Scp Scp="MONSKL_CRE_PAD" Client="NO" UseSleep="NO" Time="650">
 					<Pos Angle="0" Dist="30" />
 					<Angle Angle="0" />
 					<Str Str="Sapper_StakeStockades" />
@@ -244,7 +244,7 @@
 			</ToolScp>
 		</EndScripts>
 		<KeyInput>
-            <ToolScp Client="YES" Scp="SKL_KEY_DYNAMIC_CASTING_PUNJI" UseSleep="NO">
+            <ToolScp Client="YES" Scp="SKL_KEY_DYNAMIC_CASTING" UseSleep="NO">
 				<Num Num="0" />
 				<Num Num="0" />
 				<Num Num="1.5" />
@@ -266,6 +266,9 @@
                 <Num Num="100" />
                 <Num Num="0" />
                 <Num Num="0" />
+                <Num Num="0"/>
+                <Str Str="None"/>
+                <Str Str="Sapper42"/>
             </ToolScp>
 		</KeyInput>
 		<KeyInputStart>
@@ -311,14 +314,14 @@
 					<Str Str="punji_stake" />
 				</Scp>
 			</EtcList>
-          <ResultList>
-            <ToolScp Client="NO" Scp="S_R_TGT_Decrease_heal_debuff" UseSleep="NO">
-              <Str FuncTxt="local func_name = 'get_decrease_heal_debuff_tooltip_' .. TryGetProp(skill, 'ClassName', 'None')
+            <ResultList>
+                <ToolScp Client="NO" Scp="S_R_TGT_Decrease_heal_debuff" UseSleep="NO">
+                    <Str FuncTxt="local func_name = 'get_decrease_heal_debuff_tooltip_' .. TryGetProp(skill, 'ClassName', 'None')
                local func = _G[func_name]
                if func == nil then return end
                return func(skill.Level)" Str="0" UseFunc="1"/>
-            </ToolScp>
-          </ResultList>
+                </ToolScp>
+            </ResultList>
 		</MainSkl>
 	</Skill>
 	<Skill Name="Sapper_DetonateTraps">

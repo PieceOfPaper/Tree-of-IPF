@@ -615,6 +615,7 @@
 	<Code Code="ERROR_DUPLICATE_PACKET_ENUM" Team="PROGRAM" Category="CRITICAL" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="패킷 ENUM 벨류 중복"/>
 	<Code Code="WARNING_ABUSING_USER" Team="PROGRAM" Category="CRITICAL" SubCategory="" Logger="root" Enabled="YES" CallStack="YES" Desc="어뷰징 의심 유저"/>
 	<Code Code="ERROR_LOGOUT_LOCK" Team="PROGRAM" Category="LOGIC" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="로그아웃이 잠겨있음. 덤프확인해서 해당 키에 대한 카운트 감소를 확인하세요."/>
+	<Code Code="WARNING_TCP_BROADCAST_LOGIC" Team="tos_team" Category="LOGIC" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="TCP 브로드캐스트 변경 로직 관련 로그"/>
 	<Code Code="ERROR_RIFT_DUNGEON" Team="PROGRAM" Category="ERROR" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="균열 던전 관련 에러"/>
 	<Code Code="INFO_RIFT_DUNGEON" Team="PROGRAM" Category="ERROR" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="균열 던전 관련 정보"/>
 	<Code Code="WARNING_HACK_POS" Team="tos_team" Category="LOGIC" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="Hack Pos 감지"/>

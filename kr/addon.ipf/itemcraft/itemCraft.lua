@@ -1571,10 +1571,10 @@ function ITEMCRAFT_ON_DROP(cset, control, materialItemCnt, materialItemClassID)
 end
 
 function REMOVE_TAG(str)
-	local pattern = "\{[^\}]*\}";
+	local pattern = "{[^}]*}";
 	local clean = str:gsub(pattern, "");
 	
-	pattern = "\}[^\{]*\{";  -- "}{" 도 제거.
+	pattern = "}[^{]*{";  -- "}{" 도 제거.
 	clean = clean:gsub(pattern, "");
 
 	return clean;

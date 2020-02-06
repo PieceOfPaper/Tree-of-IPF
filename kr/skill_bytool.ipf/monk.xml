@@ -35,19 +35,19 @@
         </MainSkl>
     </Skill>
     <Skill Name="Monk_God_Finger_Flicking">
-        <MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+        <MainSkl ScrLock="None" JumpFlee="NO" MSPDToUsePos="0">
             <HitList>
-                <Frame Angle="0" AniTime="200" Dist="0" ForceATK="1" HitCount="1" Length="120" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="0" Type="SQUARE" Width="15"/>
+                <Frame Type="SQUARE" Time="0" HitCount="1" TermMin="0" TermMax="0" PosType="0" Dist="0" RandDist="0" RandomPerHit="0" Angle="0" Width="15" Length="120" SklAngle="0.17453292" AniTime="200" RotAngle="0" ForceATK="1"/>
             </HitList>
             <EtcList>
-                <Scp Client="YES" Scp="C_VOICE_SOUND" Time="0" UseSleep="NO">
+                <Scp Scp="C_VOICE_SOUND" Client="YES" UseSleep="NO" Time="0">
                     <Str Str="voice_cleric_m_godfingerflicking_shot"/>
                     <Str Str="voice_cleric_godfingerflicking_shot"/>
                 </Scp>
-                <Scp Client="YES_Time" Scp="C_FORCE_EFT" Time="200" UseSleep="NO">
-                    <Str_Arg Arg="0.30000001" Str="I_cleric_God_Finger_Flicking_shot_coin_mash#Dummy_effect_FingerFlickir"/>
+                <Scp Scp="C_FORCE_EFT" Client="YES_Time" UseSleep="NO" Time="200">
+                    <Str_Arg Str="I_cleric_God_Finger_Flicking_shot_coin_mash#Dummy_effect_FingerFlickir" Arg="0.30000001"/>
                     <Str Str="arrow_cast"/>
-                    <Str_Arg Arg="1" Str="None"/>
+                    <Str_Arg Str="None" Arg="1"/>
                     <Str Str="arrow_blow"/>
                     <Str Str="SLOW"/>
                     <Num Num="400"/>
@@ -64,19 +64,19 @@
                     <PosDist Angle="0" Dist="0"/>
                     <Num Num="0"/>
                 </Scp>
-                <Scp Client="YES" Scp="C_EFFECT" Time="300" UseSleep="NO">
-                    <Str_Arg Arg="0.30000001" Str="F_archer_shot_light_yellow"/>
+                <Scp Scp="C_EFFECT" Client="YES" UseSleep="NO" Time="300">
+                    <Str_Arg Str="F_archer_shot_light_yellow" Arg="0.30000001"/>
                     <Str Str="Dummy_effect_FingerFlickir"/>
                     <Num Num="0"/>
                 </Scp>
-                <Scp Client="YES" Scp="C_SOUND" Time="400" UseSleep="NO">
+                <Scp Scp="C_SOUND" Client="YES" UseSleep="NO" Time="400">
                     <Str Str="skl_eff_godfingerflicking"/>
                 </Scp>
             </EtcList>
             <ResultList>
-                <ToolScp Client="NO" Scp="S_R_TGTBUFF" UseSleep="NO">
+                <ToolScp Scp="S_R_TGTBUFF" Client="NO" UseSleep="NO">
                     <Str Str="God_Finger_Debuff"/>
-                    <Num FuncTxt="return skill.Level;" Num="1" UseFunc="1"/>
+                    <Num Num="1" UseFunc="1" FuncTxt="return skill.Level;"/>
                     <Num Num="0"/>
                     <Num Num="10000"/>
                     <Num Num="1"/>
@@ -188,11 +188,11 @@
                     <Num Num="-1"/>
                 </ToolScp>
                 <ToolScp Client="NO" Scp="S_R_TGT_REMOVE_BUFF" UseSleep="NO">
-                <Str FuncTxt="local func_name = 'get_remove_buff_tooltip_' .. TryGetProp(skill, 'ClassName', 'None')
+                    <Str FuncTxt="local func_name = 'get_remove_buff_tooltip_' .. TryGetProp(skill, 'ClassName', 'None')
                local func = _G[func_name]
                if func == nil then return end
                return func(skill.Level)" Str="0" UseFunc="1"/>
-              </ToolScp>
+                </ToolScp>
             </ResultList>
         </MainSkl>
     </Skill>
@@ -235,14 +235,14 @@
                     <Num Num="0"/>
                 </Scp>
             </EtcList>
-          <ResultList>
-            <ToolScp Client="NO" Scp="S_R_TGT_Decrease_heal_debuff" UseSleep="NO">
-              <Str FuncTxt="local func_name = 'get_decrease_heal_debuff_tooltip_' .. TryGetProp(skill, 'ClassName', 'None')
+            <ResultList>
+                <ToolScp Client="NO" Scp="S_R_TGT_Decrease_heal_debuff" UseSleep="NO">
+                    <Str FuncTxt="local func_name = 'get_decrease_heal_debuff_tooltip_' .. TryGetProp(skill, 'ClassName', 'None')
                local func = _G[func_name]
                if func == nil then return end
                return func(skill.Level)" Str="0" UseFunc="1"/>
-            </ToolScp>
-          </ResultList>
+                </ToolScp>
+            </ResultList>
         </MainSkl>
     </Skill>
     <Skill Name="Monk_DoublePunch">
@@ -447,11 +447,11 @@
                     <Num Num="1"/>
                 </Scp>
                 <Scp Client="NO" Scp="SKL_TGT_REMOVE_BUFF" Time="100" UseSleep="NO">
-                <Str FuncTxt="local func_name = 'get_remove_buff_tooltip_' .. TryGetProp(obj, 'ClassName', 'None')
+                    <Str FuncTxt="local func_name = 'get_remove_buff_tooltip_' .. TryGetProp(obj, 'ClassName', 'None')
                local func = _G[func_name]
                if func == nil then return end
                return func(obj.Level)" Str="0" UseFunc="1"/>
-              </Scp>  
+                </Scp>
             </EtcList>
         </MainSkl>
         <ByCondSkills>
@@ -467,7 +467,7 @@
                     </HitList>
                     <EtcList>
                         <Scp Client="NO" Scp="SKL_END_AT_TIME" Time="0" UseSleep="NO">
-                            <Num Num="3000" />
+                            <Num Num="3000"/>
                         </Scp>
                         <Scp Client="YES" Scp="C_EFFECT_ATTACH" Time="0" UseSleep="NO">
                             <Str_Arg Arg="1" Str="F_cleric_energy_blast_shot#Dummy_effect_energyblast"/>
@@ -493,7 +493,7 @@
                             <Pos Angle="0" Dist="0"/>
                             <Num Num="0"/>
                             <Num Num="250"/>
-                            <Num FuncTxt="local value = 20 local flowTime = GetDynamicCastingFlowTime(self) if flowTime &gt;= 2 then value = value * 2.4 elseif flowTime &gt;= 1 then value = value * 1.7 end return value" UseFunc="1" Num="20"/>
+                            <Num FuncTxt="local value = 20 local flowTime = GetDynamicCastingFlowTime(self) if flowTime >= 2 then value = value * 2.4 elseif flowTime >= 1 then value = value * 1.7 end return value" UseFunc="1" Num="20"/>
                             <Num Num="25"/>
                             <Num Num="2"/>
                         </Scp>
@@ -507,7 +507,7 @@
                             <Num Num="5"/>
                         </Scp>
                         <Scp Client="NO" LoopTime="300" Scp="SKL_TGT_DMG" Time="201" UseSleep="NO">
-                            <Num FuncTxt="local value = 1 local flowTime = GetDynamicCastingFlowTime(self) if flowTime &gt;= 2 then value = 2 elseif flowTime &gt;= 1 then value = 1.5 end return value" UseFunc="1" Num="1"/>
+                            <Num FuncTxt="local value = 1 local flowTime = GetDynamicCastingFlowTime(self) if flowTime >= 2 then value = 2 elseif flowTime >= 1 then value = 1.5 end return value" UseFunc="1" Num="1"/>
                         </Scp>
                         <Scp Client="NO" LoopTime="1000" Scp="SKL_CONSUME_SP" Time="800" UseSleep="NO">
                             <Num FuncTxt="local value = 42 local lv = self.Lv local bylvCorrect = lv - 300 if bylvCorrect &lt; 0 then     bylvCorrect = bylvCorrect * 2.75 / 1000 elseif bylvCorrect >= 0 then     bylvCorrect = bylvCorrect * 1.25 / 1000 end value = value * (1 + bylvCorrect) return math.floor(value)" Num="4" UseFunc="1"/>

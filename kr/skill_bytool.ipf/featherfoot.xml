@@ -134,22 +134,70 @@
 				<Frame Angle="0" AniTime="9999" Dist="0" ForceATK="0" HitCount="1" Length="65" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="9799" Type="SQUARE" Width="25" />
 			</HitList>
 			<EtcList>
-				<Scp Client="YES" Scp="C_VOICE_SOUND" Time="400" UseSleep="NO">
+				<Scp Scp="C_EFFECT_POS" Client="YES" UseSleep="NO" Time="300">
+                    <Str_Arg Str="F_explosion98_blood2###1" Arg="0.7"/>
+                    <Pos Angle="0" Dist="0" Height="0"/>
+                    <Num Num="0"/>
+                    <Str Str="None"/>
+                </Scp>
+                <Scp Client="YES" Scp="C_VOICE_SOUND" Time="400" UseSleep="NO">
 					<Str Str="voice_war_atk_medium" />
 					<Str Str="voice_atk_medium_war_f" />
 				</Scp>
-				<Scp Client="NO" Scp="SKL_SET_TARGET_SQUARE" Time="700" UseSleep="NO">
+				<Scp Scp="C_EFFECT_POS" Client="YES" UseSleep="NO" Time="300">
+                    <Str_Arg Str="F_scratch001_red2###1" Arg="1"/>
+                    <Pos Angle="0" Dist="30" Height="20"/>
+                    <Num Num="0"/>
+                    <Str Str="None"/>
+                </Scp>
+				<Scp Scp="C_EFFECT_POS" Client="YES" UseSleep="NO" Time="320">
+                    <Str_Arg Str="F_scratch001_red3###1" Arg="1"/>
+                    <Pos Angle="0" Dist="40" Height="20"/>
+                    <Num Num="0"/>
+                    <Str Str="None"/>
+                </Scp>
+				<Scp Scp="C_EFFECT_POS" Client="YES" UseSleep="NO" Time="340">
+                    <Str_Arg Str="F_scratch001_red###1" Arg="1"/>
+                    <Pos Angle="0" Dist="50" Height="20"/>
+                    <Num Num="0"/>
+                    <Str Str="None"/>
+                </Scp>
+				<Scp Scp="C_EFFECT_POS" Client="YES" UseSleep="NO" Time="360">
+                    <Str_Arg Str="F_scratch001_red2###1" Arg="1"/>
+                    <Pos Angle="0" Dist="60" Height="20"/>
+                    <Num Num="0"/>
+                    <Str Str="None"/>
+                </Scp>
+				<Scp Scp="C_EFFECT_POS" Client="YES" UseSleep="NO" Time="320">
+                    <Str_Arg Str="F_blood009_red###1" Arg="1.5"/>--I_light021_darkred###1   F_blood010###1   I_smoke013_dark_glow2_red###1   F_blood009_red###1
+                    <Pos Angle="0" Dist="55" Height="20"/>
+                    <Num Num="0"/>
+                    <Str Str="None"/>
+                </Scp>
+				<Scp Scp="C_EFFECT_POS" Client="YES" UseSleep="NO" Time="380">
+                    <Str_Arg Str="F_scratch001_red3###1" Arg="1"/>
+                    <Pos Angle="0" Dist="75" Height="20"/>
+                    <Num Num="0"/>
+                    <Str Str="None"/>
+                </Scp>
+				<Scp Scp="C_EFFECT_POS" Client="YES" UseSleep="NO" Time="400">
+                    <Str_Arg Str="F_scratch001_red###1" Arg="1"/>
+                    <Pos Angle="0" Dist="90" Height="20"/>
+                    <Num Num="0"/>
+                    <Str Str="None"/>
+                </Scp>
+                <Scp Client="NO" Scp="SKL_SET_TARGET_SQUARE" Time="400" UseSleep="NO">
 					<Pos Angle="0" Dist="0" />
 					<Num Num="0" />
-					<Num Num="70" />
-					<Num Num="30" />
+					<Num Num="100" />
+					<Num Num="40" />
 					<Num Num="10" />
 					<Num Num="2" />
 					<Num Num="0" />
 					<Num Num="1" />
 					<Num Num="0" />
 				</Scp>
-				<Scp Client="NO" Scp="SKL_TGT_DMG" Time="700" UseSleep="NO">
+				<Scp Client="NO" Scp="SKL_TGT_DMG" Time="400" UseSleep="NO">
 					<Num Num="1" />
 					<Num Num="0" />
 					<Num Num="0" />
@@ -310,18 +358,30 @@
 					<Str Str="voice_wiz_m_ngadhundi_cast" />
 					<Str Str="voice_wiz_ngadhundi_cast" />
 				</Scp>
-				<Scp Client="NO" Scp="SKL_SET_TARGET_SQUARE" Time="1000" UseSleep="NO">
+				<Scp Scp="C_EFFECT_POS" Client="YES" UseSleep="NO" Time="650">
+                    <Str_Arg Str="F_explosion98_blood2###1" Arg="0.7"/>
+                    <Pos Angle="0" Dist="0" Height="0"/>
+                    <Num Num="0"/>
+                    <Str Str="None"/>
+                </Scp>
+                <Scp Scp="C_EFFECT_POS" Client="YES" UseSleep="NO" Time="750">
+                    <Str_Arg Str="F_archer_broadhead_cast_blooding###1" Arg="2"/>
+                    <Pos Angle="0" Dist="30" Height="20"/>
+                    <Num Num="0"/>
+                    <Str Str="None"/>
+                </Scp>
+                <Scp Client="NO" Scp="SKL_SET_TARGET_SQUARE" Time="750" UseSleep="NO">
 					<Pos Angle="0" Dist="0" />
 					<Num Num="0" />
-					<Num Num="70" />
-					<Num Num="30" />
+					<Num Num="100" />
+					<Num Num="40" />
 					<Num Num="10" />
 					<Num Num="2" />
 					<Num Num="0" />
 					<Num Num="1" />
 					<Num Num="0" />
 				</Scp>
-				<Scp Client="NO" Scp="SKL_TGT_DMG" Time="1000" UseSleep="NO">
+				<Scp Client="NO" Scp="SKL_TGT_DMG" Time="750" UseSleep="NO">
 					<Num Num="1" />
 					<Num Num="0" />
 					<Num Num="0" />

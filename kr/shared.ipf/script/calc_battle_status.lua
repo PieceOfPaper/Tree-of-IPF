@@ -249,6 +249,16 @@ function get_Ghost_Atk_ratio_for_status(value)
     return value .. ' {#ff4040}(' .. ret .. '%)'
 end
 
+function get_BOSS_ATK_ratio_for_status(value)
+    local ret = 0
+
+    local pc = GetMyPCObject()
+    if pc ~= nil then        
+        ret = get_calc_atk_value_for_status(pc, value)
+    end
+    return value .. ' {#ff4040}(' .. ret .. '%)'
+end
+
 function get_AttackType_value_Cannon(pc)
     local value = 10
     if pc ~= nil then

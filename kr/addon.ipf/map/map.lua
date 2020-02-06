@@ -691,7 +691,8 @@ function MAP_MAKE_NPC_LIST(frame, mapprop, npclist, statelist, questIESlist, que
 						local genType = 0;
 						local checkMapName = "None";
 						local x, y, z, range = 0;
-						for locationMapName in string.gfind(mapPointGroupStr, "%S+") do
+
+						for locationMapName in string.gmatch(mapPointGroupStr, "%S+") do
 							if count == 0 and locationMapName ~= mapname then
 								count = 0;
 								roundCount = roundCount + 1;

@@ -132,6 +132,7 @@ function GET_ATK_PROP_CHANGEVALUETOOLTIP_LIST()
     list[#list+1] = "ADD_SMALLSIZE";
     list[#list+1] = "ADD_MIDDLESIZE";
     list[#list+1] = "ADD_LARGESIZE";
+    list[#list+1] = "ADD_BOSS_ATK";
     list[#list+1] = "ADD_CLOTH";
     list[#list+1] = "ADD_LEATHER";
     list[#list+1] = "ADD_IRON";
@@ -291,6 +292,7 @@ function GET_ATK_PROP_LIST()
     list[#list+1] = "ADD_SMALLSIZE";
     list[#list+1] = "ADD_MIDDLESIZE";
     list[#list+1] = "ADD_LARGESIZE";
+    list[#list+1] = "ADD_BOSS_ATK";
     list[#list+1] = "ADD_CLOTH";
     list[#list+1] = "ADD_LEATHER";
     list[#list+1] = "ADD_IRON";

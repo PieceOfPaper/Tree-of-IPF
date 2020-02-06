@@ -250,7 +250,7 @@
                 <Scp Client="NO" Scp="SKL_RECOVER_COOLDOWN_SP" Time="0" TimeSync="0" UseSleep="NO"/>
 				<Scp Client="NO" Scp="SKL_SET_TARGET_CLIENT_TARGETTING" Time="0" UseSleep="NO" />
 				<Scp Client="NO" Scp="SKL_EXCEPT_TARGET_BY_SCRIPT" Time="400" UseSleep="NO">
-					<Str Str="TARGET_CHECK_HIDEFROM_MON" />
+					<Str Str="TARGET_CHECK_HIDEFROM_MON_RETRIEVE" />
 				</Scp>
 				<Scp Client="NO" Scp="TGT_COMPANION_BITE" Time="400" TimeSync="0" UseSleep="NO">
 					<Num Num="0" />

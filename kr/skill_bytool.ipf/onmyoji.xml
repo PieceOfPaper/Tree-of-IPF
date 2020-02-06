@@ -282,7 +282,7 @@
 				<Num Num="0" />
 				<Num Num="0" />
 				<Num Num="1" />
-				<Num Num="200" />
+				<Num Num="140" />
 				<Num Num="0.1" />
 				<Num Num="0" />
 				<Num Num="1" />
@@ -696,7 +696,7 @@
 					<Num Num="0" />
 					<Num Num="1" />
 				</Scp>
-				<Scp Client="YES" Scp="C_COLORBLEND_ACTOR" Time="20" UseSleep="NO">
+                <Scp Client="YES" Scp="C_COLORBLEND_ACTOR" Time="0" UseSleep="NO">
 					<Num Num="1" />
 					<Num Num="1" />
 					<Num Num="0.2" />
@@ -705,26 +705,26 @@
 					<Num Num="0" />
 					<Num Num="1" />
 				</Scp>
-				<Scp Client="YES" Scp="C_SHOCKWAVE" Time="70" UseSleep="NO">
+                <Scp Client="YES" Scp="C_SHOCKWAVE" Time="0" UseSleep="NO">
 					<Num Num="1.5" />
 					<Num Num="1.5" />
 					<Num Num="130" />
 					<Num Num="999" />
 				</Scp>
-				<Scp Client="YES" Scp="C_SOUND" Time="200" UseSleep="NO">
+                <Scp Client="YES" Scp="C_SOUND" Time="0" UseSleep="NO">
 					<Str Str="skl_eff_whitetigerhowling_shot" />
 				</Scp>
-				<Scp Client="NO" Scp="SKL_TGT_DMG" Time="500" UseSleep="NO">
+                <Scp Client="NO" Scp="SKL_TGT_DMG" Time="100" UseSleep="NO">
 					<Num Num="1" />
 					<Num Num="1" />
 					<Num Num="0" />
 				</Scp>
-				<Scp Client="NO" Scp="SKL_TGT_DMG" Time="700" UseSleep="NO">
+                <Scp Client="NO" Scp="SKL_TGT_DMG" Time="300" UseSleep="NO">
 					<Num Num="1" />
 					<Num Num="1" />
 					<Num Num="0" />
 				</Scp>
-				<Scp Client="YES" Scp="C_COLORBLEND_ACTOR" Time="800" UseSleep="NO">
+                <Scp Client="YES" Scp="C_COLORBLEND_ACTOR" Time="400" UseSleep="NO">
 					<Num Num="1" />
 					<Num Num="0" />
 					<Num Num="0.1" />
@@ -733,7 +733,7 @@
 					<Num Num="0" />
 					<Num Num="1" />
 				</Scp>
-				<Scp Client="NO" Scp="SKL_TGT_DMG" Time="900" UseSleep="NO">
+                <Scp Client="NO" Scp="SKL_TGT_DMG" Time="500" UseSleep="NO">
 					<Num Num="1" />
 					<Num Num="1" />
 					<Num Num="0" />
@@ -862,27 +862,27 @@
 				<Scp Client="YES" Scp="C_SOUND" Time="0" UseSleep="NO">
 					<Str Str="skl_eff_watershikigami_shot" />
 				</Scp>
-				<Scp Client="NO" Scp="SKL_TGT_DMG" Time="300" UseSleep="NO">
+                <Scp Client="NO" Scp="SKL_TGT_DMG" Time="0" UseSleep="NO">
 					<Num Num="1" />
 					<Num Num="1" />
 					<Num Num="0" />
 				</Scp>
-				<Scp Client="NO" Scp="SKL_TGT_DMG" Time="450" UseSleep="NO">
+                <Scp Client="NO" Scp="SKL_TGT_DMG" Time="150" UseSleep="NO">
 					<Num Num="1" />
 					<Num Num="1" />
 					<Num Num="0" />
 				</Scp>
-				<Scp Client="NO" Scp="SKL_TGT_DMG" Time="600" UseSleep="NO">
+                <Scp Client="NO" Scp="SKL_TGT_DMG" Time="300" UseSleep="NO">
 					<Num Num="1" />
 					<Num Num="1" />
 					<Num Num="0" />
 				</Scp>
-				<Scp Client="NO" Scp="SKL_TGT_DMG" Time="750" UseSleep="NO">
+                <Scp Client="NO" Scp="SKL_TGT_DMG" Time="450" UseSleep="NO">
 					<Num Num="1" />
 					<Num Num="1" />
 					<Num Num="0" />
 				</Scp>
-				<Scp Client="NO" Scp="SKL_TGT_DMG" Time="900" UseSleep="NO">
+                <Scp Client="NO" Scp="SKL_TGT_DMG" Time="600" UseSleep="NO">
 					<Num Num="1" />
 					<Num Num="1" />
 					<Num Num="0" />
