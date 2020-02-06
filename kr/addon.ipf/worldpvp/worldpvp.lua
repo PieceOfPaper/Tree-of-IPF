@@ -675,7 +675,8 @@ function ON_WORLDPVP_RANK_PAGE(frame)
 	local totalCount = session.worldPVP.GetRankProp("TotalCount");
 
 	local cnt = session.worldPVP.GetRankInfoCount();
-	print("worldpvp", cnt);
+	cnt = 6;
+
 	local gbox_ctrls = bg_ranking:GetChild("gbox_ctrls");
 	gbox_ctrls:RemoveAllChild();
 
