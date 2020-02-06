@@ -83,7 +83,6 @@ function GUILDINFO_OPEN_UI(frame)
     else
         mainTab:SetTabVisible(6, true)
     end
-
 end
 
 function GUILDNOTICE_GET(code, ret_json)

@@ -1,0 +1,525 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by IMC (IMCGames Co., Ltd) -->
+<ToolSkill>
+    <Skill Name="Mon_FieldRift_pattern_Skill_1">
+        <MainSkl ScrLock="None" JumpFlee="NO" MSPDToUsePos="0">
+            <HitList>
+                <Frame Type="FAN" Time="9999" HitCount="1" TermMin="0" TermMax="0" PosType="0" Dist="0" RandDist="0" RandomPerHit="0" Angle="0" Width="30" Length="30" SklAngle="0.17453292" AniTime="10199" RotAngle="0" ForceATK="0"/>
+            </HitList>
+            <EtcList>
+                <Scp Scp="MONSKL_CRE_PAD_CELL_CURVE" Client="NO" UseSleep="NO" Time="0">
+                    <Pos Angle="0" Dist="0" Rand="80" Height="1"/>
+                    <Num Num="0" UseFunc="1" FuncTxt="return IMCRandom(-180,180)"/>
+                    <Str Str="FieldRift_Ice_Wall"/>
+                    <Num Num="4"/>
+                    <Num Num="6"/>
+                    <Num Num="3" UseFunc="1" FuncTxt="return IMCRandom(3,5)"/>
+                    <Num Num="30"/>
+                    <Str_Arg Str="None" Arg="1"/>
+                    <Num Num="0.2"/>
+                </Scp>
+                <Scp Scp="MONSKL_CRE_PAD_CELL_CURVE" Client="NO" UseSleep="NO" Time="800">
+                    <Pos Angle="-0.014921223" Dist="89.896729" Rand="80"/>
+                    <Num Num="0" UseFunc="1" FuncTxt="local anlgeList = {-90,0,90}
+return anlgeList[IMCRandom(1,3)]"/>
+                    <Str Str="FieldRift_Ice_Wall"/>
+                    <Num Num="3"/>
+                    <Num Num="5"/>
+                    <Num Num="3" UseFunc="1" FuncTxt="return IMCRandom(2,3)"/>
+                    <Num Num="35"/>
+                    <Str_Arg Str="None" Arg="1"/>
+                    <Num Num="0.30000001"/>
+                </Scp>
+                <Scp Scp="MONSKL_CRE_PAD_CELL_CURVE" Client="NO" UseSleep="NO" Time="1600">
+                    <Pos Angle="-2.9326553" Dist="43.316818" Rand="90"/>
+                    <Num Num="0" UseFunc="1" FuncTxt="local anlgeList = {-90,0,90}
+return anlgeList[IMCRandom(1,3)]"/>
+                    <Str Str="FieldRift_Ice_Wall"/>
+                    <Num Num="3"/>
+                    <Num Num="5"/>
+                    <Num Num="3" UseFunc="1" FuncTxt="return IMCRandom(2,4)"/>
+                    <Num Num="40"/>
+                    <Str_Arg Str="None" Arg="1"/>
+                    <Num Num="0.40000001"/>
+                </Scp>
+            </EtcList>
+        </MainSkl>
+    </Skill>
+    <Skill Name="Mon_FieldRift_pattern_Skill_2">
+        <MainSkl ScrLock="None" JumpFlee="NO" MSPDToUsePos="0">
+            <HitList>
+                <Frame Type="FAN" Time="9999" HitCount="1" TermMin="0" TermMax="0" PosType="0" Dist="0" RandDist="0" RandomPerHit="0" Angle="0" Width="30" Length="30" SklAngle="0.17453292" AniTime="10199" RotAngle="0" ForceATK="0"/>
+            </HitList>
+            <EtcList>
+                <Scp Scp="MONSKL_CRE_MON" Client="NO" UseSleep="NO" Time="0">
+                    <Str Str="FieldRift_pattern_crossbow"/>
+                    <Pos Angle="0" Dist="0" Rand="120"/>
+                    <Angle Angle="0"/>
+                    <Str Str="발리스타"/>
+                    <Str Str="None"/>
+                    <Num Num="0"/>
+                    <Num Num="30000"/>
+                    <Str Str="FieldRift_Ballist_Atk"/>
+                    <MonProp/>
+                </Scp>
+                <Scp Scp="MONSKL_CRE_MON" Client="NO" UseSleep="NO" Time="0">
+                    <Str Str="FieldRift_pattern_crossbow"/>
+                    <Pos Angle="0" Dist="0" Rand="120"/>
+                    <Angle Angle="0"/>
+                    <Str Str="발리스타"/>
+                    <Str Str="None"/>
+                    <Num Num="0"/>
+                    <Num Num="30000"/>
+                    <Str Str="FieldRift_Ballist_Atk"/>
+                    <MonProp/>
+                </Scp>
+            </EtcList>
+        </MainSkl>
+    </Skill>
+    <Skill Name="Mon_FieldRift_pattern_Skill_3">
+        <MainSkl ScrLock="None" JumpFlee="NO" MSPDToUsePos="0">
+            <HitList>
+                <Frame Type="FAN" Time="999799" HitCount="1" TermMin="0" TermMax="0" PosType="0" Dist="0" RandDist="0" RandomPerHit="0" Angle="0" Width="30" Length="30" SklAngle="0.17453292" AniTime="999999" RotAngle="0" ForceATK="0"/>
+            </HitList>
+            <EtcList>
+                <Scp Scp="MONSKL_CRE_MON" Client="NO" UseSleep="NO" Time="0">
+                    <Str Str="Large_crossbow"/>
+                    <Pos Angle="0" Dist="0" Rand="180"/>
+                    <Angle Angle="0"/>
+                    <Str Str="ㅇㅇ"/>
+                    <Str Str=""/>
+                    <Num Num="0"/>
+                    <Num Num="0"/>
+                    <Str Str="None"/>
+                    <MonProp/>
+                </Scp>
+                <Scp Scp="C_EFFECT" Client="YES" UseSleep="NO" Time="0">
+                    <Str_Arg Str="F_bg_rize002_violet2" Arg="0.5"/>
+                    <Str Str="None"/>
+                    <Num Num="10"/>
+                </Scp>
+                <Scp Scp="SKL_SET_TARGET_CIRCLE" Client="NO" UseSleep="NO" Time="0">
+                    <Pos Angle="0" Dist="0"/>
+                    <Num Num="300"/>
+                    <Num Num="5"/>
+                    <Num Num="2"/>
+                    <Num Num="0"/>
+                    <Num Num="1"/>
+                    <Num Num="1"/>
+                    <Num Num="0"/>
+                    <Num Num="1"/>
+                    <Num Num="0"/>
+                    <Num Num="0"/>
+                </Scp>
+                <Scp Scp="C_EFFECT" Client="YES" UseSleep="NO" Time="0">
+                    <Str_Arg Str="F_sys_target_boss##0.5" Arg="4"/>
+                    <Str Str="None"/>
+                    <Num Num="0.5"/>
+                </Scp>
+                <Scp Scp="EFT_AND_HIT_RANGE_RATIO" Client="NO" UseSleep="YES" TooltipScp="TOOLTIP_EFT_AND_HIT" Time="1650">
+                    <Pos Angle="0" Dist="0" PosType="9"/>
+                    <Str_Arg Str="F_sys_target_boss##0.5" Arg="4"/>
+                    <Num Num="1000"/>
+                    <Str_Arg Str="F_rize015_1_drop" Arg="2"/>
+                    <Num Num="60"/>
+                    <Num Num="100"/>
+                    <Num Num="100"/>
+                    <Num Num="0"/>
+                    <Num Num="1"/>
+                    <Num Num="1000"/>
+                    <Str_Arg Str="None" Arg="1"/>
+                    <Str Str="None"/>
+                    <Num Num="1"/>
+                    <Num Num="0"/>
+                    <Num Num="0"/>
+                </Scp>
+                <Scp Scp="EFT_AND_HIT_RANGE_RATIO" Client="NO" UseSleep="YES" TooltipScp="TOOLTIP_EFT_AND_HIT" Time="2850">
+                    <Pos Angle="0" Dist="0" PosType="9"/>
+                    <Str_Arg Str="F_sys_target_boss##0.5" Arg="4"/>
+                    <Num Num="1000"/>
+                    <Str_Arg Str="F_rize015_1_drop_white" Arg="2"/>
+                    <Num Num="60"/>
+                    <Num Num="100" UseFunc="1" FuncTxt="local overBuff = &quot;SHADOW_RAID_BOSS_FRENZY_BUFF&quot; local ratio = 0; if IsBuffApplied(self, overBuff) == &quot;YES&quot; then     local over = GetBuffOver(self, overBuff);     if over ~= nil and over > 3 then         if over >= 10 then             over = 10         end                  ratio = ratio + (over * 0.08);     end end return ratio; "/>
+                    <Num Num="100"/>
+                    <Num Num="0"/>
+                    <Num Num="1"/>
+                    <Num Num="1000"/>
+                    <Str_Arg Str="None" Arg="1"/>
+                    <Str Str="None"/>
+                    <Num Num="1"/>
+                    <Num Num="0"/>
+                    <Num Num="0"/>
+                </Scp>
+                <Scp Scp="EFT_AND_HIT_RANGE_RATIO" Client="NO" UseSleep="YES" TooltipScp="TOOLTIP_EFT_AND_HIT" Time="3150">
+                    <Pos Angle="0" Dist="0" PosType="9"/>
+                    <Str_Arg Str="F_sys_target_boss##0.5" Arg="4"/>
+                    <Num Num="1000"/>
+                    <Str_Arg Str="F_rize015_1_drop" Arg="2"/>
+                    <Num Num="60"/>
+                    <Num Num="100" UseFunc="1" FuncTxt="local overBuff = &quot;SHADOW_RAID_BOSS_FRENZY_BUFF&quot; local ratio = 0; if IsBuffApplied(self, overBuff) == &quot;YES&quot; then     local over = GetBuffOver(self, overBuff);     if over ~= nil and over > 3 then         if over >= 10 then             over = 10         end                  ratio = ratio + (over * 0.08);     end end return ratio; "/>
+                    <Num Num="100"/>
+                    <Num Num="0"/>
+                    <Num Num="1"/>
+                    <Num Num="1000"/>
+                    <Str_Arg Str="None" Arg="1"/>
+                    <Str Str="None"/>
+                    <Num Num="1"/>
+                    <Num Num="0"/>
+                    <Num Num="0"/>
+                </Scp>
+                <Scp Scp="EFT_AND_HIT_RANGE_RATIO" Client="NO" UseSleep="YES" TooltipScp="TOOLTIP_EFT_AND_HIT" Time="3750">
+                    <Pos Angle="0" Dist="0" PosType="9"/>
+                    <Str_Arg Str="F_sys_target_boss##0.5" Arg="4"/>
+                    <Num Num="1000"/>
+                    <Str_Arg Str="F_rize015_1_drop_white" Arg="2"/>
+                    <Num Num="60"/>
+                    <Num Num="100" UseFunc="1" FuncTxt="local overBuff = &quot;SHADOW_RAID_BOSS_FRENZY_BUFF&quot; local ratio = 0; if IsBuffApplied(self, overBuff) == &quot;YES&quot; then     local over = GetBuffOver(self, overBuff);     if over ~= nil and over > 3 then         if over >= 10 then             over = 10         end                  ratio = ratio + (over * 0.08);     end end return ratio; "/>
+                    <Num Num="100"/>
+                    <Num Num="0"/>
+                    <Num Num="1"/>
+                    <Num Num="1000"/>
+                    <Str_Arg Str="None" Arg="1"/>
+                    <Str Str="None"/>
+                    <Num Num="1"/>
+                    <Num Num="0"/>
+                    <Num Num="0"/>
+                </Scp>
+                <Scp Scp="EFT_AND_HIT_RANGE_RATIO" Client="NO" UseSleep="YES" TooltipScp="TOOLTIP_EFT_AND_HIT" Time="4150">
+                    <Pos Angle="0" Dist="0" PosType="9"/>
+                    <Str_Arg Str="F_sys_target_boss##0.5" Arg="4"/>
+                    <Num Num="1000"/>
+                    <Str_Arg Str="F_rize015_1_drop_white" Arg="2"/>
+                    <Num Num="60"/>
+                    <Num Num="100" UseFunc="1" FuncTxt="local overBuff = &quot;SHADOW_RAID_BOSS_FRENZY_BUFF&quot; local ratio = 0; if IsBuffApplied(self, overBuff) == &quot;YES&quot; then     local over = GetBuffOver(self, overBuff);     if over ~= nil and over > 3 then         if over >= 10 then             over = 10         end                  ratio = ratio + (over * 0.08);     end end return ratio; "/>
+                    <Num Num="100"/>
+                    <Num Num="0"/>
+                    <Num Num="1"/>
+                    <Num Num="1000"/>
+                    <Str_Arg Str="None" Arg="1"/>
+                    <Str Str="None"/>
+                    <Num Num="1"/>
+                    <Num Num="0"/>
+                    <Num Num="0"/>
+                </Scp>
+                <Scp Scp="EFT_AND_HIT_RANGE_RATIO" Client="NO" UseSleep="YES" TooltipScp="TOOLTIP_EFT_AND_HIT" Time="4550">
+                    <Pos Angle="0" Dist="0" PosType="9"/>
+                    <Str_Arg Str="F_sys_target_boss##0.5" Arg="4"/>
+                    <Num Num="1000"/>
+                    <Str_Arg Str="F_rize015_1_drop" Arg="2"/>
+                    <Num Num="60"/>
+                    <Num Num="100" UseFunc="1" FuncTxt="local overBuff = &quot;SHADOW_RAID_BOSS_FRENZY_BUFF&quot; local ratio = 0; if IsBuffApplied(self, overBuff) == &quot;YES&quot; then     local over = GetBuffOver(self, overBuff);     if over ~= nil and over > 3 then         if over >= 10 then             over = 10         end                  ratio = ratio + (over * 0.08);     end end return ratio; "/>
+                    <Num Num="100"/>
+                    <Num Num="0"/>
+                    <Num Num="1"/>
+                    <Num Num="1000"/>
+                    <Str_Arg Str="None" Arg="1"/>
+                    <Str Str="None"/>
+                    <Num Num="1"/>
+                    <Num Num="0"/>
+                    <Num Num="0"/>
+                </Scp>
+                <Scp Scp="EFT_AND_HIT_RANGE_RATIO" Client="NO" UseSleep="YES" TooltipScp="TOOLTIP_EFT_AND_HIT" Time="5350">
+                    <Pos Angle="0" Dist="0" PosType="9"/>
+                    <Str_Arg Str="F_sys_target_boss##0.5" Arg="4"/>
+                    <Num Num="1000"/>
+                    <Str_Arg Str="F_rize015_1_drop_white" Arg="2"/>
+                    <Num Num="60"/>
+                    <Num Num="100" UseFunc="1" FuncTxt="local overBuff = &quot;SHADOW_RAID_BOSS_FRENZY_BUFF&quot; local ratio = 0; if IsBuffApplied(self, overBuff) == &quot;YES&quot; then     local over = GetBuffOver(self, overBuff);     if over ~= nil and over > 3 then         if over >= 10 then             over = 10         end                  ratio = ratio + (over * 0.08);     end end return ratio; "/>
+                    <Num Num="100"/>
+                    <Num Num="0"/>
+                    <Num Num="1"/>
+                    <Num Num="1000"/>
+                    <Str_Arg Str="None" Arg="1"/>
+                    <Str Str="None"/>
+                    <Num Num="1"/>
+                    <Num Num="0"/>
+                    <Num Num="0"/>
+                </Scp>
+                <Scp Scp="EFT_AND_HIT_RANGE_RATIO" Client="NO" UseSleep="YES" TooltipScp="TOOLTIP_EFT_AND_HIT" Time="6250">
+                    <Pos Angle="0" Dist="0" PosType="9"/>
+                    <Str_Arg Str="F_sys_target_boss##0.5" Arg="4"/>
+                    <Num Num="1000"/>
+                    <Str_Arg Str="F_rize015_1_drop_white" Arg="2"/>
+                    <Num Num="60"/>
+                    <Num Num="100" UseFunc="1" FuncTxt="local overBuff = &quot;SHADOW_RAID_BOSS_FRENZY_BUFF&quot; local ratio = 0; if IsBuffApplied(self, overBuff) == &quot;YES&quot; then     local over = GetBuffOver(self, overBuff);     if over ~= nil and over > 3 then         if over >= 10 then             over = 10         end                  ratio = ratio + (over * 0.08);     end end return ratio; "/>
+                    <Num Num="100"/>
+                    <Num Num="0"/>
+                    <Num Num="1"/>
+                    <Num Num="1000"/>
+                    <Str_Arg Str="None" Arg="1"/>
+                    <Str Str="None"/>
+                    <Num Num="1"/>
+                    <Num Num="0"/>
+                    <Num Num="0"/>
+                </Scp>
+                <Scp Scp="EFT_AND_HIT_RANGE_RATIO" Client="NO" UseSleep="YES" TooltipScp="TOOLTIP_EFT_AND_HIT" Time="7050">
+                    <Pos Angle="0" Dist="0" PosType="9"/>
+                    <Str_Arg Str="F_sys_target_boss##0.5" Arg="4"/>
+                    <Num Num="1000"/>
+                    <Str_Arg Str="F_rize015_1_drop_white" Arg="2"/>
+                    <Num Num="60"/>
+                    <Num Num="100" UseFunc="1" FuncTxt="local overBuff = &quot;SHADOW_RAID_BOSS_FRENZY_BUFF&quot; local ratio = 0; if IsBuffApplied(self, overBuff) == &quot;YES&quot; then     local over = GetBuffOver(self, overBuff);     if over ~= nil and over > 3 then         if over >= 10 then             over = 10         end                  ratio = ratio + (over * 0.08);     end end return ratio; "/>
+                    <Num Num="100"/>
+                    <Num Num="0"/>
+                    <Num Num="1"/>
+                    <Num Num="1000"/>
+                    <Str_Arg Str="None" Arg="1"/>
+                    <Str Str="None"/>
+                    <Num Num="1"/>
+                    <Num Num="0"/>
+                    <Num Num="0"/>
+                </Scp>
+                <Scp Scp="EFT_AND_HIT_RANGE_RATIO" Client="NO" UseSleep="YES" TooltipScp="TOOLTIP_EFT_AND_HIT" Time="7850">
+                    <Pos Angle="0" Dist="0" PosType="9"/>
+                    <Str_Arg Str="F_sys_target_boss##0.5" Arg="4"/>
+                    <Num Num="1000"/>
+                    <Str_Arg Str="F_rize015_1_drop_white" Arg="2"/>
+                    <Num Num="60"/>
+                    <Num Num="100" UseFunc="1" FuncTxt="local overBuff = &quot;SHADOW_RAID_BOSS_FRENZY_BUFF&quot; local ratio = 0; if IsBuffApplied(self, overBuff) == &quot;YES&quot; then     local over = GetBuffOver(self, overBuff);     if over ~= nil and over > 3 then         if over >= 10 then             over = 10         end                  ratio = ratio + (over * 0.08);     end end return ratio; "/>
+                    <Num Num="100"/>
+                    <Num Num="0"/>
+                    <Num Num="1"/>
+                    <Num Num="1000"/>
+                    <Str_Arg Str="None" Arg="1"/>
+                    <Str Str="None"/>
+                    <Num Num="1"/>
+                    <Num Num="0"/>
+                    <Num Num="0"/>
+                </Scp>
+            </EtcList>
+        </MainSkl>
+    </Skill>
+    <Skill Name="Mon_FieldRift_pattern_Skill_4">
+        <MainSkl ScrLock="None" JumpFlee="NO" MSPDToUsePos="0">
+            <HitList>
+                <Frame Type="FAN" Time="9999" HitCount="1" TermMin="0" TermMax="0" PosType="0" Dist="0" RandDist="0" RandomPerHit="0" Angle="0" Width="30" Length="30" SklAngle="0.17453292" AniTime="10199" RotAngle="0" ForceATK="0"/>
+            </HitList>
+            <EtcList>
+                <Scp Scp="SKL_RUN_SCRIPT" Client="NO" UseSleep="NO" Time="0">
+                    <Str Str="RIFT_OVERLOAD"/>
+                </Scp>
+            </EtcList>
+            <ResultList>
+                <ToolScp Scp="S_R_KNOCK_TARGET" Client="NO" UseSleep="NO" TooltipScp="TOOLTIP_MONSKL_R_KNOCKDOWN">
+                    <Num Num="3"/>
+                    <Num Num="0"/>
+                    <Num Num="150"/>
+                    <Num Num="10"/>
+                    <Num Num="0"/>
+                    <Num Num="1"/>
+                    <Num Num="2"/>
+                </ToolScp>
+            </ResultList>
+        </MainSkl>
+    </Skill>
+    <Skill Name="Mon_FieldRift_pattern_Skill_5">
+        <MainSkl ScrLock="None" JumpFlee="NO" MSPDToUsePos="0">
+            <HitList>
+                <Frame Type="FAN" Time="9999" HitCount="1" TermMin="0" TermMax="0" PosType="0" Dist="0" RandDist="0" RandomPerHit="0" Angle="0" Width="30" Length="30" SklAngle="0.17453292" AniTime="10199" RotAngle="0" ForceATK="0"/>
+            </HitList>
+            <EtcList>
+                <Scp Scp="SKL_SET_TARGET_CIRCLE" Client="NO" UseSleep="NO" Time="0">
+                    <Pos Angle="0" Dist="0"/>
+                    <Num Num="300"/>
+                    <Num Num="10"/>
+                    <Num Num="2"/>
+                    <Num Num="0"/>
+                    <Num Num="1"/>
+                    <Num Num="1"/>
+                    <Num Num="0"/>
+                    <Num Num="1"/>
+                    <Num Num="1"/>
+                    <Num Num="1"/>
+                </Scp>
+                <Scp Scp="T_BOMB_MODEL" Client="NO" UseSleep="YES" Time="0">
+                    <Pos Angle="0" Dist="0" Rand="130" PosType="8" Height="1"/>
+                    <Num Num="3"/>
+                    <Num Num="80"/>
+                    <Num Num="120"/>
+                    <Num Num="1"/>
+                    <Str_Arg Str="I_force003_yellow" Arg="1"/>
+                    <Str_Arg Str="F_buff_basic032_yellow_line" Arg="1"/>
+                    <Num Num="3"/>
+                    <Str Str="thornball"/>
+                    <Num Num="3"/>
+                    <Str_Arg Str="I_explosion002_green" Arg="1"/>
+                    <Num Num="0"/>
+                    <Num Num="0"/>
+                </Scp>
+                <Scp Scp="T_BOMB_MODEL" Client="NO" UseSleep="YES" Time="0">
+                    <Pos Angle="0" Dist="0" Rand="130" PosType="8" Height="1"/>
+                    <Num Num="3"/>
+                    <Num Num="80"/>
+                    <Num Num="120"/>
+                    <Num Num="1"/>
+                    <Str_Arg Str="I_force003_yellow" Arg="1"/>
+                    <Str_Arg Str="F_buff_basic032_yellow_line" Arg="1"/>
+                    <Num Num="3"/>
+                    <Str Str="thornball"/>
+                    <Num Num="3"/>
+                    <Str_Arg Str="I_explosion002_green" Arg="1"/>
+                    <Num Num="0"/>
+                    <Num Num="0"/>
+                </Scp>
+                <Scp Scp="T_BOMB_MODEL" Client="NO" UseSleep="YES" Time="0">
+                    <Pos Angle="0" Dist="0" Rand="130" PosType="8" Height="1"/>
+                    <Num Num="3"/>
+                    <Num Num="80"/>
+                    <Num Num="120"/>
+                    <Num Num="1"/>
+                    <Str_Arg Str="I_force003_yellow" Arg="1"/>
+                    <Str_Arg Str="F_buff_basic032_yellow_line" Arg="1"/>
+                    <Num Num="3"/>
+                    <Str Str="thornball"/>
+                    <Num Num="3"/>
+                    <Str_Arg Str="I_explosion002_green" Arg="1"/>
+                    <Num Num="0"/>
+                    <Num Num="0"/>
+                </Scp>
+                <Scp Scp="T_BOMB_MODEL" Client="NO" UseSleep="YES" Time="0">
+                    <Pos Angle="0" Dist="0" Rand="130" PosType="8" Height="1"/>
+                    <Num Num="3"/>
+                    <Num Num="80"/>
+                    <Num Num="120"/>
+                    <Num Num="1"/>
+                    <Str_Arg Str="I_force003_yellow" Arg="1"/>
+                    <Str_Arg Str="F_buff_basic032_yellow_line" Arg="1"/>
+                    <Num Num="3"/>
+                    <Str Str="thornball"/>
+                    <Num Num="3"/>
+                    <Str_Arg Str="I_explosion002_green" Arg="1"/>
+                    <Num Num="0"/>
+                    <Num Num="0"/>
+                </Scp>
+                <Scp Scp="T_BOMB_MODEL" Client="NO" UseSleep="YES" Time="0">
+                    <Pos Angle="0" Dist="0" Rand="130" PosType="8" Height="1"/>
+                    <Num Num="3"/>
+                    <Num Num="80"/>
+                    <Num Num="120"/>
+                    <Num Num="1"/>
+                    <Str_Arg Str="I_force003_yellow" Arg="1"/>
+                    <Str_Arg Str="F_buff_basic032_yellow_line" Arg="1"/>
+                    <Num Num="3"/>
+                    <Str Str="thornball"/>
+                    <Num Num="3"/>
+                    <Str_Arg Str="F_explosion023" Arg="2"/>
+                    <Num Num="0"/>
+                    <Num Num="0"/>
+                </Scp>
+            </EtcList>
+        </MainSkl>
+    </Skill>
+    <Skill Name="Mon_FieldRift_pattern_Skill_6">
+        <MainSkl ScrLock="None" JumpFlee="NO" MSPDToUsePos="0">
+            <HitList>
+                <Frame Type="FAN" Time="9999" HitCount="1" TermMin="0" TermMax="0" PosType="0" Dist="0" RandDist="0" RandomPerHit="0" Angle="0" Width="30" Length="30" SklAngle="0.17453292" AniTime="10199" RotAngle="0" ForceATK="0"/>
+            </HitList>
+            <EtcList>
+                <Scp Scp="MONSKL_CRE_MON" Client="NO" UseSleep="NO" Time="1000">
+                    <Str Str="weekly_Denoptic"/>
+                    <Pos Angle="0" Dist="0" Rand="200"/>
+                    <Angle Angle="0"/>
+                    <Str Str="UnvisibleName"/>
+                    <Str Str="None"/>
+                    <Num Num="0"/>
+                    <Num Num="10"/>
+                    <Str Str="Weekly_Denoptic"/>
+                    <MonProp/>
+                </Scp>
+                <Scp Scp="MONSKL_CRE_MON" Client="NO" UseSleep="NO" Time="2000">
+                    <Str Str="weekly_Denoptic"/>
+                    <Pos Angle="0" Dist="0" Rand="200"/>
+                    <Angle Angle="0"/>
+                    <Str Str="UnvisibleName"/>
+                    <Str Str="None"/>
+                    <Num Num="0"/>
+                    <Num Num="10"/>
+                    <Str Str="Weekly_Denoptic"/>
+                    <MonProp/>
+                </Scp>
+            </EtcList>
+        </MainSkl>
+    </Skill>
+    <Skill Name="Mon_FieldRift_pattern_Skill_7">
+        <MainSkl ScrLock="None" JumpFlee="NO" MSPDToUsePos="0">
+            <HitList>
+                <Frame Type="FAN" Time="9999" HitCount="1" TermMin="0" TermMax="0" PosType="0" Dist="0" RandDist="0" RandomPerHit="0" Angle="0" Width="30" Length="30" SklAngle="0.17453292" AniTime="10199" RotAngle="0" ForceATK="0"/>
+            </HitList>
+            <EtcList>
+                <Scp Scp="MONSKL_CRE_PAD" Client="NO" UseSleep="NO" Time="1000">
+                    <Pos Angle="0" Dist="0"/>
+                    <Angle Angle="0"/>
+                    <Str Str="FieldRift_FallingRock"/>
+                </Scp>
+            </EtcList>
+        </MainSkl>
+    </Skill>
+    <Skill Name="Mon_FieldRift_pattern_Skill_8">
+        <MainSkl ScrLock="None" JumpFlee="NO" MSPDToUsePos="0">
+            <HitList>
+                <Frame Type="FAN" Time="9999" HitCount="1" TermMin="0" TermMax="0" PosType="0" Dist="0" RandDist="0" RandomPerHit="0" Angle="0" Width="30" Length="30" SklAngle="0.17453292" AniTime="10199" RotAngle="0" ForceATK="0"/>
+            </HitList>
+            <EtcList>
+                <Scp Scp="MONSKL_RANDEOM_CRE_MON_CNT_RANGE_USE_AFTERSKL" Client="NO" UseSleep="NO" Time="800">
+                    <Str Str="legend_tantaliser_summon"/>
+                    <Pos Angle="0" Dist="0" Rand="150" Height="2"/>
+                    <Str Str="UnvisibleName"/>
+                    <Str Str="None"/>
+                    <Num Num="0"/>
+                    <Num Num="5"/>
+                    <Str Str="None"/>
+                    <MonProp/>
+                    <Num Num="1"/>
+                    <Num Num="1"/>
+                    <Num Num="150"/>
+                    <Num Num="1000"/>
+                    <Str Str="Tantaliser_Pad3"/>
+                    <Num Num="3"/>
+                    <Num Num="60"/>
+                </Scp>
+                <Scp Scp="MONSKL_RANDEOM_CRE_MON_CNT_RANGE_USE_AFTERSKL" Client="NO" UseSleep="NO" Time="800">
+                    <Str Str="legend_tantaliser_summon"/>
+                    <Pos Angle="0" Dist="0" Rand="160" Height="1"/>
+                    <Str Str="UnvisibleName"/>
+                    <Str Str="None"/>
+                    <Num Num="0"/>
+                    <Num Num="5"/>
+                    <Str Str="None"/>
+                    <MonProp/>
+                    <Num Num="1"/>
+                    <Num Num="1"/>
+                    <Num Num="150"/>
+                    <Num Num="1000"/>
+                    <Str Str="Tantaliser_Pad3"/>
+                    <Num Num="3"/>
+                    <Num Num="60"/>
+                </Scp>
+            </EtcList>
+        </MainSkl>
+    </Skill>
+    <Skill Name="Mon_FieldRift_pattern_Skill_9">
+        <MainSkl ScrLock="None" JumpFlee="YES" MSPDToUsePos="0">
+            <HitList>
+                <Frame Type="FAN" Time="9999" HitCount="1" TermMin="0" TermMax="0" PosType="0" Dist="0" RandDist="0" RandomPerHit="0" Angle="0" AniTime="10199" RotAngle="0" ForceATK="0"/>
+            </HitList>
+            <EtcList>
+                <Scp Scp="MONSKL_CRE_PAD" Client="NO" UseSleep="NO" Time="0">
+                    <Pos Angle="0" Dist="0"/>
+                    <Angle Angle="0"/>
+                    <Str Str="FieldRift_Meteo"/>
+                </Scp>
+            </EtcList>
+            <ResultList>
+                <ToolScp Scp="S_R_TGTBUFF" Client="NO" UseSleep="NO">
+                    <Str Str="FIELDRIFT_FIRE_BUFF"/>
+                    <Num Num="1"/>
+                    <Num Num="0"/>
+                    <Num Num="5000"/>
+                    <Num Num="1"/>
+                    <Num Num="100"/>
+                    <Num Num="-1"/>
+                </ToolScp>
+            </ResultList>
+        </MainSkl>
+    </Skill>
+</ToolSkill>

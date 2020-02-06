@@ -131,6 +131,9 @@ function BTN_HOUSING_EDITMODE_BACKGROUND_CHANGE(gbox, btn)
 		msg = "ReallyChange?";
 	end
 
+	housing.CancelArrangingMovingMove();
+	ui.CloseFrame("housing_editmode_control");
+
 	local yesscp = string.format("DO_HOUSING_EDITMODE_BACKGROUND_CHANGE(%d, %d)", isHasValue, mapID);
 	ui.MsgBox(ScpArgMsg(msg), yesscp, 'None');
 end

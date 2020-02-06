@@ -4665,7 +4665,6 @@
 		<controls>
 			<groupbox name="slot_bg" rect="0 0 80 105" margin="0 0 0 0" layout_gravity="center top" skin="skill_mini_plus_skin" hittest="true" scrollbar="false"/>
 			<slot name="slot" rect="0 0 70 70" margin="0 5 0 0" layout_gravity="center top" stretch="true" PopScp="LIFT_SKILL_ICON" enabledrop="false" enablepop="true" hittestset="true" hittest="true" clicksound="button_click_big" oversound="button_over" MouseOnAnim="btn_mouseover" MouseOffAnim="btn_mouseoff" skin="slot"/>
-			<picture name="hitimg" layout_gravity="left top" rect="0 0 64 64" margin="0 2 0 0" stretch="true" hittest="false"/>
 			<richtext name="level_txt" layout_gravity="left bottom" rect="0 0 90 30" margin="7 0 0 7" format="{@st43b}{s16}Lv.%s" param1="value" fixwidth="true" hittest="false" fontname="white_16_ol" textalign="left center"/>
 			<button name="upbtn" layout_gravity="right bottom" rect="0 0 25 25" margin="0 0 5 4" MouseOnAnim="btn_mouseover" MouseOffAnim="btn_mouseoff" stretch="false" hittest="true" image="skill_mini_plus_btn" oversound="button_over"/>
 			<button name="lockbtn" layout_gravity="right bottom" rect="0 0 25 25" margin="0 0 5 4" stretch="false" hittest="true" image="skill_mini_m_btn" oversound="button_over" draw="false"/>
@@ -4990,6 +4989,44 @@
 			<picture name="clear_Pic" rect="0 0 140 140" margin="0 0 15 15" layout_gravity="right bottom" image="very_nice_stamp" stretch="true" hittest="false"/>
 		</controls>
 	</controlset>
+	<!-- content_status_board -->
+	<controlset name="content_status_board_battle_attribute" toggle="false" hittest="true" hittestset="false" width="470" height="130" skin="">
+		<controls>
+			<groupbox name="attr_bg_1" rect="0 0 170 28" margin="0 0 0 0" layout_gravity="left top" stretch="true" skin="blackbox_op_50"/>
+			<richtext name="attr_name_text_1" rect="0 0 200 20" margin="15 5 0 0" layout_gravity="left top" resizebytext="false" textalign="left center" format="{@st43}{s14}{ol}{ds}%s" param1="value" param1_def="계열 등수" fontname="white_14_ol"/>
+			<richtext name="attr_value_text_1" rect="0 0 200 20" margin="0 5 5 0" layout_gravity="right top" resizebytext="false" textalign="right center" format="{@st43}{s14}{ol}{ds}%s위 (상위 %s%)" param1="rank" param1_def="0" param2="rank_p" param2_def="0"/>
+			<groupbox name="attr_bg_2" rect="0 0 170 28" margin="0 33 0 0" layout_gravity="left top" stretch="true" skin="blackbox_op_50"/>
+			<richtext name="attr_name_text_2" rect="0 0 200 20" margin="15 38 0 0" layout_gravity="left top" resizebytext="false" textalign="left center" format="{@st43}{s14}{ol}{ds}%s" param1="value" param1_def="도전 1회 최고 점수" fontname="white_14_ol"/>
+			<richtext name="attr_value_text_2" rect="0 0 200 20" margin="0 38 5 0" layout_gravity="right top" resizebytext="false" textalign="right center" format="{@st43}{s14}{ol}{ds}%s" param1="value" param1_def="값" fontname="white_14_ol"/>
+			<groupbox name="attr_bg_3" rect="0 0 170 28" margin="0 66 0 0" layout_gravity="left top" stretch="true" skin="blackbox_op_50"/>
+			<richtext name="attr_name_text_3" rect="0 0 200 20" margin="15 71 0 0" layout_gravity="left top" resizebytext="false" textalign="left center" format="{@st43}{s14}{ol}{ds}%s" param1="value" param1_def="누적 대미지" fontname="white_14_ol"/>
+			<richtext name="attr_value_text_3" rect="0 0 200 20" margin="0 71 5 0" layout_gravity="right top" resizebytext="false" textalign="right center" format="{@st43}{s14}{ol}{ds}%s" param1="value" param1_def="값" fontname="white_14_ol"/>
+		</controls>
+	</controlset>
+	<controlset name="content_status_board_rank_attribute" toggle="false" hittest="false" hittestset="false" width="486" height="79" skin="">
+		<controls>
+			<groupbox name="attr_bg" rect="0 0 486 79" margin="0 0 0 0" layout_gravity="left center" stretch="true" skin="base_btn"/>
+			<picture name="attr_rank_pic" rect="0 0 75 62" margin="10 0 0 0" layout_gravity="left center" stretch="true" image="raid_week_rank_01" hittest="false" />
+			<richtext name="attr_rank_text" rect="0 0 75 62" margin="12 1 0 0" layout_gravity="left center" resizebytext="false" textalign="center center" format="{@st43}{s18}{ol}{ds}%s위" param1="value" param1_def="0" fontname="white_14_ol"/>
+			<richtext name="attr_name_text" rect="0 0 130 20" margin="100 0 0 0" layout_gravity="left center" resizebytext="false" textalign="center center" format="%s" param1="value" param1_def="이름" fontname="black_16_b"/>
+			<richtext name="attr_value_text" rect="0 0 200 20" margin="0 0 20 0" layout_gravity="right center" resizebytext="false" textalign="right center" format="%s" param1="value" param1_def="값" fontname="black_16_b"/>
+		</controls>
+	</controlset>
+	<controlset name="content_status_board_reward_attribute" toggle="false" hittest="true" hittestset="false" width="440" height="60" skin="">
+		<controls>
+			<button name="attr_btn" rect="0 0 440 60" margin="0 0 0 0" layout_gravity="center center" MouseOnAnim="btn_mouseover" MouseOffAnim="btn_mouseoff" stretch="true" skin="test_skin_01_btn" oversound="button_over" LBtnUpScp="" hittest="true"/>
+			<richtext name="attr_value_text" rect="0 0 120 20" margin="8 0 0 0" layout_gravity="left center" textalign="center center" resizebytext="false" autofontsizebywidth="120"/>
+			<groupbox name="attr_reward_gb" rect="0 0 290 60" margin="0 0 10 0" layout_gravity="right center" stretch="true" draw="false" hittest="false"/>
+			<picture name="stampPic" rect="0 0 56 56" margin="0 0 10 0" layout_gravity="right center" stretch="true" hittest="false"/>
+		</controls>
+	</controlset>
+	<controlset name="content_status_board_reward_list_attribute" toggle="false" hittest="true" hittestset="false" width="290" height="50" skin="">
+		<controls>
+			<picture name="attr_pic" rect="0 0 50 50" margin="0 0 0 0" layout_gravity="left center" MouseOnAnim="btn_mouseover" MouseOffAnim="btn_mouseoff" stretch="true" skin="test_skin_01_btn" oversound="button_over" LBtnUpScp="" hittest="true"/>
+			<richtext name="attr_name_text" rect="0 0 180 20" margin="60 1 0 0" layout_gravity="left center" resizebytext="false" format="%s" param1="value" param1_def="아이템 이름" fontname="black_16_b" textalign="left center"/>
+			<richtext name="attr_count_text" rect="0 0 100 40" margin="0 1 0 10" layout_gravity="right center" format="%s개" param1="value" param1_def="0" fontname="black_16_b" textalign="right center" />
+		</controls>
+	</controlset>
 	<controlset name="indun_reward_each" hittest="false" width="420" height="35" hittestset="false" draw="false">
 		<controls>
 			<richtext name="textReward" rect="0 0 100 30" margin="25 2 0 0" layout_gravity="left top" caption="{img icon_item_silver 24 24} 실버" fontname="white_18_ol" fixwidth="false" fixheight="true" hittest="false"/>
@@ -5027,6 +5064,21 @@
 			<richtext name="ark_lv" rect="0 0 100 24" margin="200 42 0 0" layout_gravity="left top" fontname="white_18_ol" format="%s" param1="value" param1_def="0" resizebytext="true" textalign="left center"/>
 			<richtext name="exp_gauge_text" rect="0 0 100 24" margin="150 72 0 0" layout_gravity="left top" fontname="white_18_ol" format="%s" param1="value" param1_def="경험치" resizebytext="true" textalign="center center"/>
 			<gauge name="exp_gauge" rect="0 0 240 34" margin="150 92 0 0" layout_gravity="left top" inverse="false" point="50" skin="gauge_itemtooltip_poten" text1="%v / %m" textalign1="center center" textfont1="white_18_ol" textoffset1="0 -1"/>
+		</controls>
+	</controlset>
+	<controlset name="weekly_boss_pattern" hittest="false" width="366" height="104" hittestset="false" draw="true" skin="test_skin_01_btn_cursoron">
+		<controls>
+			<richtext name="patternName" rect="0 0 50 18" margin="80 20 0 0" layout_gravity="left top" caption="{@st66b}{s16}불장벽"/>
+			<picture name="patternPic" rect="0 0 64 64" margin="10 0 0 0" layout_gravity="left center" image="fullred" stretch="true"/>
+			<groupbox name="patternDescBox" rect="0 0 277 47" margin="80 40 0 0" skin="ability_deck" resizebyparent="true"/>
+			<richtext name="patternDesc" parent="patternDescBox" rect="0 0 277 47" margin="3 3 0 0" layout_gravity="left top" fixwidth="true" fontname="black_12_b" resizebytext="true" updateparent="true" caption="화염의 벽을 만들어 접근한 적에게 지속적으로 불 속성 피해를 입힙니다. 피격된 적은 넉백됩니다."/>
+		</controls>
+	</controlset>
+	<controlset name="gauge_with_two_text" hittest="false" width="240" height="16" hittestset="false" draw="true" skin="test_skin_01_btn_cursoron">
+		<controls>
+			<gauge name="gauge" rect="0 0 240 16" margin="0 0 0 0" layout_gravity="left center" inverse="false" point="50" skin="None"/>
+			<richtext name="leftText" rect="0 0 240 16" margin="3 0 0 0" layout_gravity="left center" format="%s" param1="value"/>
+			<richtext name="rightText" rect="0 0 240 16" margin="0 0 3 0" layout_gravity="right center" format="%s" param1="value"/>
 		</controls>
 	</controlset>
 </controlsetlist>

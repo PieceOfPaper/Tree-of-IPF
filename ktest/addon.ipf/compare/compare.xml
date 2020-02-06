@@ -8,7 +8,7 @@
 	<layer layerlevel="80"/>
 	<option closebutton="false"/>
 	<sound opensound="character_item_window_open" closesound="character_item_window_close"/>
-	<userconfig WIN_FONT="{@st55}" LOSE_FONT="{@st46}"/>
+	<userconfig WIN_FONT="{@st55}" LOSE_FONT="{@st46}" EQUIPSLOT_PIC_MAGIC="invenslot_pic_magic" EQUIPSLOT_PIC_RARE="invenslot_pic_rare" EQUIPSLOT_PIC_UNIQUE="invenslot_pic_unique" EQUIPSLOT_PIC_LEGEND="invenslot_pic_legend"/>
 	<controls>
 		<groupbox name="bg" rect="0 0 500 1000" margin="0 30 0 0" layout_gravity="center top" draw="true" hittestbox="false" resizebyparent="false" resizebyresolution="true" scrollbar="false" skin="test_frame_low"/>
 		<groupbox name="pip4" rect="0 0 500 130" margin="0 0 0 0" layout_gravity="center top" draw="true" hittestbox="false" resizebyparent="false" scrollbar="false" skin="test_frame_top"/>

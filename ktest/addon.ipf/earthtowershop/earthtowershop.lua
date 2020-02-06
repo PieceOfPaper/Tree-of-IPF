@@ -181,9 +181,9 @@ function REQ_BUY_TPSHOP1912_SHOP_OPEN()
 end
 
 function REQ_EVENT1912_GREWUP_SHOP_OPEN()
-    local frame = ui.GetFrame("earthtowershop");
-    frame:SetUserValue("SHOP_TYPE", 'GrewUpShop');
-    ui.OpenFrame('earthtowershop');
+--    local frame = ui.GetFrame("earthtowershop");
+--    frame:SetUserValue("SHOP_TYPE", 'GrewUpShop');
+--    ui.OpenFrame('earthtowershop');
 end
 
 function REQ_EVENT_2001_NEWYEAR_SHOP_OPEN()
@@ -295,9 +295,9 @@ function EARTH_TOWER_INIT(frame, shopType)
     elseif shopType == 'Buy_TPShop1912' then
         title:SetText('{@st43}'..ScpArgMsg("TP_201912_fur_change"));
         close:SetTextTooltip(ScpArgMsg('CloseUI{NAME}', 'NAME', ScpArgMsg("TP_201912_fur_change")));
-    elseif shopType == 'GrewUpShop' then
-        title:SetText('{@st43}'..ScpArgMsg("NEW_CHAR_SHOP_1"));
-        close:SetTextTooltip(ScpArgMsg('CloseUI{NAME}', 'NAME', ScpArgMsg("NEW_CHAR_SHOP_1")));
+--    elseif shopType == 'GrewUpShop' then
+--        title:SetText('{@st43}'..ScpArgMsg("NEW_CHAR_SHOP_1"));
+--        close:SetTextTooltip(ScpArgMsg('CloseUI{NAME}', 'NAME', ScpArgMsg("NEW_CHAR_SHOP_1")));
     elseif shopType == 'NewYearShop' then
         title:SetText('{@st43}'..ScpArgMsg("EVENT_2001_NEWYEAR_SHOP"));
         close:SetTextTooltip(ScpArgMsg('CloseUI{NAME}', 'NAME', ScpArgMsg("EventShop")));
@@ -357,6 +357,10 @@ end
 function INSERT_ITEM(cls, tree, slotHeight, haveMaterial, shopType)
 
     local item = GetClass('Item', cls.TargetItem);
+    if item == nil then
+        return;
+    end
+
     local groupName = item.GroupName;
     local classType = nil;
     if GetPropType(item, "ClassType") ~= nil then
@@ -365,7 +369,7 @@ function INSERT_ITEM(cls, tree, slotHeight, haveMaterial, shopType)
             classType = nil
         end
     end
-
+    
     EXCHANGE_CREATE_TREE_PAGE(tree, slotHeight, groupName, classType, cls, shopType);
 end
 
@@ -451,7 +455,14 @@ function EXCHANGE_CREATE_TREE_PAGE(tree, slotHeight, groupName, classType, cls, 
     
     itemName:SetTextByKey("value", targetItem.Name .. " [" .. recipecls.TargetItemCnt .. ScpArgMsg("Piece") .. "]");
     if targetItem.StringArg == "EnchantJewell" then
-        itemName:SetTextByKey("value", "[Lv. "..cls.TargetItemAppendValue.."] "..targetItem.Name .. " [" .. recipecls.TargetItemCnt .. ScpArgMsg("Piece") .. "]");
+        local number_arg1 = TryGetProp(targetItem, 'NumberArg1', 0)
+        if number_arg1 ~= 0 then
+            itemName:SetTextByKey("value", targetItem.Name .. " [" .. recipecls.TargetItemCnt .. ScpArgMsg("Piece") .. "]");
+        else
+            itemName:SetTextByKey("value", "[Lv. "..cls.TargetItemAppendValue.."] "..targetItem.Name .. " [" .. recipecls.TargetItemCnt .. ScpArgMsg("Piece") .. "]");
+        end
+
+        
     end
     
     itemIcon:SetImage(targetItem.Icon);
@@ -788,7 +799,7 @@ function EARTH_TOWER_SHOP_TRADE_ENTER()
     elseif shopType == 'Buy_TPShop1912' then
         item.DialogTransaction("BUY_TPSHOP1912_SHOP_1_TREAD1", resultlist, cntText);
     elseif shopType == 'GrewUpShop' then
-        item.DialogTransaction("EVENT1912_GREWUP_SHOP_1_TREAD1", resultlist, cntText);
+--        item.DialogTransaction("EVENT1912_GREWUP_SHOP_1_TREAD1", resultlist, cntText);
     elseif shopType == 'NewYearShop' then
         item.DialogTransaction("EVENT_2001_NEWYEAR_SHOP_1_THREAD1", resultlist, cntText);
 	end

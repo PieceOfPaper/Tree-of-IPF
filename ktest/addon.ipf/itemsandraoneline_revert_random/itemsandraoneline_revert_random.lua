@@ -2,14 +2,11 @@ function ITEMSANDRAONELINE_REVERT_RANDOM_ON_INIT(addon, frame)
 	addon:RegisterMsg("SUCCESS_SANDRA_ONELINE_REVERT_RANDOM_OPTION", "SUCCESS_SANDRA_ONELINE_REVERT_RANDOM_OPTION");
 end
 
-local otheritemlist = {'itemrandomreset', 'itemrevertrandom', 'itemunrevertrandom', 'itemsandrarevertrandom'}
-
 -- 산드라의 미세 감정돋보기 아이템을 이용해서 UI 오픈
 function OPEN_SANDRA_ONELINE_REVERT_RANDOM(invItem)
-
-	for i = 1, #otheritemlist do
-		local frame = ui.GetFrame(otheritemlist[i]);
-		if frame ~= nil and frame:IsVisible() == 1 then
+	for i = 1, #revertrandomitemlist do
+		local frame = ui.GetFrame(revertrandomitemlist[i]);
+		if frame ~= nil and frame:IsVisible() == 1 and revertrandomitemlist[i] ~= "itemsandraoneline_revert_random" then
 			return;
 		end
 	end

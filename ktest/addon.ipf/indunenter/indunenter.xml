@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
-<uiframe name="indunenter" x="0" y="0" width="1020" height="650" create="open">
+<uiframe name="indunenter" x="0" y="0" width="1020" height="700" create="open">
 	<frame titlepos="0 0" layout_gravity="center center" margin="-100 -100 0 0"/>
 	<input moveable="true" hittestframe="true" moveintitlebar="false"/>
 	<option margin="-100 -100 0 0" closebutton="false" hideable="false"/>
@@ -94,5 +94,8 @@
 		<button name="closeBtn" parent="header" rect="0 0 40 40" margin="0 8 0 0" layout_gravity="right top" image="indun_close_btn" LBtnUpScp="INDUNENTER_CLOSEBUTTON_PRESSED"/>
 		<button name="smallBtn" parent="header" rect="0 0 40 40" margin="0 8 35 0" layout_gravity="right top" image="indun_small_btn" LBtnUpScp="INDUNENTER_SMALL"/>
 		<richtext name="indunName" parent="header" rect="0 0 400 40" margin="0 5 0 0" layout_gravity="center center" fontname="white_20_ol" caption="카타콤 지하 던전 입구" hittest="false"/>
+		<!-- etc info -->
+		<groupbox name="etcInfoGbox" rect="0 0 728 59" margin="2 0 0 0" layout_gravity="left bottom" hittestbox="false" scrollbar="false" skin="base_btn"/>
+		<richtext name="etcInfoText" parent="etcInfoGbox" rect="0 0 400 40" margin="0 0 0 0" layout_gravity="center center" fontname="black_16_b" caption="* 5인 미만인 경우 추가 대미지 버프가 제공됩니다.{nl}* 5인 미만인 경우 1명당 50%씩 증가하여, 1인으로 진행하는 경우 대미지가 200%증가합니다." hittest="false"/>
 	</controls>
 </uiframe>

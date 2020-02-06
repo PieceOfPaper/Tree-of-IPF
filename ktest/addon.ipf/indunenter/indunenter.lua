@@ -189,6 +189,7 @@ function SHOW_INDUNENTER_DIALOG(indunType, isAlreadyPlaying, enableAutoMatch, en
     INDUNENTER_MAKE_MULTI_BOX(frame, indunCls);
     INDUNENTER_UPDATE_PC_COUNT(frame, nil, "None", 0);
     INDUNENTER_MAKE_MONLIST(frame, indunCls);
+    INDUNENTER_MAKE_ETCINFO_BOX(frame, indunCls);
 
     -- setting
     INDUNENTER_INIT_MEMBERBOX(frame);
@@ -354,6 +355,15 @@ function INDUNENTER_MAKE_MONLIST(frame, indunCls)
     end
 end
 
+function INDUNENTER_MAKE_ETCINFO_BOX(frame, indunCls)
+    local etcInfoBox = GET_CHILD_RECURSIVELY(frame, 'etcInfoGbox')
+    local dungeonType = TryGetProp(indunCls, 'DungeonType', 'None')
+    if dungeonType == 'Indun' or dungeonType == 'MissionIndun' then
+        etcInfoBox:ShowWindow(1)
+    else
+        etcInfoBox:ShowWindow(0)
+    end
+end
 
 -- 큐브 재개봉 시스템 개편에 따른 변경사항으로 보상 아이템 목록 보여주는 부분 큐브 대신 구성품으로 풀어서 보여주도록 변경함(2019.2.27 변경)
 function INDUNENTER_DROPBOX_ITEM_LIST(parent, control)

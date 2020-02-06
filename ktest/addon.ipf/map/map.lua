@@ -284,6 +284,15 @@ function UI_TOGGLE_MAP()
 	if session.DontUseMinimap() == true then
 		return;
 	end
+	
+	local curmapname = session.GetMapName();
+	local housingPlaceClass = GetClass("Housing_Place", curmapname);
+	if housingPlaceClass ~= nil then
+		local placeType = TryGetProp(housingPlaceClass, "Type");
+		if placeType == "Personal" then
+			return;
+		end
+	end
 
 	local curmapname = session.GetMapName();
 	if ui.IsImageExist(curmapname) == false then

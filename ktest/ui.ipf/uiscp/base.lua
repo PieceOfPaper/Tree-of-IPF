@@ -73,14 +73,19 @@ end
 	if mapCls.ClassName == 'pvp_Mine' or mapCls.ClassName == 'pvp_Mine_2' then
 		return;
 	end
-
-	if IsRaidField() == 1 or IsRaidMap() == 1 then
-		local mGameName = session.mgame.GetCurrentMGameName()
-		if mGameName ~= nil and mGameName ~= 'None' then
-			local indunCls = GetClassByStrProp('Indun', 'MGame', mGameName)
-			local dungeonType = TryGetProp(indunCls, 'DungeonType', 'None')
+    
+    local mGameName = session.mgame.GetCurrentMGameName()
+	if mGameName ~= nil and mGameName ~= 'None' then	
+	    local indunCls = GetClassByStrProp('Indun', 'MGame', mGameName)
+		local dungeonType = TryGetProp(indunCls, 'DungeonType', 'None')
+	    if IsRaidField() == 1 or IsRaidMap() == 1 then
 			if dungeonType == 'Raid' or dungeonType == 'GTower' then
 				ui.SysMsg(ClMsg("NotAvailableInThisContents"))
+				return
+			end
+		else
+		    if dungeonType == 'WeeklyRaid' then
+		        ui.SysMsg(ClMsg("NotAvailableInThisContents"))
 				return
 			end
 		end

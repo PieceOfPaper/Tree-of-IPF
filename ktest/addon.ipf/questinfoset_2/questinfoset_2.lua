@@ -1286,7 +1286,7 @@ function MAKE_QUEST_INFO_COMMON(pc, questIES, picture, result)
     			local npcProp = mapProp:GetNPCPropByDialog(questIES[questnpc_state..'NPC']);
     			if npcProp~= nil then
     				local genList = npcProp.GenList;
-    				if genList ~= nil then
+    				if genList ~= nil and genList:Count() > 0 then
         				local genPos = genList:Element(0);
        
         				picture:SetImage("questinfo_return");
@@ -3079,10 +3079,13 @@ function QUEST_PARTY_MEMBER_PROP_UPDATE(frame)
 		g_getItemCountFunc = nil;
 		GBOX_AUTO_ALIGN(bg, 0, 3, 10, true);
 		local curValue = config.GetXMLConfig("QuestShareFolded");
+		local btn = GET_CHILD(ctrlSet, "btn");
 		if curValue == 0 then
 			ctrlSet:Resize(ctrlSet:GetWidth(), bg:GetHeight() + bg:GetY());
+			btn:SetImage("btn_minus");
 		else
 			ctrlSet:Resize(ctrlSet:GetWidth(), 30);
+			btn:SetImage("btn_plus");
 		end
 
 	end
@@ -3113,11 +3116,14 @@ function TOGGLE_PARTY_QUEST_FOLDER(parent, ctrl)
 	local ctrlSet = groupCtrl:GetChild("QUEST_SHARE");
 	if ctrlSet ~= nil then
 		local bg = ctrlSet:GetChild("bg");	
+		local btn = GET_CHILD(ctrlSet, "btn");
 		local curValue = config.GetXMLConfig("QuestShareFolded");
 		if curValue == 0 then
-			ctrlSet:Resize(ctrlSet:GetWidth(), bg:GetHeight() + bg:GetY());
+			ctrlSet:Resize(ctrlSet:GetWidth(), bg:GetHeight() + bg:GetY());			
+			btn:SetImage("btn_minus");
 		else
 			ctrlSet:Resize(ctrlSet:GetWidth(), 30);
+			btn:SetImage("btn_plus");
 		end
 		QUESTINFOSET_2_AUTO_ALIGN(groupCtrl:GetTopParentFrame(), groupCtrl);	
 	end

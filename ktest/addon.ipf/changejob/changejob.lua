@@ -573,14 +573,6 @@ function UPDATE_CHANGEJOB(frame)
 		-- hot tag
 		local charpic = GET_CHILD(subClassCtrl, "hotimg");
 		charpic:ShowWindow(0);
-		if info.HotCount > 0 then
-			local numberOfShowHot = math.min(2, #forHotJobList);
-			for hotIter = 1, numberOfShowHot do
-				if forHotJobList[hotIter].JobClassID == info.JobClassID then
-					charpic:ShowWindow(1);
-				end
-			end
-		end
 		if info.IsNew == true then
 			charpic:SetImage(BUTTON_IMG_NEW_JOB);
 			charpic:ShowWindow(1);

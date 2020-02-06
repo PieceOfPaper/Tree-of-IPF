@@ -42,11 +42,15 @@ function MAP_MON_MINIMAP(frame, msg, argStr, argNum, info)
 	-- 인던일 경우 일반 몬스터의 아이콘을 dot로 변경한다.
 	local isDotIcon = false;
 	if session.world.IsIntegrateServer() == true or
-	 session.world.IsIntegrateIndunServer() == true or
-	 session.IsMissionMap() == true or
-	 session.world.IsDungeon() == true then      
+		session.world.IsIntegrateIndunServer() == true or
+		session.IsMissionMap() == true or
+		session.world.IsDungeon() == true then
 		isDotIcon = true;
     end
+
+	if info.isDot == true then
+		isDotIcon = true;
+	end
 
 	local width;
 	local height;

@@ -520,7 +520,7 @@ function CLOSE_ITEM_TOOLTIP()
 
 end
 
-function SET_ITEM_TOOLTIP_ALL_TYPE(icon, invitem, className, strType, itemType, index)
+function SET_ITEM_TOOLTIP_ALL_TYPE(icon, invitem, className, strType, itemType, index)	
 	if IS_SKILL_SCROLL_ITEM_BYNAME(className) == true then
 		local obj = GetIES(invitem:GetObject());
 		SET_TOOLTIP_SKILLSCROLL(icon, obj, nil, strType);
@@ -642,7 +642,11 @@ function DRAW_EXTRACT_OPTION_LIMIT_EQUIP_DESC(tooltipframe, targetItem, mainfram
 end
 
 function GET_ENCHANT_JEWELL_ITEM_NAME_STRING(jewellItem)
-	return '['..string.format('LV. %d', jewellItem.Level)..'] '..jewellItem.Name;
+	if tonumber(TryGetProp(jewellItem, 'NumberArg1', 0)) >= 400 then
+		return jewellItem.Name
+	else	
+		return '['..string.format('LV. %d', jewellItem.Level)..'] '..jewellItem.Name;
+	end
 end
 
 function GET_ICOR_ITEM_NAME_STRING(item)
@@ -816,7 +820,11 @@ function ITEM_TOOLTIP_ENCHANT_JEWELL(tooltipframe, invitem, mouseOverFrameName)
 	local line1 = commonCtrlSet:GetChild('line1');
 	line1:ShowWindow(0);
 
-	ypos = DRAW_EXTRACT_OPTION_LIMIT_EQUIP_DESC(tooltipframe, invitem, mainframename, ypos, ScpArgMsg('{LEVEL}LimitEquipNormalItem', 'LEVEL', invitem.Level));
+	if invitem.NumberArg1 > 0 then
+		ypos = DRAW_EXTRACT_OPTION_LIMIT_EQUIP_DESC(tooltipframe, invitem, mainframename, ypos, ScpArgMsg('{LEVEL}LimitEquipNormalItem', 'LEVEL', invitem.NumberArg1));
+	else
+		ypos = DRAW_EXTRACT_OPTION_LIMIT_EQUIP_DESC(tooltipframe, invitem, mainframename, ypos, ScpArgMsg('{LEVEL}LimitEquipNormalItem', 'LEVEL', invitem.Level));
+	end
 	ypos = DRAW_EQUIP_TRADABILITY(tooltipframe, invitem, ypos, mainframename);
 	ypos = DRAW_EQUIP_DESC(tooltipframe, invitem, ypos, mainframename);
 	ypos = DRAW_SELL_PRICE(tooltipframe, invitem, ypos, mainframename);

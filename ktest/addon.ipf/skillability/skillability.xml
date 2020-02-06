@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by IMC (IMCGames Co., Ltd) -->
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
 <uiframe name="skillability" x="0" y="0" width="1270" height="900">
 	<frame fullheight="false" fasthide="true" layout_gravity="center center" margin="0 -30 0 0" draw="true"/>
 	<skin frameskin="test_frame_low"/>
 	<draw drawtitlebar="false"/>
 	<input moveable="true" hittestframe="true" moveintitlebar="false"/>
-	<option visible="false" hideable="true" closebutton="false" moveable="true" alwaysVisible="false"/>
+	<option visible="false" hideable="true" closebutton="false" moveable="true" alwaysVisible="false" exceptionUpdateUiMode="true"/>
 	<sound opensound="skill_window_open" closesound="skill_window_close"/>
 	<animation frameOpenAnim="chat_balloon_start" frameCloseAnim="chat_balloon_end" margin="-100 -100 0 0"/>
 	<layer layerlevel="92"/>

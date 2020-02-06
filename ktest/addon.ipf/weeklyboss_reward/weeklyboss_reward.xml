@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<uiframe name="weeklyboss_reward" x="0" y="0" width="500" height="714">
+	<frame fullheight="false" fasthide="true" layout_gravity="center center" margin="0 0 0 0" draw="true"/>
+	<skin frameskin="adventure_paper2"/>
+	<draw drawframe="true" drawtitlebar="false"/>
+	<input moveable="true" hittestframe="true" moveintitlebar="false"/>
+	<layer layerlevel="102"/>
+	<script OpenScp="WEEKLYBOSSREWARD_OPEN" CloseScp="WEEKLYBOSSREWARD_CLOSE"/>
+	<userconfig RANK_FORMAT_1="{@st43}{s18}%s위" RANK_FORMAT_2="{@st43}{s18}%s위 ~ %s위" ABSOLUTED_FORMAT="{@st43}{s18}%s" OFFSET_SMALL="5" OFFSET_MIDDLE="10"/>
+	<controls>
+		<richtext name="title_text" rect="0 0 120 22" margin="0 29 0 0" layout_gravity="center top" caption="{@st43}{s22}보상 목록" fontname="white_20_ol_ds"/>
+		<button name="closeBtn" rect="0 0 50 50" margin="0 22 20 0" layout_gravity="right top" LBtnUpScp="ui.CloseFrame(&apos;weeklyboss_reward&apos;)" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" clicksound="button_click_big" image="testclose_button" oversound="button_over" texttooltip="{@st59}창을 닫습니다{/}"/>
+		<labelline name="labelline" rect="0 0 448 2" margin="0 68 0 0" layout_gravity="center top" skin="labelline_def_2"/>
+		<groupbox name="rewardgb" rect="0 0 458 570" margin="0 80 0 0" layout_gravity="center top" skin="test_frame_midle" draw="true" hittestbox="false"/>
+        <button name="btn_reward" rect="0 0 120 40" margin="0 0 0 18" layout_gravity="center bottom" LBtnUpScp="WEEKLYBOSS_REWARD_GET_ALL" caption="{s16}{ol}{#FFFFFF}모두 받기" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" skin="test_red_button"/>
+	</controls>
+</uiframe>

@@ -541,6 +541,9 @@ function NEW_QUEST_ADD(frame, msg, argStr, argNum)
 		end
 	end
     
+	-- 공유 퀘스트 확인
+	CHECK_PARTY_QUEST_ADD(frame, argNum)
+    
 	-- 퀘스트 정보 업데이트
 	if questIES ~= nil then
 		_UPDATE_QUEST_INFO(questIES)
@@ -550,7 +553,39 @@ function NEW_QUEST_ADD(frame, msg, argStr, argNum)
 	QUEST_RESERVE_DRAW_LIST(frame)
 end
 
+function CHECK_PARTY_QUEST_ADD(frame, questID)
 
+	local myInfo = session.party.GetMyPartyObj(PARTY_NORMAL);
+	if myInfo == nil then
+		return;
+	end	
+
+	local myObj = GetIES(myInfo:GetObject());	
+	if myObj.Shared_Quest > 0 then
+
+		local sObj = GetClassByType("QuestProgressCheck", myObj.Shared_Quest)
+		local pc = GetMyPCObject();
+		local ret = SCR_QUEST_CHECK_C(pc, sObj.ClassName);
+		if ret == "SUCCESS" or ret == "COMPLETE" then
+			local questnpc_state = GET_QUEST_NPC_STATE(sObj, ret);
+			if questnpc_state == nil then
+				questnpc_state = GET_QUEST_NPC_STATE(sObj, "SUCCESS");
+			end
+
+			if questnpc_state ~= nil then
+				local mapName, x, y, z = GET_QUEST_RET_POS(pc, sObj, questnpc_state)
+				if mapName ~= nil then
+					local stateKey = StringToIntKey(questnpc_state);
+					party.ReqChangeMemberProperty(PARTY_NORMAL, "Before_Quest", myObj.Shared_Quest);
+					party.ReqChangeMemberProperty(PARTY_NORMAL, "Before_Quest_State", stateKey);				
+				end
+			end
+			party.ReqChangeMemberProperty(PARTY_NORMAL, "Shared_Quest", questID);		
+		end
+	else
+		party.ReqChangeMemberProperty(PARTY_NORMAL, "Shared_Quest", questID);	
+	end
+end
 
 function DENIED_EXCEPTION_QUEST_LIST(QuestClssName)
     
@@ -2124,7 +2159,7 @@ function SCR_QUEST_SHARE_PARTY_MEMBER(ctrlSet, ctrl, strArg, numArg)
 end
 
 function REQUEST_QUEST_SHARE_PARTY_PROGRESS(questClsID)
-	party.ReqChangeMemberProperty(PARTY_NORMAL, "Shared_Progress", -1)
+--	party.ReqChangeMemberProperty(PARTY_NORMAL, "Shared_Progress", -1)
 
 	local myInfo = session.party.GetMyPartyObj(PARTY_NORMAL);
 	if nil == myInfo then
@@ -2151,6 +2186,7 @@ end
 function CANCEL_QUEST_SHARE_PARTY_MEMBER()
 	party.ReqChangeMemberProperty(PARTY_NORMAL, "Shared_Quest", 0);
 	party.ReqChangeMemberProperty(PARTY_NORMAL, "Shared_Quest", -1);
+	party.ReqChangeMemberProperty(PARTY_NORMAL, "Shared_Progress", -1)
 end
 
 function ON_PARTY_UPDATE_SHARED_QUEST()

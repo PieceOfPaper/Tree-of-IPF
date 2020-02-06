@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by Hey (IMCGames Co., Ltd) -->
-<uiframe name="minimized_personal_housing" x="0" y="0" width="200" height="130">
+<uiframe name="minimized_personal_housing" x="0" y="0" width="300" height="130">
 	<frame fullheight="false" fasthide="false" scale_align="center center" layout_gravity="center top" margin="0 0 0 0"/>
 	<layer layerlevel="80"/>
 	<draw blend="100" drawtitlebar="false" drawframe="false"/>
 	<option visible="true" closebutton="false" useimageitem="true" piptype="right" autoopen="true" hideable="false"/>
 	<controls>
-		<groupbox name="gbox" rect="0 0 195 35" margin="0 15 0 0" layout_gravity="left top" draw="true" skin="blackbox_op_50" hittestbox="false" hittest="true"/>
-		<richtext name="house_name" parent="gbox" rect="0 0 180 30" margin="0 0 0 0" layout_gravity="center center" format="{@st41}%s{/}" param1="value" param1_def="" fontname="white_18_ol_ds" resizebytext="true"/>
+		<groupbox name="gbox" rect="0 0 295 35" margin="0 15 0 0" layout_gravity="left top" draw="true" skin="blackbox_op_50" hittestbox="false" hittest="true"/>
+		<richtext name="house_name" parent="gbox" rect="0 0 280 30" margin="0 0 0 0" layout_gravity="center center" format="{@st41}%s{/}" param1="value" param1_def="" fontname="white_18_ol_ds" resizebytext="true"/>
 		<button name="btn_request_leave" rect="0 0 120 60" margin="0 20 0 0" layout_gravity="center center" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" caption="{@st41b}나가기{/}" clicksound="button_click_3" oversound="button_cursor_over_2" skin="test_red_button" LBtnDownScp="SCR_PERSONAL_HOUSING_IS_REALLY_OUT" visible="false"/>
 	</controls>
 </uiframe>

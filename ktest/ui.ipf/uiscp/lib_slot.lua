@@ -451,8 +451,7 @@ function SET_SLOT_ITEM_TEXT(slot, invItem, obj)
 	end
 end
 
-function SET_SLOT_ITEM_TEXT_USE_INVCOUNT(slot, invItem, obj, count, font)
-
+function SET_SLOT_ITEM_TEXT_USE_INVCOUNT(slot, invItem, obj, count, font)	
 	local refreshScp = TryGetProp(obj,'RefreshScp')
 
 	if refreshScp ~= "None" and refreshScp ~= nil and obj ~= nil then
@@ -461,23 +460,38 @@ function SET_SLOT_ITEM_TEXT_USE_INVCOUNT(slot, invItem, obj, count, font)
 	end	
 
 	if obj.MaxStack > 1 then
-		if count ~= nil then
-			SET_SLOT_COUNT_TEXT(slot, count, font);
+		if IS_ENCHANT_JEWELL_ITEM(obj) == true then			
+			local number = TryGetProp(obj, 'NumberArg1', 0)
+			if number > 0 then
+				slot:SetText('{s15}{ol}{#FFFFFF}{b}LV.' ..number .. '{nl} {nl}' .. tostring(invItem.count), 'count', ui.RIGHT, ui.BOTTOM, -2, 1);
+			end
 		else
-			SET_SLOT_COUNT_TEXT(slot, invItem.count, font);
+			if count ~= nil then
+				if 100000 <= count then	-- 6자리 수 폰트 크기 조정
+					font = "{s14}{ol}{b}";
+				end
+
+				SET_SLOT_COUNT_TEXT(slot, count, font);
+			else
+				if 100000 <= invItem.count then	-- 6자리 수 폰트 크기 조정
+					font = "{s14}{ol}{b}";
+				end
+
+				SET_SLOT_COUNT_TEXT(slot, invItem.count, font);
+			end
 		end
+
 		return;
 	end
 
-	local lv = TryGetProp(obj, "Level");
-	if lv ~= nil and lv > 1 then
+	local lv = TryGetProp(obj, "Level", 0)	
+	if lv > 1 then
 		--slot:SetFrontImage('enchantlevel_indi_icon');
-		if IS_ENCHANT_JEWELL_ITEM(obj) == true then
-			slot:SetText('{s15}{ol}{#FFFFFF}{b}LV.'..lv, 'count', ui.LEFT, ui.BOTTOM, 3, 2);
+		if IS_ENCHANT_JEWELL_ITEM(obj) == true then			
+			slot:SetText('{s15}{ol}{#FFFFFF}{b}LV.'..lv, 'count', ui.LEFT, ui.BOTTOM, 3, 2);			
 		else
 			slot:SetText('{s17}{ol}{#FFFFFF}{b}LV. '..lv, 'count', ui.LEFT, ui.TOP, 3, 2);
 		end
-		return;
 	end
 end
 

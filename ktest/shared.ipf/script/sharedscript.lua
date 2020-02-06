@@ -108,6 +108,29 @@ date_time.is_between_time = function(start_datetime, end_datetime)
     end
 end
 
+-- start_datetime, end_datetime = yyyy-mm-dd hh:mm:ss (string)
+-- 특정 시간(time , string)이 start, end 사이에 존재하는가
+date_time.is_this_time_between_time = function(start_datetime, time, end_datetime)
+    if start_datetime == nil or end_datetime == nil or start_datetime == 'None' or end_datetime == 'None' then
+        return false
+    end
+
+    local lua_start_datetime = date_time.get_lua_datetime_from_str(start_datetime)
+    local lua_end_datetime = date_time.get_lua_datetime_from_str(end_datetime)
+
+    if lua_start_datetime == nil or lua_end_datetime == nil then
+        return false
+    end
+
+    local now = date_time.get_lua_datetime_from_str(time)
+    if lua_start_datetime <= now and now <= lua_end_datetime then
+        return true
+    else
+        return false
+    end
+end
+
+
 -- 루아 시간을 yyyy-mm-dd hh:mm:ss 로 변환한다
 date_time.lua_datetime_to_str = function(lua_datetime)
     local ret_time = os.date('*t', lua_datetime)
@@ -2015,6 +2038,19 @@ function NUM_KILO_CHANGE(num)
     return str
 end
 
+function STR_KILO_CHANGE(num)
+    local padding = 3 - string.len(num) % 3
+    if padding == 3 then
+        padding = 0
+    end
+    for i = 1,padding do
+        num = '0' .. num
+    end
+    num = string.gsub(num,"[0-9][0-9][0-9]",function(w) return w..',' end)
+    num = string.sub(num,padding+1,string.len(num) - 1)
+    return num
+end
+
 function SCR_POSSIBLE_UI_OPEN_CHECK(pc, questIES, subQuestZoneList, chType)
     local ret = "HIDE"
     if questIES.PossibleUI_Notify == 'NO' then
@@ -3216,4 +3252,12 @@ function GET_MODIFIED_PROPERTIES_STRING(item, invitem)
         str = str .. invitem:GetAdditionalModifiedString();
     end
     return str;
+end
+
+function RANDOM_SHUFFLE(tbl)
+    for i = #tbl, 2, -1 do
+        local j = math.random(1, i);
+        tbl[i], tbl[j] = tbl[j], tbl[i];
+    end
+    return tbl
 end

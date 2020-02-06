@@ -121,10 +121,21 @@ function UPDATE_PREMIUM_TOOLTIP(tooltipframe, strarg, numarg1, numarg2)
 	local y = 45;
 	for i = 0, cnt - 1 do
 		local ctrl = tooltipframe:GetChildByIndex(i);
+		
+		-- 증정용 토큰일 경우 '개인 거래 무제한' text 안보이도록
+		local itemcls = GetClassByType("Item", numarg2);
+		if ctrl:GetName() == 'TradeFreeCom' then
+			if itemcls.NumberArg2 == 0 then
+				ctrl:ShowWindow(0);
+			else
+				ctrl:ShowWindow(1);
+			end
+		end
+
 		if ctrl:IsVisible() == 1 and ctrl:GetClassString() == "ui::CRichText" and ctrl:GetName() ~= "richtext_1" then
 			ctrl:SetOffset(ctrl:GetX(), y);
 			y = y + ctrl:GetHeight();
-		end
+		end	
 	end
 
 	local gbox = tooltipframe:GetChild("gbox");

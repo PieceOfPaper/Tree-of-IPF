@@ -8,23 +8,19 @@ local isCloseable = 1
 local propNameList = nil
 local propValueList = nil
 
-
 function OPEN_REVERT_RANDOM(invItem)
 	local frame = ui.GetFrame('itemrevertrandom');    
     if frame ~= nil and frame:IsVisible() == 1 then
         ui.SysMsg(ClMsg('AlreadyProcessing'));
         return;
-    end
-
-    local itemunrevertrandom = ui.GetFrame('itemunrevertrandom');
-    if itemunrevertrandom ~= nil and itemunrevertrandom:IsVisible() == 1 then
-    	return;
-    end
-
-    local itemrandomreset = ui.GetFrame('itemrandomreset');
-    if itemrandomreset ~= nil and itemrandomreset:IsVisible() == 1 then
-    	return;
-    end
+	end
+	
+	for i = 1, #revertrandomitemlist do
+		local frame = ui.GetFrame(revertrandomitemlist[i]);
+		if frame ~= nil and frame:IsVisible() == 1 and revertrandomitemlist[i] ~= "itemrevertrandom" then
+			return;
+		end
+	end
 
 	frame:SetUserValue('REVERTITEM_GUID', invItem:GetIESID());
 	frame:ShowWindow(1);	
@@ -156,7 +152,7 @@ function ITEM_REVERT_RANDOM_REG_TARGETITEM(frame, itemID, reReg)
 	local item = GetIES(invItem:GetObject());
 	local itemCls = GetClassByType('Item', item.ClassID)
 
-	if itemCls.NeedRandomOption ~= 1 then
+	if TryGetProp(itemCls, 'NeedRandomOption') ~= 1 then
 		ui.SysMsg(ClMsg("NotAllowedRandomReset"));
 		return;
 	end

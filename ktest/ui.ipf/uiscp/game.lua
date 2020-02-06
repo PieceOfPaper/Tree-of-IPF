@@ -1751,7 +1751,7 @@ function SCR_SKILLSCROLL(invItem)
 		if mGameName ~= nil and mGameName ~= 'None' then
 			local indunCls = GetClassByStrProp('Indun', 'MGame', mGameName)
 			local dungeonType = TryGetProp(indunCls, 'DungeonType', 'None')
-			if dungeonType == 'Raid' or dungeonType == 'GTower' then
+			if dungeonType == 'Raid' or dungeonType == 'GTower' or dungeonType == 'WeeklyRaid' then
 				ui.SysMsg(ClMsg("NotAvailableInThisContents"))
 				return
 			end

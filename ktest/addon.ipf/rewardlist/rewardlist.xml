@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<uiframe name="rewardlist" x="0" y="0" width="540" height="760">
+	<frame fullheight="false" fasthide="true" layout_gravity="center center" margin="0 0 0 0" scale_align="center center"/>
+	<skin frameskin="test_pvp_skin"/>
+	<draw drawtitlebar="false"/>
+	<layer layerlevel="1000"/>
+	<input moveable="true" hittestframe="true" moveintitlebar="false"/>
+	<sound opensound="sys_popup_open_1" closesound="character_item_window_close"/>
+	<userconfig />
+	<script OpenScp="REWARDLIST_OPEN" CloseScp="REWARDLIST_CLOSE"/>
+	<controls>
+		<richtext name="title" margin="0 10 0 0" rect="0 0 300 50" caption="{@st43}보상 리스트{/}" textalign="center center" resizebytext="false" spacey="0" maxwidth="0" fontname="white_16_ol" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="center top" hittest="false" hittestbox="true"/>
+		<groupbox name="itemFramePic" rect="0 0 120 120" margin="50 100 0 0" layout_gravity="left top" skin="test_frame_midle" stretch="true"/>
+		<picture name="itemIconPic" rect="0 0 100 100" parent="itemFramePic" margin="0 0 0 0" layout_gravity="center center" image="testclose_button" stretch="true"/>
+		<groupbox name="nameBgBox" rect="0 0 330 50" margin="165 92 0 0" layout_gravity="left top" skin="premium_title_line"/>
+		<groupbox name="itemFramePic2" rect="0 0 125 125" margin="48 97 0 0" layout_gravity="left top" skin="premium_case_skin" stretch="true"/>
+		<richtext name="itemNameText" rect="0 0 300 30" parent="nameBgBox" margin="15 0 0 0" layout_gravity="left center" caption="아이템 이름" fontname="white_18_ol"/>
+		<groupbox name="itemListBox" rect="0 0 450 430" margin="0 230 0 0" layout_gravity="center top" skin="test_frame_midle" fixheigth="true" scrollbar="true"/>
+		<groupbox name="btnBox" rect="0 0 260 40" margin="0 0 0 46" layout_gravity="center bottom" draw="false"/>
+        <button name="btn_reward" parent="btnBox" rect="0 0 120 40" margin="0 0 0 0" layout_gravity="center center" LBtnUpScp="" caption="{s16}{ol}{#FFFFFF}보상 받기" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" skin="test_red_button"/>
+		<button name="btn_ok" parent="btnBox" rect="0 0 120 40" margin="0 0 0 0" layout_gravity="center center" LBtnUpScp="ui.CloseFrame('rewardlist')" caption="{s16}{ol}{#FFFFFF}확인" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" skin="test_red_button"/>
+	</controls>
+</uiframe>

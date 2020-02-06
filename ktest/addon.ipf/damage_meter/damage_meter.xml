@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uiframe name="damage_meter" x="0" y="0" width="253" height="185">
+    <draw drawtitlebar="false"/>
+    <frame layout_gravity="right top" margin="0 70 350 0"/>
+    <input moveable="true"/>
+    <layer layerlevel="85"/>
+    <skin frameskin="black_box_op20"/>
+    <option visible="true" closebutton="false" piptype="right" autoopen="true" hideable="false"/>/>
+    <userconfig GAUGE_FONT="{@st42b}{ds}{s12}" MY_GAUGE_COLOR="{#ffc600}"/>
+    <controls>
+        <groupbox name="damageRankBox" rect="0 0 241 107" margin="0 5 0 0" layout_gravity="center top" draw="false" hittestbox="false"/>
+        <groupbox name="damageRankTitleBox" rect="0 0 241 31" margin="0 0 0 0" parent="damageRankBox" layout_gravity="center top" draw="true" hittestbox="false" skin="white_box_op10" resizebyparent="false"/>
+        <richtext name="damageRankTitleText" rect="0 0 241 31" margin="0 0 0 0" layout_gravity="center center" parent="damageRankTitleBox" format="{@st43}{s16}스킬 대미지{/}" param1="stage" />
+        <groupbox name="damageRankGaugeBox" rect="0 0 241 0" margin="0 38 0 0" layout_gravity="center top" draw="false" hittestbox="true"/>
+
+        <groupbox name="damageAccBox" rect="0 0 241 52" margin="0 0 0 90" layout_gravity="center bottom" draw="false" hittestbox="false"/>
+        <groupbox name="damageAccTitleBox" rect="0 0 241 31" margin="0 0 0 0" parent="damageAccBox" layout_gravity="center top" draw="true" hittestbox="false" skin="white_box_op10" resizebyparent="false"/>
+        <richtext name="damageAccTitleText" rect="0 0 241 31" margin="0 0 0 0" layout_gravity="center center" parent="damageAccTitleBox" format="{@st43}{s16}총 대미지{/}" param1="stage" />
+        <groupbox name="damageAccGaugeBox" rect="0 0 241 17" margin="0 35 0 0" parent="damageAccBox" layout_gravity="center top" draw="false" hittestbox="false"/>
+
+        <groupbox name="remaintimeBox" rect="0 0 241 40" margin="0 0 0 45" layout_gravity="center bottom" skin="white_box_op10" hittestbox="false"/>
+        <slot name="clockIcon" rect="0 0 20 20" margin="10 3 0 0" layout_gravity="left top" parent="remaintimeBox" image="pcbang_clock_icon_s" hittest="false"/>
+        <richtext name="remaintimeText" rect="0 0 150 25" margin="32 3 0 0" layout_gravity="left top" parent="remaintimeBox" caption="{@st42b}{ds}{s14}남은 시간{/}" />
+        <richtext name="remaintimeValue" rect="0 0 150 25" margin="0 3 10 0" layout_gravity="right top" parent="remaintimeBox" format="{@st42b}{ds}{s14}%s:%s{/}" param1="min" param2="sec" param1_def="33" param2_def="44"/>
+        <gauge name="remaintimeGauge" parent="remaintimeBox" rect="0 0 232 8" margin="0 28 0 0" hittest="false" layout_gravity="center top" inverse="false" skin="gauge"/>
+        <button name="stageGiveUp" rect="0 0 117 41" margin="0 0 0 3" caption="{@st42b}{s14}포기하기{/}" skin="test_red_button" layout_gravity="center bottom" clicksound="button_click_skill_up_OK" oversound="button_over" LBtnUpScp="DAMAGE_METER_REQ_RETURN"/>
+    </controls>
+</uiframe>

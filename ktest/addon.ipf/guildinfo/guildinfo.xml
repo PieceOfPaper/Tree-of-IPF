@@ -6,7 +6,7 @@
 	<frame title="" fullheight="false" fasthide="true" layout_gravity="center center"/>
 	<input moveable="true" hittestframe="true" moveintitlebar="false"/>
 	<layer layerlevel="92"/>
-	<option closebutton="false"/>
+	<option closebutton="false" exceptionUpdateUiMode="true"/>
 	<sound opensound="inven_win_open" closesound="inven_win_close"/>
 	<opencheck scp="UI_CHECK_GUILD_UI_OPEN"/>
 	<script OpenScp="GUILDINFO_OPEN_UI" CloseScp="GUILDINFO_CLOSE_UI" LBtnDownScp="GUILDINFO_MOVE_START"/>

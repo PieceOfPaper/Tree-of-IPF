@@ -51,36 +51,36 @@ function ON_BARRACK_NAME_CHANGE_RESULT(frame, addon, str, result)
 	end
 
 	--[[
-	[ΗΡ±Ή]
-	[1001ΏωµεΏ΅Ό­ »ύΌΊ ½Γ]
-	-- °°ΐΊ 1001ΏωµεΏ΅ ΐΜΉΜ °°ΐΊ ΖΐΈνΐΜ ΑΈΐη
+	[ν•κµ­]
+	[1001μ›”λ“μ—μ„ μƒμ„± μ‹]
+	-- κ°™μ€ 1001μ›”λ“μ— μ΄λ―Έ κ°™μ€ ν€λª…μ΄ μ΅΄μ¬
 	p_error = -11 ;
 
-	-- 1001, 1002Ώωµε°΅ ΎΖ΄Ρ ΄ΩΈ¥ ΏωµεΏ΅ °°ΐΊ ΖΐΈνΐΜ ΑΈΐη
+	-- 1001, 1002μ›”λ“κ°€ μ•„λ‹ λ‹¤λ¥Έ μ›”λ“μ— κ°™μ€ ν€λª…μ΄ μ΅΄μ¬
 	p_error = -12 ;
 
-	[1002ΏωµεΏ΅Ό­ »ύΌΊ ½Γ]
-	-- °°ΐΊ 1002ΏωµεΏ΅ ΐΜΉΜ °°ΐΊ ΖΐΈνΐΜ ΑΈΐη
+	[1002μ›”λ“μ—μ„ μƒμ„± μ‹]
+	-- κ°™μ€ 1002μ›”λ“μ— μ΄λ―Έ κ°™μ€ ν€λª…μ΄ μ΅΄μ¬
 	p_error = -13 ;
 
-	-- 1001, 1002Ώωµε°΅ ΎΖ΄Ρ ΄ΩΈ¥ ΏωµεΏ΅ °°ΐΊ ΖΐΈνΐΜ ΑΈΐη
+	-- 1001, 1002μ›”λ“κ°€ μ•„λ‹ λ‹¤λ¥Έ μ›”λ“μ— κ°™μ€ ν€λª…μ΄ μ΅΄μ¬
 	p_error = -14 ;
 	
-	[1001,1002°΅ ΎΖ΄Ρ ΏωµεΏ΅Ό­ »ύΌΊ ½Γ]
-	-- ΖΐΈνΐΜ ΑΈΐη
+	[1001,1002κ°€ μ•„λ‹ μ›”λ“μ—μ„ μƒμ„± μ‹]
+	-- ν€λª…μ΄ μ΅΄μ¬
 	p_error = -15 ;
 	
 	
-	[΄λΈΈ]
-	-- ΖΐΈνΐΜ ΑΈΐη
+	[λ€λ§]
+	-- ν€λª…μ΄ μ΅΄μ¬
 	p_error = -21 ;
 	
-	[ΐΞµµ]
-	-- ΖΐΈνΐΜ ΑΈΐη
+	[μΈλ„]
+	-- ν€λª…μ΄ μ΅΄μ¬
 	p_error = -31 ;
 	
-	[ΐ§ ±Ή°΅Έ¦ Α¦ΏάΗΡ Έπµη ±Ή°΅]
-	-- ΖΐΈνΐΜ ΑΈΐη
+	[μ„ κµ­κ°€λ¥Ό μ μ™Έν• λª¨λ“  κµ­κ°€]
+	-- ν€λª…μ΄ μ΅΄μ¬
 	p_error = -1 ;
 	]]--
 
@@ -91,7 +91,9 @@ function ON_BARRACK_NAME_CHANGE_RESULT(frame, addon, str, result)
 	elseif result == -15 then
 		ui.SysMsg(ClMsg("KorAnotherWorldExistFamilyName"));
 	elseif result == -2 then
-	  ui.SysMsg(ClMsg("HadFobbidenWord"));
+	  	ui.SysMsg(ClMsg("HadFobbidenWord"));
+	elseif result == -50 then
+		ui.SysMsg(ClMsg("CantCreateTeamCuzExisting"));
 	else
 			ui.SysMsg(ClMsg("TeamNameChangeFailed"));
 		end			

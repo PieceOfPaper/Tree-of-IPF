@@ -82,7 +82,6 @@ function BTN_HOUSING_EDITMODE_REMOVE_YES(gbox, btn)
 	local type = btn:GetUserValue("RemoveType");
 	local value = btn:GetUserValue("RemoveValue");
 
-	print(type, value);
 	if type ~= nil then
 		if type == "Handle" then
 			housing.RemoveFurniture(tostring(value));

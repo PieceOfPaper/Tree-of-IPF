@@ -49,10 +49,15 @@ function SET_ITEM_CRAFT_UINAME(uiName)
 end
 
 function ITEMCRAFT_REFRSH(frame, msg, str, time)
+	if msg == 'INV_ITEM_ADD' or msg == 'INV_ITEM_POST_REMOVE' or msg == 'INV_ITEM_CHANGE_COUNT' then
+		DebounceScript("_ITEMCRAFT_REFRSH", 0.1);
+	end
+end
 
-	frame = ui.GetFrame(frame:GetUserValue("UI_NAME"));
+function _ITEMCRAFT_REFRSH()
+	local frame = ui.GetFrame(g_itemCraftFrameName);
 	if frame == nil then
-		frame = ui.GetFrame(g_itemCraftFrameName);
+		return;
 	end
 
 	CREATE_CRAFT_ARTICLE(frame);
@@ -163,7 +168,7 @@ function CRAFT_CHECK_Recipe_ItemCraft(cls, arg1, arg2)
 end	
 		
 		
-function CREATE_CRAFT_ARTICLE(frame)    
+function CREATE_CRAFT_ARTICLE(frame)
 	if g_craftRecipe == nil then
 		return;
 	end
@@ -208,9 +213,9 @@ function CREATE_CRAFT_ARTICLE(frame)
 	local checkHaveMaterial = showonlyhavemat:IsChecked();	
 
 	local checkCraftFunc = _G["CRAFT_CHECK_".. idSpace];
-	while cls ~= nil do        
+	while cls ~= nil do     
 		if checkCraftFunc(cls, arg1, arg2) == true then
-			local haveM = CRAFT_HAVE_MATERIAL(cls);
+			local haveM = CRAFT_HAVE_MATERIAL(cls);	-- 제작 가능 여부
 			if checkHaveMaterial == 1 then
 				if haveM == 1 then
 					CRAFT_INSERT_CRAFT(cls, tree, slotHeight,haveM);
@@ -938,7 +943,6 @@ function IS_VALUEABLE_ITEM(itemid)
 end
 
 function CRAFT_DETAIL_CRAFT_EXEC_ON_START(frame, msg, str, time)
-	frame:SetUserValue("UI_NAME", g_itemCraftFrameName);
 	frame = ui.GetFrame(g_itemCraftFrameName);
 	if frame:GetUserIValue("MANUFACTURING") == 1 then
 		
@@ -960,7 +964,7 @@ function CRAFT_DETAIL_CRAFT_EXEC_ON_FAIL(mainFrame, msg, str, time)
 
 	AddLuaTimerFuncWithLimitCount("CANCEL_ANIM_ITEMCRAFT", 1500, 1);
 
-	local frame = ui.GetFrame(mainFrame:GetUserValue("UI_NAME"))
+	local frame = ui.GetFrame(g_itemCraftFrameName)
 	if nil == frame then
 		mainFrame:SetUserValue("MANUFACTURING", 0);
 		return;
@@ -979,7 +983,7 @@ end
 function CRAFT_DETAIL_CRAFT_EXEC_ON_SUCCESS(frame, msg, str, time)
 	imcSound.PlaySoundEvent('sys_item_jackpot_get');
 
-	frame = ui.GetFrame(frame:GetUserValue("UI_NAME"))
+	frame = ui.GetFrame(g_itemCraftFrameName)
 	if frame:GetUserIValue("MANUFACTURING") ~= 1 then       
 		return;
 	end
@@ -994,7 +998,6 @@ function CRAFT_DETAIL_CRAFT_EXEC_ON_SUCCESS(frame, msg, str, time)
 		return;
 	elseif totalCount ~= remainCount and string.find(str, "Premium_boostToken") == nil then
 		if frame:GetUserIValue("MANUFACTURING") == 1 then
-			local queueFrame = ui.GetFrame("craftqueue");
 			CLEAR_CRAFT_QUEUE(queueFrame);
 			ui.CloseFrame("craftqueue");
 		end
@@ -1614,7 +1617,6 @@ end
 function CRAFT_EXIT(frame, msg, argStr, argNum)
 	packet.StopTimeAction();
 	ui.CloseFrame("timeaction");
-	ui.CloseFrame(frame:GetUserValue("UI_NAME"))
 	ui.CloseFrame(g_itemCraftFrameName);
 end
 

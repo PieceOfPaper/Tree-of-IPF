@@ -117,7 +117,7 @@ end
 
 -- 드라군 - 드래곤 피어
 function get_remove_buff_tooltip_Dragoon_DragonFear(level)
-    local percent = 5 * tonumber(level)    
+    local percent = 30 * tonumber(level)    
     if percent > 100 then
         percent = 100
     end
@@ -159,7 +159,7 @@ end
 
 -- 레티아리이 - 투망 던지기
 function get_remove_buff_tooltip_Retiarii_ThrowingFishingNet(level)
-    local percent = 5 * tonumber(level)    
+    local percent = 15 * tonumber(level)    
     if percent > 100 then
         percent = 100
     end
@@ -594,7 +594,7 @@ end
 
 -- 아웃로 - 난동 부리기
 function get_remove_buff_tooltip_OutLaw_Rampage(level)    
-    local percent = 5 * tonumber(level)    
+    local percent = 3 * tonumber(level)    
     if percent > 100 then
         percent = 100
     end

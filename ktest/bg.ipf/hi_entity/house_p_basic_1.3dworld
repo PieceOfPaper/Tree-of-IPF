@@ -1,14 +1,12 @@
 <?xml version="1.0" standalone="yes"?>
-<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by Bo-yeon Kang (IMCGames Co., Ltd) -->
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by KDH (IMCGames Co., Ltd) -->
 <!-- edited with XMLSpy v2006 U (http://www.altova.com) by Administrator (EMBRACE) -->
 <World>
 	<ModelDir IpfName="bg_hi3" Path="\personal_housing\house_p_basic_1\"/>
 	<TexDir IpfName="bg_texture" Path="\personal_housing\house_p_basic_1\"/>
-	<LightMap File="house_p_basic_1_lightmap.jpg" Length="300.0 300.0" Offset="5.09 -5.958" Size="1024 1024"/>
 	<ShaTexDir IpfName="bg_hi3" Path="\personal_housing\house_p_basic_1\"/>
-	<Model File="house_p_basic_1_floor.xac" Model="house_p_basic_1_floor" ShadowMap="house_p_basic_1_floor" pos="0.0000 0.0000 0.0000" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
-	<Model File="house_p_basic_1_wall.xac" Model="house_p_basic_1_wall" ShadowMap="house_p_basic_1_wall" pos="0.0000 0.0000 0.0000" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
-	<Model File="house_p_basic_obbcol.xac" Model="house_p_basic_obbcol" pos="0.0000 0.0000 0.0000" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
-	<Model File="house_p_basic_1_floor_deco.xac" Model="house_p_basic_1_floor_deco" ShadowMap="house_p_basic_1_floor_deco" pos="0.0000 0.0000 0.0000" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
-	<Model File="house_p_basic_1_wall_deco.xac" Model="house_p_basic_1_wall_deco" ShadowMap="house_p_basic_1_wall_deco" pos="0.0000 0.0000 0.0000" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="house_p_basic_1_floor.xac" Model="house_p_basic_1_floor" pos="0.0000 0.0000 0.0000" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="house_p_basic_1_wall.xac" Model="house_p_basic_1_wall" pos="0.0000 0.0000 0.0000" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="house_p_basic_1_floor_deco.xac" Model="house_p_basic_1_floor_deco" pos="0.0000 0.0000 0.0000" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="house_p_basic_1_wall_deco.xac" Model="house_p_basic_1_wall_deco" pos="0.0000 0.0000 0.0000" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
 </World>

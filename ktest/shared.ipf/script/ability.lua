@@ -38,6 +38,27 @@ function CHECK_ABILITY_LOCK(pc, ability, isEnableLogging)
     else
         jobHistory = GetMyJobHistoryString();
     end
+
+    -- ability.xml 파일 내 정의된 Job값, 즉 특성 획득에 필요한 직업을 획득하였는가?
+    do
+        local requiredJobObtained = false
+
+        local jobHistoryList = StringSplit(jobHistory, ";")
+        local abilityJobList = StringSplit(ability.Job, ";")
+
+        for i = 1, #jobHistoryList do
+            for j = 1, #abilityJobList do
+                if jobHistoryList[i] == abilityJobList[j] then
+                    requiredJobObtained = true
+                end
+            end
+        end
+
+        if requiredJobObtained == false then
+            LOGGING_ABILITY_CHECK(isEnableLogging, ability.ClassName, "[LOCK] required job not obtained");
+            return "LOCK"
+        end
+    end
     
     if string.find(ability.Job, ";") == nil then
         
@@ -67,9 +88,6 @@ function CHECK_ABILITY_LOCK(pc, ability, isEnableLogging)
 			LOGGING_ABILITY_CHECK(isEnableLogging, ability.ClassName, "[" .. ret .. "] Result1");
 			
             return ret;
-        else
-            LOGGING_ABILITY_CHECK(isEnableLogging, ability.ClassName, "[LOCK] PC does not have require job");
-            return 'LOCK';
         end
     else
         local sList = StringSplit(jobHistory, ";");
@@ -97,9 +115,6 @@ function CHECK_ABILITY_LOCK(pc, ability, isEnableLogging)
                 end
             end
         end
-
-        LOGGING_ABILITY_CHECK(isEnableLogging, ability.ClassName, "[LOCK] PC does not have require job or UnlockScr failed");
-        return 'LOCK';
     end
 
     IMC_LOG("INFO_NORMAL", "abilityUnlock Error");
@@ -412,7 +427,7 @@ function SCR_ABIL_CLOTH_ACTIVE(self, ability)
     local value = 0;
     
     if count >= 4 then
-	    value = 150     -- 15%
+	    value = 200     -- 20%
 	end
     
     SetExProp(self, "CLOTH_ARMOR_ABIL_VALUE", value);
@@ -474,7 +489,7 @@ function SCR_ABIL_IRON_ACTIVE(self, ability)
     local value = 0;
     
     if count >= 4 then
-	    value = 150     -- 15%
+	    value = 200     -- 20%
 	end
     
     SetExProp(self, "IRON_ARMOR_ABIL_VALUE", value);

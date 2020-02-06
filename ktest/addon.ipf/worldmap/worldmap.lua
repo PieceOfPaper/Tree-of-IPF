@@ -92,9 +92,10 @@ function WORLDMAP_UPDATE_PICSIZE(frame, currentDirection)
 end
 
 function OPEN_WORLDMAP(frame)    
+	local nowZoneName = GetZoneName(pc);
+	LOCATE_WORLDMAP_POS(frame, nowZoneName);
+
 	if frame:GetUserValue('Type') ~= 'None' or frame:GetUserValue('SCROLL_WARP') ~= 'None' then
-		local nowZoneName = GetZoneName(pc);
-		LOCATE_WORLDMAP_POS(frame, nowZoneName);
 		frame:SetUserValue("Mode", "Warp");
 	else
 		frame:SetUserValue("Mode", "WorldMap");

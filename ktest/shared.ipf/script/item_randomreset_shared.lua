@@ -135,7 +135,9 @@ function IS_ENABLE_APPLY_JEWELL(jewell, targetItem)
 		return false, 'Type';
 	end
 
-	if jewell.Level < targetItem.UseLv then
+	local number_arg1 = TryGetProp(jewell, 'NumberArg1', 0)
+
+	if jewell.Level < targetItem.UseLv and number_arg1 < targetItem.UseLv then
 		return false, 'LEVEL';
 	end
 
@@ -209,3 +211,21 @@ function IS_HAVE_RANDOM_OPTION(item)
 
 	return false;
 end
+
+function GET_RANDOM_OPTION_COUNT(itemObj)
+	if itemObj == nil then
+		return 0;
+	end
+
+	local optionCnt = 0;
+    for i = 1, MAX_RANDOM_OPTION_COUNT do
+        local itemOptionGroup = TryGetProp(itemObj, 'RandomOptionGroup_'..i)
+        if itemOptionGroup ~= nil and itemOptionGroup ~= 'None' then
+            optionCnt = optionCnt + 1;
+        end
+	end
+
+	return optionCnt;
+end
+
+revertrandomitemlist = {'itemrandomreset', 'itemrevertrandom', 'itemunrevertrandom', 'itemsandrarevertrandom', 'itemsandraoneline_revert_random', 'itemsandra_4line_revert_random', 'itemsandra_6line_revert_random'};

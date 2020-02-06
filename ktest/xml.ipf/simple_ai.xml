@@ -9683,6 +9683,22 @@
             </ToolScp>
         </List>
     </AI>
+    <AI Name="FieldRift_Ballist_Atk" ActiveMessageMapInBattle="1">
+        <List>
+            <ToolScp Scp="S_AI_ATTACK_NEAR_MAXHATECOUNT_CHECK" Client="NO" UseSleep="NO">
+                <Num Num="200"/>
+            </ToolScp>
+        </List>
+        <StartList>
+            <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+                <Num Num="200"/>
+            </ToolScp>
+            <ToolScp Scp="EnableAIOutOfPC" Client="NO" UseSleep="NO"/>
+            <ToolScp Scp="S_AI_SET_TENDENCY" Client="NO" UseSleep="NO">
+                <Str Str="Attack"/>
+            </ToolScp>
+        </StartList>
+    </AI>
     <AI Name="Flag_Mon" ActiveMessageMapInBattle="1">
         <List>
             <ToolScp Scp="S_AI_ATTACH_TO_PC" Client="NO" UseSleep="NO">
@@ -15065,6 +15081,28 @@ if self.HP == 0 then return 1; else return 0; end;">
                 <Str Str="PARTY_Q9_POTAL_DEAD"/>
             </ToolScp>
         </DeadList>
+    </AI>
+    <AI Name="PERSONAL_HOUSING_CREATE_FIGURE_AI" UpdateMS="1000" ActiveMessageMapInBattle="1">
+        <List>
+            <ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+                <Str Str="PERSONAL_HOUSING_CREATE_FIGURE_AI_RUN"/>
+            </ToolScp>
+        </List>
+        <StartList>
+            <ToolScp Scp="EnableAIOutOfPC" Client="NO" UseSleep="NO"/>
+        </StartList>
+    </AI>
+    <AI Name="PERSONAL_HOUSING_CREATE_SET_AI" ActiveMessageMapInBattle="1">
+        <StartList>
+            <ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+                <Str Str="SCR_PERSONAL_HOUSING_CREATE_FIGURE"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
+                <Num Num="0"/>
+                <Str_Arg Str="I_smoke061_dark_violet_levitation_loop" Arg="1"/>
+                <Str Str="BOT"/>
+            </ToolScp>
+        </StartList>
     </AI>
     <AI Name="PIED_PIPER_MSTEP_GEN_AI" UpdateMS="1000" ActiveMessageMapInBattle="1">
         <List>
@@ -23467,6 +23505,21 @@ if self.HP == 0 then return 1; else return 0; end;">
             <ToolScp Scp="EnableAIOutOfPC" Client="NO" UseSleep="NO"/>
         </StartList>
     </AI>
+    <AI Name="WEEKLY_ICEWALL" ActiveMessageMapInBattle="1">
+        <HitList>
+            <ToolScp Scp="SAI_HIT_DIRECT_RUN" Client="NO" UseSleep="NO">
+                <Str Str="SCR_WEEKLY_ICEWALL_HIT"/>
+            </ToolScp>
+        </HitList>
+    </AI>
+    <AI Name="WEEKLY_SPEEL_ABSORPTION_AI" ActiveMessageMapInBattle="1">
+        <List>
+            <ToolScp Scp="S_AI_CUSTOM_SCRIPT" Client="NO" UseSleep="YES">
+                <Str Str="WEEKLY_SPEEL_ABSORPTION_AI"/>
+                <Num Num="0"/>
+            </ToolScp>
+        </List>
+    </AI>
     <AI Name="WHITETREES23_1_07_F" ActiveMessageMapInBattle="1">
         <List>
             <ToolScp Scp="SAI_PARENT_POS_WARP" Client="NO" UseSleep="NO">
@@ -23576,6 +23629,23 @@ if self.HP == 0 then return 1; else return 0; end;">
                 <Str Str="Mon_PoisonPilla"/>
             </ToolScp>
         </DeadList>
+    </AI>
+    <AI Name="Weekly_Denoptic" ActiveMessageMapInBattle="1">
+        <List>
+            <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+                <Num Num="1000"/>
+            </ToolScp>
+        </List>
+        <StartList>
+            <ToolScp Scp="S_AI_SET_TENDENCY" Client="NO" UseSleep="NO">
+                <Str Str="Attack"/>
+            </ToolScp>
+            <ToolScp Scp="EnableAIOutOfPC" Client="NO" UseSleep="NO"/>
+            <ToolScp Scp="S_AI_CUSTOM_SCRIPT" Client="NO" UseSleep="YES">
+                <Str Str="Weekly_Denoptic_Born"/>
+                <Num Num="0"/>
+            </ToolScp>
+        </StartList>
     </AI>
     <AI Name="YELLOW_CRYSTAL" ActiveMessageMapInBattle="1">
         <StartList>

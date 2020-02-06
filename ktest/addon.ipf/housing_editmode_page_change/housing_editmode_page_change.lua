@@ -8,6 +8,9 @@ function BTN_HOUSING_EDITMODE_PAGE_CHANGE(gbox, btn)
 		return;
 	end
 
+	housing.CancelArrangingMovingMove();
+	ui.CloseFrame("housing_editmode_control");
+
 	housing.PageLoad(pageIndex);
 	ON_HOUSING_EDITMODE_CLOSE();
 

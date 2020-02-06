@@ -194,7 +194,7 @@ function TRANSCEND_SCROLL_RESULT(isSuccess)
 		TRANSCEND_SCROLL_RESULT_UPDATE(frame, 0);
 	end
 	
-	TRANSCEND_SCROLL_LOCK_ITEM("None")
+	TRANSCEND_SCROLL_LOCK_ITEM("None");
 	
 	local slot = GET_CHILD(frame, "slot");
 	local icon = slot:GetIcon();
@@ -354,10 +354,7 @@ function TRANSCEND_SCROLL_EXEC()
 	session.AddItemID(scrollGuid);
 	local resultlist = session.GetItemIDList();
 	item.DialogTransaction("ITEM_TRANSCEND_SCROLL", resultlist);
-
 	imcSound.PlaySoundEvent(frame:GetUserConfig("TRANS_CAST"));
-	
-
 end
 
 function TRANSCEND_SCROLL_SELECT_TARGET_ITEM(scrollItem)
@@ -438,7 +435,25 @@ function TRANSCEND_SCROLL_CLOSE()
 end
 
 function TRANSCEND_SCROLL_LOCK_ITEM(guid)
+	local lockItemGuid = nil;
+	local frame = ui.GetFrame("transcend_scroll");
+	if frame ~= nil and guid == "None" then
+		local slot = GET_CHILD_RECURSIVELY(frame, "slot");
+		if slot ~= nil then
+			local icon = slot:GetIcon();
+			if icon ~= nil then
+				tolua.cast(icon, "ui::CIcon");
+				lockItemGuid = icon:GetInfo():GetIESID();
+			end
+		end
+	end
+
+	if lockItemGuid == nil then
+		lockItemGuid = guid;
+	end
+
 	local invframe = ui.GetFrame("inventory");
+	if invframe == nil then return; end
 	invframe:SetUserValue("ITEM_GUID_IN_TRANSCEND_SCROLL", guid);
-	INVENTORY_ON_MSG(invframe, 'UPDATE_ITEM_REPAIR');
+	INVENTORY_ON_MSG(invframe, "UPDATE_ITEM_TRANSCEND_SCROLL", lockItemGuid);
 end
