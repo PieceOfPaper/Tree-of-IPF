@@ -9690,13 +9690,13 @@
             </ToolScp>
         </List>
         <StartList>
-            <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
-                <Num Num="200"/>
-            </ToolScp>
-            <ToolScp Scp="EnableAIOutOfPC" Client="NO" UseSleep="NO"/>
             <ToolScp Scp="S_AI_SET_TENDENCY" Client="NO" UseSleep="NO">
                 <Str Str="Attack"/>
             </ToolScp>
+            <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+                <Num Num="250"/>
+            </ToolScp>
+            <ToolScp Scp="EnableAIOutOfPC" Client="NO" UseSleep="NO"/>
         </StartList>
     </AI>
     <AI Name="Flag_Mon" ActiveMessageMapInBattle="1">

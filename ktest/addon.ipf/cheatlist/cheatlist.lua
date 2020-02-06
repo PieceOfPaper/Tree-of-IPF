@@ -205,7 +205,6 @@ function CREATE_LIST_LBDBLCLICK(frame, obj, argStr, argNum)
 			ui.Chat(msg);
 		end
 
-
 	elseif CheatList_curtabIndex == 3 then
 
 		local isrunscp = IS_EDITING_RUNSCP(frame);
@@ -213,18 +212,18 @@ function CREATE_LIST_LBDBLCLICK(frame, obj, argStr, argNum)
 			CHEATLIST_RUNSCRIPT(frame);
 		else
 			local ForkName = CheatList_ForkName:GetText();
-				local curItem	= CheatList_tree_array[CheatList_curtabIndex]:GetSelect(0);
-				local caption = CheatList_tree_array[CheatList_curtabIndex]:GetItemCaption(curItem);
+			local curItem	= CheatList_tree_array[CheatList_curtabIndex]:GetSelect(0);
+			local caption = CheatList_tree_array[CheatList_curtabIndex]:GetItemCaption(curItem);
 
-				if caption ~= nil then
-					local classID	= CheatList_tree_array[CheatList_curtabIndex]:GetItemValue(curItem);
-					local cheat = GetClassString('Cheat', classID, 'Scp');
-					if cheat == "None" then
-						print("[Log] cheat is [None]! classID : "..classID);
-					else
-						loadstring(cheat)();
-					end
+			if caption ~= nil then
+				local classID	= CheatList_tree_array[CheatList_curtabIndex]:GetItemValue(curItem);
+				local cheat = GetClassString('Cheat', classID, 'Scp');
+				if cheat == "None" then
+					print("[Log] cheat is [None]! classID : "..classID);
+				else
+					load(cheat)();
 				end
+			end
 		end
 	else
 		ui.Chat(ScpArgMsg("Auto_SiSeuTemoLyuLo_inHayeo_ChiTeuLeul_SayongHal_Su_eopSeupNiDa."));

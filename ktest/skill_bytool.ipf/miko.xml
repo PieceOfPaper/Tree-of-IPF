@@ -1,384 +1,384 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
 <ToolSkill>
-	<Skill Name="Miko_Omikuji">
-		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
-			<HitList>
-				<Frame Angle="0" AniTime="9999" Dist="0" ForceATK="0" HitCount="1" Length="30" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="9799" Type="SQUARE" Width="30"/>
-			</HitList>
-			<EtcList>
-				<Scp Client="NO" Scp="SKL_SET_TARGET_CIRCLE" Time="500" UseSleep="NO">
-					<Pos Angle="0" Dist="0"/>
-					<Num Num="160"/>
-					<Num Num="5"/>
-					<Num Num="1"/>
-					<Num Num="0"/>
-					<Num Num="1"/>
-					<Num Num="1"/>
-					<Num Num="0"/>
-					<Num Num="1"/>
-				</Scp>
-				<Scp Client="NO" Scp="SKL_RUN_SCRIPT" Time="550" UseSleep="NO">
-					<Str Str="SCR_SKL_MIKO_OMIKUJI"/>
-				</Scp>
-			</EtcList>
-		</MainSkl>
-	</Skill>
-	<Skill Name="Miko_Kasiwade">
-		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
-			<HitList>
-				<Frame Angle="0" AniTime="9999" Dist="0" ForceATK="0" HitCount="1" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" TermMax="0" TermMin="0" Time="9799" Type="FAN"/>
-			</HitList>
-			<EtcList>
-				<Scp Client="YES" Scp="C_VOICE_SOUND" Time="200" UseSleep="NO">
-					<Str Str="voice_war_atk_medium"/>
-					<Str Str="voice_atk_medium_war_f"/>
-				</Scp>
-				<Scp Client="NO" Scp="SKL_RUN_SCRIPT" Time="300" UseSleep="NO">
-					<Str Str="SCR_SKL_MIKO_KASIWADE"/>
-				</Scp>
-			</EtcList>
-		</MainSkl>
-	</Skill>
-	<Skill Name="Miko_KaguraDance">
-		<EndScripts>
-			<ToolScp Scp="MONSKL_C_CLEAR_RESERVE_ANIM" Client="YES" UseSleep="NO"/>
-			<ToolScp Scp="SKL_CANCEL_CANCEL" Client="NO" UseSleep="NO"/>
-			<ToolScp Scp="MONSKL_REMOVE_PAD" Client="NO" UseSleep="NO">
-				<Str Str="Miko_KaguraDance"/>
-			</ToolScp>
-			<ToolScp Scp="SKL_SET_IMMUNE_STATE_REMOVE" Client="NO" UseSleep="YES">
-				<Str Str="Skill_SuperArmor_Buff"/>
-				<Num Num="500"/>
-			</ToolScp>
-		</EndScripts>
-		<KeyInput>
-			<ToolScp Scp="SKL_KEY_DYNAMIC_CASTING" Client="YES" UseSleep="NO">
-				<Num Num="0"/>
-				<Num Num="0"/>
-				<Num Num="10"/>
-				<Num Num="1"/>
-				<Num Num="0"/>
-				<Num Num="0"/>
-				<Num Num="1"/>
-				<Num Num="0"/>
-				<Num Num="0"/>
-				<Num Num="0"/>
-				<Num Num="1"/>
-				<Num Num="0"/>
-				<Str_Arg Str="" Arg="0"/>
-				<Str Str=""/>
-				<Num Num="0"/>
-				<Num Num="0"/>
-				<Num Num="0"/>
-				<Num Num="0"/>
-				<Num Num="0"/>
-				<Num Num="0"/>
-				<Num Num="0"/>
-				<Num Num="0"/>
-			</ToolScp>
-		</KeyInput>
-		<KeyInputStart>
-			<ToolScp Scp="MONSKL_C_PLAY_ANIM" Client="YES" UseSleep="NO">
-				<Str Str="SKL_KAGURADANCE"/>
-				<Num Num="1"/>
-				<Num Num="1"/>
-			</ToolScp>
-			<ToolScp Scp="SKL_PLAY_SOUND" Client="NO" UseSleep="NO">
-				<Str Str="skl_eff_kaguradance_ground"/>
-				<Num Num="0"/>
-				<Str Str="skl_eff_kaguradance_ground"/>
-			</ToolScp>
-		</KeyInputStart>
-		<KeyInputEnd>
-			<ToolScp Scp="SKL_CANCEL_CANCEL" Client="NO" UseSleep="NO"/>
-			<ToolScp Scp="MONSKL_REMOVE_PAD" Client="NO" UseSleep="NO">
-				<Str Str="Miko_KaguraDance"/>
-			</ToolScp>
-		</KeyInputEnd>
-		<KeyCancelScp>
-			<ToolScp Scp="SKL_CANCEL_CANCEL" Client="NO" UseSleep="NO"/>
-			<ToolScp Scp="MONSKL_REMOVE_PAD" Client="NO" UseSleep="NO">
-				<Str Str="Miko_KaguraDance"/>
-			</ToolScp>
-		</KeyCancelScp>
-		<MainSkl ScrLock="None" JumpFlee="NO" MSPDToUsePos="0">
-			<HitList>
-				<Frame Type="FAN" Time="99799" HitCount="1" TermMin="0" TermMax="0" PosType="0" Dist="0" RandDist="0" RandomPerHit="0" Angle="0" AniTime="99999" RotAngle="0" ForceATK="0"/>
-			</HitList>
-			<EtcList>
-				<Scp Scp="SKL_SET_IMMUNE_STATE" Client="NO" UseSleep="NO" Time="0">
-					<Str Str="Skill_SuperArmor_Buff"/>
-					<Num Num="100"/>
-				</Scp>
-				<Scp Scp="MONSKL_CRE_PAD" Client="NO" UseSleep="NO" Time="500">
-					<Pos Angle="0" Dist="0"/>
-					<Angle Angle="0"/>
-					<Str Str="Miko_KaguraDance"/>
-				</Scp>
-				<Scp Scp="SKL_CONSUME_SP" Client="NO" UseSleep="NO" Time="500" LoopTime="1000">
-					<Num Num="7" UseFunc="1" FuncTxt="local value = 70 + (obj.Level * 2)local lv = self.Lv local bylvCorrect = lv - 300 if bylvCorrect &lt; 0 then     bylvCorrect = bylvCorrect * 2.75 / 1000 elseif bylvCorrect >= 0 then     bylvCorrect = bylvCorrect * 1.25 / 1000 end value = value   local abil = GetAbility(self, &quot;Miko8&quot;) if abil ~= nil and abil.ActiveState == 1 then value = value * 1.3 return value end return math.floor(value)"/>
-				</Scp>
-			</EtcList>
-		</MainSkl>
-	</Skill>
-	<Skill Name="Miko_Hamaya">
-		<KeyInput>
-			<ToolScp Client="YES" Scp="SKL_KEY_GROUND_EVENT" UseSleep="NO">
-				<Num Num="3"/>
-				<Num Num="0"/>
-				<Num Num="0"/>
-				<Num Num="1"/>
-				<Num Num="200"/>
-				<Num Num="0.1"/>
-				<Num Num="0"/>
-				<Num Num="0"/>
-				<Num Num="0"/>
-				<Str_Arg Arg="1" Str="None"/>
-				<Str Str="None"/>
-				<Num Num="0"/>
-				<Num Num="0"/>
-				<Num Num="5"/>
-				<Num Num="1"/>
-				<Num Num="45"/>
-				<Num Num="0"/>
-				<Num Num="0"/>
-				<Num Num="0"/>
-				<Num Num="0"/>
-			</ToolScp>
-		</KeyInput>
-		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
-			<HitList>
-				<Frame Angle="0" AniTime="10999" Dist="0" ForceATK="0" HitCount="1" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" TermMax="0" TermMin="0" Time="10799" Type="FAN"/>
-			</HitList>
-			<EtcList>
-				<Scp Client="YES" Scp="MONSKL_C_PLAY_ANIM" Time="0" UseSleep="NO">
-					<Str Str="SKL_HAMAYA"/>
-					<Num Num="1.9"/>
-					<Num Num="1"/>
-					<Num Num="0"/>
-				</Scp>
-				<Scp Client="YES" Scp="C_VOICE_SOUND" Time="50" UseSleep="NO">
-					<Str Str="voice_archer_atk"/>
-					<Str Str="voice_archer_f_atk"/>
-				</Scp>
-				<Scp Client="YES" Scp="C_VOICE_SOUND" Time="300" UseSleep="NO">
-					<Str Str="voice_war_atk_medium"/>
-					<Str Str="voice_atk_medium_war_f"/>
-				</Scp>
-				<Scp Client="NO" Scp="MSL_PAD_THROW" Time="650" UseSleep="YES">
-					<Str_Arg Arg="1" Str="I_cleric_hamaya_arrow#Dummy_force_hamaya"/>
-					<Str_Arg Arg="1" Str="None"/>
-					<Str_Arg Arg="1" Str="None"/>
-					<Pos Angle="0" Dist="0" PosType="3"/>
-					<Num Num="10"/>
-					<Num Num="0.40000001"/>
-					<Num Num="0"/>
-					<Num Num="400"/>
-					<Num Num="1"/>
-					<Num Num="1000"/>
-					<Num Num="0"/>
-					<Str_Arg Arg="1" Str="None"/>
-					<Num Num="0"/>
-					<Num Num="0"/>
-					<Angle Angle="0"/>
-					<Str Str="Miko_Hamaya"/>
-				</Scp>
-				<Scp Client="YES" Scp="C_EFFECT_POS" Time="1150" UseSleep="NO">
-					<Str_Arg Arg="5" Str="F_cleric_hamaya_smoke_hit"/>
-					<Pos Angle="0" Dist="0" PosType="3"/>
-					<Num Num="0"/>
-					<Str Str="None"/>
-				</Scp>				
-			</EtcList>
-			<ResultList>
-			<ToolScp Client="NO" Scp="S_R_TGT_REMOVE_BUFF" UseSleep="NO">
-                <Str FuncTxt="local func_name = 'get_remove_buff_tooltip_' .. TryGetProp(skill, 'ClassName', 'None')
+    <Skill Name="Miko_Omikuji">
+        <MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+            <HitList>
+                <Frame Angle="0" AniTime="9999" Dist="0" ForceATK="0" HitCount="1" Length="30" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="9799" Type="SQUARE" Width="30"/>
+            </HitList>
+            <EtcList>
+                <Scp Client="NO" Scp="SKL_SET_TARGET_CIRCLE" Time="500" UseSleep="NO">
+                    <Pos Angle="0" Dist="0"/>
+                    <Num Num="160"/>
+                    <Num Num="5"/>
+                    <Num Num="1"/>
+                    <Num Num="0"/>
+                    <Num Num="1"/>
+                    <Num Num="1"/>
+                    <Num Num="0"/>
+                    <Num Num="1"/>
+                </Scp>
+                <Scp Client="NO" Scp="SKL_RUN_SCRIPT" Time="550" UseSleep="NO">
+                    <Str Str="SCR_SKL_MIKO_OMIKUJI"/>
+                </Scp>
+            </EtcList>
+        </MainSkl>
+    </Skill>
+    <Skill Name="Miko_Kasiwade">
+        <MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+            <HitList>
+                <Frame Angle="0" AniTime="9999" Dist="0" ForceATK="0" HitCount="1" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" TermMax="0" TermMin="0" Time="9799" Type="FAN"/>
+            </HitList>
+            <EtcList>
+                <Scp Client="YES" Scp="C_VOICE_SOUND" Time="200" UseSleep="NO">
+                    <Str Str="voice_war_atk_medium"/>
+                    <Str Str="voice_atk_medium_war_f"/>
+                </Scp>
+                <Scp Client="NO" Scp="SKL_RUN_SCRIPT" Time="300" UseSleep="NO">
+                    <Str Str="SCR_SKL_MIKO_KASIWADE"/>
+                </Scp>
+            </EtcList>
+        </MainSkl>
+    </Skill>
+    <Skill Name="Miko_KaguraDance">
+        <EndScripts>
+            <ToolScp Scp="MONSKL_C_CLEAR_RESERVE_ANIM" Client="YES" UseSleep="NO"/>
+            <ToolScp Scp="SKL_CANCEL_CANCEL" Client="NO" UseSleep="NO"/>
+            <ToolScp Scp="MONSKL_REMOVE_PAD" Client="NO" UseSleep="NO">
+                <Str Str="Miko_KaguraDance"/>
+            </ToolScp>
+            <ToolScp Scp="SKL_SET_IMMUNE_STATE_REMOVE" Client="NO" UseSleep="YES">
+                <Str Str="Skill_SuperArmor_Buff"/>
+                <Num Num="500"/>
+            </ToolScp>
+        </EndScripts>
+        <KeyInput>
+            <ToolScp Scp="SKL_KEY_DYNAMIC_CASTING" Client="YES" UseSleep="NO">
+                <Num Num="0"/>
+                <Num Num="0"/>
+                <Num Num="10"/>
+                <Num Num="1"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+                <Num Num="1"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+                <Num Num="1"/>
+                <Num Num="0"/>
+                <Str_Arg Str="" Arg="0"/>
+                <Str Str=""/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+            </ToolScp>
+        </KeyInput>
+        <KeyInputStart>
+            <ToolScp Scp="MONSKL_C_PLAY_ANIM" Client="YES" UseSleep="NO">
+                <Str Str="SKL_KAGURADANCE"/>
+                <Num Num="1"/>
+                <Num Num="1"/>
+            </ToolScp>
+            <ToolScp Scp="SKL_PLAY_SOUND" Client="NO" UseSleep="NO">
+                <Str Str="skl_eff_kaguradance_ground"/>
+                <Num Num="0"/>
+                <Str Str="skl_eff_kaguradance_ground"/>
+            </ToolScp>
+        </KeyInputStart>
+        <KeyInputEnd>
+            <ToolScp Scp="SKL_CANCEL_CANCEL" Client="NO" UseSleep="NO"/>
+            <ToolScp Scp="MONSKL_REMOVE_PAD" Client="NO" UseSleep="NO">
+                <Str Str="Miko_KaguraDance"/>
+            </ToolScp>
+        </KeyInputEnd>
+        <KeyCancelScp>
+            <ToolScp Scp="SKL_CANCEL_CANCEL" Client="NO" UseSleep="NO"/>
+            <ToolScp Scp="MONSKL_REMOVE_PAD" Client="NO" UseSleep="NO">
+                <Str Str="Miko_KaguraDance"/>
+            </ToolScp>
+        </KeyCancelScp>
+        <MainSkl ScrLock="None" JumpFlee="NO" MSPDToUsePos="0">
+            <HitList>
+                <Frame Type="FAN" Time="99799" HitCount="1" TermMin="0" TermMax="0" PosType="0" Dist="0" RandDist="0" RandomPerHit="0" Angle="0" AniTime="99999" RotAngle="0" ForceATK="0"/>
+            </HitList>
+            <EtcList>
+                <Scp Scp="SKL_SET_IMMUNE_STATE" Client="NO" UseSleep="NO" Time="0">
+                    <Str Str="Skill_SuperArmor_Buff"/>
+                    <Num Num="100"/>
+                </Scp>
+                <Scp Scp="MONSKL_CRE_PAD" Client="NO" UseSleep="NO" Time="500">
+                    <Pos Angle="0" Dist="0"/>
+                    <Angle Angle="0"/>
+                    <Str Str="Miko_KaguraDance"/>
+                </Scp>
+                <Scp Scp="SKL_CONSUME_SP" Client="NO" UseSleep="NO" Time="500" LoopTime="1000">
+                    <Num Num="7" UseFunc="1" FuncTxt="local value = 70 + (obj.Level * 2)local lv = self.Lv local bylvCorrect = lv - 300 if bylvCorrect &lt; 0 then     bylvCorrect = bylvCorrect * 2.75 / 1000 elseif bylvCorrect >= 0 then     bylvCorrect = bylvCorrect * 1.25 / 1000 end value = value   local abil = GetAbility(self, &quot;Miko8&quot;) if abil ~= nil and abil.ActiveState == 1 then value = value * 1.3 return value end return math.floor(value)"/>
+                </Scp>
+            </EtcList>
+        </MainSkl>
+    </Skill>
+    <Skill Name="Miko_Hamaya">
+        <KeyInput>
+            <ToolScp Scp="SKL_KEY_GROUND_EVENT" Client="YES" UseSleep="NO">
+                <Num Num="3"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+                <Num Num="1"/>
+                <Num Num="200"/>
+                <Num Num="0.1"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+                <Str_Arg Str="None" Arg="1"/>
+                <Str Str="None"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+                <Num Num="5"/>
+                <Num Num="1"/>
+                <Num Num="45"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+            </ToolScp>
+        </KeyInput>
+        <MainSkl ScrLock="None" JumpFlee="NO" MSPDToUsePos="0">
+            <HitList>
+                <Frame Type="FAN" Time="10799" HitCount="1" TermMin="0" TermMax="0" PosType="0" Dist="0" RandDist="0" RandomPerHit="0" Angle="0" AniTime="10999" RotAngle="0" ForceATK="0"/>
+            </HitList>
+            <EtcList>
+                <Scp Scp="MONSKL_C_PLAY_ANIM" Client="YES" UseSleep="NO" Time="0">
+                    <Str Str="SKL_HAMAYA"/>
+                    <Num Num="1.9"/>
+                    <Num Num="1"/>
+                    <Num Num="0"/>
+                </Scp>
+                <Scp Scp="C_VOICE_SOUND" Client="YES" UseSleep="NO" Time="50">
+                    <Str Str="voice_archer_atk"/>
+                    <Str Str="voice_archer_f_atk"/>
+                </Scp>
+                <Scp Scp="C_VOICE_SOUND" Client="YES" UseSleep="NO" Time="300">
+                    <Str Str="voice_war_atk_medium"/>
+                    <Str Str="voice_atk_medium_war_f"/>
+                </Scp>
+                <Scp Scp="MSL_PAD_THROW" Client="NO" UseSleep="YES" Time="650">
+                    <Str_Arg Str="I_cleric_hamaya_arrow#Dummy_force_hamaya" Arg="1"/>
+                    <Str_Arg Str="None" Arg="1"/>
+                    <Str_Arg Str="None" Arg="1"/>
+                    <Pos Angle="0" Dist="0" PosType="3"/>
+                    <Num Num="10"/>
+                    <Num Num="0.1"/>
+                    <Num Num="0"/>
+                    <Num Num="400"/>
+                    <Num Num="1"/>
+                    <Num Num="1000"/>
+                    <Num Num="0"/>
+                    <Str_Arg Str="None" Arg="1"/>
+                    <Num Num="0"/>
+                    <Num Num="0"/>
+                    <Angle Angle="0"/>
+                    <Str Str="Miko_Hamaya"/>
+                </Scp>
+                <Scp Scp="C_EFFECT_POS" Client="YES" UseSleep="NO" Time="800">
+                    <Str_Arg Str="F_cleric_hamaya_smoke_hit" Arg="5"/>
+                    <Pos Angle="0" Dist="0" PosType="3"/>
+                    <Num Num="0"/>
+                    <Str Str="None"/>
+                </Scp>
+            </EtcList>
+            <ResultList>
+                <ToolScp Scp="S_R_TGT_REMOVE_BUFF" Client="NO" UseSleep="NO">
+                    <Str Str="0" UseFunc="1" FuncTxt="local func_name = 'get_remove_buff_tooltip_' .. TryGetProp(skill, 'ClassName', 'None')
                local func = _G[func_name]
                if func == nil then return end
-               return func(skill.Level)" Str="0" UseFunc="1"/>
-              </ToolScp>
-			</ResultList>
-		</MainSkl>
-	</Skill>
-	<Skill Name="Miko_HoukiBroom">
-		<EndScripts>
-			<ToolScp Client="NO" Scp="SKL_RUN_SCRIPT" UseSleep="NO">
-				<Str Str="MONSKL_END_SPAWN_PAD"/>
-			</ToolScp>
-		</EndScripts>
-		<KeyInput>
-			<ToolScp Client="YES" Scp="SKL_KEY_DYNAMIC_CASTING" UseSleep="NO">
-				<Num Num="1"/>
-				<Num Num="0"/>
-				<Num Num="5"/>
-				<Num Num="1"/>
-				<Num Num="0"/>
-				<Num Num="0"/>
-				<Num Num="0"/>
-				<Num Num="0"/>
-				<Num Num="0"/>
-				<Num Num="0"/>
-				<Num Num="1"/>
-				<Num Num="0"/>
-				<Str_Arg Arg="0" Str=""/>
-				<Str Str=""/>
-				<Num Num="0"/>
-				<Num Num="0"/>
-				<Num Num="0"/>
-				<Num Num="0"/>
-				<Num Num="0"/>
-				<Num Num="0"/>
-				<Num Num="0"/>
-				<Num Num="0"/>
-			</ToolScp>
-		</KeyInput>
-		<KeyInputStart>
-			<ToolScp Client="NO" Scp="MONSKL_START_SPAWN_PAD" UseSleep="NO">
-				<Str Str="Miko_HoukiBroom"/>
-				<Num FuncTxt="return 5" Num="10" UseFunc="1"/>
-				<Num Num="60"/>
-			</ToolScp>
-			<ToolScp Client="NO" Scp="SKL_BUFF" UseSleep="NO">
-				<Str Str="HoukiBroom_Buff"/>
-				<Num Num="1"/>
-				<Num Num="0"/>
-				<Num Num="0"/>
-				<Num Num="1"/>
-				<Num Num="100"/>
-				<Num Num="0"/>
-			</ToolScp>
-			<ToolScp Client="NO" Scp="SKL_PLAY_SOUND" UseSleep="NO">
-				<Str Str="skl_eff_houkibroom_ground"/>
-				<Num Num="0"/>
-				<Str Str="skl_eff_houkibroom_ground"/>
-			</ToolScp>
-		</KeyInputStart>
-		<KeyInputEnd>
-			<ToolScp Client="NO" Scp="SKL_BUFF_REMOVE" UseSleep="NO">
-				<Str Str="HoukiBroom_Buff"/>
-			</ToolScp>
-			<ToolScp Client="NO" Scp="SKL_RUN_SCRIPT" UseSleep="NO">
-				<Str Str="MONSKL_END_SPAWN_PAD"/>
-			</ToolScp>
-		</KeyInputEnd>
-		<KeyCancelScp>
-			<ToolScp Client="NO" Scp="SKL_RUN_SCRIPT" UseSleep="NO">
-				<Str Str="MONSKL_END_SPAWN_PAD"/>
-			</ToolScp>
-		</KeyCancelScp>
-		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
-			<HitList>
-				<Frame Angle="0" AniTime="10999" Dist="0" ForceATK="0" HitCount="1" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" TermMax="0" TermMin="0" Time="10799" Type="FAN"/>
-			</HitList>
-		</MainSkl>
-	</Skill>
-	<Skill Name="Miko_Gohei">
-		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
-			<HitList>
-				<Frame Angle="0" AniTime="250" Dist="0" ForceATK="0" HitCount="1" Length="40" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" TermMax="0" TermMin="0" Time="50" Type="SQUARE" Width="20"/>
-				<Frame Angle="0" AniTime="400" Dist="0" ForceATK="0" HitCount="1" Length="40" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" TermMax="0" TermMin="0" Time="200" Type="SQUARE" Width="20"/>
-			</HitList>
-			<EtcList>
-				<Scp Client="NO" Scp="SKL_BUFF" Time="0" UseSleep="NO">
-					<Str Str="Gohei_Buff"/>
-					<Num Num="1"/>
-					<Num Num="0"/>
-					<Num Num="750"/>
-					<Num Num="1"/>
-					<Num Num="100"/>
-					<Num Num="1"/>
-				</Scp>
-				<Scp Client="YES" Scp="SET_ENABLESKILLCANCEL_HITINDEX_C" Time="0" UseSleep="NO">
-					<Num Num="2"/>
-				</Scp>
-				<Scp Client="YES" Scp="C_VOICE_SOUND" Time="0" UseSleep="NO">
-					<Str Str="voice_archer_atk"/>
-					<Str Str="voice_archer_f_atk"/>
-				</Scp>
-				<Scp Client="NO" Scp="SKL_SET_TARGET_SQUARE" Time="330" UseSleep="NO">
-					<Pos Angle="0" Dist="0"/>
-					<Num Num="0"/>
-					<Num Num="50"/>
-					<Num Num="30"/>
-					<Num Num="5"/>
-					<Num Num="7"/>
-					<Num Num="0"/>
-				</Scp>
-				<Scp Client="NO" Scp="SKL_TARGET_BUFF_REMOVE_GOHIE" Time="330" UseSleep="NO">
-					<Str Str="PARTY"/>
-					<Str Str="Debuff"/>
-					<Num FuncTxt="return IMCRandom(1,5)" Num="5" UseFunc="1"/>
-					<Num Num="3"/>
-				</Scp>
-				<Scp Client="NO" Scp="SKL_TARGET_BUFF_REMOVE_GOHIE" Time="330" UseSleep="NO">
-					<Str Str="ENEMY"/>
-					<Str Str="Buff"/>
-					<Num FuncTxt="return IMCRandom(1,3)" Num="3" UseFunc="1"/>
-					<Num Num="3"/>
-				</Scp>
-			</EtcList>
-		</MainSkl>
-		<ByCondSkills>
-			<SubSkl>
-				<Cond>
-					<ToolScp Client="NO" Scp="SKL_SELECT_ABIL" UseSleep="NO">
-                        <Str Str="Miko9" />
+               return func(skill.Level)"/>
+                </ToolScp>
+            </ResultList>
+        </MainSkl>
+    </Skill>
+    <Skill Name="Miko_HoukiBroom">
+        <EndScripts>
+            <ToolScp Client="NO" Scp="SKL_RUN_SCRIPT" UseSleep="NO">
+                <Str Str="MONSKL_END_SPAWN_PAD"/>
+            </ToolScp>
+        </EndScripts>
+        <KeyInput>
+            <ToolScp Client="YES" Scp="SKL_KEY_DYNAMIC_CASTING" UseSleep="NO">
+                <Num Num="1"/>
+                <Num Num="0"/>
+                <Num Num="5"/>
+                <Num Num="1"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+                <Num Num="1"/>
+                <Num Num="0"/>
+                <Str_Arg Arg="0" Str=""/>
+                <Str Str=""/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+            </ToolScp>
+        </KeyInput>
+        <KeyInputStart>
+            <ToolScp Client="NO" Scp="MONSKL_START_SPAWN_PAD" UseSleep="NO">
+                <Str Str="Miko_HoukiBroom"/>
+                <Num FuncTxt="return 5" Num="10" UseFunc="1"/>
+                <Num Num="60"/>
+            </ToolScp>
+            <ToolScp Client="NO" Scp="SKL_BUFF" UseSleep="NO">
+                <Str Str="HoukiBroom_Buff"/>
+                <Num Num="1"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+                <Num Num="1"/>
+                <Num Num="100"/>
+                <Num Num="0"/>
+            </ToolScp>
+            <ToolScp Client="NO" Scp="SKL_PLAY_SOUND" UseSleep="NO">
+                <Str Str="skl_eff_houkibroom_ground"/>
+                <Num Num="0"/>
+                <Str Str="skl_eff_houkibroom_ground"/>
+            </ToolScp>
+        </KeyInputStart>
+        <KeyInputEnd>
+            <ToolScp Client="NO" Scp="SKL_BUFF_REMOVE" UseSleep="NO">
+                <Str Str="HoukiBroom_Buff"/>
+            </ToolScp>
+            <ToolScp Client="NO" Scp="SKL_RUN_SCRIPT" UseSleep="NO">
+                <Str Str="MONSKL_END_SPAWN_PAD"/>
+            </ToolScp>
+        </KeyInputEnd>
+        <KeyCancelScp>
+            <ToolScp Client="NO" Scp="SKL_RUN_SCRIPT" UseSleep="NO">
+                <Str Str="MONSKL_END_SPAWN_PAD"/>
+            </ToolScp>
+        </KeyCancelScp>
+        <MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+            <HitList>
+                <Frame Angle="0" AniTime="10999" Dist="0" ForceATK="0" HitCount="1" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" TermMax="0" TermMin="0" Time="10799" Type="FAN"/>
+            </HitList>
+        </MainSkl>
+    </Skill>
+    <Skill Name="Miko_Gohei">
+        <MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+            <HitList>
+                <Frame Angle="0" AniTime="250" Dist="0" ForceATK="0" HitCount="1" Length="40" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" TermMax="0" TermMin="0" Time="50" Type="SQUARE" Width="20"/>
+                <Frame Angle="0" AniTime="400" Dist="0" ForceATK="0" HitCount="1" Length="40" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" TermMax="0" TermMin="0" Time="200" Type="SQUARE" Width="20"/>
+            </HitList>
+            <EtcList>
+                <Scp Client="NO" Scp="SKL_BUFF" Time="0" UseSleep="NO">
+                    <Str Str="Gohei_Buff"/>
+                    <Num Num="1"/>
+                    <Num Num="0"/>
+                    <Num Num="750"/>
+                    <Num Num="1"/>
+                    <Num Num="100"/>
+                    <Num Num="1"/>
+                </Scp>
+                <Scp Client="YES" Scp="SET_ENABLESKILLCANCEL_HITINDEX_C" Time="0" UseSleep="NO">
+                    <Num Num="2"/>
+                </Scp>
+                <Scp Client="YES" Scp="C_VOICE_SOUND" Time="0" UseSleep="NO">
+                    <Str Str="voice_archer_atk"/>
+                    <Str Str="voice_archer_f_atk"/>
+                </Scp>
+                <Scp Client="NO" Scp="SKL_SET_TARGET_SQUARE" Time="330" UseSleep="NO">
+                    <Pos Angle="0" Dist="0"/>
+                    <Num Num="0"/>
+                    <Num Num="50"/>
+                    <Num Num="30"/>
+                    <Num Num="5"/>
+                    <Num Num="7"/>
+                    <Num Num="0"/>
+                </Scp>
+                <Scp Client="NO" Scp="SKL_TARGET_BUFF_REMOVE_GOHIE" Time="330" UseSleep="NO">
+                    <Str Str="PARTY"/>
+                    <Str Str="Debuff"/>
+                    <Num FuncTxt="return IMCRandom(1,5)" Num="5" UseFunc="1"/>
+                    <Num Num="3"/>
+                </Scp>
+                <Scp Client="NO" Scp="SKL_TARGET_BUFF_REMOVE_GOHIE" Time="330" UseSleep="NO">
+                    <Str Str="ENEMY"/>
+                    <Str Str="Buff"/>
+                    <Num FuncTxt="return IMCRandom(1,3)" Num="3" UseFunc="1"/>
+                    <Num Num="3"/>
+                </Scp>
+            </EtcList>
+        </MainSkl>
+        <ByCondSkills>
+            <SubSkl>
+                <Cond>
+                    <ToolScp Client="NO" Scp="SKL_SELECT_ABIL" UseSleep="NO">
+                        <Str Str="Miko9"/>
                     </ToolScp>
-				</Cond>
-				<Skill JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
-					<HitList>
-						<Frame Angle="0" AniTime="250" Dist="0" ForceATK="0" HitCount="1" Length="40" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" TermMax="0" TermMin="0" Time="50" Type="SQUARE" Width="20"/>
-						<Frame Angle="0" AniTime="400" Dist="0" ForceATK="0" HitCount="1" Length="40" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" TermMax="0" TermMin="0" Time="200" Type="SQUARE" Width="20"/>
-					</HitList>
-					<EtcList>
-						<Scp Client="NO" Scp="SKL_BUFF" Time="0" UseSleep="NO">
-							<Str Str="Gohei_Buff"/>
-							<Num Num="1"/>
-							<Num Num="0"/>
-							<Num Num="750"/>
-							<Num Num="1"/>
-							<Num Num="100"/>
-							<Num Num="1"/>
-						</Scp>
-						<Scp Client="YES" Scp="SET_ENABLESKILLCANCEL_HITINDEX_C" Time="0" UseSleep="NO">
-							<Num Num="2"/>
-						</Scp>
-						<Scp Client="YES" Scp="C_VOICE_SOUND" Time="0" UseSleep="NO">
-							<Str Str="voice_archer_atk"/>
-							<Str Str="voice_archer_f_atk"/>
-						</Scp>
-						<Scp Client="NO" Scp="SKL_SET_TARGET_SQUARE" Time="330" UseSleep="NO">
-							<Pos Angle="0" Dist="0"/>
-							<Num Num="0"/>
-							<Num Num="50"/>
-							<Num Num="30"/>
-							<Num Num="5"/>
-							<Num Num="7"/>
-							<Num Num="0"/>
-						</Scp>
-						<Scp Client="NO" Scp="SKL_TARGET_BUFF_REMOVE_GOHIE" Time="330" UseSleep="NO">
-							<Str Str="PARTY"/>
-							<Str Str="Debuff"/>
-							<Num FuncTxt="return IMCRandom(1,5)" Num="5" UseFunc="1"/>
-							<Num Num="3"/>
-						</Scp>
-						<Scp Client="NO" Scp="SKL_SET_TARGET_CIRCLE" Time="340" UseSleep="NO">
-							<Pos Angle="0" Dist="0"/>
-							<Num Num="100"/>
-							<Num Num="5"/>
-							<Num Num="7"/>
-							<Num Num="0"/>
-						</Scp>
-						<Scp Client="NO" Scp="SKL_TARGET_BUFF_REMOVE_GOHIE" Time="340" UseSleep="NO">
-							<Str Str="ENEMY"/>
-							<Str Str="Buff"/>
-							<Num FuncTxt="return IMCRandom(1,3)" Num="3" UseFunc="1"/>
-							<Num Num="3"/>
-						</Scp>
-					</EtcList>
-				</Skill>
-			</SubSkl>
-		</ByCondSkills>
-	</Skill>
+                </Cond>
+                <Skill JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+                    <HitList>
+                        <Frame Angle="0" AniTime="250" Dist="0" ForceATK="0" HitCount="1" Length="40" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" TermMax="0" TermMin="0" Time="50" Type="SQUARE" Width="20"/>
+                        <Frame Angle="0" AniTime="400" Dist="0" ForceATK="0" HitCount="1" Length="40" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" TermMax="0" TermMin="0" Time="200" Type="SQUARE" Width="20"/>
+                    </HitList>
+                    <EtcList>
+                        <Scp Client="NO" Scp="SKL_BUFF" Time="0" UseSleep="NO">
+                            <Str Str="Gohei_Buff"/>
+                            <Num Num="1"/>
+                            <Num Num="0"/>
+                            <Num Num="750"/>
+                            <Num Num="1"/>
+                            <Num Num="100"/>
+                            <Num Num="1"/>
+                        </Scp>
+                        <Scp Client="YES" Scp="SET_ENABLESKILLCANCEL_HITINDEX_C" Time="0" UseSleep="NO">
+                            <Num Num="2"/>
+                        </Scp>
+                        <Scp Client="YES" Scp="C_VOICE_SOUND" Time="0" UseSleep="NO">
+                            <Str Str="voice_archer_atk"/>
+                            <Str Str="voice_archer_f_atk"/>
+                        </Scp>
+                        <Scp Client="NO" Scp="SKL_SET_TARGET_SQUARE" Time="330" UseSleep="NO">
+                            <Pos Angle="0" Dist="0"/>
+                            <Num Num="0"/>
+                            <Num Num="50"/>
+                            <Num Num="30"/>
+                            <Num Num="5"/>
+                            <Num Num="7"/>
+                            <Num Num="0"/>
+                        </Scp>
+                        <Scp Client="NO" Scp="SKL_TARGET_BUFF_REMOVE_GOHIE" Time="330" UseSleep="NO">
+                            <Str Str="PARTY"/>
+                            <Str Str="Debuff"/>
+                            <Num FuncTxt="return IMCRandom(1,5)" Num="5" UseFunc="1"/>
+                            <Num Num="3"/>
+                        </Scp>
+                        <Scp Client="NO" Scp="SKL_SET_TARGET_CIRCLE" Time="340" UseSleep="NO">
+                            <Pos Angle="0" Dist="0"/>
+                            <Num Num="100"/>
+                            <Num Num="5"/>
+                            <Num Num="7"/>
+                            <Num Num="0"/>
+                        </Scp>
+                        <Scp Client="NO" Scp="SKL_TARGET_BUFF_REMOVE_GOHIE" Time="340" UseSleep="NO">
+                            <Str Str="ENEMY"/>
+                            <Str Str="Buff"/>
+                            <Num FuncTxt="return IMCRandom(1,3)" Num="3" UseFunc="1"/>
+                            <Num Num="3"/>
+                        </Scp>
+                    </EtcList>
+                </Skill>
+            </SubSkl>
+        </ByCondSkills>
+    </Skill>
 </ToolSkill>

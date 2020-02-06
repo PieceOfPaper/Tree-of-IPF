@@ -126,8 +126,18 @@ function ITEM_SANDRA_4LINE_REVERT_RANDOM_DROP(frame, icon, argStr, argNum)
 		local invItem = session.GetInvItemByGuid(iconInfo:GetIESID());
 		if invItem == nil then return; end
 		local itemObj = GetIES(invItem:GetObject());
-		if IS_ENABLE_4LINE_REVERT_RANDOM_ITEM(itemObj) ~= true then
-			return;
+
+		local ret, reason = IS_ENABLE_4LINE_REVERT_RANDOM_ITEM(itemObj)
+
+		if ret == false then
+			if reason == 'Level' then
+				ui.SysMsg(ScpArgMsg('CanUseLV430'))
+			elseif reason == 'Count' then
+				ui.SysMsg(ClMsg("4lineRevertRandomItemEnableRandomOptionCount"));
+			elseif reason == 'NoRandom' then
+				ui.SysMsg(ClMsg("OnlyUseRandomIcor"));			
+			end
+			return
 		end
 
 		ITEM_SANDRA_4LINE_REVERT_RANDOM_REG_TARGETITEM(toFrame, iconInfo:GetIESID());
@@ -146,7 +156,8 @@ function ITEM_SANDRA_4LINE_REVERT_RANDOM_REG_TARGETITEM(frame, itemID)
 	local item = GetIES(invItem:GetObject());
 	local itemCls = GetClassByType('Item', item.ClassID);
 
-	if TryGetProp(itemCls, "NeedRandomOption") == nil or itemCls.NeedRandomOption ~= 1 then
+	
+	if TryGetProp(item, 'GroupName', 'None') ~= 'Icor' and (TryGetProp(itemCls, "NeedRandomOption") == nil or itemCls.NeedRandomOption ~= 1) then			
 		ui.SysMsg(ClMsg("NotAllowedRandomReset"));
 		return;
 	end
@@ -215,11 +226,6 @@ function ITEM_SANDRA_4LINE_REVERT_RANDOM_REG_TARGETITEM(frame, itemID)
 		end
 	end
 
-	local isAbleExchange = 1;
-	if obj.MaxDur <= MAXDUR_DECREASE_POINT_PER_RANDOM_RESET or obj.Dur <= MAXDUR_DECREASE_POINT_PER_RANDOM_RESET then
-		isAbleExchange = -2;
-	end
-
 	local slot = GET_CHILD_RECURSIVELY(frame, "slot");
 	SET_SLOT_ITEM(slot, invItem);
 end
@@ -259,12 +265,6 @@ end
 function _ITEM_SANDRA_4LINE_REVERT_RANDOM_EXEC()
 	local frame = ui.GetFrame("itemsandra_4line_revert_random");
 	if frame:IsVisible() == 0 then return; end
-	
-	local isAbleExchange = frame:GetUserIValue("isAbleExchange");
-	if isAbleExchange == -2 then
-		ui.SysMsg(ClMsg("MaxDurUnderflow")); 
-		return;
-	end
 
 	local slot = GET_CHILD_RECURSIVELY(frame, "slot");
 	local invItem = GET_SLOT_ITEM(slot);
@@ -275,7 +275,7 @@ function _ITEM_SANDRA_4LINE_REVERT_RANDOM_EXEC()
 	local itemObj = GetIES(invItem:GetObject());
 	local itemCls = GetClassByType('Item', itemObj.ClassID);
 
-	if itemCls.NeedRandomOption ~= 1 then
+	if TryGetProp(itemObj, 'GroupName', 'None') ~= 'Icor' and itemCls.NeedRandomOption ~= 1 then		
 		ui.SysMsg(ClMsg("NotAllowedRandomReset"));
 		return;
 	end
@@ -425,8 +425,17 @@ function ITEM_SANDRA_4LINE_REVERT_RANDOM_INV_RBTN(itemObj, slot)
 		return;
 	end
 
-	if IS_ENABLE_4LINE_REVERT_RANDOM_ITEM(itemObj) ~= true then
-		return;
+	local ret, reason = IS_ENABLE_4LINE_REVERT_RANDOM_ITEM(itemObj)
+
+	if ret == false then
+		if reason == 'Level' then
+			ui.SysMsg(ScpArgMsg('CanUseLV430'))
+		elseif reason == 'Count' then
+			ui.SysMsg(ClMsg("4lineRevertRandomItemEnableRandomOptionCount"));
+		elseif reason == 'NoRandom' then
+			ui.SysMsg(ClMsg("OnlyUseRandomIcor"));		
+		end		
+		return
 	end
 
 	local icon = slot:GetIcon();
@@ -442,17 +451,3 @@ function ITEM_SANDRA_4LINE_REVERT_RANDOM_INV_RBTN(itemObj, slot)
 	ITEM_SANDRA_4LINE_REVERT_RANDOM_REG_TARGETITEM(frame, iconInfo:GetIESID()); 
 end
 
--- 산드라의 완벽한 돋보기 사용 가능 아이템 확인
-function IS_ENABLE_4LINE_REVERT_RANDOM_ITEM(itemObj)
-	if TryGetProp(itemObj, 'UseLv', 1) ~= 430 then
-		ui.SysMsg(ScpArgMsg('CanUseLV430'));
-		return false;
-	end
-
-	if 4 < GET_RANDOM_OPTION_COUNT(itemObj) then
-		ui.SysMsg(ClMsg("4lineRevertRandomItemEnableRandomOptionCount"));
-		return false;
-	end
-
-	return true;
-end

@@ -3,6 +3,7 @@
 function EVENTTIMER_ON_INIT(addon, frame)
 
 	addon:RegisterMsg("EVENT_TXT", "ON_EVENT_TXT");
+	addon:RegisterMsg("FIELD_DUNGEON_START_TIMER", "ON_FIELD_DUNGEON_START_TIMER");
 	
 end
 

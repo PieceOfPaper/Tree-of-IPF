@@ -39,6 +39,15 @@
 					<Num Num="100" />
                     <Num Num="1" />
 				</Scp>
+                <Scp Client="NO" Scp="SKL_BUFF" Time="300" UseSleep="NO">
+                    <Str Str="LiedDerWeltbaum_NoDamage_Buff" />
+                    <Num FuncTxt="return obj.Level" Num="0" UseFunc="1" />
+                    <Num Num="0" />
+                    <Num FuncTxt="local value = 10000 local abil = GetAbility(self, &quot;PiedPiper15&quot;) if abil ~= nil and abil.ActiveState == 1 then     value = value + (abil.Level * 1000) end local skillLiedDerWeltbaum  = AddCopiedSkill(self, &quot;PiedPiper_LiedDerWeltbaum&quot;) if GetExProp(self, &quot;PIEDPIPER_IMPROVISATION_FAIL&quot;) == 1 then     value = value / 2     DelExProp(self, &quot;PIEDPIPER_IMPROVISATION_FAIL&quot;) end  return value;" Num="0" UseFunc="1" />
+                    <Num Num="1" />
+                    <Num Num="100" />
+                    <Num Num="1" />
+                </Scp>
 			</EtcList>
 		</MainSkl>
 	</Skill>
@@ -162,7 +171,7 @@
 	<Skill Name="PiedPiper_Friedenslied">
 		<KeyInput>
 			<ToolScp Client="YES" Scp="SKL_KEY_DYNAMIC_CASTING" UseSleep="NO">
-				<Num Num="1" />
+				<Num Num="0" />
 				<Num Num="0" />
 				<Num Num="5" />
 				<Num Num="1" />

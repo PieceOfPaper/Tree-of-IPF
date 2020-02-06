@@ -229,3 +229,73 @@ function GET_RANDOM_OPTION_COUNT(itemObj)
 end
 
 revertrandomitemlist = {'itemrandomreset', 'itemrevertrandom', 'itemunrevertrandom', 'itemsandrarevertrandom', 'itemsandraoneline_revert_random', 'itemsandra_4line_revert_random', 'itemsandra_6line_revert_random'};
+
+-- 산드라의 완벽한 돋보기 사용 가능 아이템 확인
+function IS_ENABLE_4LINE_REVERT_RANDOM_ITEM(itemObj)
+	local icor = TryGetProp(itemObj, 'GroupName', 'None')
+
+	if icor == 'Icor' then
+		local item_name = TryGetProp(itemObj, 'InheritanceRandomItemName', 'None')
+		if item_name ~= 'None' then
+			local cls = GetClass('Item', item_name)			
+			if cls == nil then 
+				return false, 'None'
+			end
+
+			if TryGetProp(cls, 'UseLv', 1) ~= 430 then
+				return false, 'Level';
+			end
+			
+			if 4 < GET_RANDOM_OPTION_COUNT(itemObj) then
+				return false, 'Count';
+			end	
+		else
+			return false, 'NoRandom'
+		end		
+	else
+		if TryGetProp(itemObj, 'UseLv', 1) ~= 430 then
+			return false, 'Level';
+		end
+	
+		if 4 < GET_RANDOM_OPTION_COUNT(itemObj) then
+			return false, 'Count';
+		end
+	end
+
+	return true;
+end
+
+-- 산드라의 궁극의 돋보기 사용 가능 아이템 확인
+function IS_ENABLE_6LINE_REVERT_RANDOM_ITEM(itemObj)
+	local icor = TryGetProp(itemObj, 'GroupName', 'None')
+
+	if icor == 'Icor' then
+		local item_name = TryGetProp(itemObj, 'InheritanceRandomItemName', 'None')
+		if item_name ~= 'None' then
+			local cls = GetClass('Item', item_name)
+			if cls == nil then 
+				return false, 'None'
+			end
+
+			if TryGetProp(cls, 'UseLv', 1) ~= 430 then				
+				return false, 'Level';
+			end
+			
+			if 6 < GET_RANDOM_OPTION_COUNT(itemObj) then
+				return false, 'Count';
+			end	
+		else
+			return false, 'NoRandom'
+		end		
+	else		
+		if TryGetProp(itemObj, 'UseLv', 1) ~= 430 then
+			return false, 'Level';
+		end
+		
+		if 6 < GET_RANDOM_OPTION_COUNT(itemObj) then
+			return false, 'Count';
+		end
+	end
+	
+	return true;
+end

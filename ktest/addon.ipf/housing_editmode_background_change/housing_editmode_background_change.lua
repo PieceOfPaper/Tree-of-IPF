@@ -12,6 +12,7 @@
 		btn_apply:SetTextByKey("value", ClMsg("ITEM_IsUsed"));
 		btn_apply:SetEnable(0);
 	else
+		local price = TryGetProp(housingPlaceClass, "ThemaPrice", 0);
 		local isHas_name = "PersonalHousing_HasPlace_" .. tostring(mapClassID);
 		local isHas = TryGetProp(accountObject, isHas_name, "NO");
 		if isHas == "YES" then
@@ -23,11 +24,12 @@
 			txt_is_has:SetTextByKey("value", "");
 			pic_silver:ShowWindow(1);
 			txt_silver:ShowWindow(1);
-			txt_silver:SetTextByKey("value", GET_COMMAED_STRING(TryGetProp(housingPlaceClass, "ThemaPrice", 0)));
+			txt_silver:SetTextByKey("value", GET_COMMAED_STRING(price));
 			btn_apply:SetTextByKey("value", ClMsg("Auto_KuMae"));
 		end
 		btn_apply:SetEnable(1);
 		btn_apply:SetUserValue("IS_HAS", isHas);
+		btn_apply:SetUserValue("Price", tostring(price));
 	end
 
 	btn_apply:SetUserValue("MapID", mapClassID);
@@ -124,11 +126,18 @@ function BTN_HOUSING_EDITMODE_BACKGROUND_CHANGE(gbox, btn)
 
 	local mapID = tonumber(btn:GetUserValue("MapID"));
 	local isHas = btn:GetUserValue("IS_HAS");
+	local price = tonumber(btn:GetUserValue("Price"));
 	local msg = "ReallyBuy?";
-
+	
 	if isHas == "YES" then
 		isHasValue = 1;
 		msg = "ReallyChange?";
+	else
+		local myMoney = tonumber(GET_TOTAL_MONEY_STR());	
+		if myMoney < price then
+			ui.SysMsg(ClMsg('Auto_SilBeoKa_BuJogHapNiDa.'));
+			return;
+		end
 	end
 
 	housing.CancelArrangingMovingMove();

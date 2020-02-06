@@ -161,12 +161,12 @@ function INDUNINFO_CREATE_CATEGORY(frame)
                 countText:SetTextByKey('current', GET_CURRENT_ENTERANCE_COUNT(resetGroupID));
                 countText:SetTextByKey('max', GET_MAX_ENTERANCE_COUNT(resetGroupID));
                 if GET_RESET_CYCLE(resetGroupID) == true then
-                    cyclePicImg:SetImage('indun_icon_week_s')
+                    cyclePicImg:SetImage(GET_INDUN_ICON_NAME('week_s'))
                 else
                     if indunCls.DungeonType == "Raid" or indunCls.DungeonType == "GTower" then
                         cyclePicImg:ShowWindow(0);
                     else
-                        cyclePicImg:SetImage('indun_icon_day_s')
+                        cyclePicImg:SetImage(GET_INDUN_ICON_NAME('day_s'))
                     end
                 end
 
@@ -176,14 +176,14 @@ function INDUNINFO_CREATE_CATEGORY(frame)
                     local pc = GetMyPCObject()
                     if IsBuffApplied(pc, "Event_Unique_Raid_Bonus") == "YES" then
 --                    if SCR_RAID_EVENT_20190102(nil, false) then
-                        cyclePicImg:SetImage('indun_icon_event_l_eng')
+                        cyclePicImg:SetImage(GET_INDUN_ICON_NAME('event_l_eng'))
                         local margin = cyclePicImg:GetOriginalMargin();
                         cyclePicImg:SetMargin(margin.left, margin.top, margin.right + 20, margin.bottom);
                         cyclePicImg:Resize(cyclePicImg:GetOriginalWidth() + 11, cyclePicImg:GetOriginalHeight());
                     elseif IsBuffApplied(pc, "Event_Unique_Raid_Bonus_Limit") == "YES" then
                         local accountObject = GetMyAccountObj(pc)
                         if TryGetProp(accountObject ,"EVENT_UNIQUE_RAID_BONUS_LIMIT") > 0 then
-                            cyclePicImg:SetImage('indun_icon_event_l_eng')
+                            cyclePicImg:SetImage(GET_INDUN_ICON_NAME('event_l_eng'))
                             local margin = cyclePicImg:GetOriginalMargin();
                             cyclePicImg:SetMargin(margin.left, margin.top, margin.right + 20, margin.bottom);
                             cyclePicImg:Resize(cyclePicImg:GetOriginalWidth() + 11, cyclePicImg:GetOriginalHeight());
@@ -243,9 +243,9 @@ function INDUNINFO_CREATE_CATEGORY(frame)
                 countText:SetTextByKey('current', GET_CURRENT_ENTERANCE_COUNT(resetGroupID));
                 countText:SetTextByKey('max', GET_MAX_ENTERANCE_COUNT(resetGroupID));
                 if contentsCls.ResetPer == 'WEEK' then
-                    cyclePicImg:SetImage('indun_icon_week_s')
+                    cyclePicImg:SetImage(GET_INDUN_ICON_NAME('week_s'))
                 elseif contentsCls.ResetPer == 'DAY' then
-                    cyclePicImg:SetImage('indun_icon_day_s')
+                    cyclePicImg:SetImage(GET_INDUN_ICON_NAME('day_s'))
                 else
                     cyclePicImg:ShowWindow(0);
                 end
@@ -633,6 +633,14 @@ function GET_RESET_CYCLE(resetGroupID)
         end
     end
     return isWeekCycle;
+end
+
+function GET_INDUN_ICON_NAME(name)
+    name = 'indun_icon_'..name
+    if config.GetServiceNation() ~= 'KOR' then
+        name = name..'_eng'
+    end
+    return name
 end
 
 function INDUNINFO_DETAIL_LBTN_CLICK(parent, detailCtrl)
@@ -1046,16 +1054,16 @@ function INDUNINFO_MAKE_DETAIL_INFO_BOX(frame, indunClassID)
             -- 이미 세부카테고리에서 해당 요일 로테이션 던전만 표시하도록 해놔서, 여기에선 요일별 처리를 해줄 필요는 없다
             local sysTime = geTime.GetServerSystemTime();
             local dayOfWeekStr = string.lower(GET_DAYOFWEEK_STR(sysTime.wDayOfWeek));
-            cycleImage:SetImage('indun_icon_' .. dayOfWeekStr)
+            cycleImage:SetImage(GET_INDUN_ICON_NAME(dayOfWeekStr))
             cycleImage:ShowWindow(1);
         elseif GET_RESET_CYCLE(resetGroupID) == true then
-            cycleImage:SetImage('indun_icon_week_l')
+            cycleImage:SetImage(GET_INDUN_ICON_NAME('week_l'))
             cycleImage:ShowWindow(1);
         else
             if indunCls.DungeonType == "Raid" or indunCls.DungeonType == "GTower" then
                 cycleImage:ShowWindow(0);
             else
-                cycleImage:SetImage('indun_icon_day_l');
+                cycleImage:SetImage(GET_INDUN_ICON_NAME('day_l'));
                 cycleImage:ShowWindow(1);
             end
         end
@@ -1105,13 +1113,13 @@ function INDUNINFO_MAKE_DETAIL_INFO_BOX(frame, indunClassID)
         local cycleCtrlPic = GET_CHILD_RECURSIVELY(countBox, 'cycleCtrlPic');
 
         if GET_RESET_CYCLE(resetGroupID) == true then
-            cycleImage:SetImage('indun_icon_week_l')
+            cycleImage:SetImage(GET_INDUN_ICON_NAME('week_l'))
             cycleImage:ShowWindow(1);
         else
             if indunCls.DungeonType == "Raid" or indunCls.DungeonType == "GTower" then
                 cycleImage:ShowWindow(0);
             else
-                cycleImage:SetImage('indun_icon_day_l')
+                cycleImage:SetImage(GET_INDUN_ICON_NAME('day_l'))
                 cycleImage:ShowWindow(1);
             end
         end
@@ -1286,10 +1294,10 @@ function INDUNINFO_MAKE_DETAIL_INFO_BOX_OTHER(frame, indunClassID)
     countData:SetTextByKey('max', GET_MAX_ENTERANCE_COUNT(resetGroupID));
 
     if contentsCls.ResetPer == 'WEEK' then
-        cycleImage:SetImage('indun_icon_week_l')
+        cycleImage:SetImage(GET_INDUN_ICON_NAME('week_l'))
         cycleImage:ShowWindow(1);
     elseif contentsCls.ResetPer == 'DAY' then
-        cycleImage:SetImage('indun_icon_day_l');
+        cycleImage:SetImage(GET_INDUN_ICON_NAME('day_l'));
         cycleImage:ShowWindow(1);
     else
         cycleImage:ShowWindow(0);
@@ -1750,10 +1758,24 @@ end
 
 -- 입장하기 버튼 클릭
 function WEEKLY_BOSS_JOIN_ENTER_CLICK(parent,ctrl)
-    if ctrl:GetTextByKey('cur') < ctrl:GetTextByKey('max') then
-        ReqEnterWeeklyBossIndun()
+    ui.MsgBox(ClMsg('EnterRightNow'), 'WEEKLY_BOSS_JOIN_ENTER_CLICK_MSG(0)', 'None');
+end     
+
+-- 연습모드 버튼 클릭
+function WEEKLY_BOSS_JOIN_PRACTICE_ENTER_CLICK(parent,ctrl)
+    ui.MsgBox(ClMsg('EnterRightNow'), 'WEEKLY_BOSS_JOIN_ENTER_CLICK_MSG(1)', 'None');
+end     
+
+
+function WEEKLY_BOSS_JOIN_ENTER_CLICK_MSG(type)
+    local frame = ui.GetFrame("induninfo");
+    local ctrl = GET_CHILD_RECURSIVELY(frame,"joinenter")
+    if type == 1 then
+        ReqEnterWeeklyBossIndun(type)
+    elseif ctrl:GetTextByKey('cur') < ctrl:GetTextByKey('max') or session.weeklyboss.GetNowWeekNum() == 1 or session.weeklyboss.GetNowWeekNum() == 2 then
+        ReqEnterWeeklyBossIndun(type)
     else
         ui.SysMsg(ScpArgMsg('IRREDIAN1131_DLG_LANG_1_CANT'));
     end
-end     
+end
 --------------------------------- 주간 보스 레이드 ---------------------------------

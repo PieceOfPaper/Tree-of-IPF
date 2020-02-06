@@ -33,7 +33,7 @@ function TRY_PARSE_TOOLTIPCOND(obj, caption)
         if %s then return \"%s\"; else return \"%s\"; end; end;", ifParsed, thenParsed, elseParsed);
 
 
-    local runLoadString     = loadstring(funcStr);
+    local runLoadString = load(funcStr);
     local funcc = runLoadString(obj);
     local result = SKL_TEMP_FUNC(obj);
 

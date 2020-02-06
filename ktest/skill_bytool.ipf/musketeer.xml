@@ -1,53 +1,54 @@
 <?xml version='1.0' encoding='utf-8'?>
-<ToolSkill><Skill Name="Musketeer_PrimeAndLoad">
+<ToolSkill>
+    <Skill Name="Musketeer_PrimeAndLoad">
         <KeyInput>
             <ToolScp Client="YES" Scp="SKL_KEY_DYNAMIC_CASTING" UseSleep="NO">
-                <Num Num="0" />
-                <Num Num="0" />
-                <Num FuncTxt="local value = 0 local self = GetMyPCObject() if IsPVPField(self) == 1 then value = 1 end return value" Num="0" UseFunc="1" />
-                <Num Num="1" />
-                <Num Num="0" />
-                <Num Num="0" />
-                <Num Num="0" />
-                <Num Num="0" />
-                <Num Num="0" />
-                <Num Num="0" />
-                <Num Num="1" />
-                <Num Num="1" />
-                <Str_Arg Arg="1" Str="None" />
-                <Str Str="None" />
-                <Num Num="0" />
-                <Num Num="0" />
-                <Num Num="5" />
-                <Num Num="1" />
-                <Num Num="45" />
-                <Num Num="0" />
-                <Num Num="0" />
-                <Num Num="0" />
+                <Num Num="0"/>
+                <Num Num="0"/>
+                <Num FuncTxt="local value = 0 local self = GetMyPCObject() if IsPVPField(self) == 1 then value = 1 end return value" Num="0" UseFunc="1"/>
+                <Num Num="1"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+                <Num Num="1"/>
+                <Num Num="1"/>
+                <Str_Arg Arg="1" Str="None"/>
+                <Str Str="None"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+                <Num Num="5"/>
+                <Num Num="1"/>
+                <Num Num="45"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
             </ToolScp>
         </KeyInput>
         <KeyInputStart>
             <ToolScp Client="YES" Scp="MONSKL_C_PLAY_ANIM" UseSleep="NO">
-                <Str FuncTxt="local self = GetMyPCObject() if IsBuffApplied(self, &quot;Archer_Kneelingshot&quot;) == 'YES' then     return &quot;SKL_SNIPERSSERENITY_CAST_KNEELING&quot; else     return &quot;SKL_SNIPERSSERENITY_CAST&quot; end" Str="SKL_SNIPERSSERENITY_CAST" UseFunc="1" />
-                <Num Num="1" />
-                <Num Num="1" />
+                <Str FuncTxt="local self = GetMyPCObject() if IsBuffApplied(self, &quot;Archer_Kneelingshot&quot;) == 'YES' then     return &quot;SKL_SNIPERSSERENITY_CAST_KNEELING&quot; else     return &quot;SKL_SNIPERSSERENITY_CAST&quot; end" Str="SKL_SNIPERSSERENITY_CAST" UseFunc="1"/>
+                <Num Num="1"/>
+                <Num Num="1"/>
             </ToolScp>
             <ToolScp Client="YES" Scp="MONSKL_C_RESERVE_ANIM" UseSleep="NO">
-                <Str FuncTxt="local self = GetMyPCObject() if IsBuffApplied(self, &quot;Archer_Kneelingshot&quot;) == 'YES' then     return &quot;SKL_SNIPERSSERENITY_LOOP_KNEELING&quot; else     return &quot;SKL_SNIPERSSERENITY_LOOP&quot; end" Str="SKL_SNIPERSSERENITY_LOOP" UseFunc="1" />
-                <Num Num="1" />
-                <Num Num="1" />
+                <Str FuncTxt="local self = GetMyPCObject() if IsBuffApplied(self, &quot;Archer_Kneelingshot&quot;) == 'YES' then     return &quot;SKL_SNIPERSSERENITY_LOOP_KNEELING&quot; else     return &quot;SKL_SNIPERSSERENITY_LOOP&quot; end" Str="SKL_SNIPERSSERENITY_LOOP" UseFunc="1"/>
+                <Num Num="1"/>
+                <Num Num="1"/>
             </ToolScp>
             <ToolScp Client="YES" Scp="C_SOUND" UseSleep="NO">
-                <Str Str="skl_eff_snipersserenity_bargauge" />
+                <Str Str="skl_eff_snipersserenity_bargauge"/>
             </ToolScp>
             <ToolScp Client="YES" Scp="C_VOICE_SOUND" UseSleep="NO">
-                <Str Str="voice_archer_m_SnipersSerenity_cast" />
-                <Str Str="voice_archer_SnipersSerenity_cast" />
+                <Str Str="voice_archer_m_SnipersSerenity_cast"/>
+                <Str Str="voice_archer_SnipersSerenity_cast"/>
             </ToolScp>
         </KeyInputStart>
         <KeyInputEnd>
-            <ToolScp Client="YES" Scp="MONSKL_C_CLEAR_RESERVE_ANIM" UseSleep="NO" />
-            <ToolScp Client="YES" Scp="MONSKL_C_STOP_ANIM" UseSleep="NO" />
+            <ToolScp Client="YES" Scp="MONSKL_C_CLEAR_RESERVE_ANIM" UseSleep="NO"/>
+            <ToolScp Client="YES" Scp="MONSKL_C_STOP_ANIM" UseSleep="NO"/>
         </KeyInputEnd>
 		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
 			<EtcList>
@@ -687,7 +688,7 @@
 	</Skill>
 	<Skill Name="Musketeer_Snipe">
 		<KeyInput>
-			<ToolScp Client="YES" Scp="SKL_KEY_SNIPE" UseSleep="NO">
+            <ToolScp Scp="SKL_KEY_SNIPE" Client="YES" UseSleep="NO">
 				<Num Num="1" />
 				<Num Num="0" />
 				<Num Num="0" />
@@ -697,7 +698,7 @@
 				<Num Num="0" />
 				<Num Num="0" />
 				<Num Num="0" />
-				<Str_Arg Arg="1" Str="None" />
+                <Str_Arg Str="None" Arg="1"/>
 				<Str Str="None" />
 				<Num Num="0" />
 				<Num Num="0" />
@@ -709,26 +710,26 @@
 			</ToolScp>
 		</KeyInput>
 		<KeyInputStart>
-			<ToolScp Client="YES" Scp="MONSKL_C_PLAY_ANIM" UseSleep="NO">
+            <ToolScp Scp="MONSKL_C_PLAY_ANIM" Client="YES" UseSleep="NO">
 				<Str Str="SKL_SNIPE_CAST" />
 				<Num Num="1" />
 				<Num Num="1" />
 			</ToolScp>
-			<ToolScp Client="NO" Scp="SKL_PLAY_SOUND" UseSleep="NO">
+            <ToolScp Scp="SKL_PLAY_SOUND" Client="NO" UseSleep="NO">
 				<Str Str="sys_snipe_target" />
 				<Num Num="0" />
 				<Str Str="sys_snipe_target" />
 			</ToolScp>
 		</KeyInputStart>
-		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+        <MainSkl ScrLock="None" JumpFlee="NO" MSPDToUsePos="0">
 			<HitList>
-				<Frame Angle="0" AniTime="150" Dist="0" ForceATK="1" HitCount="1" PosType="3" RandDist="0" RandomPerHit="0" RotAngle="0" TermMax="0" TermMin="0" Time="0" Type="CIRCLE" Width="22" />
+                <Frame Type="CIRCLE" Time="0" HitCount="1" TermMin="0" TermMax="0" PosType="3" Dist="0" RandDist="0" RandomPerHit="0" Angle="0" Width="22" AniTime="150" RotAngle="0" ForceATK="1"/>
 			</HitList>
 			<EtcList>
-				<Scp Client="YES_Time" Scp="C_FORCE_EFT" Time="0" UseSleep="NO">
-					<Str_Arg Arg="0.5" Str="I_archer_musket_snipe#Dummy_effect_mus_force" />
+                <Scp Scp="C_FORCE_EFT" Client="YES_Time" UseSleep="NO" Time="0">
+                    <Str_Arg Str="I_archer_musket_snipe#Dummy_effect_mus_force" Arg="0.5"/>
 					<Str Str="arrow_cast" />
-					<Str_Arg Arg="1" Str="None" />
+                    <Str_Arg Str="None" Arg="1"/>
 					<Str Str="arrow_blow" />
 					<Str Str="SLOW" />
 					<Num Num="2000" />
@@ -745,12 +746,12 @@
 					<PosDist Angle="0" Dist="0" />
 					<Num Num="0" />
 				</Scp>
-				<Scp Client="YES" Scp="C_VOICE_SOUND" Time="150" UseSleep="NO">
+                <Scp Scp="C_VOICE_SOUND" Client="YES" UseSleep="NO" Time="150">
 					<Str Str="voice_war_atk_medium" />
 					<Str Str="voice_atk_medium_war_f" />
 				</Scp>
-                <Scp Client="NO" Scp="SKL_BUFF" Time="200" UseSleep="NO">
-                    <Str FuncTxt="local str = &quot;None&quot; local abilMusketeer31 = GetAbility(self, &quot;Musketeer31&quot;) if abilMusketeer31 ~= nil and TryGetProp(abilMusketeer31, &quot;ActiveState&quot;) == 1 then str = &quot;Snipe_Concealment_Buff&quot; end return str" UseFunc="1" Str="None"/>
+                <Scp Scp="SKL_BUFF" Client="NO" UseSleep="NO" Time="200">
+                    <Str Str="None" UseFunc="1" FuncTxt="local str = &quot;None&quot; local abilMusketeer31 = GetAbility(self, &quot;Musketeer31&quot;) if abilMusketeer31 ~= nil and TryGetProp(abilMusketeer31, &quot;ActiveState&quot;) == 1 then str = &quot;Snipe_Concealment_Buff&quot; end return str"/>
                     <Num Num="1"/>
                     <Num Num="0"/>
                     <Num Num="5000"/>
@@ -760,8 +761,8 @@
                 </Scp>
 			</EtcList>
 			<ResultList>
-				<ToolScp Client="NO" Scp="S_R_SELFBUFF" UseSleep="NO">
-					<Str FuncTxt="local str = &quot;None&quot; local abilMusketeer31 = GetAbility(self, &quot;Musketeer31&quot;) if abilMusketeer31 ~= nil and TryGetProp(abilMusketeer31, &quot;ActiveState&quot;) == 1 then str = &quot;Snipe_Concealment_Buff&quot; end return str" UseFunc="1" Str="None"/>
+                <ToolScp Scp="S_R_SELFBUFF" Client="NO" UseSleep="NO">
+                    <Str Str="None" UseFunc="1" FuncTxt="local str = &quot;None&quot; local abilMusketeer31 = GetAbility(self, &quot;Musketeer31&quot;) if abilMusketeer31 ~= nil and TryGetProp(abilMusketeer31, &quot;ActiveState&quot;) == 1 then str = &quot;Snipe_Concealment_Buff&quot; end return str"/>
                     <Num Num="1"/>
 					<Num Num="0"/>
 					<Num Num="5000"/>
@@ -769,19 +770,19 @@
 					<Num Num="100"/>
 					<Num Num="-1"/>
 				</ToolScp>
-                <ToolScp Client="YES" Scp="C_SR_EFT" UseSleep="NO">
-					<Str_Arg Arg="1" Str="F_archer_snipe_hit" />
+                <ToolScp Scp="C_SR_EFT" Client="YES" UseSleep="NO">
+                    <Str_Arg Str="F_archer_snipe_hit" Arg="1"/>
 					<Pos Angle="0" Dist="0" PosType="1" />
 					<Num Num="0" />
 					<Num Num="0" />
 				</ToolScp>
-				<ToolScp Client="NO" Scp="S_R_SET_FORCE_DAMAGE" UseSleep="NO">
+                <ToolScp Scp="S_R_SET_FORCE_DAMAGE" Client="NO" UseSleep="NO">
 					<Num Num="0.80000001" />
 					<Num Num="1" />
 					<Num Num="2" />
-					<Str_Arg Arg="1" Str="I_archer_musket_snipe#Dummy_effect_mus_force" />
+                    <Str_Arg Str="I_archer_musket_snipe#Dummy_effect_mus_force" Arg="1"/>
 					<Str Str="arrow_cast" />
-					<Str_Arg Arg="1" Str="None" />
+                    <Str_Arg Str="None" Arg="1"/>
 					<Str Str="arrow_blow" />
 					<Str Str="SLOW" />
 					<Num Num="600" />
@@ -838,8 +839,8 @@
 					<Num Num="100" />
 					<Num Num="-1" />
 				</ToolScp>
-              <ToolScp Client="NO" Scp="S_R_TGT_Decrease_heal_debuff" UseSleep="NO">
-                <Str FuncTxt="local func_name = 'get_decrease_heal_debuff_tooltip_' .. TryGetProp(skill, 'ClassName', 'None')
+                <ToolScp Client="NO" Scp="S_R_TGT_Decrease_heal_debuff" UseSleep="NO">
+                    <Str FuncTxt="local func_name = 'get_decrease_heal_debuff_tooltip_' .. TryGetProp(skill, 'ClassName', 'None')
                local func = _G[func_name]
                if func == nil then return end
                return func(skill.Level)" Str="0" UseFunc="1"/>

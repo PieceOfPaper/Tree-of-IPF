@@ -771,7 +771,7 @@ function SCP_HOUSING_SHOP_SORT_BY_SELECT_DROPlIST(frame)
 	local secondSelectedIndex = droplist_search_second:GetSelItemIndex();
 	
 	local edit_itemSearch = GET_CHILD_RECURSIVELY(frame, "edit_itemSearch");
-	local searchText = edit_itemSearch:GetText();
+	local searchText = string.lower(edit_itemSearch:GetText());
 
 	local yPos = 0;
 	local childCount = gbox_sell_list_landscape_itemlist:GetChildCount();
@@ -791,6 +791,7 @@ function SCP_HOUSING_SHOP_SORT_BY_SELECT_DROPlIST(frame)
 			end
 			
 			local furnitureName = child:GetUserValue("FurnitureName");
+			furnitureName = string.lower(dictionary.ReplaceDicIDInCompStr(furnitureName));
 			if ((findCaption == nil or selectedCaption == nil) or (findCaption == selectedCaption)) and (searchText == "" or string.match(furnitureName, searchText)) then
 				local margin = child:GetMargin();
 				

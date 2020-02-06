@@ -117,7 +117,14 @@ function OPEN_FOODTABLE_REGISTER(frame)
 	checkBox_guild:SetEventScript(ui.LBUTTONUP, 'FOODTABLE_CHECK_BOX_FOR_GUILD');
 	checkBox_guild:SetCheck(0);
 	checkBox_guild:ShowWindow(1);
-    FOODTABLE_CHECK_BOX_FOR_GUILD(ctrlSet_guild, checkBox_guild);
+	FOODTABLE_CHECK_BOX_FOR_GUILD(ctrlSet_guild, checkBox_guild);
+	
+	local guildInfo = session.party.GetPartyInfo(PARTY_GUILD);
+	if guildInfo ~= nil then
+		checkBox_guild:SetEnable(1)
+	else
+		checkBox_guild:SetEnable(0)
+	end
 	
 	checkBox_all:SetText(ClMsg('FreeFoodForAll'));
 	checkBox_all:SetEventScript(ui.LBUTTONUP, 'FOODTABLE_CHECK_BOX_FOR_ALL');

@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<ToolSkill><Skill Name="Wizard_EarthQuake">
+<ToolSkill>    <Skill Name="Wizard_EarthQuake">
 		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
 			<HitList>
 				<Frame Angle="0" AniTime="200" Dist="0" ForceATK="0" HitCount="1" Length="50" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" TermMax="0" TermMin="0" Time="0" Type="CIRCLE" Width="50" />
@@ -357,7 +357,7 @@
 				<Scp Client="YES_Time" Scp="C_FORCE_EFT" Time="0" UseSleep="NO">
 					<Str_Arg Arg="0.5" Str="I_wizard_energybolt_force_rize2#Dummy_effect_electrocute" />
 					<Str Str="None" />
-					<Str_Arg Arg="0.5" FuncTxt=" local dynTime = self:GetKeyCastTime();  if dynTime &gt;= 0.5 then return &quot;F_wizard_energybolt_hit_full_explosion&quot;, 0.5; else return &quot;F_wizard_energybolt_hit_explosion&quot;, 0.5;  end" Str="F_wizard_energybolt_hit_explosion" UseFunc="1" />
+					<Str_Arg Arg="0.5" FuncTxt=" local dynTime = self:GetKeyCastTime();  if dynTime >= 0.5 then return &quot;F_wizard_energybolt_hit_full_explosion&quot;, 0.5; else return &quot;F_wizard_energybolt_hit_explosion&quot;, 0.5;  end" Str="F_wizard_energybolt_hit_explosion" UseFunc="1" />
 					<Str Str="None" />
 					<Str Str="SLOW" />
 					<Num Num="300" />
@@ -387,7 +387,7 @@
 						<Scp Client="YES_Time" Scp="C_FORCE_EFT" Time="0" UseSleep="NO">
 							<Str_Arg Arg="3.46" Str="I_wizard_energybolt_force_rize#Dummy_Force" />
 							<Str Str="None" />
-							<Str_Arg Arg="0.5" FuncTxt=" local dynTime = self:GetKeyCastTime();  if dynTime &gt;= 1.5 then return &quot;F_wizard_energybolt_hit_full_explosion&quot;, 0.5; else return &quot;F_wizard_energybolt_hit_explosion&quot;, 0.5; end   " Str="F_wizard_energybolt_hit_explosion" UseFunc="1" />
+							<Str_Arg Arg="0.5" FuncTxt=" local dynTime = self:GetKeyCastTime();  if dynTime >= 1.5 then return &quot;F_wizard_energybolt_hit_full_explosion&quot;, 0.5; else return &quot;F_wizard_energybolt_hit_explosion&quot;, 0.5; end   " Str="F_wizard_energybolt_hit_explosion" UseFunc="1" />
 							<Str Str="None" />
 							<Str Str="SLOW" />
 							<Num Num="300" />
@@ -417,7 +417,7 @@
 						<Scp Client="YES_Time" Scp="C_FORCE_EFT" Time="0" UseSleep="NO">
 							<Str_Arg Arg="3.4200001" Str="I_wizard_energybolt_force_rize#Dummy_Force" />
 							<Str Str="None" />
-							<Str_Arg Arg="0.5" FuncTxt=" local dynTime = self:GetKeyCastTime();  if dynTime &gt;= 1.5 then return &quot;F_wizard_energybolt_hit_full_explosion&quot;, 0.5; else return &quot;F_wizard_energybolt_hit_explosion&quot;, 0.5; end   " Str="F_wizard_energybolt_hit_explosion" UseFunc="1" />
+							<Str_Arg Arg="0.5" FuncTxt=" local dynTime = self:GetKeyCastTime();  if dynTime >= 1.5 then return &quot;F_wizard_energybolt_hit_full_explosion&quot;, 0.5; else return &quot;F_wizard_energybolt_hit_explosion&quot;, 0.5; end   " Str="F_wizard_energybolt_hit_explosion" UseFunc="1" />
 							<Str Str="None" />
 							<Str Str="SLOW" />
 							<Num Num="300" />
@@ -447,7 +447,7 @@
 						<Scp Client="YES_Time" Scp="C_FORCE_EFT" Time="0" UseSleep="NO">
 							<Str_Arg Arg="3.3800001" Str="I_wizard_energybolt_force_rize#Dummy_Force" />
 							<Str Str="None" />
-							<Str_Arg Arg="0.5" FuncTxt=" local dynTime = self:GetKeyCastTime();  if dynTime &gt;= 1.5 then return &quot;F_wizard_energybolt_hit_full_explosion&quot;, 0.5; else return &quot;F_wizard_energybolt_hit_explosion&quot;, 0.5; end   " Str="F_wizard_energybolt_hit_explosion" UseFunc="1" />
+							<Str_Arg Arg="0.5" FuncTxt=" local dynTime = self:GetKeyCastTime();  if dynTime >= 1.5 then return &quot;F_wizard_energybolt_hit_full_explosion&quot;, 0.5; else return &quot;F_wizard_energybolt_hit_explosion&quot;, 0.5; end   " Str="F_wizard_energybolt_hit_explosion" UseFunc="1" />
 							<Str Str="None" />
 							<Str Str="SLOW" />
 							<Num Num="300" />
@@ -477,7 +477,7 @@
 						<Scp Client="YES_Time" Scp="C_FORCE_EFT" Time="0" UseSleep="NO">
 							<Str_Arg Arg="3.3399999" Str="I_wizard_energybolt_force_rize#Dummy_Force" />
 							<Str Str="None" />
-							<Str_Arg Arg="0.5" FuncTxt=" local dynTime = self:GetKeyCastTime();  if dynTime &gt;= 1.5 then return &quot;F_wizard_energybolt_hit_full_explosion&quot;, 0.5; else return &quot;F_wizard_energybolt_hit_explosion&quot;, 0.5; end   " Str="F_wizard_energybolt_hit_explosion" UseFunc="1" />
+							<Str_Arg Arg="0.5" FuncTxt=" local dynTime = self:GetKeyCastTime();  if dynTime >= 1.5 then return &quot;F_wizard_energybolt_hit_full_explosion&quot;, 0.5; else return &quot;F_wizard_energybolt_hit_explosion&quot;, 0.5; end   " Str="F_wizard_energybolt_hit_explosion" UseFunc="1" />
 							<Str Str="None" />
 							<Str Str="SLOW" />
 							<Num Num="300" />
@@ -507,7 +507,7 @@
 						<Scp Client="YES_Time" Scp="C_FORCE_EFT" Time="0" UseSleep="NO">
 							<Str_Arg Arg="3.3" Str="I_wizard_energybolt_force_rize#Dummy_Force" />
 							<Str Str="None" />
-							<Str_Arg Arg="0.5" FuncTxt=" local dynTime = self:GetKeyCastTime();  if dynTime &gt;= 1.5 then return &quot;F_wizard_energybolt_hit_full_explosion&quot;, 0.5; else return &quot;F_wizard_energybolt_hit_explosion&quot;, 0.5; end   " Str="F_wizard_energybolt_hit_explosion" UseFunc="1" />
+							<Str_Arg Arg="0.5" FuncTxt=" local dynTime = self:GetKeyCastTime();  if dynTime >= 1.5 then return &quot;F_wizard_energybolt_hit_full_explosion&quot;, 0.5; else return &quot;F_wizard_energybolt_hit_explosion&quot;, 0.5; end   " Str="F_wizard_energybolt_hit_explosion" UseFunc="1" />
 							<Str Str="None" />
 							<Str Str="SLOW" />
 							<Num Num="300" />
@@ -537,7 +537,7 @@
 						<Scp Client="YES_Time" Scp="C_FORCE_EFT" Time="0" UseSleep="NO">
 							<Str_Arg Arg="3.26" Str="I_wizard_energybolt_force_rize#Dummy_Force" />
 							<Str Str="None" />
-							<Str_Arg Arg="0.5" FuncTxt=" local dynTime = self:GetKeyCastTime();  if dynTime &gt;= 1.5 then return &quot;F_wizard_energybolt_hit_full_explosion&quot;, 0.5; else return &quot;F_wizard_energybolt_hit_explosion&quot;, 0.5; end   " Str="F_wizard_energybolt_hit_explosion" UseFunc="1" />
+							<Str_Arg Arg="0.5" FuncTxt=" local dynTime = self:GetKeyCastTime();  if dynTime >= 1.5 then return &quot;F_wizard_energybolt_hit_full_explosion&quot;, 0.5; else return &quot;F_wizard_energybolt_hit_explosion&quot;, 0.5; end   " Str="F_wizard_energybolt_hit_explosion" UseFunc="1" />
 							<Str Str="None" />
 							<Str Str="SLOW" />
 							<Num Num="300" />
@@ -567,7 +567,7 @@
 						<Scp Client="YES_Time" Scp="C_FORCE_EFT" Time="0" UseSleep="NO">
 							<Str_Arg Arg="3.22" Str="I_wizard_energybolt_force_rize#Dummy_Force" />
 							<Str Str="None" />
-							<Str_Arg Arg="0.5" FuncTxt=" local dynTime = self:GetKeyCastTime();  if dynTime &gt;= 1.5 then return &quot;F_wizard_energybolt_hit_full_explosion&quot;, 0.5; else return &quot;F_wizard_energybolt_hit_explosion&quot;, 0.5; end   " Str="F_wizard_energybolt_hit_explosion" UseFunc="1" />
+							<Str_Arg Arg="0.5" FuncTxt=" local dynTime = self:GetKeyCastTime();  if dynTime >= 1.5 then return &quot;F_wizard_energybolt_hit_full_explosion&quot;, 0.5; else return &quot;F_wizard_energybolt_hit_explosion&quot;, 0.5; end   " Str="F_wizard_energybolt_hit_explosion" UseFunc="1" />
 							<Str Str="None" />
 							<Str Str="SLOW" />
 							<Num Num="300" />
@@ -597,7 +597,7 @@
 						<Scp Client="YES_Time" Scp="C_FORCE_EFT" Time="0" UseSleep="NO">
 							<Str_Arg Arg="3.1800001" Str="I_wizard_energybolt_force_rize#Dummy_Force" />
 							<Str Str="None" />
-							<Str_Arg Arg="0.5" FuncTxt=" local dynTime = self:GetKeyCastTime();  if dynTime &gt;= 1.5 then return &quot;F_wizard_energybolt_hit_full_explosion&quot;, 0.5; else return &quot;F_wizard_energybolt_hit_explosion&quot;, 0.5; end   " Str="F_wizard_energybolt_hit_explosion" UseFunc="1" />
+							<Str_Arg Arg="0.5" FuncTxt=" local dynTime = self:GetKeyCastTime();  if dynTime >= 1.5 then return &quot;F_wizard_energybolt_hit_full_explosion&quot;, 0.5; else return &quot;F_wizard_energybolt_hit_explosion&quot;, 0.5; end   " Str="F_wizard_energybolt_hit_explosion" UseFunc="1" />
 							<Str Str="None" />
 							<Str Str="SLOW" />
 							<Num Num="300" />
@@ -627,7 +627,7 @@
 						<Scp Client="YES_Time" Scp="C_FORCE_EFT" Time="0" UseSleep="NO">
 							<Str_Arg Arg="3.1400001" Str="I_wizard_energybolt_force_rize#Dummy_Force" />
 							<Str Str="None" />
-							<Str_Arg Arg="0.5" FuncTxt=" local dynTime = self:GetKeyCastTime();  if dynTime &gt;= 1.5 then return &quot;F_wizard_energybolt_hit_full_explosion&quot;, 0.5; else return &quot;F_wizard_energybolt_hit_explosion&quot;, 0.5; end   " Str="F_wizard_energybolt_hit_explosion" UseFunc="1" />
+							<Str_Arg Arg="0.5" FuncTxt=" local dynTime = self:GetKeyCastTime();  if dynTime >= 1.5 then return &quot;F_wizard_energybolt_hit_full_explosion&quot;, 0.5; else return &quot;F_wizard_energybolt_hit_explosion&quot;, 0.5; end   " Str="F_wizard_energybolt_hit_explosion" UseFunc="1" />
 							<Str Str="None" />
 							<Str Str="SLOW" />
 							<Num Num="300" />
@@ -657,7 +657,7 @@
 						<Scp Client="YES_Time" Scp="C_FORCE_EFT" Time="0" UseSleep="NO">
 							<Str_Arg Arg="3.0999999" Str="I_wizard_energybolt_force_rize#Dummy_Force" />
 							<Str Str="None" />
-							<Str_Arg Arg="0.5" FuncTxt=" local dynTime = self:GetKeyCastTime();  if dynTime &gt;= 1.5 then return &quot;F_wizard_energybolt_hit_full_explosion&quot;, 0.5; else return &quot;F_wizard_energybolt_hit_explosion&quot;, 0.5; end   " Str="F_wizard_energybolt_hit_explosion" UseFunc="1" />
+							<Str_Arg Arg="0.5" FuncTxt=" local dynTime = self:GetKeyCastTime();  if dynTime >= 1.5 then return &quot;F_wizard_energybolt_hit_full_explosion&quot;, 0.5; else return &quot;F_wizard_energybolt_hit_explosion&quot;, 0.5; end   " Str="F_wizard_energybolt_hit_explosion" UseFunc="1" />
 							<Str Str="None" />
 							<Str Str="SLOW" />
 							<Num Num="300" />
@@ -687,7 +687,7 @@
 						<Scp Client="YES_Time" Scp="C_FORCE_EFT" Time="0" UseSleep="NO">
 							<Str_Arg Arg="3.0599999" Str="I_wizard_energybolt_force_rize#Dummy_Force" />
 							<Str Str="None" />
-							<Str_Arg Arg="0.5" FuncTxt=" local dynTime = self:GetKeyCastTime();  if dynTime &gt;= 1.5 then return &quot;F_wizard_energybolt_hit_full_explosion&quot;, 0.5; else return &quot;F_wizard_energybolt_hit_explosion&quot;, 0.5; end   " Str="F_wizard_energybolt_hit_explosion" UseFunc="1" />
+							<Str_Arg Arg="0.5" FuncTxt=" local dynTime = self:GetKeyCastTime();  if dynTime >= 1.5 then return &quot;F_wizard_energybolt_hit_full_explosion&quot;, 0.5; else return &quot;F_wizard_energybolt_hit_explosion&quot;, 0.5; end   " Str="F_wizard_energybolt_hit_explosion" UseFunc="1" />
 							<Str Str="None" />
 							<Str Str="SLOW" />
 							<Num Num="300" />
@@ -717,7 +717,7 @@
 						<Scp Client="YES_Time" Scp="C_FORCE_EFT" Time="0" UseSleep="NO">
 							<Str_Arg Arg="3.02" Str="I_wizard_energybolt_force_rize#Dummy_Force" />
 							<Str Str="None" />
-							<Str_Arg Arg="0.5" FuncTxt=" local dynTime = self:GetKeyCastTime();  if dynTime &gt;= 1.5 then return &quot;F_wizard_energybolt_hit_full_explosion&quot;, 0.5; else return &quot;F_wizard_energybolt_hit_explosion&quot;, 0.5; end   " Str="F_wizard_energybolt_hit_explosion" UseFunc="1" />
+							<Str_Arg Arg="0.5" FuncTxt=" local dynTime = self:GetKeyCastTime();  if dynTime >= 1.5 then return &quot;F_wizard_energybolt_hit_full_explosion&quot;, 0.5; else return &quot;F_wizard_energybolt_hit_explosion&quot;, 0.5; end   " Str="F_wizard_energybolt_hit_explosion" UseFunc="1" />
 							<Str Str="None" />
 							<Str Str="SLOW" />
 							<Num Num="300" />
@@ -747,7 +747,7 @@
 						<Scp Client="YES_Time" Scp="C_FORCE_EFT" Time="0" UseSleep="NO">
 							<Str_Arg Arg="2.98" Str="I_wizard_energybolt_force_rize#Dummy_Force" />
 							<Str Str="None" />
-							<Str_Arg Arg="0.5" FuncTxt=" local dynTime = self:GetKeyCastTime();  if dynTime &gt;= 1.5 then return &quot;F_wizard_energybolt_hit_full_explosion&quot;, 0.5; else return &quot;F_wizard_energybolt_hit_explosion&quot;, 0.5; end   " Str="F_wizard_energybolt_hit_explosion" UseFunc="1" />
+							<Str_Arg Arg="0.5" FuncTxt=" local dynTime = self:GetKeyCastTime();  if dynTime >= 1.5 then return &quot;F_wizard_energybolt_hit_full_explosion&quot;, 0.5; else return &quot;F_wizard_energybolt_hit_explosion&quot;, 0.5; end   " Str="F_wizard_energybolt_hit_explosion" UseFunc="1" />
 							<Str Str="None" />
 							<Str Str="SLOW" />
 							<Num Num="300" />
@@ -777,7 +777,7 @@
 						<Scp Client="YES_Time" Scp="C_FORCE_EFT" Time="0" UseSleep="NO">
 							<Str_Arg Arg="2.9400001" Str="I_wizard_energybolt_force_rize#Dummy_Force" />
 							<Str Str="None" />
-							<Str_Arg Arg="0.5" FuncTxt=" local dynTime = self:GetKeyCastTime();  if dynTime &gt;= 1.5 then return &quot;F_wizard_energybolt_hit_full_explosion&quot;, 0.5; else return &quot;F_wizard_energybolt_hit_explosion&quot;, 0.5; end   " Str="F_wizard_energybolt_hit_explosion" UseFunc="1" />
+							<Str_Arg Arg="0.5" FuncTxt=" local dynTime = self:GetKeyCastTime();  if dynTime >= 1.5 then return &quot;F_wizard_energybolt_hit_full_explosion&quot;, 0.5; else return &quot;F_wizard_energybolt_hit_explosion&quot;, 0.5; end   " Str="F_wizard_energybolt_hit_explosion" UseFunc="1" />
 							<Str Str="None" />
 							<Str Str="SLOW" />
 							<Num Num="300" />
@@ -807,7 +807,7 @@
 						<Scp Client="YES_Time" Scp="C_FORCE_EFT" Time="0" UseSleep="NO">
 							<Str_Arg Arg="2.9000001" Str="I_wizard_energybolt_force_rize#Dummy_Force" />
 							<Str Str="None" />
-							<Str_Arg Arg="0.5" FuncTxt=" local dynTime = self:GetKeyCastTime();  if dynTime &gt;= 1.5 then return &quot;F_wizard_energybolt_hit_full_explosion&quot;, 0.5; else return &quot;F_wizard_energybolt_hit_explosion&quot;, 0.5; end   " Str="F_wizard_energybolt_hit_explosion" UseFunc="1" />
+							<Str_Arg Arg="0.5" FuncTxt=" local dynTime = self:GetKeyCastTime();  if dynTime >= 1.5 then return &quot;F_wizard_energybolt_hit_full_explosion&quot;, 0.5; else return &quot;F_wizard_energybolt_hit_explosion&quot;, 0.5; end   " Str="F_wizard_energybolt_hit_explosion" UseFunc="1" />
 							<Str Str="None" />
 							<Str Str="SLOW" />
 							<Num Num="300" />
@@ -837,7 +837,7 @@
 						<Scp Client="YES_Time" Scp="C_FORCE_EFT" Time="0" UseSleep="NO">
 							<Str_Arg Arg="2.8599999" Str="I_wizard_energybolt_force_rize#Dummy_Force" />
 							<Str Str="None" />
-							<Str_Arg Arg="0.5" FuncTxt=" local dynTime = self:GetKeyCastTime();  if dynTime &gt;= 1.5 then return &quot;F_wizard_energybolt_hit_full_explosion&quot;, 0.5; else return &quot;F_wizard_energybolt_hit_explosion&quot;, 0.5; end   " Str="F_wizard_energybolt_hit_explosion" UseFunc="1" />
+							<Str_Arg Arg="0.5" FuncTxt=" local dynTime = self:GetKeyCastTime();  if dynTime >= 1.5 then return &quot;F_wizard_energybolt_hit_full_explosion&quot;, 0.5; else return &quot;F_wizard_energybolt_hit_explosion&quot;, 0.5; end   " Str="F_wizard_energybolt_hit_explosion" UseFunc="1" />
 							<Str Str="None" />
 							<Str Str="SLOW" />
 							<Num Num="300" />
@@ -867,7 +867,7 @@
 						<Scp Client="YES_Time" Scp="C_FORCE_EFT" Time="0" UseSleep="NO">
 							<Str_Arg Arg="2.8199999" Str="I_wizard_energybolt_force_rize#Dummy_Force" />
 							<Str Str="None" />
-							<Str_Arg Arg="0.5" FuncTxt=" local dynTime = self:GetKeyCastTime();  if dynTime &gt;= 1.5 then return &quot;F_wizard_energybolt_hit_full_explosion&quot;, 0.5; else return &quot;F_wizard_energybolt_hit_explosion&quot;, 0.5; end   " Str="F_wizard_energybolt_hit_explosion" UseFunc="1" />
+							<Str_Arg Arg="0.5" FuncTxt=" local dynTime = self:GetKeyCastTime();  if dynTime >= 1.5 then return &quot;F_wizard_energybolt_hit_full_explosion&quot;, 0.5; else return &quot;F_wizard_energybolt_hit_explosion&quot;, 0.5; end   " Str="F_wizard_energybolt_hit_explosion" UseFunc="1" />
 							<Str Str="None" />
 							<Str Str="SLOW" />
 							<Num Num="300" />
@@ -897,7 +897,7 @@
 						<Scp Client="YES_Time" Scp="C_FORCE_EFT" Time="0" UseSleep="NO">
 							<Str_Arg Arg="2.78" Str="I_wizard_energybolt_force_rize#Dummy_Force" />
 							<Str Str="None" />
-							<Str_Arg Arg="0.5" FuncTxt=" local dynTime = self:GetKeyCastTime();  if dynTime &gt;= 1.5 then return &quot;F_wizard_energybolt_hit_full_explosion&quot;, 0.5; else return &quot;F_wizard_energybolt_hit_explosion&quot;, 0.5; end   " Str="F_wizard_energybolt_hit_explosion" UseFunc="1" />
+							<Str_Arg Arg="0.5" FuncTxt=" local dynTime = self:GetKeyCastTime();  if dynTime >= 1.5 then return &quot;F_wizard_energybolt_hit_full_explosion&quot;, 0.5; else return &quot;F_wizard_energybolt_hit_explosion&quot;, 0.5; end   " Str="F_wizard_energybolt_hit_explosion" UseFunc="1" />
 							<Str Str="None" />
 							<Str Str="SLOW" />
 							<Num Num="300" />
@@ -927,7 +927,7 @@
 						<Scp Client="YES_Time" Scp="C_FORCE_EFT" Time="0" UseSleep="NO">
 							<Str_Arg Arg="2.74" Str="I_wizard_energybolt_force_rize#Dummy_Force" />
 							<Str Str="None" />
-							<Str_Arg Arg="0.5" FuncTxt=" local dynTime = self:GetKeyCastTime();  if dynTime &gt;= 1.5 then return &quot;F_wizard_energybolt_hit_full_explosion&quot;, 0.5; else return &quot;F_wizard_energybolt_hit_explosion&quot;, 0.5; end   " Str="F_wizard_energybolt_hit_explosion" UseFunc="1" />
+							<Str_Arg Arg="0.5" FuncTxt=" local dynTime = self:GetKeyCastTime();  if dynTime >= 1.5 then return &quot;F_wizard_energybolt_hit_full_explosion&quot;, 0.5; else return &quot;F_wizard_energybolt_hit_explosion&quot;, 0.5; end   " Str="F_wizard_energybolt_hit_explosion" UseFunc="1" />
 							<Str Str="None" />
 							<Str Str="SLOW" />
 							<Num Num="300" />
@@ -957,7 +957,7 @@
 						<Scp Client="YES_Time" Scp="C_FORCE_EFT" Time="0" UseSleep="NO">
 							<Str_Arg Arg="2.7" Str="I_wizard_energybolt_force_rize#Dummy_Force" />
 							<Str Str="None" />
-							<Str_Arg Arg="0.5" FuncTxt=" local dynTime = self:GetKeyCastTime();  if dynTime &gt;= 1.5 then return &quot;F_wizard_energybolt_hit_full_explosion&quot;, 0.5; else return &quot;F_wizard_energybolt_hit_explosion&quot;, 0.5; end   " Str="F_wizard_energybolt_hit_explosion" UseFunc="1" />
+							<Str_Arg Arg="0.5" FuncTxt=" local dynTime = self:GetKeyCastTime();  if dynTime >= 1.5 then return &quot;F_wizard_energybolt_hit_full_explosion&quot;, 0.5; else return &quot;F_wizard_energybolt_hit_explosion&quot;, 0.5; end   " Str="F_wizard_energybolt_hit_explosion" UseFunc="1" />
 							<Str Str="None" />
 							<Str Str="SLOW" />
 							<Num Num="300" />
@@ -987,7 +987,7 @@
 						<Scp Client="YES_Time" Scp="C_FORCE_EFT" Time="0" UseSleep="NO">
 							<Str_Arg Arg="2.6600001" Str="I_wizard_energybolt_force_rize#Dummy_Force" />
 							<Str Str="None" />
-							<Str_Arg Arg="0.5" FuncTxt=" local dynTime = self:GetKeyCastTime();  if dynTime &gt;= 1.5 then return &quot;F_wizard_energybolt_hit_full_explosion&quot;, 0.5; else return &quot;F_wizard_energybolt_hit_explosion&quot;, 0.5; end   " Str="F_wizard_energybolt_hit_explosion" UseFunc="1" />
+							<Str_Arg Arg="0.5" FuncTxt=" local dynTime = self:GetKeyCastTime();  if dynTime >= 1.5 then return &quot;F_wizard_energybolt_hit_full_explosion&quot;, 0.5; else return &quot;F_wizard_energybolt_hit_explosion&quot;, 0.5; end   " Str="F_wizard_energybolt_hit_explosion" UseFunc="1" />
 							<Str Str="None" />
 							<Str Str="SLOW" />
 							<Num Num="300" />
@@ -1017,7 +1017,7 @@
 						<Scp Client="YES_Time" Scp="C_FORCE_EFT" Time="0" UseSleep="NO">
 							<Str_Arg Arg="2.6199999" Str="I_wizard_energybolt_force_rize#Dummy_Force" />
 							<Str Str="None" />
-							<Str_Arg Arg="0.5" FuncTxt=" local dynTime = self:GetKeyCastTime();  if dynTime &gt;= 1.5 then return &quot;F_wizard_energybolt_hit_full_explosion&quot;, 0.5; else return &quot;F_wizard_energybolt_hit_explosion&quot;, 0.5; end   " Str="F_wizard_energybolt_hit_explosion" UseFunc="1" />
+							<Str_Arg Arg="0.5" FuncTxt=" local dynTime = self:GetKeyCastTime();  if dynTime >= 1.5 then return &quot;F_wizard_energybolt_hit_full_explosion&quot;, 0.5; else return &quot;F_wizard_energybolt_hit_explosion&quot;, 0.5; end   " Str="F_wizard_energybolt_hit_explosion" UseFunc="1" />
 							<Str Str="None" />
 							<Str Str="SLOW" />
 							<Num Num="300" />
@@ -1047,7 +1047,7 @@
 						<Scp Client="YES_Time" Scp="C_FORCE_EFT" Time="0" UseSleep="NO">
 							<Str_Arg Arg="2.5799999" Str="I_wizard_energybolt_force_rize#Dummy_Force" />
 							<Str Str="None" />
-							<Str_Arg Arg="0.5" FuncTxt=" local dynTime = self:GetKeyCastTime();  if dynTime &gt;= 1.5 then return &quot;F_wizard_energybolt_hit_full_explosion&quot;, 0.5; else return &quot;F_wizard_energybolt_hit_explosion&quot;, 0.5; end   " Str="F_wizard_energybolt_hit_explosion" UseFunc="1" />
+							<Str_Arg Arg="0.5" FuncTxt=" local dynTime = self:GetKeyCastTime();  if dynTime >= 1.5 then return &quot;F_wizard_energybolt_hit_full_explosion&quot;, 0.5; else return &quot;F_wizard_energybolt_hit_explosion&quot;, 0.5; end   " Str="F_wizard_energybolt_hit_explosion" UseFunc="1" />
 							<Str Str="None" />
 							<Str Str="SLOW" />
 							<Num Num="300" />
@@ -1077,7 +1077,7 @@
 						<Scp Client="YES_Time" Scp="C_FORCE_EFT" Time="0" UseSleep="NO">
 							<Str_Arg Arg="2.54" Str="I_wizard_energybolt_force_rize#Dummy_Force" />
 							<Str Str="None" />
-							<Str_Arg Arg="0.5" FuncTxt=" local dynTime = self:GetKeyCastTime();  if dynTime &gt;= 1.5 then return &quot;F_wizard_energybolt_hit_full_explosion&quot;, 0.5; else return &quot;F_wizard_energybolt_hit_explosion&quot;, 0.5; end   " Str="F_wizard_energybolt_hit_explosion" UseFunc="1" />
+							<Str_Arg Arg="0.5" FuncTxt=" local dynTime = self:GetKeyCastTime();  if dynTime >= 1.5 then return &quot;F_wizard_energybolt_hit_full_explosion&quot;, 0.5; else return &quot;F_wizard_energybolt_hit_explosion&quot;, 0.5; end   " Str="F_wizard_energybolt_hit_explosion" UseFunc="1" />
 							<Str Str="None" />
 							<Str Str="SLOW" />
 							<Num Num="300" />
@@ -1107,7 +1107,7 @@
 						<Scp Client="YES_Time" Scp="C_FORCE_EFT" Time="0" UseSleep="NO">
 							<Str_Arg Arg="2.5" Str="I_wizard_energybolt_force_rize#Dummy_Force" />
 							<Str Str="None" />
-							<Str_Arg Arg="0.5" FuncTxt=" local dynTime = self:GetKeyCastTime();  if dynTime &gt;= 1.5 then return &quot;F_wizard_energybolt_hit_full_explosion&quot;, 0.5; else return &quot;F_wizard_energybolt_hit_explosion&quot;, 0.5; end   " Str="F_wizard_energybolt_hit_explosion" UseFunc="1" />
+							<Str_Arg Arg="0.5" FuncTxt=" local dynTime = self:GetKeyCastTime();  if dynTime >= 1.5 then return &quot;F_wizard_energybolt_hit_full_explosion&quot;, 0.5; else return &quot;F_wizard_energybolt_hit_explosion&quot;, 0.5; end   " Str="F_wizard_energybolt_hit_explosion" UseFunc="1" />
 							<Str Str="None" />
 							<Str Str="SLOW" />
 							<Num Num="300" />
@@ -1137,7 +1137,7 @@
 						<Scp Client="YES_Time" Scp="C_FORCE_EFT" Time="0" UseSleep="NO">
 							<Str_Arg Arg="2.46" Str="I_wizard_energybolt_force_rize#Dummy_Force" />
 							<Str Str="None" />
-							<Str_Arg Arg="0.5" FuncTxt=" local dynTime = self:GetKeyCastTime();  if dynTime &gt;= 1.5 then return &quot;F_wizard_energybolt_hit_full_explosion&quot;, 0.5; else return &quot;F_wizard_energybolt_hit_explosion&quot;, 0.5; end   " Str="F_wizard_energybolt_hit_explosion" UseFunc="1" />
+							<Str_Arg Arg="0.5" FuncTxt=" local dynTime = self:GetKeyCastTime();  if dynTime >= 1.5 then return &quot;F_wizard_energybolt_hit_full_explosion&quot;, 0.5; else return &quot;F_wizard_energybolt_hit_explosion&quot;, 0.5; end   " Str="F_wizard_energybolt_hit_explosion" UseFunc="1" />
 							<Str Str="None" />
 							<Str Str="SLOW" />
 							<Num Num="300" />
@@ -1167,7 +1167,7 @@
 						<Scp Client="YES_Time" Scp="C_FORCE_EFT" Time="0" UseSleep="NO">
 							<Str_Arg Arg="2.4200001" Str="I_wizard_energybolt_force_rize#Dummy_Force" />
 							<Str Str="None" />
-							<Str_Arg Arg="0.5" FuncTxt=" local dynTime = self:GetKeyCastTime();  if dynTime &gt;= 1.5 then return &quot;F_wizard_energybolt_hit_full_explosion&quot;, 0.5; else return &quot;F_wizard_energybolt_hit_explosion&quot;, 0.5; end   " Str="F_wizard_energybolt_hit_explosion" UseFunc="1" />
+							<Str_Arg Arg="0.5" FuncTxt=" local dynTime = self:GetKeyCastTime();  if dynTime >= 1.5 then return &quot;F_wizard_energybolt_hit_full_explosion&quot;, 0.5; else return &quot;F_wizard_energybolt_hit_explosion&quot;, 0.5; end   " Str="F_wizard_energybolt_hit_explosion" UseFunc="1" />
 							<Str Str="None" />
 							<Str Str="SLOW" />
 							<Num Num="300" />
@@ -1197,7 +1197,7 @@
 						<Scp Client="YES_Time" Scp="C_FORCE_EFT" Time="0" UseSleep="NO">
 							<Str_Arg Arg="2.3800001" Str="I_wizard_energybolt_force_rize#Dummy_Force" />
 							<Str Str="None" />
-							<Str_Arg Arg="0.5" FuncTxt=" local dynTime = self:GetKeyCastTime();  if dynTime &gt;= 1.5 then return &quot;F_wizard_energybolt_hit_full_explosion&quot;, 0.5; else return &quot;F_wizard_energybolt_hit_explosion&quot;, 0.5; end   " Str="F_wizard_energybolt_hit_explosion" UseFunc="1" />
+							<Str_Arg Arg="0.5" FuncTxt=" local dynTime = self:GetKeyCastTime();  if dynTime >= 1.5 then return &quot;F_wizard_energybolt_hit_full_explosion&quot;, 0.5; else return &quot;F_wizard_energybolt_hit_explosion&quot;, 0.5; end   " Str="F_wizard_energybolt_hit_explosion" UseFunc="1" />
 							<Str Str="None" />
 							<Str Str="SLOW" />
 							<Num Num="300" />
@@ -1227,7 +1227,7 @@
 						<Scp Client="YES_Time" Scp="C_FORCE_EFT" Time="0" UseSleep="NO">
 							<Str_Arg Arg="2.3399999" Str="I_wizard_energybolt_force_rize#Dummy_Force" />
 							<Str Str="None" />
-							<Str_Arg Arg="0.5" FuncTxt=" local dynTime = self:GetKeyCastTime();  if dynTime &gt;= 1.5 then return &quot;F_wizard_energybolt_hit_full_explosion&quot;, 0.5; else return &quot;F_wizard_energybolt_hit_explosion&quot;, 0.5; end   " Str="F_wizard_energybolt_hit_explosion" UseFunc="1" />
+							<Str_Arg Arg="0.5" FuncTxt=" local dynTime = self:GetKeyCastTime();  if dynTime >= 1.5 then return &quot;F_wizard_energybolt_hit_full_explosion&quot;, 0.5; else return &quot;F_wizard_energybolt_hit_explosion&quot;, 0.5; end   " Str="F_wizard_energybolt_hit_explosion" UseFunc="1" />
 							<Str Str="None" />
 							<Str Str="SLOW" />
 							<Num Num="300" />
@@ -1257,7 +1257,7 @@
 						<Scp Client="YES_Time" Scp="C_FORCE_EFT" Time="0" UseSleep="NO">
 							<Str_Arg Arg="2.3" Str="I_wizard_energybolt_force_rize#Dummy_Force" />
 							<Str Str="None" />
-							<Str_Arg Arg="0.5" FuncTxt=" local dynTime = self:GetKeyCastTime();  if dynTime &gt;= 1.5 then return &quot;F_wizard_energybolt_hit_full_explosion&quot;, 0.5; else return &quot;F_wizard_energybolt_hit_explosion&quot;, 0.5; end   " Str="F_wizard_energybolt_hit_explosion" UseFunc="1" />
+							<Str_Arg Arg="0.5" FuncTxt=" local dynTime = self:GetKeyCastTime();  if dynTime >= 1.5 then return &quot;F_wizard_energybolt_hit_full_explosion&quot;, 0.5; else return &quot;F_wizard_energybolt_hit_explosion&quot;, 0.5; end   " Str="F_wizard_energybolt_hit_explosion" UseFunc="1" />
 							<Str Str="None" />
 							<Str Str="SLOW" />
 							<Num Num="300" />
@@ -1287,7 +1287,7 @@
 						<Scp Client="YES_Time" Scp="C_FORCE_EFT" Time="0" UseSleep="NO">
 							<Str_Arg Arg="2.26" Str="I_wizard_energybolt_force_rize#Dummy_Force" />
 							<Str Str="None" />
-							<Str_Arg Arg="0.5" FuncTxt=" local dynTime = self:GetKeyCastTime();  if dynTime &gt;= 1.5 then return &quot;F_wizard_energybolt_hit_full_explosion&quot;, 0.5; else return &quot;F_wizard_energybolt_hit_explosion&quot;, 0.5; end   " Str="F_wizard_energybolt_hit_explosion" UseFunc="1" />
+							<Str_Arg Arg="0.5" FuncTxt=" local dynTime = self:GetKeyCastTime();  if dynTime >= 1.5 then return &quot;F_wizard_energybolt_hit_full_explosion&quot;, 0.5; else return &quot;F_wizard_energybolt_hit_explosion&quot;, 0.5; end   " Str="F_wizard_energybolt_hit_explosion" UseFunc="1" />
 							<Str Str="None" />
 							<Str Str="SLOW" />
 							<Num Num="300" />
@@ -1317,7 +1317,7 @@
 						<Scp Client="YES_Time" Scp="C_FORCE_EFT" Time="0" UseSleep="NO">
 							<Str_Arg Arg="2.22" Str="I_wizard_energybolt_force_rize#Dummy_Force" />
 							<Str Str="None" />
-							<Str_Arg Arg="0.5" FuncTxt=" local dynTime = self:GetKeyCastTime();  if dynTime &gt;= 1.5 then return &quot;F_wizard_energybolt_hit_full_explosion&quot;, 0.5; else return &quot;F_wizard_energybolt_hit_explosion&quot;, 0.5; end   " Str="F_wizard_energybolt_hit_explosion" UseFunc="1" />
+							<Str_Arg Arg="0.5" FuncTxt=" local dynTime = self:GetKeyCastTime();  if dynTime >= 1.5 then return &quot;F_wizard_energybolt_hit_full_explosion&quot;, 0.5; else return &quot;F_wizard_energybolt_hit_explosion&quot;, 0.5; end   " Str="F_wizard_energybolt_hit_explosion" UseFunc="1" />
 							<Str Str="None" />
 							<Str Str="SLOW" />
 							<Num Num="300" />
@@ -1347,7 +1347,7 @@
 						<Scp Client="YES_Time" Scp="C_FORCE_EFT" Time="0" UseSleep="NO">
 							<Str_Arg Arg="2.1800001" Str="I_wizard_energybolt_force_rize#Dummy_Force" />
 							<Str Str="None" />
-							<Str_Arg Arg="0.5" FuncTxt=" local dynTime = self:GetKeyCastTime();  if dynTime &gt;= 1.5 then return &quot;F_wizard_energybolt_hit_full_explosion&quot;, 0.5; else return &quot;F_wizard_energybolt_hit_explosion&quot;, 0.5; end   " Str="F_wizard_energybolt_hit_explosion" UseFunc="1" />
+							<Str_Arg Arg="0.5" FuncTxt=" local dynTime = self:GetKeyCastTime();  if dynTime >= 1.5 then return &quot;F_wizard_energybolt_hit_full_explosion&quot;, 0.5; else return &quot;F_wizard_energybolt_hit_explosion&quot;, 0.5; end   " Str="F_wizard_energybolt_hit_explosion" UseFunc="1" />
 							<Str Str="None" />
 							<Str Str="SLOW" />
 							<Num Num="300" />
@@ -1377,7 +1377,7 @@
 						<Scp Client="YES_Time" Scp="C_FORCE_EFT" Time="0" UseSleep="NO">
 							<Str_Arg Arg="2.1400001" Str="I_wizard_energybolt_force_rize#Dummy_Force" />
 							<Str Str="None" />
-							<Str_Arg Arg="0.5" FuncTxt=" local dynTime = self:GetKeyCastTime();  if dynTime &gt;= 1.5 then return &quot;F_wizard_energybolt_hit_full_explosion&quot;, 0.5; else return &quot;F_wizard_energybolt_hit_explosion&quot;, 0.5; end   " Str="F_wizard_energybolt_hit_explosion" UseFunc="1" />
+							<Str_Arg Arg="0.5" FuncTxt=" local dynTime = self:GetKeyCastTime();  if dynTime >= 1.5 then return &quot;F_wizard_energybolt_hit_full_explosion&quot;, 0.5; else return &quot;F_wizard_energybolt_hit_explosion&quot;, 0.5; end   " Str="F_wizard_energybolt_hit_explosion" UseFunc="1" />
 							<Str Str="None" />
 							<Str Str="SLOW" />
 							<Num Num="300" />
@@ -1407,7 +1407,7 @@
 						<Scp Client="YES_Time" Scp="C_FORCE_EFT" Time="0" UseSleep="NO">
 							<Str_Arg Arg="2.0999999" Str="I_wizard_energybolt_force_rize#Dummy_Force" />
 							<Str Str="None" />
-							<Str_Arg Arg="0.5" FuncTxt=" local dynTime = self:GetKeyCastTime();  if dynTime &gt;= 1.5 then return &quot;F_wizard_energybolt_hit_full_explosion&quot;, 0.5; else return &quot;F_wizard_energybolt_hit_explosion&quot;, 0.5; end   " Str="F_wizard_energybolt_hit_explosion" UseFunc="1" />
+							<Str_Arg Arg="0.5" FuncTxt=" local dynTime = self:GetKeyCastTime();  if dynTime >= 1.5 then return &quot;F_wizard_energybolt_hit_full_explosion&quot;, 0.5; else return &quot;F_wizard_energybolt_hit_explosion&quot;, 0.5; end   " Str="F_wizard_energybolt_hit_explosion" UseFunc="1" />
 							<Str Str="None" />
 							<Str Str="SLOW" />
 							<Num Num="300" />
@@ -1437,7 +1437,7 @@
 						<Scp Client="YES_Time" Scp="C_FORCE_EFT" Time="0" UseSleep="NO">
 							<Str_Arg Arg="2.0599999" Str="I_wizard_energybolt_force_rize#Dummy_Force" />
 							<Str Str="None" />
-							<Str_Arg Arg="0.5" FuncTxt=" local dynTime = self:GetKeyCastTime();  if dynTime &gt;= 1.5 then return &quot;F_wizard_energybolt_hit_full_explosion&quot;, 0.5; else return &quot;F_wizard_energybolt_hit_explosion&quot;, 0.5; end   " Str="F_wizard_energybolt_hit_explosion" UseFunc="1" />
+							<Str_Arg Arg="0.5" FuncTxt=" local dynTime = self:GetKeyCastTime();  if dynTime >= 1.5 then return &quot;F_wizard_energybolt_hit_full_explosion&quot;, 0.5; else return &quot;F_wizard_energybolt_hit_explosion&quot;, 0.5; end   " Str="F_wizard_energybolt_hit_explosion" UseFunc="1" />
 							<Str Str="None" />
 							<Str Str="SLOW" />
 							<Num Num="300" />
@@ -1467,7 +1467,7 @@
 						<Scp Client="YES_Time" Scp="C_FORCE_EFT" Time="0" UseSleep="NO">
 							<Str_Arg Arg="2.02" Str="I_wizard_energybolt_force_rize#Dummy_Force" />
 							<Str Str="None" />
-							<Str_Arg Arg="0.5" FuncTxt=" local dynTime = self:GetKeyCastTime();  if dynTime &gt;= 1.5 then return &quot;F_wizard_energybolt_hit_full_explosion&quot;, 0.5; else return &quot;F_wizard_energybolt_hit_explosion&quot;, 0.5; end   " Str="F_wizard_energybolt_hit_explosion" UseFunc="1" />
+							<Str_Arg Arg="0.5" FuncTxt=" local dynTime = self:GetKeyCastTime();  if dynTime >= 1.5 then return &quot;F_wizard_energybolt_hit_full_explosion&quot;, 0.5; else return &quot;F_wizard_energybolt_hit_explosion&quot;, 0.5; end   " Str="F_wizard_energybolt_hit_explosion" UseFunc="1" />
 							<Str Str="None" />
 							<Str Str="SLOW" />
 							<Num Num="300" />
@@ -1497,7 +1497,7 @@
 						<Scp Client="YES_Time" Scp="C_FORCE_EFT" Time="0" UseSleep="NO">
 							<Str_Arg Arg="1.98" Str="I_wizard_energybolt_force_rize#Dummy_Force" />
 							<Str Str="None" />
-							<Str_Arg Arg="0.5" FuncTxt=" local dynTime = self:GetKeyCastTime();  if dynTime &gt;= 1.5 then return &quot;F_wizard_energybolt_hit_full_explosion&quot;, 0.5; else return &quot;F_wizard_energybolt_hit_explosion&quot;, 0.5; end   " Str="F_wizard_energybolt_hit_explosion" UseFunc="1" />
+							<Str_Arg Arg="0.5" FuncTxt=" local dynTime = self:GetKeyCastTime();  if dynTime >= 1.5 then return &quot;F_wizard_energybolt_hit_full_explosion&quot;, 0.5; else return &quot;F_wizard_energybolt_hit_explosion&quot;, 0.5; end   " Str="F_wizard_energybolt_hit_explosion" UseFunc="1" />
 							<Str Str="None" />
 							<Str Str="SLOW" />
 							<Num Num="300" />
@@ -1527,7 +1527,7 @@
 						<Scp Client="YES_Time" Scp="C_FORCE_EFT" Time="0" UseSleep="NO">
 							<Str_Arg Arg="1.9400001" Str="I_wizard_energybolt_force_rize#Dummy_Force" />
 							<Str Str="None" />
-							<Str_Arg Arg="0.5" FuncTxt=" local dynTime = self:GetKeyCastTime();  if dynTime &gt;= 1.5 then return &quot;F_wizard_energybolt_hit_full_explosion&quot;, 0.5; else return &quot;F_wizard_energybolt_hit_explosion&quot;, 0.5; end   " Str="F_wizard_energybolt_hit_explosion" UseFunc="1" />
+							<Str_Arg Arg="0.5" FuncTxt=" local dynTime = self:GetKeyCastTime();  if dynTime >= 1.5 then return &quot;F_wizard_energybolt_hit_full_explosion&quot;, 0.5; else return &quot;F_wizard_energybolt_hit_explosion&quot;, 0.5; end   " Str="F_wizard_energybolt_hit_explosion" UseFunc="1" />
 							<Str Str="None" />
 							<Str Str="SLOW" />
 							<Num Num="300" />
@@ -1557,7 +1557,7 @@
 						<Scp Client="YES_Time" Scp="C_FORCE_EFT" Time="0" UseSleep="NO">
 							<Str_Arg Arg="1.9" Str="I_wizard_energybolt_force_rize#Dummy_Force" />
 							<Str Str="None" />
-							<Str_Arg Arg="0.5" FuncTxt=" local dynTime = self:GetKeyCastTime();  if dynTime &gt;= 1.5 then return &quot;F_wizard_energybolt_hit_full_explosion&quot;, 0.5; else return &quot;F_wizard_energybolt_hit_explosion&quot;, 0.5; end   " Str="F_wizard_energybolt_hit_explosion" UseFunc="1" />
+							<Str_Arg Arg="0.5" FuncTxt=" local dynTime = self:GetKeyCastTime();  if dynTime >= 1.5 then return &quot;F_wizard_energybolt_hit_full_explosion&quot;, 0.5; else return &quot;F_wizard_energybolt_hit_explosion&quot;, 0.5; end   " Str="F_wizard_energybolt_hit_explosion" UseFunc="1" />
 							<Str Str="None" />
 							<Str Str="SLOW" />
 							<Num Num="300" />
@@ -1587,7 +1587,7 @@
 						<Scp Client="YES_Time" Scp="C_FORCE_EFT" Time="0" UseSleep="NO">
 							<Str_Arg Arg="1.86" Str="I_wizard_energybolt_force_rize#Dummy_Force" />
 							<Str Str="None" />
-							<Str_Arg Arg="0.5" FuncTxt=" local dynTime = self:GetKeyCastTime();  if dynTime &gt;= 1.5 then return &quot;F_wizard_energybolt_hit_full_explosion&quot;, 0.5; else return &quot;F_wizard_energybolt_hit_explosion&quot;, 0.5; end   " Str="F_wizard_energybolt_hit_explosion" UseFunc="1" />
+							<Str_Arg Arg="0.5" FuncTxt=" local dynTime = self:GetKeyCastTime();  if dynTime >= 1.5 then return &quot;F_wizard_energybolt_hit_full_explosion&quot;, 0.5; else return &quot;F_wizard_energybolt_hit_explosion&quot;, 0.5; end   " Str="F_wizard_energybolt_hit_explosion" UseFunc="1" />
 							<Str Str="None" />
 							<Str Str="SLOW" />
 							<Num Num="300" />
@@ -1617,7 +1617,7 @@
 						<Scp Client="YES_Time" Scp="C_FORCE_EFT" Time="0" UseSleep="NO">
 							<Str_Arg Arg="1.8200001" Str="I_wizard_energybolt_force_rize#Dummy_Force" />
 							<Str Str="None" />
-							<Str_Arg Arg="0.5" FuncTxt=" local dynTime = self:GetKeyCastTime();  if dynTime &gt;= 1.5 then return &quot;F_wizard_energybolt_hit_full_explosion&quot;, 0.5; else return &quot;F_wizard_energybolt_hit_explosion&quot;, 0.5; end   " Str="F_wizard_energybolt_hit_explosion" UseFunc="1" />
+							<Str_Arg Arg="0.5" FuncTxt=" local dynTime = self:GetKeyCastTime();  if dynTime >= 1.5 then return &quot;F_wizard_energybolt_hit_full_explosion&quot;, 0.5; else return &quot;F_wizard_energybolt_hit_explosion&quot;, 0.5; end   " Str="F_wizard_energybolt_hit_explosion" UseFunc="1" />
 							<Str Str="None" />
 							<Str Str="SLOW" />
 							<Num Num="300" />
@@ -1647,7 +1647,7 @@
 						<Scp Client="YES_Time" Scp="C_FORCE_EFT" Time="0" UseSleep="NO">
 							<Str_Arg Arg="1.78" Str="I_wizard_energybolt_force_rize#Dummy_Force" />
 							<Str Str="None" />
-							<Str_Arg Arg="0.5" FuncTxt=" local dynTime = self:GetKeyCastTime();  if dynTime &gt;= 1.5 then return &quot;F_wizard_energybolt_hit_full_explosion&quot;, 0.5; else return &quot;F_wizard_energybolt_hit_explosion&quot;, 0.5; end   " Str="F_wizard_energybolt_hit_explosion" UseFunc="1" />
+							<Str_Arg Arg="0.5" FuncTxt=" local dynTime = self:GetKeyCastTime();  if dynTime >= 1.5 then return &quot;F_wizard_energybolt_hit_full_explosion&quot;, 0.5; else return &quot;F_wizard_energybolt_hit_explosion&quot;, 0.5; end   " Str="F_wizard_energybolt_hit_explosion" UseFunc="1" />
 							<Str Str="None" />
 							<Str Str="SLOW" />
 							<Num Num="300" />
@@ -1677,7 +1677,7 @@
 						<Scp Client="YES_Time" Scp="C_FORCE_EFT" Time="0" UseSleep="NO">
 							<Str_Arg Arg="1.74" Str="I_wizard_energybolt_force_rize#Dummy_Force" />
 							<Str Str="None" />
-							<Str_Arg Arg="0.5" FuncTxt=" local dynTime = self:GetKeyCastTime();  if dynTime &gt;= 1.5 then return &quot;F_wizard_energybolt_hit_full_explosion&quot;, 0.5; else return &quot;F_wizard_energybolt_hit_explosion&quot;, 0.5; end   " Str="F_wizard_energybolt_hit_explosion" UseFunc="1" />
+							<Str_Arg Arg="0.5" FuncTxt=" local dynTime = self:GetKeyCastTime();  if dynTime >= 1.5 then return &quot;F_wizard_energybolt_hit_full_explosion&quot;, 0.5; else return &quot;F_wizard_energybolt_hit_explosion&quot;, 0.5; end   " Str="F_wizard_energybolt_hit_explosion" UseFunc="1" />
 							<Str Str="None" />
 							<Str Str="SLOW" />
 							<Num Num="300" />
@@ -1707,7 +1707,7 @@
 						<Scp Client="YES_Time" Scp="C_FORCE_EFT" Time="0" UseSleep="NO">
 							<Str_Arg Arg="1.7" Str="I_wizard_energybolt_force_rize#Dummy_Force" />
 							<Str Str="None" />
-							<Str_Arg Arg="0.5" FuncTxt=" local dynTime = self:GetKeyCastTime();  if dynTime &gt;= 1.5 then return &quot;F_wizard_energybolt_hit_full_explosion&quot;, 0.5; else return &quot;F_wizard_energybolt_hit_explosion&quot;, 0.5; end   " Str="F_wizard_energybolt_hit_explosion" UseFunc="1" />
+							<Str_Arg Arg="0.5" FuncTxt=" local dynTime = self:GetKeyCastTime();  if dynTime >= 1.5 then return &quot;F_wizard_energybolt_hit_full_explosion&quot;, 0.5; else return &quot;F_wizard_energybolt_hit_explosion&quot;, 0.5; end   " Str="F_wizard_energybolt_hit_explosion" UseFunc="1" />
 							<Str Str="None" />
 							<Str Str="SLOW" />
 							<Num Num="300" />
@@ -1737,7 +1737,7 @@
 						<Scp Client="YES_Time" Scp="C_FORCE_EFT" Time="0" UseSleep="NO">
 							<Str_Arg Arg="1.66" Str="I_wizard_energybolt_force_rize#Dummy_Force" />
 							<Str Str="None" />
-							<Str_Arg Arg="0.5" FuncTxt=" local dynTime = self:GetKeyCastTime();  if dynTime &gt;= 1.5 then return &quot;F_wizard_energybolt_hit_full_explosion&quot;, 0.5; else return &quot;F_wizard_energybolt_hit_explosion&quot;, 0.5; end   " Str="F_wizard_energybolt_hit_explosion" UseFunc="1" />
+							<Str_Arg Arg="0.5" FuncTxt=" local dynTime = self:GetKeyCastTime();  if dynTime >= 1.5 then return &quot;F_wizard_energybolt_hit_full_explosion&quot;, 0.5; else return &quot;F_wizard_energybolt_hit_explosion&quot;, 0.5; end   " Str="F_wizard_energybolt_hit_explosion" UseFunc="1" />
 							<Str Str="None" />
 							<Str Str="SLOW" />
 							<Num Num="300" />
@@ -1767,7 +1767,7 @@
 						<Scp Client="YES_Time" Scp="C_FORCE_EFT" Time="0" UseSleep="NO">
 							<Str_Arg Arg="1.62" Str="I_wizard_energybolt_force_rize#Dummy_Force" />
 							<Str Str="None" />
-							<Str_Arg Arg="0.5" FuncTxt=" local dynTime = self:GetKeyCastTime();  if dynTime &gt;= 1.5 then return &quot;F_wizard_energybolt_hit_full_explosion&quot;, 0.5; else return &quot;F_wizard_energybolt_hit_explosion&quot;, 0.5; end   " Str="F_wizard_energybolt_hit_explosion" UseFunc="1" />
+							<Str_Arg Arg="0.5" FuncTxt=" local dynTime = self:GetKeyCastTime();  if dynTime >= 1.5 then return &quot;F_wizard_energybolt_hit_full_explosion&quot;, 0.5; else return &quot;F_wizard_energybolt_hit_explosion&quot;, 0.5; end   " Str="F_wizard_energybolt_hit_explosion" UseFunc="1" />
 							<Str Str="None" />
 							<Str Str="SLOW" />
 							<Num Num="300" />
@@ -1797,7 +1797,7 @@
 						<Scp Client="YES_Time" Scp="C_FORCE_EFT" Time="0" UseSleep="NO">
 							<Str_Arg Arg="1.58" Str="I_wizard_energybolt_force_rize#Dummy_Force" />
 							<Str Str="None" />
-							<Str_Arg Arg="0.5" FuncTxt=" local dynTime = self:GetKeyCastTime();  if dynTime &gt;= 1.5 then return &quot;F_wizard_energybolt_hit_full_explosion&quot;, 0.5; else return &quot;F_wizard_energybolt_hit_explosion&quot;, 0.5; end   " Str="F_wizard_energybolt_hit_explosion" UseFunc="1" />
+							<Str_Arg Arg="0.5" FuncTxt=" local dynTime = self:GetKeyCastTime();  if dynTime >= 1.5 then return &quot;F_wizard_energybolt_hit_full_explosion&quot;, 0.5; else return &quot;F_wizard_energybolt_hit_explosion&quot;, 0.5; end   " Str="F_wizard_energybolt_hit_explosion" UseFunc="1" />
 							<Str Str="None" />
 							<Str Str="SLOW" />
 							<Num Num="300" />
@@ -1827,7 +1827,7 @@
 						<Scp Client="YES_Time" Scp="C_FORCE_EFT" Time="0" UseSleep="NO">
 							<Str_Arg Arg="1.54" Str="I_wizard_energybolt_force_rize#Dummy_Force" />
 							<Str Str="None" />
-							<Str_Arg Arg="0.5" FuncTxt=" local dynTime = self:GetKeyCastTime();  if dynTime &gt;= 1.5 then return &quot;F_wizard_energybolt_hit_full_explosion&quot;, 0.5; else return &quot;F_wizard_energybolt_hit_explosion&quot;, 0.5; end   " Str="F_wizard_energybolt_hit_explosion" UseFunc="1" />
+							<Str_Arg Arg="0.5" FuncTxt=" local dynTime = self:GetKeyCastTime();  if dynTime >= 1.5 then return &quot;F_wizard_energybolt_hit_full_explosion&quot;, 0.5; else return &quot;F_wizard_energybolt_hit_explosion&quot;, 0.5; end   " Str="F_wizard_energybolt_hit_explosion" UseFunc="1" />
 							<Str Str="None" />
 							<Str Str="SLOW" />
 							<Num Num="300" />
@@ -1868,20 +1868,20 @@
 		</MainSkl>
 	</Skill>
 	<Skill Name="Wizard_ReflectShield">
-		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+		<MainSkl ScrLock="None" JumpFlee="NO" MSPDToUsePos="0" >
 			<EtcList>
-				<Scp Client="YES" Scp="C_VOICE_SOUND" Time="0" UseSleep="NO">
+				<Scp Scp="C_VOICE_SOUND" Client="YES" UseSleep="NO" Time="0" >
 					<Str Str="voice_wiz_m_reflectshield_shot" />
 					<Str Str="voice_wiz_reflectshield_shot" />
 				</Scp>
-				<Scp Client="NO" Scp="SKL_BUFF" Time="400" UseSleep="NO">
+				<Scp Scp="SKL_BUFF" Client="NO" UseSleep="NO" Time="200">
                     <Str Str="ReflectShield_Buff" UseFunc="1" FuncTxt="local str = &quot;ReflectShield_Buff&quot;
                     local abil = GetAbility(self, &quot;Wizard34&quot;)
                     if abil ~= nil then
                         str = &quot;ManaAmplify_Buff&quot;
                     end
                     return str" />
-					<Num FuncTxt="return obj.Level" Num="1" UseFunc="1" />
+					<Num Num="1" UseFunc="1" FuncTxt="return obj.Level"/>
 					<Num Num="0" />
                     <Num Num="1800000"/>
 					<Num Num="1" />
@@ -1907,17 +1907,17 @@
 		<ByCondSkills>
 			<SubSkl>
 				<Cond>
-					<ToolScp Client="NO" Scp="SKL_SELECT_ABIL" UseSleep="NO">
+					<ToolScp Scp="SKL_SELECT_ABIL" Client="NO" UseSleep="NO">
 						<Str Str="Wizard28" />
 					</ToolScp>
 				</Cond>
-				<Skill JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+				<Skill ScrLock="None" JumpFlee="NO" MSPDToUsePos="0" >
 					<EtcList>
-						<Scp Client="YES" Scp="C_VOICE_SOUND" Time="0" UseSleep="NO">
+						<Scp Scp="C_VOICE_SOUND" Client="YES" UseSleep="NO" Time="0" >
 							<Str Str="voice_wiz_m_reflectshield_shot" />
 							<Str Str="voice_wiz_reflectshield_shot" />
 						</Scp>
-						<Scp Client="NO" Scp="MONSKL_CRE_PAD" Time="400" UseSleep="NO">
+						<Scp Scp="MONSKL_CRE_PAD" Client="NO" UseSleep="NO" Time="400" >
 							<Pos Angle="0" Dist="0" PosType="5" />
 							<Angle Angle="0" />
 							<Str Str="Wizard_reflect" />
@@ -7120,12 +7120,12 @@
 					<Str Str="voice_wiz_m_lethargy_shot" />
 					<Str Str="voice_wiz_lethargy_shot" />
 				</Scp>
-				<Scp Client="NO" Scp="MONSKL_CRE_PAD" Time="900" UseSleep="NO">
+				<Scp Client="NO" Scp="MONSKL_CRE_PAD" Time="300" UseSleep="NO">
 					<Pos Angle="0" Dist="0" PosType="3" />
 					<Angle Angle="0" />
 					<Str Str="Wizard_Lethargy" />
 				</Scp>
-				<Scp Client="NO" Scp="SKL_BUFF_ABIL" Time="900" UseSleep="NO">
+				<Scp Client="NO" Scp="SKL_BUFF_ABIL" Time="300" UseSleep="NO">
 					<Str Str="Wizard29" />
 					<Str Str="Lethargy_Abil_Buff" />
 					<Num Num="1" />
@@ -7223,4 +7223,4 @@
 			</EtcList>
 		</MainSkl>
 	</Skill>
-	</ToolSkill>
+</ToolSkill>

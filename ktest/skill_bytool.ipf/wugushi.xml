@@ -1,57 +1,58 @@
 <?xml version='1.0' encoding='utf-8'?>
-<ToolSkill><Skill Name="Wugushi_WugongGu">
+<ToolSkill>
+    <Skill Name="Wugushi_WugongGu">
         <MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
             <HitList>
-                <Frame Angle="0" AniTime="200" Dist="0" ForceATK="1" HitCount="1" Length="30" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="0" Type="FAN" Width="30" />
+                <Frame Angle="0" AniTime="200" Dist="0" ForceATK="1" HitCount="1" Length="30" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="0" Type="FAN" Width="30"/>
             </HitList>
             <EtcList>
                 <Scp Client="YES" Scp="C_VOICE_SOUND" Time="0" UseSleep="NO">
-                    <Str Str="voice_archer_m_wugushi_atk" />
-                    <Str Str="voice_archer_f_wugushi_atk" />
+                    <Str Str="voice_archer_m_wugushi_atk"/>
+                    <Str Str="voice_archer_f_wugushi_atk"/>
                 </Scp>
                 <Scp Client="YES" Scp="C_SOUND" Time="200" UseSleep="NO">
-                    <Str Str="skl_eff_archer_wugonggu" />
+                    <Str Str="skl_eff_archer_wugonggu"/>
                 </Scp>
                 <Scp Client="YES" Scp="C_EFFECT" Time="300" UseSleep="NO">
-                    <Str_Arg Arg="1" Str="E_neuro_toxin" />
-                    <Str FuncTxt="if SKL_CHECK_RIDING_COMPANION_C(self, obj) == 0 then           return 'Dummy_emitter'           else           return 'Dummy_emitter';           end" Str="None" UseFunc="1" />
-                    <Num Num="0" />
+                    <Str_Arg Arg="1" Str="E_neuro_toxin"/>
+                    <Str FuncTxt="if SKL_CHECK_RIDING_COMPANION_C(self, obj) == 0 then           return 'Dummy_emitter'           else           return 'Dummy_emitter';           end" Str="None" UseFunc="1"/>
+                    <Num Num="0"/>
                 </Scp>
                 <Scp Client="YES" Scp="C_EFFECT" Time="330" UseSleep="NO">
-                    <Str_Arg Arg="1" Str="F_wugushi_explosion001_green6" />
-                    <Str Str="Dummy_bleeding_effect" />
-                    <Num Num="1" />
+                    <Str_Arg Arg="1" Str="F_wugushi_explosion001_green6"/>
+                    <Str Str="Dummy_bleeding_effect"/>
+                    <Num Num="1"/>
                 </Scp>
                 <Scp Client="YES_Time" Scp="C_FORCE_EFT" Time="330" UseSleep="NO">
-                    <Str_Arg Arg="1" Str="I_archer_wugu2_force_mash#Dummy_bleeding_effect" />
-                    <Str Str="arrow_cast" />
-                    <Str_Arg Arg="0.5" Str="I_explosion002_green" />
-                    <Str Str="arrow_blow" />
-                    <Str Str="SLOW" />
-                    <Num Num="900" />
-                    <Num Num="1" />
-                    <Num Num="0" />
-                    <Angle_Abs Angle="0" />
-                    <Num Num="0" />
-                    <Num Num="5" />
-                    <Num Num="0" />
-                    <Num Num="0" />
-                    <Num Num="1" />
-                    <Num Num="1" />
-                    <Str Str="None" />
-                    <PosDist Angle="0" Dist="0" />
-                    <Num Num="0" />
+                    <Str_Arg Arg="1" Str="I_archer_wugu2_force_mash#Dummy_bleeding_effect"/>
+                    <Str Str="arrow_cast"/>
+                    <Str_Arg Arg="0.5" Str="I_explosion002_green"/>
+                    <Str Str="arrow_blow"/>
+                    <Str Str="SLOW"/>
+                    <Num Num="900"/>
+                    <Num Num="1"/>
+                    <Num Num="0"/>
+                    <Angle_Abs Angle="0"/>
+                    <Num Num="0"/>
+                    <Num Num="5"/>
+                    <Num Num="0"/>
+                    <Num Num="0"/>
+                    <Num Num="1"/>
+                    <Num Num="1"/>
+                    <Str Str="None"/>
+                    <PosDist Angle="0" Dist="0"/>
+                    <Num Num="0"/>
                 </Scp>
             </EtcList>
             <ResultList>
                 <ToolScp Client="NO" Scp="S_R_TGTBUFF" UseSleep="NO">
-                    <Str Str="Virus_Debuff" />
-                    <Num FuncTxt="return skill.Level;" Num="1" UseFunc="1" />
-                    <Num Num="0" />
-                    <Num Num="10000" />
-                    <Num Num="1" />
-                    <Num Num="100" />
-                    <Num Num="-1" />
+                    <Str Str="Virus_Debuff"/>
+                    <Num FuncTxt="return skill.Level;" Num="1" UseFunc="1"/>
+                    <Num Num="0"/>
+                    <Num Num="10000"/>
+                    <Num Num="1"/>
+                    <Num Num="100"/>
+                    <Num Num="-1"/>
                 </ToolScp>
             </ResultList>
         </MainSkl>
@@ -59,89 +60,89 @@
     <Skill Name="Wugushi_WideMiasma">
         <MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
             <HitList>
-                <Frame Angle="0" AniTime="9999" Dist="0" ForceATK="0" HitCount="1" Length="30" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="9799" Type="FAN" Width="30" />
+                <Frame Angle="0" AniTime="9999" Dist="0" ForceATK="0" HitCount="1" Length="30" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="9799" Type="FAN" Width="30"/>
             </HitList>
             <EtcList>
                 <Scp Client="YES" Scp="MONSKL_C_PLAY_ANIM" Time="0" UseSleep="NO">
-                    <Str Str="skl_widemiasma" />
-                    <Num Num="1" />
-                    <Num Num="1" />
-                    <Num Num="0" />
+                    <Str Str="skl_widemiasma"/>
+                    <Num Num="1"/>
+                    <Num Num="1"/>
+                    <Num Num="0"/>
                 </Scp>
                 <Scp Client="YES" Scp="C_SOUND" Time="150" UseSleep="NO">
-                    <Str Str="skl_eff_wugushi_widemiasma" />
+                    <Str Str="skl_eff_wugushi_widemiasma"/>
                 </Scp>
                 <Scp Client="YES" Scp="C_EFFECT" Time="200" UseSleep="NO">
-                    <Str_Arg Arg="2" Str="F_archer_WideMiasma_ground" />
-                    <Str Str="None" />
-                    <Num Num="0" />
+                    <Str_Arg Arg="2" Str="F_archer_WideMiasma_ground"/>
+                    <Str Str="None"/>
+                    <Num Num="0"/>
                 </Scp>
                 <Scp Client="NO" Scp="SKL_BUFF" Time="200" UseSleep="NO">
-                    <Str Str="WideMiasma_Buff" />
-                    <Num FuncTxt="return obj.Level" Num="1" UseFunc="1" />
-                    <Num Num="0" />
-                    <Num Num="10000" />
-                    <Num Num="1" />
-                    <Num Num="100" />
-                    <Num Num="0" />
+                    <Str Str="WideMiasma_Buff"/>
+                    <Num FuncTxt="return obj.Level" Num="1" UseFunc="1"/>
+                    <Num Num="0"/>
+                    <Num Num="10000"/>
+                    <Num Num="1"/>
+                    <Num Num="100"/>
+                    <Num Num="0"/>
                 </Scp>
                 <Scp Client="NO" Scp="SKL_SET_TARGET_CIRCLE" Time="250" UseSleep="NO">
-                    <Pos Angle="0" Dist="0" PosType="0" />
-                    <Num Num="120" />
-                    <Num Num="10" />
-                    <Num Num="2" />
-                    <Num Num="0" />
-                    <Num Num="0" />
-                    <Num Num="0" />
+                    <Pos Angle="0" Dist="0" PosType="0"/>
+                    <Num Num="120"/>
+                    <Num Num="10"/>
+                    <Num Num="2"/>
+                    <Num Num="0"/>
+                    <Num Num="0"/>
+                    <Num Num="0"/>
                 </Scp>
                 <Scp Client="NO" Scp="SKL_TGT_BUFF" Time="250" UseSleep="NO">
-                    <Str Str="WideMiasma_Debuff" />
-                    <Num FuncTxt="return obj.Level" Num="2" UseFunc="1" />
-                    <Num Num="0" />
-                    <Num FuncTxt="return 15000" Num="0" UseFunc="1" />
-                    <Num Num="1" />
-                    <Num Num="100" />
-                    <Num Num="0" />
+                    <Str Str="WideMiasma_Debuff"/>
+                    <Num FuncTxt="return obj.Level" Num="2" UseFunc="1"/>
+                    <Num Num="0"/>
+                    <Num FuncTxt="return 15000" Num="0" UseFunc="1"/>
+                    <Num Num="1"/>
+                    <Num Num="100"/>
+                    <Num Num="0"/>
                 </Scp>
-              <Scp Client="NO" Scp="SKL_TGT_Decrease_heal_debuff" Time="900" UseSleep="NO">
-                <Str FuncTxt="local func_name = 'get_decrease_heal_debuff_tooltip_' .. TryGetProp(obj, 'ClassName', 'None')
+                <Scp Client="NO" Scp="SKL_TGT_Decrease_heal_debuff" Time="900" UseSleep="NO">
+                    <Str FuncTxt="local func_name = 'get_decrease_heal_debuff_tooltip_' .. TryGetProp(obj, 'ClassName', 'None')
                local func = _G[func_name]
                if func == nil then return end
                return func(obj.Level)" Str="0" UseFunc="1"/>
-              </Scp>
+                </Scp>
             </EtcList>
         </MainSkl>
     </Skill>
     <Skill Name="Wugushi_CrescendoBane">
         <MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
             <HitList>
-                <Frame Angle="0" AniTime="99999" Dist="0" ForceATK="0" HitCount="1" Length="30" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="99799" Type="FAN" Width="30" />
+                <Frame Angle="0" AniTime="99999" Dist="0" ForceATK="0" HitCount="1" Length="30" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="99799" Type="FAN" Width="30"/>
             </HitList>
             <EtcList>
                 <Scp Client="NO" Scp="SKL_SET_TARGET_CIRCLE" Time="50" UseSleep="NO">
-                    <Pos Angle="0" Dist="15" />
-                    <Num Num="200" />
-                    <Num Num="10" />
-                    <Num Num="2" />
-                    <Num Num="0" />
-                    <Num Num="0" />
+                    <Pos Angle="0" Dist="15"/>
+                    <Num Num="200"/>
+                    <Num Num="10"/>
+                    <Num Num="2"/>
+                    <Num Num="0"/>
+                    <Num Num="0"/>
                 </Scp>
                 <Scp Client="NO" Scp="SKL_BUFF" Time="100" UseSleep="NO">
-                    <Str Str="Crescendo_Bane_Buff" />
-                    <Num FuncTxt="return obj.Level" Num="1" UseFunc="1" />
-                    <Num Num="0" />
-                    <Num Num="35000" />
-                    <Num Num="1" />
-                    <Num Num="100" />
-                    <Num Num="0" />
+                    <Str Str="Crescendo_Bane_Buff"/>
+                    <Num FuncTxt="return obj.Level" Num="1" UseFunc="1"/>
+                    <Num Num="0"/>
+                    <Num Num="35000"/>
+                    <Num Num="1"/>
+                    <Num Num="100"/>
+                    <Num Num="0"/>
                 </Scp>
                 <Scp Client="YES" Scp="C_EFFECT" Time="150" UseSleep="NO">
-                    <Str_Arg Arg="8" Str="F_archer_crescendobane_ground" />
-                    <Str Str="Dummy_emitter" />
-                    <Num Num="0" />
+                    <Str_Arg Arg="8" Str="F_archer_crescendobane_ground"/>
+                    <Str Str="Dummy_emitter"/>
+                    <Num Num="0"/>
                 </Scp>
                 <Scp Client="NO" Scp="SKL_RUN_SCRIPT" Time="150" UseSleep="NO">
-                    <Str Str="SCR_WUGUSHI_Crescendo_Bane" />
+                    <Str Str="SCR_WUGUSHI_Crescendo_Bane"/>
                 </Scp>
             </EtcList>
         </MainSkl>
@@ -149,70 +150,70 @@
     <Skill Name="Wugushi_LatentVenom">
         <MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
             <HitList>
-                <Frame Angle="0" AniTime="300" Dist="0" ForceATK="0" HitCount="1" Length="30" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="0" Type="FAN" Width="30" />
+                <Frame Angle="0" AniTime="300" Dist="0" ForceATK="0" HitCount="1" Length="30" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="0" Type="FAN" Width="30"/>
             </HitList>
             <EtcList>
                 <Scp Client="NO" Scp="SKL_CHANGE_SKLSUBANIM_BY_JOB_HISTORY" Time="0" UseSleep="NO">
-                    <Str Str="Wugushi_LatentVenom" />
-                    <Str Str="Char3_12" />
-                    <Str Str="SKL_NEURO_TOXIN_PIEDPIPER_SHOT" />
+                    <Str Str="Wugushi_LatentVenom"/>
+                    <Str Str="Char3_12"/>
+                    <Str Str="SKL_NEURO_TOXIN_PIEDPIPER_SHOT"/>
                 </Scp>
                 <Scp Client="YES" Scp="C_EFFECT" Time="300" UseSleep="NO">
-                    <Str_Arg Arg="1" Str="E_neuro_toxin" />
-                    <Str FuncTxt="if SKL_CHECK_RIDING_COMPANION_C(self, obj) == 0 then           return 'Dummy_emitter'           else           return 'Dummy_emitter';           end" Str="None" UseFunc="1" />
-                    <Num Num="0" />
+                    <Str_Arg Arg="1" Str="E_neuro_toxin"/>
+                    <Str FuncTxt="if SKL_CHECK_RIDING_COMPANION_C(self, obj) == 0 then           return 'Dummy_emitter'           else           return 'Dummy_emitter';           end" Str="None" UseFunc="1"/>
+                    <Num Num="0"/>
                 </Scp>
                 <Scp Client="YES" Scp="C_EFFECT" Time="330" UseSleep="NO">
-                    <Str_Arg Arg="1" Str="F_wugushi_explosion001_green6" />
-                    <Str Str="Dummy_bleeding_effect" />
-                    <Num Num="1" />
+                    <Str_Arg Arg="1" Str="F_wugushi_explosion001_green6"/>
+                    <Str Str="Dummy_bleeding_effect"/>
+                    <Num Num="1"/>
                 </Scp>
                 <Scp Client="YES_Time" Scp="C_FORCE_EFT" Time="330" UseSleep="NO">
-                    <Str_Arg Arg="1" Str="I_archer_wugu2_force_mash#Dummy_bleeding_effect" />
-                    <Str Str="arrow_cast" />
-                    <Str_Arg Arg="0.5" Str="I_explosion002_green" />
-                    <Str Str="arrow_blow" />
-                    <Str Str="SLOW" />
-                    <Num Num="900" />
-                    <Num Num="1" />
-                    <Num Num="0" />
-                    <Angle_Abs Angle="0" />
-                    <Num Num="0" />
-                    <Num Num="5" />
-                    <Num Num="0" />
-                    <Num Num="0" />
-                    <Num Num="1" />
-                    <Num Num="1" />
-                    <Str Str="None" />
-                    <PosDist Angle="0" Dist="0" />
-                    <Num Num="0" />
+                    <Str_Arg Arg="1" Str="I_archer_wugu2_force_mash#Dummy_bleeding_effect"/>
+                    <Str Str="arrow_cast"/>
+                    <Str_Arg Arg="0.5" Str="I_explosion002_green"/>
+                    <Str Str="arrow_blow"/>
+                    <Str Str="SLOW"/>
+                    <Num Num="900"/>
+                    <Num Num="1"/>
+                    <Num Num="0"/>
+                    <Angle_Abs Angle="0"/>
+                    <Num Num="0"/>
+                    <Num Num="5"/>
+                    <Num Num="0"/>
+                    <Num Num="0"/>
+                    <Num Num="1"/>
+                    <Num Num="1"/>
+                    <Str Str="None"/>
+                    <PosDist Angle="0" Dist="0"/>
+                    <Num Num="0"/>
                 </Scp>
             </EtcList>
             <ResultList>
-              <ToolScp Client="NO" Scp="S_R_TGT_Decrease_heal_debuff" UseSleep="NO">
-                <Str FuncTxt="local func_name = 'get_decrease_heal_debuff_tooltip_' .. TryGetProp(skill, 'ClassName', 'None')
+                <ToolScp Client="NO" Scp="S_R_TGT_Decrease_heal_debuff" UseSleep="NO">
+                    <Str FuncTxt="local func_name = 'get_decrease_heal_debuff_tooltip_' .. TryGetProp(skill, 'ClassName', 'None')
                local func = _G[func_name]
                if func == nil then return end
                return func(skill.Level)" Str="0" UseFunc="1"/>
-              </ToolScp>
+                </ToolScp>
                 <ToolScp Client="NO" Scp="S_R_TGTBUFF" UseSleep="NO">
-                    <Str Str="LatentVenom_Debuff" />
-                    <Num Num="2" />
-                    <Num Num="0" />
-                    <Num Num="100000" />
-                    <Num Num="1" />
-                    <Num Num="100" />
-                    <Num Num="-1" />
+                    <Str Str="LatentVenom_Debuff"/>
+                    <Num Num="2"/>
+                    <Num Num="0"/>
+                    <Num Num="100000"/>
+                    <Num Num="1"/>
+                    <Num Num="100"/>
+                    <Num Num="-1"/>
                 </ToolScp>
                 <ToolScp Client="NO" Scp="S_R_SELFBUFF" UseSleep="NO">
-					<Str Str="LatentVenom_Abil_Buff"/>
-					<Num Num="2"/>
-					<Num Num="0"/>
-					<Num Num="100000" />
-					<Num Num="1"/>
-					<Num FuncTxt="local value = 0 if IS_ACTIVE_ABILITY(self, 'Wugushi29') == 1 then value = 100 end return value" Num="0" UseFunc="1" />
-					<Num Num="-1"/>
-				</ToolScp>
+                    <Str Str="LatentVenom_Abil_Buff"/>
+                    <Num Num="2"/>
+                    <Num Num="0"/>
+                    <Num Num="100000"/>
+                    <Num Num="1"/>
+                    <Num FuncTxt="local value = 0 if IS_ACTIVE_ABILITY(self, 'Wugushi29') == 1 then value = 100 end return value" Num="0" UseFunc="1"/>
+                    <Num Num="-1"/>
+                </ToolScp>
 			</ResultList>
 		</MainSkl>
 	</Skill>
@@ -256,25 +257,25 @@
 	</Skill>
 	<Skill Name="Wugushi_ThrowGuPot">
 		<KeyInputStart>
-			<ToolScp Client="NO" Scp="SKL_PLAY_SOUND" UseSleep="NO">
+            <ToolScp Scp="SKL_PLAY_SOUND" Client="NO" UseSleep="NO">
 				<Str Str="voice_archer_throwgupot_shot" />
 				<Num Num="0" />
 				<Str Str="voice_archer_m_throwgupot_shot" />
 			</ToolScp>
 		</KeyInputStart>
-		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+        <MainSkl ScrLock="None" JumpFlee="NO" MSPDToUsePos="0">
 			<HitList>
-				<Frame Angle="0" AniTime="10199" Dist="0" ForceATK="0" HitCount="1" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" TermMax="0" TermMin="0" Time="9999" Type="FAN" />
+                <Frame Type="FAN" Time="9999" HitCount="1" TermMin="0" TermMax="0" PosType="0" Dist="0" RandDist="0" RandomPerHit="0" Angle="0" AniTime="10199" RotAngle="0" ForceATK="0"/>
 			</HitList>
 			<EtcList>
-				<Scp Client="YES" Scp="C_VOICE_SOUND" Time="100" UseSleep="NO">
+                <Scp Scp="C_VOICE_SOUND" Client="YES" UseSleep="NO" Time="100">
 					<Str Str="voice_archer_m_atk" />
 					<Str Str="voice_archer_f_atk" />
 				</Scp>
-				<Scp Client="NO" Scp="MSL_PAD_THROW" Time="200" UseSleep="YES">
-					<Str_Arg Arg="0.5" Str="I_archer_poison_pot_force#Bip01 R Hand" />
-					<Str_Arg Arg="1" Str="None" />
-					<Str_Arg Arg="1" Str="None" />
+                <Scp Scp="MSL_PAD_THROW" Client="NO" UseSleep="YES" Time="200">
+                    <Str_Arg Str="I_archer_poison_pot_force#Bip01 R Hand" Arg="0.5"/>
+                    <Str_Arg Str="None" Arg="1"/>
+                    <Str_Arg Str="None" Arg="1"/>
 					<Pos Angle="0" Dist="0" PosType="3" />
 					<Num Num="10" />
 					<Num Num="0.60000002" />
@@ -283,14 +284,14 @@
 					<Num Num="1" />
 					<Num Num="1000" />
 					<Num Num="0" />
-					<Str_Arg Arg="1" Str="None" />
+                    <Str_Arg Str="None" Arg="1"/>
 					<Num Num="0" />
 					<Num Num="0" />
 					<Angle Angle="0" />
 					<Str Str="Archer_VerminPot" />
 				</Scp>
-				<Scp Client="YES" Scp="C_EFFECT_POS" Time="650" UseSleep="NO">
-					<Str_Arg Arg="0.5" Str="F_burstup019_smoke" />
+                <Scp Scp="C_EFFECT_POS" Client="YES" UseSleep="NO" Time="300">
+                    <Str_Arg Str="F_burstup019_smoke" Arg="0.5"/>
 					<Pos Angle="-0.05583784" Dist="16.398779" />
 					<Num Num="1" />
 					<Str Str="None" />

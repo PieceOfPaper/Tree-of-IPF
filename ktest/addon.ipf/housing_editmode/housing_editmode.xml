@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by Hey (IMCGames Co., Ltd) -->
+<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by imc (imc) -->
 <uiframe name="housing_editmode" x="0" y="0" width="550" height="265" create="open">
 	<frame fullheight="false" fasthide="true" layout_gravity="center top" margin="140 25 0 0"/>
 	<option visible="false" hideable="false" closebutton="false" moveable="true" alwaysVisible="false"/>
@@ -20,6 +20,7 @@
 		<picture name="pic_editmode_key_move_floor" parent="gbox_editmode" rect="0 0 40 40" margin="90 90 0 0" layout_gravity="left top" image="key_wheel" stretch="true"/>
 		<richtext name="txt_editmode_move_floor" parent="gbox_editmode" rect="0 0 180 30" margin="130 98 0 0" layout_gravity="left top" caption="{@st41}위층, 아래층 이동{/}" fontname="white_20_ol_ds" resizebytext="true"/>
 		<button name="btn_page_save" parent="gbox_editmode" rect="0 0 120 50" margin="-67 140 0 0" layout_gravity="center top" MouseOnAnim="btn_mouseover" MouseOffAnim="btn_mouseoff" stretch="false" hittest="true" caption="{@st42b}모두 철거하기{/}" skin="test_red_button" oversound="button_over" LBtnUpScp="HOUSING_EDITMODE_REMOVE_ALL_FURNITURE"/>
+		<button name="btn_page_shop" parent="gbox_editmode" rect="0 0 120 50" margin="67 140 0 0" layout_gravity="center top" MouseOnAnim="btn_mouseover" MouseOffAnim="btn_mouseoff" stretch="false" hittest="true" caption="{@st42b}상점 열기" skin="test_gray_button" oversound="button_over" LBtnUpScp="SCR_OPEN_HOUSING_EDITMODE_PAGE_SHOP"/>
 		<button name="btn_change_background" parent="gbox_editmode" rect="0 0 120 50" margin="-67 195 7 0" layout_gravity="center top" MouseOnAnim="btn_mouseover" MouseOffAnim="btn_mouseoff" stretch="false" hittest="true" caption="{@st42b}배경 변경{/}" skin="test_gray_button" oversound="button_over" LBtnUpScp="SCR_OPEN_HOUSING_EDITMODE_CHANGE_BACKGROUND"/>
 		<button name="btn_page_load" parent="gbox_editmode" rect="0 0 120 50" margin="67 195 7 0" layout_gravity="center top" MouseOnAnim="btn_mouseover" MouseOffAnim="btn_mouseoff" stretch="false" hittest="true" caption="{@st42b}페이지 열기{/}" skin="test_gray_button" oversound="button_over" LBtnUpScp="SCR_OPEN_HOUSING_EDITMODE_PAGE"/>
 	</controls>

@@ -18,6 +18,10 @@ function SCR_FIELD_DUNGEON_CONSUME_DECREASE(pc, name, value)
                 return value
             elseif name == 'CoolDown' then
                 local reduceRate = 0
+                
+                if IsBuffApplied(pc, 'FIELD_COOLDOWNREDUCE_MIN_BUFF') == 'YES' then
+                    reduceRate = 0.15
+                end
 
                 if IsBuffApplied(pc, 'FIELD_DEFAULTCOOLDOWN_BUFF') == 'YES' then
                     reduceRate = 0.3

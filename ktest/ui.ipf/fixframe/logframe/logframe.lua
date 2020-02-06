@@ -36,7 +36,7 @@ function LOGFRAME_ENTER_KEY(frame, control, argStr, argNum)
 			tolua.cast(listbox,'ui::CListBox');
 			local text = editbox:GetText();
 			if text ~= nil then
-				loadstring(text)();
+				load(text)();
 				listbox:AddItem(text, 0);
 			end
 		end

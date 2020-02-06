@@ -1,4 +1,4 @@
-﻿
+
 function RECYCLE_SHOW_TO_MEDAL(parent, ctrl, str, num)
 	if ctrl ~= nil then
 	ctrl:SetSkinName("baseyellow_btn");
@@ -49,6 +49,8 @@ function RECYCLE_SHOW_TO_ITEM(parent, ctrl, str, num)
 	local rcycle_mainSellText = GET_CHILD_RECURSIVELY(frame,"rcycle_mainSellText");
 	rcycle_mainBuyText:ShowWindow(1)
 	rcycle_mainSellText:ShowWindow(0)
+
+	frame:SetUserValue('RECYCLE_SELECTED_CATEGORY', 'TotalTabName')
 
 	UPDATE_RECYCLE_BASKET_MONEY(frame,"buy");	
 	RECYCLE_CREATE_BUY_LIST();
@@ -117,6 +119,12 @@ function CHECK_RECYCLE_SHOW_ITEM(frame, item)
 
 	if curSelectCate == 'Artefact' and TryGetProp(item, 'ClassType') ~= 'Artefact' then
 		return false;
+	end
+
+	if curSelectCate == 'recycle_special' then
+	    if TryGetProp(item, 'ClassType') ~= 'Doll' and TryGetProp(item, 'ClassType') ~= 'Wing' and TryGetProp(item, 'ClassType') ~= 'EffectCostume' then
+		    return false;
+		end
 	end
 
 	-- text check
@@ -911,6 +919,7 @@ function RECYCLE_MAKE_TREE(frame)
 	RECYCLE_CREATE_CATEGORY_ITEM(recycleCateTree, 'Wiz_costume_F');
 	RECYCLE_CREATE_CATEGORY_ITEM(recycleCateTree, 'Arc_costume_F');
 	RECYCLE_CREATE_CATEGORY_ITEM(recycleCateTree, 'Cle_costume_F');	
+	RECYCLE_CREATE_CATEGORY_ITEM(recycleCateTree, 'recycle_special');		
 	recycleCateTree:OpenNodeAll();
 end
 

@@ -48,6 +48,21 @@ function SUDDENQUEST_FILL_QUEST_INFO(frame, mapId, questType, targetMonName, kil
         local ctrlSet = gbox_questInfo:CreateOrGetControlSet("suddenquest_info", "CTRLSET_SUDDENQUEST_INFO", 0, 0);
 
         local monName = "";                
+        --[[ local count = #targetMonName;
+        if count > 1 then
+            for i = 1, count do
+                local monCls = GetClass("Monster", targetMonName[i]);
+                if monCls ~= nil and i == 1 then
+                    monName = monCls.Name;
+                elseif monCls ~= nil and i > 1 then
+                    monName = monName.." / "..monCls.Name;
+                end
+            end
+        elseif count == 1 then
+            local monCls = GetClass("Monster", targetMonName[1]);
+            monName = monCls.Name;
+        end ]]
+
         if ctrlSet ~= nil then
             local gbox_questDetailed = GET_CHILD_RECURSIVELY(ctrlSet, "gbox_quest_detailed");
             if gbox_questDetailed ~= nil then

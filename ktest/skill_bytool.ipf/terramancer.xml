@@ -164,6 +164,16 @@
                     <Str Str="voice_wiz_m_stoneshower_shot"/>
                     <Str Str="voice_wiz_f_stoneshower_shot"/>
                 </Scp>
+                <Scp Scp="SKL_TGT_DMG" Client="NO" UseSleep="NO" Time="150">
+                    <Num Num="1"/>
+                    <Num Num="1"/>
+                    <Num Num="0"/>
+                </Scp>
+                <Scp Scp="SKL_TGT_DMG" Client="NO" UseSleep="NO" Time="250">
+                    <Num Num="1"/>
+                    <Num Num="1"/>
+                    <Num Num="0"/>
+                </Scp>
                 <Scp Scp="SKL_TGT_DMG" Client="NO" UseSleep="NO" Time="350">
                     <Num Num="1"/>
                     <Num Num="1"/>
@@ -175,16 +185,6 @@
                     <Num Num="0"/>
                 </Scp>
                 <Scp Scp="SKL_TGT_DMG" Client="NO" UseSleep="NO" Time="550">
-                    <Num Num="1"/>
-                    <Num Num="1"/>
-                    <Num Num="0"/>
-                </Scp>
-                <Scp Scp="SKL_TGT_DMG" Client="NO" UseSleep="NO" Time="650">
-                    <Num Num="1"/>
-                    <Num Num="1"/>
-                    <Num Num="0"/>
-                </Scp>
-                <Scp Scp="SKL_TGT_DMG" Client="NO" UseSleep="NO" Time="750">
                     <Num Num="1"/>
                     <Num Num="1"/>
                     <Num Num="0"/>

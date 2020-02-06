@@ -181,9 +181,6 @@
     </Skill>
     <Skill Name="TigerHunter_Blitz">
         <MainSkl ScrLock="None" JumpFlee="NO" MSPDToUsePos="0">
-            <HitList>
-                <Frame Time="750" HitCount="0" TermMin="0" TermMax="0" PosType="0" Dist="0" RandDist="0" RandomPerHit="0" Angle="0" AniTime="950" RotAngle="0" ForceATK="0"/>
-            </HitList>
             <EtcList>
                 <Scp Scp="MONSKL_C_PLAY_ANIM" Client="YES" UseSleep="NO" Time="0">
                     <Str Str="SKL_BLITZ"/>
@@ -209,7 +206,7 @@
                     <Num Num="0"/>
                     <Num Num="0"/>
                 </Scp>
-                <Scp Scp="SKL_TGT_MOVE" Client="NO" UseSleep="YES" Time="450">
+                <Scp Scp="SKL_TGT_MOVE" Client="NO" UseSleep="YES" Time="300">
                     <Num Num="0"/>
                     <Num Num="150"/>
                     <Num Num="0"/>
@@ -231,7 +228,7 @@
                     <Num Num="1"/>
                     <Num Num="0"/>
                     <Angle_Abs Angle="0"/>
-                    <Num Num="1"/>
+                    <Num Num="0"/>
                     <Num Num="5"/>
                     <Num Num="10"/>
                     <Num Num="0"/>

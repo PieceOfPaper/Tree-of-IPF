@@ -2,6 +2,12 @@
 <ToolSkill><Skill Name="Shadowmancer_InfernalShadow">
 		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
 			<EtcList>
+				<Scp Client="YES" Scp="MONSKL_C_PLAY_ANIM" Time="0" UseSleep="NO">
+                    <Str Str="SKL_INFERNALSHADOW"/>
+                    <Num Num="1.6"/>
+                    <Num Num="0"/>
+                    <Num Num="0"/>
+                </Scp>
 				<Scp Client="NO" Scp="SKL_SET_TARGET_CIRCLE" Time="0" UseSleep="NO">
 					<Pos Angle="0" Dist="3.2995748e-36" PosType="3" />
 					<Num Num="40" />
@@ -24,16 +30,16 @@
 				<Scp Client="YES" Scp="C_SOUND" Time="100" UseSleep="NO">
 					<Str Str="skl_eff_shadowmancer_infernalshadow_shot" />
 				</Scp>
-				<Scp Client="YES" Scp="C_EFFECT_ATTACH" Time="800" UseSleep="NO">
+                <Scp Client="YES" Scp="C_EFFECT_ATTACH" Time="500" UseSleep="NO">
 					<Str_Arg Arg="3.5" Str="F_wizard_InfernalShadow_shot" />
 					<Num Num="1" />
 					<Pos Angle="0" Dist="4.5942716e-36" />
 					<Num Num="1" />
 				</Scp>
-				<Scp Client="NO" Scp="SKL_TGT_INSERTHATE" Time="900" UseSleep="NO">
+                <Scp Client="NO" Scp="SKL_TGT_INSERTHATE" Time="600" UseSleep="NO">
 					<Num Num="1" />
 				</Scp>
-				<Scp Client="NO" Scp="CREATE_INFERNAL_SHADOW" Time="1200" UseSleep="YES">
+                <Scp Client="NO" Scp="CREATE_INFERNAL_SHADOW" Time="800" UseSleep="YES">
 					<Str Str="EXPROP_SHADOW_INFERNAL" />
 					<Pos Angle="0" Dist="3.2995748e-36" />
 					<Num Num="50" />
@@ -287,7 +293,7 @@
 					<Str Str="voice_wiz_m_ShadowFatter_cast" />
 					<Str Str="voice_wiz_f_ShadowFatter_cast" />
 				</Scp>
-				<Scp Client="NO" Scp="SKL_SET_TARGET_CIRCLE" Time="700" UseSleep="NO">
+                <Scp Client="NO" Scp="SKL_SET_TARGET_CIRCLE" Time="400" UseSleep="NO">
 					<Pos Angle="0" Dist="0" PosType="3" />
 					<Num Num="60" />
 					<Num Num="10" />
@@ -296,7 +302,7 @@
 					<Num Num="1" />
 					<Num Num="0" />
 				</Scp>
-				<Scp Client="NO" Scp="SKL_TGT_BUFF" Time="700" UseSleep="NO">
+                <Scp Client="NO" Scp="SKL_TGT_BUFF" Time="400" UseSleep="NO">
 					<Str Str="ShadowFatter_Debuff" />
 					<Num FuncTxt="return obj.Level;" Num="0" UseFunc="1" />
 					<Num Num="0" />
@@ -305,7 +311,7 @@
 					<Num Num="100" />
 					<Num Num="0" />
 				</Scp>
-				<Scp Client="NO" Scp="SKL_TGT_EFFECT" Time="700" UseSleep="NO">
+                <Scp Client="NO" Scp="SKL_TGT_EFFECT" Time="400" UseSleep="NO">
 					<Str_Arg Arg="0.69999999" Str="F_ground170_dark3" />
 					<Num Num="0" />
 				</Scp>

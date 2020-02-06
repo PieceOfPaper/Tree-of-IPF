@@ -767,3 +767,9 @@ function CONFIG_TEXTEFFECT_NOT_SHOW(frame, ctrl, str, num)
     config.SetUnVisibleTextEffect(isEnable);
 	config.SaveConfig();
 end
+
+function SET_ENABLE_DAYLIGHT_OPTION(frame, ctrl, str, num)
+	local isEnable = ctrl:IsChecked();
+    config.SetEnableDayLight(isEnable);
+	config.SaveConfig();
+end

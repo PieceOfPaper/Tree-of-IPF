@@ -863,13 +863,14 @@ function SET_REINFORCE_TEXT(gBox, invitem, yPos, isEquiped, basicProp)
 		local text = string.format("{#004123}".."- "..infoText)
 		reinforceText:SetTextByKey("ReinforceText", text);
 
-		local reinforceUpValue = gBox:CreateOrGetControl('richtext', "REINFORCE_VALUE", 350, yPos, gBox:GetWidth() - 30, 20);
+		local reinforceUpValue = gBox:CreateOrGetControl('richtext', "REINFORCE_VALUE", 200, yPos, 200, 20);
 		reinforceUpValue = tolua.cast(reinforceUpValue, "ui::CRichText");
 		local valueText = string.format("{#004123}"..ScpArgMsg("PropUp").."%d", reinforceValue)
 		reinforceUpValue:SetTextFixWidth(1);
 		reinforceUpValue:SetFormat("%s");
 		reinforceUpValue:AddParamInfo("ReinforceValue", "");
 		reinforceUpValue:SetTextByKey("ReinforceValue", valueText);
+		reinforceUpValue:SetTextAlign("right", "center");
 
 		yPos = yPos + reinforceText:GetHeight();
 	end

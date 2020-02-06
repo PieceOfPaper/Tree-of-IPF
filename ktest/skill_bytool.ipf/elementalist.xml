@@ -129,7 +129,7 @@
 				<Scp Client="YES" Scp="C_SOUND" Time="300" UseSleep="NO">
 					<Str Str="skl_eff_stormdust_shot"/>
 				</Scp>
-				<Scp Client="NO" Scp="MONSKL_CRE_PAD" Time="600" UseSleep="NO">
+				<Scp Client="NO" Scp="MONSKL_CRE_PAD" Time="500" UseSleep="NO">
 					<Pos Angle="0" Dist="0" PosType="3"/>
 					<Angle Angle="0"/>
 					<Str Str="StormDust_Pad"/>
@@ -619,11 +619,11 @@
 					<Num Num="45"/>
 					<Num Num="999"/>
 				</Scp>
-				<Scp Client="YES" Scp="C_SHOW_PARTS_MODEL" Time="1200" UseSleep="NO">
+				<Scp Client="YES" Scp="C_SHOW_PARTS_MODEL" Time="850" UseSleep="NO">
 					<Str Str="LH"/>
 					<Num Num="1"/>
 				</Scp>
-				<Scp Client="YES" Scp="C_SHOW_PARTS_MODEL" Time="1200" UseSleep="NO">
+				<Scp Client="YES" Scp="C_SHOW_PARTS_MODEL" Time="850" UseSleep="NO">
 					<Str Str="RH"/>
 					<Num Num="1"/>
 				</Scp>
@@ -643,7 +643,7 @@
 					<EtcList>
 						<Scp Scp="SKL_SET_TARGET_CLIENT_TARGETTING_NOCANCEL" Client="NO" UseSleep="NO" Time="0">
 							<Num Num="1"/>
-							<Num FuncTxt="return obj.MaxR" UseFunc="1" Num="100"/>
+							<Num Num="0"/>
 						</Scp>
 						<Scp Scp="SKL_SET_DIR_TO_TGT" Client="NO" UseSleep="NO" Time="0"/>
 						<Scp Client="NO" Scp="MONSKL_REMOVE_PAD_BY_BUFFOVER" Time="0" UseSleep="NO">
@@ -678,16 +678,16 @@
 							<Num Num="45"/>
 							<Num Num="999"/>
 						</Scp>
-						<Scp Client="NO" Scp="SKL_CTRL_BUFFOVER" Time="1200" UseSleep="NO">
+						<Scp Client="NO" Scp="SKL_CTRL_BUFFOVER" Time="850" UseSleep="NO">
 							<Str Str="Meteor_FireBall_Buff"/>
 							<Num Num="-1"/>
 							<Num Num="1"/>
 						</Scp>
-						<Scp Client="YES" Scp="C_SHOW_PARTS_MODEL" Time="1200" UseSleep="NO">
+						<Scp Client="YES" Scp="C_SHOW_PARTS_MODEL" Time="850" UseSleep="NO">
 							<Str Str="LH"/>
 							<Num Num="1"/>
 						</Scp>
-						<Scp Client="YES" Scp="C_SHOW_PARTS_MODEL" Time="1200" UseSleep="NO">
+						<Scp Client="YES" Scp="C_SHOW_PARTS_MODEL" Time="850" UseSleep="NO">
 							<Str Str="RH"/>
 							<Num Num="1"/>
 						</Scp>
@@ -731,7 +731,7 @@
 							<Num Num="45"/>
 							<Num Num="999"/>
 						</Scp>
-						<Scp Client="NO" Scp="SKL_BUFF" Time="1200" UseSleep="NO">
+						<Scp Client="NO" Scp="SKL_BUFF" Time="850" UseSleep="NO">
 							<Str Str="Meteor_FireBall_Buff"/>
 							<Num FuncTxt="return obj.Level" UseFunc="1" Num="1"/>
 							<Num Num="0"/>
@@ -740,29 +740,29 @@
 							<Num Num="100"/>
 							<Num Num="0"/>
 						</Scp>
-						<Scp Client="NO" Scp="MONSKL_CRE_PAD_BY_ABILITY" Time="1200" UseSleep="NO">
+						<Scp Client="NO" Scp="MONSKL_CRE_PAD_BY_ABILITY" Time="850" UseSleep="NO">
 							<Pos Angle="0" Dist="0" PosType="0" />
 							<Angle Angle="0" />
 							<Str Str="Elementalist_MovingFireBall_1" />
 							<Str Str="Elementalist33" />
 						</Scp>
-						<Scp Client="NO" Scp="MONSKL_CRE_PAD_BY_ABILITY" Time="1200" UseSleep="NO">
+						<Scp Client="NO" Scp="MONSKL_CRE_PAD_BY_ABILITY" Time="850" UseSleep="NO">
 							<Pos Angle="120" Dist="0" PosType="0" />
 							<Angle Angle="0" />
 							<Str Str="Elementalist_MovingFireBall_2" />
 							<Str Str="Elementalist33" />
 						</Scp>
-						<Scp Client="NO" Scp="MONSKL_CRE_PAD_BY_ABILITY" Time="1200" UseSleep="NO">
+						<Scp Client="NO" Scp="MONSKL_CRE_PAD_BY_ABILITY" Time="850" UseSleep="NO">
 							<Pos Angle="-120" Dist="0" PosType="0" />
 							<Angle Angle="0" />
 							<Str Str="Elementalist_MovingFireBall_3" />
 							<Str Str="Elementalist33" />
 						</Scp>
-						<Scp Client="YES" Scp="C_SHOW_PARTS_MODEL" Time="1200" UseSleep="NO">
+						<Scp Client="YES" Scp="C_SHOW_PARTS_MODEL" Time="850" UseSleep="NO">
 							<Str Str="LH"/>
 							<Num Num="1"/>
 						</Scp>
-						<Scp Client="YES" Scp="C_SHOW_PARTS_MODEL" Time="1200" UseSleep="NO">
+						<Scp Client="YES" Scp="C_SHOW_PARTS_MODEL" Time="850" UseSleep="NO">
 							<Str Str="RH"/>
 							<Num Num="1"/>
 						</Scp>
@@ -837,24 +837,24 @@
 					<Str Str="LH"/>
 					<Num Num="0"/>
 				</Scp>
-				<Scp Scp="C_SOUND" Client="YES" UseSleep="NO" Time="500">
+				<Scp Scp="C_SOUND" Client="YES" UseSleep="NO" Time="300">
 					<Str Str="skl_fgt_tackle_shot"/>
 				</Scp>
-				<Scp Scp="C_VOICE_SOUND" Client="YES" UseSleep="NO" Time="550">
+				<Scp Scp="C_VOICE_SOUND" Client="YES" UseSleep="NO" Time="350">
 					<Str Str="voice_wiz_m_electrocute_shot"/>
 					<Str Str="voice_wiz_electrocute_shot"/>
 				</Scp>
-				<Scp Scp="TGT_CHAIN_DAMAGE" Client="NO" UseSleep="YES" Time="750">
+				<Scp Scp="TGT_CHAIN_DAMAGE" Client="NO" UseSleep="YES" Time="450">
 					<Num Num="1"/>
 					<Num Num="1"/>
 					<Str_Arg Str="I_laser005_blue#Dummy_effect_electrocute" Arg="4"/>
 					<Num Num="0.2"/>
 				</Scp>
-				<Scp Scp="C_SHOW_PARTS_MODEL" Client="YES" UseSleep="NO" Time="1200">
+				<Scp Scp="C_SHOW_PARTS_MODEL" Client="YES" UseSleep="NO" Time="500">
 					<Str Str="LH"/>
 					<Num Num="1"/>
 				</Scp>
-				<Scp Scp="C_SHOW_PARTS_MODEL" Client="YES" UseSleep="NO" Time="1200">
+				<Scp Scp="C_SHOW_PARTS_MODEL" Client="YES" UseSleep="NO" Time="500">
 					<Str Str="RH"/>
 					<Num Num="1"/>
 				</Scp>

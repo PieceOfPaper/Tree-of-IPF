@@ -252,9 +252,16 @@ function SCR_Get_SpendSP_Magic(skill)
             jobHistory = GetMyJobHistoryString();
         end
         
-        if jobHistory ~= nil and string.find(jobHistory, "Char4_2") ~= nil then
-            value = value - 25
+        local jobList = GetJobHistoryList(pc)
+        for i = 1, #jobList do
+            if jobList[i] == 4002 then
+                value = value - 25
+            end
         end
+
+        -- if jobHistory ~= nil and string.find(jobHistory, "Char4_2") ~= nil then
+        --     value = value - 25
+        -- end
         
         if jobHistory ~= nil and string.find(jobHistory, "Char4_10") ~= nil then
             value = value - 50
@@ -581,7 +588,7 @@ function SCR_GET_SKL_COOLDOWN(skill)
     --burning_event
     if IsBuffApplied(pc, "Event_Cooldown_SPamount_Decrease") == "YES" then
         basicCoolDown = SCR_COOLDOWN_SPAMOUNT_DECREASE(pc, "CoolDown", basicCoolDown)
-    elseif IsBuffApplied(pc, "FIELD_COOLDOWNREDUCE_BUFF") == "YES" or IsBuffApplied(pc, "FIELD_DEFAULTCOOLDOWN_BUFF") == "YES" then
+    elseif IsBuffApplied(pc, "FIELD_COOLDOWNREDUCE_BUFF") == "YES" or IsBuffApplied(pc, "FIELD_DEFAULTCOOLDOWN_BUFF") == "YES" or IsBuffApplied(pc, "FIELD_COOLDOWNREDUCE_MIN_BUFF") == "YES" then
         basicCoolDown = SCR_FIELD_DUNGEON_CONSUME_DECREASE(pc, "CoolDown", basicCoolDown)
     else
         if IsBuffApplied(pc, 'GM_Cooldown_Buff') == 'YES' then
@@ -631,7 +638,7 @@ function SCR_GET_SKL_COOLDOWN_KaguraDance(skill)
     --burning_event
     if IsBuffApplied(pc, "Event_Cooldown_SPamount_Decrease") == "YES" then
         basicCoolDown = SCR_COOLDOWN_SPAMOUNT_DECREASE(pc, "CoolDown", basicCoolDown)
-    elseif IsBuffApplied(pc, "FIELD_COOLDOWNREDUCE_BUFF") == "YES" or IsBuffApplied(pc, "FIELD_DEFAULTCOOLDOWN_BUFF") == "YES" then
+    elseif IsBuffApplied(pc, "FIELD_COOLDOWNREDUCE_BUFF") == "YES" or IsBuffApplied(pc, "FIELD_DEFAULTCOOLDOWN_BUFF") == "YES" or IsBuffApplied(pc, "FIELD_COOLDOWNREDUCE_MIN_BUFF") == "YES" then
         basicCoolDown = SCR_FIELD_DUNGEON_CONSUME_DECREASE(pc, "CoolDown", basicCoolDown)
     else
         if IsBuffApplied(pc, 'GM_Cooldown_Buff') == 'YES' then
@@ -677,7 +684,7 @@ function SCR_GET_SKL_COOLDOWN_BUNSIN(skill)
     --burning_event
     if IsBuffApplied(pc, "Event_Cooldown_SPamount_Decrease") == "YES" then
         basicCoolDown = SCR_COOLDOWN_SPAMOUNT_DECREASE(pc, "CoolDown", basicCoolDown)
-    elseif IsBuffApplied(pc, "FIELD_COOLDOWNREDUCE_BUFF") == "YES" or IsBuffApplied(pc, "FIELD_DEFAULTCOOLDOWN_BUFF") == "YES" then
+    elseif IsBuffApplied(pc, "FIELD_COOLDOWNREDUCE_BUFF") == "YES" or IsBuffApplied(pc, "FIELD_DEFAULTCOOLDOWN_BUFF") == "YES" or IsBuffApplied(pc, "FIELD_COOLDOWNREDUCE_MIN_BUFF") == "YES" then
         basicCoolDown = SCR_FIELD_DUNGEON_CONSUME_DECREASE(pc, "CoolDown", basicCoolDown)
     else
         if IsBuffApplied(pc, 'GM_Cooldown_Buff') == 'YES' then
@@ -744,7 +751,7 @@ function SCR_GET_SKL_COOLDOWN_PrimeAndLoad(skill)
     --burning_event
     if IsBuffApplied(pc, "Event_Cooldown_SPamount_Decrease") == "YES" then
         basicCoolDown = SCR_COOLDOWN_SPAMOUNT_DECREASE(pc, "CoolDown", basicCoolDown)
-    elseif IsBuffApplied(pc, "FIELD_COOLDOWNREDUCE_BUFF") == "YES" or IsBuffApplied(pc, "FIELD_DEFAULTCOOLDOWN_BUFF") == "YES" then
+    elseif IsBuffApplied(pc, "FIELD_COOLDOWNREDUCE_BUFF") == "YES" or IsBuffApplied(pc, "FIELD_DEFAULTCOOLDOWN_BUFF") == "YES" or IsBuffApplied(pc, "FIELD_COOLDOWNREDUCE_MIN_BUFF") == "YES" then
         basicCoolDown = SCR_FIELD_DUNGEON_CONSUME_DECREASE(pc, "CoolDown", basicCoolDown)
     else
         if IsBuffApplied(pc, 'GM_Cooldown_Buff') == 'YES' then
@@ -796,7 +803,7 @@ function SCR_GET_SKL_COOLDOWN_CounterSpell(skill)
     --burning_event
     if IsBuffApplied(pc, "Event_Cooldown_SPamount_Decrease") == "YES" then
         basicCoolDown = SCR_COOLDOWN_SPAMOUNT_DECREASE(pc, "CoolDown", basicCoolDown)
-    elseif IsBuffApplied(pc, "FIELD_COOLDOWNREDUCE_BUFF") == "YES" or IsBuffApplied(pc, "FIELD_DEFAULTCOOLDOWN_BUFF") == "YES" then
+    elseif IsBuffApplied(pc, "FIELD_COOLDOWNREDUCE_BUFF") == "YES" or IsBuffApplied(pc, "FIELD_DEFAULTCOOLDOWN_BUFF") == "YES" or IsBuffApplied(pc, "FIELD_COOLDOWNREDUCE_MIN_BUFF") == "YES" then
         basicCoolDown = SCR_FIELD_DUNGEON_CONSUME_DECREASE(pc, "CoolDown", basicCoolDown)
     else
 
@@ -857,7 +864,7 @@ function SCR_GET_SKL_CoolDown_BackSlide(skill)
     --burning_event
     if IsBuffApplied(pc, "Event_Cooldown_SPamount_Decrease") == "YES" then
         basicCoolDown = SCR_COOLDOWN_SPAMOUNT_DECREASE(pc, "CoolDown", basicCoolDown)
-    elseif IsBuffApplied(pc, "FIELD_COOLDOWNREDUCE_BUFF") == "YES" or IsBuffApplied(pc, "FIELD_DEFAULTCOOLDOWN_BUFF") == "YES" then
+    elseif IsBuffApplied(pc, "FIELD_COOLDOWNREDUCE_BUFF") == "YES" or IsBuffApplied(pc, "FIELD_DEFAULTCOOLDOWN_BUFF") == "YES" or IsBuffApplied(pc, "FIELD_COOLDOWNREDUCE_MIN_BUFF") == "YES" then
         basicCoolDown = SCR_FIELD_DUNGEON_CONSUME_DECREASE(pc, "CoolDown", basicCoolDown)
     else
         if IsBuffApplied(pc, 'GM_Cooldown_Buff') == 'YES' then
@@ -909,7 +916,7 @@ function SCR_GET_SKL_CoolDown_Prevent(skill)
     --burning_event
     if IsBuffApplied(pc, "Event_Cooldown_SPamount_Decrease") == "YES" then
         basicCoolDown = SCR_COOLDOWN_SPAMOUNT_DECREASE(pc, "CoolDown", basicCoolDown)
-    elseif IsBuffApplied(pc, "FIELD_COOLDOWNREDUCE_BUFF") == "YES" or IsBuffApplied(pc, "FIELD_DEFAULTCOOLDOWN_BUFF") == "YES" then
+    elseif IsBuffApplied(pc, "FIELD_COOLDOWNREDUCE_BUFF") == "YES" or IsBuffApplied(pc, "FIELD_DEFAULTCOOLDOWN_BUFF") == "YES" or IsBuffApplied(pc, "FIELD_COOLDOWNREDUCE_MIN_BUFF") == "YES" then
         basicCoolDown = SCR_FIELD_DUNGEON_CONSUME_DECREASE(pc, "CoolDown", basicCoolDown)
     else
         if IsBuffApplied(pc, 'GM_Cooldown_Buff') == 'YES' then
@@ -979,7 +986,7 @@ function SCR_GET_SKL_COOLDOWN_Golden_Bell_Shield(skill)
     --burning_event
     if IsBuffApplied(pc, "Event_Cooldown_SPamount_Decrease") == "YES" then
         basicCoolDown = SCR_COOLDOWN_SPAMOUNT_DECREASE(pc, "CoolDown", basicCoolDown)
-    elseif IsBuffApplied(pc, "FIELD_COOLDOWNREDUCE_BUFF") == "YES" or IsBuffApplied(pc, "FIELD_DEFAULTCOOLDOWN_BUFF") == "YES" then
+    elseif IsBuffApplied(pc, "FIELD_COOLDOWNREDUCE_BUFF") == "YES" or IsBuffApplied(pc, "FIELD_DEFAULTCOOLDOWN_BUFF") == "YES" or IsBuffApplied(pc, "FIELD_COOLDOWNREDUCE_MIN_BUFF") == "YES" then
         basicCoolDown = SCR_FIELD_DUNGEON_CONSUME_DECREASE(pc, "CoolDown", basicCoolDown)
     else
         if IsBuffApplied(pc, 'GM_Cooldown_Buff') == 'YES' then
@@ -1020,7 +1027,7 @@ function SCR_GET_SKL_COOLDOWN_VisibleTalent(skill)
     --burning_event
     if IsBuffApplied(pc, "Event_Cooldown_SPamount_Decrease") == "YES" then
         basicCoolDown = SCR_COOLDOWN_SPAMOUNT_DECREASE(pc, "CoolDown", basicCoolDown)
-    elseif IsBuffApplied(pc, "FIELD_COOLDOWNREDUCE_BUFF") == "YES" or IsBuffApplied(pc, "FIELD_DEFAULTCOOLDOWN_BUFF") == "YES" then
+    elseif IsBuffApplied(pc, "FIELD_COOLDOWNREDUCE_BUFF") == "YES" or IsBuffApplied(pc, "FIELD_DEFAULTCOOLDOWN_BUFF") == "YES" or IsBuffApplied(pc, "FIELD_COOLDOWNREDUCE_MIN_BUFF") == "YES" then
         basicCoolDown = SCR_FIELD_DUNGEON_CONSUME_DECREASE(pc, "CoolDown", basicCoolDown)
     else
         if IsBuffApplied(pc, 'GM_Cooldown_Buff') == 'YES' then
@@ -1067,7 +1074,7 @@ function SCR_GET_SKL_COOLDOWN_Chronomancer_Stop(skill)
     --burning_event
     if IsBuffApplied(pc, "Event_Cooldown_SPamount_Decrease") == "YES" then
         basicCoolDown = SCR_COOLDOWN_SPAMOUNT_DECREASE(pc, "CoolDown", basicCoolDown)
-    elseif IsBuffApplied(pc, "FIELD_COOLDOWNREDUCE_BUFF") == "YES" or IsBuffApplied(pc, "FIELD_DEFAULTCOOLDOWN_BUFF") == "YES" then
+    elseif IsBuffApplied(pc, "FIELD_COOLDOWNREDUCE_BUFF") == "YES" or IsBuffApplied(pc, "FIELD_DEFAULTCOOLDOWN_BUFF") == "YES" or IsBuffApplied(pc, "FIELD_COOLDOWNREDUCE_MIN_BUFF") == "YES" then
         basicCoolDown = SCR_FIELD_DUNGEON_CONSUME_DECREASE(pc, "CoolDown", basicCoolDown)
     else
         if IsBuffApplied(pc, 'GM_Cooldown_Buff') == 'YES' then
@@ -1137,7 +1144,7 @@ function SCR_GET_SKL_COOLDOWN_WIZARD(skill)
     --burning_event
     if IsBuffApplied(pc, "Event_Cooldown_SPamount_Decrease") == "YES" then
         basicCoolDown = SCR_COOLDOWN_SPAMOUNT_DECREASE(pc, "CoolDown", basicCoolDown)
-    elseif IsBuffApplied(pc, "FIELD_COOLDOWNREDUCE_BUFF") == "YES" or IsBuffApplied(pc, "FIELD_DEFAULTCOOLDOWN_BUFF") == "YES" then
+    elseif IsBuffApplied(pc, "FIELD_COOLDOWNREDUCE_BUFF") == "YES" or IsBuffApplied(pc, "FIELD_DEFAULTCOOLDOWN_BUFF") == "YES" or IsBuffApplied(pc, "FIELD_COOLDOWNREDUCE_MIN_BUFF") == "YES" then
         basicCoolDown = SCR_FIELD_DUNGEON_CONSUME_DECREASE(pc, "CoolDown", basicCoolDown)
     else
         if IsBuffApplied(pc, 'GM_Cooldown_Buff') == 'YES' then
@@ -1185,7 +1192,7 @@ function SCR_GET_SKL_COOLDOWN_SummonFamiliar(skill)
     --burning_event
     if IsBuffApplied(pc, "Event_Cooldown_SPamount_Decrease") == "YES" then
         basicCoolDown = SCR_COOLDOWN_SPAMOUNT_DECREASE(pc, "CoolDown", basicCoolDown)
-    elseif IsBuffApplied(pc, "FIELD_COOLDOWNREDUCE_BUFF") == "YES" or IsBuffApplied(pc, "FIELD_DEFAULTCOOLDOWN_BUFF") == "YES" then
+    elseif IsBuffApplied(pc, "FIELD_COOLDOWNREDUCE_BUFF") == "YES" or IsBuffApplied(pc, "FIELD_DEFAULTCOOLDOWN_BUFF") == "YES" or IsBuffApplied(pc, "FIELD_COOLDOWNREDUCE_MIN_BUFF") == "YES" then
         basicCoolDown = SCR_FIELD_DUNGEON_CONSUME_DECREASE(pc, "CoolDown", basicCoolDown)
     else
         if IsBuffApplied(pc, 'GM_Cooldown_Buff') == 'YES' then
@@ -1229,7 +1236,7 @@ function SCR_GET_SKL_COOLDOWN_Bloodletting(skill)
     --burning_event
     if IsBuffApplied(pc, "Event_Cooldown_SPamount_Decrease") == "YES" then
         basicCoolDown = SCR_COOLDOWN_SPAMOUNT_DECREASE(pc, "CoolDown", basicCoolDown)
-    elseif IsBuffApplied(pc, "FIELD_COOLDOWNREDUCE_BUFF") == "YES" or IsBuffApplied(pc, "FIELD_DEFAULTCOOLDOWN_BUFF") == "YES" then
+    elseif IsBuffApplied(pc, "FIELD_COOLDOWNREDUCE_BUFF") == "YES" or IsBuffApplied(pc, "FIELD_DEFAULTCOOLDOWN_BUFF") == "YES" or IsBuffApplied(pc, "FIELD_COOLDOWNREDUCE_MIN_BUFF") == "YES" then
         basicCoolDown = SCR_FIELD_DUNGEON_CONSUME_DECREASE(pc, "CoolDown", basicCoolDown)
     else
         if IsBuffApplied(pc, 'GM_Cooldown_Buff') == 'YES' then
@@ -1278,7 +1285,7 @@ function SCR_GET_SKL_COOLDOWN_HealingFactor(skill)
     --burning_event
     if IsBuffApplied(pc, "Event_Cooldown_SPamount_Decrease") == "YES" then
         basicCoolDown = SCR_COOLDOWN_SPAMOUNT_DECREASE(pc, "CoolDown", basicCoolDown)
-    elseif IsBuffApplied(pc, "FIELD_COOLDOWNREDUCE_BUFF") == "YES" or IsBuffApplied(pc, "FIELD_DEFAULTCOOLDOWN_BUFF") == "YES" then
+    elseif IsBuffApplied(pc, "FIELD_COOLDOWNREDUCE_BUFF") == "YES" or IsBuffApplied(pc, "FIELD_DEFAULTCOOLDOWN_BUFF") == "YES" or IsBuffApplied(pc, "FIELD_COOLDOWNREDUCE_MIN_BUFF") == "YES" then
         basicCoolDown = SCR_FIELD_DUNGEON_CONSUME_DECREASE(pc, "CoolDown", basicCoolDown)
     else
         if IsBuffApplied(pc, 'GM_Cooldown_Buff') == 'YES' then
@@ -1327,7 +1334,7 @@ function SCR_GET_SKL_COOLDOWN_GravityPole(skill)
     --burning_event
     if IsBuffApplied(pc, "Event_Cooldown_SPamount_Decrease") == "YES" then
         basicCoolDown = SCR_COOLDOWN_SPAMOUNT_DECREASE(pc, "CoolDown", basicCoolDown)
-    elseif IsBuffApplied(pc, "FIELD_COOLDOWNREDUCE_BUFF") == "YES" or IsBuffApplied(pc, "FIELD_DEFAULTCOOLDOWN_BUFF") == "YES" then
+    elseif IsBuffApplied(pc, "FIELD_COOLDOWNREDUCE_BUFF") == "YES" or IsBuffApplied(pc, "FIELD_DEFAULTCOOLDOWN_BUFF") == "YES" or IsBuffApplied(pc, "FIELD_COOLDOWNREDUCE_MIN_BUFF") == "YES" then
         basicCoolDown = SCR_FIELD_DUNGEON_CONSUME_DECREASE(pc, "CoolDown", basicCoolDown)
     else
         if IsBuffApplied(pc, 'GM_Cooldown_Buff') == 'YES' then
@@ -3020,7 +3027,7 @@ function SCR_GET_SKL_COOLDOWN_MortalSlash(skill)
     --burning_event
     if IsBuffApplied(pc, "Event_Cooldown_SPamount_Decrease") == "YES" then
         basicCoolDown = SCR_COOLDOWN_SPAMOUNT_DECREASE(pc, "CoolDown", basicCoolDown)
-    elseif IsBuffApplied(pc, "FIELD_COOLDOWNREDUCE_BUFF") == "YES" or IsBuffApplied(pc, "FIELD_DEFAULTCOOLDOWN_BUFF") == "YES" then
+    elseif IsBuffApplied(pc, "FIELD_COOLDOWNREDUCE_BUFF") == "YES" or IsBuffApplied(pc, "FIELD_DEFAULTCOOLDOWN_BUFF") == "YES" or IsBuffApplied(pc, "FIELD_COOLDOWNREDUCE_MIN_BUFF") == "YES" then
         basicCoolDown = SCR_FIELD_DUNGEON_CONSUME_DECREASE(pc, "CoolDown", basicCoolDown)
     else
         if IsBuffApplied(pc, 'GM_Cooldown_Buff') == 'YES' then
@@ -3759,7 +3766,10 @@ end
 function SCR_GET_JincanGu_Ratio(skill)
 
     local pc = GetSkillOwner(skill);
-    local value = (skill.Level/2) + 0.5
+    local value = skill.Level
+    if value > 10 then
+        value = 10
+    end
 
     return value;
 
@@ -4235,7 +4245,7 @@ function SCR_GET_SKL_COOLDOWN_CannonBarrage(skill)
     --burning_event
     if IsBuffApplied(pc, "Event_Cooldown_SPamount_Decrease") == "YES" then
         basicCoolDown = SCR_COOLDOWN_SPAMOUNT_DECREASE(pc, "CoolDown", basicCoolDown)
-    elseif IsBuffApplied(pc, "FIELD_COOLDOWNREDUCE_BUFF") == "YES" or IsBuffApplied(pc, "FIELD_DEFAULTCOOLDOWN_BUFF") == "YES" then
+    elseif IsBuffApplied(pc, "FIELD_COOLDOWNREDUCE_BUFF") == "YES" or IsBuffApplied(pc, "FIELD_DEFAULTCOOLDOWN_BUFF") == "YES" or IsBuffApplied(pc, "FIELD_COOLDOWNREDUCE_MIN_BUFF") == "YES" then
         basicCoolDown = SCR_FIELD_DUNGEON_CONSUME_DECREASE(pc, "CoolDown", basicCoolDown)
     else
         if IsBuffApplied(pc, 'GM_Cooldown_Buff') == 'YES' then
@@ -4605,10 +4615,11 @@ function SCR_GET_IceBlast_Ratio(skill)
 end
 
 function SCR_GET_SnowRolling_Ratio2(skill)
-	local value = 3 + skill.Level
-	if value>=10 then
-		value = 10;
-	end
+    local value = 3 + skill.Level
+    if value > 10 then
+        value = 10
+    end
+    
 	return value
 end
 
@@ -9489,9 +9500,16 @@ function SCR_GET_Heal_Ratio2(skill)
         jobHistory = GetMyJobHistoryString();
     end
     
-    if jobHistory ~= nil and string.find(jobHistory, "Char4_2") ~= nil then
-        value = value * 1.05
+    local jobList = GetJobHistoryList(pc)
+    for i = 1, #jobList do
+        if jobList[i] == 4002 then
+            value = value * 1.05
+        end
     end
+
+    -- if jobHistory ~= nil and string.find(jobHistory, "Char4_2") ~= nil then
+    --     value = value * 1.05
+    -- end
     
     if jobHistory ~= nil and string.find(jobHistory, "Char4_15") ~= nil then
         value = value * 1.1
@@ -11426,7 +11444,7 @@ function SCR_GET_CarveLaima_Ratio3(skill)
 end
 
 function SCR_GET_CarveAusirine_Ratio(skill)
-    local value = skill.Level * 60
+    local value = skill.Level * 3
     
     return value
 end
@@ -11630,8 +11648,8 @@ function SCR_GET_GroovingMuzzle_BuffTime(skill)
 end
 
 function SCR_GET_Sabbath_Ratio(skill)
-    local value = 40
-    value = value + (TryGetProp(skill, "Level") * 4)
+    local value = 50
+    value = value + (TryGetProp(skill, "Level") * 10)
     return value
 end
 
@@ -12468,7 +12486,7 @@ function SCR_GET_SKL_COOLDOWN_Preparation(skill)
     --burning_event
     if IsBuffApplied(pc, "Event_Cooldown_SPamount_Decrease") == "YES" then
         basicCoolDown = SCR_COOLDOWN_SPAMOUNT_DECREASE(pc, "CoolDown", basicCoolDown)
-    elseif IsBuffApplied(pc, "FIELD_COOLDOWNREDUCE_BUFF") == "YES" or IsBuffApplied(pc, "FIELD_DEFAULTCOOLDOWN_BUFF") == "YES" then
+    elseif IsBuffApplied(pc, "FIELD_COOLDOWNREDUCE_BUFF") == "YES" or IsBuffApplied(pc, "FIELD_DEFAULTCOOLDOWN_BUFF") == "YES" or IsBuffApplied(pc, "FIELD_COOLDOWNREDUCE_MIN_BUFF") == "YES" then
         basicCoolDown = SCR_FIELD_DUNGEON_CONSUME_DECREASE(pc, "CoolDown", basicCoolDown)
     else
         if IsBuffApplied(pc, 'GM_Cooldown_Buff') == 'YES' then
@@ -12505,7 +12523,7 @@ function SCR_GET_SKL_COOLDOWN_KnifeThrowing(skill)
     --burning_event
     if IsBuffApplied(pc, "Event_Cooldown_SPamount_Decrease") == "YES" then
         basicCoolDown = SCR_COOLDOWN_SPAMOUNT_DECREASE(pc, "CoolDown", basicCoolDown)
-    elseif IsBuffApplied(pc, "FIELD_COOLDOWNREDUCE_BUFF") == "YES" or IsBuffApplied(pc, "FIELD_DEFAULTCOOLDOWN_BUFF") == "YES" then
+    elseif IsBuffApplied(pc, "FIELD_COOLDOWNREDUCE_BUFF") == "YES" or IsBuffApplied(pc, "FIELD_DEFAULTCOOLDOWN_BUFF") == "YES" or IsBuffApplied(pc, "FIELD_COOLDOWNREDUCE_MIN_BUFF") == "YES" then
         basicCoolDown = SCR_FIELD_DUNGEON_CONSUME_DECREASE(pc, "CoolDown", basicCoolDown)
     else
         if IsBuffApplied(pc, 'GM_Cooldown_Buff') == 'YES' then
@@ -13008,7 +13026,7 @@ function SCR_GET_SKL_COOLDOWN_ControlBlade(skill)
     --burning_event
     if IsBuffApplied(pc, "Event_Cooldown_SPamount_Decrease") == "YES" then
         basicCoolDown = SCR_COOLDOWN_SPAMOUNT_DECREASE(pc, "CoolDown", basicCoolDown)
-    elseif IsBuffApplied(pc, "FIELD_COOLDOWNREDUCE_BUFF") == "YES" or IsBuffApplied(pc, "FIELD_DEFAULTCOOLDOWN_BUFF") == "YES" then
+    elseif IsBuffApplied(pc, "FIELD_COOLDOWNREDUCE_BUFF") == "YES" or IsBuffApplied(pc, "FIELD_DEFAULTCOOLDOWN_BUFF") == "YES" or IsBuffApplied(pc, "FIELD_COOLDOWNREDUCE_MIN_BUFF") == "YES" then
         basicCoolDown = SCR_FIELD_DUNGEON_CONSUME_DECREASE(pc, "CoolDown", basicCoolDown)
     else
         if IsBuffApplied(pc, 'GM_Cooldown_Buff') == 'YES' then
@@ -13203,7 +13221,7 @@ function SCR_GET_SKL_COOLDOWN_SeptEtoiles(skill)
     --burning_event
     if IsBuffApplied(pc, "Event_Cooldown_SPamount_Decrease") == "YES" then
         basicCoolDown = SCR_COOLDOWN_SPAMOUNT_DECREASE(pc, "CoolDown", basicCoolDown)
-    elseif IsBuffApplied(pc, "FIELD_COOLDOWNREDUCE_BUFF") == "YES" or IsBuffApplied(pc, "FIELD_DEFAULTCOOLDOWN_BUFF") == "YES" then
+    elseif IsBuffApplied(pc, "FIELD_COOLDOWNREDUCE_BUFF") == "YES" or IsBuffApplied(pc, "FIELD_DEFAULTCOOLDOWN_BUFF") == "YES" or IsBuffApplied(pc, "FIELD_COOLDOWNREDUCE_MIN_BUFF") == "YES" then
         basicCoolDown = SCR_FIELD_DUNGEON_CONSUME_DECREASE(pc, "CoolDown", basicCoolDown)
     else
         if IsBuffApplied(pc, 'GM_Cooldown_Buff') == 'YES' then
@@ -13279,7 +13297,7 @@ function SCR_GET_SKL_COOLDOWN_Fleche(skill)
     --burning_event
     if IsBuffApplied(pc, "Event_Cooldown_SPamount_Decrease") == "YES" then
         basicCoolDown = SCR_COOLDOWN_SPAMOUNT_DECREASE(pc, "CoolDown", basicCoolDown)
-    elseif IsBuffApplied(pc, "FIELD_COOLDOWNREDUCE_BUFF") == "YES" or IsBuffApplied(pc, "FIELD_DEFAULTCOOLDOWN_BUFF") == "YES" then
+    elseif IsBuffApplied(pc, "FIELD_COOLDOWNREDUCE_BUFF") == "YES" or IsBuffApplied(pc, "FIELD_DEFAULTCOOLDOWN_BUFF") == "YES" or IsBuffApplied(pc, "FIELD_COOLDOWNREDUCE_MIN_BUFF") == "YES" then
         basicCoolDown = SCR_FIELD_DUNGEON_CONSUME_DECREASE(pc, "CoolDown", basicCoolDown)
     else
         if IsBuffApplied(pc, 'GM_Cooldown_Buff') == 'YES' then
@@ -13355,7 +13373,7 @@ function SCR_GET_SKL_COOLDOWN_HolySmash(skill)
     --burning_event
     if IsBuffApplied(pc, "Event_Cooldown_SPamount_Decrease") == "YES" then
         basicCoolDown = SCR_COOLDOWN_SPAMOUNT_DECREASE(pc, "CoolDown", basicCoolDown)
-    elseif IsBuffApplied(pc, "FIELD_COOLDOWNREDUCE_BUFF") == "YES" or IsBuffApplied(pc, "FIELD_DEFAULTCOOLDOWN_BUFF") == "YES" then
+    elseif IsBuffApplied(pc, "FIELD_COOLDOWNREDUCE_BUFF") == "YES" or IsBuffApplied(pc, "FIELD_DEFAULTCOOLDOWN_BUFF") == "YES" or IsBuffApplied(pc, "FIELD_COOLDOWNREDUCE_MIN_BUFF") == "YES" then
         basicCoolDown = SCR_FIELD_DUNGEON_CONSUME_DECREASE(pc, "CoolDown", basicCoolDown)
     else
         if IsBuffApplied(pc, 'GM_Cooldown_Buff') == 'YES' then
@@ -13431,7 +13449,7 @@ function SCR_GET_SKL_COOLDOWN_Condemn(skill)
     --burning_event
     if IsBuffApplied(pc, "Event_Cooldown_SPamount_Decrease") == "YES" then
         basicCoolDown = SCR_COOLDOWN_SPAMOUNT_DECREASE(pc, "CoolDown", basicCoolDown)
-    elseif IsBuffApplied(pc, "FIELD_COOLDOWNREDUCE_BUFF") == "YES" or IsBuffApplied(pc, "FIELD_DEFAULTCOOLDOWN_BUFF") == "YES" then
+    elseif IsBuffApplied(pc, "FIELD_COOLDOWNREDUCE_BUFF") == "YES" or IsBuffApplied(pc, "FIELD_DEFAULTCOOLDOWN_BUFF") == "YES" or IsBuffApplied(pc, "FIELD_COOLDOWNREDUCE_MIN_BUFF") == "YES" then
         basicCoolDown = SCR_FIELD_DUNGEON_CONSUME_DECREASE(pc, "CoolDown", basicCoolDown)
     else
         if IsBuffApplied(pc, 'GM_Cooldown_Buff') == 'YES' then
@@ -13506,7 +13524,7 @@ function SCR_GET_SKL_COOLDOWN_BlossomSlash(skill)
     --burning_event
     if IsBuffApplied(pc, "Event_Cooldown_SPamount_Decrease") == "YES" then
         basicCoolDown = SCR_COOLDOWN_SPAMOUNT_DECREASE(pc, "CoolDown", basicCoolDown)
-    elseif IsBuffApplied(pc, "FIELD_COOLDOWNREDUCE_BUFF") == "YES" or IsBuffApplied(pc, "FIELD_DEFAULTCOOLDOWN_BUFF") == "YES" then
+    elseif IsBuffApplied(pc, "FIELD_COOLDOWNREDUCE_BUFF") == "YES" or IsBuffApplied(pc, "FIELD_DEFAULTCOOLDOWN_BUFF") == "YES" or IsBuffApplied(pc, "FIELD_COOLDOWNREDUCE_MIN_BUFF") == "YES" then
         basicCoolDown = SCR_FIELD_DUNGEON_CONSUME_DECREASE(pc, "CoolDown", basicCoolDown)
     else
         if IsBuffApplied(pc, 'GM_Cooldown_Buff') == 'YES' then

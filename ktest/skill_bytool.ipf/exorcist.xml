@@ -133,7 +133,7 @@
         <ByCondSkills>
             <SubSkl>
                 <Cond>
-                    <ToolScp Client="NO" Scp="SKL_SELECT_ABIL" UseSleep="NO">
+                    <ToolScp Scp="SKL_SELECT_ABIL" Client="NO" UseSleep="NO">
                         <Str Str="Exorcist19"/>
                     </ToolScp>
                 </Cond>
@@ -229,16 +229,16 @@
     </Skill>
     <Skill Name="Exorcist_Rubric">
         <EndScripts>
-            <ToolScp Client="NO" Scp="SKL_CANCEL_CANCEL" UseSleep="NO"/>
-            <ToolScp Client="NO" Scp="MONSKL_REMOVE_PAD" UseSleep="NO">
+            <ToolScp Scp="SKL_CANCEL_CANCEL" Client="NO" UseSleep="NO"/>
+            <ToolScp Scp="MONSKL_REMOVE_PAD" Client="NO" UseSleep="NO">
                 <Str Str="Exorcist_Rubric"/>
             </ToolScp>
-            <ToolScp Client="NO" Scp="MONSKL_REMOVE_PAD" UseSleep="NO">
+            <ToolScp Scp="MONSKL_REMOVE_PAD" Client="NO" UseSleep="NO">
                 <Str Str="Exorcist_Rubric_abil"/>
             </ToolScp>
         </EndScripts>
         <KeyInput>
-            <ToolScp Client="YES" Scp="SKL_KEY_DYNAMIC_CASTING" UseSleep="NO">
+            <ToolScp Scp="SKL_KEY_DYNAMIC_CASTING" Client="YES" UseSleep="NO">
                 <Num Num="0"/>
                 <Num Num="0"/>
                 <Num Num="6" UseFunc="1" FuncTxt="local time = 4
@@ -259,7 +259,7 @@ return time"/>
 				<Num Num="0"/>
 				<Num Num="1"/>
 				<Num Num="0"/>
-				<Str_Arg Arg="0" Str=""/>
+                <Str_Arg Str="" Arg="0"/>
 				<Str Str=""/>
 				<Num Num="0"/>
 				<Num Num="0"/>
@@ -272,48 +272,48 @@ return time"/>
 			</ToolScp>
 		</KeyInput>
 		<KeyInputStart>
-			<ToolScp Client="YES" Scp="MONSKL_C_PLAY_ANIM" UseSleep="NO">
+            <ToolScp Scp="MONSKL_C_PLAY_ANIM" Client="YES" UseSleep="NO">
 				<Str Str="SKL_RUBRIC_CAST"/>
 				<Num Num="1"/>
 				<Num Num="1"/>
 				<Num Num="0"/>
 			</ToolScp>
-			<ToolScp Client="YES" Scp="MONSKL_C_RESERVE_ANIM" UseSleep="NO">
+            <ToolScp Scp="MONSKL_C_RESERVE_ANIM" Client="YES" UseSleep="NO">
                 <Str Str="SKL_RUBRIC_SHOT" UseFunc="1" FuncTxt="if self == nil then return &quot;SKL_RUBRIC_SHOT&quot; end local abilBuff = info.GetBuffByName(self:GetHandleVal(), &quot;Rubric_Hidden_Buff&quot;) if abilBuff ~= nil then return &quot;SKL_RUBRIC_SHOT_ABIL&quot; else return &quot;SKL_RUBRIC_SHOT&quot; end"/>
 				<Num Num="1"/>
 				<Num Num="1"/>
 			</ToolScp>
-			<ToolScp Client="YES" Scp="C_VOICE_SOUND" UseSleep="NO">
+            <ToolScp Scp="C_VOICE_SOUND" Client="YES" UseSleep="NO">
 				<Str Str="voice_cleric_m_rubric_cast"/>
 				<Str Str="voice_cleric_f_rubric_cast"/>
 			</ToolScp>
-			<ToolScp Client="NO" Scp="SKL_PLAY_SOUND" UseSleep="NO">
+            <ToolScp Scp="SKL_PLAY_SOUND" Client="NO" UseSleep="NO">
 				<Str Str="skl_eff_exorcist_rubric_shot"/>
 				<Num Num="0"/>
 				<Str Str="skl_eff_exorcist_rubric_shot"/>
 			</ToolScp>
 		</KeyInputStart>
 		<KeyInputEnd>
-			<ToolScp Client="NO" Scp="SKL_CANCEL_CANCEL" UseSleep="NO"/>
-			<ToolScp Client="YES" Scp="MONSKL_C_CLEAR_RESERVE_ANIM" UseSleep="NO"/>
-			<ToolScp Client="NO" Scp="MONSKL_REMOVE_PAD" UseSleep="NO">
+            <ToolScp Scp="SKL_CANCEL_CANCEL" Client="NO" UseSleep="NO"/>
+            <ToolScp Scp="MONSKL_C_CLEAR_RESERVE_ANIM" Client="YES" UseSleep="NO"/>
+            <ToolScp Scp="MONSKL_REMOVE_PAD" Client="NO" UseSleep="NO">
 				<Str Str="Exorcist_Rubric"/>
 			</ToolScp>
-			<ToolScp Client="NO" Scp="MONSKL_REMOVE_PAD" UseSleep="NO">
+            <ToolScp Scp="MONSKL_REMOVE_PAD" Client="NO" UseSleep="NO">
 				<Str Str="Exorcist_Rubric_abil"/>
 			</ToolScp>
-			<ToolScp Client="NO" Scp="SKL_STOP_SOUND" UseSleep="NO">
+            <ToolScp Scp="SKL_STOP_SOUND" Client="NO" UseSleep="NO">
 				<Str Str="skl_eff_exorcist_rubric_shot"/>
 				<Str Str="skl_eff_exorcist_rubric_shot"/>
 			</ToolScp>
-			<ToolScp Client="YES" Scp="C_EFFECT_DETACH_ALL" UseSleep="NO">
-				<Str_Arg Arg="1" Str="E_cleric_Rubric_shot"/>
+            <ToolScp Scp="C_EFFECT_DETACH_ALL" Client="YES" UseSleep="NO">
+                <Str_Arg Str="E_cleric_Rubric_shot" Arg="1"/>
 				<Num Num="0.5"/>
 			</ToolScp>
 		</KeyInputEnd>
-		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+        <MainSkl ScrLock="None" JumpFlee="NO" MSPDToUsePos="0">
 			<EtcList>
-				<Scp Client="NO" Scp="MONSKL_CRE_PAD" Time="350" UseSleep="NO">
+                <Scp Scp="MONSKL_CRE_PAD" Client="NO" UseSleep="NO" Time="350">
 					<Pos Angle="0" Dist="90"/>
 					<Angle Angle="1.5707964"/>
 					<Str Str="Exorcist_Rubric"/>
@@ -323,13 +323,13 @@ return time"/>
 		<ByCondSkills>
 			<SubSkl>
 				<Cond>
-					<ToolScp Client="NO" Scp="SKL_SELECT_ABIL" UseSleep="NO">
+                    <ToolScp Scp="SKL_SELECT_ABIL" Client="NO" UseSleep="NO">
 						<Str Str="Exorcist3"/>
 					</ToolScp>
 				</Cond>
-				<Skill JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+                <Skill ScrLock="None" JumpFlee="NO" MSPDToUsePos="0">
 					<EtcList>
-						<Scp Client="NO" Scp="MONSKL_CRE_PAD" Time="350" UseSleep="NO">
+                        <Scp Scp="MONSKL_CRE_PAD" Client="NO" UseSleep="NO" Time="350">
 							<Pos Angle="0" Dist="90"/>
 							<Angle Angle="1.5707964"/>
 							<Str Str="Exorcist_Rubric_abil"/>
@@ -376,14 +376,14 @@ return time"/>
 					<Num Num="100"/>
 					<Num Num="0"/>
 				</Scp>
-              <Scp Scp="SKL_TGT_REMOVE_BUFF" Client="NO" UseSleep="NO" Time="500">
-                <Str Str="Debuff"/>
-                <Num Num="3"/>
-                <Num Num="1"/>
-                <Num Num="100"/>
-                <Str Str="FRIEND"/>
-                <Num Num="0"/>                
-              </Scp>
+                <Scp Scp="SKL_TGT_REMOVE_BUFF" Client="NO" UseSleep="NO" Time="500">
+                    <Str Str="Debuff"/>
+                    <Num Num="3"/>
+                    <Num Num="1"/>
+                    <Num Num="100"/>
+                    <Str Str="FRIEND"/>
+                    <Num Num="0"/>
+                </Scp>
 			</EtcList>
 		</MainSkl>
 	</Skill>
@@ -463,6 +463,7 @@ return time"/>
 				<Scp Scp="SKL_RUN_SCRIPT" Client="NO" UseSleep="NO" Time="850">
 					<Str Str="SCR_EXOSICT_ENTITY"/>
 				</Scp>
+                <Scp Scp="MONSKL_C_STOP_ANIM" Client="YES" UseSleep="NO" Time="850"/>
 			</EtcList>
 		</MainSkl>
 	</Skill>
@@ -550,12 +551,12 @@ return time"/>
 				</Scp>
 			</EtcList>
             <ResultList>
-            <ToolScp Client="NO" Scp="S_R_TGT_REMOVE_BUFF" UseSleep="NO">
-                <Str FuncTxt="local func_name = 'get_remove_buff_tooltip_' .. TryGetProp(skill, 'ClassName', 'None')
+                <ToolScp Client="NO" Scp="S_R_TGT_REMOVE_BUFF" UseSleep="NO">
+                    <Str FuncTxt="local func_name = 'get_remove_buff_tooltip_' .. TryGetProp(skill, 'ClassName', 'None')
                local func = _G[func_name]
                if func == nil then return end
                return func(skill.Level)" Str="0" UseFunc="1"/>
-              </ToolScp>
+                </ToolScp>
             </ResultList>
 		</MainSkl>
 	</Skill>

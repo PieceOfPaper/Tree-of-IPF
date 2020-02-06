@@ -750,22 +750,23 @@ function UPDATE_FEE_INFO(frame, free, count, price)
 	local feeValue = 0;
 	local isTokenState = session.loginInfo.IsPremiumState(ITEM_TOKEN);
 	local isPremiumStateNexonPC = session.loginInfo.IsPremiumState(NEXON_PC);
-	if isTokenState == true then		
-		feeValue = tonumber(math.mul_int_for_lua(GetCashValue(ITEM_TOKEN, "marketSellCom"), 0.01));		
-		
+	if isTokenState == true then
+		feeValue = math.mul_for_lua(GetCashValue(ITEM_TOKEN, "marketSellCom"), 0.01);
+		feeValue = tonumber(feeValue);
 	elseif isPremiumStateNexonPC == true then
-		feeValue = tonumber(math.mul_int_for_lua(GetCashValue(NEXON_PC, "marketSellCom"), 0.01));		
-		
+		feeValue = math.mul_for_lua(GetCashValue(NEXON_PC, "marketSellCom"), 0.01);
+		feeValue = tonumber(feeValue);
 	else
-		feeValue = tonumber(math.mul_int_for_lua(GetCashValue(NONE_PREMIUM, "marketSellCom"), 0.01))		
-		
+		feeValue = math.mul_for_lua(GetCashValue(NONE_PREMIUM, "marketSellCom"), 0.01);
+		feeValue = tonumber(feeValue);
 	end	
 	
 	feeValue = math.mul_int_for_lua(totalPrice, feeValue)
 	feeValue = tonumber(feeValue)
 	feeValue = math.floor(feeValue)
 	if feeValue > 0 then
-		feeValue = tonumber(math.mul_int_for_lua(feeValue, -1));
+		feeValue = math.mul_int_for_lua(feeValue, -1);
+		feeValue = tonumber(feeValue);
 	end
 	feeValue = math.floor(feeValue)	
 	local finalValue =SumForBigNumberInt64(totalPrice, feeValue);

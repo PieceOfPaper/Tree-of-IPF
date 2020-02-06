@@ -11,7 +11,6 @@ local checkboxList = {}
 local aidx_claimIDTable = {}
 
 function GET_SELECTED_CONTROL()
-    --print(selectedTitle)
     return 0, selectedTitle;
 end
 
@@ -89,7 +88,7 @@ local i = 0
     GetGuildMemberTitleList("ON_MEMBER_TITLE_GET");
 end
 
-function ON_MEMBER_TITLE_GET(code, ret_json)
+function ON_MEMBER_TITLE_GET(code, ret_json)    
     if code ~= 200 then
         SHOW_GUILD_HTTP_ERROR(code, ret_json, "ON_MEMBER_TITLE_GET")
     end
@@ -142,25 +141,22 @@ function SET_TITLE_TXT_VALUE(newTitleTxt, bindFunc, idx, titleText)
 end
 
 
-function GUILDMEMBER_LIST_GET()
+function GUILDMEMBER_LIST_GET()    
     local frame = ui.GetFrame("guildinfo");
     local list = session.party.GetPartyMemberList(PARTY_GUILD);
     local memberList = GET_CHILD_RECURSIVELY(frame, "claimMemberList")
     if memberList:GetChildCount() ~= 0 then
-        memberList:RemoveAllChild()
+        memberList:RemoveAllChild()		
     end
     local count = list:Count();
     local guild = GET_MY_GUILD_INFO();
     for i = 0 , count - 1 do
         local partyMemberInfo = list:Element(i);  
-
         if partyMemberInfo:GetAID() ~= guild.info:GetLeaderAID() then
-            local memberCtrlSet = memberList:CreateOrGetControlSet("guild_claim_set", partyMemberInfo:GetName(), 0, 0);
+            local memberCtrlSet = memberList:CreateOrGetControlSet("guild_claim_set", partyMemberInfo:GetAID(), 0, 0);            
             
             local memberText = GET_CHILD_RECURSIVELY(memberCtrlSet, "memberNameLabel", "ui::CRichText");
             memberText:SetText(partyMemberInfo:GetName());
-
-           
             -- job
             local jobID = partyMemberInfo:GetIconInfo().job;
             local jobCls = GetClassByType('Job', jobID);
@@ -175,25 +171,33 @@ function GUILDMEMBER_LIST_GET()
             local memberLvl = GET_CHILD_RECURSIVELY(memberCtrlSet, "memberLvlLabel");
             memberLvl:SetText(partyMemberInfo:GetLevel())
 
-
             local memberObj = GetIES(partyMemberInfo:GetObject());
             local membercontribLabel = GET_CHILD_RECURSIVELY(memberCtrlSet, "memberContribLabel");
             membercontribLabel:SetText(memberObj.Contribution)
-
+            
             local memberTitleList = GET_CHILD_RECURSIVELY(memberCtrlSet, "claimList", "ui::CDropList")
             memberTitleList:SetUserValue("account_idx", partyMemberInfo:GetAID() )
             memberTitleList:AddItem("", "", 0)
-            member_droplists[tostring(partyMemberInfo:GetAID())] = memberTitleList;
+
+			member_droplists[partyMemberInfo:GetAID()] = partyMemberInfo:GetAID();
+
             local i = 1
             if titleList ~= nil then                    
                 for index, titleName in pairs(titleList) do
-                    memberTitleList:AddItem(index, titleName, i);
+                    memberTitleList:AddItem(index, titleName, i)
                     i = i + 1;
                 end
             end
+            
+            -- 설정 - 직급과 권한 , 직급 드랍리스트에 현재 길드원의 직급 표시
+            if aidx_claimIDTable[tostring(partyMemberInfo:GetAID())] ~= nil then                
+                memberTitleList:SelectItemByKey(aidx_claimIDTable[tostring(partyMemberInfo:GetAID())])
+            end
+            
             GetPlayerMemberTitle("ON_PLAYER_MEMBER_TITLE_GET", partyMemberInfo:GetAID());
         end
     end
+
     GBOX_AUTO_ALIGN(memberList, 0, 0, 45, true, false, true)
 
 end
@@ -207,12 +211,21 @@ function ON_PLAYER_MEMBER_TITLE_GET(code, ret_json)
         return;
     end
     local decoded_json = json.decode(ret_json)
-    local selectedDropList = member_droplists[decoded_json['aidx']];
-    aidx_claimIDTable[decoded_json['aidx']] = decoded_json['title_id']
-     if selectedDropList ~= nil then
-        selectedDropList:SelectItemByKey(decoded_json['title_id'])
+	
+    local frame = ui.GetFrame("guildinfo");
+    local memberList = GET_CHILD_RECURSIVELY(frame, "claimMemberList")    
+    if memberList:GetChildCount() ~= 0 then
+        if decoded_json['aidx'] ~= nil then            
+            local selectedDropList = memberList:GetControlSet("guild_claim_set", decoded_json['title_id']);            
+            if selectedDropList ~= nil and decoded_json['title_id'] ~= nil then                
+                selectedDropList:SelectItemByKey(decoded_json['title_id'])
+            end
+
+            if decoded_json['title_id'] ~= nil then
+                aidx_claimIDTable[decoded_json['aidx']] = decoded_json['title_id']
+            end
+        end
     end
-    
 end
 
 function SAVE_TITLE(frame, control)
@@ -239,19 +252,34 @@ function SAVE_TITLE(frame, control)
         titleName = newName;
     end
     claimInputTxt:SetEnable(0)
-    PutGuildMemberTitle("ON_PUT_GUILDMEMBER", selectedTitle:GetUserValue("idx"), titleName, authStr);
-
+    PutGuildMemberTitle("ON_PUT_GUILDMEMBER", selectedTitle:GetUserValue("idx"), titleName, authStr);    
 end
 
-function PUT_PLAYER_TITLE(frame, control)
+local delete_player_aid = '0'
+
+function PUT_PLAYER_TITLE(frame, control)    
+    delete_player_aid = '0'
     local selectedKey = control:GetSelItemKey()
-    if selectedKey == "" then
-        return;
-         -- todo: 직급 삭제 여기다 처리
+    if selectedKey == "" then        
+        DeletePlayerMemberTitle('ON_DELETE_PLAYER_MEMBERTITLE', tostring(control:GetUserValue("account_idx")))
+        delete_player_aid = tostring(control:GetUserValue("account_idx"))
+        aidx_claimIDTable[control:GetUserValue("account_idx")] = control:GetSelItemKey()
+        return
     end
-    
+
     aidx_claimIDTable[control:GetUserValue("account_idx")] = control:GetSelItemKey()
     PutPlayerMemberTitle("ON_PLAYER_PUT_TITLE", control:GetUserValue("account_idx"), control:GetSelItemKey())
+end
+
+function ON_DELETE_PLAYER_MEMBERTITLE(code, ret_json)
+    if code ~= 200 then
+        SHOW_GUILD_HTTP_ERROR(code, ret_json, "ON_DELETE_PLAYER_MEMBERTITLE")
+        return;
+    end
+
+    if delete_player_aid ~= '0' then
+        GetPlayerMemberTitle("ON_PLAYER_MEMBER_TITLE_GET", delete_player_aid)
+    end
 end
 
 function ON_PLAYER_PUT_TITLE(code, ret_json)
@@ -294,7 +322,7 @@ function ADD_NEW_TITLE()
 
 end
 
-function ON_PUT_GUILDMEMBER_NEW(code, ret_json)
+function ON_PUT_GUILDMEMBER_NEW(code, ret_json)    
     if code ~= 200 then
         SHOW_GUILD_HTTP_ERROR(code, ret_json, "ON_PUT_GUILDMEMBER_NEW")
 
@@ -302,14 +330,10 @@ function ON_PUT_GUILDMEMBER_NEW(code, ret_json)
     end
 
     local curFrame = ui.GetFrame("guildinfo");
-
-    local claimInput = GET_CHILD_RECURSIVELY(curFrame, "claimInputTxt", "ui::CEditBox");
-    
+    local claimInput = GET_CHILD_RECURSIVELY(curFrame, "claimInputTxt", "ui::CEditBox");    
     local titleListPanel = GET_CHILD_RECURSIVELY(curFrame, "titleListPanel", "ui::CScrollPanel");
     titleList[availableIdx] = claimInput:GetText()
-
     local textName = claimInput:GetText()
-
     local newClaimTxt = titleListPanel:CreateOrGetControlSet("selective_richtext", textName, 0, 0);
     newClaimTxt:Resize(titleListPanel:GetWidth()-25, newClaimTxt:GetHeight())
     local infoText = GET_CHILD(newClaimTxt, "infoText");
@@ -322,14 +346,19 @@ function ON_PUT_GUILDMEMBER_NEW(code, ret_json)
     REPAINT_TITLE_BG()
 
     local size=0;
-    for index, droplist in pairs(member_droplists) do
-        droplist:AddItem(availableIdx, textName, size)
-        size = size + 1;
+    local memberList = GET_CHILD_RECURSIVELY(curFrame, "claimMemberList")    
+    for index, aid in pairs(member_droplists) do
+        local memberCtrlSet = memberList:GetControlSet("guild_claim_set", aid)
+        local droplist = GET_CHILD_RECURSIVELY(memberCtrlSet, "claimList", "ui::CDropList")
+        if droplist ~= nil then
+            droplist = tolua.cast(droplist, "ui::CDropList");
+            droplist:AddItem(availableIdx, textName, size)  
+            size = size + 1;
+        end
     end
 
     claimInput:SetText("")
-    GBOX_AUTO_ALIGN(titleListPanel, 0, 0, 45, true, false, true)
-
+    GBOX_AUTO_ALIGN(titleListPanel, 0, 0, 45, true, false, true)    
 end
 
 function ON_PUT_GUILDMEMBER(code, ret_json)
@@ -359,8 +388,13 @@ function ON_PUT_GUILDMEMBER(code, ret_json)
         titleName:SetUserValue("name", textName);
         titleName:SetText("{@st41}" .. textName);
         titleList[selectedTitle:GetUserValue("idx")] = textName
-        for index, droplist in pairs(member_droplists) do
-            droplist:SetItemTextByKey(selectedTitle:GetUserValue("idx"), textName)
+        local memberList = GET_CHILD_RECURSIVELY(curFrame, "claimMemberList")
+        for index, aid in pairs(member_droplists) do
+            local memberCtrlSet = memberList:GetControlSet("guild_claim_set", aid);     
+            local droplist = GET_CHILD_RECURSIVELY(memberCtrlSet, "claimList", "ui::CDropList")
+            if droplist ~= nil then
+                droplist:SetItemTextByKey(selectedTitle:GetUserValue("idx"), textName)
+            end
         end
         selectedTitle:SetName(textName)
     end
@@ -428,7 +462,7 @@ function DELETE_TITLE(frame, control)
     DeleteGuildMemberTitle("ON_DELETE_TITLE",  tostring(selectedTitle:GetUserValue("idx")))
 
 end
-function ON_DELETE_TITLE(code, ret_json)
+function ON_DELETE_TITLE(code, ret_json)    
     if code ~= 200 then
         SHOW_GUILD_HTTP_ERROR(code, ret_json, "ON_DELETE_TITLE")
         return;
@@ -438,12 +472,17 @@ function ON_DELETE_TITLE(code, ret_json)
     titleListPanel:RemoveChild(selectedTitle:GetName())
     REPAINT_TITLE_BG()
 
-    for index, droplist in pairs(member_droplists) do
-        droplist = tolua.cast(droplist, "ui::CDropList");
-        if droplist:GetSelItemKey() == selectedTitle:GetUserValue("idx") then
-            droplist:SelectItemByKey("")
+    local memberList = GET_CHILD_RECURSIVELY(curFrame, "claimMemberList")    
+    for index, aid in pairs(member_droplists) do
+        local memberCtrlSet = memberList:GetControlSet("guild_claim_set", aid);     
+        local droplist = GET_CHILD_RECURSIVELY(memberCtrlSet, "claimList", "ui::CDropList")
+        if droplist ~= nil then
+            droplist = tolua.cast(droplist, "ui::CDropList");
+            if droplist:GetSelItemKey() == selectedTitle:GetUserValue("idx") then
+                droplist:SelectItemByKey("")
+            end
+            droplist:RemoveItem(selectedTitle:GetUserValue("idx"));
         end
-        droplist:RemoveItem(selectedTitle:GetUserValue("idx"));
     end
     GetGuildMemberTitleList("ON_MEMBER_TITLE_GET");
 

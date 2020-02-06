@@ -117,12 +117,15 @@ function SCR_OPEN_HOUSING_EDITMODE(frame)
 	local gbox_editmode = GET_CHILD_RECURSIVELY(frame, "gbox_editmode");
 	local btn_change_background = GET_CHILD_RECURSIVELY(frame, "btn_change_background");
 	local btn_page_load = GET_CHILD_RECURSIVELY(frame, "btn_page_load");
+	local btn_page_shop = GET_CHILD_RECURSIVELY(frame, "btn_page_shop");
 
 	local type = TryGetProp(housingPlaceClass, "Type");
 	if type == "Personal" then
 		btn_change_background:SetEnable(1);
+		btn_page_shop:SetEnable(1);
 	else
 		btn_change_background:SetEnable(0);
+		btn_page_shop:SetEnable(0);
 	end
 	
 	local txt_editmode_floor = GET_CHILD_RECURSIVELY(frame, "txt_editmode_floor");
@@ -236,4 +239,9 @@ function SCR_OPEN_HOUSING_EDITMODE_CHANGE_BACKGROUND(gbox, btn)
 	else
 		ui.CloseFrame("housing_editmode_background_change");
 	end
+end
+
+
+function SCR_OPEN_HOUSING_EDITMODE_PAGE_SHOP(gbox, btn)
+    control.CustomCommand('REQ_PERSONAL_HOUSING_PAGE_SHOP', 0);
 end

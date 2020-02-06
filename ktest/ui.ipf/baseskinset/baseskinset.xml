@@ -7370,6 +7370,11 @@
 		<image name="gold_arrow_below" file="\skin\monstercard.tga" imgrect="1 915 65 81" CMM_Caption="황금화살표 아래 방향"/>
 		<image name="vaivora_decorate_attendance" file="\skin\attendance_sheet_skin.tga" imgrect="1 1004 329 116" CMM_Caption="2020 출석체크 타이틀 데코레이션"/>
 		<image name="rainbow_attendance" file="\skin\attendance_sheet_skin.tga" imgrect="1 1121 323 119" CMM_Caption="2020 출석체크 레인보우"/>
+		<image name="challenge_gauge_no8" file="\skin\tooltip_skin_3.tga" imgrect="820 664 93 113" CMM_Caption="챌린지모드 8단계"/>
+		<image name="challenge_gauge_no9" file="\skin\tooltip_skin_3.tga" imgrect="914 664 93 113" CMM_Caption="챌린지모드 9단계"/>
+		<image name="challenge_gauge_no10" file="\skin\tooltip_skin_3.tga" imgrect="758 550 93 113" CMM_Caption="챌린지모드 10단계"/>
+		<image name="challenge_gauge_no11" file="\skin\tooltip_skin_3.tga" imgrect="852 504 93 113" CMM_Caption="챌린지모드 11단계"/>
+		<image name="challenge_level_text" file="\skin\tooltip_skin_3.tga" imgrect="852 618 98 45" CMM_Caption="챌린지 레벨"/>
 	</imagelist>
 	<imagelist category="je_button">
 		<image name="menu_guild_info" file="\skin\guild_skin.tga" imgrect="165 298 45 45" CMM_Caption="길드 정보"/>
@@ -8610,6 +8615,7 @@
 		<image name="ragana_emotion71" file="\icon\emoticon\ragana_emotion02.png" imgrect="0 0 128 128"/>
 		<image name="ragana_emotion72" file="\icon\emoticon\ragana_emotion03.png" imgrect="0 0 128 128"/>
 		<image name="ragana_emotion73" file="\icon\emoticon\ragana_emotion04.png" imgrect="0 0 128 128"/>
+		<image name="medeina_emotion03" file="\icon\emoticon\medeina_emotion03.png" imgrect="0 0 128 128"/>
 	</imagelist>
 	<imagelist category="itemtooltip_image">
 		<image name="circle_gem" file="\skin\tooltip_skin_3.tga" imgrect="805 228 30 30"/>
@@ -10207,6 +10213,7 @@
 		<image name="icon_Weekly_CRT_UP" file="\icon\buff_icon3.tga" imgrect="256 512 128 128" CMM_Caption="치명타 특화"/>
 		<image name="icon_Weekly_CRTDR_UP" file="\icon\buff_icon3.tga" imgrect="384 512 128 128" CMM_Caption="치명타 저항 특화"/>
 		<image name="icon_Weekly_StarPall" file="\icon\buff_icon3.tga" imgrect="512 512 128 128" CMM_Caption="스타폴"/>
+		<image name="icon_event_2002_choco" file="\icon\buff_icon3.tga" imgrect="640 512 128 128" CMM_Caption="발렌타인데이 버프"/>
 	</imagelist>
 	<imagelist category="housing_bufficon">
 		<image name="icon_Weapon_Klaida" file="\icon\icon_hosing_buff.tga" imgrect="0 0 128 128"/>

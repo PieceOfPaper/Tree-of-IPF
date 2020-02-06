@@ -124,7 +124,7 @@
 					<Str Str="Behead_Debuff" />
 					<Num Num="1" />
 					<Num Num="0" />
-					<Num FuncTxt=" local target = GetSkillTarget(self)  local pc = GetSkillOwner(skill)  local time = 30000  if pc ~= nil then   local abil = GetAbility(pc, 'Assassin6')   if abil ~= nil and abil.ActiveState == 1 and TryGetProp(target, &quot;MonRank&quot;) ~= &quot;Boss&quot; then    time = time * 0.5   end  end  return time" Num="60000" UseFunc="1" />
+					<Num FuncTxt="local pc = GetSkillOwner(skill)  local time = 30000  if pc ~= nil then   local abil = GetAbility(pc, 'Assassin6')   if abil ~= nil and abil.ActiveState == 1 and TryGetProp(target, &quot;MonRank&quot;) ~= &quot;Boss&quot; then    time = time * 0.5   end  end  return time" Num="60000" UseFunc="1" />
 					<Num Num="1" />
 					<Num Num="100" />
 					<Num Num="-1" />
@@ -165,7 +165,7 @@
                             <Str Str="Behead_Debuff"/>
                             <Num Num="1"/>
                             <Num Num="0"/>
-                            <Num Num="60000" UseFunc="1" FuncTxt="local pc = GetSkillOwner(skill) local time = 30000 if pc ~= nil then local abil = GetAbility(pc, 'Assassin6') if abil ~= nil and abil.ActiveState == 1 then time = time * 0.5 end end return time"/>
+                            <Num Num="60000" UseFunc="1" FuncTxt="local pc = GetSkillOwner(skill)  local time = 30000  if pc ~= nil then   local abil = GetAbility(pc, 'Assassin6')   print(abil, abil.ActiveState, target)if abil ~= nil and abil.ActiveState == 1 and TryGetProp(target, &quot;MonRank&quot;) ~= &quot;Boss&quot; then    time = time * 0.5   end  end  print(time)return time"/>
                             <Num Num="1"/>
                             <Num Num="100"/>
                             <Num Num="-1"/>
@@ -205,7 +205,7 @@
 							<Str Str="Behead_Debuff" />
 							<Num Num="1" />
 							<Num Num="0" />
-							<Num FuncTxt="local pc = GetSkillOwner(skill) local time = 30000 if pc ~= nil then local abil = GetAbility(pc, 'Assassin6') if abil ~= nil and abil.ActiveState == 1 then time = time * 0.5 end end return time" Num="60000" UseFunc="1" />
+							<Num FuncTxt="local pc = GetSkillOwner(skill)  local time = 30000  if pc ~= nil then   local abil = GetAbility(pc, 'Assassin6')   if abil ~= nil and abil.ActiveState == 1 and TryGetProp(target, &quot;MonRank&quot;) ~= &quot;Boss&quot; then    time = time * 0.5   end  end  return time" Num="60000" UseFunc="1" />
 							<Num Num="1" />
 							<Num Num="100" />
 							<Num Num="-1" />

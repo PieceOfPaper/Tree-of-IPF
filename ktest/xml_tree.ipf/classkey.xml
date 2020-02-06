@@ -446,6 +446,7 @@
         <Key Name="ResAdd_Damage" Value="104592"/>
         <Key Name="ArkExp" Value="104745"/>
         <Key Name="ArkLevel" Value="104744"/>
+        <Key Name="ADD_BOSS_ATK" Value="104929"/>
     </KeyIDSpc>
     <KeyIDSpc Name="Party">
         <Key Name="P_PARTY_Q_040" Value="53"/>
@@ -2167,6 +2168,9 @@
         <Key Name="CTT_TempProperty_AC_Str_3" Value="104897"/>
         <Key Name="PVP_MINE_TradeCount7" Value="104923"/>
         <Key Name="EVENT_WEEKLY_BOSS_PLAY_COUNT" Value="104924"/>
+        <Key Name="RiftPlayCount" Value="104925"/>
+        <Key Name="RiftPlayCount_NextResetDate" Value="104926"/>
+        <Key Name="PVP_MINE_TradeCount8" Value="104930"/>
     </KeyIDSpc>
     <KeyIDSpc Name="PCEtc">
         <Key Name="Kill_boss_Clymen_Q2" Value="7788"/>
@@ -10414,6 +10418,8 @@
         <Key Name="CTT_TempProperty_ETC_Str_2" Value="104883"/>
         <Key Name="CTT_TempProperty_ETC_Str_3" Value="104884"/>
         <Key Name="Kill_FieldRift_pattern_monster" Value="104922"/>
+        <Key Name="HaveEmoticon_75" Value="104927"/>
+        <Key Name="Kill_weekly_brest_monster" Value="104928"/>
     </KeyIDSpc>
     <KeyIDSpc Name="GuildMember">
         <Key Name="Name" Value="9011"/>
@@ -10979,6 +10985,8 @@
         <Key Name="MiddleSize_Def" Value="104608"/>
         <Key Name="ResAdd_Damage" Value="104611"/>
         <Key Name="PlayTimeRecord" Value="104770"/>
+        <Key Name="BOSS_ATK" Value="104932"/>
+        <Key Name="BOSS_ATK_BM" Value="104931"/>
     </KeyIDSpc>
     <KeyIDSpc Name="Skill">
         <Key Name="OnNeutral" Value="6715"/>
@@ -18829,6 +18837,8 @@
         <Key Name="CTT_TempProperty_SO_Str_1" Value="104904"/>
         <Key Name="CTT_TempProperty_SO_Str_2" Value="104907"/>
         <Key Name="CTT_TempProperty_SO_Str_3" Value="104909"/>
+        <Key Name="CAMPAIGN_WASH_HAND_1" Value="104933"/>
+        <Key Name="CAMPAIGN_WASH_HAND_TIME" Value="104934"/>
     </KeyIDSpc>
     <KeyIDSpc Name="Monster">
         <Key Name="MaxHate" Value="6671"/>

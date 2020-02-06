@@ -3458,6 +3458,22 @@ function SCR_GET_LargeSize_ATK(pc)
     return math.floor(value);
 end
 
+function SCR_GET_BOSS_ATK(pc)
+    local byItem = GetSumOfEquipItem(pc, "ADD_BOSS_ATK");
+    if byItem == nil then
+        byItem = 0;
+    end
+  
+    local byBuff = TryGetProp(pc, "BOSS_ATK_BM");
+    if byBuff == nil then
+        byBuff = 0;
+    end
+    
+    local value = byItem + byBuff;
+
+    return math.floor(value)
+end
+
 function SCR_GET_BASE_WEAPON_DEF(pc)
     return 0;
 end

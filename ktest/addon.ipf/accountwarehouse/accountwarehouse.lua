@@ -206,7 +206,7 @@ function PUT_ACCOUNT_ITEM_TO_WAREHOUSE_BY_INVITEM(frame, invItem, slot, fromFram
             end
         end
 
-        if invItem.count > 1 then            
+        if invItem.count > 1 then
             INPUT_NUMBER_BOX(frame, ScpArgMsg("InputCount"), "EXEC_PUT_ITEM_TO_ACCOUNT_WAREHOUSE", maxCnt, 1, maxCnt, nil, tostring(invItem:GetIESID()));
         else
             if maxCnt <= 0 then
@@ -216,7 +216,7 @@ function PUT_ACCOUNT_ITEM_TO_WAREHOUSE_BY_INVITEM(frame, invItem, slot, fromFram
 
             local slotset = GET_CHILD_RECURSIVELY(frame, 'slotset');
             local goal_index = get_valid_index()                  
-            if invItem.hasLifeTime == true then                
+            if invItem.hasLifeTime == true then
                 local yesscp = string.format('item.PutItemToWarehouse(%d, "%s", "%s", %d, %d)', IT_ACCOUNT_WAREHOUSE, invItem:GetIESID(), tostring(invItem.count), frame:GetUserIValue('HANDLE'), goal_index);
                 ui.MsgBox(ScpArgMsg('PutLifeTimeItemInWareHouse{NAME}', 'NAME', itemCls.Name), yesscp, 'None');
                 return;
@@ -267,11 +267,11 @@ local function get_exist_item_index(insertItem)
         
         for i = 0, sortedCnt - 1 do
             local guid = sortedGuidList:Get(i);
-            local invItem = GetObjectByGuid(guid)
-            local invItem_obj = itemList:GetItemByGuid(guid)
-            if insertItem.ClassID == invItem.ClassID then
+            local invItem = itemList:GetItemByGuid(guid)
+            local invItem_obj = GetIES(invItem:GetObject());
+            if insertItem.ClassID == invItem_obj.ClassID then
                 ret1 = true
-                ret2 = invItem_obj.invIndex
+                ret2 = invItem.invIndex
                 break
             end
         end
@@ -290,7 +290,7 @@ function EXEC_PUT_ITEM_TO_ACCOUNT_WAREHOUSE(frame, count, inputframe)
     end
 
     local slotset = GET_CHILD_RECURSIVELY(frame, 'slotset');
-    local goal_index = get_valid_index()
+    local goal_index = get_valid_index()    
 
     local exist, index = get_exist_item_index(insertItem)
     if exist == true and index >= 0 then

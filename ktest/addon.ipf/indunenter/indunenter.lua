@@ -1901,6 +1901,19 @@ function INDUNENTER_CHECK_ADMISSION_ITEM(frame)
         if indunCls.DungeonType == "Raid" or indunCls.DungeonType == "GTower" then
             if nowCount < indunCls.WeeklyEnterableCount then
                 return true;
+            else
+                local multipleCnt = frame:GetUserIValue("multipleCount");
+                local yesScp = string.format("ReqMoveToIndun(%d,%d)", 1, multipleCnt);
+                local itemCls = GetClass("Item", admissionItemName);
+                local itemName = TryGetProp(itemCls, "Name");
+                if invItem == nil or cnt == nil or cnt < nowAdmissionItemCount then
+                    ui.MsgBox(ScpArgMsg("HaveNoAdmissionItem", "Name", itemName), yesScp, "None");
+                elseif invItem.isLockState == true then
+                    ui.MsgBox(ScpArgMsg("AdmissionItemIsLocked", "Name", itemName, "Count", nowAdmissionItemCount), yesScp, "None");
+                else
+                    ui.MsgBox(ScpArgMsg("EnterWithAdmissionItem", "Name", itemName, "Count", nowAdmissionItemCount), yesScp, "None");
+                end
+                return false;
             end
         end 
 

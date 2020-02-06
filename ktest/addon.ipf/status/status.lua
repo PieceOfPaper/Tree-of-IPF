@@ -958,13 +958,13 @@ function STATUS_INFO()
     if returnY ~= y then y = returnY + 3; end
     returnY = STATUS_ATTRIBUTE_VALUE_NEW(pc, opc, frame, gboxctrl, "LargeSize_Atk", y);
     if returnY ~= y then y = returnY + 3; end
-    returnY = STATUS_ATTRIBUTE_VALUE_NEW(pc, opc, frame, gboxctrl, "Ghost_Atk", y);    
+    returnY = STATUS_ATTRIBUTE_VALUE_NEW(pc, opc, frame, gboxctrl, "BOSS_ATK", y);
+    if returnY ~= y then y = returnY + 3; end
+    returnY = STATUS_ATTRIBUTE_VALUE_NEW(pc, opc, frame, gboxctrl, "Ghost_Atk", y);
     y = returnY + 10;
-
 
     returnY = STATUS_ATTRIBUTE_VALUE_NEW(pc, opc, frame, gboxctrl, "MiddleSize_Def", y);
     y = returnY + 10;
-    
 
     returnY = STATUS_ATTRIBUTE_VALUE_NEW(pc, opc, frame, gboxctrl, "Cloth_Atk", y);
     if returnY ~= y then y = returnY + 3; end
@@ -1341,6 +1341,7 @@ color_attribute['Paramune_Atk'] = 'Paramune_Atk_status'
 color_attribute['Velnias_Atk'] = 'Velnias_Atk_status'
 color_attribute['Ghost_Atk'] = 'Ghost_Atk_status'
 color_attribute['Add_Damage_Atk'] = 'Add_Damage_Atk_status'
+color_attribute['BOSS_ATK'] = 'BOSS_ATK_status'
 
 function STATUS_ATTRIBUTE_VALUE_NEW(pc, opc, frame, gboxctrl, attributeName, y)        
     local controlSet = gboxctrl:CreateOrGetControlSet('status_stat', attributeName, 0, y);
@@ -1360,6 +1361,8 @@ function STATUS_ATTRIBUTE_VALUE_NEW(pc, opc, frame, gboxctrl, attributeName, y)
         title:SetTextTooltip(ScpArgMsg("StatusTooltipMsgLootingChance"))
     elseif attributeName == 'RHP' or attributeName == 'RSP' then
         title:SetTextTooltip(ScpArgMsg('StatusTooltipMsgRHPRSP'))
+    elseif attributeName == 'Forester_Atk' or attributeName == 'Widling_Atk' or attributeName == 'Klaida_Atk' or attributeName == 'Paramune_Atk' or attributeName == 'Velnias_Atk' or attributeName == 'BOSS_ATK' then
+        title:SetTextTooltip(ScpArgMsg('StatusTooltipMsgRacetype'))
     end
 
     local stat = GET_CHILD(controlSet, "stat", "ui::CRichText");

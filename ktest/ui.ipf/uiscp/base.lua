@@ -216,13 +216,13 @@ function ICON_USE(object, reAction)
 			QUICKSLOT_TOGGLE_ABILITY(iconInfo.type)
 		elseif iconInfo:GetCategory() == 'ACTION' then
 			local script = GetClassString('Action', iconInfo.type, 'Script');
-			loadstring(script)();
+			load(script)();
 		elseif iconInfo:GetCategory() == 'CHEAT' then
 			local script = GetClassString('Cheat', iconInfo.type, 'Scp');
 			if string.find(script,'//') ~= nil then
 				ui.Chat(script);
 			else
-				loadstring(script)();
+				load(script)();
 			end
 		elseif iconInfo:GetCategory() == 'ITEMCREATE' then
 			local msg = '//item ' .. iconInfo.type .. ' 1';
@@ -671,14 +671,14 @@ end
 			local ClassIDSource		= "local ClassID = GetClassNumber('[IES]', '[ClassName]', 'ClassID' ); return ClassID;";
 			ClassIDSource			= string.gsub(ClassIDSource,'%[IES%]', IES);
 			ClassIDSource			= string.gsub(ClassIDSource,'%[ClassName%]', MultiValue[i]);
-			local GetClassID		= assert(loadstring(ClassIDSource));
+			local GetClassID		= assert(load(ClassIDSource));
 			local ClassID			= GetClassID();
 
 			local Subsource			= "local class = GetClassByType('[IES]', [ClassID]); return class.[Column]"
 			Subsource				= string.gsub(Subsource, '%[IES%]', IES);
 			Subsource				= string.gsub(Subsource, '%[ClassID%]', ClassID);
 			Subsource				= string.gsub(Subsource, '%[Column%]', DataTable['SubColumn']);
-			local ClassByType		= assert(loadstring(Subsource));
+			local ClassByType		= assert(load(Subsource));
 
 			-- 값을 덮어 씌운다.
 			if DataTable['preFix'] ~= 'None' then
@@ -716,14 +716,14 @@ end
 		local ClassIDSource		= "local ClassID = GetClassNumber('[IES]', '[ClassName]', 'ClassID' ); return ClassID;";
 		ClassIDSource			= string.gsub(ClassIDSource,'%[IES%]', IES);
 		ClassIDSource			= string.gsub(ClassIDSource,'%[ClassName%]', ClassName);
-		local GetClassID		= assert(loadstring(ClassIDSource));
+		local GetClassID		= assert(load(ClassIDSource));
 		local ClassID			= GetClassID();
 
 		local Subsource			= "local class = GetClassByType('[IES]', [ClassID]); return class.[Column]"
 		Subsource				= string.gsub(Subsource, '%[IES%]', IES);
 		Subsource				= string.gsub(Subsource, '%[ClassID%]', ClassID);
 		Subsource				= string.gsub(Subsource, '%[Column%]', DataTable['SubColumn']);
-		local ClassByType		= assert(loadstring(Subsource));
+		local ClassByType		= assert(load(Subsource));
 
 		-- 값을 덮어 씌운다.
 		if DataTable['preFix'] ~= 'None' then
@@ -763,7 +763,7 @@ end
 
 		if ColumnName ~= 'None' then
 			if DataTable[k]['IES']	== 'None' then
-				local runLoadString		= assert(loadstring(source));
+				local runLoadString		= assert(load(source));
 				local tempClass			= runLoadString();
 
 				-- 만약 MultiValue의 값이 YES일 경우.
@@ -780,12 +780,12 @@ end
 				-- MyHandle 일경우 처리를 하자
 				local MyHandleSource 		= "local MySession = session.GetMyHandle(); local CharProperty	= GetProperty(MySession); return CharProperty.[ColumnName]"
 				MyHandleSource				= string.gsub(MyHandleSource, '%[ColumnName%]', ColumnName);
-				local LoadMyHandleSourece	= assert(loadstring(MyHandleSource));
+				local LoadMyHandleSourece	= assert(load(MyHandleSource));
 				local runLoadMyHandle		= LoadMyHandleSourece();
 				argData[k]					= runLoadMyHandle;
 			else
 				-- IES에 IES Name가 있을 경우. (MultiValue를 사용할 수 있다)
-				local runLoadString		= assert(loadstring(source));
+				local runLoadString		= assert(load(source));
 				local ClassName			= runLoadString();
 				if ClassName ~='None' then
 					argData[k]				= GET_IESTYPE_DATA(tempIESName, DataTable[k], ClassName);
@@ -807,7 +807,7 @@ end
 				local replaceSource		= "if [Compare] then  return 'TRUE'; else return 'FALSE'; end";
 				replaceSource			= string.gsub(replaceSource, '%[Compare%]', DataTable[k]['If'][c]['Compare']);
 				replaceSource			= string.gsub(replaceSource, '%[Arg%]', argData[k]);
-				local Loadreplace		= assert(loadstring(replaceSource));
+				local Loadreplace		= assert(load(replaceSource));
 				local CheckCompare		= Loadreplace();
 				if CheckCompare == 'TRUE' then
 					if DataTable[k]['If'][c]['reValue'] == 'None' then
@@ -816,7 +816,7 @@ end
 						local reValue			= DataTable[k]['If'][c]['reValue'];
 						reValue					= string.gsub(reValue, '%[Arg%]', argData[k]);
 						local reValueSource		= 'return ' .. reValue;
-						local LoadreValueSource = assert(loadstring(reValueSource));
+						local LoadreValueSource = assert(load(reValueSource));
 						local runreValueSource	= LoadreValueSource();
 						argData[k]				= runreValueSource;
 					end
@@ -827,7 +827,7 @@ end
 						local elseValue			= DataTable[k]['If'][c]['else']
 						elseValue				= string.gsub(elseValue, '%[Arg%]', argData[k]);
 						local elseSource		= 'return ' .. elseValue;
-						local LoadelseSource	= assert(loadstring(elseSource));
+						local LoadelseSource	= assert(load(elseSource));
 						local runelseSource		= LoadelseSource();
 						argData[k]				= runelseSource;
 					end
@@ -1018,7 +1018,7 @@ end
 			if Object ~= nil then
 				nameValue[i + 2]		= Object[checkArg];
 			else	
-				local nameTempText		= assert(loadstring(SelSource));
+				local nameTempText		= assert(load(SelSource));
 				nameValue[i + 2]		= nameTempText();
 			end
 
@@ -1040,7 +1040,7 @@ end
 
 
 	-- 값이 특별히 오류가 없다면 무사 통과(Value 값이 None이라 하여도 통과 됨)
-	local TempText	= assert(loadstring('local Value = ' .. ToolTipName .. ';' .. 'if Value ~= tostring(Value) then if Value == nil then return ' .. "'" .. ToolTipName .. "'" .. 'else return Value; end end'));
+	local TempText	= assert(load('local Value = ' .. ToolTipName .. ';' .. 'if Value ~= tostring(Value) then if Value == nil then return ' .. "'" .. ToolTipName .. "'" .. 'else return Value; end end'));
 	local TempText2	= TempText()
 
 	if TempText2 == nil then
@@ -1091,7 +1091,7 @@ function RETURN_TRUEORFALSE(ifData, arg)
 
 	local replaceSource		= "if [Compare] then  return 'TRUE'; else return 'FALSE'; end";
 	replaceSource			= string.gsub(replaceSource, '%[Compare%]', CheckArg);
-	local Loadreplace		= assert(loadstring(replaceSource));
+	local Loadreplace		= assert(load(replaceSource));
 	local CheckCompare		= Loadreplace();
 	return CheckCompare;
 end
@@ -1146,7 +1146,7 @@ function RETURN_TOOLTIPCOMMENT(ToolTipTable, Type, IESName, count)
 				end
 
 				local ValueSource			= nil
-				local GetType				= type(loadstring(tempValue));
+				local GetType				= type(load(tempValue));
 
 				if GetType == 'string' then
 					ValueSource					= "local Value = '[Value]'; return Value;"
@@ -1155,7 +1155,7 @@ function RETURN_TOOLTIPCOMMENT(ToolTipTable, Type, IESName, count)
 				end
 
 				ValueSource					= string.gsub(ValueSource, '%[Value%]', tempValue);
-				local RunSource				= assert(loadstring(ValueSource));
+				local RunSource				= assert(load(ValueSource));
 				local TempText2				= RunSource()
 
 				if TempText2 == nil then
