@@ -93,8 +93,6 @@ function ADVENTURE_BOOK_TEAM_BATTLE_RANK_UPDATE(frame, msg, argStr, argNum)
 	local totalCount = session.worldPVP.GetRankProp("TotalCount");
 	
 	local cnt = session.worldPVP.GetRankInfoCount();
-	cnt = 6;
-
 	for i = 0 , cnt - 1 do
 		local info = session.worldPVP.GetRankInfoByIndex(i);
 		local ctrlSet = rankingBox:CreateControlSet("pvp_rank_ctrl", "CTRLSET_" .. i,  ui.CENTER_HORZ, ui.TOP, 0, 0, 0, 0);
