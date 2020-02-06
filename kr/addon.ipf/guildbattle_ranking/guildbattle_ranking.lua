@@ -318,6 +318,7 @@ function GUILDBATTLE_RANKING_UPDATE(frame)
 	gbox_ctrls:RemoveAllChild();
 
 	local cnt = session.worldPVP.GetRankInfoCount();
+	print("guildbattle", cnt);
 	for i = 0 , cnt - 1 do
 		local info = session.worldPVP.GetRankInfoByIndex(i);
 		local ctrlSet = gbox_ctrls:CreateControlSet("guildbattle_rank_ctrl", "CTRLSET_" .. i,  ui.LEFT, ui.TOP, 0, 0, 0, 0);
