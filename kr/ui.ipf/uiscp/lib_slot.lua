@@ -437,9 +437,10 @@ function SET_SLOT_DURATION(slot, itemCls)
 	end
 end
 
-function SET_SLOT_ITEM_TEXT(slot, invItem, obj)
+function SET_SLOT_ITEM_TEXT(slot, invItem, obj)	
 	if obj.MaxStack > 1 then
 		SET_SLOT_COUNT_TEXT(slot, invItem.count);
+		print('SET_SLOT_COUNT_TEXT')
 		return;
 	end
 
@@ -451,7 +452,8 @@ function SET_SLOT_ITEM_TEXT(slot, invItem, obj)
 	end
 end
 
-function SET_SLOT_ITEM_TEXT_USE_INVCOUNT(slot, invItem, obj, count, font)	
+-- 아이템 카운트 표기
+function SET_SLOT_ITEM_TEXT_USE_INVCOUNT(slot, invItem, obj, count, font)
 	local refreshScp = TryGetProp(obj,'RefreshScp')
 
 	if refreshScp ~= "None" and refreshScp ~= nil and obj ~= nil then
@@ -466,18 +468,36 @@ function SET_SLOT_ITEM_TEXT_USE_INVCOUNT(slot, invItem, obj, count, font)
 				slot:SetText('{s15}{ol}{#FFFFFF}{b}LV.' ..number .. '{nl} {nl}' .. tostring(invItem.count), 'count', ui.RIGHT, ui.BOTTOM, -2, 1);
 			end
 		else
+			if font == nil then
+				font = '{s18}{ol}{b}'
+			end
+
 			if count ~= nil then
 				if 100000 <= count then	-- 6자리 수 폰트 크기 조정
 					font = "{s14}{ol}{b}";
 				end
 
-				SET_SLOT_COUNT_TEXT(slot, count, font);
+				if TryGetProp(obj, 'ExpireDateTime', 'None') ~= 'None' then
+					if 1000 <= count then	-- 6자리 수 폰트 크기 조정
+						font = "{s12}{ol}{b}";
+					end
+					slot:SetText(font..tostring(count), 'count', ui.RIGHT, ui.TOP, -2, 1);	
+				else
+					SET_SLOT_COUNT_TEXT(slot, count, font);
+				end
 			else
 				if 100000 <= invItem.count then	-- 6자리 수 폰트 크기 조정
 					font = "{s14}{ol}{b}";
 				end
 
-				SET_SLOT_COUNT_TEXT(slot, invItem.count, font);
+				if TryGetProp(obj, 'ExpireDateTime', 'None') ~= 'None' then					
+					if 1000 <= invItem.count then	-- 6자리 수 폰트 크기 조정
+						font = "{s12}{ol}{b}";
+					end
+					slot:SetText(font..tostring(invItem.count), 'count', ui.RIGHT, ui.TOP, -2, 1);	
+				else
+					SET_SLOT_COUNT_TEXT(slot, invItem.count, font);
+				end
 			end
 		end
 

@@ -82,6 +82,10 @@ function REQ_SKILLSTAT_ITEM(frame, ctrl)
 
 	if IS_SKILLRESET_ITEM(argList) then
 		pc.ReqExecuteTx_Item("SCR_USE_SKILL_STAT_RESET", itemIES, argList);
+	elseif IS_ABILRESET_ITEM(argList) then
+		_ABILITY_POINT_RESET_C(frame, itemIES);
+	elseif IS_ARTSRESET_ITEM(argList) then
+		_ABILITY_POINT_RESET_ARTS_C(frame, itemIES);
 	else
 		pc.ReqExecuteTx_Item("SCR_USE_STAT_RESET", itemIES, argList);
 	end

@@ -295,6 +295,9 @@ function BUFF_TOOLTIP_Achieve_Possession_Buff(buff, cls)
 end
 -- EVENT_2006_SUMMER
 function BUFF_TOOLTIP_EVENT_2006_SUMMER_brochette(buff, cls)
+	if buff == nil then
+		return ""
+	end
 	local buffList = EVENT_2006_SUMMER_BUFF_TABLE('brochette')
 	local buffArgList = EVENT_2006_SUMMER_BUFF_ARG_TABLE()
 
@@ -305,6 +308,9 @@ function BUFF_TOOLTIP_EVENT_2006_SUMMER_brochette(buff, cls)
 end
 
 function BUFF_TOOLTIP_EVENT_2006_SUMMER_mojito(buff, cls)
+	if buff == nil then
+		return ""
+	end
 	local buffList = EVENT_2006_SUMMER_BUFF_TABLE('mojito')
 	local buffArgList = EVENT_2006_SUMMER_BUFF_ARG_TABLE()
 
@@ -315,6 +321,9 @@ function BUFF_TOOLTIP_EVENT_2006_SUMMER_mojito(buff, cls)
 end
 
 function BUFF_TOOLTIP_EVENT_2006_SUMMER_coconut(buff, cls)
+	if buff == nil then
+		return ""
+	end
 	local buffList = EVENT_2006_SUMMER_BUFF_TABLE('coconut')
 	local buffArgList = EVENT_2006_SUMMER_BUFF_ARG_TABLE()
 
@@ -325,6 +334,9 @@ function BUFF_TOOLTIP_EVENT_2006_SUMMER_coconut(buff, cls)
 end
 
 function BUFF_TOOLTIP_EVENT_2006_SUMMER_bingsu(buff, cls)
+	if buff == nil then
+		return ""
+	end
 	local buffList = EVENT_2006_SUMMER_BUFF_TABLE('bingsu')
 	local buffArgList = EVENT_2006_SUMMER_BUFF_ARG_TABLE()
 
@@ -335,6 +347,9 @@ function BUFF_TOOLTIP_EVENT_2006_SUMMER_bingsu(buff, cls)
 end
 
 function BUFF_TOOLTIP_EVENT_2006_SUMMER_softice(buff, cls)
+	if buff == nil then
+		return ""
+	end
 	local buffList = EVENT_2006_SUMMER_BUFF_TABLE('softice')
 	local buffArgList = EVENT_2006_SUMMER_BUFF_ARG_TABLE()
 

@@ -451,6 +451,8 @@
         <Key Name="DesigncutColor" Value="105398"/>
         <Key Name="Magic_Earth_Atk" Value="105401"/>
         <Key Name="Magic_Ice_Atk" Value="105400"/>
+        <Key Name="ExpireDateTime" Value="105461"/>
+        <Key Name="ALLSTAT" Value="105471"/>
     </KeyIDSpc>
     <KeyIDSpc Name="Party">
         <Key Name="P_PARTY_Q_040" Value="53"/>
@@ -2508,6 +2510,7 @@
         <Key Name="EVENT_2006_DRAGON_BOAT_SHINE_TRADE_COUNT" Value="105457"/>
         <Key Name="LEGEND_RAID_GLACIER_HARD" Value="105460"/>
         <Key Name="STEAM_GUILD_QUEST_REWARD" Value="105459"/>
+        <Key Name="EVENT_FLEX_BOX_ACQUIRE_CONSUME_COUNT" Value="105462"/>
     </KeyIDSpc>
     <KeyIDSpc Name="PCEtc">
         <Key Name="Kill_boss_Clymen_Q2" Value="7788"/>
@@ -11441,6 +11444,14 @@
         <Key Name="Magic_Poison_Atk_BM" Value="105214"/>
         <Key Name="Magic_Soul_Atk" Value="105213"/>
         <Key Name="Magic_Soul_Atk_BM" Value="105215"/>
+        <Key Name="ALLSTAT" Value="105469"/>
+        <Key Name="ALLSTAT_ADD" Value="105468"/>
+        <Key Name="ALLSTAT_BM" Value="105467"/>
+        <Key Name="ALLSTAT_ITEM_BM" Value="105466"/>
+        <Key Name="ALLSTAT_STAT" Value="105470"/>
+        <Key Name="MATKADJ_RATE_BM" Value="105465"/>
+        <Key Name="PATKADJ_RATE_BM" Value="105464"/>
+        <Key Name="PATKADJ_SUB_RATE_BM" Value="105463"/>
     </KeyIDSpc>
     <KeyIDSpc Name="Skill">
         <Key Name="OnNeutral" Value="6715"/>

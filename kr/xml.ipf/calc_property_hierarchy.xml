@@ -7,6 +7,10 @@
 		<Child Name="STR_Bonus"/>
 		<Child Name="STR_ADD"/>
 		<Child Name="STR_TEMP"/>
+		<Child Name="ALLSTAT_STAT"/>
+		<Child Name="ALLSTAT_ADD"/>
+		<Child Name="ALLSTAT_BM"/>
+		<Child Name="ALLSTAT_ITEM_BM"/>
 	</hierarchy>
 	<hierarchy Name="DEX">
 		<Child Name="DEX_JOB"/>
@@ -14,6 +18,10 @@
 		<Child Name="DEX_Bonus"/>
 		<Child Name="DEX_ADD"/>
 		<Child Name="DEX_TEMP"/>
+		<Child Name="ALLSTAT_STAT"/>
+		<Child Name="ALLSTAT_ADD"/>
+		<Child Name="ALLSTAT_BM"/>
+		<Child Name="ALLSTAT_ITEM_BM"/>
 	</hierarchy>
 	<hierarchy Name="CON">
 		<Child Name="CON_JOB"/>
@@ -21,6 +29,10 @@
 		<Child Name="CON_Bonus"/>
 		<Child Name="CON_ADD"/>
 		<Child Name="CON_TEMP"/>
+		<Child Name="ALLSTAT_STAT"/>
+		<Child Name="ALLSTAT_ADD"/>
+		<Child Name="ALLSTAT_BM"/>
+		<Child Name="ALLSTAT_ITEM_BM"/>
 	</hierarchy>
 	<hierarchy Name="MNA">
 		<Child Name="MNA_JOB"/>
@@ -28,6 +40,10 @@
 		<Child Name="MNA_Bonus"/>
 		<Child Name="MNA_ADD"/>
 		<Child Name="MNA_TEMP"/>
+		<Child Name="ALLSTAT_STAT"/>
+		<Child Name="ALLSTAT_ADD"/>
+		<Child Name="ALLSTAT_BM"/>
+		<Child Name="ALLSTAT_ITEM_BM"/>
 	</hierarchy>
 	<hierarchy Name="INT">
 		<Child Name="INT_JOB"/>
@@ -35,6 +51,14 @@
 		<Child Name="INT_Bonus"/>
 		<Child Name="INT_ADD"/>
 		<Child Name="INT_TEMP"/>
+		<Child Name="ALLSTAT_STAT"/>
+		<Child Name="ALLSTAT_ADD"/>
+		<Child Name="ALLSTAT_BM"/>
+		<Child Name="ALLSTAT_ITEM_BM"/>
+	</hierarchy>
+	<hierarchy Name="ALLSTAT">
+		<Child Name="ALLSTAT_STAT"/>
+		<Child Name="ALLSTAT_ADD"/>
 	</hierarchy>
 	<hierarchy Name="STR_ADD">
 		<Child Name="STR_BM"/>
@@ -56,6 +80,10 @@
 		<Child Name="INT_BM"/>
 		<Child Name="INT_ITEM_BM"/>
 	</hierarchy>
+	<hierarchy Name="ALLSTAT_ADD">
+		<Child Name="ALLSTAT_BM"/>
+		<Child Name="ALLSTAT_ITEM_BM"/>
+	</hierarchy>
 	<hierarchy Name="MINPATK">
 		<Child Name="STR"/>
 		<Child Name="PATK_BM"/>
@@ -67,6 +95,7 @@
 		<Child Name="PATK_MAIN_RATE_BM"/>
 		<Child Name="MINPATK_MAIN_RATE_BM"/>
 		<Child Name="MAXPATK"/>
+		<Child Name="PATKADJ_RATE_BM"/>
 	</hierarchy>
 	<hierarchy Name="MAXPATK">
 		<Child Name="STR"/>
@@ -90,6 +119,7 @@
 		<Child Name="PATK_SUB_RATE_BM"/>
 		<Child Name="MINPATK_SUB_RATE_BM"/>
 		<Child Name="MAXPATK_SUB"/>
+		<Child Name="PATKADJ_SUB_RATE_BM"/>
 	</hierarchy>
 	<hierarchy Name="MAXPATK_SUB">
 		<Child Name="STR"/>
@@ -172,6 +202,7 @@
 		<Child Name="MATK_RATE_BM"/>
 		<Child Name="MINMATK_RATE_BM"/>
 		<Child Name="MAXMATK"/>
+		<Child Name="MATKADJ_RATE_BM"/>
 	</hierarchy>
 	<hierarchy Name="MAXMATK">
 		<Child Name="INT"/>

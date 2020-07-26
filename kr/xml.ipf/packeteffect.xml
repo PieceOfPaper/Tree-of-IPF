@@ -53,7 +53,8 @@
         <Effect Name="SLITHERING_Abil"/>
         <Effect Name="Dummy_Shield"/>
         <Effect Name="Finestra_Abil"/>
-    </Category>
+    <Effect Name="F_rize024_violet"/>
+</Category>
     <Category ID="70">
         <Effect Name="EVENT_2001_NEWYEAR_INIT_PAD"/>
         <Effect Name="Update"/>
@@ -5513,6 +5514,7 @@
         <Effect Name="I_cleric_TriDisaster_force#Dummy_effect_darksight"/>
         <Effect Name="Druid_HengeStone"/>
         <Effect Name="deadparts_Force"/>
+        <Effect Name="MAKE"/>
     </Category>
     <Category ID="28">
         <Effect Name="F_explosion006_green#Dummy_skl2_shot"/>

@@ -1850,7 +1850,9 @@ function StringSplit(str, delimStr)
         _tempStr = dic.getTranslatedStr(str);
     end
 
-    while true do
+    local try_count = 1
+
+    for try_count = 1, 1000 do 
         if _tempStr == nil then
             break
         end
@@ -1870,6 +1872,17 @@ function StringSplit(str, delimStr)
             break;
         end
     end
+
+    if try_count >= 1000 then
+        local ret = {}
+        if str == nil then
+            ret[1] = ''
+        else
+            ret[1] = str
+        end
+        return ret
+    end 
+
     return _result;
 end
 
@@ -3265,6 +3278,34 @@ function GET_MODIFIED_PROPERTIES_STRING(item, invitem)
         str = str .. invitem:GetAdditionalModifiedString();
     end
     return str;
+end
+
+function IS_ABILRESET_ITEM(itemClsName)
+    local itemCls = GetClass('Item', itemClsName)
+    if itemCls ~= nil then
+        local strArg = TryGetProp(itemCls, 'StringArg', 'None')
+        local numArg1 = TryGetProp(itemCls, 'NumberArg1', -1)
+        local numArg2 = TryGetProp(itemCls, 'NumberArg2', -1)
+        if strArg == 'AbilityPointReset' and numArg1 == 0 and numArg2 == 0 then
+            return true
+        end
+    end
+
+    return false
+end
+
+function IS_ARTSRESET_ITEM(itemClsName)
+    local itemCls = GetClass('Item', itemClsName)
+    if itemCls ~= nil then
+        local strArg = TryGetProp(itemCls, 'StringArg', 'None')
+        local numArg1 = TryGetProp(itemCls, 'NumberArg1', -1)
+        local numArg2 = TryGetProp(itemCls, 'NumberArg2', -1)
+        if strArg == 'AbilityPointReset' and numArg1 > 0 and numArg2 > 0 then
+            return true
+        end
+    end
+
+    return false
 end
 
 function RANDOM_SHUFFLE(tbl)

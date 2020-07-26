@@ -105,6 +105,7 @@ function GET_COMMON_PROP_LIST()
         'ADD_BOSS_ATK',
         'Magic_Ice_Atk',
         'Magic_Earth_Atk',
+        'ALLSTAT',
     };
 end
 

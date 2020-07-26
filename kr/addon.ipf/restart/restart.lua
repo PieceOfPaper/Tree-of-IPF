@@ -301,6 +301,11 @@ function RESTART_ON_MSG(frame, msg, argStr, argNum)
 					restart10btn:ShowWindow(1);
 				end
 			end
+		else
+			local restart10btn = GET_CHILD(frame, "restart10btn", "ui::CButton");
+			if restart10btn ~= nil then
+				restart10btn:ShowWindow(0);
+			end
 		end
 
 		AUTORESIZE_RESTART(frame);

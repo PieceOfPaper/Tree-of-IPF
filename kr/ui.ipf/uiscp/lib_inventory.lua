@@ -678,7 +678,7 @@ function SET_SLOT_INFO_FOR_WAREHOUSE(slot, invItem, tooltipType)
 	icon:SetTooltipArg(tooltipType, invItem.type, invItem:GetIESID());
 	SET_ITEM_TOOLTIP_TYPE(icon, itemCls.ClassID, itemCls, tooltipType);		
 
-	if invItem.hasLifeTime == true then
+	if invItem.hasLifeTime == true or TryGetProp(itemCls, 'ExpireDateTime', 'None') ~= 'None' then
 		ICON_SET_ITEM_REMAIN_LIFETIME(icon, IT_WAREHOUSE);
 		slot:SetFrontImage('clock_inven');
 	else

@@ -143,6 +143,9 @@
                     </Event>
                     <Event execCount="1" eventName="Reward_Cube">
                         <execList>
+                            <ToolScp Scp="MGAME_EXEC_ACTORSCP" Client="NO" UseSleep="NO">
+                                <Str Str="SCR_LEGEND_RAID_GLACIER_CUBE_MOVE_PC"/>
+                            </ToolScp>
                             <ToolScp Scp="EXEC_DUNGEON_GIVE_TAKE_SOBJ_ACHIEVE_TX" Client="NO" UseSleep="NO">
                                 <Str Str="Legend_Raid_Glacier_Hard"/>
                                 <Str Str="None"/>
@@ -623,7 +626,7 @@
             </Stage>
             <Stage Name="Boss_Pbeta" AutoStart="0">
                 <ObjList>
-                    <Obj Type="Monster" MonType="59479" Pos="1318.48#535.51#164.89" angle="-57" genCount="1" genTime="20000" autoGen="0" objectKey="0" propList="&apos;DeadScript&apos; &apos;SCR_LEGEND_PBETA_ALLCLEAR_BUFF_AND_PAD&apos; "/>
+                    <Obj Type="Monster" MonType="59479" Pos="1318.48#535.51#164.89" angle="-57" genCount="1" genTime="20000" autoGen="0" objectKey="0" propList="&apos;DeadScript&apos; &apos;SCR_LEGEND_PBETA_ALLCLEAR_BUFF_AND_PAD&apos; &apos;ClassName&apos; &apos;Legend_boss_Pbeta_Hard&apos; "/>
                     <Obj Type="Monster" MonType="157101" Pos="1522.44#535.51#273.01" angle="-129" genCount="1" genTime="20000" objectKey="1"/>
                     <Obj Type="Monster" MonType="157101" Pos="1108.58#535.51#113.83" angle="52" genCount="1" genTime="20000" objectKey="2"/>
                     <Obj Type="Monster" MonType="157101" Pos="1438.63#535.51#-112.61" angle="-124" genCount="1" genTime="20000" objectKey="3"/>
@@ -643,6 +646,10 @@
                             </ToolScp>
                         </condList>
                         <execList>
+                            <ToolScp Scp="MGAME_EVT_SCP_TO_MON_CMD" Client="NO" UseSleep="NO">
+                                <MGameObj List="Boss_Pbeta/1/Boss_Pbeta/2/Boss_Pbeta/3"/>
+                                <Str Str="SCR_LEGEND_PBETA_KRUVINA_SPIRIT_BLACK_CRYSTAL_REMOVE_PAD"/>
+                            </ToolScp>
                             <ToolScp Scp="MGAME_MSG_ICON" Client="YES" UseSleep="NO">
                                 <Str Str="마기에 오염된 프베타를 처치하였습니다."/>
                                 <Str Str="Clear"/>
@@ -750,7 +757,7 @@
                     </Event>
                 </StageEvents>
             </Stage>
-            <Stage Name="Boss_Glacier"AutoStart="0">
+            <Stage Name="Boss_Glacier" AutoStart="0">
                 <ObjList>
                     <Obj Type="Monster" MonType="59494" Pos="1269.11#602.46#1503.88" angle="-53" genCount="1" genTime="20000" objectKey="0" propList="&apos;DeadScript&apos; &apos;SCR_LEGEND_GLACIER_ALLCLEAR_BUFF_AND_PAD&apos; &apos;BornScript&apos; &apos;SCR_LEGEND_GLACIER_BORN_SCRIPT&apos; "/>
                     <Obj Type="Monster" MonType="157103" Pos="1119.74#602.46#1677.24" angle="-58" genCount="1" genTime="20000" objectKey="1" propList="&apos;Dialog&apos; &apos;LEGEND_GLACIER_USE_TORCH&apos; "/>
@@ -809,6 +816,10 @@
                             </ToolScp>
                         </condList>
                         <execList>
+                            <ToolScp Scp="MGAME_EVT_SCP_TO_MON_CMD" Client="NO" UseSleep="NO">
+                                <MGameObj List="Boss_Pbeta/1/Boss_Pbeta/2/Boss_Pbeta/3"/>
+                                <Str Str="SCR_LEGEND_PBETA_KRUVINA_SPIRIT_BLACK_CRYSTAL_REMOVE_PAD"/>
+                            </ToolScp>
                             <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
                                 <Str Str="GLACIER_ESSENCE_WARMTH"/>
                             </ToolScp>
@@ -879,7 +890,7 @@
                     <Event execCount="1" eventName="PointSetting">
                         <execList>
                             <ToolScp Scp="MGAME_SET_RANK_RESET_POINT_AND_LOG" Client="NO" UseSleep="NO">
-                                <Num Num="20"/>
+                                <Num Num="35"/>
                                 <Str Str="LegendRaid: Legend_Raid_Glacier_Easy"/>
                             </ToolScp>
                         </execList>

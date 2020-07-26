@@ -77,6 +77,10 @@
 							</ToolScp>
 						</condList>
 						<execList>
+                            <ToolScp Scp="MGAME_STAGE_CHECK_LOG_STAGEPROGRESS" Client="NO" UseSleep="NO">
+                                <Str Str="UNIQUE_RAID_GLACIER"/>
+                                <Str Str="MinigameSuccess"/>
+                            </ToolScp>
                             <ToolScp Scp="GAME_ST_EVT_EXEC_VALUE" Client="NO" UseSleep="NO">
                                 <Str Str="Pbeta_Start"/>
                                 <Num Num="0"/>
@@ -85,11 +89,6 @@
                                 <Str Str="Glacier_Start"/>
                                 <Num Num="0"/>
                             </ToolScp>
-							<ToolScp Scp="MGAME_EVT_SCRIPT_ARG" Client="NO" UseSleep="NO">
-								<Str Str="SCR_UNIQUE_GLACIER_CUSTOM_LOG"/>
-								<Str Str="Unique_Raid_Glacier_Success"/>
-								<Num Num="0"/>
-							</ToolScp>
 							<ToolScp Scp="MGAME_END" Client="NO" UseSleep="NO">
 								<Num Num="1"/>
 							</ToolScp>
@@ -158,11 +157,6 @@
                                 <Str Str="Glacier_Start"/>
                                 <Num Num="0"/>
                             </ToolScp>
-							<ToolScp Scp="MGAME_EVT_SCRIPT_ARG" Client="NO" UseSleep="NO">
-								<Str Str="SCR_UNIQUE_GLACIER_CUSTOM_LOG"/>
-								<Str Str="Unique_Raid_Glacier_Fail"/>
-								<Num Num="0"/>
-							</ToolScp>
 							<ToolScp Scp="MGAME_EVT_SCRIPT" Client="NO" UseSleep="NO">
 								<Str Str="SCR_RAID_END_STOP_DEBUFF_MON"/>
 							</ToolScp>
@@ -732,10 +726,6 @@
 							<ToolScp Scp="MGAME_EXEC_ACTORSCP" Client="NO" UseSleep="NO">
 								<Str Str="SCR_GLACIER_DEAD_MSG"/>
 							</ToolScp>
-                            <ToolScp Scp="MGAME_STAGE_CHECK_LOG_STAGEPROGRESS" Client="NO" UseSleep="NO">
-                                <Str Str="UNIQUE_RAID_GLACIER"/>
-                                <Str Str="MinigameSuccess"/>
-                            </ToolScp>
 						</execList>
 					</Event>
 					<Event eventName="Glacier_Pattern_Start">

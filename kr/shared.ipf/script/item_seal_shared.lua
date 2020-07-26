@@ -24,11 +24,36 @@ function IS_SEAL_MATERIAL_ITEM(item)
     return false;
 end
 
+-- 공용 인장 교환 가능 아이템
+function IS_SEAL_TRANSFER_ITEM(item)
+    if item == nil then
+        return false;
+    end
+
+    local className = TryGetProp(item, 'ClassName', 'None');
+    if className == "Seal_Boruta_Sword" or
+        className == "Seal_Boruta_Wizard" or
+        className == "Seal_Boruta_Cleric" or
+        className == "Seal_Boruta_Archer" or
+        className == "Seal_Boruta_Scout" then
+        return true, "Seal_Boruta_Common";
+    end    
+
+    return false;
+end
+
+function GET_TRANSFER_SEAL_MATERIAL()
+    return "RVR_BK_MEDAL_BORUTOS_KAPAS_1", 30;
+end
+
 -- 인장 강화 재료 아이템
 function IS_VALID_SEAL_MATERIAL_ITEM(targetSeal, materialSeal)
     if IS_SEAL_MATERIAL_ITEM(targetSeal) == true and IS_SEAL_MATERIAL_ITEM(materialSeal) ~= true then
         return false, "SealMaterialTargetItemWarning";
-    end
+	end
+	if materialSeal.LifeTime > 0 then
+		return false, "SealMaterialTargetItemWarning";
+	end
 
     if IS_SEAL_ITEM(targetSeal) == false or IS_SEAL_ITEM(materialSeal) == false then        
         return false;

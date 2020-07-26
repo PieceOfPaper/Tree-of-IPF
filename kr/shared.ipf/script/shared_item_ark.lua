@@ -1,5 +1,19 @@
 -- 아이템 아크 shared_item_ark.lua
 
+function replace(text, to_be_replaced, replace_with)
+	local retText = text
+	local strFindStart, strFindEnd = string.find(text, to_be_replaced)	
+    if strFindStart ~= nil then
+		local nStringCnt = string.len(text)		
+		retText = string.sub(text, 1, strFindStart-1) .. replace_with ..  string.sub(text, strFindEnd+1, nStringCnt)		
+    else
+        retText = text
+	end
+	
+    return retText
+end
+
+
 shared_item_ark = {}
 max_ark_option_count = 10 -- 옵션이 최대 10개 있다고 가정함
 item_ark_grow_ratio = 0.2  -- 아이템 렙업을 위한 재료 요구량 증가 계수
@@ -275,9 +289,9 @@ function get_tooltip_Ark_storm_arg2()
     return 3, 'ARK_STORM_RATIO', 3, 2, 15
 end
 
--- 세번째 옵션 폭풍 계수는 5레벨당 x씩 오른다. 총 16회, 1200 + (10 * 250) = 3700%
+-- 세번째 옵션 폭풍 계수는 5레벨당 x씩 오른다. 총 16회, 2400 + (10 * 490) = 7300%
 function get_tooltip_Ark_storm_arg3()
-    return 3, 'ARK_STORM_ATTACK', 5, 250, 1200
+    return 3, 'ARK_STORM_ATTACK', 5, 490, 2400
 end
 
 -------------- 아크 - 분산 ----------------

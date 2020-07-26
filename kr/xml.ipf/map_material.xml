@@ -627,15 +627,19 @@
 			<Sound From="walk_left" To="step_soil"/>
 		</Anim>
 		<Anim Name="DASH">
-			<Particle From="I_warrior_dash_run" To="F_pc_effectitem_catagnan_ride" Scale="1" ForceConvert="YES"/>
+			<Particle From="I_warrior_dash_run" To="F_pc_effectitem_catagnan_ride" Scale="1" ForceConvert="NO"/>
 			<Sound From="walk_left" To="step_soil"/>
 		</Anim>
 		<Anim Name="WALK_RIDE">
-			<Particle From="F_pc_run_smoke" To="F_pc_effectitem_catagnan_ride" Scale="1" ForceConvert="YES"/>
+			<Particle From="F_pc_run_smoke" To="F_pc_effectitem_catagnan_ride" Scale="1" ForceConvert="NO"/>
 			<Sound From="walk_left" To="step_soil"/>
 		</Anim>
 		<Anim Name="RUN_RIDE">
-			<Particle From="F_pc_run_smoke" To="F_pc_effectitem_catagnan_ride" Scale="1" ForceConvert="YES"/>
+			<Particle From="F_pc_run_smoke" To="F_pc_effectitem_catagnan_ride" Scale="1" ForceConvert="NO"/>
+			<Sound From="walk_left" To="step_soil"/>
+		</Anim>
+		<Anim Name="RUN_DASH">
+			<Particle From="F_pc_run_smoke" To="F_pc_effectitem_catagnan_ride" Scale="1" ForceConvert="NO"/>
 			<Sound From="walk_left" To="step_soil"/>
 		</Anim>
 	</Material>

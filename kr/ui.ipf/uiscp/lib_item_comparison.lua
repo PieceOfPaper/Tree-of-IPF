@@ -3,7 +3,7 @@
 function GET_EQUIP_TOOLTIP_PROP_LIST(invitem)
 
 	local groupName = invitem.GroupName;
-	if groupName == 'Weapon' then
+	if groupName == 'Weapon' or groupName == 'SubWeapon' then
 		return GET_ATK_PROP_LIST();
 	
 	elseif groupName == "PetWeapon" then
@@ -28,6 +28,7 @@ function GET_DEF_PROP_CHANGEVALUETOOLTIP_LIST()
     list[#list+1] = "DEX";
     list[#list+1] = "INT";
     list[#list+1] = "CON";
+    list[#list+1] = "ALLSTAT";
     list[#list+1] = "MNA";
     list[#list+1] = "MHP";
     list[#list+1] = "MSP";
@@ -107,6 +108,7 @@ function GET_ATK_PROP_CHANGEVALUETOOLTIP_LIST()
     list[#list+1] = "INT";
     list[#list+1] = "MNA";
     list[#list+1] = "CON";
+    list[#list+1] = "ALLSTAT";
     list[#list+1] = "MHP";
     list[#list+1] = "MSP";
     list[#list+1] = "MSTA";
@@ -182,6 +184,7 @@ function GET_DEF_PROP_LIST()
     list[#list+1] = "DEX";
     list[#list+1] = "INT";
     list[#list+1] = "CON";
+    list[#list+1] = "ALLSTAT";
     list[#list+1] = "MNA";
     list[#list+1] = "MHP";
     list[#list+1] = "MSP";
@@ -267,6 +270,7 @@ function GET_ATK_PROP_LIST()
     list[#list+1] = "INT";
     list[#list+1] = "MNA";
     list[#list+1] = "CON";
+    list[#list+1] = "ALLSTAT";
     list[#list+1] = "MHP";
     list[#list+1] = "MSP";
     list[#list+1] = "MSTA";

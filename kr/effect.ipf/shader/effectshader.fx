@@ -5,7 +5,6 @@
 // Effect_Shake.fx
 //
 
-
 ////////////////////////////////////////////////////////////////////////////////////////////////////////
 // sampler
 ////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -17,15 +16,15 @@ sampler2D  g_sampler = sampler_state
 };
 
 texture	g_bgTexture;
-sampler2D g_bgSampler = sampler_state 
+sampler2D g_bgSampler = sampler_state
 {
-    Texture = <g_bgTexture>;
+	Texture = <g_bgTexture>;
 };
 
 texture	g_bgDepthTexture;
-sampler2D g_bgDepthSampler = sampler_state 
+sampler2D g_bgDepthSampler = sampler_state
 {
-    Texture = <g_bgDepthTexture>;
+	Texture = <g_bgDepthTexture>;
 	MinFilter = POINT;
 	MagFilter = POINT;
 	MipFilter = NONE;
@@ -34,6 +33,22 @@ sampler2D g_bgDepthSampler = sampler_state
 	BorderColor = 0xFFFFFFFF;
 	SRGBTEXTURE = FALSE;
 };
+
+#ifdef USE_DIFFUSETEX_ANIMATION
+float4x4 g_DiffuseAnimationTM;
+texture UVAnimMaskTex;
+sampler uvAnimMaskTex = sampler_state
+{
+	Texture = (UVAnimMaskTex);
+
+	AddressU = WRAP;
+	AddressV = WRAP;
+
+	MIPFILTER = NONE;
+	MINFILTER = LINEAR;
+	MAGFILTER = LINEAR;
+};
+#endif
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////
 // global shader variables
@@ -53,7 +68,7 @@ float		g_wavePowerX = 0.0f;
 float		g_waveSpeedY = 0.0f;
 float		g_waveStretchY = 0.0f;
 float		g_wavePowerY = 0.0f;
-float g_overrideAlpha = 1.f;
+float		g_overrideAlpha = 1.f;
 //
 
 float4x4	g_WorldViewProjTM;
@@ -98,7 +113,6 @@ float4 ShiftColor(float4 c)
 	c.r = c.g;
 	c.g = c.b;
 	c.b = r;
-
 	return c;
 }
 
@@ -109,32 +123,32 @@ float4 ShiftColor(float4 c)
 ////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Vertex Shader
 ////////////////////////////////////////////////////////////////////////////////////////////////////////
-float4 CalcWVP( float4 Pos )
+float4 CalcWVP(float4 Pos)
 {
-	Pos.w = 1.0f;	
+	Pos.w = 1.0f;
 	// ĳ���� 2D�� ���
-	#ifdef USE_2D
-		//return mul(Pos, g_ViewProjTM);
-		// ��� �ؿ� �ΰ��� ���ĵ� �����ϴ�. ������ ������ ������ ����
-		float4 WorldPos = mul(Pos, g_WorldTM);
-		Pos = mul(WorldPos, g_charViewTM);
-		Pos = mul(Pos, g_charProjTM);
-		Pos /= Pos.w;
-		Pos.z = 0.0f; // ������ ����
-		Pos.y += 0.4f;  // ĳ���� �� ��ġ ���⶧ ����ϴ� ����Դϴ�
-		Pos.xy *= (Pos.y*float2(0.5,0.2)+1);
-		Pos = mul(Pos, g_billboardTM);
-		Pos = mul(Pos, g_ViewProjTM);
-		// (localz-ī�޶�Ÿ�:z����0�յڷθ��߷���) * ������ �����ϰ� �ϱ� ���� ��� - �������̾;
-		
-		float uprate = 1.1;
-		float pivotOffset = 100;
-		float defz = mul(float4(g_pivotPoint.x, (WorldPos.y - g_pivotPoint.y + pivotOffset) * uprate + g_pivotPoint.y - pivotOffset, g_pivotPoint.z, 1), g_ViewProjTM).z / mul(float4(g_pivotPoint.x, (WorldPos.y - g_pivotPoint.y + pivotOffset) * uprate + g_pivotPoint.y - pivotOffset, g_pivotPoint.z, 1), g_ViewProjTM).w;
-		Pos.z = defz * Pos.w;				
-		return Pos;
-	#else
-		return mul(Pos, g_WorldViewProjTM);
-	#endif	
+#ifdef USE_2D
+	//return mul(Pos, g_ViewProjTM);
+	// ��� �ؿ� �ΰ��� ���ĵ� �����ϴ�. ������ ������ ������ ����
+	float4 WorldPos = mul(Pos, g_WorldTM);
+	Pos = mul(WorldPos, g_charViewTM);
+	Pos = mul(Pos, g_charProjTM);
+	Pos /= Pos.w;
+	Pos.z = 0.0f; // ������ ����
+	Pos.y += 0.4f;  // ĳ���� �� ��ġ ���⶧ ����ϴ� ����Դϴ�
+	Pos.xy *= (Pos.y*float2(0.5, 0.2) + 1);
+	Pos = mul(Pos, g_billboardTM);
+	Pos = mul(Pos, g_ViewProjTM);
+	// (localz-ī�޶�Ÿ�:z����0�յڷθ��߷���) * ������ �����ϰ� �ϱ� ���� ��� - �������̾;
+
+	float uprate = 1.1;
+	float pivotOffset = 100;
+	float defz = mul(float4(g_pivotPoint.x, (WorldPos.y - g_pivotPoint.y + pivotOffset) * uprate + g_pivotPoint.y - pivotOffset, g_pivotPoint.z, 1), g_ViewProjTM).z / mul(float4(g_pivotPoint.x, (WorldPos.y - g_pivotPoint.y + pivotOffset) * uprate + g_pivotPoint.y - pivotOffset, g_pivotPoint.z, 1), g_ViewProjTM).w;
+	Pos.z = defz * Pos.w;
+	return Pos;
+#else
+	return mul(Pos, g_WorldViewProjTM);
+#endif	
 }
 
 float4 CalcWVPInstancing(float4 Pos)
@@ -146,23 +160,23 @@ float4 CalcWVPInstancing(float4 Pos)
 #endif	
 }
 
-float4 CalcWorldNormal( float3 normal ) 
+float4 CalcWorldNormal(float3 normal)
 {
-	float4 worldNormal = float4(normal, 0.0f);		
+	float4 worldNormal = float4(normal, 0.0f);
 	return mul(worldNormal, g_WorldTM);
 }
 
-void CalcSkinGeom(in float4 Pos, in float3 Nml, in float4 weights, in int4 indices, 
-				  out float4 PosCS, out float3 NmlMS, out float3 localPos, in int numBones)
+void CalcSkinGeom(in float4 Pos, in float3 Nml, in float4 weights, in int4 indices,
+	out float4 PosCS, out float3 NmlMS, out float3 localPos, in int numBones)
 {
 #ifdef USE_SKINNINGMODEL
 	localPos = 0;
 	NmlMS = 0;
-	for(int i = 0; i < numBones; ++i) {
-		localPos += mul(Pos, (float4x3)g_BoneTM[ indices[i] ]) * weights[i];
-		NmlMS  	 += mul(Nml, (float3x3)g_BoneTM[ indices[i] ]) * weights[i];
+	for (int i = 0; i < numBones; ++i) {
+		localPos += mul(Pos, (float4x3)g_BoneTM[indices[i]]) * weights[i];
+		NmlMS += mul(Nml, (float3x3)g_BoneTM[indices[i]]) * weights[i];
 	}
-    PosCS = CalcWVP( float4(localPos, 1.0f) );
+	PosCS = CalcWVP(float4(localPos, 1.0f));
 #else
 	PosCS = 0.f;
 	NmlMS = 0.f;
@@ -170,18 +184,31 @@ void CalcSkinGeom(in float4 Pos, in float3 Nml, in float4 weights, in int4 indic
 #endif
 }
 
+void CalcDiffuseTexCoord(in float2 texCoord, out float4 outTexCoord)
+{
+#ifdef USE_DIFFUSETEX_ANIMATION
+	float4 TransTex = float4(texCoord.xy, 1.f, 1.f);
+	float4x4 matAnim = g_DiffuseAnimationTM;
+	matAnim._24 = 0.f;
+	outTexCoord.xy = mul(TransTex, matAnim).xy;
+	outTexCoord.zw = texCoord;
+#else
+	outTexCoord = float4(texCoord.xy, 0.f, 0.f);
+#endif
+}
+
 void VS_EffectInstancing_Frk(in float4 PosIn : POSITION,
 	in float4 ColorIn : COLOR,
-	in float2 TexIn : TEXCOORD0,
-	in float2 SoftParticleIn : TEXCOORD1,
+	in float4 TexIn : TEXCOORD0,
+	in float4 SoftParticleIn : TEXCOORD1,
 	out float4 PosOut : POSITION,
 	out float4 ColorOut : COLOR,
-	out float2 TexOut : TEXCOORD0,
+	out float4 TexOut : TEXCOORD0,
 	out float4 ScrPos : TEXCOORD1,
-	out float2 SoftParticleOut : TEXCOORD2,
+	out float4 SoftParticleOut : TEXCOORD2,
 	out float4 WaveSpeedStretchOut : TEXCOORD3,
 	out float4 WavePowerTimeOut : TEXCOORD4
-	)
+)
 {
 	PosOut = CalcWVPInstancing(PosIn);
 	ScrPos = PosOut;
@@ -193,26 +220,26 @@ void VS_EffectInstancing_Frk(in float4 PosIn : POSITION,
 	WavePowerTimeOut = 0.f;
 }
 
-void VS_EffectInstancing( in float4 PosIn : POSITION,
-				in float4 ColorIn : COLOR,
-				in float2 TexIn : TEXCOORD0,
-				in float2 SoftParticleIn : TEXCOORD1,
-				in float4 WaveSpeedStretchIn : TEXCOORD2,
-				in float4 WavePowerTimeIn : TEXCOORD3,
-					out float4 PosOut : POSITION,
-					out float4 ColorOut : COLOR,
-					out float2 TexOut : TEXCOORD0,
-					out float4 ScrPos : TEXCOORD1,
-					out float2 SoftParticleOut : TEXCOORD2,
-					out float4 WaveSpeedStretchOut : TEXCOORD3,
-					out float4 WavePowerTimeOut : TEXCOORD4
-					)
+void VS_EffectInstancing(in float4 PosIn : POSITION,
+	in float4 ColorIn : COLOR,
+	in float4 TexIn : TEXCOORD0,
+	in float4 SoftParticleIn : TEXCOORD1,
+	in float4 WaveSpeedStretchIn : TEXCOORD2,
+	in float4 WavePowerTimeIn : TEXCOORD3,
+	out float4 PosOut : POSITION,
+	out float4 ColorOut : COLOR,
+	out float4 TexOut : TEXCOORD0,
+	out float4 ScrPos : TEXCOORD1,
+	out float4 SoftParticleOut : TEXCOORD2,
+	out float4 WaveSpeedStretchOut : TEXCOORD3,
+	out float4 WavePowerTimeOut : TEXCOORD4
+)
 {
-	PosOut			= CalcWVPInstancing(PosIn);
-	ScrPos			= PosOut;
-	
-	ColorOut		= ColorIn;
-	TexOut			= TexIn;
+	PosOut = CalcWVPInstancing(PosIn);
+	ScrPos = PosOut;
+
+	ColorOut = ColorIn;
+	TexOut = TexIn;
 	SoftParticleOut = SoftParticleIn;
 
 	WaveSpeedStretchOut = WaveSpeedStretchIn;
@@ -221,12 +248,12 @@ void VS_EffectInstancing( in float4 PosIn : POSITION,
 
 void VS_Effect(in float4 PosIn : POSITION,
 	in float4 ColorIn : COLOR,
-	in float2 TexIn : TEXCOORD0,
+	in float4 TexIn : TEXCOORD0,
 	out float4 PosOut : POSITION,
 	out float4 ColorOut : COLOR,
-	out float2 TexOut : TEXCOORD0,
+	out float4 TexOut : TEXCOORD0,
 	out float4 ScrPos : TEXCOORD1
-	)
+)
 {
 	PosOut = CalcWVP(PosIn);
 	ScrPos = PosOut;
@@ -235,47 +262,51 @@ void VS_Effect(in float4 PosIn : POSITION,
 	TexOut = TexIn;
 }
 
-void VS_Effect_Model( in float4 PosIn : POSITION,
-					in float3 NormalIn : NORMAL,
-					in float2 TexIn : TEXCOORD0,
-					out float4 PosOut : POSITION,
-					out float4 ColorOut : COLOR,
-					out float2 TexOut : TEXCOORD0,
-					out float4 ScrPos : TEXCOORD1,
-					out float4 worldNormal : TEXCOORD2
-					)
+void VS_Effect_Model(in float4 PosIn : POSITION,
+	in float3 NormalIn : NORMAL,
+	in float4 TexIn : TEXCOORD0,
+	out float4 PosOut : POSITION,
+	out float4 ColorOut : COLOR,
+	out float4 TexOut : TEXCOORD0,
+	out float4 ScrPos : TEXCOORD1,
+	out float4 worldNormal : TEXCOORD2
+)
 {
-	PosOut			= CalcWVP(PosIn);
-	ScrPos			= PosOut;	
-	
-	ColorOut		= g_ModelDiffuse;
-	TexOut			= TexIn;	
+	PosOut = CalcWVP(PosIn);
+	ScrPos = PosOut;
 
-	worldNormal 	= CalcWorldNormal(NormalIn);		
+	ColorOut = g_ModelDiffuse;
+	TexOut = TexIn;
+
+	worldNormal = CalcWorldNormal(NormalIn);
+
+	CalcDiffuseTexCoord(TexIn.xy, TexOut);
 }
 
-void VS_Effect_AniModel(in float4 PosIn : POSITION, 
-					in float3 NormalIn : NORMAL, 
-					in float4 weights : BLENDWEIGHT, 
-					in float4 indices : BLENDINDICES,
-					in float4 TexIn : TEXCOORD0,
-					out float4 PosOut : POSITION,
-					out float4 ColorOut : COLOR,
-					out float2 TexOut : TEXCOORD0,
-					out float4 ScrPos : TEXCOORD1,
-					out float4 worldNormal : TEXCOORD2
-					)
-{	
+void VS_Effect_AniModel(in float4 PosIn : POSITION,
+	in float3 NormalIn : NORMAL,
+	in float4 weights : BLENDWEIGHT,
+	in float4 indices : BLENDINDICES,
+	in float4 TexIn : TEXCOORD0,
+	out float4 PosOut : POSITION,
+	out float4 ColorOut : COLOR,
+	out float4 TexOut : TEXCOORD0,
+	out float4 ScrPos : TEXCOORD1,
+	out float4 worldNormal : TEXCOORD2
+)
+{
 	float3 localNml;
-	float3 localPos;		
-	
+	float3 localPos;
+
 	CalcSkinGeom(PosIn, NormalIn, weights, D3DCOLORtoUBYTE4(indices), PosOut, localNml, localPos, 4);
+
+	ScrPos = PosOut;
+	ColorOut = g_ModelDiffuse;
+	TexOut = TexIn;
+
+	worldNormal = CalcWorldNormal(NormalIn);
 	
-	ScrPos		= PosOut;	
-	ColorOut	= g_ModelDiffuse;
-	TexOut		= TexIn;		
-	
-	worldNormal 	= CalcWorldNormal(NormalIn);	
+	CalcDiffuseTexCoord(TexIn.xy, TexOut);
 }
 ////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Pixel Shader
@@ -290,23 +321,23 @@ void vignette(inout float4 c, const float2 win_bias)
 }
 
 double2 GetScreenTex(float4 pos)
-{    
-  	pos.x			/= pos.w;
-	pos.y			/= pos.w;	
+{
+	pos.x /= pos.w;
+	pos.y /= pos.w;
 
 	double2 scrTexOut;
-	scrTexOut.x		= (pos.x + 1.0f) / 2;
-	scrTexOut.y		= (2.0f - (pos.y + 1.0f)) / 2;
-	
+	scrTexOut.x = (pos.x + 1.0f) / 2;
+	scrTexOut.y = (2.0f - (pos.y + 1.0f)) / 2;
+
 	// ��ũ�� ������ (�����ѹ�)
-	scrTexOut.x		+= 0.0005f;
-	scrTexOut.y		+= 0.0006f;
-	
+	scrTexOut.x += 0.0005f;
+	scrTexOut.y += 0.0006f;
+
 	return scrTexOut;
 }
 float decodeFromRG(float2 rg)
-{	
-	return dot(rg, float2(1.0f, 1.0f/255.0f));
+{
+	return dot(rg, float2(1.0f, 1.0f / 255.0f));
 }
 
 float CalcAlphaWithDepth(float4 srcPos)
@@ -338,45 +369,46 @@ float CalcAlphaWithDepthInstancing(float4 srcPos, float softParticleFactor)
 }
 
 float4 PS_MultiplyProcessInstancing(in float4 diffuse : COLOR,
-	in float2 tex : TEXCOORD0,
+	in float4 tex : TEXCOORD0,
 	in float4 ScrPos : TEXCOORD1,
-	in float2 SoftParticle : TEXCOORD2,
+	in float4 SoftParticle : TEXCOORD2,
 	in float4 WaveSpeedStretch : TEXCOORD3,
 	in float4 WavePowerTime : TEXCOORD4
-	) : COLOR
+) : COLOR
 {
 	clip(diffuse.a - 0.001f);
 
-	tex.x = tex.x + (sin(tex.y * WaveSpeedStretch.z + WavePowerTime.z * WaveSpeedStretch.x) * WavePowerTime.x);
-	tex.y = tex.y + (sin(tex.x * WaveSpeedStretch.w + WavePowerTime.z * WaveSpeedStretch.y) * WavePowerTime.y);
+tex.x = tex.x + (sin(tex.y * WaveSpeedStretch.z + WavePowerTime.z * WaveSpeedStretch.x) * WavePowerTime.x);
+tex.y = tex.y + (sin(tex.x * WaveSpeedStretch.w + WavePowerTime.z * WaveSpeedStretch.y) * WavePowerTime.y);
 
-	float4 texColor = tex2D(g_sampler, tex.xy).rgba;
-	float4 finalColor = texColor * diffuse;
-	finalColor.rgb = finalColor * g_HDR_sunLightIntensity;
+float4 texColor = tex2D(g_sampler, tex.xy).rgba;
+float4 finalColor = texColor * diffuse;
+finalColor.rgb = finalColor * g_HDR_sunLightIntensity;
 
 #ifdef IS_REVERSE
-	finalColor = ShiftColor(finalColor);
+finalColor = ShiftColor(finalColor);
 #endif
 
 #ifdef RGB_SOFT_PARTICLE
-	finalColor.rgb *= CalcAlphaWithDepthInstancing(ScrPos, SoftParticle.x);
-	finalColor.a = 0.0f;
+finalColor.rgb *= CalcAlphaWithDepthInstancing(ScrPos, SoftParticle.x);
+finalColor.a = 0.0f;
 #else
-	finalColor.a *= CalcAlphaWithDepthInstancing(ScrPos, SoftParticle.x);
+finalColor.a *= CalcAlphaWithDepthInstancing(ScrPos, SoftParticle.x);
 #endif
 
-	finalColor.rgb *= g_overrideAlpha; 
+finalColor.rgb *= g_overrideAlpha;
 finalColor.a *= g_overrideAlpha;
 
-	return finalColor;
+
+return finalColor;
 }
 
 
 float4 PS_AdditiveProcessInstancing(in float4 diffuse : COLOR,
-	in float2 tex : TEXCOORD0,
+	in float4 tex : TEXCOORD0,
 	in float4 ScrPos : TEXCOORD1,
-	in float2 SoftParticle : TEXCOORD2
-	) : COLOR
+	in float4 SoftParticle : TEXCOORD2
+) : COLOR
 {
 	float4 texColor = tex2D(g_sampler, tex.xy).rgba;
 	float4 finalColor = texColor;
@@ -395,16 +427,16 @@ float4 PS_AdditiveProcessInstancing(in float4 diffuse : COLOR,
 	finalColor = ShiftColor(finalColor);
 #endif 
 
-	finalColor.rgb *= g_overrideAlpha; 
+	finalColor.rgb *= g_overrideAlpha;
 
 	return finalColor;
 }
 
 float4 PS_ExchangeProcessInstancing(in float4 diffuse : COLOR,
-	in float2 tex : TEXCOORD0,
+	in float4 tex : TEXCOORD0,
 	in float4 ScrPos : TEXCOORD1,
-	in float2 SoftParticle : TEXCOORD2
-	) : COLOR
+	in float4 SoftParticle : TEXCOORD2
+) : COLOR
 {
 	float4 texColor = tex2D(g_sampler, tex.xy).rgba;
 	float4 finalColor = diffuse;
@@ -422,125 +454,158 @@ float4 PS_ExchangeProcessInstancing(in float4 diffuse : COLOR,
 	finalColor = ShiftColor(finalColor);
 #endif 
 
-	finalColor.rgb *= g_overrideAlpha; 
+	finalColor.rgb *= g_overrideAlpha;
 
 	return finalColor;
 }
 
-float4 PS_ScreenProcess( in float4 diffuse : COLOR,
-						in float2 tex: TEXCOORD0,
-						in float4 ScrPos: TEXCOORD1
-						) : COLOR
-{	
-    float4 texColor = tex2D(g_sampler, tex.xy).rgba;
+float4 PS_ScreenProcess(in float4 diffuse : COLOR,
+	in float4 tex : TEXCOORD0,
+	in float4 ScrPos : TEXCOORD1
+) : COLOR
+{
+	float4 texColor = tex2D(g_sampler, tex.xy).rgba;
 	float4 finalColor = texColor;
 	finalColor.rgb *= g_overrideAlpha;
 	return finalColor;
 }
 
 // ========= Color Process
-float4 PS_MultiplyProcess( in float4 diffuse : COLOR,
-						in float2 tex: TEXCOORD0,
-						in float4 ScrPos: TEXCOORD1
-						) : COLOR
+float4 PS_MultiplyProcess(in float4 diffuse : COLOR,
+	in float4 tex : TEXCOORD0,
+	in float4 ScrPos : TEXCOORD1
+) : COLOR
 {
 	tex.x = tex.x + (sin(tex.y * g_waveStretchX + g_effectTime * g_waveSpeedX) * g_wavePowerX);
-	tex.y = tex.y + (sin(tex.x * g_waveStretchY + g_effectTime * g_waveSpeedY) * g_wavePowerY);
+tex.y = tex.y + (sin(tex.x * g_waveStretchY + g_effectTime * g_waveSpeedY) * g_wavePowerY);
 
-    float4 texColor = tex2D(g_sampler, tex.xy).rgba;
-	float4 finalColor = texColor * diffuse;
-	finalColor.rgb = finalColor * g_HDR_sunLightIntensity;
-	
+float4 texColor = tex2D(g_sampler, tex.xy).rgba;
+float4 finalColor = texColor * diffuse;
+finalColor.rgb = finalColor * g_HDR_sunLightIntensity;
+
 #ifdef IS_REVERSE
-	finalColor = ShiftColor(finalColor);
+finalColor = ShiftColor(finalColor);
 #endif 
 
 #ifdef RGB_SOFT_PARTICLE
-	finalColor.rgb *= CalcAlphaWithDepth(ScrPos);
-	finalColor.a = 0.0f;	
+finalColor.rgb *= CalcAlphaWithDepth(ScrPos);
+finalColor.a = 0.0f;
 #else
-	finalColor.a *= CalcAlphaWithDepth(ScrPos);
+finalColor.a *= CalcAlphaWithDepth(ScrPos);
 #endif		
 
-	return finalColor;
+#ifdef USE_DIFFUSETEX_ANIMATION
+if (g_DiffuseAnimationTM._24 > 0.f)
+{
+	float4 mask = tex2D(uvAnimMaskTex, tex.zw);
+	finalColor.a *= mask.r;
+}
+#endif
+
+return finalColor;
 }
 
-float4 PS_AdditiveProcess( in float4 diffuse : COLOR,
-						in float2 tex: TEXCOORD0,
-						in float4 ScrPos: TEXCOORD1
-						) : COLOR
-{	
-    float4 texColor = tex2D(g_sampler, tex.xy).rgba;
+float4 PS_AdditiveProcess(in float4 diffuse : COLOR,
+	in float4 tex : TEXCOORD0,
+	in float4 ScrPos : TEXCOORD1
+) : COLOR
+{
+	float4 texColor = tex2D(g_sampler, tex.xy).rgba;
 	float4 finalColor = texColor;
-	
-	finalColor.a 	= texColor.a * diffuse.a;
-	finalColor.rgb 	= (texColor.rgb * diffuse.rgb) * g_HDR_sunLightIntensity;	
-	
+
+	finalColor.a = texColor.a * diffuse.a;
+	finalColor.rgb = (texColor.rgb * diffuse.rgb) * g_HDR_sunLightIntensity;
+
 #ifdef RGB_SOFT_PARTICLE
 	finalColor.rgb *= CalcAlphaWithDepth(ScrPos);
-	finalColor.a = 1.0f;	
+	finalColor.a = 1.0f;
 #else
 	finalColor.a *= CalcAlphaWithDepth(ScrPos);
 #endif
 
 #ifdef IS_REVERSE
-		finalColor = ShiftColor(finalColor);
-#endif 
-		
+	finalColor = ShiftColor(finalColor);
+#endif
+
+#ifdef USE_DIFFUSETEX_ANIMATION
+	if (g_DiffuseAnimationTM._24 > 0.f)
+	{
+		float4 mask = tex2D(uvAnimMaskTex, tex.zw);
+		finalColor.a *= mask.r;
+	}
+#endif
+
 	return finalColor;
 }
 
-float4 PS_ExchangeProcess( in float4 diffuse : COLOR,
-						in float2 tex: TEXCOORD0,
-						in float4 ScrPos: TEXCOORD1
-						) : COLOR
+float4 PS_ExchangeProcess(in float4 diffuse : COLOR,
+	in float4 tex : TEXCOORD0,
+	in float4 ScrPos : TEXCOORD1
+) : COLOR
 {
-    float4 texColor = tex2D(g_sampler, tex.xy).rgba;
+	float4 texColor = tex2D(g_sampler, tex.xy).rgba;
 	float4 finalColor = diffuse;
-	finalColor.a 	= texColor.a * diffuse.a;
-	finalColor.rgb 	= finalColor * g_HDR_sunLightIntensity;
-	
+	finalColor.a = texColor.a * diffuse.a;
+	finalColor.rgb = finalColor * g_HDR_sunLightIntensity;
+
 #ifdef RGB_SOFT_PARTICLE
-	finalColor.rgb *= CalcAlphaWithDepth(ScrPos);	
-	finalColor.a = 1.0f;	
+	finalColor.rgb *= CalcAlphaWithDepth(ScrPos);
+	finalColor.a = 1.0f;
 #else
-	finalColor.a *= CalcAlphaWithDepth(ScrPos);	
+	finalColor.a *= CalcAlphaWithDepth(ScrPos);
 #endif	
 
 #ifdef IS_REVERSE
 	finalColor = ShiftColor(finalColor);
 #endif 
+
+#ifdef USE_DIFFUSETEX_ANIMATION
+	if (g_DiffuseAnimationTM._24 > 0.f)
+	{
+		float4 mask = tex2D(uvAnimMaskTex, tex.zw);
+		finalColor.a *= mask.r;
+	}
+#endif
+
 	return finalColor;
 }
 
-float4 PS_LightingProcess( in float4 diffuse : COLOR,
-						in float2 tex: TEXCOORD0,
-						in float4 ScrPos: TEXCOORD1,
-						in float4 worldNormal: TEXCOORD2
-						) : COLOR
+float4 PS_LightingProcess(in float4 diffuse : COLOR,
+	in float4 tex : TEXCOORD0,
+	in float4 ScrPos : TEXCOORD1,
+	in float4 worldNormal : TEXCOORD2
+) : COLOR
 
 {
 	worldNormal = normalize(worldNormal);
 
-	float lightPower = saturate(dot(worldNormal.xyz, -g_lightDirection));	
-	//float lightPower = dot(worldNormal.xyz, -g_lightDirection) * 0.8f + 0.2f);
-	
-    float4 texColor = tex2D(g_sampler, tex.xy).rgba;
-	float4 finalColor = texColor;
-	
-	finalColor.a 	= texColor.a * diffuse.a;
-	
-	finalColor.rgb 	= (texColor.rgb + diffuse.rgb)* lightPower * g_HDR_sunLightIntensity;	
-	return finalColor;
+float lightPower = saturate(dot(worldNormal.xyz, -g_lightDirection));
+//float lightPower = dot(worldNormal.xyz, -g_lightDirection) * 0.8f + 0.2f);
+
+float4 texColor = tex2D(g_sampler, tex.xy).rgba;
+float4 finalColor = texColor;
+
+finalColor.a = texColor.a * diffuse.a;
+
+#ifdef USE_DIFFUSETEX_ANIMATION
+if (g_DiffuseAnimationTM._24 > 0.f)
+{
+	float4 mask = tex2D(uvAnimMaskTex, tex.zw);
+	finalColor.a *= mask.r;
+}
+#endif
+
+finalColor.rgb = (texColor.rgb + diffuse.rgb)* lightPower * g_HDR_sunLightIntensity;
+return finalColor;
 }
 
 // ======== Effect Process with BG Image
-float4 PS_ShakeProcess( in float4 diffuse : COLOR,
-						in float2 tex: TEXCOORD0,
-						in float4 ScrPos: TEXCOORD1
-						) : COLOR
-{	
-    float4 finalColor = tex2D(g_sampler, tex.xy) * diffuse;		
+float4 PS_ShakeProcess(in float4 diffuse : COLOR,
+	in float4 tex : TEXCOORD0,
+	in float4 ScrPos : TEXCOORD1
+) : COLOR
+{
+	float4 finalColor = tex2D(g_sampler, tex.xy) * diffuse;
 	float alpha = finalColor.a;
 
 	if (alpha > 0.0f)
@@ -555,37 +620,45 @@ float4 PS_ShakeProcess( in float4 diffuse : COLOR,
 		finalColor.rgb = tex2D(g_bgSampler, scrTexOut.xy).rgb;
 		finalColor.a = 0.9f;
 
+#ifdef USE_DIFFUSETEX_ANIMATION
+		if (g_DiffuseAnimationTM._24 > 0.f)
+		{
+			float4 mask = tex2D(uvAnimMaskTex, tex.zw);
+			finalColor.a *= mask.r;
+		}
+#endif
+
 		finalColor.rgb *= g_overrideAlpha;
-	}	
+	}
 	return finalColor;
 }
 
 float4 PS_GetPixelAverage(float2 uv, float range)
 {
-	float2 uvHorzLeft	= uv;
-	float2 uvHorzRight	= uv;
-	float2 uvVertUp		= uv;
-	float2 uvVertDown	= uv;
-	
-	uvHorzLeft.x	-= range;
-	uvHorzRight.x	+= range;
-	uvVertUp.y		-= range;
-	uvVertDown.y	+= range;	
-	
+	float2 uvHorzLeft = uv;
+	float2 uvHorzRight = uv;
+	float2 uvVertUp = uv;
+	float2 uvVertDown = uv;
+
+	uvHorzLeft.x -= range;
+	uvHorzRight.x += range;
+	uvVertUp.y -= range;
+	uvVertDown.y += range;
+
 	float4 totalColor = 0;
-	totalColor += tex2D(g_bgSampler, uvHorzLeft);			
-	totalColor += tex2D(g_bgSampler, uvHorzRight);			
-	totalColor += tex2D(g_bgSampler, uvVertUp);			
+	totalColor += tex2D(g_bgSampler, uvHorzLeft);
+	totalColor += tex2D(g_bgSampler, uvHorzRight);
+	totalColor += tex2D(g_bgSampler, uvVertUp);
 	totalColor += tex2D(g_bgSampler, uvVertDown);
-	
+
 	return totalColor;
 }
 
-float4 PS_BlurProcess(	in float4 diffuse: COLOR0,						
-						in float2 tex: TEXCOORD0,
-						in float4 ScrPos : TEXCOORD1
-						) : COLOR
-{		   
+float4 PS_BlurProcess(in float4 diffuse: COLOR0,
+	in float4 tex : TEXCOORD0,
+	in float4 ScrPos : TEXCOORD1
+) : COLOR
+{
 	float4 finalColor = tex2D(g_sampler, tex.xy) * diffuse;
 	float alpha = finalColor.a;
 
@@ -593,91 +666,116 @@ float4 PS_BlurProcess(	in float4 diffuse: COLOR0,
 	{
 		float2 scrTexOut = GetScreenTex(ScrPos);
 
-	    float rangeStep = 0.01f * g_Power * alpha;
+		float rangeStep = 0.01f * g_Power * alpha;
 		float4 totalColor = tex2D(g_bgSampler, scrTexOut);
 
-		for ( int i = 0; i < 4; i++ )
+		for (int i = 0; i < 4; i++)
 		{
 			totalColor += PS_GetPixelAverage(scrTexOut, rangeStep * i);
-		}	
-		
+		}
+
 		totalColor /= 17;
-		
+
 		finalColor.rgb = totalColor.rgb;
 		finalColor.a = 0.9f;
-		finalColor.rgb *= g_overrideAlpha; 
 
-	}		
+#ifdef USE_DIFFUSETEX_ANIMATION
+		if (g_DiffuseAnimationTM._24 > 0.f)
+		{
+			float4 mask = tex2D(uvAnimMaskTex, tex.zw);
+			finalColor.a *= mask.r;
+		}
+#endif
+
+		finalColor.rgb *= g_overrideAlpha;
+
+	}
 	return finalColor;
 }
 
-float4 PS_NoiseProcess(	in float4 diffuse: COLOR0,						
-						in float2 tex: TEXCOORD0,
-						in float4 ScrPos : TEXCOORD1
-						) : COLOR
-{		   
+float4 PS_NoiseProcess(in float4 diffuse: COLOR0,
+	in float4 tex : TEXCOORD0,
+	in float4 ScrPos : TEXCOORD1
+) : COLOR
+{
 	float4 finalColor = tex2D(g_sampler, tex.xy) * diffuse;
 	float alpha = finalColor.a;
-				  					
-	if (alpha > 0.0f)	
+
+	if (alpha > 0.0f)
 	{
 		float2 scrTexOut = GetScreenTex(ScrPos);
-		
+
 		float2 offsetTex = scrTexOut;
 		offsetTex *= 600;
-		
+
 		scrTexOut.x += (alpha * sin(offsetTex.y) * g_Power * 0.01f);
 		scrTexOut.y += (alpha * sin(offsetTex.x) * g_Power * 0.01f);
-		
+
 		if (scrTexOut.x  < 0.00f)
 			scrTexOut.x = 0.00f;
-			
+
 		if (scrTexOut.x  > 0.99f)
 			scrTexOut.x = 0.99f;
 
-        if (scrTexOut.y  < 0.01f)
+		if (scrTexOut.y  < 0.01f)
 			scrTexOut.y = 0.01f;
-			
+
 		if (scrTexOut.y  > 0.99f)
 			scrTexOut.y = 0.99f;
-				
-		finalColor.rgb = tex2D(g_bgSampler, scrTexOut).rgb;	
+
+		finalColor.rgb = tex2D(g_bgSampler, scrTexOut).rgb;
 		finalColor.a = 0.9f;
 	}
 
-	finalColor.rgb *= g_overrideAlpha; 
+#ifdef USE_DIFFUSETEX_ANIMATION
+	if (g_DiffuseAnimationTM._24 > 0.f)
+	{
+		float4 mask = tex2D(uvAnimMaskTex, tex.zw);
+		finalColor.a *= mask.r;
+	}
+#endif
+
+	finalColor.rgb *= g_overrideAlpha;
 
 	return finalColor;
 }
 
 float4 PS_DistortionProcess(in float4 diffuse: COLOR0,
-						in float2 tex: TEXCOORD0,
-						in float4 ScrPos : TEXCOORD1
-						) : COLOR
-{		   
-	float4 finalColor = tex2D(g_sampler, tex.xy) * diffuse;	
-	float alpha = finalColor.a;	
-				  					
-	if (alpha > 0.0f)	
+	in float4 tex : TEXCOORD0,
+	in float4 ScrPos : TEXCOORD1
+) : COLOR
+{
+	float4 finalColor = tex2D(g_sampler, tex.xy) * diffuse;
+	float alpha = finalColor.a;
+
+	if (alpha > 0.0f)
 	{
-		float2 scrTexOut = GetScreenTex(ScrPos);				
-		float2 offsetTex = scrTexOut;		
-		
+		float2 scrTexOut = GetScreenTex(ScrPos);
+		float2 offsetTex = scrTexOut;
+
 		offsetTex.x = scrTexOut.x + (finalColor.r - 0.5f) * alpha * g_Power * 0.1f;
-		offsetTex.y = scrTexOut.y + (finalColor.g - 0.5f) * alpha * g_Power * 0.1f;		
+		offsetTex.y = scrTexOut.y + (finalColor.g - 0.5f) * alpha * g_Power * 0.1f;
 		scrTexOut = offsetTex;
-		
-        if (scrTexOut.x  < 0.01f)
+
+		if (scrTexOut.x  < 0.01f)
 			scrTexOut.x = 0.01f;
-			
+
 		if (scrTexOut.x  > 0.99f)
 			scrTexOut.x = 0.99f;
-				
-		finalColor.rgb = tex2D(g_bgSampler, scrTexOut).rgb;		
+
+		finalColor.rgb = tex2D(g_bgSampler, scrTexOut).rgb;
 		finalColor.a = 0.9f;
 	}
 
-	finalColor.rgb *= g_overrideAlpha; 
+#ifdef USE_DIFFUSETEX_ANIMATION
+	if (g_DiffuseAnimationTM._24 > 0.f)
+	{
+		float4 mask = tex2D(uvAnimMaskTex, tex.zw);
+		finalColor.a *= mask.r;
+	}
+#endif
+
+	finalColor.rgb *= g_overrideAlpha;
 
 	return finalColor;
 }
@@ -706,33 +804,33 @@ float4 PS_Decal(in float4 ScrPos : TEXCOORD0,
 {
 	int nInstID = (int)(instID + 1e-5f);
 
-	float2 screeenPos;
-	screeenPos.x = ScrPos.x / ScrPos.w * 0.5f + 0.5f;
-	screeenPos.y = -ScrPos.y / ScrPos.w * 0.5f + 0.5f;
-	
-	float fDepth = tex2D(g_bgDepthSampler, screeenPos).g * 5000.f;
+float2 screeenPos;
+screeenPos.x = ScrPos.x / ScrPos.w * 0.5f + 0.5f;
+screeenPos.y = -ScrPos.y / ScrPos.w * 0.5f + 0.5f;
 
-	ViewRay = normalize(ViewRay);
-	float4 pos = float4(g_CamPos + ViewRay * fDepth, 1.f);
+float fDepth = tex2D(g_bgDepthSampler, screeenPos).g * 5000.f;
+
+ViewRay = normalize(ViewRay);
+float4 pos = float4(g_CamPos + ViewRay * fDepth, 1.f);
 
 #ifdef USE_DECAL
-	float3 f3DecalLocalPos = mul(pos, g_matInvWorldArr[nInstID]).xyz;
+float3 f3DecalLocalPos = mul(pos, g_matInvWorldArr[nInstID]).xyz;
 #else
-	float3 f3DecalLocalPos = mul(pos, g_InvWorldTM).xyz;
+float3 f3DecalLocalPos = mul(pos, g_InvWorldTM).xyz;
 #endif
-	clip(0.5f - abs(f3DecalLocalPos));
+clip(0.5f - abs(f3DecalLocalPos));
 
-	float2 f2DecalUV = f3DecalLocalPos.xz + 0.5f;
+float2 f2DecalUV = f3DecalLocalPos.xz + 0.5f;
 
-	float fDist = abs(f3DecalLocalPos.y);
-	float4 color = tex2D(g_sampler, f2DecalUV).rgba;
+float fDist = abs(f3DecalLocalPos.y);
+float4 color = tex2D(g_sampler, f2DecalUV).rgba;
 
 #ifdef USE_DECAL
-	color = color * g_colorArr[nInstID];
+color = color * g_colorArr[nInstID];
 #endif
-	color.a *= (1.f - max((fDist - 0.25f) / 0.25f, 0.f));
+color.a *= (1.f - max((fDist - 0.25f) / 0.25f, 0.f));
 
-	return color;
+return color;
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -740,43 +838,43 @@ float4 PS_Decal(in float4 ScrPos : TEXCOORD0,
 ////////////////////////////////////////////////////////////////////////////////////////////////////////
 technique TQ_Effect_Particle
 {
-    pass P0 {
+	pass P0 {
 		VertexShader = compile vs_3_0 VS_Effect();
 		PixelShader = compile ps_3_0 PS_MultiplyProcess();
-    }
-	
+	}
+
 	pass P1 {
 		VertexShader = compile vs_3_0 VS_Effect();
 		PixelShader = compile ps_3_0 PS_AdditiveProcess();
-    }
-	
+	}
+
 	pass P2 {
 		VertexShader = compile vs_3_0 VS_Effect();
-        PixelShader  = compile ps_3_0 PS_ExchangeProcess();
-    }				
-	
-    pass P3 {
+		PixelShader = compile ps_3_0 PS_ExchangeProcess();
+	}
+
+	pass P3 {
 		VertexShader = compile vs_3_0 VS_Effect();
-        PixelShader  = compile ps_3_0 PS_ShakeProcess();
-    }
-	
-    pass P4 {
+		PixelShader = compile ps_3_0 PS_ShakeProcess();
+	}
+
+	pass P4 {
 		VertexShader = compile vs_3_0 VS_Effect();
-        PixelShader  = compile ps_3_0 PS_BlurProcess();
-    }
-	
+		PixelShader = compile ps_3_0 PS_BlurProcess();
+	}
+
 	pass P5 {
 		VertexShader = compile vs_3_0 VS_Effect();
-        PixelShader  = compile ps_3_0 PS_NoiseProcess();
-    }
-	
+		PixelShader = compile ps_3_0 PS_NoiseProcess();
+	}
+
 	pass P6 {
 		VertexShader = compile vs_3_0 VS_Effect();
-        PixelShader  = compile ps_3_0 PS_DistortionProcess();
-    }
-	
+		PixelShader = compile ps_3_0 PS_DistortionProcess();
+	}
+
 	pass P7 {
-        PixelShader  = compile ps_3_0 PS_ScreenProcess();
+		PixelShader = compile ps_3_0 PS_ScreenProcess();
 	}
 }
 
@@ -831,89 +929,89 @@ technique TQ_Effect_ParticleInstancing_Frk
 }
 
 technique TQ_Effect_Model
-{	
-	 pass P0 {
+{
+	pass P0 {
 		VertexShader = compile vs_3_0 VS_Effect_Model();
-        PixelShader  = compile ps_3_0 PS_MultiplyProcess();
-    }
-	
+		PixelShader = compile ps_3_0 PS_MultiplyProcess();
+	}
+
 	pass P1 {
 		VertexShader = compile vs_3_0 VS_Effect_Model();
-        PixelShader  = compile ps_3_0 PS_AdditiveProcess();
-    }
-	
+		PixelShader = compile ps_3_0 PS_AdditiveProcess();
+	}
+
 	pass P2 {
 		VertexShader = compile vs_3_0 VS_Effect_Model();
-        PixelShader  = compile ps_3_0 PS_ExchangeProcess();
-    }
-	
+		PixelShader = compile ps_3_0 PS_ExchangeProcess();
+	}
+
 	pass P3 {
 		VertexShader = compile vs_3_0 VS_Effect_Model();
-        PixelShader  = compile ps_3_0 PS_LightingProcess();
-    }
-	
+		PixelShader = compile ps_3_0 PS_LightingProcess();
+	}
+
 	pass P4 {
 		VertexShader = compile vs_3_0 VS_Effect_Model();
-        PixelShader  = compile ps_3_0 PS_ShakeProcess();
-    }
-	
-    pass P5 {
+		PixelShader = compile ps_3_0 PS_ShakeProcess();
+	}
+
+	pass P5 {
 		VertexShader = compile vs_3_0 VS_Effect_Model();
-        PixelShader  = compile ps_3_0 PS_BlurProcess();
-    }
-	
+		PixelShader = compile ps_3_0 PS_BlurProcess();
+	}
+
 	pass P6 {
 		VertexShader = compile vs_3_0 VS_Effect_Model();
-        PixelShader  = compile ps_3_0 PS_NoiseProcess();
-    }
-	
+		PixelShader = compile ps_3_0 PS_NoiseProcess();
+	}
+
 	pass P7 {
 		VertexShader = compile vs_3_0 VS_Effect_Model();
-        PixelShader  = compile ps_3_0 PS_DistortionProcess();
-    }
+		PixelShader = compile ps_3_0 PS_DistortionProcess();
+	}
 }
 
 technique TQ_Effect_AniModel
 {
 	pass P0 {
-		VertexShader = compile vs_3_0 VS_Effect_AniModel(); 
-        PixelShader  = compile ps_3_0 PS_MultiplyProcess();       
-    }
-	
+		VertexShader = compile vs_3_0 VS_Effect_AniModel();
+		PixelShader = compile ps_3_0 PS_MultiplyProcess();
+	}
+
 	pass P1 {
 		VertexShader = compile vs_3_0 VS_Effect_AniModel();
-        PixelShader  = compile ps_3_0 PS_AdditiveProcess();
-    }
-	
+		PixelShader = compile ps_3_0 PS_AdditiveProcess();
+	}
+
 	pass P2 {
 		VertexShader = compile vs_3_0 VS_Effect_AniModel();
-        PixelShader  = compile ps_3_0 PS_ExchangeProcess();
-    }
-	
+		PixelShader = compile ps_3_0 PS_ExchangeProcess();
+	}
+
 	pass P3 {
 		VertexShader = compile vs_3_0 VS_Effect_AniModel();
-        PixelShader  = compile ps_3_0 PS_LightingProcess();
-    }
-	
+		PixelShader = compile ps_3_0 PS_LightingProcess();
+	}
+
 	pass P4 {
 		VertexShader = compile vs_3_0 VS_Effect_AniModel();
-        PixelShader  = compile ps_3_0 PS_ShakeProcess();
-    }
-	
-    pass P5 {
+		PixelShader = compile ps_3_0 PS_ShakeProcess();
+	}
+
+	pass P5 {
 		VertexShader = compile vs_3_0 VS_Effect_AniModel();
-        PixelShader  = compile ps_3_0 PS_BlurProcess();
-    }
-	
+		PixelShader = compile ps_3_0 PS_BlurProcess();
+	}
+
 	pass P6 {
 		VertexShader = compile vs_3_0 VS_Effect_AniModel();
-        PixelShader  = compile ps_3_0 PS_NoiseProcess();
-    }
-	
+		PixelShader = compile ps_3_0 PS_NoiseProcess();
+	}
+
 	pass P7 {
 		VertexShader = compile vs_3_0 VS_Effect_AniModel();
-        PixelShader  = compile ps_3_0 PS_DistortionProcess();
-    }
+		PixelShader = compile ps_3_0 PS_DistortionProcess();
+	}
 }
 
 technique Decal

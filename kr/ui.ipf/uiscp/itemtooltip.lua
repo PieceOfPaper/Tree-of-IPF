@@ -355,8 +355,7 @@ function DRAW_SELL_PRICE(tooltipframe, invitem, yPos, mainframename)
 	return yPos + tooltip_sellinfo_CSet:GetHeight();
 end
 
-function DRAW_REMAIN_LIFE_TIME(tooltipframe, invitem, yPos, mainframename)
-	
+function DRAW_REMAIN_LIFE_TIME(tooltipframe, invitem, yPos, mainframename)	
 	local itemProp = geItemTable.GetPropByName(invitem.ClassName);
     if itemProp:IsEnableShopTrade() == false and itemProp.LifeTime == 0 then
         return yPos
@@ -368,18 +367,28 @@ function DRAW_REMAIN_LIFE_TIME(tooltipframe, invitem, yPos, mainframename)
 	local tooltip_lifeTimeinfo_CSet = gBox:CreateControlSet('tooltip_lifeTimeinfo', 'tooltip_lifeTimeinfo', 0, yPos);
 	tolua.cast(tooltip_lifeTimeinfo_CSet, "ui::CControlSet");
 
+	local expire_datetime = TryGetProp(invitem, 'ExpireDateTime', 'None')
+
 	local lifeTime_text = GET_CHILD(tooltip_lifeTimeinfo_CSet,'lifeTime','ui::CRichText');
-		
-	if string.find(invitem.ItemLifeTime, "None") ~= nil then
+	if string.find(invitem.ItemLifeTime, "None") ~= nil and expire_datetime == 'None'  then
 		local timeTxt = GET_TIME_TXT(invitem.LifeTime);
-		lifeTime_text:SetTextByKey("p_LifeTime", timeTxt );
+		lifeTime_text:SetTextByKey("p_LifeTime", timeTxt );				
 	else
-	local sysTime = geTime.GetServerSystemTime();
-	local endTime = imcTime.GetSysTimeByStr(invitem.ItemLifeTime);
-	local difSec = imcTime.GetDifSec(endTime, sysTime);
-	lifeTime_text:SetUserValue("REMAINSEC", difSec);
-	lifeTime_text:SetUserValue("STARTSEC", imcTime.GetAppTime());
-	lifeTime_text:RunUpdateScript("SHOW_REMAIN_LIFE_TIME");
+		if expire_datetime == 'None' then
+			local sysTime = geTime.GetServerSystemTime();
+			local endTime = imcTime.GetSysTimeByStr(invitem.ItemLifeTime);
+			local difSec = imcTime.GetDifSec(endTime, sysTime);
+			lifeTime_text:SetUserValue("REMAINSEC", difSec);
+			lifeTime_text:SetUserValue("STARTSEC", imcTime.GetAppTime());
+			lifeTime_text:RunUpdateScript("SHOW_REMAIN_LIFE_TIME");		
+		else
+			local sysTime = geTime.GetServerSystemTime();
+			local endTime = imcTime.GetSysTimeByYYMMDDHHMMSS(expire_datetime);
+			local difSec = imcTime.GetDifSec(endTime, sysTime);
+			lifeTime_text:SetUserValue("REMAINSEC", difSec);
+			lifeTime_text:SetUserValue("STARTSEC", imcTime.GetAppTime());
+			lifeTime_text:RunUpdateScript("SHOW_REMAIN_LIFE_TIME");		
+		end
 	end
 
 	local BOTTOM_MARGIN = tooltipframe:GetUserConfig("BOTTOM_MARGIN"); -- 맨 아랫쪽 여백

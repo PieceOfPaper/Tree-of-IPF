@@ -1,5 +1,19 @@
 -- equip_tooltip.lua
 
+local function replace(text, to_be_replaced, replace_with)
+	local retText = text
+	local strFindStart, strFindEnd = string.find(text, to_be_replaced)	
+    if strFindStart ~= nil then
+		local nStringCnt = string.len(text)		
+		retText = string.sub(text, 1, strFindStart-1) .. replace_with ..  string.sub(text, strFindEnd+1, nStringCnt)		
+    else
+        retText = text
+	end
+	
+    return retText
+end
+
+
 function ITEM_TOOLTIP_WEAPON(tooltipframe, invitem, strarg, usesubframe)
 	ITEM_TOOLTIP_EQUIP(tooltipframe, invitem, strarg, usesubframe)
 end
@@ -1084,7 +1098,9 @@ function DRAW_EQUIP_ARK_DESC(tooltipframe, invitem, yPos, mainframename)
 	local tooltip_type = 1
 
 	local desc = ""
-
+	
+	class_name = replace(class_name, 'PVP_', '')
+	
 	local func_str = string.format('get_tooltip_%s_arg%d', class_name, 2)		
 	local tooltip_func = _G[func_str]  -- get_tooltip_Ark_str_arg1 시리즈
 	if tooltip_func ~= nil then
@@ -2003,6 +2019,8 @@ end
 local function _CREATE_ARK_LV(gBox, ypos, step, class_name, curlv)
 	local margin = 5;
 
+	class_name = replace(class_name, 'PVP_', '')
+
 	local func_str = string.format('get_tooltip_%s_arg%d', class_name, step)
     local tooltip_func = _G[func_str]  -- get_tooltip_Ark_str_arg1 시리즈
 	if tooltip_func ~= nil then
@@ -2050,6 +2068,8 @@ end
 -- 옵션 text 추가 
 local function _CREATE_ARK_OPTION(gBox, ypos, step, class_name)
 	local margin = 5;
+
+	class_name = replace(class_name, 'PVP_', '')
 
 	local func_str = string.format('get_tooltip_%s_arg%d', class_name, step)
     local tooltip_func = _G[func_str]  -- get_tooltip_Ark_str_arg1 시리즈
@@ -2116,8 +2136,10 @@ end
 
 -- 현재 아크 레벨, 레벨에 따른 옵션 증가 내용 
 function DRAW_ARK_LV(tooltipframe, invitem, ypos, mainframename)
-	local class_name = TryGetProp(invitem, 'ClassName', 'None')
+	local class_name = TryGetProp(invitem, 'ClassName', 'None')	
 	if class_name == 'None' then return; end
+
+	class_name = replace(class_name, 'PVP_', '')
 
 	local gBox = GET_CHILD(tooltipframe, mainframename);
 	if gBox == nil then return; end
@@ -2145,6 +2167,8 @@ end
 function DRAW_ARK_OPTION(tooltipframe, invitem, ypos, mainframename)
 	local class_name = TryGetProp(invitem, 'ClassName', 'None')
 	if class_name == 'None' then return; end
+
+	class_name = replace(class_name, 'PVP_', '')
 
 	local gBox = GET_CHILD(tooltipframe, mainframename);
 	if gBox == nil then return; end

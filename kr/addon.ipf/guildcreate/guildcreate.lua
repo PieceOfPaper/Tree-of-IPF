@@ -1,8 +1,6 @@
 
 function GUILDCREATE_ON_INIT(addon, frame)
-
-	
-	
+    addon:RegisterMsg('ENABLE_CREATE_GUILD_NAME', 'ENABLE_CREATE_GUILD_NAME');	
 end
 
 function GUILDCREATE_ON_MSG(frame, msg, argStr, argNum)
@@ -42,21 +40,6 @@ function GUILD_CREATE_UPDATE(frame)
 end
 
 function REQ_CREATE_GUILD(frame, obj, argStr, argNum)
-
-	CREATE_GUILD(frame);
-end
-
-function CLEAR_GUILDCREATE_INPUT()
-
-	local frame = ui.GetFrame('guildcreate');
-	local editbox = GET_CHILD(frame, 'input');
-	editbox:SetText("");	
-	editbox:AcquireFocus();
-	
-end
-
-function CREATE_GUILD(frame)
-
 	local curVis = GET_GUILD_MAKE_PRICE();
 	if IsGreaterThanForBigNumber(curVis, GET_TOTAL_MONEY_STR()) == 1 then
 		ui.SysMsg(ScpArgMsg("NotEnoughMoney"));
@@ -65,9 +48,33 @@ function CREATE_GUILD(frame)
 
 	local editbox = GET_CHILD(frame, 'input');
 	if ui.IsValidCharacterName(editbox:GetText()) == true then
-        CreateGuild(editbox:GetText())
+        pc.CheckUseName("GuildName", editbox:GetText(), "ENABLE_CREATE_GUILD_NAME");
 	end
-		frame:ShowWindow(0);
-	
 end
 
+function CLEAR_GUILDCREATE_INPUT()
+
+	local frame = ui.GetFrame('guildcreate');
+	local editbox = GET_CHILD(frame, 'input');
+	editbox:SetText("");	
+	editbox:AcquireFocus();
+end
+
+function ENABLE_CREATE_GUILD_NAME(frame, msg, argStr, argNum)
+	local frame = ui.GetFrame("guildcreate");
+	local editbox = GET_CHILD(frame, 'input');
+	local guildName = editbox:GetText();
+
+	local yesScp = string.format("CREATE_GUILD(\"%s\")", guildName);
+	local msg = ScpArgMsg("PossibleChangeName_2{Name}", "Name", guildName).." {nl}"..ScpArgMsg("ReallCreate?");
+	local msgBox = ui.MsgBox(msg, yesScp, "None");	
+end
+
+function CREATE_GUILD(guildName)
+	if ui.IsValidCharacterName(guildName) == true then
+		CreateGuild(guildName);
+		
+		local frame = ui.GetFrame("guildcreate");
+		frame:ShowWindow(0);
+	end
+end

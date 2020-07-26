@@ -958,12 +958,16 @@ function EXEC_CHANGE_NAME_PET(inputframe, ctrl)
     end
 
     local changedName = GET_INPUT_STRING_TXT(inputframe);
+
+    if ui.IsValidCharacterName(changedName) == false then        
+        return;
+    end
     
     local petInfoFrame = ui.GetFrame("pet_info");
     local petGuid = petInfoFrame:GetUserValue("PET_GUID");
     local petInfo = session.pet.GetPetByGUID(petGuid);
     if petInfo == nil then
-	return;
+		return;
     end
 
     OPEN_CHECK_USER_MIND_BEFOR_YES(inputframe, "petName", changedName, petInfo:GetName(), petGuid);

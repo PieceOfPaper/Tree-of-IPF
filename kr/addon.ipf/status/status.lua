@@ -23,6 +23,9 @@ function STATUS_ON_INIT(addon, frame)
     addon:RegisterMsg('ADD_CHATBALLOON_SKIN', 'CHATBALLOON_INIT');
     addon:RegisterMsg('SET_MY_CHATBALLOON_SKIN', 'ON_SET_MY_CHATBALLOON_SKIN');
 
+    addon:RegisterMsg('ENABLE_CHANGE_TEAM_NAME_BY_ITME', 'ENABLE_CHANGE_TEAM_NAME_BY_ITME');
+    addon:RegisterMsg('ENABLE_CHANGE_GUILD_NAME_BY_ITME', 'ENABLE_CHANGE_GUILD_NAME_BY_ITME');
+
     STATUS_INFO_VIEW(frame);
 end
 
@@ -1707,12 +1710,16 @@ end
 CHAR_NAME_LEN = 20;
 
 function EXEC_CHANGE_NAME(inputframe, ctrl)
-
     if ctrl:GetName() == "inputstr" then
         inputframe = ctrl;
     end
 
     local changedName = GET_INPUT_STRING_TXT(inputframe);
+
+    if ui.IsValidCharacterName(changedName) == false then        
+        return;
+    end
+
     OPEN_CHECK_USER_MIND_BEFOR_YES(inputframe, "pcName", changedName, GETMYPCNAME(), "None");
 end
 
@@ -2411,10 +2418,71 @@ function EXEC_CHANGE_NAME_BY_ITEM(inputframe, ctrl)
     local itemType = newframe:GetUserValue("ItemType");
 
     local changedName = GET_INPUT_STRING_TXT(newframe);
-
     if ui.IsValidCharacterName(changedName) == false then        
         return;
     end
+	
+	local charName = nil;
+	if itemType == "PcName" then
+		charName = GETMYPCNAME(); 
+	elseif itemType == "TeamName" then
+		charName = GETMYFAMILYNAME();
+	elseif itemType == "GuildName" then
+		local guild = session.party.GetPartyInfo(PARTY_GUILD);
+		if guild == nil then
+			inputframe:ShowWindow(0);
+			return;
+		end
+        charName = guild.info.name;
+    elseif itemType == "Companionhire" then
+	else
+		return;
+    end
+    
+	if changedName == charName then
+		ui.SysMsg(ClMsg("SameName"));
+		return;
+    end
+    
+    if itemType == "TeamName" then
+        pc.CheckUseName(itemType, changedName, "ENABLE_CHANGE_TEAM_NAME_BY_ITME");
+    elseif itemType == "GuildName" then
+        pc.CheckUseName(itemType, changedName, "ENABLE_CHANGE_GUILD_NAME_BY_ITME");
+    else
+        OPEN_CHECK_USER_MIND_BEFOR_YES_BY_ITEM(inputframe, changedName, itemIES, itemType);
+    end
+end
+
+function ENABLE_CHANGE_TEAM_NAME_BY_ITME(frame, msg, argStr, result)
+    if result ~= 0 then
+        if result == -1 or result == -12 or result == -14 or result == -15 or result == -21 then
+			ui.SysMsg(ClMsg("TheTeamNameAlreadyExist"));
+	    elseif result == -11 or result == -13 then
+		    ui.SysMsg(ClMsg("ThisWorldExistFamilyName"));
+	    elseif result == -2 then
+	  	    ui.SysMsg(ClMsg("HadFobbidenWord"));
+	    else
+			ui.SysMsg(ClMsg("TeamNameChangeFailed"));
+		end
+
+        return;
+    end
+
+    local inputframe = ui.GetFrame("inputstring");
+
+    local itemIES = inputframe:GetUserValue("ItemIES");
+    local itemType = inputframe:GetUserValue("ItemType");
+    local changedName = GET_INPUT_STRING_TXT(inputframe);
+
+    OPEN_CHECK_USER_MIND_BEFOR_YES_BY_ITEM(inputframe, changedName, itemIES, itemType);
+end
+
+function ENABLE_CHANGE_GUILD_NAME_BY_ITME(frame, msg, argStr, argNum)
+    local inputframe = ui.GetFrame("inputstring");
+
+    local itemIES = inputframe:GetUserValue("ItemIES");
+    local itemType = inputframe:GetUserValue("ItemType");
+    local changedName = GET_INPUT_STRING_TXT(inputframe);
 
     OPEN_CHECK_USER_MIND_BEFOR_YES_BY_ITEM(inputframe, changedName, itemIES, itemType);
 end

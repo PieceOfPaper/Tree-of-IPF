@@ -212,3 +212,169 @@ function GET_ICOR_MULTIPLE_MAX_COUNT()
     
     return max_count
 end
+
+function GET_COMPOSITION_VIROBA_SOURCE_COUNT()
+    local max_count = 3
+    
+    return max_count
+end
+-- Lv1 바이보라 장비 또는 아이커
+function IS_COMPOSABLE_VIRORA(item)
+    local group_name = TryGetProp(item, 'GroupName', 'None')
+    if group_name == 'None' then
+        return false, 'None'
+    end
+
+    if group_name == 'Icor' then
+        local class_name = TryGetProp(item, 'InheritanceItemName', 'None')
+        local cls = GetClass('Item', class_name)
+        if cls ~= nil then
+            if TryGetProp(cls, 'StringArg', 'None') == 'Vibora' and TryGetProp(cls, 'NumberArg1', 0) == 1 then
+                return true, TryGetProp(cls, 'ClassName', 'None')
+            end
+        end
+    else    
+        if TryGetProp(item, 'StringArg', 'None') == 'Vibora' and TryGetProp(item, 'NumberArg1', 0) == 1 then
+            return true, TryGetProp(item, 'ClassName', 'None')
+        end
+    end
+
+    return false, 'None'
+end
+
+
+-- 바이보라 업그레이드
+function GET_UPGRADE_VIROBA_SOURCE_COUNT()
+    local max_count = 2;
+    
+    return max_count
+end
+
+-- 가능여부, ClassName, NumberArg1
+function CAN_UPGRADE_VIBORA(item)
+    local group_name = TryGetProp(item, 'GroupName', 'None')
+    if group_name == 'None' then
+        return false, 'None', 0
+    end
+
+    if group_name == 'Icor' then
+        local class_name = TryGetProp(item, 'InheritanceItemName', 'None')
+        local cls = GetClass('Item', class_name)
+        if cls ~= nil then
+            if TryGetProp(cls, 'StringArg', 'None') == 'Vibora' then
+                return true, TryGetProp(cls, 'ClassName', 'None'), TryGetProp(cls, 'NumberArg1', 0)
+            end
+        end
+    else    
+        if TryGetProp(item, 'StringArg', 'None') == 'Vibora' then
+            return true, TryGetProp(item, 'ClassName', 'None'), TryGetProp(item, 'NumberArg1', 0)
+        end
+    end
+    return false, 'None', 0
+end
+
+-- 바이보라 연성제인가?
+function IS_UPGARDE_VIBORA_MISC(item, goal_lv)
+    if TryGetProp(item, 'StringArg', 'None') == 'UpgadeVibora' and TryGetProp(item, 'NumberArg1', 0) == goal_lv then
+        return true
+    end
+    return false
+end
+
+function GET_REQUIRED_VIBORA_MISC_COUNT(goal_lv)
+    if goal_lv == 2 then
+        return 20
+    end
+    return 20
+end
+
+-- 연성된 결과로 얻을 아이템 ClassName를 가져온다.
+function GET_UPGRADE_VIBORA_ITEM_NAME(item)
+    local group_name = TryGetProp(item, 'GroupName', 'None')
+    if group_name == 'None' then
+        return 'None'
+    end
+
+    if group_name == 'Icor' then
+        local class_name = TryGetProp(item, 'InheritanceItemName', 'None')
+        local cls = GetClass('Item', class_name)
+        if cls ~= nil then
+            item = cls            
+        end    
+    end
+
+    if TryGetProp(item, 'StringArg', 'None') ~= 'Vibora' then
+        return 'None'
+    end
+
+    local lv = TryGetProp(item, 'NumberArg1', 0)
+    if lv < 1 then
+        return 'None'
+    end
+
+    local class_name = TryGetProp(item, 'ClassName', 'None')
+
+    local vibora_name = ''
+    local token = StringSplit(class_name, '_')
+    local end_count = #token - 1
+
+    local goal_lv = lv + 1;
+    if goal_lv == 2 then
+        end_count = end_count + 1
+    end
+
+    local i = 1
+    for i = 1, end_count do
+        vibora_name = vibora_name .. token[i] .. '_'
+    end
+    
+    vibora_name = vibora_name .. 'Lv' .. tostring(goal_lv)
+
+    return vibora_name
+end
+
+-- 리스트 중 check_count 까지 모두 동일한 아이템인가? 같은 종류 아이커/장비, NumberArg1 수치
+ function IS_VALID_UPGRADE_VIBORA_ITEM_LIST(list, check_count)
+    if #list < check_count or check_count < 1 then
+        return false, 'None', 0
+    end
+
+    local dic_name = {}
+    local dic_lv = {}
+    local level = 0
+    local class_name = ''
+    
+    for i = 1, check_count do
+        local ret, name, lv = CAN_UPGRADE_VIBORA(list[i])
+        
+        if ret == false then            
+            return false, 'None', 0
+        end
+        
+        dic_name[name] = 1        
+        dic_lv[lv] = 1
+        if level == 0 then
+            level = lv
+        end
+        if class_name == '' then
+            class_name = name
+        end
+    end
+
+    local name_count = 0
+    local lv_count = 0
+
+    for k, v in pairs(dic_name) do        
+        name_count = name_count + 1
+    end
+
+    for k, v in pairs(dic_lv) do
+        lv_count = lv_count + 1
+    end
+
+    if name_count ~= 1 or lv_count ~= 1 then
+        return false, 'None', 0
+    end
+
+    return true, class_name, level
+ end

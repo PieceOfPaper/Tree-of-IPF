@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<uiframe name="upgrade_vibora" x="0" y="0" width="500" height="1160" create="open">
+	<draw drawtitlebar="false"/>
+	<skin frameskin="None"/>
+	<frame fullheight="true" fasthide="true" layout_gravity="left top" open="pip" margin="-470 0 0 0"/>
+	<layer layerlevel="80"/>
+	<option closebutton="false"/>
+	<sound opensound="window_open" closesound="window_close"/>
+	<script OpenScp="UPGRADE_VIBORA_OPEN" CloseScp="UPGRADE_VIBORA_CLOSE"/>
+	<userconfig RESULT_EFFECT="UI_item_parts2_success" UPGRADE_MAT_DEFAULT="바이보라 연성제"/>
+	<controls>
+		<groupbox name="bg"	rect="0 0 500 1030" margin="0 0 0 0" layout_gravity="center top" draw="true" hittestbox="false" resizebyparent="false" resizebyresolution="true" skin="test_frame_low"/>
+		<groupbox name="pipwin_top" rect="0 0 500 60" margin="0 0 0 0" layout_gravity="center top" draw="true" hittestbox="false" resizebyparent="false" scrollbar="false" skin="test_frame_top"/>
+		<richtext name="title" rect="0 0 120 24" margin="0 17 0 0" layout_gravity="center top" drawbackground="false" fixwidth="false" fontname="white_16_ol" maxwidth="0" resizebytext="true" slideshow="false" spacey="0" textalign="left top" updateparent="false" format="{@st43}%s" param1="value" param1_def="바이보라 연성"/>
+		<button name="close" rect="0 0 44 44" margin="0 15 28 0" layout_gravity="right top" oversound="button_over" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" clicksound="button_click_big" image="testclose_button" LBtnUpScp="UPGRADE_VIBORA_CLOSE"/>
+		<slot name="slot_1" rect="0 0 120 120" margin="-80 140 0 0" layout_gravity="center top" movepop="false" dropsound="icon_get_down" picksound="icon_pick_up" skin="invenslot2" RBtnUpArgNum='1' RBtnUpScp="UPGRADE_VIBORA_ITEM_POP" DropArgNum='1' DropScp="UPGRADE_VIBORA_ITEM_DROP"/>
+		<picture name="slot_img_1" parent="slot_1" rect="0 0 100 100" margin="0 0 0 0" layout_gravity="center center" image="socket_slot_bg" stretch="true" hittest="false"/>
+		<slot name="slot_2" rect="0 0 120 120" margin="80 140 0 0" layout_gravity="center top" movepop="false" dropsound="icon_get_down" picksound="icon_pick_up" skin="invenslot2" RBtnUpArgNum='2' RBtnUpScp="UPGRADE_VIBORA_ITEM_POP" DropArgNum='2' DropScp="UPGRADE_VIBORA_ITEM_DROP"/>
+		<picture name="slot_img_2" parent="slot_2" rect="0 0 100 100" margin="0 0 0 0" layout_gravity="center center" image="socket_slot_bg" stretch="true" hittest="false"/>
+		<richtext name="text_input" rect="0 0 400 30" margin="0 280 0 0" layout_gravity="center top" format="{@st43}{s20}%s" param1="value" param1_def="연성할 아이템을 올려주세요" fontname="white_16_b_ol"/>
+		<groupbox name="result_gb" rect="0 0 500 600" margin="0 385 0 0" layout_gravity="center top" draw="false"/>
+		<picture name="arrowpic" parent="result_gb" rect="0 0 60 60" margin="0 0 0 0" layout_gravity="center top" image="gold_arrow_below" stretch="true"/>
+		<slot name="result_slot" parent="result_gb" rect="0 0 140 140" margin="0 130 0 0" layout_gravity="center top" skin="invenslot2" enabledrop="false" enablepop="false" enabledrag="false"/>
+		<!-- matrial -->
+		<groupbox name="costBox" rect="0 0 470 150" margin="0 865 0 0" layout_gravity="center top" skin="test_frame_midle"/>
+		<richtext name="matrial_text" parent="costBox" rect="0 0 300 30" margin="10 10 0 0" layout_gravity="left top" caption="{@st42}재료"/>
+		<richtext name="matrial_name" parent="costBox" rect="0 0 300 30" margin="90 50 0 0" layout_gravity="left top" format="{@st42}{s20}%s" param1="value"/>
+		<slot name="matrial_slot" parent="costBox" rect="0 0 70 70" margin="10 50 0 0" layout_gravity="left top" skin="invenslot2" RBtnUpScp="UPGRADE_VIBORA_MATERIAL_POP" DropScp="UPGRADE_VIBORA_MATERIAL_DROP"/>
+		<richtext name="matrial_count" parent="costBox" rect="0 0 300 30" margin="0 50 20 0" layout_gravity="right top" format="{@st42}{s20}%s%s/%s" param1="style" param2="cur" param3="need"/>
+		<labelline name="line1" parent="costBox" rect="0 0 460 4" margin="0 35 0 0" layout_gravity="center top" skin="labelline_def2"/>
+		<!-- result -->
+		<groupbox name="reinfResultBox" rect="0 0 500 700" margin="0 320 0 0" layout_gravity="center top" draw="false" resizebyresolution="true" resizebyparent="true"/>
+		<picture name="successBgBox" parent="reinfResultBox" rect="0 0 507 500" margin="0 60 0 0" layout_gravity="center top" hittest="true" image="SUCCESS_gold_bg"/>
+		<picture name="successPic" parent="successBgBox" rect="0 0 401 150" hittest="false" image="BnYellow_skin" margin="0 240 0 0" stretch="true" layout_gravity="center top"/>
+		<slot name="successItem" parent="successBgBox" rect="0 0 140 140" margin="0 120 0 0" layout_gravity="center top" hittest="true"/>
+		<picture name="successTextPic" parent="successBgBox" rect="0 0 330 133" hittest="false" image="card_reinforce_SUCCESS" margin="0 240 0 0" stretch="true" layout_gravity="center top"/>
+		<button name="doBtn" rect="0 0 180 50" margin="0 0 0 70" layout_gravity="center bottom" skin="test_red_button" caption="{@st41b}{s18}연성" oversound="button_cursor_over_3" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" clicksound="button_click_big" LBtnUpScp="UPGRADE_VIBORA_BTN_CLICK"/>
+		<button name="resetBtn" rect="0 0 180 50" margin="0 0 0 70" layout_gravity="center bottom" skin="test_red_button" caption="{@st42}확인" LBtnUpScp="UPGRADE_VIBORA_UI_RESET"/>
+	</controls>
+</uiframe>

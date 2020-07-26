@@ -143,6 +143,9 @@
                     </Event>
                     <Event execCount="1" eventName="Reward_Cube">
                         <execList>
+                            <ToolScp Scp="MGAME_EXEC_ACTORSCP" Client="NO" UseSleep="NO">
+                                <Str Str="SCR_LEGEND_RAID_GLACIER_CUBE_MOVE_PC"/>
+                            </ToolScp>
                             <ToolScp Scp="EXEC_DUNGEON_GIVE_TAKE_SOBJ_ACHIEVE_TX" Client="NO" UseSleep="NO">
                                 <Str Str="Legend_Raid_Glacier_Normal"/>
                                 <Str Str="None"/>
@@ -643,6 +646,10 @@
                             </ToolScp>
                         </condList>
                         <execList>
+                            <ToolScp Scp="MGAME_EVT_SCP_TO_MON_CMD" Client="NO" UseSleep="NO">
+                                <MGameObj List="Boss_Pbeta/1/Boss_Pbeta/2/Boss_Pbeta/3"/>
+                                <Str Str="SCR_LEGEND_PBETA_KRUVINA_SPIRIT_BLACK_CRYSTAL_REMOVE_PAD"/>
+                            </ToolScp>
                             <ToolScp Scp="MGAME_MSG_ICON" Client="YES" UseSleep="NO">
                                 <Str Str="마기에 오염된 프베타를 처치하였습니다."/>
                                 <Str Str="Clear"/>
@@ -786,6 +793,10 @@
                             </ToolScp>
                         </condList>
                         <execList>
+                            <ToolScp Scp="MGAME_EVT_SCP_TO_MON_CMD" Client="NO" UseSleep="NO">
+                                <MGameObj List="Boss_Pbeta/1/Boss_Pbeta/2/Boss_Pbeta/3"/>
+                                <Str Str="SCR_LEGEND_PBETA_KRUVINA_SPIRIT_BLACK_CRYSTAL_REMOVE_PAD"/>
+                            </ToolScp>
                             <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
                                 <Str Str="GLACIER_ESSENCE_WARMTH"/>
                             </ToolScp>
@@ -856,7 +867,7 @@
                     <Event execCount="1" eventName="PointSetting">
                         <execList>
                             <ToolScp Scp="MGAME_SET_RANK_RESET_POINT_AND_LOG" Client="NO" UseSleep="NO">
-                                <Num Num="20"/>
+                                <Num Num="35"/>
                                 <Str Str="LegendRaid: Legend_Raid_Glacier_Easy"/>
                             </ToolScp>
                         </execList>

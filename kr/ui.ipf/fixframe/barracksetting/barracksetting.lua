@@ -1,5 +1,6 @@
 function BARRACKSETTING_ON_INIT(addon, frame)    
 	addon:RegisterMsg("BARRACK_NAME_CHANGE_RESULT", "ON_BARRACK_NAME_CHANGE_RESULT");
+	addon:RegisterMsg("BARRACK_SETTING_SAVE_CHECK", "BARRACK_SETTING_SAVE_CHECK");
 end
 
 function BARRACK_SETTING_OPEN(frame, ctrl, argStr, argNum)
@@ -20,7 +21,46 @@ function BARRACK_SETTING_SAVE(inputframe, ctrl)
 	end
 
 	local changedName = GET_INPUT_STRING_TXT(inputframe);
+	if ui.IsValidCharacterName(changedName) == false then
+		return;
+	end
+
+	local acc = session.barrack.GetMyAccount();
+	local charName = acc:GetFamilyName();
+	if changedName == charName then
+		ui.SysMsg(ClMsg("SameName"));
+		return;
+	end
+
+	ctrl:SetEnable(0);
+	barrack.ChangeBarrackNameCheck(changedName, "BARRACK_SETTING_SAVE_CHECK");
+	ReserveScript("BARRACK_SETTING_SAVE_BUTTON_UNFREEZE()", 2);
+end
+
+function BARRACK_SETTING_SAVE_CHECK(frame, msg, argStr, result)
+	if result ~= 0 then
+		if result == -1 or result == -12 or result == -14 or result == -15 or result == -21 then
+			ui.SysMsg(ClMsg("TheTeamNameAlreadyExist"));
+		elseif result == -11 or result == -13 then
+			ui.SysMsg(ClMsg("ThisWorldExistFamilyName"));
+		elseif result == -2 then
+			ui.SysMsg(ClMsg("HadFobbidenWord"));
+		else
+			ui.SysMsg(ClMsg("TeamNameChangeFailed"));
+		end
+
+        return;
+    end
+
+    local inputframe = ui.GetFrame("barrackthema");
+	local changedName = GET_INPUT_STRING_TXT(inputframe);
 	BARRACK_CHECK_USER_MIND_BEFOR_YES(inputframe, changedName);
+end
+
+function BARRACK_SETTING_SAVE_BUTTON_UNFREEZE()
+	local frame = ui.GetFrame("barrackthema");
+	local ctrl = GET_CHILD(frame, "save");	
+	ctrl:SetEnable(1);
 end
 
 function BARRACk_SETTING_CHECK_TP(barrackName)

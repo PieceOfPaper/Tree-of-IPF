@@ -126,6 +126,8 @@ function HOUSING_PROMOTE_POST_UPDATE(code, ret_json)
     housing_warp_btn:SetEventScriptArgString(ui.LBUTTONUP, parsed["channel_id"]);
 
     frame:ShowWindow(1);
+
+    session.housing.board.OpenPost(parsed["channel_id"]);
 end
 
 function HOUSING_PROMOTE_POST_THUMNAIL_UPDATE(code, pageID, filePath)
@@ -197,12 +199,13 @@ function HOUSING_PROMOTE_POST_WARP_HOUSE(parent, ctrl, aidx)
         return;
     end
 
-    local yesscp = string.format("HOUSING_PROMOTE_POST_REQUEST_POST_HOUST_WARP(%s)", aidx);
+    local yesscp = string.format("HOUSING_PROMOTE_POST_REQUEST_POST_HOUST_WARP(%s, 1)", aidx);
     ui.MsgBox(ScpArgMsg("ANSWER_JOIN_PH_1"), yesscp, "None");    
 end
 
-function HOUSING_PROMOTE_POST_REQUEST_POST_HOUST_WARP(aidx)
-    housing.RequestPostHouseWarp(aidx);
+function HOUSING_PROMOTE_POST_REQUEST_POST_HOUST_WARP(aidx, type)
+    
+    housing.RequestPostHouseWarp(aidx, tonumber(type));
 end
 
 ------------------ 마이 하우스 ------------------

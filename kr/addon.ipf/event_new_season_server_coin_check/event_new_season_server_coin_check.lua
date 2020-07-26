@@ -152,7 +152,10 @@ function CREATE_STAMP_TOUR_STATE_LIST(starty, listgb, isClear)
 	local y = starty;
 	local clsList, clsCnt = GetClassList("note_eventlist");
 	for i = 0, clsCnt - 1 do
-		local missionCls = GetClassByIndexFromList(clsList, i);
+		local missionCls = EVENT_STAMP_GET_CURRENT_MISSION("REGULAR_EVENT_STAMP_TOUR",i);
+		if missionCls == nil then
+			break
+		end
 		for j = 1, 3 do
 			local clearprop = TryGetProp(missionCls, "ClearProp"..j, 'None');
 			local clear = TryGetProp(accObj, clearprop, 'false');

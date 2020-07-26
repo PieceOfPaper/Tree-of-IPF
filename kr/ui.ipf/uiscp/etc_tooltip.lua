@@ -17,8 +17,8 @@ function ITEM_TOOLTIP_ETC(tooltipframe, invitem, argStr, usesubframe)
 	ypos = DRAW_ETC_PREVIEW_TOOLTIP(tooltipframe, invitem, ypos, mainframename);			-- 아이콘 확대해서 보여줌
 	ypos = DRAW_EQUIP_TRADABILITY(tooltipframe, invitem, ypos, mainframename);
 	
-	local isHaveLifeTime = TryGetProp(invitem, "LifeTime");	
-	if 0 == isHaveLifeTime then
+	local isHaveLifeTime = TryGetProp(invitem, "LifeTime", 0);	
+	if 0 == tonumber(isHaveLifeTime) and TryGetProp(invitem, 'ExpireDateTime', 'None') == 'None' then
 		ypos = DRAW_SELL_PRICE(tooltipframe, invitem, ypos, mainframename); -- 가격
 	else
 		ypos = DRAW_REMAIN_LIFE_TIME(tooltipframe, invitem, ypos, mainframename); -- 남은 시간

@@ -40,8 +40,13 @@ function PUSH_BACK_CONTENTS_INFO_CONTENTS_CATEGORY_LIST(cateType)
             return
         end
     end
-
+    
     g_contentsCategoryList[#g_contentsCategoryList + 1] = cateType
+    
+    local function contents_sort(a, b)
+        return a > b
+    end
+    table.sort(g_contentsCategoryList, contents_sort)
 end
 
 function UI_TOGGLE_INDUN()
@@ -278,8 +283,12 @@ function INDUNINFO_CREATE_CATEGORY(frame)
 
                 btn:Resize(categoryBtnWidth, categoryCtrl:GetHeight());
                 name:SetTextByKey("value", category);
-                countText:SetTextByKey('current', GET_CURRENT_ENTERANCE_COUNT(resetGroupID));
-                countText:SetTextByKey('max', GET_MAX_ENTERANCE_COUNT(resetGroupID));
+                if resetGroupID == -101 then
+                    countText:SetText(ScpArgMsg('ChallengeMode_HardMode_Count', 'Count', GET_CURRENT_ENTERANCE_COUNT(resetGroupID)))
+                else
+                    countText:SetTextByKey('current', GET_CURRENT_ENTERANCE_COUNT(resetGroupID));
+                    countText:SetTextByKey('max', GET_MAX_ENTERANCE_COUNT(resetGroupID));
+                end
                 if contentsCls.ResetPer == 'WEEK' then
                     cyclePicImg:SetImage(GET_INDUN_ICON_NAME('week_s'))
                 elseif contentsCls.ResetPer == 'DAY' then
@@ -420,7 +429,10 @@ function INDUNINFO_CATEGORY_LBTN_CLICK(categoryCtrl, ctrl)
                 end
         
                 --주간 입장인지, 일간 입장인지
-                if contentsCls.ResetPer == 'WEEK' then
+                if contentsCls.ResetGroupID == -101 then
+                    resetInfoText:ShowWindow(0);
+                    resetInfoText_Week:ShowWindow(0);
+                elseif contentsCls.ResetPer == 'WEEK' then
                     --주간
                     local resetText_wkeely = string.format('%s %s', ampm, resetTime);
                     resetInfoText_Week:SetTextByKey('resetTime', resetText_wkeely);
@@ -576,8 +588,11 @@ function GET_MAX_ENTERANCE_COUNT(resetGroupID)
                 break
             end
         end
-
-        return contentsCls.EnterableCount
+        local ret = contentsCls.EnterableCount
+        if ret == 0 then
+            ret = "{img infinity_text 20 10}"
+        end
+        return ret
     else
         local indunClsList, cnt = GetClassList('Indun');
         local indunCls = nil;
@@ -1013,6 +1028,8 @@ function INDUNINFO_MAKE_DETAIL_INFO_BOX(frame, indunClassID)
 
     -- count
     local countData = GET_CHILD_RECURSIVELY(frame, 'countData');
+    local countData2 = GET_CHILD_RECURSIVELY(frame, 'countData2');
+    countData2:ShowWindow(0);
     local cycleImage = GET_CHILD_RECURSIVELY(frame, 'cyclePic');
 
     -- skill restriction
@@ -1334,6 +1351,7 @@ function INDUNINFO_MAKE_DETAIL_INFO_BOX_OTHER(frame, indunClassID)
 
     -- count
     local countData = GET_CHILD_RECURSIVELY(frame, 'countData');
+    local countData2 = GET_CHILD_RECURSIVELY(frame, 'countData2');
     local cycleImage = GET_CHILD_RECURSIVELY(frame, 'cyclePic');
 
     -- skill restriction
@@ -1343,8 +1361,16 @@ function INDUNINFO_MAKE_DETAIL_INFO_BOX_OTHER(frame, indunClassID)
     local countItemData = GET_CHILD_RECURSIVELY(frame, 'countItemData');
     local resetGroupID = contentsCls.ResetGroupID
     
-    countData:SetTextByKey('now', GET_CURRENT_ENTERANCE_COUNT(resetGroupID));
-    countData:SetTextByKey('max', GET_MAX_ENTERANCE_COUNT(resetGroupID));
+    if resetGroupID == -101 then
+        countData2:SetTextByKey('now', GET_CURRENT_ENTERANCE_COUNT(resetGroupID))
+        countData:ShowWindow(0)
+        countData2:ShowWindow(1)
+    else
+        countData:SetTextByKey('now', GET_CURRENT_ENTERANCE_COUNT(resetGroupID));
+        countData:SetTextByKey('max', GET_INDUN_MAX_ENTERANCE_COUNT(resetGroupID));
+        countData2:ShowWindow(0)
+        countData:ShowWindow(1)
+    end
 
     if contentsCls.ResetPer == 'WEEK' then
         cycleImage:SetImage(GET_INDUN_ICON_NAME('week_l'))
@@ -1361,7 +1387,6 @@ function INDUNINFO_MAKE_DETAIL_INFO_BOX_OTHER(frame, indunClassID)
     local cycleCtrlPic = GET_CHILD_RECURSIVELY(countBox, 'cycleCtrlPic');
 
     countText:SetText(ScpArgMsg("IndunAdmissionItemReset"))
-    countData:ShowWindow(1);
     countItemData:ShowWindow(0);
     cycleCtrlPic:ShowWindow(0);
 
@@ -1399,6 +1424,13 @@ function INDUNINFO_MAKE_DETAIL_INFO_BOX_OTHER(frame, indunClassID)
 
     DESTROY_CHILD_BYNAME(posBox, 'MAP_CTRL_');
     local mapList = StringSplit(contentsCls.StartMap, '/');
+    -- 챌린지 분열 특이점 모드 예외처리
+    if resetGroupID == -101 then
+        local sysTime = geTime.GetServerSystemTime();
+        -- 오늘 요일의 맵만 표시
+        local curMapName = mapList[sysTime.wDayOfWeek + 1]
+        mapList = { curMapName }
+    end
     for i = 1, #mapList do
         local mapCls = GetClass('Map', mapList[i]);        
         if mapCls ~= nil then

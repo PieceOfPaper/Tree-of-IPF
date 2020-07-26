@@ -209,6 +209,7 @@ function SCR_GET_STR(self)
     -- self.STR_ADD : 장비, 버프 등 가변적인 스탯 --
     -- GetExProp(self, "STR_TEMP") : 임시로 지정한 추가 스탯 (아마도 PVP 보정용?) --
     -- rewardProperty : 퀘스트 등에서 보상으로 지급한 스탯 (현재는 지급되는 곳 없음?) --
+    -- ALLSTAT : 올 스탯 증가 --
     
     local statString = "STR";
     
@@ -238,7 +239,7 @@ function SCR_GET_STR(self)
     if byTemp == nil then
         byTemp = 0;
     end
-    
+
     local rewardProperty = GET_REWARD_PROPERTY(self, statString);
     
     local value = defaultStat + byJob + byStat + byBonus + byAdd + byTemp + rewardProperty;
@@ -267,8 +268,13 @@ function SCR_GET_ADDSTR(self)
     if byItemBuff == nil then
         byItemBuff = 0
     end
-    
-    local value = byItem + byBuff + byItemBuff;
+
+    local byAllStat = TryGetProp(self, "ALLSTAT");
+    if byAllStat == nil then
+        byAllStat = 0;
+    end
+
+    local value = byItem + byBuff + byItemBuff + byAllStat;
     
     return math.floor(value);
 end
@@ -332,7 +338,12 @@ function SCR_GET_ADDDEX(self)
         byItemBuff = 0
     end
     
-    local value = byItem + byBuff + byItemBuff;
+    local byAllStat = TryGetProp(self, "ALLSTAT");
+    if byAllStat == nil then
+        byAllStat = 0;
+    end
+
+    local value = byItem + byBuff + byItemBuff + byAllStat;
     
     return math.floor(value);
 end
@@ -367,7 +378,7 @@ function SCR_GET_CON(self)
     if byTemp == nil then
         byTemp = 0;
     end
-    
+
     local rewardProperty = GET_REWARD_PROPERTY(self, statString);
     
     local byEnchant = 0;
@@ -384,8 +395,8 @@ function SCR_GET_CON(self)
         byEnchant = ((enchantByJob + enchantByStat + enchantByBonus + enchantByTemp + enchantRewardProp) / 20) * enchantCount;
     end
     
-    local value = defaultStat + byJob + byStat + byBonus + byAdd + byTemp + rewardProperty + byEnchant;
-	
+    local value = defaultStat + byJob + byStat + byBonus + byAdd + byTemp + rewardProperty;
+    
     if value < 1 then
         value = 1;
     end
@@ -410,8 +421,13 @@ function SCR_GET_ADDCON(self)
     if byItemBuff == nil then
         byItemBuff = 0
     end
+
+    local byAllStat = TryGetProp(self, "ALLSTAT");
+    if byAllStat == nil then
+        byAllStat = 0;
+    end
     
-    local value = byItem + byBuff + byItemBuff;
+    local value = byItem + byBuff + byItemBuff + byAllStat;
     
     return math.floor(value);
 end
@@ -445,7 +461,7 @@ function SCR_GET_INT(self)
     if byTemp == nil then
         byTemp = 0;
     end
-    
+
     local rewardProperty = GET_REWARD_PROPERTY(self, statString);
     
     local value = defaultStat + byJob + byStat + byBonus + byAdd + byTemp + rewardProperty;
@@ -474,8 +490,13 @@ function SCR_GET_ADDINT(self)
     if byItemBuff == nil then
         byItemBuff = 0
     end
+
+    local byAllStat = TryGetProp(self, "ALLSTAT");
+    if byAllStat == nil then
+        byAllStat = 0;
+    end
     
-    local value = byItem + byBuff + byItemBuff;
+    local value = byItem + byBuff + byItemBuff + byAllStat;
     
     return math.floor(value);
 end
@@ -511,7 +532,7 @@ function SCR_GET_MNA(self)
     end
     
     local rewardProperty = GET_REWARD_PROPERTY(self, statString);
-	
+    
     local value = defaultStat + byJob + byStat + byBonus + byAdd + byTemp + rewardProperty;
     
     if value < 1 then
@@ -538,8 +559,13 @@ function SCR_GET_ADDMNA(self)
     if byItemBuff == nil then
         byItemBuff = 0
     end
+
+    local byAllStat = TryGetProp(self, "ALLSTAT");
+    if byAllStat == nil then
+        byAllStat = 0;
+    end
     
-    local value = byItem + byBuff + byItemBuff;
+    local value = byItem + byBuff + byItemBuff + byAllStat;
     
     return math.floor(value);
 end
@@ -579,6 +605,46 @@ function SCR_GET_ADDLUCK(self)
     
     local value = byItem + byBuff + byItemBuff;
     
+    return math.floor(value);
+end
+
+-- done, 해당 함수 내용은 cpp로 이전되었습니다. 변경 사항이 있다면 반드시 프로그램팀에 알려주시기 바랍니다.
+function SCR_GET_ALLSTAT(self)
+    local byStat = TryGetProp(self, "ALLSTAT_STAT");
+    if byStat == nil then
+        byStat = 0;
+    end
+    
+    local byAdd = TryGetProp(self, "ALLSTAT_ADD");
+    if byAdd == nil then
+        byAdd = 0;
+    end
+    
+    local value = math.floor(byStat + byAdd);
+    return math.max(0, value);
+end
+
+-- done, 해당 함수 내용은 cpp로 이전되었습니다. 변경 사항이 있다면 반드시 프로그램팀에 알려주시기 바랍니다.
+function SCR_GET_ADDALLSTAT(self)
+    local statString = "ALLSTAT";
+    
+    local byItem = GetSumOfEquipItem(self, statString);
+    if byItem == nil then
+        byItem = 0;
+    end
+
+    local byBuff = TryGetProp(self, statString.."_BM");
+    if byBuff == nil then
+        byBuff = 0
+    end
+
+    local byItemBuff = TryGetProp(self, statString.."_ITEM_BM");
+    if byItemBuff == nil then
+        byItemBuff = 0
+    end
+
+    local value = byItem + byBuff + byItemBuff;
+
     return math.floor(value);
 end
 
@@ -737,23 +803,37 @@ function SCR_Get_MINPATK(self)
     
     local value = defaultValue + byLevel + byStat + byItem;
     
+    local maxAtk = 0;
+    local maxAtkList = { "MAXATK", "PATK", "ADD_MAXATK" };
+    for i = 1, #maxAtkList do
+        local maxAtkTemp = GetSumOfEquipItem(self, maxAtkList[i]);
+        if maxAtkTemp == nil then
+            maxAtkTemp = 0;
+        end
+        
+        maxAtk = maxAtk + maxAtkTemp;
+    end
+
     local leftMinAtk = 0;
     local leftHand = GetEquipItemForPropCalc(self, 'LH');
     if leftHand ~= nil then
         leftMinAtk = leftHand.MINATK;
+        maxAtk = maxAtk - leftHand.MAXATK;
     end
     
-    local throwItemMinAtk = 0;
-    local rightHand = GetEquipItemForPropCalc(self, 'RH');
-    if IsBuffApplied(self, 'Warrior_RH_VisibleObject') == 'YES' and rightHand ~= nil then
-        throwItemMinAtk = rightHand.MINATK;
+    local minAtkAdj = 0;
+    local adjRate = TryGetProp(self, 'PATKADJ_RATE_BM');
+    if adjRate ~= nil and adjRate > 0 then
+        if adjRate > 1 then
+            adjRate = 1
+        end
+        local atkDiff = maxAtk - (byItem - leftMinAtk);
+        if atkDiff > 0 then
+            minAtkAdj = atkDiff * adjRate;
+    end
     end
 
-    if IsServerSection(self) == 1 then
-        REFRESH_ITEM(self, rightHand);
-    end
-
-    value = value - leftMinAtk - throwItemMinAtk;
+    value = value - leftMinAtk + minAtkAdj;
 
     local byBuff = 0;
     local byBuffList = { "PATK_BM", "MINPATK_BM", "PATK_MAIN_BM", "MINPATK_MAIN_BM" };
@@ -829,17 +909,7 @@ function SCR_Get_MAXPATK(self)
         leftMaxAtk = leftHand.MAXATK;
     end
     
-    local throwItemMaxAtk = 0;
-    local rightHand = GetEquipItemForPropCalc(self, 'RH');
-    if IsBuffApplied(self, 'Warrior_RH_VisibleObject') == 'YES' and rightHand ~= nil then
-        throwItemMaxAtk = rightHand.MAXATK;
-    end
-
-    if IsServerSection(self) == 1 then
-        REFRESH_ITEM(self, rightHand);
-    end
-    
-    value = value - leftMaxAtk - throwItemMaxAtk;
+    value = value - leftMaxAtk;
     
     local byBuff = 0;
     local byBuffList = { "PATK_BM", "MAXPATK_BM", "PATK_MAIN_BM", "MAXPATK_MAIN_BM" };
@@ -904,17 +974,37 @@ function SCR_Get_MINPATK_SUB(self)
     
     local value = defaultValue + byLevel + byStat + byItem;
     
+    local maxAtk = 0;
+    local maxAtkList = { "MAXATK", "PATK", "ADD_MAXATK" };
+    for i = 1, #maxAtkList do
+        local maxAtkTemp = GetSumOfEquipItem(self, maxAtkList[i]);
+        if maxAtkTemp == nil then
+            maxAtkTemp = 0;
+        end
+        
+        maxAtk = maxAtk + maxAtkTemp;
+    end
+    
     local rightMinAtk = 0;
     local rightHand = GetEquipItemForPropCalc(self, 'RH');
     if rightHand ~= nil then
         rightMinAtk = rightHand.MINATK;
+        maxAtk = maxAtk - rightHand.MAXATK;
     end
 
-    if IsServerSection(self) == 1 then
-        REFRESH_ITEM(self, rightHand);
+    local minAtkAdj = 0;
+    local adjRate = TryGetProp(self, 'PATKADJ_SUB_RATE_BM');
+    if adjRate ~= nil and adjRate > 0 then
+        if adjRate > 1 then
+            adjRate = 1
+        end
+        local atkDiff = maxAtk - (byItem - rightMinAtk);
+        if atkDiff > 0 then
+            minAtkAdj = atkDiff * adjRate;
+        end
     end
     
-    value = value - rightMinAtk;
+    value = value - rightMinAtk + minAtkAdj;
     
     local byBuff = 0;
     local byBuffList = { "PATK_BM", "MINPATK_BM", "PATK_SUB_BM", "MINPATK_SUB_BM" };
@@ -1059,17 +1149,30 @@ function SCR_Get_MINMATK(self)
     
     local value = defaultValue + byLevel + byStat + byItem;
     
-    local throwItemMinMAtk = 0;
-    local rightHand = GetEquipItemForPropCalc(self, 'RH');
-    if IsBuffApplied(self, 'Warrior_RH_VisibleObject') == 'YES' and rightHand ~= nil then
-        throwItemMinMAtk = rightHand.MATK;
+    local maxAtk = 0;
+    local maxAtkList = { "MATK", "ADD_MATK", "ADD_MAXATK" };
+    for i = 1, #maxAtkList do
+        local maxAtkTemp = GetSumOfEquipItem(self, maxAtkList[i]);
+        if maxAtkTemp == nil then
+            maxAtkTemp = 0;
+        end
+        
+        maxAtk = maxAtk + maxAtkTemp;
     end
 
-    if IsServerSection(self) == 1 then
-        REFRESH_ITEM(self, rightHand);
+    local minAtkAdj = 0;
+    local adjRate = TryGetProp(self, 'MATKADJ_RATE_BM');
+    if adjRate ~= nil and adjRate > 0 then
+        if adjRate > 1 then
+            adjRate = 1
+        end
+        local atkDiff = maxAtk - byItem;
+        if atkDiff > 0 then
+            minAtkAdj = atkDiff * adjRate;
+        end
     end
     
-    value = value - throwItemMinMAtk;
+    value = value + minAtkAdj;
     
     local byBuff = 0;
     local byBuffList = { "MATK_BM", "MINMATK_BM" };

@@ -2501,6 +2501,7 @@ function TPSHOP_ITEM_BASKET_BUY(parent, control)
     local needWarningItemList = {};
     local noNeedWarning = {};
     local itemAndTPItemIDTable = {};
+	local itemNamelist = {};
 	local allPrice = 0;
 	for i = 0, slotCount - 1 do
 		local slotIcon	= slotset:GetIconByIndex(i);
@@ -2521,6 +2522,12 @@ function TPSHOP_ITEM_BASKET_BUY(parent, control)
 				noNeedWarning[#noNeedWarning + 1] = item;
 			end
 
+			if itemNamelist[item.Name] == nil then
+				itemNamelist[item.Name] = 1;
+			else
+				itemNamelist[item.Name] = itemNamelist[item.Name] + 1;
+			end
+			
             if IS_EQUIP(item) == true then
 		        local lv = GETMYPCLEVEL();
 		        local job = GETMYPCJOB();
@@ -2556,6 +2563,12 @@ function TPSHOP_ITEM_BASKET_BUY(parent, control)
 	        end
         end
 	end
+
+	local itemMsg = "{#0000FF}";
+	for k,v in pairs(itemNamelist) do 
+		itemMsg = itemMsg..string.format("%s x %d {nl}", k, v);
+	end
+	local msg = itemMsg.."{/} {nl}"..ScpArgMsg("PremiumTabBuyMsg{TP}{HAVE}{BASKET}{RET}", "TP", allPrice, "HAVE", GET_CASH_TOTAL_POINT_C(), "BASKET", allPrice, "RET", GET_CASH_TOTAL_POINT_C()-allPrice);
 	
 	if #needWarningItemList > 0 or #cannotEquip > 0 then
     	OPEN_TPITEM_POPUPMSG(needWarningItemList, noNeedWarning, cannotEquip, itemAndTPItemIDTable, allPrice);
@@ -2568,12 +2581,12 @@ function TPSHOP_ITEM_BASKET_BUY(parent, control)
 			end
 
 			if CHECK_LIMIT_PAYMENT_STATE_C() == true then
-        		ui.MsgBox_NonNested_Ex(ScpArgMsg("ReallyBuy?"), 0x00000004, parent:GetName(), "EXEC_BUY_MARKET_ITEM", "TPSHOP_ITEM_BASKET_BUY_CANCEL");	
+        		ui.MsgBox_NonNested_Ex(msg, 0x00000004, parent:GetName(), "EXEC_BUY_MARKET_ITEM", "TPSHOP_ITEM_BASKET_BUY_CANCEL");	
 			else
 				POPUP_LIMIT_PAYMENT(ScpArgMsg("ReallyBuy?"), parent:GetName(), allPrice)
 			end
 		else
-			ui.MsgBox_NonNested_Ex(ScpArgMsg("ReallyBuy?"), 0x00000004, parent:GetName(), "EXEC_BUY_MARKET_ITEM", "TPSHOP_ITEM_BASKET_BUY_CANCEL");	
+			ui.MsgBox_NonNested_Ex(msg, 0x00000004, parent:GetName(), "EXEC_BUY_MARKET_ITEM", "TPSHOP_ITEM_BASKET_BUY_CANCEL");	
 		end
 	end
 

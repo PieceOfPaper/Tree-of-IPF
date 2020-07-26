@@ -77,18 +77,29 @@ end
 function GET_ITEM_REMAIN_LIFETIME_BY_SEC(itemObj)
     local lifeTime = TryGetProp(itemObj, "ItemLifeTime");
     local lifeTimeOver = TryGetProp(itemObj, "ItemLifeTimeOver");
+    local expireDateTime = TryGetProp(itemObj, 'ExpireDateTime', 'None') 
 
     if lifeTimeOver == 1 then
         return "Expired"
     end
-    if lifeTime == nil or lifeTime == "None" then
+    if expireDateTime == 'None' and (lifeTime == nil or lifeTime == "None") then
         return "None"
     end
     
-    local expirationSysTime = imcTime.GetSysTimeByStr(lifeTime);
-    local nowSysTime = geTime.GetServerSystemTime();
-    local diffSec = imcTime.GetDifSec(expirationSysTime, nowSysTime);
-    return diffSec;
+    if lifeTime ~= 'None' or expireDateTime ~= 'None' then
+        if expireDateTime == 'None' then
+            local expirationSysTime = imcTime.GetSysTimeByStr(lifeTime);
+            local nowSysTime = geTime.GetServerSystemTime();
+            local diffSec = imcTime.GetDifSec(expirationSysTime, nowSysTime);
+            return diffSec;
+        else
+            local expired_time = TryGetProp(itemObj, 'ExpireDateTime', 'None')
+            local expirationSysTime = imcTime.GetSysTimeByYYMMDDHHMMSS(expired_time);
+            local nowSysTime = geTime.GetServerSystemTime();
+            local diffSec = imcTime.GetDifSec(expirationSysTime, nowSysTime);
+            return diffSec;
+        end
+    end
 end
 
 function COMPARE_BY_LIFETIME(itemObj1, itemObj2)
@@ -227,7 +238,7 @@ function ICON_SET_ITEM_REMAIN_LIFETIME(icon, invType)
         return;
     end
     
-    local remainTimeSec = GET_ITEM_REMAIN_LIFETIME_BY_SEC(obj);    
+    local remainTimeSec = GET_ITEM_REMAIN_LIFETIME_BY_SEC(obj);   
     if remainTimeSec ~= "None" then
         icon:SetDrawLifeTimeText(1)
 	    icon:SetOnLifeTimeUpdateScp('ICON_UPDATE_ITEM_REMAIN_LIFETIME');

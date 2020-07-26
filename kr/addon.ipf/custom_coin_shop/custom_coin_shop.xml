@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by Hey (IMCGames Co., Ltd) -->
+<uiframe name="custom_coin_shop" x="0" y="0" width="500" height="1100" create="open">
+	<frame fullheight="true" fasthide="true" layout_gravity="left top" margin="-450 0 0 0" open="pip" piptype="left"/>
+	<skin frameskin=" "/>
+	<draw drawtitlebar="false"/>
+	<layer layerlevel="98"/>
+	<option closebutton="false"/>
+	<sound opensound="skill_window_open" closesound="skill_window_close"/>
+	<effect open="skilltreeOpen" close="skilltreeClose"/>
+	<script OpenScp="OPEN_CUSTOM_COIN_SHOP" CloseScp="CLOSE_CUSTOM_COIN_SHOP"/>
+	<controls>
+		<!-- common -->
+		<groupbox name="bg2" rect="0 0 500 790" margin="0 30 0 0" layout_gravity="left top" draw="true" hittestbox="false" resizebyparent="true" scrollbar="false" skin="test_frame_low"/>
+		<groupbox name="pip4" rect="0 0 500 126" margin="0 0 0 0" layout_gravity="center top" draw="true" hittestbox="false" resizebyparent="false" scrollbar="false" skin="test_frame_top"/>
+		<richtext name="title" rect="0 0 200 80" margin="0 17 0 0" layout_gravity="center top" caption="{@st43}상점" textalign="left top"/>
+		<button name="close" rect="10 0 44 44" margin="0 20 37 0" layout_gravity="right top" LBtnUpArgNum="" LBtnUpScp="CLOSE_UI" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" caption="" clicksound="button_click_big" image="testclose_button" oversound="button_over" texttooltip="{@st59}하우징 상점을 닫습니다{/}"/>
+
+		<groupbox name="gbox_sell_list_landscape" rect="0 0 460 500" hittest="true" margin="0 70 0 0" skin="test_frame_low" layout_gravity="center top" draw="false" scrollbar="false" resizebyparent="true"/>
+		<groupbox name="gbox_search" parent="gbox_sell_list_landscape" rect="0 0 460 45" hittest="true" margin="0 0 0 0" layout_gravity="center top" draw="true" scrollbar="false" skin="test_frame_low"/>
+		<droplist name="droplist_search" parent="gbox_search" rect="0 0 100 30" margin="10 11 0 0" layout_gravity="left top" draw="true" SelectScp="CUSTOM_COIN_SHOP_SELECT_DROPLIST" frametextalign="left" listclicksound="button_click" listoversound="button_cursor_over_2" skin="droplist_normal" textalign="left center" defaultoffset="0 0" visibleline="4"/>
+		<groupbox name="gbox_searchSkin" parent="gbox_search" rect="0 0 340 28" margin="0 -1 8 0" layout_gravity="right center" draw="true" hittestbox="true" resizebyparent="false" scrollbar="false" skin="test_edit_skin"/>
+		<edit name="edit_itemSearch" parent="gbox_searchSkin" rect="0 0 290 26" margin="2 0 0 0" layout_gravity="left center" OffsetForDraw="0 -1" clicksound="button_click_big" drawbackground="false" fontname="white_18_ol" maxlen="40" oversound="button_over" skin="None" textalign="left top" EnterKeyScp="CUSTOM_COIN_SHOP_SEARCH" typingsound="chat_typing"/>
+		<button name="btn_itemSearch" parent="gbox_searchSkin" rect="0 0 60 26" margin="0 0 0 0" layout_gravity="right center" LBtnUpArgNum="" LBtnUpScp="CUSTOM_COIN_SHOP_SEARCH" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" clicksound="button_click_big" image="inven_s" oversound="button_over" stretch="true" texttooltip="{@st59}입력한 이름으로 검색합니다{/}"/>
+		<groupbox name="gbox_sell_list_item" parent="gbox_sell_list_landscape" rect="0 0 480 450" hittest="true" margin="-10 50 0 0" layout_gravity="center top" draw="false" scrollbar="true"/>
+		<grid name="grid_item_list" rect="0 0 460 450" parent="gbox_sell_list_item" margin="0 0 0 0" layout_gravity="center top" slotsize="440 50" slotspc="0 0"/>
+
+		<groupbox name="gbox_bottom" parent="bg2" rect="0 0 480 220" hittest="true" margin="0 0 0 12" layout_gravity="center bottom" draw="true" scrollbar="false" skin="test_frame_midle"/>
+		
+		<richtext name="buy_itemtext" parent="gbox_bottom" rect="0 0 90 20" margin="10 10 0 0" layout_gravity="left top" format="{img icon_item_pvpmine_2 30 30}{@st41b}구입 아이템{/} %s" param1="tax_rate" spacey="0" textalign="left center"/>
+		<richtext name="buy_price" parent="gbox_bottom" rect="0 0 90 20" margin="0 10 20 0" layout_gravity="right top" format="{@st41}%s{/}" param1="price1" param1_def="0" spacey="0" textalign="right center"/>
+		<slotset name="buyitemslot" parent="gbox_bottom" rect="0 0 336 42" margin="0 50 0 0" layout_gravity="center top" col="10" dropsound="inven_equip" enableselect="false" maxselect="10" RBtnUpScp="SCR_CUSTOM_COIN_SHOP_REMOVE_BUYLIST" oversound="button_cursor_over_3" picksound="icon_pick_up" row="1" size="42 42" skin="invenslot2" spc="2 2" enabledrag="false"/>
+		
+		<labelline name="boardLine_1" parent="gbox_bottom" rect="0 0 460 4" margin="0 112 0 0" layout_gravity="center top" skin="None" visible="true"/>
+		<richtext name="inven_Zenytext" parent="gbox_bottom" rect="0 0 78 20" margin="10 130 0 0" layout_gravity="left top" caption="{img icon_item_pvpmine_2 30 30}{@st41b}예상 잔액 ▶{/}" textalign="left center"/>
+		<richtext name="finalprice" parent="gbox_bottom" rect="0 0 220 20" margin="0 130 20 0" layout_gravity="right top" format="{@st66d_y}%s{/}" param1="price1" param1_def="0" spacey="0" textalign="right center"/>
+
+		<button name="slotinit" parent="gbox_bottom" rect="0 0 100 45" margin="17 0 0 5" layout_gravity="left bottom" LBtnUpScp="CUSTOM_COIN_SHOP_CLEAR_BUYLIST_ONCLICK" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" caption="{@st41b}비우기{/}" clicksound="button_click_big" oversound="button_cursor_over_2" skin="test_pvp_btn" textalign="center center" texttooltip="{@st59}장바구니를 비웁니다{/}"/>
+		<button name="sell" parent="gbox_bottom" rect="0 0 120 45" margin="0 0 17 5" layout_gravity="right bottom" LBtnUpScp="CUSTOM_COIN_SHOP_BUY_ITEM" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" caption="{@st41b}정산{/}" clicksound="button_click_big" oversound="button_over" skin="test_red_button" textalign="center center" textoffset="0 -2" texttooltip="{@st59}거래를 결정합니다{/}"/>
+	</controls>
+</uiframe>

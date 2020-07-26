@@ -60,20 +60,16 @@ function SCR_CLIENT_Premium_Change_Guild_Emblem(invItem)
 
 	detail:SetTextByKey("value", ScpArgMsg("UseItemToReset{value}AbilityPoints", "value", font..GET_COMMAED_STRING(getAbilPoint).."{/}", "value2", font..GET_COMMAED_STRING(getAbilPoint).."{/}", "value3", font..GET_COMMAED_STRING(curAbilPoint).."{/}"));
 	detail:ShowWindow(1);
-
-	local yesBtn = GET_CHILD_RECURSIVELY(frame, "button_1");
-	yesBtn:SetEventScript(ui.LBUTTONUP, '_ABILITY_POINT_RESET_C');
-	yesBtn:SetEventScriptArgString(ui.LBUTTONUP, invItem:GetIESID());
 end
 
-function _ABILITY_POINT_RESET_C(frame, msg, argStr, argNum)
+function _ABILITY_POINT_RESET_C(frame, itemGuid)
 	-- 변경된 마진을 초기화
 	local detail = GET_CHILD_RECURSIVELY(frame, "detail");
 	local curMargin = detail:GetMargin();
 	local originTop = frame:GetUserConfig("DETAIL_TOP");
 	detail:SetMargin(curMargin.left, originTop, curMargin.right, curMargin.bottom);
 
-	pc.ReqExecuteTx_Item("ABILITY_POINT_RESET", argStr, '0');
+	pc.ReqExecuteTx_Item("ABILITY_POINT_RESET", itemGuid, '0');
 end
 
 -- 아츠 특성 초기화
@@ -142,13 +138,15 @@ function ABILITY_POINT_RESET_ARTS_C(invItem)
 	local abilMarginTop = frame:GetUserConfig("DETAIL_ARTS_TOP");
 	detail:SetMargin(curMargin.left, abilMarginTop, curMargin.right, curMargin.bottom);
 	detail:ShowWindow(1);
-
-	local yesBtn = GET_CHILD_RECURSIVELY(frame, "button_1");
-	yesBtn:SetEventScript(ui.LBUTTONUP, '_ABILITY_POINT_RESET_ARTS_C');
-	yesBtn:SetEventScriptArgString(ui.LBUTTONUP, invItem:GetIESID());
 end
 
-function _ABILITY_POINT_RESET_ARTS_C(frame, ctrl, itemGuid)
+function _ABILITY_POINT_RESET_ARTS_C(frame, itemGuid)
+	-- 변경된 마진을 초기화
+	local detail = GET_CHILD_RECURSIVELY(frame, "detail");
+	local curMargin = detail:GetMargin();
+	local originTop = frame:GetUserConfig("DETAIL_TOP");
+	detail:SetMargin(curMargin.left, originTop, curMargin.right, curMargin.bottom);
+
 	pc.ReqExecuteTx_Item("ABILITY_POINT_RESET_ARTS", itemGuid, '0');
 end
 

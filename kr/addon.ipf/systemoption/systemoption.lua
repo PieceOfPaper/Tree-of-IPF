@@ -127,6 +127,72 @@ function SYSTEMOPTION_PVP_SETTING_VIEW(frame)
 	SHOW_COLONY_GUILD_BUFF(frame);
 	SHOW_COLONY_ENEMY_BUFF(frame);	
 end
+
+function SYSTEMOPTION_PVP_SETTING_DEFAULT(frame)
+	if frame == nil then return; end
+	local chkShowPadSkillRange = GET_CHILD_RECURSIVELY(frame, "chkShowPadSkillRange", "ui::CCheckBox");
+	if chkShowPadSkillRange ~= nil then
+		local isCheck = config.IsEnableShowPadSkillRange();
+		chkShowPadSkillRange:SetCheck(isCheck);
+	end
+
+	local chkSimplifyBuffEffects = GET_CHILD_RECURSIVELY(frame, "chkSimplifyBuffEffects", "ui::CCheckBox");
+	if chkSimplifyBuffEffects ~= nil then
+		local isCheck = config.IsEnableSimplifyBuffEffects();
+		chkSimplifyBuffEffects:SetCheck(isCheck);
+	end
+
+	local chkSimplifyModel = GET_CHILD_RECURSIVELY(frame, "chkSimplifyModel", "ui::CCheckBox");
+	if chkSimplifyModel ~= nil then
+		local isCheck = config.IsEnableSimplifyModel();
+		chkSimplifyModel:SetCheck(isCheck);
+	end
+
+	local chkShowGuildInColony = GET_CHILD_RECURSIVELY(frame, "chkShowGuildInColony", "ui::CCheckBox");
+	if chkShowGuildInColony ~= nil then
+		local isCheck = config.GetShowGuildInColony();
+		chkShowGuildInColony:SetCheck(isCheck);
+	end
+
+	local chkShowGuildInColonyEffectCostume = GET_CHILD_RECURSIVELY(frame, "chkShowGuildInColonyEffectCostume", "ui::CCheckBox");
+	if chkShowGuildInColonyEffectCostume ~= nil then
+		local isCheck = config.GetShowGuildInColonyEffectCostume();
+		chkShowGuildInColonyEffectCostume:SetCheck(isCheck);
+	end
+
+	local chkShowGuilldInColonyGuildName = GET_CHILD_RECURSIVELY(frame, "chkShowGuilldInColonyGuildName", "ui::CCheckBox");
+	if chkShowGuilldInColonyGuildName ~= nil then
+		local isCheck = config.GetShowGuildInColonyGuildName();
+		chkShowGuilldInColonyGuildName:SetCheck(isCheck);
+	end
+
+	local isRadioCheck = config.GetShowGuildInColonyPartyHpGaugeSizeType();
+	if isRadioCheck == 0 then
+		local guildInColonyPartyhpInfoSize_0 = GET_CHILD_RECURSIVELY(frame, "guildInColonyPartyhpInfoSize_0", "ui::CRadioButton");
+		if guildInColonyPartyhpInfoSize_0 ~= nil then
+			guildInColonyPartyhpInfoSize_0:SetCheck(false);
+			config.SetShowGuildInColonyPartyHpGaugeSizeType(sizeType);
+		end
+	elseif isRadioCheck == 1 then
+		local guildInColonyPartyhpInfoSize_1 = GET_CHILD_RECURSIVELY(frame, "guildInColonyPartyhpInfoSize_1", "ui::CRadioButton");
+		if guildInColonyPartyhpInfoSize_1 ~= nil then
+			guildInColonyPartyhpInfoSize_1:SetCheck(true);
+		end
+	end
+
+	local value = config.GetDmgFontScale();
+	local dmgFontSizeController = GET_CHILD_RECURSIVELY(frame, "dmgFontSizeController", "ui::CSlideBar");
+	if dmgFontSizeController ~= nil then
+		config.SetDmgFontScale(value);
+		dmgFontSizeController:SetLevel(value * 100);
+	end
+
+	local dmgFontSizeController_text = GET_CHILD_RECURSIVELY(frame, "dmgFontSizeController_text", "ui::CRichText");
+	if dmgFontSizeController_text ~= nil then
+		local str = string.format("%.2f", value);
+		dmgFontSizeController_text:SetTextByKey("ctrlValue", str);
+	end
+end
 -- // System Option Tab Item End // --
 
 -- // Init Config // --
@@ -324,6 +390,8 @@ function INIT_GAMESYS_CONFIG(frame)
 	if isEnableEffectTransparency == 0 then
 		EFFECT_TRANSPARENCY_OFF();
 	end
+
+	SYSTEMOPTION_PVP_SETTING_DEFAULT(frame);	
 end
 
 function INIT_CONTROL_CONFIG(frame)

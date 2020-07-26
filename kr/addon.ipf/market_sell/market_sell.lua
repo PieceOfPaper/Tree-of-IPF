@@ -323,7 +323,7 @@ function IMPL_MARKET_SELL_UPDATE_REG_SLOT_ITEM(guid, tradeCount)
 	MARKET_SELL_REQUEST_PRICE_INFO(frame, invItem:GetIESID(), invItem.type);
 end
 
-function MARKET_SELL_RBUTTON_ITEM_CLICK(frame, invItem)
+function MARKET_SELL_LBUTTON_ITEM_CLICK(frame, invItem)
 	local groupbox = frame:GetChild("groupbox");
 	local edit_price = GET_CHILD_RECURSIVELY(groupbox, "edit_price", "ui::CEditControl");
 	local edit_count = GET_CHILD_RECURSIVELY(groupbox, "edit_count", "ui::CEditControl");

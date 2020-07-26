@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<uiframe name="event_stamp_tour_summer" x="0" y="0" width="750" height="950">
+	<frame fullheight="false" fasthide="true" layout_gravity="center center" margin="0 0 0 0" draw="false"/>
+	<skin frameskin="None"/>
+	<draw drawtitlebar="false"/>
+	<option visible="false" hideable="true" closebutton="false" moveable="true" alwaysVisible="false"/>
+	<layer layerlevel="100"/>
+	<animation frameOpenAnim="chat_balloon_start" frameCloseAnim="chat_balloon_end" margin="-100 -100 0 0"/>
+	<script OpenScp="OPEN_EVENT_STAMP_TOUR" CloseScp="CLOSE_EVENT_STAMP_TOUR"/>
+	<userconfig DESC_OFFSET_Y="0" LABEL_OFFSET_Y="55" REWARD_DESC_OFFSET_Y="18" REWARD_TEXT_FONT="black_14_b" REWARD_CLEAR_BG_ALPHA="100" REWARD_CHECK_BG_ALPHA="100"/>
+	<controls>
+		<!-- label -->
+		<tab name="label_tab" rect="0 0 147 730" margin="0 70 0 0" layout_gravity="right top" draw="false" itemspc="25" vertical="true"/>
+		<picture name="bg" rect="0 0 648 896" margin="0 0 0 0" layout_gravity="left top" image="vacation_note_bg" scrollbar="false" stretch="true" draw="true" hittest="true"/>
+		<button name="close" rect="0 0 44 44" margin="0 14 17 0" parent="bg" layout_gravity="right top" image="testclose_button" LBtnUpScp="ui.CloseFrame(&apos;event_stamp_tour_summer&apos;)" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" clicksound="button_click_big" oversound="button_over" draw="true"/>
+		<groupbox name="typename" rect="0 0 460 100" margin="0 80 0 0" parent="bg" layout_gravity="center top" skin="stamp_tour_title" scrollbar="false" stretch="true" draw="false" hittest="false"/>
+		<richtext name="typename_text" parent="typename" rect="0 0 150 45" margin="0 0 0 0" layout_gravity="center top" format="{@st43b}{s24}%s" param1="value" param1_def="분야"/>
+		<!-- misson -->
+		<groupbox name="misson_gb" rect="0 0 541 800" margin="0 120 0 0" parent="bg" layout_gravity="center top" scrollbar="false" stretch="true" draw="false"/>
+	</controls>
+</uiframe>
