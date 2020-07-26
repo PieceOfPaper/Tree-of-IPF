@@ -1,677 +1,741 @@
 <?xml version='1.0' encoding='utf-8'?>
 <ToolSkill>
 <Skill Name="Sorcerer_Desmodus">
-		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
-			<HitList>
-				<Frame Angle="0" AniTime="10199" Dist="0" ForceATK="0" HitCount="1" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" TermMax="0" TermMin="0" Time="9999" Type="FAN" />
-			</HitList>
-			<EtcList>
-				<Scp Client="NO" Scp="EFT_AND_HIT_ARROW" Time="0" UseSleep="YES">
-					<Pos Angle="2.2367001" Dist="0.75370902" />
-					<Pos Angle="0" Dist="200" />
-					<Str_Arg Arg="1" Str="None##0.3" />
-					<Num Num="25" />
-					<Num Num="0.0099999998" />
-					<Num Num="0.2" />
-					<Num Num="0" />
-					<Str_Arg Arg="1" Str="None" />
-					<Num Num="20" UseFunc="1" FuncTxt="local value = 20;
+        <MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+            <HitList>
+                <Frame Angle="0" AniTime="10199" Dist="0" ForceATK="0" HitCount="1" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" TermMax="0" TermMin="0" Time="9999" Type="FAN"/>
+            </HitList>
+            <EtcList>
+                <Scp Client="NO" Scp="EFT_AND_HIT_ARROW" Time="0" UseSleep="YES">
+                    <Pos Angle="2.2367001" Dist="0.75370902"/>
+                    <Pos Angle="0" Dist="200"/>
+                    <Str_Arg Arg="1" Str="None##0.3"/>
+                    <Num Num="25"/>
+                    <Num Num="0.0099999998"/>
+                    <Num Num="0.2"/>
+                    <Num Num="0"/>
+                    <Str_Arg Arg="1" Str="None"/>
+                    <Num Num="20" UseFunc="1" FuncTxt="local value = 20;
 local abil = GetAbility(self, 'Sorcerer23')
 if abil ~= nil and TryGetProp(abil, 'ActiveState', 0) == 1 then
 value = value * 2.5
 end
-return value" />
-					<Num Num="100" />
-					<Num Num="200" />
-					<Num Num="25" UseFunc="1" FuncTxt="local value = 25;
+return value"/>
+                    <Num Num="100"/>
+                    <Num Num="200"/>
+                    <Num Num="25" UseFunc="1" FuncTxt="local value = 25;
 local abil = GetAbility(self, 'Sorcerer23')
 if abil ~= nil and TryGetProp(abil, 'ActiveState', 0) == 1 then
 value = value * 1.2
 end
-return value" />
-					<Num Num="0.07" />
-					<Num Num="1" />
-					<Num Num="1000" />
-					<Num Num="3" />
-					<Num Num="30" />
-				</Scp>
-				<Scp Client="YES" Scp="C_VOICE_SOUND" Time="200" UseSleep="NO">
-					<Str Str="voice_war_atk_medium" />
-					<Str Str="voice_atk_medium_war_f" />
-				</Scp>
-			</EtcList>
-			<ResultList>
-				<ToolScp Client="NO" Scp="S_R_TGTBUFF" UseSleep="NO">
-					<Str Str="Desmodus_Debuff" />
-					<Num Num="1" />
-					<Num Num="0" />
-					<Num Num="20000" />
-					<Num Num="1" />
-					<Num Num="100" />
-					<Num Num="-1" />
-				</ToolScp>
-			</ResultList>
-		</MainSkl>
-	</Skill>
-	<Skill Name="Sorcerer_Evocation">
-		<KeyInput>
-			<ToolScp Client="YES" Scp="SKL_KEY_GROUND_EVENT" UseSleep="NO">
-				<Num Num="3" />
-				<Num Num="0" />
-				<Num Num="0" />
-				<Num Num="1" />
-				<Num Num="200" />
-				<Num Num="0.1" />
-				<Num Num="0" />
-				<Num Num="0" />
-				<Num Num="0" />
-				<Str_Arg Arg="1" Str="None" />
-				<Str Str="None" />
-				<Num Num="0" />
-				<Num Num="0" />
-				<Num Num="5" />
-				<Num Num="1" />
-				<Num Num="45" />
-				<Num Num="0" />
-				<Num Num="0" />
-				<Num Num="0" />
-				<Num Num="0" />
-			</ToolScp>
-		</KeyInput>
-		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
-			<HitList>
-				<Frame Angle="0" AniTime="9999" Dist="0" ForceATK="0" HitCount="1" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="9799" Type="FAN" />
-			</HitList>
-			<EtcList>
-				<Scp Client="YES" Scp="C_VOICE_SOUND" Time="0" UseSleep="NO">
-					<Str Str="voice_wiz_m_evocation_cast" />
-					<Str Str="voice_wiz_evocation_cast" />
-				</Scp>
-				<Scp Client="YES" Scp="C_EFFECT_POS" Time="0" UseSleep="NO">
-					<Str_Arg Arg="2.5" Str="I_smoke013_dark2" />
-					<Pos Angle="0" Dist="0" PosType="3" />
-					<Num Num="4" />
-					<Str Str="None" />
-				</Scp>
-				<Scp Client="YES" Scp="C_EFFECT_POS" Time="0" UseSleep="NO">
-					<Str_Arg Arg="0.60000002" Str="F_pattern007_dark_loop" />
-					<Pos Angle="0" Dist="0" PosType="3" />
-					<Num Num="2" />
-					<Str Str="None" />
-				</Scp>
-				<Scp Client="YES" Scp="MONSKL_C_PLAY_ANIM" Time="0" UseSleep="NO">
-					<Str Str="SKL_EVOCATION" />
-					<Num Num="2" />
-					<Num Num="1" />
-					<Num Num="0" />
-				</Scp>
-				<Scp Client="YES" Scp="C_EFFECT_POS" Time="400" UseSleep="NO">
-					<Str_Arg Arg="1" Str="F_spread_in024_red" />
-					<Pos Angle="0" Dist="0" Height="20" PosType="3" />
-					<Num Num="2" />
-					<Str Str="None" />
-				</Scp>
-				<Scp Client="YES" Scp="C_EFFECT_POS" Time="900" UseSleep="NO">
-					<Str_Arg Arg="3" Str="I_smoke_red2" />
-					<Pos Angle="0" Dist="0" Height="20" PosType="3" />
-					<Num Num="0" />
-					<Str Str="None" />
-				</Scp>
-				<Scp Client="YES" Scp="C_EFFECT_POS" Time="950" UseSleep="NO">
-					<Str_Arg Arg="0.80000001" Str="F_smoke005_dark" />
-					<Pos Angle="0" Dist="0" PosType="3" />
-					<Num Num="0" />
-					<Str Str="None" />
-				</Scp>
-				<Scp Client="NO" Scp="MONSKL_CRE_MON_SCR" Time="950" UseSleep="NO">
-					<Str FuncTxt="local etc = GetETCObject(self); if etc == nil then SkillCancel(self); return 'None'; end local cardIES = etc.Sorcerer_bosscardGUID2; if 'None' ~= cardIES then    local item = GetInvItemByGuid(self, cardIES); if nil == item then SkillCancel(self); return 'None'; end return etc.Sorcerer_bosscardName2;  end SkillCancel(self); return 'None';" Str="boss_NetherBovine" UseFunc="1" />
-					<Pos Angle="0" Dist="0" PosType="3" />
-					<Angle Angle="0" />
-					<Str Str="" />
-					<Str Str="None" />
-					<Num Num="0" />
-					<Num Num="0" />
-					<Str Str="follow_mon" />
-					<MonProp List="WlkMSPD#160#RunMSPD#160#$EVOCATION_MON#1" />
-					<Str Str="SORCERER_EVOCATION" />
-				</Scp>
-				<Scp Client="NO" Scp="SKL_SET_TGT_EXPROP_RECENT" Time="950" UseSleep="NO">
-					<Str Str="EVOCATION_MON" />
-					<Num Num="1" />
-				</Scp>
-				<Scp Client="NO" Scp="SKL_TGT_COLOR" Time="950" UseSleep="NO">
-					<Num Num="20" />
-					<Num Num="5" />
-					<Num Num="0" />
-					<Num Num="250" />
-				</Scp>
-				<Scp Client="NO" Scp="SORCER_ATTACH_EFFECT" Time="950" UseSleep="NO">
-					<Str_Arg Arg="0.40000001" Str="I_smoke013_dark3" />
-					<Num Num="1" />
-				</Scp>
-			</EtcList>
-		</MainSkl>
-		<ByCondSkills>
+return value"/>
+                    <Num Num="0.07"/>
+                    <Num Num="1"/>
+                    <Num Num="1000"/>
+                    <Num Num="3"/>
+                    <Num Num="30"/>
+                </Scp>
+                <Scp Scp="MONSKL_C_PLAY_ANIM" Client="YES" UseSleep="NO" Time="0">
+                    <Str Str="skl_desmodus"/>
+                    <Num Num="1"/>
+                    <Num Num="1"/>
+                    <Num Num="0"/>
+                </Scp>
+                <Scp Scp="C_VOICE_SOUND" Client="YES" UseSleep="NO" Time="200">
+                    <Str Str="voice_war_atk_medium"/>
+                    <Str Str="voice_atk_medium_war_f"/>
+                </Scp>
+            </EtcList>
+            <ResultList>
+                <ToolScp Client="NO" Scp="S_R_TGTBUFF" UseSleep="NO">
+                    <Str Str="Desmodus_Debuff"/>
+                    <Num Num="1"/>
+                    <Num Num="0"/>
+                    <Num Num="20000"/>
+                    <Num Num="1"/>
+                    <Num Num="100"/>
+                    <Num Num="-1"/>
+                </ToolScp>
+            </ResultList>
+        </MainSkl>
+        <ByCondSkills>
+            <SubSkl>
+                <Cond>
+                    <ToolScp Scp="SKL_SELECT_ABIL" Client="NO" UseSleep="NO">
+                        <Str Str="Sorcerer24"/>
+                    </ToolScp>
+                </Cond>
+                <Skill ScrLock="None" JumpFlee="NO" MSPDToUsePos="0">
+                    <HitList>
+                        <Frame Type="FAN" Time="9999" HitCount="1" TermMin="0" TermMax="0" PosType="0" Dist="0" RandDist="0" RandomPerHit="0" Angle="0" AniTime="10199" RotAngle="0" ForceATK="0" ScriptIndex="0" ScriptName="" SkillType="0"/>
+                    </HitList>
+                    <EtcList>
+                        <Scp Scp="SKL_SET_TARGET_SQUARE" Client="NO" UseSleep="NO" Time="0">
+                            <Pos Angle="0" Dist="0"/>
+                            <Num Num="0"/>
+                            <Num Num="250"/>
+                            <Num Num="50"/>
+                            <Num Num="20"/>
+                            <Num Num="2"/>
+                            <Num Num="0"/>
+                            <Num Num="0"/>
+                            <Num Num="0"/>
+                        </Scp>
+                        <Scp Scp="MONSKL_C_PLAY_ANIM" Client="YES" UseSleep="NO" Time="0">
+                            <Str Str="skl_desmodus_abil"/>
+                            <Num Num="1"/>
+                            <Num Num="1"/>
+                            <Num Num="0"/>
+                        </Scp>
+                        <Scp Scp="C_VOICE_SOUND" Client="YES" UseSleep="NO" Time="200">
+                            <Str Str="voice_war_atk_medium"/>
+                            <Str Str="voice_atk_medium_war_f"/>
+                        </Scp>
+                        <Scp Scp="SKL_TGT_BUFF" Client="NO" UseSleep="NO" Time="500">
+                            <Str Str="Desmodus_Debuff"/>
+                            <Num Num="1"/>
+                            <Num Num="0"/>
+                            <Num Num="20000"/>
+                            <Num Num="1"/>
+                            <Num Num="100"/>
+                            <Num Num="0"/>
+                            <Num Num="0"/>
+                        </Scp>
+                    </EtcList>
+                    <ResultList>
+                        <ToolScp Scp="S_R_TGTBUFF" Client="NO" UseSleep="NO">
+                            <Str Str="Desmodus_Debuff"/>
+                            <Num Num="1"/>
+                            <Num Num="0"/>
+                            <Num Num="20000"/>
+                            <Num Num="1"/>
+                            <Num Num="100"/>
+                            <Num Num="-1"/>
+                        </ToolScp>
+                    </ResultList>
+                </Skill>
+            </SubSkl>
+        </ByCondSkills>
+    </Skill>
+    <Skill Name="Sorcerer_Evocation">
+        <KeyInput>
+            <ToolScp Client="YES" Scp="SKL_KEY_GROUND_EVENT" UseSleep="NO">
+                <Num Num="3"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+                <Num Num="1"/>
+                <Num Num="200"/>
+                <Num Num="0.1"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+                <Str_Arg Arg="1" Str="None"/>
+                <Str Str="None"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+                <Num Num="5"/>
+                <Num Num="1"/>
+                <Num Num="45"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+            </ToolScp>
+        </KeyInput>
+        <MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+            <HitList>
+                <Frame Angle="0" AniTime="9999" Dist="0" ForceATK="0" HitCount="1" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="9799" Type="FAN"/>
+            </HitList>
+            <EtcList>
+                <Scp Client="YES" Scp="C_VOICE_SOUND" Time="0" UseSleep="NO">
+                    <Str Str="voice_wiz_m_evocation_cast"/>
+                    <Str Str="voice_wiz_evocation_cast"/>
+                </Scp>
+                <Scp Client="YES" Scp="C_EFFECT_POS" Time="0" UseSleep="NO">
+                    <Str_Arg Arg="2.5" Str="I_smoke013_dark2"/>
+                    <Pos Angle="0" Dist="0" PosType="3"/>
+                    <Num Num="4"/>
+                    <Str Str="None"/>
+                </Scp>
+                <Scp Client="YES" Scp="C_EFFECT_POS" Time="0" UseSleep="NO">
+                    <Str_Arg Arg="0.60000002" Str="F_pattern007_dark_loop"/>
+                    <Pos Angle="0" Dist="0" PosType="3"/>
+                    <Num Num="2"/>
+                    <Str Str="None"/>
+                </Scp>
+                <Scp Client="YES" Scp="MONSKL_C_PLAY_ANIM" Time="0" UseSleep="NO">
+                    <Str Str="SKL_EVOCATION"/>
+                    <Num Num="2"/>
+                    <Num Num="1"/>
+                    <Num Num="0"/>
+                </Scp>
+                <Scp Client="YES" Scp="C_EFFECT_POS" Time="400" UseSleep="NO">
+                    <Str_Arg Arg="1" Str="F_spread_in024_red"/>
+                    <Pos Angle="0" Dist="0" Height="20" PosType="3"/>
+                    <Num Num="2"/>
+                    <Str Str="None"/>
+                </Scp>
+                <Scp Client="YES" Scp="C_EFFECT_POS" Time="900" UseSleep="NO">
+                    <Str_Arg Arg="3" Str="I_smoke_red2"/>
+                    <Pos Angle="0" Dist="0" Height="20" PosType="3"/>
+                    <Num Num="0"/>
+                    <Str Str="None"/>
+                </Scp>
+                <Scp Client="YES" Scp="C_EFFECT_POS" Time="950" UseSleep="NO">
+                    <Str_Arg Arg="0.80000001" Str="F_smoke005_dark"/>
+                    <Pos Angle="0" Dist="0" PosType="3"/>
+                    <Num Num="0"/>
+                    <Str Str="None"/>
+                </Scp>
+                <Scp Client="NO" Scp="MONSKL_CRE_MON_SCR" Time="950" UseSleep="NO">
+                    <Str FuncTxt="local etc = GetETCObject(self); if etc == nil then SkillCancel(self); return 'None'; end local cardIES = etc.Sorcerer_bosscardGUID2; if 'None' ~= cardIES then    local item = GetInvItemByGuid(self, cardIES); if nil == item then SkillCancel(self); return 'None'; end return etc.Sorcerer_bosscardName2;  end SkillCancel(self); return 'None';" Str="boss_NetherBovine" UseFunc="1"/>
+                    <Pos Angle="0" Dist="0" PosType="3"/>
+                    <Angle Angle="0"/>
+                    <Str Str=""/>
+                    <Str Str="None"/>
+                    <Num Num="0"/>
+                    <Num Num="0"/>
+                    <Str Str="follow_mon"/>
+                    <MonProp List="WlkMSPD#160#RunMSPD#160#$EVOCATION_MON#1"/>
+                    <Str Str="SORCERER_EVOCATION"/>
+                </Scp>
+                <Scp Client="NO" Scp="SKL_SET_TGT_EXPROP_RECENT" Time="950" UseSleep="NO">
+                    <Str Str="EVOCATION_MON"/>
+                    <Num Num="1"/>
+                </Scp>
+                <Scp Client="NO" Scp="SKL_TGT_COLOR" Time="950" UseSleep="NO">
+                    <Num Num="20"/>
+                    <Num Num="5"/>
+                    <Num Num="0"/>
+                    <Num Num="250"/>
+                </Scp>
+                <Scp Client="NO" Scp="SORCER_ATTACH_EFFECT" Time="950" UseSleep="NO">
+                    <Str_Arg Arg="0.40000001" Str="I_smoke013_dark3"/>
+                    <Num Num="1"/>
+                </Scp>
+            </EtcList>
+        </MainSkl>
+        <ByCondSkills>
             <SubSkl>
                 <Cond>
                     <ToolScp Client="NO" Scp="SKL_SELECT_BUFF" UseSleep="NO">
-                        <Str Str="VIBORA_STF_SORCERER" />
+                        <Str Str="VIBORA_STF_SORCERER"/>
                     </ToolScp>
                 </Cond>
-				<Skill JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
-					<HitList>
-						<Frame Angle="0" AniTime="9999" Dist="0" ForceATK="0" HitCount="1" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="9799" Type="FAN"/>
-					</HitList>
-					<EtcList>
-						<Scp Client="YES" Scp="C_VOICE_SOUND" Time="0" UseSleep="NO">
-							<Str Str="voice_wiz_m_evocation_cast"/>
-							<Str Str="voice_wiz_evocation_cast"/>
-						</Scp>
-						<Scp Client="YES" Scp="C_EFFECT_POS" Time="0" UseSleep="NO">
-							<Str_Arg Arg="2.5" Str="I_smoke013_dark2"/>
-							<Pos Angle="0" Dist="0" PosType="3"/>
-							<Num Num="4"/>
-							<Str Str="None"/>
-						</Scp>
-						<Scp Client="YES" Scp="C_EFFECT_POS" Time="0" UseSleep="NO">
-							<Str_Arg Arg="0.60000002" Str="F_pattern007_dark_loop"/>
-							<Pos Angle="0" Dist="0" PosType="3"/>
-							<Num Num="2"/>
-							<Str Str="None"/>
-						</Scp>
-						<Scp Client="YES" Scp="MONSKL_C_PLAY_ANIM" Time="0" UseSleep="NO">
-							<Str Str="SKL_EVOCATION"/>
-							<Num Num="2"/>
-							<Num Num="1"/>
-							<Num Num="0"/>
-						</Scp>
-						<Scp Client="YES" Scp="C_EFFECT_POS" Time="400" UseSleep="NO">
-							<Str_Arg Arg="1" Str="F_spread_in024_red"/>
-							<Pos Angle="0" Dist="0" Height="20" PosType="3"/>
-							<Num Num="2"/>
-							<Str Str="None"/>
-						</Scp>
-						<Scp Client="YES" Scp="C_EFFECT_POS" Time="900" UseSleep="NO">
-							<Str_Arg Arg="3" Str="I_smoke_red2"/>
-							<Pos Angle="0" Dist="0" Height="20" PosType="3"/>
-							<Num Num="0"/>
-							<Str Str="None"/>
-						</Scp>
-						<Scp Client="YES" Scp="C_EFFECT_POS" Time="950" UseSleep="NO">
-							<Str_Arg Arg="0.80000001" Str="F_smoke005_dark"/>
-							<Pos Angle="0" Dist="0" PosType="3"/>
-							<Num Num="0"/>
-							<Str Str="None"/>
-						</Scp>
-						<Scp Client="YES" Scp="C_EFFECT_POS" Time="950" UseSleep="NO">
-							<Str_Arg Arg="1.5" Str="F_wizard_SummonDemon2_cast_ground"/>
-							<Pos Angle="0" Dist="0" PosType="3"/>
-							<Num Num="0"/>
-							<Str Str="None"/>
-						</Scp>
-						<Scp Client="NO" Scp="MONSKL_CRE_MON_SCR" Time="950" UseSleep="NO">
-							<Str FuncTxt="local etc = GetETCObject(self); if etc == nil then SkillCancel(self); return 'None'; end local cardIES = etc.Sorcerer_bosscardGUID2; if 'None' ~= cardIES then    local item = GetInvItemByGuid(self, cardIES); if nil == item then SkillCancel(self); return 'None'; end return etc.Sorcerer_bosscardName2;  end SkillCancel(self); return 'None';" Str="boss_NetherBovine" UseFunc="1"/>
-							<Pos Angle="0" Dist="0" PosType="3"/>
-							<Angle Angle="0"/>
-							<Str Str=""/>
-							<Str Str="PC_Summon"/>
-							<Num Num="0"/>
-							<Num Num="0"/>
-							<Str Str="None"/>
-							<MonProp List="WlkMSPD#160#RunMSPD#160#$EVOCATION_MON#1"/>
-							<Str Str="SORCERER_EVOCATION_VIBORA"/>
-						</Scp>
-						<Scp Client="NO" Scp="SKL_SET_TGT_EXPROP_RECENT" Time="950" UseSleep="NO">
-							<Str Str="EVOCATION_MON"/>
-							<Num Num="1"/>
-						</Scp>
-						<Scp Client="NO" Scp="SKL_TGT_COLOR" Time="950" UseSleep="NO">
-							<Num Num="20"/>
-							<Num Num="5"/>
-							<Num Num="0"/>
-							<Num Num="250"/>
-						</Scp>
-						<Scp Client="NO" Scp="SORCER_ATTACH_EFFECT" Time="950" UseSleep="NO">
-							<Str_Arg Arg="0.40000001" Str="I_smoke013_dark3"/>
-							<Num Num="1"/>
-						</Scp>
-					</EtcList>
-				</Skill>
-			</SubSkl>
-		</ByCondSkills>
-	</Skill>
-	<Skill Name="Sorcerer_SummonSalamion">
-		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
-			<HitList>
-				<Frame Angle="0" AniTime="10199" Dist="0" ForceATK="0" HitCount="1" Length="30" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453299" TermMax="0" TermMin="0" Time="9999" Type="FAN" Width="30" />
-			</HitList>
-			<EtcList>
-				<Scp Client="NO" Scp="MONSKL_KILL_FOL_EXPROP" Time="0" UseSleep="NO">
-					<Str Str="SORCERER_SUMMONSALOON" />
-					<Num Num="1" />
-				</Scp>
-				<Scp Client="YES" Scp="C_VOICE_SOUND" Time="0" UseSleep="NO">
-					<Str Str="voice_wiz_m_summonsallamyon_shot" />
-					<Str Str="voice_wiz_summonsallamyon_shot" />
-				</Scp>
-				<Scp Client="NO" Scp="MONSKL_CRE_MON_SCR" Time="1300" UseSleep="NO">
-					<Str Str="Saloon" />
-					<Pos Angle="0" Dist="20" />
-					<Angle Angle="0" />
-					<Str FuncTxt="local name = GetClassString(&quot;Monster&quot;, &quot;Saloon&quot;, &quot;Name&quot;); return SofS(name, self.Name);" Str="" UseFunc="1" />
-					<Str Str="PC_Summon" />
-					<Num Num="0" />
-					<Num FuncTxt=" return 300;" Num="5" UseFunc="1" />
-					<Str Str="None" />
-					<MonProp List="WlkMSPD#160#RunMSPD#160#$SORCERER_MON#1" />
-					<Str Str="SORCERER_SALOON" />
-				</Scp>
-				<Scp Client="NO" Scp="SKL_SET_TGT_EXPROP_RECENT" Time="1300" UseSleep="NO">
-					<Str Str="SORCERER_SUMMONSALOON" />
-					<Num Num="1" />
-				</Scp>
-			</EtcList>
-		</MainSkl>
-	</Skill>
-	<Skill Name="Sorcerer_SummonServant">
-		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
-			<HitList>
-				<Frame Angle="0" AniTime="10199" Dist="0" ForceATK="0" HitCount="1" Length="30" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453299" TermMax="0" TermMin="0" Time="9999" Type="FAN" Width="30" />
-			</HitList>
-			<EtcList>
-				<Scp Client="NO" Scp="MONSKL_KILL_FOL_EXPROP" Time="0" UseSleep="NO">
-					<Str Str="SORCERER_SUMMONSERVANT" />
-					<Num Num="1" />
-				</Scp>
-				<Scp Client="YES" Scp="C_EFFECT_POS" Time="0" UseSleep="NO">
-					<Str_Arg Arg="1.5" Str="F_wizard_shoggoth_cast_lineup" />
-					<Pos Angle="0" Dist="0" />
-					<Num Num="0" />
-					<Str Str="None" />
-				</Scp>
-				<Scp Client="YES" Scp="C_VOICE_SOUND" Time="0" UseSleep="NO">
-					<Str Str="voice_wiz_m_summonservant_shot" />
-					<Str Str="voice_wiz_summonservant_shot" />
-				</Scp>
-				<Scp Client="YES" Scp="C_EFFECT" Time="1300" UseSleep="NO">
-					<Str_Arg Arg="1" Str="E_wizard_SummonServant" />
-					<Str Str="None" />
-					<Num Num="0" />
-				</Scp>
-				<Scp Client="NO" Scp="MONSKL_CRE_MON_SCR" Time="1300" UseSleep="NO">
-					<Str Str="russianblue" />
-					<Pos Angle="0" Dist="80" />
-					<Angle Angle="0" />
-					<Str Str="" />
-					<Str Str="None" />
-					<Num Num="0" />
-					<Num Num="0" />
-					<Str Str="Sorcerer_SummonServant" />
-					<MonProp List="WlkMSPD#80#RunMSPD#80#$SORCERER_MON#1" />
-					<Str Str="SORCERER_SERVANT" />
-				</Scp>
-				<Scp Client="NO" Scp="SKL_SET_TGT_EXPROP_RECENT" Time="1300" UseSleep="NO">
-					<Str Str="SORCERER_SUMMONSERVANT" />
-					<Num Num="1" />
-				</Scp>
-			</EtcList>
-		</MainSkl>
-	</Skill>
-	<Skill Name="Sorcerer_SummonFamiliar">
-		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
-			<HitList>
-				<Frame Angle="0" AniTime="99999" Dist="0" ForceATK="0" HitCount="1" Length="30" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="99799" Type="FAN" Width="30" />
-			</HitList>
-			<EtcList>
-				<Scp Client="YES" Scp="C_EFFECT_POS" Time="0" UseSleep="NO">
-					<Str_Arg Arg="1.5" Str="F_wizard_shoggoth_cast_lineup" />
-					<Pos Angle="0" Dist="0" />
-					<Num Num="0" />
-					<Str Str="None" />
-				</Scp>
-				<Scp Client="YES" Scp="C_VOICE_SOUND" Time="100" UseSleep="NO">
-					<Str Str="voice_wiz_m_summonfamiliar_shot" />
-					<Str Str="voice_wiz_summonfamiliar_shot" />
-				</Scp>
-				<Scp Client="NO" Scp="SKL_BUFF_FOR_MONSTER" Time="0" UseSleep="NO">
-					<Str Str="sorcerer_bat" />
-					<Num FuncTxt=" return  obj.Level;" Num="1" UseFunc="1" />
-					<Num Num="0" />
-					<Num Num="0" />
-					<Num Num="1" />
-					<Num Num="100" />
-					<Num Num="0" />
-				</Scp>
-				<Scp Client="NO" Scp="SKL_BUFF" Time="1200" UseSleep="NO">
-					<Str Str="sorcerer_bat" />
-					<Num FuncTxt=" return  obj.Level;" Num="1" UseFunc="1" />
-					<Num Num="0" />
-					<Num Num="60000" />
-					<Num Num="1" />
-					<Num Num="100" />
-					<Num Num="0" />
-				</Scp>
-				<Scp Client="YES" Scp="C_EFFECT_POS" Time="1300" UseSleep="NO">
-					<Str_Arg Arg="0.5" Str="I_smoke044_dark" />
-					<Pos Angle="0" Dist="30" Height="15" />
-					<Num Num="0" />
-					<Str Str="None" />
-				</Scp>
-				<Scp Client="YES" Scp="C_EFFECT_POS" Time="1300" UseSleep="NO">
-					<Str_Arg Arg="0.30000001" Str="F_lineup010_ground" />
-					<Pos Angle="0" Dist="30" Height="15" />
-					<Num Num="0" />
-					<Str Str="None" />
-				</Scp>
-			</EtcList>
-		</MainSkl>
-	</Skill>
-	<Skill Name="Sorcerer_Obey">
-		<EnableScripts>
-			<ToolScp Client="BOTH" Scp="SKL_CHECK_EXPROP_OBJ_RANGE" UseSleep="NO">
-				<Str Str="SORCERER_SUMMONING" />
-				<Num Num="1" />
-				<Num Num="100" />
-			</ToolScp>
-            <ToolScp Client="BOTH" Scp="SKL_CHECK_ACTIVE_ABILITY" UseSleep="NO">
-                <Str Str="Sorcerer19" />
+                <Skill JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+                    <HitList>
+                        <Frame Angle="0" AniTime="9999" Dist="0" ForceATK="0" HitCount="1" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="9799" Type="FAN"/>
+                    </HitList>
+                    <EtcList>
+                        <Scp Client="YES" Scp="C_VOICE_SOUND" Time="0" UseSleep="NO">
+                            <Str Str="voice_wiz_m_evocation_cast"/>
+                            <Str Str="voice_wiz_evocation_cast"/>
+                        </Scp>
+                        <Scp Client="YES" Scp="C_EFFECT_POS" Time="0" UseSleep="NO">
+                            <Str_Arg Arg="2.5" Str="I_smoke013_dark2"/>
+                            <Pos Angle="0" Dist="0" PosType="3"/>
+                            <Num Num="4"/>
+                            <Str Str="None"/>
+                        </Scp>
+                        <Scp Client="YES" Scp="C_EFFECT_POS" Time="0" UseSleep="NO">
+                            <Str_Arg Arg="0.60000002" Str="F_pattern007_dark_loop"/>
+                            <Pos Angle="0" Dist="0" PosType="3"/>
+                            <Num Num="2"/>
+                            <Str Str="None"/>
+                        </Scp>
+                        <Scp Client="YES" Scp="MONSKL_C_PLAY_ANIM" Time="0" UseSleep="NO">
+                            <Str Str="SKL_EVOCATION"/>
+                            <Num Num="2"/>
+                            <Num Num="1"/>
+                            <Num Num="0"/>
+                        </Scp>
+                        <Scp Client="YES" Scp="C_EFFECT_POS" Time="400" UseSleep="NO">
+                            <Str_Arg Arg="1" Str="F_spread_in024_red"/>
+                            <Pos Angle="0" Dist="0" Height="20" PosType="3"/>
+                            <Num Num="2"/>
+                            <Str Str="None"/>
+                        </Scp>
+                        <Scp Client="YES" Scp="C_EFFECT_POS" Time="900" UseSleep="NO">
+                            <Str_Arg Arg="3" Str="I_smoke_red2"/>
+                            <Pos Angle="0" Dist="0" Height="20" PosType="3"/>
+                            <Num Num="0"/>
+                            <Str Str="None"/>
+                        </Scp>
+                        <Scp Client="YES" Scp="C_EFFECT_POS" Time="950" UseSleep="NO">
+                            <Str_Arg Arg="0.80000001" Str="F_smoke005_dark"/>
+                            <Pos Angle="0" Dist="0" PosType="3"/>
+                            <Num Num="0"/>
+                            <Str Str="None"/>
+                        </Scp>
+                        <Scp Client="YES" Scp="C_EFFECT_POS" Time="950" UseSleep="NO">
+                            <Str_Arg Arg="1.5" Str="F_wizard_SummonDemon2_cast_ground"/>
+                            <Pos Angle="0" Dist="0" PosType="3"/>
+                            <Num Num="0"/>
+                            <Str Str="None"/>
+                        </Scp>
+                        <Scp Client="NO" Scp="MONSKL_CRE_MON_SCR" Time="950" UseSleep="NO">
+                            <Str FuncTxt="local etc = GetETCObject(self); if etc == nil then SkillCancel(self); return 'None'; end local cardIES = etc.Sorcerer_bosscardGUID2; if 'None' ~= cardIES then    local item = GetInvItemByGuid(self, cardIES); if nil == item then SkillCancel(self); return 'None'; end return etc.Sorcerer_bosscardName2;  end SkillCancel(self); return 'None';" Str="boss_NetherBovine" UseFunc="1"/>
+                            <Pos Angle="0" Dist="0" PosType="3"/>
+                            <Angle Angle="0"/>
+                            <Str Str=""/>
+                            <Str Str="PC_Summon"/>
+                            <Num Num="0"/>
+                            <Num Num="0"/>
+                            <Str Str="None"/>
+                            <MonProp List="WlkMSPD#160#RunMSPD#160#$EVOCATION_MON#1"/>
+                            <Str Str="SORCERER_EVOCATION_VIBORA"/>
+                        </Scp>
+                        <Scp Client="NO" Scp="SKL_SET_TGT_EXPROP_RECENT" Time="950" UseSleep="NO">
+                            <Str Str="EVOCATION_MON"/>
+                            <Num Num="1"/>
+                        </Scp>
+                        <Scp Client="NO" Scp="SKL_TGT_COLOR" Time="950" UseSleep="NO">
+                            <Num Num="20"/>
+                            <Num Num="5"/>
+                            <Num Num="0"/>
+                            <Num Num="250"/>
+                        </Scp>
+                        <Scp Client="NO" Scp="SORCER_ATTACH_EFFECT" Time="950" UseSleep="NO">
+                            <Str_Arg Arg="0.40000001" Str="I_smoke013_dark3"/>
+                            <Num Num="1"/>
+                        </Scp>
+                    </EtcList>
+                </Skill>
+            </SubSkl>
+        </ByCondSkills>
+    </Skill>
+    <Skill Name="Sorcerer_SummonSalamion">
+        <MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+            <HitList>
+                <Frame Angle="0" AniTime="10199" Dist="0" ForceATK="0" HitCount="1" Length="30" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453299" TermMax="0" TermMin="0" Time="9999" Type="FAN" Width="30"/>
+            </HitList>
+            <EtcList>
+                <Scp Client="NO" Scp="MONSKL_KILL_FOL_EXPROP" Time="0" UseSleep="NO">
+                    <Str Str="SORCERER_SUMMONSALOON"/>
+                    <Num Num="1"/>
+                </Scp>
+                <Scp Client="YES" Scp="C_VOICE_SOUND" Time="0" UseSleep="NO">
+                    <Str Str="voice_wiz_m_summonsallamyon_shot"/>
+                    <Str Str="voice_wiz_summonsallamyon_shot"/>
+                </Scp>
+                <Scp Client="NO" Scp="MONSKL_CRE_MON_SCR" Time="1300" UseSleep="NO">
+                    <Str Str="Saloon"/>
+                    <Pos Angle="0" Dist="20"/>
+                    <Angle Angle="0"/>
+                    <Str FuncTxt="local name = GetClassString(&quot;Monster&quot;, &quot;Saloon&quot;, &quot;Name&quot;); return SofS(name, self.Name);" Str="" UseFunc="1"/>
+                    <Str Str="PC_Summon"/>
+                    <Num Num="0"/>
+                    <Num FuncTxt=" return 300;" Num="5" UseFunc="1"/>
+                    <Str Str="None"/>
+                    <MonProp List="WlkMSPD#160#RunMSPD#160#$SORCERER_MON#1"/>
+                    <Str Str="SORCERER_SALOON"/>
+                </Scp>
+                <Scp Client="NO" Scp="SKL_SET_TGT_EXPROP_RECENT" Time="1300" UseSleep="NO">
+                    <Str Str="SORCERER_SUMMONSALOON"/>
+                    <Num Num="1"/>
+                </Scp>
+            </EtcList>
+        </MainSkl>
+    </Skill>
+    <Skill Name="Sorcerer_SummonServant">
+        <MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+            <HitList>
+                <Frame Angle="0" AniTime="10199" Dist="0" ForceATK="0" HitCount="1" Length="30" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453299" TermMax="0" TermMin="0" Time="9999" Type="FAN" Width="30"/>
+            </HitList>
+            <EtcList>
+                <Scp Client="NO" Scp="MONSKL_KILL_FOL_EXPROP" Time="0" UseSleep="NO">
+                    <Str Str="SORCERER_SUMMONSERVANT"/>
+                    <Num Num="1"/>
+                </Scp>
+                <Scp Client="YES" Scp="C_EFFECT_POS" Time="0" UseSleep="NO">
+                    <Str_Arg Arg="1.5" Str="F_wizard_shoggoth_cast_lineup"/>
+                    <Pos Angle="0" Dist="0"/>
+                    <Num Num="0"/>
+                    <Str Str="None"/>
+                </Scp>
+                <Scp Client="YES" Scp="C_VOICE_SOUND" Time="0" UseSleep="NO">
+                    <Str Str="voice_wiz_m_summonservant_shot"/>
+                    <Str Str="voice_wiz_summonservant_shot"/>
+                </Scp>
+                <Scp Client="YES" Scp="C_EFFECT" Time="1300" UseSleep="NO">
+                    <Str_Arg Arg="1" Str="E_wizard_SummonServant"/>
+                    <Str Str="None"/>
+                    <Num Num="0"/>
+                </Scp>
+                <Scp Client="NO" Scp="MONSKL_CRE_MON_SCR" Time="1300" UseSleep="NO">
+                    <Str Str="russianblue"/>
+                    <Pos Angle="0" Dist="80"/>
+                    <Angle Angle="0"/>
+                    <Str Str=""/>
+                    <Str Str="None"/>
+                    <Num Num="0"/>
+                    <Num Num="0"/>
+                    <Str Str="Sorcerer_SummonServant"/>
+                    <MonProp List="WlkMSPD#80#RunMSPD#80#$SORCERER_MON#1"/>
+                    <Str Str="SORCERER_SERVANT"/>
+                </Scp>
+                <Scp Client="NO" Scp="SKL_SET_TGT_EXPROP_RECENT" Time="1300" UseSleep="NO">
+                    <Str Str="SORCERER_SUMMONSERVANT"/>
+                    <Num Num="1"/>
+                </Scp>
+            </EtcList>
+        </MainSkl>
+    </Skill>
+    <Skill Name="Sorcerer_SummonFamiliar">
+        <MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+            <HitList>
+                <Frame Angle="0" AniTime="99999" Dist="0" ForceATK="0" HitCount="1" Length="30" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="99799" Type="FAN" Width="30"/>
+            </HitList>
+            <EtcList>
+                <Scp Client="YES" Scp="C_EFFECT_POS" Time="0" UseSleep="NO">
+                    <Str_Arg Arg="1.5" Str="F_wizard_shoggoth_cast_lineup"/>
+                    <Pos Angle="0" Dist="0"/>
+                    <Num Num="0"/>
+                    <Str Str="None"/>
+                </Scp>
+                <Scp Client="YES" Scp="C_VOICE_SOUND" Time="100" UseSleep="NO">
+                    <Str Str="voice_wiz_m_summonfamiliar_shot"/>
+                    <Str Str="voice_wiz_summonfamiliar_shot"/>
+                </Scp>
+                <Scp Client="NO" Scp="SKL_BUFF_FOR_MONSTER" Time="0" UseSleep="NO">
+                    <Str Str="sorcerer_bat"/>
+                    <Num FuncTxt=" return  obj.Level;" Num="1" UseFunc="1"/>
+                    <Num Num="0"/>
+                    <Num Num="0"/>
+                    <Num Num="1"/>
+                    <Num Num="100"/>
+                    <Num Num="0"/>
+                </Scp>
+                <Scp Client="NO" Scp="SKL_BUFF" Time="1200" UseSleep="NO">
+                    <Str Str="sorcerer_bat"/>
+                    <Num FuncTxt=" return  obj.Level;" Num="1" UseFunc="1"/>
+                    <Num Num="0"/>
+                    <Num Num="60000"/>
+                    <Num Num="1"/>
+                    <Num Num="100"/>
+                    <Num Num="0"/>
+                </Scp>
+                <Scp Client="YES" Scp="C_EFFECT_POS" Time="1300" UseSleep="NO">
+                    <Str_Arg Arg="0.5" Str="I_smoke044_dark"/>
+                    <Pos Angle="0" Dist="30" Height="15"/>
+                    <Num Num="0"/>
+                    <Str Str="None"/>
+                </Scp>
+                <Scp Client="YES" Scp="C_EFFECT_POS" Time="1300" UseSleep="NO">
+                    <Str_Arg Arg="0.30000001" Str="F_lineup010_ground"/>
+                    <Pos Angle="0" Dist="30" Height="15"/>
+                    <Num Num="0"/>
+                    <Str Str="None"/>
+                </Scp>
+            </EtcList>
+        </MainSkl>
+    </Skill>
+    <Skill Name="Sorcerer_Obey">
+        <EnableScripts>
+            <ToolScp Client="BOTH" Scp="SKL_CHECK_EXPROP_OBJ_RANGE" UseSleep="NO">
+                <Str Str="SORCERER_SUMMONING"/>
+                <Num Num="1"/>
+                <Num Num="100"/>
             </ToolScp>
-		</EnableScripts>
-		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
-			<HitList>
-				<Frame Angle="0" AniTime="10199" Dist="0" ForceATK="0" HitCount="1" Length="30" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="9999" Type="FAN" Width="30" />
-			</HitList>
-			<EtcList>
-				<Scp Client="NO" Scp="SKL_SET_TGT_EXPROP_RECENT" Time="0" UseSleep="NO">
-					<Str Str="SORCERER_SUMMONING" />
-					<Num Num="1" />
-				</Scp>
-				<Scp Client="YES" Scp="C_VOICE_SOUND" Time="0" UseSleep="NO">
-					<Str Str="voice_wiz_m_obey_shot" />
-					<Str Str="voice_wiz_obey_shot" />
-				</Scp>
-				<Scp Client="NO" Scp="SORCER_TGT_ATTACH_SELF_TO_TARGET" Time="700" UseSleep="NO">
-					<Str Str="Dummy_Summon" />
-					<Num Num="0" />
-					<Str_Arg Arg="1" Str="None" />
-					<Str Str="RIDE_OBEY" />
-				</Scp>
-				<Scp Client="NO" Scp="SORCER_CONTROL_START" Time="750" UseSleep="NO">
-					<Str Str="summoncontrol" />
-					<Str Str="SORCERER_SPEND_SP" />
-				</Scp>
-				<Scp Scp="SKL_RUN_SCRIPT" Client="NO" UseSleep="NO" Time="500">
-					<Str Str="SCR_Karaliene_Isgariti_BUFF"/>
-				</Scp>
-			</EtcList>
-		</MainSkl>
-	</Skill>
-	<Skill Name="Sorcerer_Hold">
-		<KeyInput>
-			<ToolScp Client="YES" Scp="SKL_KEY_GROUND_EVENT" UseSleep="NO">
-				<Num Num="0" />
-				<Num Num="0" />
-				<Num Num="0" />
-				<Num Num="0" />
-				<Num Num="200" />
-				<Num Num="0.1" />
-				<Num Num="0" />
-				<Num Num="0" />
-				<Num Num="0" />
-				<Str_Arg Arg="0" Str="" />
-				<Str Str="" />
-				<Num Num="0" />
-				<Num Num="0" />
-				<Num Num="0" />
-				<Num Num="0" />
-				<Num Num="0" />
-				<Num Num="0" />
-			</ToolScp>
-		</KeyInput>
-		<KeyInputStart>
-			<ToolScp Client="NO" Scp="SKL_PLAY_SOUND" UseSleep="NO">
-				<Str Str="voice_wiz_hold_shot" />
-				<Num Num="0" />
-				<Str Str="voice_wiz_m_hold_shot" />
-			</ToolScp>
-			<ToolScp Client="YES" Scp="MONSKL_C_CASTING_ANIM" UseSleep="NO">
-				<Str Str="ASTD" />
-				<Str Str="None" />
-				<Num Num="1" />
-				<Num Num="0" />
-				<Str Str="None" />
-				<Str Str="ASTD" />
-			</ToolScp>
-		</KeyInputStart>
-		<KeyInputEnd>
-			<ToolScp Client="YES" Scp="MONSKL_C_RESET_CASTING_ANIM" UseSleep="NO" />
-		</KeyInputEnd>
-		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
-			<HitList>
-				<Frame Angle="0" AniTime="10199" Dist="0" ForceATK="0" HitCount="1" Length="150" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="9999" Type="FAN" Width="30" />
-			</HitList>
-			<EtcList>
-				<Scp Client="NO" Scp="SKL_SET_TGT_EXPROP_RECENT" Time="0" UseSleep="NO">
-					<Str Str="SORCERER_SUMMONING" />
-					<Num Num="1" />
-				</Scp>
-				<Scp Client="YES" Scp="MONSKL_C_PLAY_ANIM" Time="0" UseSleep="NO">
-					<Str Str="SKL_SUMMON_DEMON4" />
-					<Num Num="2" />
-					<Num Num="1" />
-					<Num Num="0" />
-				</Scp>
-				<Scp Client="NO" Scp="SORCER_ORDER_HOLD" Time="500" UseSleep="NO">
-					<Pos Angle="-1.3258718" Dist="3.7271626" PosType="3" Rand="30" />
-				</Scp>
-				<Scp Client="YES" Scp="C_EFFECT_POS" Time="500" UseSleep="NO">
-					<Str_Arg Arg="1" Str="F_burstup005_dark" />
-					<Pos Angle="0" Dist="0" PosType="3" />
-					<Num Num="0" />
-					<Str Str="None" />
-				</Scp>
-				<Scp Client="YES" Scp="C_EFFECT_POS" Time="500" UseSleep="NO">
-					<Str_Arg Arg="1" Str="F_wizard_hold_ground" />
-					<Pos Angle="0" Dist="0" PosType="3" />
-					<Num Num="0" />
-					<Str Str="None" />
-				</Scp>
-			</EtcList>
-		</MainSkl>
-	</Skill>
-	<Skill Name="Sorcerer_AttackGround">
-		<KeyInput>
-			<ToolScp Client="YES" Scp="SKL_KEY_GROUND_EVENT" UseSleep="NO">
-				<Num Num="0" />
-				<Num Num="0" />
-				<Num Num="0" />
-				<Num Num="0" />
-				<Num Num="200" />
-				<Num Num="0.1" />
-				<Num Num="0" />
-				<Num Num="0" />
-				<Num Num="0" />
-				<Str_Arg Arg="0" Str="" />
-				<Str Str="" />
-				<Num Num="0" />
-				<Num Num="0" />
-				<Num Num="0" />
-				<Num Num="0" />
-				<Num Num="0" />
-				<Num Num="0" />
-			</ToolScp>
-		</KeyInput>
-		<KeyInputStart>
-			<ToolScp Client="NO" Scp="SKL_PLAY_SOUND" UseSleep="NO">
-				<Str Str="voice_wiz_attackground_cast" />
-				<Num Num="0" />
-				<Str Str="voice_wiz_m_attackground_cast" />
-			</ToolScp>
-			<ToolScp Client="YES" Scp="MONSKL_C_CASTING_ANIM" UseSleep="NO">
-				<Str Str="ASTD" />
-				<Str Str="None" />
-				<Num Num="1" />
-				<Num Num="0" />
-				<Str Str="None" />
-				<Str Str="ASTD" />
-			</ToolScp>
-		</KeyInputStart>
-		<KeyInputEnd>
-			<ToolScp Client="YES" Scp="MONSKL_C_RESET_CASTING_ANIM" UseSleep="NO" />
-		</KeyInputEnd>
-		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
-			<HitList>
-				<Frame Angle="0" AniTime="10199" Dist="0" ForceATK="0" HitCount="1" Length="150" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="9999" Type="FAN" Width="30" />
-			</HitList>
-			<EtcList>
-				<Scp Client="NO" Scp="SKL_SET_TGT_EXPROP_RECENT" Time="0" UseSleep="NO">
-					<Str Str="SORCERER_SUMMONING" />
-					<Num Num="1" />
-				</Scp>
-				<Scp Client="YES" Scp="MONSKL_C_PLAY_ANIM" Time="0" UseSleep="NO">
-					<Str Str="SKL_SUMMON_DEMON4" />
-					<Num Num="2" />
-					<Num Num="1" />
-					<Num Num="0" />
-				</Scp>
-				<Scp Client="YES" Scp="C_VOICE_SOUND" Time="500" UseSleep="NO">
-					<Str Str="voice_wiz_m_attackground_shot" />
-					<Str Str="voice_wiz_attackground_shot" />
-				</Scp>
-				<Scp Client="YES" Scp="C_EFFECT_POS" Time="700" UseSleep="NO">
-					<Str_Arg Arg="0.60000002" Str="F_wizard_hold_ground" />
-					<Pos Angle="0" Dist="0" PosType="3" />
-					<Num Num="0" />
-					<Str Str="None" />
-				</Scp>
-				<Scp Client="NO" Scp="SORCER_ORDER_ATTACK" Time="700" UseSleep="NO">
-					<Pos Angle="0" Dist="0" PosType="3" Rand="30" />
-					<Num Num="50" />
-				</Scp>
-			</EtcList>
-		</MainSkl>
-	</Skill>
-	<Skill Name="Sorcerer_Morph">
-		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
-			<HitList>
-				<Frame Angle="0" AniTime="9999" Dist="0" ForceATK="0" HitCount="1" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" TermMax="0" TermMin="0" Time="9799" Type="FAN" />
-			</HitList>
-			<EtcList>
-				<Scp Client="NO" Scp="SORCERER_EQUIP_SUBCARD_CHECK" Time="0" UseSleep="NO" />
-				<Scp Client="NO" Scp="SKL_CANCEL_IF_NOTARGET" Time="0" UseSleep="NO" />
-				<Scp Client="YES" Scp="C_VOICE_SOUND" Time="0" UseSleep="NO">
-					<Str Str="voice_wiz_m_morph_shot" />
-					<Str Str="voice_wiz_morph_shot" />
-				</Scp>
-				<Scp Client="NO" Scp="SKL_TGT_EFFECT" Time="900" UseSleep="NO">
-					<Str_Arg Arg="1" Str="F_warrior_ninja_shot_explosion_light" />
-					<Num Num="1" />
-				</Scp>
-				<Scp Client="NO" Scp="MONSKL_KILL_FOL_EXPROP" Time="1300" UseSleep="NO">
-					<Str Str="SORCERER_SUMMONING" />
-					<Num Num="1" />
-				</Scp>
-				<Scp Client="NO" Scp="MONSKL_CRE_MON_SCR" Time="1300" UseSleep="NO">
-					<Str FuncTxt="local etc = GetETCObject(self);  if etc == nil then SkillCancel(self); return 'None'; end  return etc.Sorcerer_bosscardName2;" Str="boss_NetherBovine" UseFunc="1" />
-					<Pos Angle="-0.059652999" Dist="33.082214" />
-					<Angle Angle="0" />
-					<Str FuncTxt="local etc = GetETCObject(self);   local name = GetClassString(&quot;Monster&quot;, etc.Sorcerer_bosscardName2, &quot;Name&quot;); return SofS(name, self.Name);" Str="" UseFunc="1" />
-                    <Str Str="PC_Summon" />
-					<Num Num="0" />
-					<Num Num="0" />
-                    <Str Str="None" />
-					<MonProp List="WlkMSPD#160#RunMSPD#160#$SORCERER_MON#1" />
-					<Str Str="SORCERER_SUMMONING_SUB_MON" />
-				</Scp>
-				<Scp Client="NO" Scp="SKL_SET_TGT_EXPROP_RECENT" Time="1300" UseSleep="NO">
-					<Str Str="SORCERER_SUMMONING" />
-					<Num Num="1" />
-				</Scp>
-				<Scp Client="NO" Scp="SORCER_SET_EXPROP_SEND" Time="1300" UseSleep="NO">
-					<Str Str="SORCERER_SUMMONING" />
-					<Num Num="1" />
-				</Scp>
-				<Scp Client="NO" Scp="SKL_TGT_COLOR" Time="1300" UseSleep="NO">
-					<Num Num="20" />
-					<Num Num="5" />
-					<Num Num="0" />
-					<Num Num="250" />
-                    <Num Num="1" />
-				</Scp>
-				<Scp Client="NO" Scp="SORCER_ATTACH_EFFECT" Time="1300" UseSleep="NO">
-					<Str_Arg Arg="0.40000001" Str="I_smoke013_dark3" />
-					<Num Num="1" />
-					<Str_Arg Arg="0.2" Str="I_smoke013_dark3_yellow" />
-					<Num Num="2" />
-				</Scp>
-			</EtcList>
-		</MainSkl>
-	</Skill>
-	<Skill Name="Sorcerer_Summoning">
-		<EnableScripts>
-			<ToolScp Client="BOTH" Scp="CHECK_IS_VILLAGE" UseSleep="NO" />
-		</EnableScripts>
-		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
-			<HitList>
-				<Frame Angle="0" AniTime="10199" Dist="0" ForceATK="0" HitCount="1" Length="30" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453299" TermMax="0" TermMin="0" Time="9999" Type="FAN" Width="30" />
-			</HitList>
-			<EtcList>
-				<Scp Client="YES" Scp="C_VOICE_SOUND" Time="0" UseSleep="NO">
-					<Str Str="voice_wiz_m_summoning_cast" />
-					<Str Str="voice_wiz_summoning_cast" />
-				</Scp>
-				<Scp Client="NO" Scp="SORCERER_EQUIP_BOSSCARD_CHECK" Time="0" UseSleep="NO" />
-				<Scp Client="NO" Scp="MONSKL_KILL_FOL_EXPROP" Time="900" UseSleep="NO">
-					<Str Str="SORCERER_SUMMONING" />
-					<Num Num="1" />
-				</Scp>
-				<Scp Client="YES" Scp="C_VOICE_SOUND" Time="1000" UseSleep="NO">
-					<Str Str="voice_wiz_m_summoning_shot" />
-					<Str Str="voice_wiz_summoning_shot" />
-				</Scp>
-				<Scp Client="YES" Scp="C_EFFECT_POS" Time="1000" UseSleep="NO">
-					<Str_Arg Arg="1.5" Str="F_wizard_SummonDemon2_cast_ground" />
-					<Pos Angle="0" Dist="35" />
-					<Num Num="0" />
-					<Str Str="None" />
-				</Scp>
-				<Scp Client="NO" Scp="MONSKL_CRE_MON_SCR" Time="1000" UseSleep="NO">
-					<Str FuncTxt="local etc = GetETCObject(self); if etc == nil then SkillCancel(self); return 'None'; end local cardIES = etc.Sorcerer_bosscardGUID1; if 'None' ~= cardIES then    local item = GetInvItemByGuid(self, cardIES); if nil == item then SkillCancel(self); return 'None'; end return etc.Sorcerer_bosscardName1;  end SkillCancel(self); return 'None';" Str="boss_NetherBovine" UseFunc="1" />
-					<Pos Angle="0" Dist="35" />
-					<Angle Angle="0" />
-					<Str FuncTxt="local etc = GetETCObject(self);   local name = GetClassString(&quot;Monster&quot;, etc.Sorcerer_bosscardName1, &quot;Name&quot;); return SofS(name, self.Name);" Str="" UseFunc="1" />
-					<Str Str="PC_Summon" />
-					<Num Num="0" />
-					<Num Num="0" />
-					<Str Str="None" />
-					<MonProp List="WlkMSPD#160#RunMSPD#160#$SORCERER_MON#1" />
-					<Str Str="SORCERER_SUMMONING_MON" />
-				</Scp>
-				<Scp Client="NO" Scp="SKL_SET_TGT_EXPROP_RECENT" Time="1000" UseSleep="NO">
-					<Str Str="SORCERER_SUMMONING" />
-					<Num Num="1" />
-				</Scp>
-				<Scp Client="NO" Scp="SORCER_SET_EXPROP_SEND" Time="1000" UseSleep="NO">
-					<Str Str="SORCERER_SUMMONING" />
-					<Num Num="1" />
-				</Scp>
-				<Scp Client="NO" Scp="SKL_TGT_COLOR" Time="1000" UseSleep="NO">
-					<Num Num="64" />
-					<Num Num="32" />
-					<Num Num="64" />
-					<Num Num="250" />
-					<Num Num="1" />
-				</Scp>
-				<Scp Client="NO" Scp="SORCER_ATTACH_EFFECT" Time="1000" UseSleep="NO">
-					<Str_Arg Arg="0.1" Str="I_smoke013_dark3" />
-					<Num Num="1" />
-					<Str_Arg Arg="0.2" Str="I_smoke013_dark3_yellow" />
-					<Num Num="2" />
-				</Scp>
-				<Scp Client="NO" Scp="SKL_TGT_EFFECT_SORCERER" Time="1000" UseSleep="NO">
-					<Str_Arg Arg="0.69999999" Str="I_cylinder007_light_yellow" />
-				</Scp>
-			</EtcList>
-		</MainSkl>
-	</Skill>
-    </ToolSkill>
+            <ToolScp Client="BOTH" Scp="SKL_CHECK_ACTIVE_ABILITY" UseSleep="NO">
+                <Str Str="Sorcerer19"/>
+            </ToolScp>
+        </EnableScripts>
+        <MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+            <HitList>
+                <Frame Angle="0" AniTime="10199" Dist="0" ForceATK="0" HitCount="1" Length="30" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="9999" Type="FAN" Width="30"/>
+            </HitList>
+            <EtcList>
+                <Scp Client="NO" Scp="SKL_SET_TGT_EXPROP_RECENT" Time="0" UseSleep="NO">
+                    <Str Str="SORCERER_SUMMONING"/>
+                    <Num Num="1"/>
+                </Scp>
+                <Scp Client="YES" Scp="C_VOICE_SOUND" Time="0" UseSleep="NO">
+                    <Str Str="voice_wiz_m_obey_shot"/>
+                    <Str Str="voice_wiz_obey_shot"/>
+                </Scp>
+                <Scp Client="NO" Scp="SORCER_TGT_ATTACH_SELF_TO_TARGET" Time="700" UseSleep="NO">
+                    <Str Str="Dummy_Summon"/>
+                    <Num Num="0"/>
+                    <Str_Arg Arg="1" Str="None"/>
+                    <Str Str="RIDE_OBEY"/>
+                </Scp>
+                <Scp Client="NO" Scp="SORCER_CONTROL_START" Time="750" UseSleep="NO">
+                    <Str Str="summoncontrol"/>
+                    <Str Str="SORCERER_SPEND_SP"/>
+                </Scp>
+                <Scp Scp="SKL_RUN_SCRIPT" Client="NO" UseSleep="NO" Time="500">
+                    <Str Str="SCR_Karaliene_Isgariti_BUFF"/>
+                </Scp>
+            </EtcList>
+        </MainSkl>
+    </Skill>
+    <Skill Name="Sorcerer_Hold">
+        <KeyInput>
+            <ToolScp Client="YES" Scp="SKL_KEY_GROUND_EVENT" UseSleep="NO">
+                <Num Num="0"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+                <Num Num="200"/>
+                <Num Num="0.1"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+                <Str_Arg Arg="0" Str=""/>
+                <Str Str=""/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+            </ToolScp>
+        </KeyInput>
+        <KeyInputStart>
+            <ToolScp Client="NO" Scp="SKL_PLAY_SOUND" UseSleep="NO">
+                <Str Str="voice_wiz_hold_shot"/>
+                <Num Num="0"/>
+                <Str Str="voice_wiz_m_hold_shot"/>
+            </ToolScp>
+            <ToolScp Client="YES" Scp="MONSKL_C_CASTING_ANIM" UseSleep="NO">
+                <Str Str="ASTD"/>
+                <Str Str="None"/>
+                <Num Num="1"/>
+                <Num Num="0"/>
+                <Str Str="None"/>
+                <Str Str="ASTD"/>
+            </ToolScp>
+        </KeyInputStart>
+        <KeyInputEnd>
+            <ToolScp Client="YES" Scp="MONSKL_C_RESET_CASTING_ANIM" UseSleep="NO"/>
+        </KeyInputEnd>
+        <MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+            <HitList>
+                <Frame Angle="0" AniTime="10199" Dist="0" ForceATK="0" HitCount="1" Length="150" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="9999" Type="FAN" Width="30"/>
+            </HitList>
+            <EtcList>
+                <Scp Client="NO" Scp="SKL_SET_TGT_EXPROP_RECENT" Time="0" UseSleep="NO">
+                    <Str Str="SORCERER_SUMMONING"/>
+                    <Num Num="1"/>
+                </Scp>
+                <Scp Client="YES" Scp="MONSKL_C_PLAY_ANIM" Time="0" UseSleep="NO">
+                    <Str Str="SKL_SUMMON_DEMON4"/>
+                    <Num Num="2"/>
+                    <Num Num="1"/>
+                    <Num Num="0"/>
+                </Scp>
+                <Scp Client="NO" Scp="SORCER_ORDER_HOLD" Time="500" UseSleep="NO">
+                    <Pos Angle="-1.3258718" Dist="3.7271626" PosType="3" Rand="30"/>
+                </Scp>
+                <Scp Client="YES" Scp="C_EFFECT_POS" Time="500" UseSleep="NO">
+                    <Str_Arg Arg="1" Str="F_burstup005_dark"/>
+                    <Pos Angle="0" Dist="0" PosType="3"/>
+                    <Num Num="0"/>
+                    <Str Str="None"/>
+                </Scp>
+                <Scp Client="YES" Scp="C_EFFECT_POS" Time="500" UseSleep="NO">
+                    <Str_Arg Arg="1" Str="F_wizard_hold_ground"/>
+                    <Pos Angle="0" Dist="0" PosType="3"/>
+                    <Num Num="0"/>
+                    <Str Str="None"/>
+                </Scp>
+            </EtcList>
+        </MainSkl>
+    </Skill>
+    <Skill Name="Sorcerer_AttackGround">
+        <KeyInput>
+            <ToolScp Client="YES" Scp="SKL_KEY_GROUND_EVENT" UseSleep="NO">
+                <Num Num="0"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+                <Num Num="200"/>
+                <Num Num="0.1"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+                <Str_Arg Arg="0" Str=""/>
+                <Str Str=""/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+            </ToolScp>
+        </KeyInput>
+        <KeyInputStart>
+            <ToolScp Client="NO" Scp="SKL_PLAY_SOUND" UseSleep="NO">
+                <Str Str="voice_wiz_attackground_cast"/>
+                <Num Num="0"/>
+                <Str Str="voice_wiz_m_attackground_cast"/>
+            </ToolScp>
+            <ToolScp Client="YES" Scp="MONSKL_C_CASTING_ANIM" UseSleep="NO">
+                <Str Str="ASTD"/>
+                <Str Str="None"/>
+                <Num Num="1"/>
+                <Num Num="0"/>
+                <Str Str="None"/>
+                <Str Str="ASTD"/>
+            </ToolScp>
+        </KeyInputStart>
+        <KeyInputEnd>
+            <ToolScp Client="YES" Scp="MONSKL_C_RESET_CASTING_ANIM" UseSleep="NO"/>
+        </KeyInputEnd>
+        <MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+            <HitList>
+                <Frame Angle="0" AniTime="10199" Dist="0" ForceATK="0" HitCount="1" Length="150" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="9999" Type="FAN" Width="30"/>
+            </HitList>
+            <EtcList>
+                <Scp Client="NO" Scp="SKL_SET_TGT_EXPROP_RECENT" Time="0" UseSleep="NO">
+                    <Str Str="SORCERER_SUMMONING"/>
+                    <Num Num="1"/>
+                </Scp>
+                <Scp Client="YES" Scp="MONSKL_C_PLAY_ANIM" Time="0" UseSleep="NO">
+                    <Str Str="SKL_SUMMON_DEMON4"/>
+                    <Num Num="2"/>
+                    <Num Num="1"/>
+                    <Num Num="0"/>
+                </Scp>
+                <Scp Client="YES" Scp="C_VOICE_SOUND" Time="500" UseSleep="NO">
+                    <Str Str="voice_wiz_m_attackground_shot"/>
+                    <Str Str="voice_wiz_attackground_shot"/>
+                </Scp>
+                <Scp Client="YES" Scp="C_EFFECT_POS" Time="700" UseSleep="NO">
+                    <Str_Arg Arg="0.60000002" Str="F_wizard_hold_ground"/>
+                    <Pos Angle="0" Dist="0" PosType="3"/>
+                    <Num Num="0"/>
+                    <Str Str="None"/>
+                </Scp>
+                <Scp Client="NO" Scp="SORCER_ORDER_ATTACK" Time="700" UseSleep="NO">
+                    <Pos Angle="0" Dist="0" PosType="3" Rand="30"/>
+                    <Num Num="50"/>
+                </Scp>
+            </EtcList>
+        </MainSkl>
+    </Skill>
+    <Skill Name="Sorcerer_Morph">
+        <MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+            <HitList>
+                <Frame Angle="0" AniTime="9999" Dist="0" ForceATK="0" HitCount="1" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" TermMax="0" TermMin="0" Time="9799" Type="FAN"/>
+            </HitList>
+            <EtcList>
+                <Scp Client="NO" Scp="SORCERER_EQUIP_SUBCARD_CHECK" Time="0" UseSleep="NO"/>
+                <Scp Client="NO" Scp="SKL_CANCEL_IF_NOTARGET" Time="0" UseSleep="NO"/>
+                <Scp Client="YES" Scp="C_VOICE_SOUND" Time="0" UseSleep="NO">
+                    <Str Str="voice_wiz_m_morph_shot"/>
+                    <Str Str="voice_wiz_morph_shot"/>
+                </Scp>
+                <Scp Client="NO" Scp="SKL_TGT_EFFECT" Time="900" UseSleep="NO">
+                    <Str_Arg Arg="1" Str="F_warrior_ninja_shot_explosion_light"/>
+                    <Num Num="1"/>
+                </Scp>
+                <Scp Client="NO" Scp="MONSKL_KILL_FOL_EXPROP" Time="1300" UseSleep="NO">
+                    <Str Str="SORCERER_SUMMONING"/>
+                    <Num Num="1"/>
+                </Scp>
+                <Scp Client="NO" Scp="MONSKL_CRE_MON_SCR" Time="1300" UseSleep="NO">
+                    <Str FuncTxt="local etc = GetETCObject(self);  if etc == nil then SkillCancel(self); return 'None'; end  return etc.Sorcerer_bosscardName2;" Str="boss_NetherBovine" UseFunc="1"/>
+                    <Pos Angle="-0.059652999" Dist="33.082214"/>
+                    <Angle Angle="0"/>
+                    <Str FuncTxt="local etc = GetETCObject(self);   local name = GetClassString(&quot;Monster&quot;, etc.Sorcerer_bosscardName2, &quot;Name&quot;); return SofS(name, self.Name);" Str="" UseFunc="1"/>
+                    <Str Str="PC_Summon"/>
+                    <Num Num="0"/>
+                    <Num Num="0"/>
+                    <Str Str="None"/>
+                    <MonProp List="WlkMSPD#160#RunMSPD#160#$SORCERER_MON#1"/>
+                    <Str Str="SORCERER_SUMMONING_SUB_MON"/>
+                </Scp>
+                <Scp Client="NO" Scp="SKL_SET_TGT_EXPROP_RECENT" Time="1300" UseSleep="NO">
+                    <Str Str="SORCERER_SUMMONING"/>
+                    <Num Num="1"/>
+                </Scp>
+                <Scp Client="NO" Scp="SORCER_SET_EXPROP_SEND" Time="1300" UseSleep="NO">
+                    <Str Str="SORCERER_SUMMONING"/>
+                    <Num Num="1"/>
+                </Scp>
+                <Scp Client="NO" Scp="SKL_TGT_COLOR" Time="1300" UseSleep="NO">
+                    <Num Num="20"/>
+                    <Num Num="5"/>
+                    <Num Num="0"/>
+                    <Num Num="250"/>
+                    <Num Num="1"/>
+                </Scp>
+                <Scp Client="NO" Scp="SORCER_ATTACH_EFFECT" Time="1300" UseSleep="NO">
+                    <Str_Arg Arg="0.40000001" Str="I_smoke013_dark3"/>
+                    <Num Num="1"/>
+                    <Str_Arg Arg="0.2" Str="I_smoke013_dark3_yellow"/>
+                    <Num Num="2"/>
+                </Scp>
+            </EtcList>
+        </MainSkl>
+    </Skill>
+    <Skill Name="Sorcerer_Summoning">
+        <EnableScripts>
+            <ToolScp Client="BOTH" Scp="CHECK_IS_VILLAGE" UseSleep="NO"/>
+        </EnableScripts>
+        <MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+            <HitList>
+                <Frame Angle="0" AniTime="10199" Dist="0" ForceATK="0" HitCount="1" Length="30" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453299" TermMax="0" TermMin="0" Time="9999" Type="FAN" Width="30"/>
+            </HitList>
+            <EtcList>
+                <Scp Client="YES" Scp="C_VOICE_SOUND" Time="0" UseSleep="NO">
+                    <Str Str="voice_wiz_m_summoning_cast"/>
+                    <Str Str="voice_wiz_summoning_cast"/>
+                </Scp>
+                <Scp Client="NO" Scp="SORCERER_EQUIP_BOSSCARD_CHECK" Time="0" UseSleep="NO"/>
+                <Scp Client="NO" Scp="MONSKL_KILL_FOL_EXPROP" Time="900" UseSleep="NO">
+                    <Str Str="SORCERER_SUMMONING"/>
+                    <Num Num="1"/>
+                </Scp>
+                <Scp Client="YES" Scp="C_VOICE_SOUND" Time="1000" UseSleep="NO">
+                    <Str Str="voice_wiz_m_summoning_shot"/>
+                    <Str Str="voice_wiz_summoning_shot"/>
+                </Scp>
+                <Scp Client="YES" Scp="C_EFFECT_POS" Time="1000" UseSleep="NO">
+                    <Str_Arg Arg="1.5" Str="F_wizard_SummonDemon2_cast_ground"/>
+                    <Pos Angle="0" Dist="35"/>
+                    <Num Num="0"/>
+                    <Str Str="None"/>
+                </Scp>
+                <Scp Client="NO" Scp="MONSKL_CRE_MON_SCR" Time="1000" UseSleep="NO">
+                    <Str FuncTxt="local etc = GetETCObject(self); if etc == nil then SkillCancel(self); return 'None'; end local cardIES = etc.Sorcerer_bosscardGUID1; if 'None' ~= cardIES then    local item = GetInvItemByGuid(self, cardIES); if nil == item then SkillCancel(self); return 'None'; end return etc.Sorcerer_bosscardName1;  end SkillCancel(self); return 'None';" Str="boss_NetherBovine" UseFunc="1"/>
+                    <Pos Angle="0" Dist="35"/>
+                    <Angle Angle="0"/>
+                    <Str FuncTxt="local etc = GetETCObject(self);   local name = GetClassString(&quot;Monster&quot;, etc.Sorcerer_bosscardName1, &quot;Name&quot;); return SofS(name, self.Name);" Str="" UseFunc="1"/>
+                    <Str Str="PC_Summon"/>
+                    <Num Num="0"/>
+                    <Num Num="0"/>
+                    <Str Str="None"/>
+                    <MonProp List="WlkMSPD#160#RunMSPD#160#$SORCERER_MON#1"/>
+                    <Str Str="SORCERER_SUMMONING_MON"/>
+                </Scp>
+                <Scp Client="NO" Scp="SKL_SET_TGT_EXPROP_RECENT" Time="1000" UseSleep="NO">
+                    <Str Str="SORCERER_SUMMONING"/>
+                    <Num Num="1"/>
+                </Scp>
+                <Scp Client="NO" Scp="SORCER_SET_EXPROP_SEND" Time="1000" UseSleep="NO">
+                    <Str Str="SORCERER_SUMMONING"/>
+                    <Num Num="1"/>
+                </Scp>
+                <Scp Client="NO" Scp="SKL_TGT_COLOR" Time="1000" UseSleep="NO">
+                    <Num Num="64"/>
+                    <Num Num="32"/>
+                    <Num Num="64"/>
+                    <Num Num="250"/>
+                    <Num Num="1"/>
+                </Scp>
+                <Scp Client="NO" Scp="SORCER_ATTACH_EFFECT" Time="1000" UseSleep="NO">
+                    <Str_Arg Arg="0.1" Str="I_smoke013_dark3"/>
+                    <Num Num="1"/>
+                    <Str_Arg Arg="0.2" Str="I_smoke013_dark3_yellow"/>
+                    <Num Num="2"/>
+                </Scp>
+                <Scp Client="NO" Scp="SKL_TGT_EFFECT_SORCERER" Time="1000" UseSleep="NO">
+                    <Str_Arg Arg="0.69999999" Str="I_cylinder007_light_yellow"/>
+                </Scp>
+            </EtcList>
+        </MainSkl>
+    </Skill>
+</ToolSkill>

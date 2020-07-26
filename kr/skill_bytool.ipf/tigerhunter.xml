@@ -2,7 +2,7 @@
 <ToolSkill>
     <Skill Name="TigerHunter_PierceShot">
         <KeyInput>
-            <ToolScp Client="YES" Scp="SKL_KEY_DYNAMIC_CASTING" UseSleep="NO">
+            <ToolScp Scp="SKL_KEY_DYNAMIC_CASTING" Client="YES" UseSleep="NO">
                 <Num Num="1"/>
                 <Num Num="0"/>
                 <Num Num="0.5"/>
@@ -12,10 +12,10 @@
                 <Num Num="0"/>
                 <Num Num="0"/>
                 <Num Num="0"/>
-                <Num FuncTxt="return 0.5 / obj.Level;" Num="1" UseFunc="1"/>
+                <Num Num="1" UseFunc="1" FuncTxt="return 0.5 / obj.Level;"/>
                 <Num Num="1"/>
                 <Num Num="0"/>
-                <Str_Arg Arg="0" Str="E_pc_full_charge_low"/>
+                <Str_Arg Str="E_pc_full_charge_low" Arg="0"/>
                 <Str Str=""/>
                 <Num Num="0"/>
                 <Num Num="0"/>
@@ -25,6 +25,8 @@
                 <Num Num="0"/>
                 <Num Num="0"/>
                 <Num Num="0"/>
+                <Str Str=""/>
+                <Str Str=""/>
             </ToolScp>
         </KeyInput>
         <KeyInputStart>
@@ -257,6 +259,9 @@
     <Skill Name="TigerHunter_Blitz">
         <MainSkl ScrLock="None" JumpFlee="NO" MSPDToUsePos="0">
             <EtcList>
+            	<Scp Scp="SKL_RUN_SCRIPT" Client="NO" UseSleep="NO" Time="0">
+                    <Str Str="SCR_TIGERHUNTER13_COOLDOWN"/>
+            	</Scp>			
                 <Scp Scp="MONSKL_C_PLAY_ANIM" Client="YES" UseSleep="NO" Time="0">
                     <Str Str="SKL_BLITZ"/>
                     <Num Num="0.80000001"/>
@@ -325,38 +330,38 @@
             </ResultList>
         </MainSkl>
     </Skill>
-    <Skill Name="TigerHunter_Tracking">
-        <MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
-            <HitList>
-                <Frame Angle="0" AniTime="9999" Dist="0" ForceATK="0" HitCount="1" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" TermMax="0" TermMin="0" Time="9799" Type="FAN"/>
-            </HitList>
-            <EtcList>
-                <Scp Client="NO" Scp="SKL_BUFF" Time="0" UseSleep="NO">
-                    <Str Str="Tracking_Buff"/>
-                    <Num FuncTxt="return obj.Level" Num="1" UseFunc="1"/>
-                    <Num Num="0"/>
-                    <Num FuncTxt="local value = 20000 + obj.Level * 6000; local abil = GetAbility(self, &quot;TigerHunter2&quot;); if abil ~= nil and abil.ActiveState == 1 then value = value + 10000; end return value;" Num="0" UseFunc="1"/>
-                    <Num Num="1"/>
-                    <Num Num="100"/>
-                    <Num Num="0"/>
-                </Scp>
-                <Scp Client="YES" Scp="C_EFFECT" Time="0" UseSleep="NO">
-                    <Str_Arg Arg="1" Str="F_smoke173"/>
-                    <Str Str="None"/>
-                    <Num Num="0"/>
-                </Scp>
-                <Scp Client="YES" Scp="C_EFFECT" Time="0" UseSleep="NO">
-                    <Str_Arg Arg="6" Str="F_smoke179"/>
-                    <Str Str="Dummy_emitter"/>
-                    <Num Num="0"/>
-                </Scp>
-                <Scp Scp="C_VOICE_SOUND" Client="YES" UseSleep="NO" Time="0">
-                    <Str Str="voice_archer_m_tracking_shot"/>
-                    <Str Str="voice_archer_f_tracking_shot"/>
-                </Scp>
-            </EtcList>
-        </MainSkl>
-    </Skill>
+	<Skill Name="TigerHunter_Tracking">
+		<MainSkl ScrLock="None" JumpFlee="NO" MSPDToUsePos="0">
+			<HitList>
+				<Frame Type="FAN" Time="9799" HitCount="1" TermMin="0" TermMax="0" PosType="0" Dist="0" RandDist="0" RandomPerHit="0" Angle="0" AniTime="9999" RotAngle="0" ForceATK="0" ScriptIndex="0" ScriptName="" SkillType="0"/>
+			</HitList>
+			<EtcList>
+				<Scp Scp="SKL_BUFF" Client="NO" UseSleep="NO" Time="0">
+					<Str Str="Tracking_Buff"/>
+					<Num Num="1" UseFunc="1" FuncTxt="return obj.Level"/>
+					<Num Num="0"/>
+					<Num Num="0" UseFunc="1" FuncTxt="local value = 20000 + obj.Level * 6000; local abil = GetAbility(self, &quot;TigerHunter2&quot;); if abil ~= nil and abil.ActiveState == 1 then value = value + 10000; end return value;"/>
+					<Num Num="1"/>
+					<Num Num="100"/>
+					<Num Num="0"/>
+				</Scp>
+				<Scp Scp="C_EFFECT" Client="YES" UseSleep="NO" Time="0">
+					<Str_Arg Str="F_smoke173" Arg="1"/>
+					<Str Str="None"/>
+					<Num Num="0"/>
+				</Scp>
+				<Scp Scp="C_EFFECT" Client="YES" UseSleep="NO" Time="0">
+					<Str_Arg Str="F_smoke179" Arg="6"/>
+					<Str Str="Dummy_emitter"/>
+					<Num Num="0"/>
+				</Scp>
+				<Scp Scp="C_VOICE_SOUND" Client="YES" UseSleep="NO" Time="0">
+					<Str Str="voice_archer_m_tracking_shot"/>
+					<Str Str="voice_archer_f_tracking_shot"/>
+				</Scp>
+			</EtcList>
+		</MainSkl>
+	</Skill>
     <Skill Name="TigerHunter_EyeofBeast">
         <MainSkl ScrLock="None" JumpFlee="NO" MSPDToUsePos="0">
             <HitList>
@@ -389,41 +394,41 @@ return value + timeUp;"/>
             </EtcList>
         </MainSkl>
     </Skill>
-    <Skill Name="TigerHunter_HideShot">
-        <MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
-            <HitList>
-                <Frame Angle="0" AniTime="9999" Dist="0" ForceATK="0" HitCount="1" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" TermMax="0" TermMin="0" Time="9799" Type="FAN"/>
-            </HitList>
-            <EtcList>
-                <Scp Client="YES" Scp="C_SOUND" Time="0" UseSleep="NO">
-                    <Str Str="skl_eff_Archer_HideBox_eff"/>
+	<Skill Name="TigerHunter_HideShot">
+		<MainSkl ScrLock="None" JumpFlee="NO" MSPDToUsePos="0">
+			<HitList>
+				<Frame Type="FAN" Time="9799" HitCount="1" TermMin="0" TermMax="0" PosType="0" Dist="0" RandDist="0" RandomPerHit="0" Angle="0" AniTime="9999" RotAngle="0" ForceATK="0" ScriptIndex="0" ScriptName="" SkillType="0"/>
+			</HitList>
+			<EtcList>
+				<Scp Scp="C_SOUND" Client="YES" UseSleep="NO" Time="0">
+					<Str Str="skl_eff_Archer_HideBox_eff"/>
+				</Scp>
+				<Scp Scp="C_VOICE_SOUND" Client="YES" UseSleep="NO" Time="0">
+					<Str Str="voice_archer_m_hideshot_shot"/>
+					<Str Str="voice_archer_f_hideshot_shot"/>
+				</Scp>
+				<Scp Scp="C_SOUND" Client="YES" UseSleep="NO" Time="100">
+					<Str Str="skl_eff_zealot_blindfaith_shot"/>
+				</Scp>
+				<Scp Scp="SKL_TGT_REMOVE_DEBUFF" Client="NO" UseSleep="NO" Time="110">
+					<Str Str="0" UseFunc="1" FuncTxt="local func_name = 'get_remove_debuff_tooltip_' .. TryGetProp(obj, 'ClassName', 'None')
+               local func = _G[func_name]
+               if func == nil then return end
+               return func(obj.Level)"/>
                 </Scp>
-                <Scp Scp="C_VOICE_SOUND" Client="YES" UseSleep="NO" Time="0">
-                    <Str Str="voice_archer_m_hideshot_shot"/>
-                    <Str Str="voice_archer_f_hideshot_shot"/>
-                </Scp>
-                <Scp Scp="C_SOUND" Client="YES" UseSleep="NO" Time="100">
-                    <Str Str="skl_eff_zealot_blindfaith_shot"/>
-                </Scp>
-                <Scp Client="YES" Scp="C_EFFECT" Time="300" UseSleep="NO">
-                    <Str_Arg Arg="2.5" Str="F_smoke178"/>
+                <Scp Scp="C_EFFECT" Client="YES" UseSleep="NO" Time="300">
+                    <Str_Arg Str="F_smoke178" Arg="2.5"/>
                     <Str Str="None"/>
                     <Num Num="0"/>
                 </Scp>
-                <Scp Client="NO" Scp="SKL_BUFF" Time="300" UseSleep="NO">
+                <Scp Scp="SKL_BUFF" Client="NO" UseSleep="NO" Time="300">
                     <Str Str="HideShot_Buff"/>
                     <Num Num="1"/>
                     <Num Num="0"/>
-                    <Num FuncTxt="local value = 10000; local abil = GetAbility(self, &quot;TigerHunter7&quot;) if abil ~= nil and abil.ActiveState == 1 then local x, y, z = GetPos(self) if IsGrassSurface(self, x, y, z) == 1 then value = value + 5000; end end return value;" Num="0" UseFunc="1"/>
+                    <Num Num="0" UseFunc="1" FuncTxt="local value = 10000; local abil = GetAbility(self, &quot;TigerHunter7&quot;) if abil ~= nil and abil.ActiveState == 1 then local x, y, z = GetPos(self) if IsGrassSurface(self, x, y, z) == 1 then value = value + 5000; end end return value;"/>
                     <Num Num="1"/>
                     <Num Num="100"/>
                     <Num Num="0"/>
-                </Scp>
-            <Scp Client="NO" Scp="SKL_TGT_REMOVE_DEBUFF" Time="110" UseSleep="NO">
-                    <Str FuncTxt="local func_name = 'get_remove_debuff_tooltip_' .. TryGetProp(obj, 'ClassName', 'None')
-               local func = _G[func_name]
-               if func == nil then return end
-               return func(obj.Level)" Str="0" UseFunc="1"/>
                 </Scp>
             </EtcList>
         </MainSkl>

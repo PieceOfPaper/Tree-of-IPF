@@ -211,10 +211,29 @@ function SHOW_INDUNENTER_DIALOG(indunType, isAlreadyPlaying, enableAutoMatch, en
     frame:SetUserValue('ENABLE_PARTYMATCH', enablePartyMatch);
     INDUNENTER_SET_ENABLE(enableEnterRight, enableAutoMatch, enablePartyMatch, enableMulti);
 
+    -- 해외 UI 세팅
+    if (config.GetServiceNation() ~= "KOR") then
+        INDUNENTER_GLOBAL_UI_SETTING(frame)
+    end
+
     -- show
     frame:ShowWindow(1);
     bigmode:ShowWindow(1);
     smallmode:ShowWindow(0);
+end
+
+function INDUNENTER_GLOBAL_UI_SETTING(frame)
+    local btn1 = GET_CHILD_RECURSIVELY(frame, 'autoMatchBtn')
+    local btn2 = GET_CHILD_RECURSIVELY(frame, 'reEnterBtn')
+    local btn3 = GET_CHILD_RECURSIVELY(frame, 'understaffEnterAllowBtn')
+    local btn4 = GET_CHILD_RECURSIVELY(frame, 'multiBtn')
+    local btn5 = GET_CHILD_RECURSIVELY(frame, 'multiCancelBtn')
+
+    btn1:SetTextFixWidth(1)
+    btn2:SetTextFixWidth(1)
+    btn3:SetTextFixWidth(1)
+    btn4:SetTextFixWidth(1)
+    btn5:SetTextFixWidth(1)
 end
 
 function INDUNENTER_INIT_REENTER_UNDERSTAFF_BUTTON(frame, enableReenter)

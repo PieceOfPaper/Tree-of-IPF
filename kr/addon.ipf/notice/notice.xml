@@ -5,7 +5,7 @@
 	<frame title="알림" layout_gravity="center top" margin="0 160 0 0"/>
 	<option closebutton="false" visible="false"/>
 	<draw drawtitlebar="false" drawframe="false"/>
-	<layer layerlevel="100"/>
+	<layer layerlevel="300"/>
 	<input hittest="false"/>
 	<script CloseScp="NOTICE_CLOSE"/>
 	<animation frameOpenAnim="dialog_select_start" frameCloseAnim="dialog_select_end"/>

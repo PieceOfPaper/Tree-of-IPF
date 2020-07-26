@@ -132,7 +132,12 @@
 				<Scp Client="NO" Scp="MONSKL_CRE_PAD" Time="500" UseSleep="NO">
 					<Pos Angle="0" Dist="0" PosType="3"/>
 					<Angle Angle="0"/>
-					<Str Str="StormDust_Pad"/>
+					<Str Str="None" UseFunc="1" FuncTxt="local value = 'StormDust_Pad'
+local abil = GetAbility(self, 'Elementalist40')
+if abil ~= nil then
+    value = 'StormDust_Abil_Pad'
+end
+return value"/>
 				</Scp>
 			</EtcList>
 		</MainSkl>

@@ -1,5 +1,5 @@
 function ADVENTURE_BOOK_TEAM_BATTLE_COMMON_INIT(adventureBookFrame, teamBattleRankingPage)
-    local ret = worldPVP.RequestPVPInfo();    
+    local ret = worldPVP.RequestPVPInfo();
 	if ret == false then -- 이미 데이타가 있음
 		ADVENTURE_BOOK_TEAM_BATTLE_COMMON_UPDATE(adventureBookFrame);
 	end
@@ -9,8 +9,19 @@ function ADVENTURE_BOOK_TEAM_BATTLE_COMMON_INIT(adventureBookFrame, teamBattleRa
     ADVENTURE_BOOK_TEAM_BATTLE_RANK(teamBattleRankingPage, rankingBox);
 	
 	local join = GET_CHILD_RECURSIVELY(teamBattleRankingPage, 'teamBattleMatchingBtn');
-	join:SetEnable(0);
-	
+	join:SetEnable(IS_TEAM_BATTLE_ENABLE());
+
+	local reward = GET_CHILD_RECURSIVELY(teamBattleRankingPage, 'teamBattleRewardBtn');
+	local cid = session.GetMySession():GetCID();
+	local myRank = session.worldPVP.GetPrevRankInfoByCID(cid);
+	if myRank ~= nil and myRank.ranking < 3 then
+		reward:SetEnable(1)
+	else
+		reward:SetEnable(0)
+	end
+end
+
+function IS_TEAM_BATTLE_ENABLE()
     if session.colonywar.GetIsColonyWarMap() == false then
 		local cnt = session.worldPVP.GetPlayTypeCount();
 		if cnt > 0 then
@@ -24,10 +35,11 @@ function ADVENTURE_BOOK_TEAM_BATTLE_COMMON_INIT(adventureBookFrame, teamBattleRa
 			end
 
 			if isGuildBattle == 0 then
-				join:SetEnable(1);
+				return 1
 			end
 		end
 	end
+	return 0
 end
 
 function GET_TEAM_BATTLE_CLASS()
@@ -105,6 +117,16 @@ function ADVENTURE_BOOK_TEAM_BATTLE_RANK_UPDATE(frame, msg, argStr, argNum)
 	local control = GET_CHILD(teamBattleRankSet, 'control', 'ui::CPageController')
 	control:SetMaxPage(totalPage);
 	control:SetCurPage(page - 1);
+
+	local reward = GET_CHILD_RECURSIVELY(frame, 'teamBattleRewardBtn');
+	local cid = session.GetMySession():GetCID();
+	local myRank = session.worldPVP.GetPrevRankInfoByCID(cid);
+	print(myRank)
+	if myRank ~= nil and myRank.ranking < 3 then
+		reward:SetEnable(1)
+	else
+		reward:SetEnable(0)
+	end
 end
 
 function ADVENTURE_BOOK_JOIN_WORLDPVP(parent, ctrl)
@@ -258,7 +280,7 @@ function ADVENTURE_BOOK_TEAM_BATTLE_SEARCH(parent, ctrl)
     local page = control:GetCurPage();
     local adventureBookRankSearchEdit = GET_CHILD_RECURSIVELY(teamBattleRankSet, 'adventureBookRankSearchEdit');
     local teamBattleCls = GET_TEAM_BATTLE_CLASS();
-    local searchText = adventureBookRankSearchEdit:GetText();    
+	local searchText = adventureBookRankSearchEdit:GetText();
     if searchText == nil or searchText == '' then
 		worldPVP.RequestPVPRanking(teamBattleCls.ClassID, 0, -1, 1, 0, '');
 	else		
@@ -290,7 +312,7 @@ function WORLDPVP_PUBLIC_GAME_LIST(frame, msg, argStr, argNum)
 			local info = session.worldPVP.GetPublicGameByIndex(index);
 			local ctrlSet = gbox:CreateControlSet("pvp_observe_ctrlset", "CTRLSET_" .. i, 0, controlsetY);
 			ctrlSet:SetUserValue("GAME_ID", info.guid);
-			
+
 			local gbox_pc = ctrlSet:GetChild("gbox_pc");
 			local teamVec1 = info:CreateTeamInfo(1);
 			local teamVec2 = info:CreateTeamInfo(2);
@@ -298,7 +320,7 @@ function WORLDPVP_PUBLIC_GAME_LIST(frame, msg, argStr, argNum)
 			local gbox_whole = ctrlSet:GetChild("gbox_whole");
 			local gbox_1 = ctrlSet:GetChild("gbox_1");
 			local gbox_2 = ctrlSet:GetChild("gbox_2");
-			
+
 			local guildName1 = WORLDPVP_PUBLIC_GAME_SET_PCTEAM(frame, gbox_1, teamVec1, 1);
 
 			SET_VS_NAMES(worldPVPFrame, ctrlSet, 1, WORLDPVP_PUBLIC_GAME_SET_PCTEAM(frame, gbox_1, teamVec1, 1));

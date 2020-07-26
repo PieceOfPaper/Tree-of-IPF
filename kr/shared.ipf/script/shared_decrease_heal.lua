@@ -45,6 +45,14 @@ end
 function get_decrease_heal_debuff_tooltip_BlossomBlader_Flash(lv)
     local arg2 = 5 * tonumber(lv) * 1000
     local bfTime = 5000
+
+    if IsServerSection() == 0 then
+        local abil  = GetAbilityIESObject(GetMyPCObject(), "Blossomblader19");
+        if abil ~= nil and TryGetProp(abil, 'ActiveState' , 0) == 1 then
+            arg2 = arg2 / 2
+        end   
+    end
+
     local msg = string.format('DecreaseHeal_Debuff/%.2f/%.2f/%d/1/100/-1/0/0', arg2, arg2, bfTime)
     return msg
 end

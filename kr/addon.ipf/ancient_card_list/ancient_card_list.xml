@@ -30,6 +30,7 @@
 		<groupbox name="ancient_card_list_Gbox" rect="0 0 665 256" margin="20 385 0 0" layout_gravity="left top" draw="true" scrollbar="true" hittestbox="true" skin="test_frame_midle"/>
 		<button name="ancient_card_sort" rect="0 0 33 33" margin="20 0 0 9" layout_gravity="left bottom" LBtnUpScp="SORT_ANCIENT_CARD" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" clicksound="button_click_big" image="inven_lineup_btn" oversound="button_over" stretch="true" texttooltip="{@st59}어시스터 리스트를 정렬합니다.{/}"/>
 		<button name="ancient_card_gacha" rect="0 0 33 33" margin="55 0 0 9" layout_gravity="left bottom" LBtnUpScp="OPEN_ANCIENT_CARD_GACHA_ONCLICK" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" clicksound="button_click_big" image="Acient_card_gacha" oversound="button_over" stretch="true" texttooltip="{@st59}어시스터 카드첩{/}"/>
+		<button name="ancient_card_lock" rect="0 0 33 33" margin="90 0 0 9" layout_gravity="left bottom" LBtnUpScp="ON_ANCIENT_CARD_LOCK_MODE" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" clicksound="button_click_big" image="inven_lockup_btn" oversound="button_over" stretch="true" texttooltip="{@st59}선택한 어시스터가 잠금 상태가 됩니다.{/}"/>
 		<richtext name="ancient_card_num" rect="0 0 100 33" margin="540 0 0 12" layout_gravity="left bottom" format="{@st42b}{s18}보유 수: %s/%s" param1="count" param1_def="0" param2="max" param2_def="999"/>
 	</controls>
 </uiframe>

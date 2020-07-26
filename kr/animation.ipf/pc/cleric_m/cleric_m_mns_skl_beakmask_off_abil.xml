@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by asd (IMCGames Co., Ltd) -->
+<ActionDesc>
+	<AttachModel frame="0" XAC="cleric_f_plaguedoctor_helmet_white" node="Dummy_helmet" isAttach="true" autoDetach="true" index="0" anim="None"/>
+	<Sound frame="2.00" soundFile="move_step"/>
+	<Sound frame="3.00" soundFile="skl_eff_bone_move"/>
+	<Particle frame="4" attachNode="Bip01 Head" particleName="F_smoke064_grey" useAttach="false" hiddenObj="false" changeEffect="None" scale="0.3" pause="true" use2DEffect="true" targetPos="false"/>
+</ActionDesc>

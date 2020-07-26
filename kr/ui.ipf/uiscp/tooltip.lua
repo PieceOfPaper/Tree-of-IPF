@@ -504,10 +504,12 @@ end
 local function get_remove_buff_additional_tooltip(func, lv, lvDesc, additional_remove_buff_tooltip)
     -- 버프 삭제 로직 툴팁 관련    
     if func ~= nil then
-        local args = func(lv)        
-        local token = StringSplit(args, '/')                        
-        local msg = ScpArgMsg('AdditionalRemoveEnemyBuff{level}{prob}{count}', 'level', token[2], 'prob', tonumber(token[4]), 'count', token[3])
-        additional_remove_buff_tooltip = dictionary.ReplaceDicIDInCompStr(msg)
+        local args = func(lv)    
+        if args ~= nil then
+            local token = StringSplit(args, '/')                        
+            local msg = ScpArgMsg('AdditionalRemoveEnemyBuff{level}{prob}{count}', 'level', token[2], 'prob', tonumber(token[4]), 'count', token[3])
+            additional_remove_buff_tooltip = dictionary.ReplaceDicIDInCompStr(msg)
+        end
     end
 
     if additional_remove_buff_tooltip ~= nil then
@@ -659,7 +661,7 @@ function UPDATE_SKILL_TOOLTIP(frame, strarg, numarg1, numarg2, userData, obj)
     if skill_class_name ~= 'None' then
         func_name_remove_buff = string.format('get_remove_buff_tooltip_%s', skill_class_name)
     end
-
+    
     -- 아군 디버프 제거 관련 
     local additional_remove_debuff_tooltip = nil
     local func_name_remove_debuff = nil
@@ -686,7 +688,7 @@ function UPDATE_SKILL_TOOLTIP(frame, strarg, numarg1, numarg2, userData, obj)
 
             -- 버프 삭제 로직 툴팁 관련 ----------------------------------------------------------------
             if func_name_remove_buff ~= nil and _G[func_name_remove_buff] ~= nil then 
-                local func = _G[func_name_remove_buff]            
+                local func = _G[func_name_remove_buff]                            
                 lvDesc = get_remove_buff_additional_tooltip(func, 1, lvDesc, additional_remove_buff_tooltip)
             end
 

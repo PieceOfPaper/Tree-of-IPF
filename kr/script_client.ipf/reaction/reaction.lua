@@ -38,6 +38,22 @@ function C_SKL_LOCK_MOVE(actor, obj, isOn)
     end
 end
 
+function C_SKL_LOCK_MOVE_ABIL(actor, obj, abilName, isOn)
+	if abilName ~= nil and type(abilName) == 'string' and abilName ~= 'None' then
+		local abil = session.GetAbilityByName(abilName);
+        if abil ~= nil then
+			local abilObj = GetIES(abil:GetObject());
+			if abilObj.ActiveState == 1 then
+                local key = "SKL_" .. obj.type;
+                actor:LockMoveByKey(key, isOn);
+                if isOn == 1 then
+                    actor:AddSkillLockMove(key);
+                end
+            end
+        end
+    end
+end
+
 function C_SKL_LOCK_ROTATE(actor, obj, isOn)
     local key = "SKL_" .. obj.type;
     actor:LockRotateByKey(key, isOn);
@@ -60,6 +76,27 @@ function C_EFFECT(actor, obj, effectName, scale, nodeName, lifeTime)
 
     effect.PlayActorEffect(actor, effectName, nodeName, lifeTime, scale);
 
+end
+
+function C_EFFECT_ABIL(actor, obj, abilName, effectName, scale, nodeName, lifeTime)
+	if abilName ~= nil and type(abilName) == 'string' and abilName ~= 'None' then
+		local abil = session.GetAbilityByName(abilName);
+		if abil ~= nil then
+			local abilObj = GetIES(abil:GetObject());
+			if abilObj.ActiveState == 1 then
+                if lifeTime == nil then
+                    lifeTime = 0;    
+                end
+
+                -- 포포팝 피스톨 체크
+                if IS_EXIST_BRIQUETTING_OR_BEAUTYSHOP_ITEM(actor, "LH", "Pistol", obj.type, 634214) == true then
+                    effectName = "None";
+                end
+
+                effect.PlayActorEffect(actor, effectName, nodeName, lifeTime, scale);
+            end
+        end
+    end
 end
 
 function C_EFFECT_USE_XYZ(actor, obj, effectName, scale, nodeName, x, y, z)
@@ -172,6 +209,24 @@ function MONSKL_C_PLAY_ANIM(actor, skill, animName, spd, freezeAnim, cancelByHit
 
     actor:GetAnimation():ResetAnim();
     actor:GetAnimation():PlayFixAnim(animName, spd, freezeAnim, 0, 0, 0, true, 0, _cancelByHit);
+end
+
+function MONSKL_C_PLAY_ANIM_ABIL(actor, skill, abilName, animName, spd, freezeAnim, cancelByHit)
+	if abilName ~= nil and type(abilName) == 'string' and abilName ~= 'None' then
+		local abil = session.GetAbilityByName(abilName);
+		if abil ~= nil then
+			local abilObj = GetIES(abil:GetObject());
+			if abilObj.ActiveState == 1 then
+                local _cancelByHit = false;
+                if cancelByHit == 1 then    
+                    _cancelByHit = true;
+                end
+
+                actor:GetAnimation():ResetAnim();
+                actor:GetAnimation():PlayFixAnim(animName, spd, freezeAnim, 0, 0, 0, true, 0, _cancelByHit);
+            end
+        end
+    end
 end
 
 function MONSKL_C_PLAY_ANIM_OOBE(actor, skill, animName, spd, freezeAnim)
@@ -564,4 +619,23 @@ function SCR_COLONY_SIEGE_TOWER_CANNON_ATTACK_EFFECT_RUN(handle, effectName, sca
     
     effect.PlayActorEffect(obj, effectName, nodeName, lifeTime, scale);
     
+end
+
+function MONSKL_C_CASTING_ANIM_OR_PLAY_ANIM(actor, skill, CastinganimName, moveAnimName, spd, freezeAnim, AbilName, NormalanimName, Normalanimspd, NormalfreezeAnim, cancelByHit)
+    local handle = actor:GetHandleVal();
+    local abil = session.GetAbilityByName(AbilName);
+    if abil ~= nil then
+        local abilObj = GetIES(abil:GetObject());
+        if abilObj.ActiveState == 1 then
+            local _cancelByHit = false;
+            if cancelByHit == 1 then    
+                _cancelByHit = true;
+            end
+            actor:GetAnimation():ResetAnim();
+            actor:GetAnimation():PlayFixAnim(NormalanimName, Normalanimspd, NormalfreezeAnim, 0, 0, 0, true, 0, _cancelByHit);
+            
+            return;
+        end
+    end
+    actor:GetAnimation():SetCastingAnim(CastinganimName, moveAnimName, spd, freezeAnim);   
 end

@@ -96,6 +96,7 @@
 		<Child Name="MINPATK_MAIN_RATE_BM"/>
 		<Child Name="MAXPATK"/>
 		<Child Name="PATKADJ_RATE_BM"/>
+		<Child Name="PATK_RATE_MUL_BM"/>
 	</hierarchy>
 	<hierarchy Name="MAXPATK">
 		<Child Name="STR"/>
@@ -107,6 +108,7 @@
 		<Child Name="MAXPATK_RATE_BM"/>
 		<Child Name="PATK_MAIN_RATE_BM"/>
 		<Child Name="MAXPATK_MAIN_RATE_BM"/>
+		<Child Name="PATK_RATE_MUL_BM"/>
 	</hierarchy>
 	<hierarchy Name="MINPATK_SUB">
 		<Child Name="STR"/>
@@ -120,6 +122,7 @@
 		<Child Name="MINPATK_SUB_RATE_BM"/>
 		<Child Name="MAXPATK_SUB"/>
 		<Child Name="PATKADJ_SUB_RATE_BM"/>
+		<Child Name="PATK_RATE_MUL_BM"/>
 	</hierarchy>
 	<hierarchy Name="MAXPATK_SUB">
 		<Child Name="STR"/>
@@ -131,6 +134,7 @@
 		<Child Name="MAXPATK_RATE_BM"/>
 		<Child Name="PATK_SUB_RATE_BM"/>
 		<Child Name="MAXPATK_SUB_RATE_BM"/>
+		<Child Name="PATK_RATE_MUL_BM"/>
 	</hierarchy>
 	<hierarchy Name="HR">
 		<Child Name="STR"/>
@@ -203,6 +207,7 @@
 		<Child Name="MINMATK_RATE_BM"/>
 		<Child Name="MAXMATK"/>
 		<Child Name="MATKADJ_RATE_BM"/>
+		<Child Name="MATK_RATE_MUL_BM"/>
 	</hierarchy>
 	<hierarchy Name="MAXMATK">
 		<Child Name="INT"/>
@@ -210,17 +215,20 @@
 		<Child Name="MAXMATK_BM"/>
 		<Child Name="MATK_RATE_BM"/>
 		<Child Name="MAXMATK_RATE_BM"/>
+		<Child Name="MATK_RATE_MUL_BM"/>
 	</hierarchy>
 	<hierarchy Name="ADD_OverHeat">
 		<Child Name="INT"/>
 	</hierarchy>
 	<hierarchy Name="DEF">
 		<Child Name="DEF_BM"/>
+		<Child Name="DEF_RATE_MUL_BM"/>
 		<Child Name="DEF_RATE_BM"/>
 	</hierarchy>
 	<hierarchy Name="MDEF">
 		<Child Name="MDEF_BM"/>
 		<Child Name="MDEF_RATE_BM"/>
+		<Child Name="MDEF_RATE_MUL_BM"/>
 	</hierarchy>
 	<hierarchy Name="RHPTIME">
 		<Child Name="RHPTIME_BM"/>
@@ -262,6 +270,7 @@
 	<hierarchy Name="CRTDR">
 		<Child Name="CRTDR_BM"/>
 		<Child Name="CRTDR_RATE_BM"/>
+		<Child Name="CRTDR_RATE_MUL_BM"/>
 	</hierarchy>
 	<hierarchy Name="BLKABLE">
 		<Child Name="BLKABLE_BM"/>

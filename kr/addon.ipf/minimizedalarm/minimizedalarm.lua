@@ -1,137 +1,127 @@
 function MINIMIZEDALARM_ON_INIT(addon, frame)
-	
 	addon:RegisterMsg('PVP_PLAYING_UPDATE', 'ON_PVP_PLAYING_UPDATE'); 
-	addon:RegisterMsg('PARTY_COMPETITION_STATE', 'ON_PVP_PLAYING_UPDATE'); 
-
+	addon:RegisterMsg('PVP_MINE_STATE_UPDATE', 'ON_PVP_MINE_STATE_UPDATE'); 
+	addon:RegisterMsg('GAME_START', 'ON_PVP_PLAYING_UPDATE'); 
 end
 
-function ON_PVP_PLAYING_UPDATE(frame)
-
-	if true == IsHaveCommandLine("-NOPVP") then
+function ON_PVP_PLAYING_UPDATE(frame, msg, argStr,argNum)
+	local pvp_type = GET_PVP_TYPE()
+	if pvp_type == "PVP_MINE" then
+		local diff = PVP_MINE_GET_DIFF_TIME()
+		local argStr = "None"
+		if diff <= -900 then
+			argStr = "HIDE"
+		elseif diff <= -358 then
+			argStr = "UNABLE"
+		elseif diff <= 2 then
+			argStr = "ENABLE"
+		elseif diff <= 842 then
+			argStr = "UNABLE"
+		elseif diff <= 1202 then
+			argStr = "ENABLE",1
+		elseif diff <= 1800 then
+			argStr = "SHOW",1
+		end
+		ON_PVP_MINE_STATE_UPDATE(frame,"",argStr,0)
+	elseif pvp_type == "TEAM_BATTLE" then
+		frame:ShowWindow(1);
+		local pic = GET_CHILD_RECURSIVELY(frame,"pic")
+		pic:SetEventScript(ui.LBUTTONUP,"OPEN_INDUNINFO_TAB_BY_ARG")
+		pic:SetEventScriptArgString(ui.LBUTTONUP,"4")
+		pic:SetEventScriptArgNumber(ui.LBUTTONUP,2)
+	else
 		frame:ShowWindow(0);
-		return;
+	end
+end
+
+function GET_PVP_TYPE()
+	local diff = PVP_MINE_GET_DIFF_TIME()
+	if diff > -900 and diff <= 1800 then
+		return "PVP_MINE"
+	end
+	if true == IsHaveCommandLine("-NOPVP") then
+		return nil
 	end
 
 	if session.IsMissionMap() == true then
-		frame:ShowWindow(0);
-		return;
+		return nil
 	end
-
-	local partyCount = session.party.GetPartyCompetitionStates();
-	local cnt = session.worldPVP.GetPlayTypeCount();
-	local partySize = partyCount:size();
-	if cnt == 0 and partySize == 0 then
-		frame:ShowWindow(0);
-		return;
-	end
-		frame:ShowWindow(1);
-	local playGuildBattle = false;
-	for i = 0, cnt -1 do
-		local type = session.worldPVP.GetPlayTypeByIndex(i);
-		if type == 210 then
-			playGuildBattle = true;
-			break;
-		end
-	end
-
-		local gbox = frame:GetChild("gbox");
-		local gbox_mission = frame:GetChild("gbox_mission");
-		if cnt == 0 then
-			gbox:ShowWindow(0);
-		else
-
-			local pic = gbox:GetChild("pic");
-		tolua.cast(pic, "ui::CPicture");
-		if false == playGuildBattle then
-			pic:SetEventScript(ui.LBUTTONUP, "OPEN_PVP_FRAME");
-			pic:SetImage('journal_pvp_icon');			
-		else
-			if 0 == session.worldPVP.GetRemainSecondToNextSeason() then
-				worldPVP.RequestPVPInfo();
-				worldPVP.RequestGuildBattlePrevSeasonRanking(210);
-			end
-			pic:SetEventScript(ui.LBUTTONUP, "OPEN_GUILDBATTLE_FRAME");
-			pic:SetImage('journal_guild_icon');
-		end
-		end
-
-
-	if partySize > 0 then
-		gbox_mission:ShowWindow(1);
 	
-		local pic = gbox_mission:GetChild("pic");
-		if nil ~= pic then
-		pic:SetEventScript(ui.LBUTTONUP, "OPEN_PARTY_COMPETITION");
-		else
-			gbox_mission:ShowWindow(0);
-		end
-	
-	else
-		gbox_mission:ShowWindow(0);
-	end				
+	if IS_TEAM_BATTLE_ENABLE() == 1 then
+		return "TEAM_BATTLE"
+	end
+	return nil
 end
 
-function WORLDPVP_START_ICON_NOTICE()
-    if IS_IN_EVENT_MAP() == true then
-        return;
-    end
+function IS_ON_PVP()
+	if true == IsHaveCommandLine("-NOPVP") then
+		return false
+	end
+
+	if session.IsMissionMap() == true then
+		return false
+	end
+	local diff = PVP_MINE_GET_DIFF_TIME()
+	if diff > -900 and diff <= 1800 then
+		return true
+	end
+	local cnt = session.worldPVP.GetPlayTypeCount();
+	if cnt == 0 then
+		return false
+	end
+	return true;
+end
+
+function ON_PVP_MINE_STATE_UPDATE(frame,msg,argStr,argNum)
+	local pic = GET_CHILD_RECURSIVELY(frame,"pic")
+	if argStr == "SHOW" then
+		pic:SetEnable(0)
+		frame:ShowWindow(1)
+		pic:SetEventScript(ui.LBUTTONUP,"OPEN_INDUNINFO_TAB_BY_ARG")
+		pic:SetEventScriptArgString(ui.LBUTTONUP,"4")
+		pic:SetEventScriptArgNumber(ui.LBUTTONUP,1)
+	elseif argStr == "ENABLE" then
+		frame:ShowWindow(1)
+		pic:SetEnable(1)
+		pic:SetEventScript(ui.LBUTTONUP,"OPEN_INDUNINFO_TAB_BY_ARG")
+		pic:SetEventScriptArgString(ui.LBUTTONUP,"4")
+		pic:SetEventScriptArgNumber(ui.LBUTTONUP,1)
+	elseif argStr == "UNABLE" then
+		frame:ShowWindow(1)
+		pic:SetEnable(0)
+	elseif argStr == "HIDE" then
+		frame:ShowWindow(0)
+	end
+end
+
+function OPEN_INDUNINFO_TAB_BY_ARG(parent,ctr,argStr,argNum)
+	local indunInfoFrame = ui.GetFrame('induninfo')
+	indunInfoFrame:ShowWindow(1)
+	local tab = GET_CHILD_RECURSIVELY(indunInfoFrame,'tab')
+	tab:SelectTab(tonumber(argStr))
+	INDUNINFO_TAB_CHANGE(indunInfoFrame,indunInfoFrame)
+	INDUNINFO_SELECT_CATEGORY(argNum)
+end
+
+function WORLDPVP_START_ICON_NOTICE(enable)
+	if IS_IN_EVENT_MAP() == true then
+		return;
+	end
 
 	local frame = ui.GetFrame("minimizedalarm");
-	local gbox = frame:GetChild("gbox");
-	local pic = gbox:GetChild("pic");
-	frame:ShowWindow(1);
-	UI_PLAYFORCE(pic, "emphasize_pvp", 0, 0);
-end
-
-function OPEN_PVP_FRAME(frame)
-	ui.OpenFrame("worldpvp");
-	frame = frame:GetTopParentFrame();
-	frame:ShowWindow(0);
-
-	local guildbattle_league =  ui.GetFrame("guildbattle_league");
-	guildbattle_league:ShowWindow(0);
-	
-
-	local pvpFrame = ui.GetFrame("worldpvp");
-	local tab = GET_CHILD(pvpFrame, "tab");
-	if tab ~= nil then
-		tab:SelectTab(0);
+	if enable == 1 then
+		frame:ShowWindow(1);
+		local pic = GET_CHILD_RECURSIVELY(frame,"pic")
+		UI_PLAYFORCE(pic, "emphasize_pvp", 0, 0);
+	else
+		frame:ShowWindow(0);
 	end
 end
 
-function OPEN_GUILDBATTLE_FRAME(frame)
-	frame = frame:GetTopParentFrame();
-	frame:ShowWindow(0);
-	
-	local worldpvp =  ui.GetFrame("worldpvp");
-	worldpvp:ShowWindow(0);
-
-	OPEN_GUILDBATTLE_RANKING_TAB();
-	
-	ui.OpenFrame("guildbattle_league");	
-	local pvpFrame = ui.GetFrame("guildbattle_league");
-	local tab = GET_CHILD(pvpFrame, "tab");
-	if tab ~= nil then
-		tab:SelectTab(0);
-	end
-	
+function PVP_MINE_INDUN_INFO_OPEN(frame)
+	local frame = ui.GetFrame('induninfo')
+	frame:ShowWindow(1)
+	local tab = GET_CHILD_RECURSIVELY(frame,"tab")
+	tab:SelectTab(4)
+	PVP_INDUNINFO_UI_OPEN(frame)
 end
-
-function OPEN_GUILDBATTLE_RANKING_TAB()
-	ui.OpenFrame("guildbattle_ranking");
-	
-	worldPVP.RequestPVPInfo();
-	local guildbattle_ranking = ui.GetFrame("guildbattle_ranking");	
-	GUILDBATTLE_RANKING_TAB_CHANGE(guildbattle_ranking);
-end
-
-
-function OPEN_PARTY_COMPETITION(parent, ctrl)
-
-	local frame = ui.GetFrame("partycompetitionlist");
-	frame:ShowWindow(1);
-	UPDATE_PARTY_COMPETITION_LIST(frame);
-	
-
-end
-

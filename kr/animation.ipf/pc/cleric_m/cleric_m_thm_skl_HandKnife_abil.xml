@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<ActionDesc>
+	<Particle frame="3" attachNode="Bip01 L Finger2" particleName="F_cleric_palmstrike_light" useAttach="true" hiddenObj="false" changeEffect="None" scale="4" pause="true" use2DEffect="true" targetPos="false"/>
+	<Particle frame="13" attachNode="Bip01 L Finger2" particleName="F_cleric_palmstrike_explosion" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="true" targetPos="false"/>
+	<Shockwave frame="13" type="2" intensity="20" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="15" type="2" intensity="3" frequency="50" duration="0.5" range="1000"/>
+	<BlendOn frame="0" R="0" G="0" B="0" A="0"/>
+	<BlendOn frame="2" R="0" G="0" B="0" A="0"/>
+	<BlendOn frame="3" R="60" G="30" B="35" A="50"/>
+	<BlendOn frame="5" R="80" G="45" B="40" A="70"/>
+	<BlendOn frame="6" R="100" G="50" B="60" A="90"/>
+	<BlendOn frame="7" R="150" G="120" B="125" A="100"/>
+	<BlendOn frame="8" R="200" G="150" B="160" A="100"/>
+	<BlendOn frame="10" R="200" G="140" B="150" A="100"/>
+	<BlendOn frame="11" R="100" G="50" B="60" A="50"/>
+	<BlendOn frame="12" R="80" G="45" B="40" A="50"/>
+	<BlendOn frame="13" R="60" G="30" B="35" A="50"/>
+	<BlendOn frame="14" R="30" G="15" B="15" A="30"/>
+	<BlendOn frame="15" R="10" G="5" B="7" A="20"/>
+	<BlendOff frame="17" R="0" G="0" B="0" A="0"/>
+</ActionDesc>

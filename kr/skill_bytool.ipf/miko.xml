@@ -200,7 +200,7 @@
         </KeyInput>
         <MainSkl ScrLock="None" JumpFlee="NO" MSPDToUsePos="0">
             <HitList>
-                <Frame Type="FAN" Time="10799" HitCount="1" TermMin="0" TermMax="0" PosType="0" Dist="0" RandDist="0" RandomPerHit="0" Angle="0" AniTime="10999" RotAngle="0" ForceATK="0"/>
+                <Frame Type="FAN" Time="10799" HitCount="1" TermMin="0" TermMax="0" PosType="0" Dist="0" RandDist="0" RandomPerHit="0" Angle="0" AniTime="10999" RotAngle="0" ForceATK="0" ScriptIndex="0" ScriptName="" SkillType="0"/>
             </HitList>
             <EtcList>
                 <Scp Scp="MONSKL_C_PLAY_ANIM" Client="YES" UseSleep="NO" Time="0">
@@ -233,7 +233,12 @@
                     <Num Num="0"/>
                     <Num Num="0"/>
                     <Angle Angle="0"/>
-                    <Str Str="Miko_Hamaya"/>
+                    <Str Str="" UseFunc="1" FuncTxt="    local pad = &quot;Miko_Hamaya&quot;
+    local abil = GetAbility(self, &quot;Miko13&quot;)
+    if abil ~= nil and TryGetProp(abil, &quot;ActiveState&quot;, 0) == 1 then
+        pad = &quot;Miko_Hamaya_Abil&quot;
+    end
+    return pad"/>
                 </Scp>
                 <Scp Scp="C_EFFECT_POS" Client="YES" UseSleep="NO" Time="800">
                     <Str_Arg Str="F_cleric_hamaya_smoke_hit" Arg="5"/>

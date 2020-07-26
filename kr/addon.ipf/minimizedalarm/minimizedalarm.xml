@@ -9,8 +9,7 @@
     <sound opensound="sys_popup_open_1" closesound="character_item_window_close"/>
     <animation frameOpenAnim="popup_start" frameCloseAnim="popup_end"/>
     <controls>
-        <groupbox name="gbox" margin="0 0 0 0" rect="0 0 70 65" hittestbox="false" skin="none" layout_gravity="left top"/>
-        <groupbox name="gbox_mission" margin="0 65 0 0" rect="0 0 70 65" hittestbox="false" skin="Item_tooltip_unique" layout_gravity="left top"/>
-        <picture name="pic" rect="0 0 60 60" margin="0 0 0 0" layout_gravity="center center" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" changecursor="false" hittest="true" image="journal_pvp_icon" stretch="true" parent="gbox"/>
+        <groupbox name="gbox" margin="0 0 0 0" rect="0 0 70 65" hittestbox="false" draw="false" layout_gravity="left top"/>
+        <picture name="pic" rect="0 0 60 60" margin="0 0 0 0" layout_gravity="center center" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" changecursor="false" hittest="true" image="volunteer_scramble_btn" stretch="true" parent="gbox" LBtnUpScp="OPEN_INDUNINFO_TAB_BY_ARG"/>
     </controls>
 </uiframe>

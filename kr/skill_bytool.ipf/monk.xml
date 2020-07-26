@@ -256,34 +256,121 @@ return obj.Level;"/>
         </MainSkl>
     </Skill>
     <Skill Name="Monk_PalmStrike">
-        <MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+        <MainSkl ScrLock="None" JumpFlee="NO" MSPDToUsePos="0">
             <HitList>
-                <Frame Angle="0" AniTime="350" Dist="0" ForceATK="0" HitCount="1" Length="60" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="150" Type="SQUARE" Width="25"/>
+                <Frame Type="SQUARE" Time="150" HitCount="1" TermMin="0" TermMax="0" PosType="0" Dist="0" RandDist="0" RandomPerHit="0" Angle="0" Width="25" Length="60" SklAngle="0.17453292" AniTime="350" RotAngle="0" ForceATK="0" ScriptIndex="0" ScriptName="" SkillType="0"/>
             </HitList>
             <EtcList>
-                <Scp Client="YES" Scp="C_VOICE_SOUND" Time="0" UseSleep="NO">
+                <Scp Scp="C_VOICE_SOUND" Client="YES" UseSleep="NO" Time="0">
                     <Str Str="voice_cleric_m_irongravelpalm_shot"/>
                     <Str Str="voice_cleric_irongravelpalm_shot"/>
                 </Scp>
-                <Scp Client="NO" Scp="SKL_BUFF" Time="300" UseSleep="NO">
+                <Scp Scp="MONSKL_C_PLAY_ANIM" Client="YES" UseSleep="NO" Time="0">
+                    <Str Str="skl_PalmStrike"/>
+                    <Num Num="1"/>
+                    <Num Num="1"/>
+                    <Num Num="0"/>
+                </Scp>
+                <Scp Scp="SKL_BUFF" Client="NO" UseSleep="NO" Time="300">
                     <Str Str="HandKnife_Buff"/>
                     <Num Num="1"/>
                     <Num Num="0"/>
-                    <Num Num="1000"/>
+                    <Num Num="2000"/>
                     <Num Num="1"/>
                     <Num Num="100"/>
                     <Num Num="0"/>
                 </Scp>
             </EtcList>
             <ResultList>
-                <ToolScp Client="NO" Scp="S_R_TGT_Decrease_heal_debuff" UseSleep="NO">
-                    <Str FuncTxt="local func_name = 'get_decrease_heal_debuff_tooltip_' .. TryGetProp(skill, 'ClassName', 'None')
+                <ToolScp Scp="S_R_TGT_Decrease_heal_debuff" Client="NO" UseSleep="NO">
+                    <Str Str="0" UseFunc="1" FuncTxt="local func_name = 'get_decrease_heal_debuff_tooltip_' .. TryGetProp(skill, 'ClassName', 'None')
                local func = _G[func_name]
                if func == nil then return end
-               return func(skill.Level)" Str="0" UseFunc="1"/>
+               return func(skill.Level)"/>
                 </ToolScp>
             </ResultList>
         </MainSkl>
+        <ByCondSkills>
+            <SubSkl>
+                <Cond>
+                    <ToolScp Scp="SKL_SELECT_ABIL" Client="NO" UseSleep="NO">
+                        <Str Str="Monk34"/>
+                    </ToolScp>
+                </Cond>
+                <Skill ScrLock="None" JumpFlee="NO" MSPDToUsePos="0">
+                    <HitList>
+                        <Frame Type="SQUARE" Time="99799" HitCount="1" TermMin="0" TermMax="0" PosType="0" Dist="0" RandDist="0" RandomPerHit="0" Angle="0" Width="25" Length="60" SklAngle="0.17453292" AniTime="99999" RotAngle="0" ForceATK="0" ScriptIndex="0" ScriptName="" SkillType="0"/>
+                    </HitList>
+                    <EtcList>
+                        <Scp Scp="C_VOICE_SOUND" Client="YES" UseSleep="NO" Time="0">
+                            <Str Str="voice_cleric_m_irongravelpalm_shot"/>
+                            <Str Str="voice_cleric_irongravelpalm_shot"/>
+                        </Scp>
+                        <Scp Scp="MONSKL_C_PLAY_ANIM" Client="YES" UseSleep="NO" Time="0">
+                            <Str Str="skl_HandKnife_abil"/>
+                            <Num Num="1.5"/>
+                            <Num Num="1"/>
+                            <Num Num="0"/>
+                        </Scp>
+                        <Scp Scp="SKL_SET_TARGET_SQUARE_SR" Client="NO" UseSleep="NO" Time="0">
+                            <Pos Angle="0" Dist="10"/>
+                            <Num Num="0"/>
+                            <Num Num="100"/>
+                            <Num Num="50"/>
+                            <Num Num="2"/>
+                            <Num Num="0"/>
+                            <Num Num="0"/>
+                            <Num Num="0"/>
+                        </Scp>
+                        <Scp Scp="C_EFFECT_POS" Client="YES" UseSleep="NO" Time="200">
+                            <Str_Arg Str="F_lineup022_yellow2###1" Arg="2"/>
+                            <Pos Angle="0" Dist="60"/>
+                            <Num Num="0"/>
+                            <Str Str="None"/>
+                        </Scp>
+                        <Scp Scp="C_EFFECT" Client="YES" UseSleep="NO" Time="250">
+                            <Str_Arg Str="E_cleric_palmstrike_abil" Arg="0.94999999"/>
+                            <Str Str="None"/>
+                            <Num Num="0"/>
+                        </Scp>
+                        <Scp Scp="C_EFFECT_POS" Client="YES" UseSleep="NO" Time="290">
+                            <Str_Arg Str="F_burstup057_yellow###1" Arg="2"/>
+                            <Pos Angle="0" Dist="60"/>
+                            <Num Num="0"/>
+                            <Str Str="None"/>
+                        </Scp>
+                        <Scp Scp="SKL_BUFF" Client="NO" UseSleep="NO" Time="300">
+                            <Str Str="HandKnife_Buff"/>
+                            <Num Num="1"/>
+                            <Num Num="0"/>
+                            <Num Num="2000"/>
+                            <Num Num="1"/>
+                            <Num Num="100"/>
+                            <Num Num="0"/>
+                        </Scp>
+                        <Scp Scp="C_EFFECT_POS" Client="YES" UseSleep="NO" Time="350">
+                            <Str_Arg Str="F_spread_out063_yellow###1" Arg="0.60000002"/>
+                            <Pos Angle="0" Dist="60"/>
+                            <Num Num="0"/>
+                            <Str Str="None"/>
+                        </Scp>
+                        <Scp Scp="SKL_TGT_DMG" Client="NO" UseSleep="NO" Time="500">
+                            <Num Num="1"/>
+                            <Num Num="1"/>
+                            <Num Num="0"/>
+                        </Scp>
+                    </EtcList>
+                    <ResultList>
+                        <ToolScp Scp="S_R_TGT_Decrease_heal_debuff" Client="NO" UseSleep="NO">
+                            <Str Str="0" UseFunc="1" FuncTxt="local func_name = 'get_decrease_heal_debuff_tooltip_' .. TryGetProp(skill, 'ClassName', 'None')
+               local func = _G[func_name]
+               if func == nil then return end
+               return func(skill.Level)"/>
+                        </ToolScp>
+                    </ResultList>
+                </Skill>
+            </SubSkl>
+        </ByCondSkills>
     </Skill>
     <Skill Name="Monk_DoublePunch">
         <MainSkl ScrLock="None" JumpFlee="NO" MSPDToUsePos="0">

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by imc (imc) -->
+<uiframe name="induninfo_pvpreward" x="0" y="0" width="275" height="600" create="open">
+	<frame fasthide="true" layout_gravity="center center" margin="0 0 0 0"/>
+	<input moveable="false" hittestframe="false" moveintitlebar="false"/>
+	<draw drawframe="false" drawtitlebar="false"/>
+	<layer layerlevel="101"/>
+	<script OpenScp="INDUNINFO_PVPREWARD_UI_OPEN" CloseScp="INDUNINFO_PVPREWARD_UI_CLOSE"/>
+	<controls>
+		<groupbox name="bg" rect="0 0 275 600" margin="0 0 0 0" layout_gravity="right bottom" hittestbox="false" scrollbar="false" skin="test_frame_low"/>
+        <groupbox name="rewardGbox" parent="bg" rect="0 0 275 530" margin="0 0 0 0" layout_gravity="center bottom" hittestbox="false" scrollbar="false" skin="test_frame_midle" draw="false"/>
+        <richtext name="rewardInfoText" rect="0 0 250 530" margin="0 0 0 0" parent="rewardGbox" layout_gravity="center top" fixwidth="true" textalign="center top" fontname="white_18_ol" caption=""/>
+        <groupbox name="rewardnamebg" parent="bg" rect="0 0 260 40" margin="0 10 0 0 " layout_gravity="center top" hittestbox="false" scrollbar="false" skin="market_listbase" draw="false"/>
+        <picture name="rewardnamebg_2" rect="0 0 255 40" margin="0 0 0 0" parent="rewardnamebg" layout_gravity="center top" stretch="true" hittestbox="false" resizebyparent="false" resizebyresolution="false" image="adventure_titlebar"/>
+        <richtext name="rewardInfo" rect="0 0 260 40" margin="0 0 0 0" parent="rewardnamebg_2" layout_gravity="center center" textalign="center top" fontname="white_18_ol" format="{@st66d}보상안내"/>
+		<button name="closeBtn" rect="0 0 50 50" margin="0 12 10 0" layout_gravity="right top" LBtnUpScp="INDUNINFO_PVPREWARD_UI_CLOSE" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" clicksound="button_click_big" image="testclose_button" oversound="button_over" texttooltip="{@st59}인스턴스 던전 창을 닫습니다{/}"/>
+	</controls>
+</uiframe>

@@ -73,7 +73,8 @@ function ADVENTURE_BOOK_RANKING_PAGE_SELECT(parent, ctrl, argStr, pageNum)
         categoryName = 'UpHill';
     elseif argStr == 'TeamBattle' then    
         local pvpCls = GET_TEAM_BATTLE_CLASS();
-        worldPVP.RequestPVPRanking(pvpCls.ClassID, 0, -1, pageNum, 0, '');
+		worldPVP.RequestPVPRanking(pvpCls.ClassID, 0, -1, pageNum, 0, '');
+		worldPVP.RequestGuildBattlePrevSeasonRanking(pvpCls.ClassID);
         return;
     end
     ReqAdventureBookRanking(categoryName, pageNum);

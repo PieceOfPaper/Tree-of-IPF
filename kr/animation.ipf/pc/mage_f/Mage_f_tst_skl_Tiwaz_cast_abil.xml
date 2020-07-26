@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by IMCGames Co., Ltd (IMCGames Co., Ltd) -->
+<ActionDesc>
+	<AttachModel frame="0" XAC="rune_stone_tiwaz_set" node="Dummy_R_HAND" isAttach="true" autoDetach="true" index="0" anim="none"/>
+	<Particle frame="8" attachNode="Dummy_R_HAND" particleName="F_wizard_Tiwaz_cast_spread_in_light" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="false" soft2DValue="0" targetPos="false"/>
+	<Particle frame="9" attachNode="Dummy_R_HAND" particleName="I_wizard_rune_stone_Tiwaz_light_mash_cast" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.1" pause="true" use2DEffect="false" soft2DValue="0" targetPos="false"/>
+	<Particle frame="10" attachNode="Dummy_R_HAND" particleName="I_wizard_rune_stone_cast_light" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.3" pause="true" use2DEffect="false" soft2DValue="0" targetPos="false"/>
+	<Particle frame="21" attachNode="Dummy_R_HAND" particleName="I_wizard_rune_stone_Tiwaz_light_mash_cast" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.1" pause="true" use2DEffect="false" soft2DValue="0" targetPos="false"/>
+	<Particle frame="8" attachNode="Dummy_emitter" particleName="E_wizard_Tiwaz_shot_line_abil" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" soft2DValue="0"/>
+	<Particle frame="8" attachNode="Dummy_emitter" particleName="F_wizard_RuneCaster_fullcharge" useAttach="false" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" soft2DValue="0"/>
+	<Particle frame="0" attachNode="Dummy_emitter" particleName="F_wizard_Tiwaz_cast_ground" useAttach="false" hiddenObj="false" changeEffect="None" scale="1.2" pause="true" use2DEffect="false" soft2DValue="0"/>
+</ActionDesc>

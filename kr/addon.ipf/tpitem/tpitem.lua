@@ -234,7 +234,24 @@ function TPITEM_OPEN(frame)
 	RECYCLE_MAKE_TREE(frame);
 	COSTUME_EXCHANGE_MAKE_TREE(frame);
 	NEWBIE_MAKE_TREE(frame);
-	RETURNUSER_MAKE_TREE(frame);
+    RETURNUSER_MAKE_TREE(frame);
+    
+    -- 해외 UI 세팅
+    if (config.GetServiceNation() ~= "KOR") then
+        TPSHOP_GLOBAL_UI_SETTING(frame)
+	end
+end
+
+function TPSHOP_GLOBAL_UI_SETTING(frame)
+    local btn1 = GET_CHILD_RECURSIVELY(frame, 'rcycle_resetPreviewBtn')
+    local btn2 = GET_CHILD_RECURSIVELY(frame, 'rcycle_tomedalBtn')
+    local btn3 = GET_CHILD_RECURSIVELY(frame, 'rcycle_toitemBtn')
+    local btn4 = GET_CHILD_RECURSIVELY(frame, 'resetPreviewBtn')
+
+    btn1:SetTextFixWidth(1)
+    btn2:SetTextFixWidth(1)
+    btn3:SetTextFixWidth(1)
+    btn4:SetTextFixWidth(1)
 end
 
 function TPSHOP_TAB_VIEW(frame, curtabIndex)
@@ -2564,11 +2581,11 @@ function TPSHOP_ITEM_BASKET_BUY(parent, control)
         end
 	end
 
-	local itemMsg = "{#0000FF}";
+	local itemMsg = "{@st66d_y}{s20}";
 	for k,v in pairs(itemNamelist) do 
 		itemMsg = itemMsg..string.format("%s x %d {nl}", k, v);
 	end
-	local msg = itemMsg.."{/} {nl}"..ScpArgMsg("PremiumTabBuyMsg{TP}{HAVE}{BASKET}{RET}", "TP", allPrice, "HAVE", GET_CASH_TOTAL_POINT_C(), "BASKET", allPrice, "RET", GET_CASH_TOTAL_POINT_C()-allPrice);
+	local msg = itemMsg.."{/}{/}{/} {nl}{#FFFFFF}{ol}{s18}"..ScpArgMsg("PremiumTabBuyMsg{TP}{HAVE}{BASKET}{RET}", "TP", allPrice, "HAVE", GET_CASH_TOTAL_POINT_C(), "BASKET", allPrice, "RET", GET_CASH_TOTAL_POINT_C()-allPrice);
 	
 	if #needWarningItemList > 0 or #cannotEquip > 0 then
     	OPEN_TPITEM_POPUPMSG(needWarningItemList, noNeedWarning, cannotEquip, itemAndTPItemIDTable, allPrice);

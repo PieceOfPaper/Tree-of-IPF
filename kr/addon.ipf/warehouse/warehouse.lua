@@ -278,7 +278,7 @@ function CHECK_EMPTYSLOT(frame, obj)
 
 	AUTO_CAST(slotset);
 
-	local wareItem = session.GetWarehouseItemByType(obj.ClassID);
+	local wareItem = session.GetWarehouseItemByType(obj.ClassID);	
 	if wareItem ~= nil then
 		if obj.MaxStack > 1 then
 			return 0;
@@ -286,7 +286,7 @@ function CHECK_EMPTYSLOT(frame, obj)
 	end
 
 	local warehouseSlot, index = GET_EMPTY_SLOT(slotset);
-	if warehouseSlot == nil then
+	if warehouseSlot == nil and obj.MaxStack == 1 then
 		ui.SysMsg(ScpArgMsg("NoEmptySlot"))
 		return 1;
 	end

@@ -2,11 +2,11 @@
 <ToolSkill>
     <Skill Name="Hackapell_InfiniteAssault">
         <EndScripts>
-            <ToolScp Client="NO" Scp="SKL_SET_IMMUNE_STATE_REMOVE" UseSleep="YES">
+            <ToolScp Scp="SKL_SET_IMMUNE_STATE_REMOVE" Client="NO" UseSleep="YES">
                 <Str Str="Skill_SuperArmor_Buff"/>
                 <Num Num="0"/>
             </ToolScp>
-            <ToolScp Client="YES" Scp="C_COLORBLEND_ACTOR" UseSleep="NO">
+            <ToolScp Scp="C_COLORBLEND_ACTOR" Client="YES" UseSleep="NO">
                 <Num Num="1"/>
                 <Num Num="0"/>
                 <Num Num="0.5"/>
@@ -16,29 +16,29 @@
                 <Num Num="1"/>
             </ToolScp>
         </EndScripts>
-        <MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+        <MainSkl ScrLock="None" JumpFlee="NO" MSPDToUsePos="0">
             <HitList>
-                <Frame Angle="0" AniTime="9999" Dist="0" ForceATK="0" HitCount="1" Length="150" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" TermMax="0" TermMin="0" Time="9799" Type="SQUARE" Width="35"/>
+                <Frame Type="SQUARE" Time="9799" HitCount="1" TermMin="0" TermMax="0" PosType="0" Dist="0" RandDist="0" RandomPerHit="0" Angle="0" Width="35" Length="150" AniTime="9999" RotAngle="0" ForceATK="0" ScriptIndex="0" ScriptName="" SkillType="0"/>
             </HitList>
             <EtcList>
-                <Scp Client="NO" Scp="SKL_SET_IMMUNE_STATE" Time="0" UseSleep="NO">
+                <Scp Scp="SKL_SET_IMMUNE_STATE" Client="NO" UseSleep="NO" Time="0">
                     <Str Str="Skill_SuperArmor_Buff"/>
                     <Num Num="100"/>
                 </Scp>
-                <Scp Client="YES" Scp="C_SOUND" Time="0" UseSleep="NO">
+                <Scp Scp="C_SOUND" Client="YES" UseSleep="NO" Time="0">
                     <Str Str="skl_eff_hackapell_infiniteassault"/>
                 </Scp>
-                <Scp Client="YES" Scp="MONSKL_C_PLAY_ANIM" Time="0" UseSleep="NO">
+                <Scp Scp="MONSKL_C_PLAY_ANIM" Client="YES" UseSleep="NO" Time="0">
                     <Str Str="SKL_INFINITEASSAULT_SHOT_RIDE"/>
                     <Num Num="4"/>
                     <Num Num="0"/>
                     <Num Num="0"/>
                 </Scp>
-                <Scp Client="YES" Scp="C_VOICE_SOUND" Time="200" UseSleep="NO">
+                <Scp Scp="C_VOICE_SOUND" Client="YES" UseSleep="NO" Time="200">
                     <Str Str="voice_archer_m_infiniteassault_shot"/>
                     <Str Str="voice_archer_f_infiniteassault_shot"/>
                 </Scp>
-                <Scp Client="NO" Scp="SKL_SET_TARGET_SQUARE" Time="200" UseSleep="NO">
+                <Scp Scp="SKL_SET_TARGET_SQUARE" Client="NO" UseSleep="NO" Time="200">
                     <Pos Angle="0" Dist="5"/>
                     <Num Num="0"/>
                     <Num Num="150"/>
@@ -49,14 +49,14 @@
                     <Num Num="0"/>
                     <Num Num="0"/>
                 </Scp>
-                <Scp Client="NO" Scp="SKL_TGT_DMG" Time="200" UseSleep="NO">
+                <Scp Scp="SKL_TGT_DMG" Client="NO" UseSleep="NO" Time="200">
                     <Num Num="1"/>
                     <Num Num="0"/>
                     <Num Num="0"/>
                 </Scp>
-                <Scp Client="NO" Scp="SKL_BUFF" Time="200" UseSleep="NO">
+                <Scp Scp="SKL_BUFF" Client="NO" UseSleep="NO" Time="200">
                     <Str Str="InfiniteAssault_Buff"/>
-                    <Num FuncTxt="return obj.Level;" Num="0" UseFunc="1"/>
+                    <Num Num="0" UseFunc="1" FuncTxt="return obj.Level;"/>
                     <Num Num="0"/>
                     <Num Num="3000"/>
                     <Num Num="1"/>
@@ -65,11 +65,68 @@
                 </Scp>
             </EtcList>
             <ResultList>
-                <ToolScp Client="YES" Scp="C_SR_SOUND" UseSleep="NO">
+                <ToolScp Scp="C_SR_SOUND" Client="YES" UseSleep="NO">
                     <Str Str="skl_eff_special_hit_3"/>
                 </ToolScp>
             </ResultList>
         </MainSkl>
+        <ByCondSkills>
+            <SubSkl>
+                <Cond>
+                    <ToolScp Scp="SKL_SELECT_ABIL" Client="NO" UseSleep="NO">
+                        <Str Str="Hackapell23"/>
+                    </ToolScp>
+                </Cond>
+                <Skill ScrLock="None" JumpFlee="NO" MSPDToUsePos="0">
+                    <HitList>
+                        <Frame Type="SQUARE" Time="9799" HitCount="1" TermMin="0" TermMax="0" PosType="0" Dist="0" RandDist="0" RandomPerHit="0" Angle="0" Width="35" Length="150" AniTime="9999" RotAngle="0" ForceATK="0" ScriptIndex="0" ScriptName="" SkillType="0"/>
+                    </HitList>
+                    <EtcList>
+                        <Scp Scp="SKL_SET_IMMUNE_STATE" Client="NO" UseSleep="NO" Time="0">
+                            <Str Str="Skill_SuperArmor_Buff"/>
+                            <Num Num="100"/>
+                        </Scp>
+                        <Scp Scp="C_SOUND" Client="YES" UseSleep="NO" Time="0">
+                            <Str Str="skl_eff_hackapell_infiniteassault"/>
+                        </Scp>
+                        <Scp Scp="MONSKL_C_PLAY_ANIM" Client="YES" UseSleep="NO" Time="0">
+                            <Str Str="SKL_INFINITEASSAULT_SHOT_RIDE"/>
+                            <Num Num="4"/>
+                            <Num Num="0"/>
+                            <Num Num="0"/>
+                        </Scp>
+                        <Scp Scp="C_VOICE_SOUND" Client="YES" UseSleep="NO" Time="200">
+                            <Str Str="voice_archer_m_infiniteassault_shot"/>
+                            <Str Str="voice_archer_f_infiniteassault_shot"/>
+                        </Scp>
+                        <Scp Scp="SKL_SET_TARGET_CLIENT_TARGETTING" Client="NO" UseSleep="NO" Time="200">
+                            <Num Num="1"/>
+                            <Num Num="140"/>
+                        </Scp>
+                        <Scp Scp="SKL_SET_DIR_TO_TGT" Client="NO" UseSleep="NO" Time="200"/>
+                        <Scp Scp="SKL_TGT_DMG" Client="NO" UseSleep="NO" Time="200">
+                            <Num Num="1"/>
+                            <Num Num="0"/>
+                            <Num Num="0"/>
+                        </Scp>
+                        <Scp Scp="SKL_BUFF" Client="NO" UseSleep="NO" Time="200">
+                            <Str Str="InfiniteAssault_Buff"/>
+                            <Num Num="0" UseFunc="1" FuncTxt="return obj.Level;"/>
+                            <Num Num="0"/>
+                            <Num Num="3000"/>
+                            <Num Num="1"/>
+                            <Num Num="100"/>
+                            <Num Num="0"/>
+                        </Scp>
+                    </EtcList>
+                    <ResultList>
+                        <ToolScp Scp="C_SR_SOUND" Client="YES" UseSleep="NO">
+                            <Str Str="skl_eff_special_hit_3"/>
+                        </ToolScp>
+                    </ResultList>
+                </Skill>
+            </SubSkl>
+        </ByCondSkills>
     </Skill>
     <Skill Name="Hackapell_GrindCutter">
         <MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
@@ -98,12 +155,12 @@
                 </Scp>
             </EtcList>
             <ResultList>
-              <ToolScp Client="NO" Scp="S_R_TGT_Decrease_heal_debuff" UseSleep="NO">
-                <Str FuncTxt="local func_name = 'get_decrease_heal_debuff_tooltip_' .. TryGetProp(skill, 'ClassName', 'None')
+                <ToolScp Client="NO" Scp="S_R_TGT_Decrease_heal_debuff" UseSleep="NO">
+                    <Str FuncTxt="local func_name = 'get_decrease_heal_debuff_tooltip_' .. TryGetProp(skill, 'ClassName', 'None')
                local func = _G[func_name]
                if func == nil then return end
                return func(skill.Level)" Str="0" UseFunc="1"/>
-              </ToolScp>
+                </ToolScp>
                 <ToolScp Client="NO" Scp="S_R_TGTBUFF" UseSleep="NO">
                     <Str Str="SaberAries_Debuff"/>
                     <Num Num="1"/>
@@ -158,11 +215,11 @@
                     <Num Num="-1"/>
                 </ToolScp>
                 <ToolScp Client="NO" Scp="S_R_TGT_REMOVE_BUFF" UseSleep="NO">
-                <Str FuncTxt="local func_name = 'get_remove_buff_tooltip_' .. TryGetProp(skill, 'ClassName', 'None')
+                    <Str FuncTxt="local func_name = 'get_remove_buff_tooltip_' .. TryGetProp(skill, 'ClassName', 'None')
                local func = _G[func_name]
                if func == nil then return end
                return func(skill.Level)" Str="0" UseFunc="1"/>
-              </ToolScp>
+                </ToolScp>
             </ResultList>
         </MainSkl>
         <ByCondSkills>
@@ -186,7 +243,7 @@
                             <Num Num="1.7"/>
                             <Num Num="1"/>
                             <Num Num="0"/>
-                        </Scp>             
+                        </Scp>
                         <Scp Scp="C_VOICE_SOUND" Client="YES" UseSleep="NO" Time="100">
                             <Str Str="voice_war_atk_short"/>
                             <Str Str="voice_atk_short_war_f"/>
@@ -365,41 +422,41 @@ return value' Num="15000" UseFunc="1"/>
     </Skill>
     <Skill Name="Hackapell_CavalryCharge">
         <KeyInputStart>
-            <ToolScp Client="NO" Scp="SKL_PLAY_SOUND" UseSleep="NO">
+            <ToolScp Scp="SKL_PLAY_SOUND" Client="NO" UseSleep="NO">
                 <Str Str="voice_archer_pavise_shot"/>
                 <Num Num="0"/>
                 <Str Str="voice_archer_m_pavise_shot"/>
             </ToolScp>
         </KeyInputStart>
         <KeyInputEnd>
-            <ToolScp Client="NO" Scp="SKL_STOP_SOUND" UseSleep="NO">
+            <ToolScp Scp="SKL_STOP_SOUND" Client="NO" UseSleep="NO">
                 <Str Str="voice_archer_pavise_shot"/>
                 <Str Str="voice_archer_m_pavise_shot"/>
             </ToolScp>
         </KeyInputEnd>
-        <MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+        <MainSkl ScrLock="None" JumpFlee="NO" MSPDToUsePos="0">
             <MoveList>
-                <Frame Accel="1" Angle="0" Dist="0" Gravity="600" Height="0" JumpPower="300" MoveType="0" Time="40"/>
-                <Frame Accel="1" Angle="-0.018456114" Dist="177.43427" Gravity="600" Height="0" JumpPower="300" MoveType="0" Time="140"/>
+                <Frame Time="40" Dist="0" Angle="0" Accel="1" Height="0" MoveType="0" Gravity="600" JumpPower="300"/>
+                <Frame Time="140" Dist="177.43427" Angle="-0.018456114" Accel="1" Height="0" MoveType="0" Gravity="600" JumpPower="300"/>
             </MoveList>
             <HitList>
-                <Frame Angle="0" AniTime="9999" Dist="0" ForceATK="0" HitCount="1" Length="90" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="3.1415927" TermMax="0" TermMin="0" Time="9799" Type="SQUARE" Width="35"/>
+                <Frame Type="SQUARE" Time="9799" HitCount="1" TermMin="0" TermMax="0" PosType="0" Dist="0" RandDist="0" RandomPerHit="0" Angle="0" Width="35" Length="90" AniTime="9999" RotAngle="3.1415927" ForceATK="0" ScriptIndex="0" ScriptName="" SkillType="0"/>
             </HitList>
             <EtcList>
-                <Scp Client="YES" Scp="C_VOICE_SOUND" Time="0" UseSleep="NO">
+                <Scp Scp="C_VOICE_SOUND" Client="YES" UseSleep="NO" Time="0">
                     <Str Str="voice_war_atk_long_shot"/>
                     <Str Str="voice_atk_long_war_f"/>
                 </Scp>
-                <Scp Client="YES" Scp="C_SOUND" Time="0" UseSleep="NO">
+                <Scp Scp="C_SOUND" Client="YES" UseSleep="NO" Time="0">
                     <Str Str="skl_fgt_ultimatedash_shot"/>
                 </Scp>
-                <Scp Client="YES" Scp="C_SHOCKWAVE" Time="140" UseSleep="NO">
+                <Scp Scp="C_SHOCKWAVE" Client="YES" UseSleep="NO" Time="140">
                     <Num Num="5"/>
                     <Num Num="0.5"/>
                     <Num Num="60"/>
                     <Num Num="999"/>
                 </Scp>
-                <Scp Client="NO" Scp="SKL_SET_TARGET_SQUARE_SR" Time="140" UseSleep="NO">
+                <Scp Scp="SKL_SET_TARGET_SQUARE_SR" Client="NO" UseSleep="NO" Time="140">
                     <Pos Angle="0" Dist="0"/>
                     <Num Num="0"/>
                     <Num Num="200"/>
@@ -409,14 +466,24 @@ return value' Num="15000" UseFunc="1"/>
                     <Num Num="0"/>
                     <Num Num="0"/>
                 </Scp>
-                <Scp Client="NO" Scp="SKL_TGT_DMG" Time="140" UseSleep="NO">
+                <Scp Scp="SKL_TGT_DMG" Client="NO" UseSleep="NO" Time="140">
                     <Num Num="1"/>
                     <Num Num="1"/>
                     <Num Num="0"/>
                 </Scp>
+                <Scp Scp="SKL_BUFF_ABIL" Client="NO" UseSleep="NO" Time="140">
+                    <Str Str="Hackapell23"/>
+                    <Str Str="CavalryCharge_Abil_Buff"/>
+                    <Num Num="1"/>
+                    <Num Num="0"/>
+                    <Num Num="15000"/>
+                    <Num Num="1"/>
+                    <Num Num="100"/>
+                    <Num Num="0"/>
+                </Scp>
             </EtcList>
             <ResultList>
-                <ToolScp Client="NO" Scp="S_R_TGTBUFF" UseSleep="NO">
+                <ToolScp Scp="S_R_TGTBUFF" Client="NO" UseSleep="NO">
                     <Str Str="Common_Shock"/>
                     <Num Num="1"/>
                     <Num Num="0"/>
@@ -425,12 +492,12 @@ return value' Num="15000" UseFunc="1"/>
                     <Num Num="100"/>
                     <Num Num="-1"/>
                 </ToolScp>
-                <ToolScp Client="NO" Scp="S_R_TGT_REMOVE_BUFF" UseSleep="NO">
-                <Str FuncTxt="local func_name = 'get_remove_buff_tooltip_' .. TryGetProp(skill, 'ClassName', 'None')
+                <ToolScp Scp="S_R_TGT_REMOVE_BUFF" Client="NO" UseSleep="NO">
+                    <Str Str="0" UseFunc="1" FuncTxt="local func_name = 'get_remove_buff_tooltip_' .. TryGetProp(skill, 'ClassName', 'None')
                local func = _G[func_name]
                if func == nil then return end
-               return func(skill.Level)" Str="0" UseFunc="1"/>
-              </ToolScp>
+               return func(skill.Level)"/>
+                </ToolScp>
             </ResultList>
         </MainSkl>
     </Skill>

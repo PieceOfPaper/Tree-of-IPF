@@ -1,269 +1,264 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by IMC (IMCGames Co., Ltd) -->
 <ToolSkill>
-	<Skill Name="Disnai_Sauk">
-		<EnableScripts>
-			<ToolScp Scp="CHECK_IS_PVE" Client="BOTH" UseSleep="NO"/>
-		</EnableScripts>
-		<MainSkl ScrLock="None" JumpFlee="NO" MSPDToUsePos="0">
-			<HitList>
-				<Frame Type="CIRCLE" Time="0" HitCount="1" TermMin="0" TermMax="0" PosType="0" Dist="0" RandDist="0" RandomPerHit="0" Angle="0" Width="50" SklAngle="0.0026179941" AniTime="100" RotAngle="0" ForceATK="0" ScriptIndex="0" ScriptName="" SkillType="0"/>
-			</HitList>
-			<EtcList>
-				<Scp Scp="C_SOUND" Client="YES" UseSleep="NO" Time="0">
-					<Str Str="skl_eff_velcoffer_sumazinti_eff"/>
-				</Scp>
-				<Scp Scp="C_EFFECT" Client="YES" UseSleep="NO" Time="0">
-					<Str_Arg Str="F_wizard_psyckicpressure_hit_spread_out" Arg="1"/>
-					<Str Str="Bip01 Spine"/>
-					<Num Num="0"/>
-				</Scp>
-				<Scp Scp="C_SHOCKWAVE" Client="YES" UseSleep="NO" Time="0">
-					<Num Num="5"/>
-					<Num Num="1"/>
-					<Num Num="20"/>
-					<Num Num="999"/>
-				</Scp>
-				<Scp Scp="C_VOICE_SOUND" Client="YES" UseSleep="NO" Time="200">
-					<Str Str="voice_war_atk_medium"/>
-					<Str Str="voice_atk_medium_war_f"/>
-				</Scp>
-				<Scp Scp="SKL_BUFF" Client="NO" UseSleep="NO" Time="200">
-					<Str Str="ITEM_LEGEND_SAUK"/>
-					<Num Num="1"/>
-					<Num Num="0"/>
-					<Num Num="5100" UseFunc="1" FuncTxt="local value = 5100; local isDragonPower = GetExProp(self, 'ITEM_DRAGON_POWER') if tonumber(isDragonPower) >= 1 then value = value + 3000 end return value"/>
-					<Num Num="1"/>
-					<Num Num="100"/>
-					<Num Num="0"/>
-				</Scp>
-			</EtcList>
-		</MainSkl>
-	</Skill>
-	<Skill Name="Disnai_Ezera">
-		<EnableScripts>
-			<ToolScp Scp="CHECK_IS_PVP" Client="BOTH" UseSleep="NO"/>
-		</EnableScripts>
-		<MainSkl ScrLock="None" JumpFlee="NO" MSPDToUsePos="0">
-			<HitList>
-				<Frame Type="FAN" Time="99799" HitCount="1" TermMin="0" TermMax="0" PosType="0" Dist="0" RandDist="0" RandomPerHit="0" Angle="0" Width="30" Length="30" SklAngle="0.17453292" AniTime="99999" RotAngle="0" ForceATK="0" ScriptIndex="0" ScriptName="" SkillType="0"/>
-			</HitList>
-			<EtcList>
-				<Scp Scp="C_SOUND" Client="YES" UseSleep="NO" Time="0">
-					<Str Str="skl_eff_velcoffer_item_buff"/>
-				</Scp>
-				<Scp Scp="C_VOICE_SOUND" Client="YES" UseSleep="NO" Time="200">
-					<Str Str="voice_war_atk_medium"/>
-					<Str Str="voice_atk_medium_war_f"/>
-				</Scp>
-				<Scp Scp="SKL_BUFF" Client="NO" UseSleep="NO" Time="200">
-					<Str Str="ITEM_LEGEND_EZERA"/>
-					<Num Num="1"/>
-					<Num Num="0"/>
-					<Num Num="25000" UseFunc="1" FuncTxt="local value = 25000; local isDragonPower = GetExProp(self, 'ITEM_DRAGON_POWER') if tonumber(isDragonPower) >= 1 then value = 35000 end return value"/>
-					<Num Num="1"/>
-					<Num Num="100"/>
-					<Num Num="0"/>
-				</Scp>
-				<Scp Scp="C_EFFECT" Client="YES" UseSleep="NO" Time="300">
-					<Str_Arg Str="F_light078_holy_yellow_katadikazo" Arg="2"/>
-					<Str Str="Dummy_emitter"/>
-					<Num Num="0"/>
-				</Scp>
-			</EtcList>
-		</MainSkl>
-	</Skill>
-	<Skill Name="Disnai_Balinta">
-		<EnableScripts>
-			<ToolScp Scp="CHECK_IS_PVE" Client="BOTH" UseSleep="NO"/>
-		</EnableScripts>
-		<MainSkl ScrLock="None" JumpFlee="NO" MSPDToUsePos="0">
-			<HitList>
-				<Frame Type="FAN" Time="99799" HitCount="1" TermMin="0" TermMax="0" PosType="0" Dist="0" RandDist="0" RandomPerHit="0" Angle="0" Width="30" Length="30" SklAngle="0.17453292" AniTime="99999" RotAngle="0" ForceATK="0" ScriptIndex="0" ScriptName="" SkillType="0"/>
-			</HitList>
-			<EtcList>
-				<Scp Scp="C_VOICE_SOUND" Client="YES" UseSleep="NO" Time="200">
-					<Str Str="voice_war_atk_medium"/>
-					<Str Str="voice_atk_medium_war_f"/>
-				</Scp>
-				<Scp Scp="SKL_BUFF" Client="NO" UseSleep="NO" Time="200">
-					<Str Str="ITEM_LEGEND_BALINTA"/>
-					<Num Num="1"/>
-					<Num Num="0"/>
-					<Num Num="30000"/>
-					<Num Num="1"/>
-					<Num Num="100"/>
-					<Num Num="0"/>
-				</Scp>
-				<Scp Scp="C_EFFECT" Client="YES" UseSleep="NO" Time="300">
-					<Str_Arg Str="I_smoke045_spread_in_red" Arg="2"/>
-					<Str Str="Bip01 Spine"/>
-					<Num Num="0"/>
-				</Scp>
-			</EtcList>
-		</MainSkl>
-	</Skill>
-	<Skill Name="Disnai_Karys">
-		<EnableScripts>
-			<ToolScp Scp="CHECK_IS_PVP" Client="BOTH" UseSleep="NO"/>
-		</EnableScripts>
-		<MainSkl ScrLock="None" JumpFlee="NO" MSPDToUsePos="0">
-			<HitList>
-				<Frame Type="FAN" Time="99799" HitCount="1" TermMin="0" TermMax="0" PosType="0" Dist="0" RandDist="0" RandomPerHit="0" Angle="0" Width="30" Length="30" SklAngle="0.17453292" AniTime="99999" RotAngle="0" ForceATK="0" ScriptIndex="0" ScriptName="" SkillType="0"/>
-			</HitList>
-			<EtcList>
-				<Scp Scp="MONSKL_C_PLAY_ANIM" Client="YES" UseSleep="NO" Time="0">
-					<Str Str="PUBLIC_BUFF"/>
-					<Num Num="2"/>
-					<Num Num="0"/>
-					<Num Num="0"/>
-				</Scp>
-				<Scp Scp="C_VOICE_SOUND" Client="YES" UseSleep="NO" Time="200">
-					<Str Str="voice_war_atk_medium"/>
-					<Str Str="voice_atk_medium_war_f"/>
-				</Scp>
-				<Scp Scp="SKL_BUFF" Client="NO" UseSleep="NO" Time="200">
-					<Str Str="ITEM_LEGEND_KARYS"/>
-					<Num Num="1"/>
-					<Num Num="0"/>
-					<Num Num="30000"/>
-					<Num Num="1"/>
-					<Num Num="100"/>
-					<Num Num="0"/>
-				</Scp>
-				<Scp Scp="C_EFFECT" Client="YES" UseSleep="NO" Time="300">
-					<Str_Arg Str="F_explosion98_green" Arg="2"/>
-					<Str Str="Bip01 Spine"/>
-					<Num Num="2"/>
-				</Scp>
-			</EtcList>
-		</MainSkl>
-	</Skill>
-	<Skill Name="Disnai_Svirti">
-		<EndScripts>
-			<ToolScp Scp="SKL_CANCEL_CANCEL" Client="NO" UseSleep="NO"/>
-			<ToolScp Scp="MONSKL_REMOVE_PAD" Client="NO" UseSleep="NO">
-				<Str Str="Disnai_Svirti_PAD"/>
-			</ToolScp>
-		</EndScripts>
-		<EnableScripts>
-			<ToolScp Scp="CHECK_IS_PVE" Client="BOTH" UseSleep="NO"/>
-		</EnableScripts>
-		<KeyInput>
-			<ToolScp Scp="SKL_KEY_DYNAMIC_CASTING" Client="YES" UseSleep="NO">
-				<Num Num="1"/>
-				<Num Num="0"/>
-				<Num Num="20"/>
-				<Num Num="1"/>
-				<Num Num="0"/>
-				<Num Num="0"/>
-				<Num Num="0"/>
-				<Num Num="0"/>
-				<Num Num="0"/>
-				<Num Num="0"/>
-				<Num Num="1"/>
-				<Num Num="0"/>
-				<Str_Arg Str="None" Arg="0"/>
-				<Str Str="None"/>
-				<Num Num="0"/>
-				<Num Num="0"/>
-				<Num Num="0"/>
-				<Num Num="0"/>
-				<Num Num="0"/>
-				<Num Num="0"/>
-				<Num Num="0"/>
-				<Num Num="0"/>
-			</ToolScp>
-		</KeyInput>
-		<KeyInputStart>
-			<ToolScp Scp="SKL_BUFF" Client="NO" UseSleep="NO">
-				<Str Str="ITEM_LEGEND_SVIRTI_BUFF"/>
-				<Num Num="1"/>
-				<Num Num="0"/>
-				<Num Num="0"/>
-				<Num Num="1"/>
-				<Num Num="100"/>
-				<Num Num="0"/>
-			</ToolScp>
-			<ToolScp Scp="SKL_BUFF" Client="NO" UseSleep="NO">
-				<Str Str="Skill_SuperArmor_Buff"/>
-				<Num Num="1"/>
-				<Num Num="0"/>
-				<Num Num="20000"/>
-				<Num Num="1"/>
-				<Num Num="100"/>
-				<Num Num="0"/>
-			</ToolScp>
-			<ToolScp Scp="MONSKL_CRE_PAD" Client="NO" UseSleep="NO">
-				<Pos Angle="0" Dist="35" PosType="5"/>
-				<Angle Angle="0"/>
-				<Str Str="Disnai_Svirti_PAD_ENEMY"/>
-			</ToolScp>
-			<ToolScp Scp="MONSKL_CRE_PAD" Client="NO" UseSleep="NO">
-				<Pos Angle="0" Dist="35" PosType="5"/>
-				<Angle Angle="0"/>
-				<Str Str="Disnai_Svirti_PAD_PARTY"/>
-			</ToolScp>
-			<ToolScp Scp="SKL_PLAY_SOUND" Client="NO" UseSleep="NO">
-				<Str Str="voice_atk_long_cast_f"/>
-				<Num Num="0"/>
-				<Str Str="voice_war_atk_long_cast"/>
-			</ToolScp>
-			<ToolScp Scp="SKL_BUFF_REMOVE" Client="NO" UseSleep="NO">
-				<Str Str="ITEM_LEGEND_SVIRTI_BUFF_DMG"/>
-			</ToolScp>
-		</KeyInputStart>
-		<KeyInputEnd>
-			<ToolScp Scp="SKL_BUFF_REMOVE" Client="NO" UseSleep="NO">
-				<Str Str="Skill_SuperArmor_Buff"/>
-			</ToolScp>
-			<ToolScp Scp="SKL_BUFF_REMOVE" Client="NO" UseSleep="NO">
-				<Str Str="ITEM_LEGEND_SVIRTI_BUFF"/>
-			</ToolScp>
-			<ToolScp Scp="SKL_BUFF_REMOVE" Client="NO" UseSleep="NO">
-				<Str Str="ITEM_LEGEND_SVIRTI_BUFF_DMG"/>
-			</ToolScp>
-			<ToolScp Scp="MONSKL_REMOVE_PAD" Client="NO" UseSleep="NO">
-				<Str Str="Disnai_Svirti_PAD_ENEMY"/>
-			</ToolScp>
-			<ToolScp Scp="MONSKL_REMOVE_PAD" Client="NO" UseSleep="NO">
-				<Str Str="Disnai_Svirti_PAD_PARTY"/>
-			</ToolScp>
-			<ToolScp Scp="SKL_STOP_SOUND" Client="NO" UseSleep="NO">
-				<Str Str="voice_atk_long_cast_f"/>
-				<Str Str="voice_war_atk_long_cast"/>
-			</ToolScp>
-		</KeyInputEnd>
-		<MainSkl ScrLock="None" JumpFlee="NO" MSPDToUsePos="0"/>
-	</Skill>
-	<Skill Name="Disnai_Lydeti">
-		<KeyInput>
-			<ToolScp Scp="SKL_PARTY_TARGET_BY_KEY" Client="YES" UseSleep="NO">
-				<Num Num="1"/>
-			</ToolScp>
-		</KeyInput>
-		<MainSkl ScrLock="None" JumpFlee="NO" MSPDToUsePos="0">
-			<HitList>
-				<Frame Type="FAN" Time="0" HitCount="1" TermMin="0" TermMax="0" PosType="0" Dist="0" RandDist="0" RandomPerHit="0" Angle="0" SklAngle="0.17453299" AniTime="300" RotAngle="0" ForceATK="0"/>
-			</HitList>
-			<EtcList>
-				<Scp Scp="SKL_SET_TARGET_CLIENT_TARGETTING" Client="NO" UseSleep="NO" Time="0"/>
-				<Scp Scp="MONSKL_C_PLAY_ANIM" Client="YES" UseSleep="NO" Time="0">
-					<Str Str="SKL_BUFF"/>
-					<Num Num="3"/>
-					<Num Num="1"/>
-					<Num Num="1"/>
-				</Scp>
-				<Scp Scp="C_SOUND" Client="YES" UseSleep="NO" Time="200">
-					<Str Str="skl_wiz_teleportation"/>
-				</Scp>
-				<Scp Scp="C_SOUND" Client="YES" UseSleep="NO" Time="600">
-					<Str Str="skl_cleric_heal_shot"/>
-				</Scp>
-				<Scp Scp="SKL_RUN_SCRIPT" Client="NO" UseSleep="NO" Time="0">
-					<Str Str="SCR_LEGEND_SET_LYDETI"/>
-				</Scp>
-			</EtcList>
-		</MainSkl>
-	</Skill>
+    <Skill Name="Disnai_Sauk">
+        <EnableScripts>
+            <ToolScp Scp="CHECK_IS_PVE" Client="BOTH" UseSleep="NO"/>
+        </EnableScripts>
+        <MainSkl ScrLock="None" JumpFlee="NO" MSPDToUsePos="0">
+            <HitList>
+                <Frame Type="CIRCLE" Time="0" HitCount="1" TermMin="0" TermMax="0" PosType="0" Dist="0" RandDist="0" RandomPerHit="0" Angle="0" Width="50" SklAngle="0.0026179941" AniTime="100" RotAngle="0" ForceATK="0" ScriptIndex="0" ScriptName="" SkillType="0"/>
+            </HitList>
+            <EtcList>
+                <Scp Scp="C_SOUND" Client="YES" UseSleep="NO" Time="0">
+                    <Str Str="skl_eff_velcoffer_sumazinti_eff"/>
+                </Scp>
+                <Scp Scp="C_EFFECT" Client="YES" UseSleep="NO" Time="0">
+                    <Str_Arg Str="F_wizard_psyckicpressure_hit_spread_out" Arg="1"/>
+                    <Str Str="Bip01 Spine"/>
+                    <Num Num="0"/>
+                </Scp>
+                <Scp Scp="C_SHOCKWAVE" Client="YES" UseSleep="NO" Time="0">
+                    <Num Num="5"/>
+                    <Num Num="1"/>
+                    <Num Num="20"/>
+                    <Num Num="999"/>
+                </Scp>
+                <Scp Scp="C_VOICE_SOUND" Client="YES" UseSleep="NO" Time="200">
+                    <Str Str="voice_war_atk_medium"/>
+                    <Str Str="voice_atk_medium_war_f"/>
+                </Scp>
+                <Scp Scp="SKL_BUFF" Client="NO" UseSleep="NO" Time="200">
+                    <Str Str="ITEM_LEGEND_SAUK"/>
+                    <Num Num="1"/>
+                    <Num Num="0"/>
+                    <Num Num="5100" UseFunc="1" FuncTxt="local value = 5100; local isDragonPower = GetExProp(self, 'ITEM_DRAGON_POWER') if tonumber(isDragonPower) >= 1 then value = value + 3000 end return value"/>
+                    <Num Num="1"/>
+                    <Num Num="100"/>
+                    <Num Num="0"/>
+                </Scp>
+            </EtcList>
+        </MainSkl>
+    </Skill>
+    <Skill Name="Disnai_Ezera">
+        <EnableScripts>
+            <ToolScp Scp="CHECK_IS_PVP" Client="BOTH" UseSleep="NO"/>
+        </EnableScripts>
+        <MainSkl ScrLock="None" JumpFlee="NO" MSPDToUsePos="0">
+            <HitList>
+                <Frame Type="FAN" Time="99799" HitCount="1" TermMin="0" TermMax="0" PosType="0" Dist="0" RandDist="0" RandomPerHit="0" Angle="0" Width="30" Length="30" SklAngle="0.17453292" AniTime="99999" RotAngle="0" ForceATK="0" ScriptIndex="0" ScriptName="" SkillType="0"/>
+            </HitList>
+            <EtcList>
+                <Scp Scp="C_SOUND" Client="YES" UseSleep="NO" Time="0">
+                    <Str Str="skl_eff_velcoffer_item_buff"/>
+                </Scp>
+                <Scp Scp="C_VOICE_SOUND" Client="YES" UseSleep="NO" Time="200">
+                    <Str Str="voice_war_atk_medium"/>
+                    <Str Str="voice_atk_medium_war_f"/>
+                </Scp>
+                <Scp Scp="SKL_BUFF" Client="NO" UseSleep="NO" Time="200">
+                    <Str Str="ITEM_LEGEND_EZERA"/>
+                    <Num Num="1"/>
+                    <Num Num="0"/>
+                    <Num Num="25000" UseFunc="1" FuncTxt="local value = 25000; local isDragonPower = GetExProp(self, 'ITEM_DRAGON_POWER') if tonumber(isDragonPower) >= 1 then value = 35000 end return value"/>
+                    <Num Num="1"/>
+                    <Num Num="100"/>
+                    <Num Num="0"/>
+                </Scp>
+                <Scp Scp="C_EFFECT" Client="YES" UseSleep="NO" Time="300">
+                    <Str_Arg Str="F_light078_holy_yellow_katadikazo" Arg="2"/>
+                    <Str Str="Dummy_emitter"/>
+                    <Num Num="0"/>
+                </Scp>
+            </EtcList>
+        </MainSkl>
+    </Skill>
+    <Skill Name="Disnai_Balinta">
+        <EnableScripts>
+            <ToolScp Scp="CHECK_IS_PVE" Client="BOTH" UseSleep="NO"/>
+        </EnableScripts>
+        <MainSkl ScrLock="None" JumpFlee="NO" MSPDToUsePos="0">
+            <HitList>
+                <Frame Type="FAN" Time="99799" HitCount="1" TermMin="0" TermMax="0" PosType="0" Dist="0" RandDist="0" RandomPerHit="0" Angle="0" Width="30" Length="30" SklAngle="0.17453292" AniTime="99999" RotAngle="0" ForceATK="0" ScriptIndex="0" ScriptName="" SkillType="0"/>
+            </HitList>
+            <EtcList>
+                <Scp Scp="C_VOICE_SOUND" Client="YES" UseSleep="NO" Time="200">
+                    <Str Str="voice_war_atk_medium"/>
+                    <Str Str="voice_atk_medium_war_f"/>
+                </Scp>
+                <Scp Scp="SKL_BUFF" Client="NO" UseSleep="NO" Time="200">
+                    <Str Str="ITEM_LEGEND_BALINTA"/>
+                    <Num Num="1"/>
+                    <Num Num="0"/>
+                    <Num Num="30000"/>
+                    <Num Num="1"/>
+                    <Num Num="100"/>
+                    <Num Num="0"/>
+                </Scp>
+                <Scp Scp="C_EFFECT" Client="YES" UseSleep="NO" Time="300">
+                    <Str_Arg Str="I_smoke045_spread_in_red" Arg="2"/>
+                    <Str Str="Bip01 Spine"/>
+                    <Num Num="0"/>
+                </Scp>
+            </EtcList>
+        </MainSkl>
+    </Skill>
+    <Skill Name="Disnai_Karys">
+        <EnableScripts>
+            <ToolScp Scp="CHECK_IS_PVP" Client="BOTH" UseSleep="NO"/>
+        </EnableScripts>
+        <MainSkl ScrLock="None" JumpFlee="NO" MSPDToUsePos="0">
+            <HitList>
+                <Frame Type="FAN" Time="99799" HitCount="1" TermMin="0" TermMax="0" PosType="0" Dist="0" RandDist="0" RandomPerHit="0" Angle="0" Width="30" Length="30" SklAngle="0.17453292" AniTime="99999" RotAngle="0" ForceATK="0" ScriptIndex="0" ScriptName="" SkillType="0"/>
+            </HitList>
+            <EtcList>
+                <Scp Scp="MONSKL_C_PLAY_ANIM" Client="YES" UseSleep="NO" Time="0">
+                    <Str Str="PUBLIC_BUFF"/>
+                    <Num Num="2"/>
+                    <Num Num="0"/>
+                    <Num Num="0"/>
+                </Scp>
+                <Scp Scp="C_VOICE_SOUND" Client="YES" UseSleep="NO" Time="200">
+                    <Str Str="voice_war_atk_medium"/>
+                    <Str Str="voice_atk_medium_war_f"/>
+                </Scp>
+                <Scp Scp="SKL_BUFF" Client="NO" UseSleep="NO" Time="200">
+                    <Str Str="ITEM_LEGEND_KARYS"/>
+                    <Num Num="1"/>
+                    <Num Num="0"/>
+                    <Num Num="30000"/>
+                    <Num Num="1"/>
+                    <Num Num="100"/>
+                    <Num Num="0"/>
+                </Scp>
+                <Scp Scp="C_EFFECT" Client="YES" UseSleep="NO" Time="300">
+                    <Str_Arg Str="F_explosion98_green" Arg="2"/>
+                    <Str Str="Bip01 Spine"/>
+                    <Num Num="2"/>
+                </Scp>
+            </EtcList>
+        </MainSkl>
+    </Skill>
+    <Skill Name="Disnai_Svirti">
+        <EndScripts>
+            <ToolScp Scp="SKL_CANCEL_CANCEL" Client="NO" UseSleep="NO"/>
+            <ToolScp Scp="MONSKL_REMOVE_PAD" Client="NO" UseSleep="NO">
+                <Str Str="Disnai_Svirti_PAD"/>
+            </ToolScp>
+        </EndScripts>
+        <EnableScripts>
+            <ToolScp Scp="CHECK_IS_PVE" Client="BOTH" UseSleep="NO"/>
+        </EnableScripts>
+        <KeyInput>
+            <ToolScp Scp="SKL_KEY_DYNAMIC_CASTING" Client="YES" UseSleep="NO">
+                <Num Num="1"/>
+                <Num Num="0"/>
+                <Num Num="20"/>
+                <Num Num="1"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+                <Num Num="1"/>
+                <Num Num="0"/>
+                <Str_Arg Str="None" Arg="0"/>
+                <Str Str="None"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+            </ToolScp>
+        </KeyInput>
+        <KeyInputStart>
+            <ToolScp Scp="SKL_BUFF" Client="NO" UseSleep="NO">
+                <Str Str="ITEM_LEGEND_SVIRTI_BUFF"/>
+                <Num Num="1"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+                <Num Num="1"/>
+                <Num Num="100"/>
+                <Num Num="0"/>
+            </ToolScp>
+            <ToolScp Scp="SKL_BUFF" Client="NO" UseSleep="NO">
+                <Str Str="Skill_SuperArmor_Buff"/>
+                <Num Num="1"/>
+                <Num Num="0"/>
+                <Num Num="20000"/>
+                <Num Num="1"/>
+                <Num Num="100"/>
+                <Num Num="0"/>
+            </ToolScp>
+            <ToolScp Scp="MONSKL_CRE_PAD" Client="NO" UseSleep="NO">
+                <Pos Angle="0" Dist="35" PosType="5"/>
+                <Angle Angle="0"/>
+                <Str Str="Disnai_Svirti_PAD"/>
+            </ToolScp>
+            <ToolScp Scp="SKL_PLAY_SOUND" Client="NO" UseSleep="NO">
+                <Str Str="voice_atk_long_cast_f"/>
+                <Num Num="0"/>
+                <Str Str="voice_war_atk_long_cast"/>
+            </ToolScp>
+            <ToolScp Scp="SKL_BUFF_REMOVE" Client="NO" UseSleep="NO">
+                <Str Str="ITEM_LEGEND_SVIRTI_BUFF_DMG"/>
+            </ToolScp>
+        </KeyInputStart>
+        <KeyInputEnd>
+            <ToolScp Scp="SKL_BUFF_REMOVE" Client="NO" UseSleep="NO">
+                <Str Str="Skill_SuperArmor_Buff"/>
+            </ToolScp>
+            <ToolScp Scp="SKL_BUFF_REMOVE" Client="NO" UseSleep="NO">
+                <Str Str="ITEM_LEGEND_SVIRTI_BUFF"/>
+            </ToolScp>
+            <ToolScp Scp="SKL_BUFF_REMOVE" Client="NO" UseSleep="NO">
+                <Str Str="ITEM_LEGEND_SVIRTI_BUFF_DMG"/>
+            </ToolScp>
+            <ToolScp Scp="MONSKL_REMOVE_PAD" Client="NO" UseSleep="NO">
+                <Str Str="Disnai_Svirti_PAD"/>
+            </ToolScp>
+            <ToolScp Scp="SKL_CONSUME_SKILL_COOLDOWN" Client="NO" UseSleep="NO">
+                <Num Num="1"/>
+            </ToolScp>
+            <ToolScp Scp="SKL_STOP_SOUND" Client="NO" UseSleep="NO">
+                <Str Str="voice_atk_long_cast_f"/>
+                <Str Str="voice_war_atk_long_cast"/>
+            </ToolScp>
+        </KeyInputEnd>
+        <MainSkl ScrLock="None" JumpFlee="NO" MSPDToUsePos="0"/>
+    </Skill>
+    <Skill Name="Disnai_Lydeti">
+        <KeyInput>
+            <ToolScp Scp="SKL_PARTY_TARGET_BY_KEY" Client="YES" UseSleep="NO">
+                <Num Num="1"/>
+            </ToolScp>
+        </KeyInput>
+        <MainSkl ScrLock="None" JumpFlee="NO" MSPDToUsePos="0">
+            <HitList>
+                <Frame Type="FAN" Time="0" HitCount="1" TermMin="0" TermMax="0" PosType="0" Dist="0" RandDist="0" RandomPerHit="0" Angle="0" SklAngle="0.17453299" AniTime="300" RotAngle="0" ForceATK="0"/>
+            </HitList>
+            <EtcList>
+                <Scp Scp="SKL_SET_TARGET_CLIENT_TARGETTING" Client="NO" UseSleep="NO" Time="0"/>
+                <Scp Scp="MONSKL_C_PLAY_ANIM" Client="YES" UseSleep="NO" Time="0">
+                    <Str Str="SKL_BUFF"/>
+                    <Num Num="3"/>
+                    <Num Num="1"/>
+                    <Num Num="1"/>
+                </Scp>
+                <Scp Scp="C_SOUND" Client="YES" UseSleep="NO" Time="200">
+                    <Str Str="skl_wiz_teleportation"/>
+                </Scp>
+                <Scp Scp="C_SOUND" Client="YES" UseSleep="NO" Time="600">
+                    <Str Str="skl_cleric_heal_shot"/>
+                </Scp>
+                <Scp Scp="SKL_RUN_SCRIPT" Client="NO" UseSleep="NO" Time="0">
+                    <Str Str="SCR_LEGEND_SET_LYDETI"/>
+                </Scp>
+            </EtcList>
+        </MainSkl>
+    </Skill>
 </ToolSkill>

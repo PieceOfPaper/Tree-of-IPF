@@ -2,288 +2,330 @@
 <ToolSkill>
     <Skill Name="PlagueDoctor_Methadone">
         <MainSkl ScrLock="None" JumpFlee="NO" MSPDToUsePos="0">
-			<EtcList>
+            <EtcList>
                 <Scp Scp="C_VOICE_SOUND" Client="YES" UseSleep="NO" Time="200">
-					<Str Str="voice_cleric_m_Methadone_cast" />
-					<Str Str="voice_cleric_Methadone_cast" />
-				</Scp>
+                    <Str Str="voice_cleric_m_Methadone_cast"/>
+                    <Str Str="voice_cleric_Methadone_cast"/>
+                </Scp>
                 <Scp Scp="SKL_BUFF" Client="NO" UseSleep="NO" Time="500">
-					<Str Str="Methadone_Buff" />
+                    <Str Str="Methadone_Buff"/>
                     <Num Num="1" UseFunc="1" FuncTxt="return obj.Level;"/>
-					<Num Num="0" />
+                    <Num Num="0"/>
                     <Num Num="0" UseFunc="1" FuncTxt="return 5000 + obj.Level * 1000;"/>
-					<Num Num="1" />
-					<Num Num="100" />
-					<Num Num="1" />
-				</Scp>
-			</EtcList>
-		</MainSkl>
-	</Skill>
-	<Skill Name="PlagueDoctor_Disenchant">
-		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
-			<HitList>
-				<Frame Angle="0" AniTime="10999" Dist="0" ForceATK="0" HitCount="1" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" TermMax="0" TermMin="0" Time="10799" Type="FAN" />
-			</HitList>
-			<EtcList>
-				<Scp Client="YES" Scp="C_VOICE_SOUND" Time="0" UseSleep="NO">
-					<Str Str="voice_cleric_m_disenchant_shot" />
-					<Str Str="voice_cleric_f_disenchant_shot" />
-				</Scp>
-				<Scp Client="NO" Scp="MONSKL_CRE_PAD" Time="700" UseSleep="NO">
-					<Pos Angle="0" Dist="60" />
-					<Angle Angle="0" />
-					<Str Str="PlagueDoctor_Disenchant" />
-				</Scp>
-			</EtcList>
-		</MainSkl>
-	</Skill>
-	<Skill Name="PlagueDoctor_PlagueVapours">
-		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
-			<HitList>
-				<Frame Angle="0" AniTime="9999" Dist="0" ForceATK="0" HitCount="1" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" TermMax="0" TermMin="0" Time="9799" Type="FAN" />
-			</HitList>
-			<EtcList>
-				<Scp Client="NO" Scp="MONSKL_CRE_PAD" Time="0" UseSleep="NO">
-					<Pos Angle="0" Dist="60" />
-					<Angle Angle="0" />
-					<Str Str="PlagueDoctor_PlagueVapours" />
-                    <Str Str="true" />
-				</Scp>
-				<Scp Client="YES" Scp="C_VOICE_SOUND" Time="0" UseSleep="NO">
-					<Str Str="voice_archer_atk" />
-					<Str Str="voice_archer_f_atk" />
-				</Scp>
-			</EtcList>
-		</MainSkl>
-	</Skill>
-	<Skill Name="PlagueDoctor_Fumigate">
+                    <Num Num="1"/>
+                    <Num Num="100"/>
+                    <Num Num="1"/>
+                </Scp>
+            </EtcList>
+        </MainSkl>
+    </Skill>
+    <Skill Name="PlagueDoctor_Disenchant">
+        <MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+            <HitList>
+                <Frame Angle="0" AniTime="10999" Dist="0" ForceATK="0" HitCount="1" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" TermMax="0" TermMin="0" Time="10799" Type="FAN"/>
+            </HitList>
+            <EtcList>
+                <Scp Client="YES" Scp="C_VOICE_SOUND" Time="0" UseSleep="NO">
+                    <Str Str="voice_cleric_m_disenchant_shot"/>
+                    <Str Str="voice_cleric_f_disenchant_shot"/>
+                </Scp>
+                <Scp Client="NO" Scp="MONSKL_CRE_PAD" Time="700" UseSleep="NO">
+                    <Pos Angle="0" Dist="60"/>
+                    <Angle Angle="0"/>
+                    <Str Str="PlagueDoctor_Disenchant"/>
+                </Scp>
+            </EtcList>
+        </MainSkl>
+    </Skill>
+    <Skill Name="PlagueDoctor_PlagueVapours">
         <MainSkl ScrLock="None" JumpFlee="NO" MSPDToUsePos="0">
-			<HitList>
+            <HitList>
+                <Frame Type="FAN" Time="9799" HitCount="1" TermMin="0" TermMax="0" PosType="0" Dist="0" RandDist="0" RandomPerHit="0" Angle="0" AniTime="9999" RotAngle="0" ForceATK="0" ScriptIndex="0" ScriptName="" SkillType="0"/>
+            </HitList>
+            <EtcList>
+                <Scp Scp="MONSKL_CRE_PAD" Client="NO" UseSleep="NO" Time="0">
+                    <Pos Angle="0" Dist="60"/>
+                    <Angle Angle="0"/>
+                    <Str Str="PlagueDoctor_PlagueVapours"/>
+                    <Str Str="true"/>
+                </Scp>
+                <Scp Scp="C_VOICE_SOUND" Client="YES" UseSleep="NO" Time="0">
+                    <Str Str="voice_archer_atk"/>
+                    <Str Str="voice_archer_f_atk"/>
+                </Scp>
+                <Scp Scp="SKL_RUN_SCRIPT" Client="NO" UseSleep="NO" Time="0">
+                    <Str Str="SCR_WHITEBEAKMASK_BUFF_ABIL"/>
+                </Scp>
+            </EtcList>
+        </MainSkl>
+    </Skill>
+    <Skill Name="PlagueDoctor_Fumigate">
+        <MainSkl ScrLock="None" JumpFlee="NO" MSPDToUsePos="0">
+            <HitList>
                 <Frame Type="FAN" Time="9799" HitCount="1" TermMin="0" TermMax="0" PosType="0" Dist="0" RandDist="0" RandomPerHit="0" Angle="0" SklAngle="0.17453292" AniTime="9999" RotAngle="0" ForceATK="0" ScriptIndex="0" ScriptName="" SkillType="0"/>
-			</HitList>
-			<EtcList>
+            </HitList>
+            <EtcList>
                 <Scp Scp="C_VOICE_SOUND" Client="YES" UseSleep="NO" Time="100">
-					<Str Str="voice_cleric_m_fumigate_shot" />
-					<Str Str="voice_cleric_fumigate_shot" />
-				</Scp>
+                    <Str Str="voice_cleric_m_fumigate_shot"/>
+                    <Str Str="voice_cleric_fumigate_shot"/>
+                </Scp>
                 <Scp Scp="C_EFFECT_POS" Client="YES" UseSleep="NO" Time="300">
                     <Str_Arg Str="F_cleric_Fumigate_loop" Arg="0.69999999"/>
-					<Pos Angle="0" Dist="40" />
-					<Num Num="1" />
-					<Str Str="None" />
-				</Scp>
+                    <Pos Angle="0" Dist="40"/>
+                    <Num Num="1"/>
+                    <Str Str="None"/>
+                </Scp>
                 <Scp Scp="SKL_SET_TARGET_CIRCLE" Client="NO" UseSleep="NO" Time="700">
                     <Pos Angle="0" Dist="30"/>
-					<Num Num="40" />
-					<Num Num="5" />
-					<Num Num="1" />
-					<Num Num="0" />
-					<Num Num="1" />
-					<Num Num="1" />
-				</Scp>
+                    <Num Num="40"/>
+                    <Num Num="5"/>
+                    <Num Num="1"/>
+                    <Num Num="0"/>
+                    <Num Num="1"/>
+                    <Num Num="1"/>
+                </Scp>
                 <Scp Scp="SKL_TGT_BUFF" Client="NO" UseSleep="NO" Time="700">
-					<Str Str="Fumigate_Buff" />
+                    <Str Str="Fumigate_Buff"/>
                     <Num Num="1" UseFunc="1" FuncTxt="return obj.Level;"/>
-					<Num Num="0" />
-					<Num Num="1000" />
-					<Num Num="1" />
-					<Num Num="100" />
-					<Num Num="0" />
-					<Num Num="0" />
-				</Scp>
-			</EtcList>
-		</MainSkl>
-		<ByCondSkills>
-			<SubSkl>
-				<Cond>
+                    <Num Num="0"/>
+                    <Num Num="1000"/>
+                    <Num Num="1"/>
+                    <Num Num="100"/>
+                    <Num Num="0"/>
+                    <Num Num="0"/>
+                </Scp>
+            </EtcList>
+        </MainSkl>
+        <ByCondSkills>
+            <SubSkl>
+                <Cond>
                     <ToolScp Scp="SKL_SELECT_ABIL" Client="NO" UseSleep="NO">
-						<Str Str="PlagueDoctor6" />
-					</ToolScp>
-				</Cond>
+                        <Str Str="PlagueDoctor6"/>
+                    </ToolScp>
+                </Cond>
                 <Skill ScrLock="None" JumpFlee="NO" MSPDToUsePos="0">
-					<HitList>
+                    <HitList>
                         <Frame Type="FAN" Time="9799" HitCount="1" TermMin="0" TermMax="0" PosType="0" Dist="0" RandDist="0" RandomPerHit="0" Angle="0" SklAngle="0.17453292" AniTime="9999" RotAngle="0" ForceATK="0" ScriptIndex="0" ScriptName="" SkillType="0"/>
-					</HitList>
-					<EtcList>
+                    </HitList>
+                    <EtcList>
                         <Scp Scp="C_VOICE_SOUND" Client="YES" UseSleep="NO" Time="100">
-							<Str Str="voice_cleric_m_fumigate_shot" />
-							<Str Str="voice_cleric_fumigate_shot" />
-						</Scp>
+                            <Str Str="voice_cleric_m_fumigate_shot"/>
+                            <Str Str="voice_cleric_fumigate_shot"/>
+                        </Scp>
                         <Scp Scp="C_EFFECT_POS" Client="YES" UseSleep="NO" Time="300">
                             <Str_Arg Str="F_cleric_Fumigate_loop" Arg="0.69999999"/>
-							<Pos Angle="0" Dist="40" />
-							<Num Num="1" />
-							<Str Str="None" />
-						</Scp>
+                            <Pos Angle="0" Dist="40"/>
+                            <Num Num="1"/>
+                            <Str Str="None"/>
+                        </Scp>
                         <Scp Scp="SKL_SET_TARGET_CIRCLE" Client="NO" UseSleep="NO" Time="700">
-							<Pos Angle="0" Dist="50" />
-							<Num Num="40" />
-							<Num Num="5" />
-							<Num Num="1" />
-							<Num Num="0" />
-							<Num Num="1" />
-							<Num Num="1" />
-						</Scp>
+                            <Pos Angle="0" Dist="50"/>
+                            <Num Num="40"/>
+                            <Num Num="5"/>
+                            <Num Num="1"/>
+                            <Num Num="0"/>
+                            <Num Num="1"/>
+                            <Num Num="1"/>
+                        </Scp>
                         <Scp Scp="SKL_TGT_BUFF" Client="NO" UseSleep="NO" Time="700">
-							<Str Str="Fumigate_Buff" />
+                            <Str Str="Fumigate_Buff"/>
                             <Num Num="1" UseFunc="1" FuncTxt="return obj.Level;"/>
-							<Num Num="0" />
-							<Num Num="1000" />
-							<Num Num="1" />
-							<Num Num="100" />
-							<Num Num="0" />
-							<Num Num="0" />
-						</Scp>
+                            <Num Num="0"/>
+                            <Num Num="1000"/>
+                            <Num Num="1"/>
+                            <Num Num="100"/>
+                            <Num Num="0"/>
+                            <Num Num="0"/>
+                        </Scp>
                         <Scp Scp="MONSKL_CRE_PAD" Client="NO" UseSleep="NO" Time="700">
-							<Pos Angle="0" Dist="50" />
-							<Angle Angle="0" />
-							<Str Str="PlagueDoctor_Fumigate_abil" />
-						</Scp>
-					</EtcList>
-				</Skill>
-			</SubSkl>
-		</ByCondSkills>
-	</Skill>
-	<Skill Name="PlagueDoctor_Pandemic">
-		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
-			<EtcList>
-				<Scp Client="NO" Scp="SKL_SET_TARGET_CIRCLE" Time="0" UseSleep="NO">
-					<Pos Angle="0" Dist="0" />
-					<Num Num="90" />
-					<Num FuncTxt="return 3 + obj.Level * 2;" Num="99" UseFunc="1" />
-					<Num Num="2" />
-					<Num Num="0" />
-					<Num Num="1" />
-				</Scp>
-				<Scp Client="YES" Scp="C_EFFECT_POS" Time="0" UseSleep="NO">
-					<Str_Arg Arg="2.5" Str="F_cleric_Pandemic_ground" />
-					<Pos Angle="0" Dist="0" />
-					<Num Num="0" />
-					<Str Str="None" />
-				</Scp>
-				<Scp Client="YES" Scp="C_VOICE_SOUND" Time="400" UseSleep="NO">
-					<Str Str="voice_cleric_m_pandemic_shot" />
-					<Str Str="voice_cleric_pandemic_shot" />
-				</Scp>
-				<Scp Client="NO" Scp="SKL_RUN_SCRIPT" Time="990" UseSleep="NO">
-					<Str Str="PENDEMIC_RUN" />
-				</Scp>
-			</EtcList>
-		</MainSkl>
-	</Skill>
-	<Skill Name="PlagueDoctor_BeakMask">
-		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
-			<EtcList>
-				<Scp Client="NO" Scp="SKL_BUFF" Time="0" UseSleep="NO">
-					<Str Str="BeakMask_Buff" />
-					<Num FuncTxt="return obj.Level" Num="1" UseFunc="1" />
-					<Num Num="0" />
-					<Num FuncTxt="local value = 60000 if IsPVPServer(self) == 1 or IsPVPField(self) == 1 then value = math.floor(value / 3) end return value;" Num="60000" UseFunc="1" />
-					<Num Num="1" />
-					<Num Num="100" />
-					<Num Num="0" />
-				</Scp>
-				<Scp Client="YES" Scp="C_EFFECT" Time="0" UseSleep="NO">
-					<Str_Arg Arg="0.40000001" Str="F_smoke064_grey" />
-					<Str Str="Bip01 Head" />
-					<Num Num="0" />
-				</Scp>
-			</EtcList>
-		</MainSkl>
-	</Skill>
-	<Skill Name="PlagueDoctor_Bloodletting">
-		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
-			<HitList>
-				<Frame Angle="0" AniTime="9999" Dist="0" ForceATK="0" HitCount="1" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="9799" Type="FAN" />
-			</HitList>
-			<EtcList>
-				<Scp Client="NO" Scp="MONSKL_CRE_PAD" Time="100" UseSleep="NO">
-					<Pos Angle="0" Dist="20" />
-					<Angle Angle="0" />
-					<Str Str="PlagueDoctor_Bloodletting" />
-				</Scp>
-				<Scp Client="YES" Scp="C_VOICE_SOUND" Time="200" UseSleep="NO">
-					<Str Str="voice_cleric_m_bloodletting_shot" />
-					<Str Str="voice_cleric_bloodletting_shot" />
-				</Scp>
-			</EtcList>
-		</MainSkl>
-	</Skill>
-	<Skill Name="PlagueDoctor_Incineration">
-		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
-			<HitList>
-				<Frame Angle="0" AniTime="9999" Dist="0" ForceATK="0" HitCount="1" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="9799" Type="FAN" />
-			</HitList>
-			<EtcList>
-				<Scp Client="YES" Scp="C_VOICE_SOUND" Time="100" UseSleep="NO">
-					<Str Str="voice_cleric_m_incineration_shot" />
-					<Str Str="voice_cleric_incineration_shot" />
-				</Scp>
-				<Scp Client="NO" Scp="MONSKL_CRE_PAD" Time="700" UseSleep="NO">
-					<Pos Angle="0" Dist="35" />
-					<Angle Angle="0" />
-					<Str Str="PlagueDoctor_Incineration" />
-				</Scp>
-			</EtcList>
-		</MainSkl>
-	</Skill>
-	<Skill Name="PlagueDoctor_HealingFactor">
-		<KeyInput>
-			<ToolScp Client="YES" Scp="SKL_PARTY_TARGET_BY_KEY" UseSleep="NO">
-				<Num Num="1" />
-			</ToolScp>
-		</KeyInput>
-		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
-			<HitList>
-				<Frame Angle="0" AniTime="9999" Dist="0" ForceATK="0" HitCount="1" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="9799" Type="FAN" />
-			</HitList>
-			<EtcList>
-				<Scp Client="NO" Scp="SKL_SET_TARGET_CLIENT_TARGETTING" Time="0" UseSleep="NO" />
-				<Scp Client="NO" Scp="SKL_TGT_BUFF" Time="0" UseSleep="NO">
-					<Str Str="HealingFactor_Buff" />
-					<Num FuncTxt="return obj.Level" Num="1" UseFunc="1" />
-					<Num Num="0" />
-                    <Num FuncTxt="local value = 45000 local abilPlagueDoctor19 = GetAbility(self, 'PlagueDoctor19') if abilPlagueDoctor19 ~= nil and TryGetProp(abilPlagueDoctor19, 'ActiveState') == 1 then value = 120000 end return value" UseFunc="1" Num="45000" />
-					<Num Num="1" />
-					<Num Num="100" />
-					<Num Num="0" />
-					<Num Num="1" />
-				</Scp>
-				<Scp Client="YES" Scp="C_VOICE_SOUND" Time="200" UseSleep="NO">
-					<Str Str="voice_cleric_m_healingfactor_shot" />
-					<Str Str="voice_cleric_healingfactor_shot" />
-				</Scp>
-			</EtcList>
-		</MainSkl>
-	</Skill>
-	<Skill Name="PlagueDoctor_Modafinil">
-		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
-			<HitList>
-				<Frame Angle="0" AniTime="10199" Dist="0" ForceATK="0" HitCount="1" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" TermMax="0" TermMin="0" Time="9999" Type="FAN" />
-			</HitList>
-			<EtcList>
-				<Scp Client="YES" Scp="C_VOICE_SOUND" Time="300" UseSleep="NO">
-					<Str Str="voice_war_atk_medium" />
-					<Str Str="voice_atk_medium_war_f" />
-				</Scp>
-				<Scp Client="NO" Scp="SKL_SET_TARGET_CIRCLE" Time="600" UseSleep="NO">
-					<Pos Angle="0" Dist="0" />
-					<Num Num="250" />
-					<Num Num="50" />
-					<Num Num="1" />
-					<Num Num="0" />
-					<Num Num="1" />
-				</Scp>
-				<Scp Client="NO" Scp="SKL_SET_TGT_EMPTY_TO_ME" Time="600" UseSleep="NO" />
-				<Scp Client="NO" Scp="SKL_TGT_BUFF" Time="600" UseSleep="NO">
-					<Str Str="Modafinil_Buff" />
-					<Num FuncTxt="return obj.Level" Num="1" UseFunc="1" />
-					<Num Num="0" />
-					<Num FuncTxt="local value = 20000 + obj.Level * 4000; if IsPVPServer(self) == 1 or IsPVPField(self) == 1 then value = math.floor(value / 3) end return value" Num="0" UseFunc="1" />
-					<Num Num="1" />
-					<Num Num="100" />
-				</Scp>
-			</EtcList>
-		</MainSkl>
-	</Skill>
-	</ToolSkill>
+                            <Pos Angle="0" Dist="50"/>
+                            <Angle Angle="0"/>
+                            <Str Str="PlagueDoctor_Fumigate_abil"/>
+                        </Scp>
+                    </EtcList>
+                </Skill>
+            </SubSkl>
+        </ByCondSkills>
+    </Skill>
+    <Skill Name="PlagueDoctor_Pandemic">
+        <MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+            <EtcList>
+                <Scp Client="NO" Scp="SKL_SET_TARGET_CIRCLE" Time="0" UseSleep="NO">
+                    <Pos Angle="0" Dist="0"/>
+                    <Num Num="90"/>
+                    <Num FuncTxt="return 3 + obj.Level * 2;" Num="99" UseFunc="1"/>
+                    <Num Num="2"/>
+                    <Num Num="0"/>
+                    <Num Num="1"/>
+                </Scp>
+                <Scp Client="YES" Scp="C_EFFECT_POS" Time="0" UseSleep="NO">
+                    <Str_Arg Arg="2.5" Str="F_cleric_Pandemic_ground"/>
+                    <Pos Angle="0" Dist="0"/>
+                    <Num Num="0"/>
+                    <Str Str="None"/>
+                </Scp>
+                <Scp Client="YES" Scp="C_VOICE_SOUND" Time="400" UseSleep="NO">
+                    <Str Str="voice_cleric_m_pandemic_shot"/>
+                    <Str Str="voice_cleric_pandemic_shot"/>
+                </Scp>
+                <Scp Client="NO" Scp="SKL_RUN_SCRIPT" Time="990" UseSleep="NO">
+                    <Str Str="PENDEMIC_RUN"/>
+                </Scp>
+            </EtcList>
+        </MainSkl>
+    </Skill>
+    <Skill Name="PlagueDoctor_BeakMask">
+        <MainSkl ScrLock="None" JumpFlee="NO" MSPDToUsePos="0">
+            <EtcList>
+                <Scp Scp="MONSKL_C_PLAY_ANIM" Client="YES" UseSleep="NO" Time="0">
+                    <Str Str="skl_Beakmask_on"/>
+                    <Num Num="1"/>
+                    <Num Num="1"/>
+                    <Num Num="0"/>
+                </Scp>
+                <Scp Scp="SKL_BUFF" Client="NO" UseSleep="NO" Time="0">
+                    <Str Str="BeakMask_Buff"/>
+                    <Num Num="1" UseFunc="1" FuncTxt="return obj.Level"/>
+                    <Num Num="0"/>
+                    <Num Num="60000" UseFunc="1" FuncTxt="local value = 60000 if IsPVPServer(self) == 1 or IsPVPField(self) == 1 then value = math.floor(value / 3) end return value;"/>
+                    <Num Num="1"/>
+                    <Num Num="100"/>
+                    <Num Num="0"/>
+                </Scp>
+                <Scp Scp="C_EFFECT" Client="YES" UseSleep="NO" Time="0">
+                    <Str_Arg Str="F_smoke064_grey" Arg="0.40000001"/>
+                    <Str Str="Bip01 Head"/>
+                    <Num Num="0"/>
+                </Scp>
+            </EtcList>
+        </MainSkl>
+        <ByCondSkills>
+            <SubSkl>
+                <Cond>
+                    <ToolScp Scp="SKL_SELECT_ABIL" Client="NO" UseSleep="NO">
+                        <Str Str="PlagueDoctor23"/>
+                    </ToolScp>
+                </Cond>
+                <Skill ScrLock="None" JumpFlee="NO" MSPDToUsePos="0">
+                    <EtcList>
+                        <Scp Scp="MONSKL_C_PLAY_ANIM" Client="YES" UseSleep="NO" Time="0">
+                            <Str Str="skl_Beakmask_on_abil"/>
+                            <Num Num="1"/>
+                            <Num Num="1"/>
+                            <Num Num="0"/>
+                        </Scp>
+                        <Scp Scp="SKL_BUFF" Client="NO" UseSleep="NO" Time="0">
+                            <Str Str="WhiteBeakMask_Buff"/>
+                            <Num Num="1" UseFunc="1" FuncTxt="return obj.Level"/>
+                            <Num Num="0"/>
+                            <Num Num="60000"/>
+                            <Num Num="1"/>
+                            <Num Num="100"/>
+                            <Num Num="0"/>
+                        </Scp>
+                        <Scp Scp="C_EFFECT" Client="YES" UseSleep="NO" Time="0">
+                            <Str_Arg Str="F_smoke064_grey" Arg="0.40000001"/>
+                            <Str Str="Bip01 Head"/>
+                            <Num Num="0"/>
+                        </Scp>
+                    </EtcList>
+                </Skill>
+            </SubSkl>
+        </ByCondSkills>
+    </Skill>
+    <Skill Name="PlagueDoctor_Bloodletting">
+        <MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+            <HitList>
+                <Frame Angle="0" AniTime="9999" Dist="0" ForceATK="0" HitCount="1" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="9799" Type="FAN"/>
+            </HitList>
+            <EtcList>
+                <Scp Client="NO" Scp="MONSKL_CRE_PAD" Time="100" UseSleep="NO">
+                    <Pos Angle="0" Dist="20"/>
+                    <Angle Angle="0"/>
+                    <Str Str="PlagueDoctor_Bloodletting"/>
+                </Scp>
+                <Scp Client="YES" Scp="C_VOICE_SOUND" Time="200" UseSleep="NO">
+                    <Str Str="voice_cleric_m_bloodletting_shot"/>
+                    <Str Str="voice_cleric_bloodletting_shot"/>
+                </Scp>
+            </EtcList>
+        </MainSkl>
+    </Skill>
+    <Skill Name="PlagueDoctor_Incineration">
+        <MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+            <HitList>
+                <Frame Angle="0" AniTime="9999" Dist="0" ForceATK="0" HitCount="1" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="9799" Type="FAN"/>
+            </HitList>
+            <EtcList>
+                <Scp Client="YES" Scp="C_VOICE_SOUND" Time="100" UseSleep="NO">
+                    <Str Str="voice_cleric_m_incineration_shot"/>
+                    <Str Str="voice_cleric_incineration_shot"/>
+                </Scp>
+                <Scp Client="NO" Scp="MONSKL_CRE_PAD" Time="700" UseSleep="NO">
+                    <Pos Angle="0" Dist="35"/>
+                    <Angle Angle="0"/>
+                    <Str Str="PlagueDoctor_Incineration"/>
+                </Scp>
+            </EtcList>
+        </MainSkl>
+    </Skill>
+    <Skill Name="PlagueDoctor_HealingFactor">
+        <KeyInput>
+            <ToolScp Client="YES" Scp="SKL_PARTY_TARGET_BY_KEY" UseSleep="NO">
+                <Num Num="1"/>
+            </ToolScp>
+        </KeyInput>
+        <MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+            <HitList>
+                <Frame Angle="0" AniTime="9999" Dist="0" ForceATK="0" HitCount="1" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="9799" Type="FAN"/>
+            </HitList>
+            <EtcList>
+                <Scp Client="NO" Scp="SKL_SET_TARGET_CLIENT_TARGETTING" Time="0" UseSleep="NO"/>
+                <Scp Client="NO" Scp="SKL_TGT_BUFF" Time="0" UseSleep="NO">
+                    <Str Str="HealingFactor_Buff"/>
+                    <Num FuncTxt="return obj.Level" Num="1" UseFunc="1"/>
+                    <Num Num="0"/>
+                    <Num FuncTxt="local value = 45000 local abilPlagueDoctor19 = GetAbility(self, 'PlagueDoctor19') if abilPlagueDoctor19 ~= nil and TryGetProp(abilPlagueDoctor19, 'ActiveState') == 1 then value = 120000 end return value" UseFunc="1" Num="45000"/>
+                    <Num Num="1"/>
+                    <Num Num="100"/>
+                    <Num Num="0"/>
+                    <Num Num="1"/>
+                </Scp>
+                <Scp Client="YES" Scp="C_VOICE_SOUND" Time="200" UseSleep="NO">
+                    <Str Str="voice_cleric_m_healingfactor_shot"/>
+                    <Str Str="voice_cleric_healingfactor_shot"/>
+                </Scp>
+            </EtcList>
+        </MainSkl>
+    </Skill>
+    <Skill Name="PlagueDoctor_Modafinil">
+        <MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+            <HitList>
+                <Frame Angle="0" AniTime="10199" Dist="0" ForceATK="0" HitCount="1" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" TermMax="0" TermMin="0" Time="9999" Type="FAN"/>
+            </HitList>
+            <EtcList>
+                <Scp Client="YES" Scp="C_VOICE_SOUND" Time="300" UseSleep="NO">
+                    <Str Str="voice_war_atk_medium"/>
+                    <Str Str="voice_atk_medium_war_f"/>
+                </Scp>
+                <Scp Client="NO" Scp="SKL_SET_TARGET_CIRCLE" Time="600" UseSleep="NO">
+                    <Pos Angle="0" Dist="0"/>
+                    <Num Num="250"/>
+                    <Num Num="50"/>
+                    <Num Num="1"/>
+                    <Num Num="0"/>
+                    <Num Num="1"/>
+                </Scp>
+                <Scp Client="NO" Scp="SKL_SET_TGT_EMPTY_TO_ME" Time="600" UseSleep="NO"/>
+                <Scp Client="NO" Scp="SKL_TGT_BUFF" Time="600" UseSleep="NO">
+                    <Str Str="Modafinil_Buff"/>
+                    <Num FuncTxt="return obj.Level" Num="1" UseFunc="1"/>
+                    <Num Num="0"/>
+                    <Num FuncTxt="local value = 20000 + obj.Level * 4000; if IsPVPServer(self) == 1 or IsPVPField(self) == 1 then value = math.floor(value / 3) end return value" Num="0" UseFunc="1"/>
+                    <Num Num="1"/>
+                    <Num Num="100"/>
+                </Scp>
+            </EtcList>
+        </MainSkl>
+    </Skill>
+</ToolSkill>

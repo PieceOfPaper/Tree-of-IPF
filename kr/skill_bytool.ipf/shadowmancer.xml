@@ -347,13 +347,28 @@
 					<Str Str="voice_wiz_f_ShadowPool_cast" />
 				</Scp>
 				<Scp Client="NO" Scp="SKL_RESET_COOLTIME" Time="0" UseSleep="NO">
-					<Str Str="Shadowmancer_ShadowPool" />
+					<Str Str="None" UseFunc="1" FuncTxt="local value = 'Shadowmancer_ShadowPool'
+local abil = GetAbility(self, 'Shadowmancer16')
+if abil ~= nil then
+    value = 'None'
+end
+return value"/>
 				</Scp>
 				<Scp Client="NO" Scp="SKL_BUFF" Time="50" UseSleep="NO">
-					<Str Str="ShadowPool_Buff" />
+					<Str Str="None" UseFunc="1" FuncTxt="local value = 'ShadowPool_Buff'
+local abil = GetAbility(self, 'Shadowmancer16')
+if abil ~= nil then
+    value = 'ShadowPool_ABIL_Buff'
+end
+return value"/>
 					<Num FuncTxt="return obj.Level;" Num="0" UseFunc="1" />
 					<Num Num="0" />
-                    <Num FuncTxt="return obj.Level * 500;" Num="0" UseFunc="1" />
+					<Num FuncTxt="local value = obj.Level * 500; 
+local abil = GetAbility(self, 'Shadowmancer16')
+if abil ~= nil then
+    value = 5000
+end
+return value" Num="0" UseFunc="1" />
 					<Num Num="1" />
 					<Num Num="100" />
 					<Num Num="0" />

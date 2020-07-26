@@ -589,6 +589,26 @@ function GET_TOOLTIP_ITEM_OBJECT(strarg, guid, numarg1)
 			viewObj.Reinforce_2 = reinforce;
 			return viewObj, 1;
 		end
+	elseif strarg == "TransferSeal" then
+		invitem = GET_ITEM_BY_GUID(guid, 0);
+		local itemObj = GetIES(invitem:GetObject());
+		local curLv = GET_CURRENT_SEAL_LEVEL(itemObj);
+
+		local itemObj = GetClassByType('Item', numarg1)
+		viewObj = CloneIES_UseCP(itemObj);
+		for i = 1, itemObj.MaxReinforceCount do
+			if curLv < i then
+				break;
+			end
+	
+			local option, optionValue = GetSealUnlockOption(itemObj.ClassName, i);
+			if option ~= nil then
+				viewObj["SealOption_"..i] = option;
+				viewObj["SealOptionValue_"..i] = optionValue;
+			end
+		end
+
+		return viewObj, 1;
 	else
 		invitem = GET_ITEM_BY_GUID(guid, 0);
 	end

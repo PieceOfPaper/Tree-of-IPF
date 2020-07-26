@@ -860,6 +860,12 @@ function SCR_Get_MINPATK(self)
     byRateBuff = math.floor(value * byRateBuff);
     
     value = value + byBuff + byRateBuff;
+
+    local decRatio = TryGetProp(self, 'PATK_RATE_MUL_BM', 1);
+    if decRatio < 0.5 then
+        decRatio = 0.5
+    end
+    value = math.floor(value * decRatio)    
     
     local maxPATK = TryGetProp(self, "MAXPATK");
     if value > maxPATK then
@@ -936,6 +942,12 @@ function SCR_Get_MAXPATK(self)
     byRateBuff = math.floor(value * byRateBuff);
     
     value = value + byBuff + byRateBuff;
+
+    local decRatio = TryGetProp(self, 'PATK_RATE_MUL_BM', 1);
+    if decRatio < 0.5 then
+        decRatio = 0.5
+    end
+    value = math.floor(value * decRatio)
     
     if value < 1 then
     	value = 1;
@@ -1031,6 +1043,12 @@ function SCR_Get_MINPATK_SUB(self)
     byRateBuff = math.floor(value * byRateBuff);
     
     value = value + byBuff + byRateBuff;
+
+    local decRatio = TryGetProp(self, 'PATK_RATE_MUL_BM', 1);
+    if decRatio < 0.5 then
+        decRatio = 0.5
+    end
+    value = math.floor(value * decRatio)
     
     local maxPATK_SUB = TryGetProp(self, "MAXPATK_SUB");
     if value > maxPATK_SUB then
@@ -1111,6 +1129,12 @@ function SCR_Get_MAXPATK_SUB(self)
     byRateBuff = math.floor(value * byRateBuff);
     
     value = value + byBuff + byRateBuff;
+
+    local decRatio = TryGetProp(self, 'PATK_RATE_MUL_BM', 1);
+    if decRatio < 0.5 then
+        decRatio = 0.5
+    end
+    value = math.floor(value * decRatio)
     
     if value < 1 then
     	value = 1;
@@ -1199,6 +1223,12 @@ function SCR_Get_MINMATK(self)
     byRateBuff = math.floor(value * byRateBuff);
     
     value = value + byBuff + byRateBuff;
+
+    local decRatio = TryGetProp(self, 'MATK_RATE_MUL_BM', 1);
+    if decRatio < 0.5 then
+        decRatio = 0.5
+    end
+    value = math.floor(value * decRatio)
     
     local maxMATK = TryGetProp(self, "MAXMATK");
     if value > maxMATK then
@@ -1279,6 +1309,12 @@ function SCR_Get_MAXMATK(self)
     byRateBuff = math.floor(value * byRateBuff);
     
     value = value + byBuff + byRateBuff;
+
+    local decRatio = TryGetProp(self, 'MATK_RATE_MUL_BM', 1);
+    if decRatio < 0.5 then
+        decRatio = 0.5
+    end
+    value = math.floor(value * decRatio)
     
     if value < 1 then
     	value = 1;
@@ -1303,6 +1339,12 @@ function SCR_Get_DEF(self)
     byRateBuff = math.floor(value * byRateBuff);
     
     value = value + byBuff + byRateBuff;
+
+    local decRatio = TryGetProp(self, 'DEF_RATE_MUL_BM', 1);
+    if decRatio < 0.5 then
+        decRatio = 0.5
+    end
+    value = math.floor(value * decRatio)
     
     local throwItemDef = 0;
     local leftHand = GetEquipItemForPropCalc(self, 'LH');
@@ -1385,6 +1427,12 @@ function SCR_Get_MDEF(self)
     byRateBuff = math.floor(value * byRateBuff);
     
     value = value + byEnchant + byBuff + byRateBuff;
+
+    local decRatio = TryGetProp(self, 'MDEF_RATE_MUL_BM', 1);
+    if decRatio < 0.5 then
+        decRatio = 0.5
+    end
+    value = math.floor(value * decRatio)
     
     return math.floor(value);
 end
@@ -1718,6 +1766,12 @@ function SCR_Get_CRTDR(self)
     byRateBuff = math.floor(value * byRateBuff);
     
     value = value + byItemRareOption + byBuff + byRateBuff;
+
+    local decRatio = TryGetProp(self, 'CRTDR_RATE_MUL_BM', 1);
+    if decRatio < 0.5 then
+        decRatio = 0.5
+    end
+    value = math.floor(value * decRatio)
 	
     if value < 0 then
     	value = 0;
@@ -1797,7 +1851,7 @@ function SCR_Get_RHP(self)
             return 0;
         end
     end
-    
+
     local baseMHP = TryGetProp(self, 'MHP', 1);
     
 	local jobRate = SCR_GET_JOB_RATIO_STAT(self, "RHP");
@@ -2143,7 +2197,7 @@ function SCR_Get_KDArmorType(self)
         value = 1;
     end
     
-    local buffList = { "Safe", "PainBarrier_Buff", "Lycanthropy_Buff", "Marschierendeslied_Buff", "Methadone_Buff", "Fluting_Buff", "Slithering_Buff", "Algiz_PainBarrier_Buff", "BullyPainBarrier_Buff" };
+    local buffList = { "Safe", "PainBarrier_Buff", "Lycanthropy_Buff", "Marschierendeslied_Buff", "Methadone_Buff", "Fluting_Buff", "Slithering_Buff", "Algiz_PainBarrier_Buff", "BullyPainBarrier_Buff", "CavalryCharge_Abil_Buff" };
     for i = 1, #buffList do
         if IsBuffApplied(self, buffList[i]) == 'YES' then
             value = 99999;
@@ -2408,7 +2462,13 @@ function SCR_Get_MSPD(self)
             return GetExProp(self, 'BurrowSPD')
         end
     end
-    
+
+    if IsBuffApplied(self, 'Bazooka_Abill_Buff') == 'YES' then
+        if value >= GetExProp(self, 'BazookaSPD') then
+            return GetExProp(self, 'BazookaSPD')
+        end
+    end
+
     return math.floor(value);
 end
 

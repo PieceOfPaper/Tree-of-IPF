@@ -158,7 +158,7 @@ function MORU_LBTN_CLICK(frame, invItem)
 		return;
 	end
 
-	   CANCEL_MORU();
+	CANCEL_MORU();
 	
 	local upgradeitem_2 = ui.GetFrame("reinforce_131014");
 	local fromItemSlot = GET_CHILD(upgradeitem_2, "fromItemSlot", "ui::CSlot");

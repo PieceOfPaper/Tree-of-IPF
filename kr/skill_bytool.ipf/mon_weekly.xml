@@ -8434,6 +8434,21 @@
                     <Str Str="None"/>
                     <Num Num="0"/>
                 </Scp>
+                <Scp Scp="SKL_RUN_SCRIPT" Client="NO" UseSleep="NO" Time="0">
+                    <Str Str="SCR_WEEKLY_LECIFER_SKILL_MSG"/>
+                </Scp>
+                <Scp Scp="SKL_RUN_SCRIPT" Client="NO" UseSleep="NO" Time="1500">
+                    <Str Str="SCR_WEEKLY_LECIFER_REMOVE_DEBUFF"/>
+                </Scp>
+                <Scp Scp="SCR_PAD_DESTORY" Client="NO" UseSleep="NO" Time="1500">
+                    <Pos Angle="0" Dist="0"/>
+                    <Str Str="ENEMY"/>
+                    <Num Num="100"/>
+                    <Num Num="4"/>
+                    <Str Str="I_pattern008_explosion_mash_square"/>
+                    <Num Num="1000"/>
+                    <Str_Arg Str="F_burstup001_smoke" Arg="1"/>
+                </Scp>
                 <Scp Scp="SKL_BUFF" Client="NO" UseSleep="NO" Time="2500">
                     <Str Str="todal_shield"/>
                     <Num Num="1"/>

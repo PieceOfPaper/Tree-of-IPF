@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<ActionDesc>
+	<Shockwave frame="1" type="2" intensity="10" frequency="100" duration="0.3" range="1000"/>
+	<BlendOn frame="0" R="150" G="150" B="150" A="0"/>
+	<Particle frame="0" attachNode="Dummy_emitter_pet2" particleName="E_warrior_Charge_shot_dash_abil" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="true" targetPos="false"/>
+	<Particle frame="0" attachNode="Dummy_emitter_pet2" particleName="E_warrior_Charge_shot_dash_abil" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="true" targetPos="false"/>
+	<Particle frame="0" attachNode="Dummy_emitter_pet" particleName="E_warrior_Charge_shot_dash_abil_ground" useAttach="false" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="false" targetPos="false"/>
+	<Particle frame="14" attachNode="Dummy_emitter_front" particleName="I_warrior_dash_run_line4" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="true" targetPos="false"/>
+	<BlendOn frame="5" R="100" G="100" B="100" A="100"/>
+	<BlendOff frame="10" R="0" G="0" B="0" A="0"/>
+</ActionDesc>

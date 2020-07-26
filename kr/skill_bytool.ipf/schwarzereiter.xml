@@ -1,736 +1,768 @@
 <?xml version='1.0' encoding='utf-8'?>
-<ToolSkill><Skill Name="Schwarzereiter_Caracole">
-		<EndScripts>
-			<ToolScp Client="YES" Scp="MONSKL_C_CLEAR_RESERVE_ANIM" UseSleep="NO" />
-			<ToolScp Client="YES" Scp="C_EFFECT_DETACH" UseSleep="NO">
-				<Str_Arg Arg="1" Str="F_archer_chargeshot_shot_light" />
-				<Num Num="0.1" />
-			</ToolScp>
-			<ToolScp Client="NO" Scp="SKL_STOP_SOUND" UseSleep="NO">
-				<Str Str="voice_archer_fulldraw_cast" />
-				<Str Str="voice_archer_m_fulldraw_cast" />
-			</ToolScp>
-		</EndScripts>
-		<KeyInputStart>
-			<ToolScp Client="YES" Scp="MONSKL_C_PLAY_ANIM" UseSleep="NO">
-				<Str Str="SKL_CARACOLE_CAST_RIDE" />
-				<Num Num="1" />
-				<Num Num="1" />
-			</ToolScp>
-			<ToolScp Client="YES" Scp="MONSKL_C_RESERVE_ANIM" UseSleep="NO">
-				<Str Str="SKL_CARACOLE_LOOP_RIDE" />
-				<Num Num="1" />
-				<Num Num="0" />
-			</ToolScp>
-			<ToolScp Client="YES" Scp="C_EFFECT" UseSleep="NO">
-				<Str_Arg Arg="1" Str="I_archer_caracole_cast_fire" />
-				<Str Str="Dummy_effect_sub_pistol" />
-				<Num Num="0" />
-			</ToolScp>
-			<ToolScp Client="NO" Scp="SKL_PLAY_SOUND" UseSleep="NO">
-				<Str Str="voice_atk_long_cast_f" />
-				<Num Num="0" />
-				<Str Str="voice_war_atk_long_cast" />
-			</ToolScp>
-		</KeyInputStart>
-		<KeyInputEnd>
-			<ToolScp Client="YES" Scp="MONSKL_C_CLEAR_RESERVE_ANIM" UseSleep="NO" />
-			<ToolScp Client="YES" Scp="C_EFFECT_DETACH" UseSleep="NO">
-				<Str_Arg Arg="1" Str="I_archer_caracole_cast_fire" />
-				<Num Num="0.1" />
-			</ToolScp>
-			<ToolScp Client="NO" Scp="SKL_STOP_SOUND" UseSleep="NO">
-				<Str Str="voice_atk_long_cast_f" />
-				<Str Str="voice_war_atk_long_cast" />
-			</ToolScp>
-			<ToolScp Client="YES" Scp="MONSKL_C_PLAY_ANIM" UseSleep="NO">
-				<Str Str="SKL_CARACOLE_SHOT_RIDE" />
-				<Num Num="1" />
-				<Num Num="1" />
-			</ToolScp>
-		</KeyInputEnd>
-		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
-			<MoveList>
-				<Frame Accel="0" Angle="0" Dist="-30" Gravity="600" Height="0" JumpPower="300" MoveType="0" Time="0" />
-				<Frame Accel="1" Angle="0" Dist="-120" Gravity="600" Height="0" JumpPower="300" MoveType="0" Time="300" />
-			</MoveList>
-			<HitList>
-				<Frame Angle="0" AniTime="200" Dist="0" ForceATK="1" HitCount="1" Length="150" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" TermMax="0" TermMin="0" Time="0" Type="SQUARE" Width="20" />
-			</HitList>
-			<EtcList>
-				<Scp Client="YES" Scp="C_VOICE_SOUND" Time="0" UseSleep="NO">
-					<Str Str="voice_war_atk_medium" />
-					<Str Str="voice_atk_medium_war_f" />
-				</Scp>
-				<Scp Client="YES" Scp="C_EFFECT_ATTACH" Time="0" UseSleep="NO">
-					<Str_Arg Arg="1" Str="I_smoke014_3" />
-					<Num Num="1.5" />
-					<Pos Angle="0" Dist="0" Height="-20" />
-					<Num Num="0" />
-				</Scp>
-				<Scp Client="YES_Time" Scp="C_FORCE_EFT" Time="80" UseSleep="NO">
-					<Str_Arg Arg="0.80000001" Str="I_archer_pistol_caracol#Dummy_effect_pistol" />
-					<Str Str="arrow_cast" />
-					<Str_Arg Arg="1" Str="None" />
-					<Str Str="arrow_blow" />
-					<Str Str="SLOW" />
-					<Num Num="800" />
-					<Num Num="1" />
-					<Num Num="0" />
-					<Angle_Abs Angle="0" />
-					<Num Num="0" />
-					<Num Num="5" />
-					<Num Num="0" />
-					<Num Num="0" />
-					<Num Num="1" />
-					<Num Num="1" />
-					<Str Str="None" />
-					<Num Num="0" />
-					<Num Num="0" />
-					<Num Num="0" />
-					<Num Num="0" />
-				</Scp>
-				<Scp Client="YES" Scp="C_SHOCKWAVE" Time="200" UseSleep="NO">
-					<Num Num="5" />
-					<Num Num="0.30000001" />
-					<Num Num="45" />
-					<Num Num="999" />
-				</Scp>
-			</EtcList>
-			<ResultList>
-				<ToolScp Client="YES" Scp="C_SR_EFT" UseSleep="NO">
-					<Str_Arg Arg="1" Str="F_archer_caracol_hit" />
-					<Pos Angle="0" Dist="0" PosType="1" />
-					<Num Num="0" />
-					<Num Num="0" />
-				</ToolScp>
-				<ToolScp Client="NO" Scp="S_R_TGTBUFF" UseSleep="NO">
-					<Str Str="Caracole_Debuff" />
-					<Num FuncTxt="return skill.Level" Num="0" UseFunc="1" />
-					<Num Num="0" />
-					<Num Num="10000" />
-					<Num Num="1" />
-					<Num Num="100" />
-					<Num Num="-1" />
-				</ToolScp>
-				<ToolScp Client="NO" Scp="S_R_COND_ABILITY" UseSleep="NO">
-					<Str Str="Schwarzereiter17" />
-				</ToolScp>
-				<ToolScp Client="NO" Scp="S_R_SET_FORCE_DAMAGE" UseSleep="NO">
-					<Num Num="0.5" />
-					<Num Num="1" />
-					<Num Num="2" />
-					<Str_Arg Arg="0.69999999" Str="I_archer_pistol_caracol#Dummy_effect_pistol" />
-					<Str Str="arrow_cast" />
-					<Str_Arg Arg="1" Str="F_hit_good" />
-					<Str Str="arrow_blow" />
-					<Str Str="SLOW" />
-					<Num Num="800" />
-					<Num Num="1" />
-					<Num Num="0" />
-					<Angle_Abs Angle="0" />
-					<Num Num="5" />
-					<Num Num="0" />
-					<Num Num="0" />
-					<Num Num="2" />
-					<Num Num="100" />
-					<Num Num="0.1" />
-					<Num Num="2" />
-					<Num Num="180" />
-				</ToolScp>
-			</ResultList>
-		</MainSkl>
-		<ByCondSkills>
-			<SubSkl>
-				<Cond>
-					<ToolScp Client="NO" Scp="SKL_SELECT_ABIL" UseSleep="NO">
-						<Str Str="Schwarzereiter16" />
-					</ToolScp>
-				</Cond>
-				<Skill JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
-					<MoveList>
-						<Frame Accel="1" Angle="0" Dist="-70" Gravity="600" Height="0" JumpPower="300" MoveType="0" Time="200" />
-					</MoveList>
-					<HitList>
-						<Frame Angle="0" AniTime="200" Dist="0" ForceATK="1" HitCount="1" Length="150" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" TermMax="0" TermMin="0" Time="0" Type="SQUARE" Width="20" />
-					</HitList>
-					<EtcList>
-						<Scp Client="YES" Scp="C_VOICE_SOUND" Time="0" UseSleep="NO">
-							<Str Str="voice_war_atk_medium" />
-							<Str Str="voice_atk_medium_war_f" />
-						</Scp>
-						<Scp Client="YES" Scp="C_EFFECT_ATTACH" Time="0" UseSleep="NO">
-							<Str_Arg Arg="1" Str="I_smoke014_3" />
-							<Num Num="1.5" />
-							<Pos Angle="0" Dist="0" Height="-20" />
-							<Num Num="0" />
-						</Scp>
-						<Scp Client="YES_Time" Scp="C_FORCE_EFT" Time="80" UseSleep="NO">
-							<Str_Arg Arg="1.5" Str="I_archer_pistol_caracol#Dummy_effect_pistol" />
-							<Str Str="arrow_cast" />
-							<Str_Arg Arg="1" Str="None" />
-							<Str Str="arrow_blow" />
-							<Str Str="SLOW" />
-							<Num Num="800" />
-							<Num Num="1" />
-							<Num Num="0" />
-							<Angle_Abs Angle="0" />
-							<Num Num="0" />
-							<Num Num="5" />
-							<Num Num="0" />
-							<Num Num="0" />
-							<Num Num="1" />
-							<Num Num="1" />
-							<Str Str="None" />
-							<Num Num="0" />
-							<Num Num="0" />
-							<Num Num="0" />
-							<Num Num="0" />
-						</Scp>
-						<Scp Client="YES" Scp="C_SHOCKWAVE" Time="200" UseSleep="NO">
-							<Num Num="5" />
-							<Num Num="0.30000001" />
-							<Num Num="45" />
-							<Num Num="999" />
-						</Scp>
-					</EtcList>
-					<ResultList>
-						<ToolScp Client="NO" Scp="S_R_TGTBUFF" UseSleep="NO">
-							<Str Str="Caracole_Debuff" />
-							<Num FuncTxt="return skill.Level" Num="0" UseFunc="1" />
-							<Num Num="0" />
-							<Num Num="10000" />
-							<Num Num="1" />
-							<Num Num="100" />
-							<Num Num="-1" />
-						</ToolScp>
-						<ToolScp Client="YES" Scp="C_SR_EFT" UseSleep="NO">
-							<Str_Arg Arg="1" Str="F_archer_caracol_hit" />
-							<Pos Angle="0" Dist="0" PosType="1" />
-							<Num Num="0" />
-							<Num Num="0" />
-						</ToolScp>
-						<ToolScp Client="NO" Scp="S_R_COND_ABILITY" UseSleep="NO">
-							<Str Str="Schwarzereiter17" />
-						</ToolScp>
-						<ToolScp Client="NO" Scp="S_R_SET_FORCE_DAMAGE" UseSleep="NO">
-							<Num Num="0.5" />
-							<Num Num="1" />
-							<Num Num="2" />
-							<Str_Arg Arg="0.69999999" Str="I_archer_pistol_caracol#Dummy_effect_pistol" />
-							<Str Str="arrow_cast" />
-							<Str_Arg Arg="1" Str="F_hit_good" />
-							<Str Str="arrow_blow" />
-							<Str Str="SLOW" />
-							<Num Num="800" />
-							<Num Num="1" />
-							<Num Num="0" />
-							<Angle_Abs Angle="0" />
-							<Num Num="5" />
-							<Num Num="0" />
-							<Num Num="0" />
-							<Num Num="2" />
-							<Num Num="100" />
-							<Num Num="0.1" />
-							<Num Num="2" />
-							<Num Num="180" />
-						</ToolScp>
-					</ResultList>
-				</Skill>
-			</SubSkl>
-		</ByCondSkills>
-	</Skill>
-	<Skill Name="Schwarzereiter_EvasiveAction">
-		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
-			<EtcList>
-				<Scp Client="YES" Scp="C_SOUND" Time="0" UseSleep="NO">
-					<Str Str="skl_eff_sinobi_kunai_cast_2" />
-				</Scp>
-				<Scp Client="YES" Scp="C_VOICE_SOUND" Time="100" UseSleep="NO">
-					<Str Str="voice_war_atk_medium" />
-					<Str Str="voice_atk_medium_war_f" />
-				</Scp>
-				<Scp Client="YES" Scp="C_SOUND" Time="200" UseSleep="NO">
-					<Str Str="skl_eff_archer_skl_shot4" />
-				</Scp>
+<ToolSkill>
+    <Skill Name="Schwarzereiter_Caracole">
+        <EndScripts>
+            <ToolScp Client="YES" Scp="MONSKL_C_CLEAR_RESERVE_ANIM" UseSleep="NO"/>
+            <ToolScp Client="YES" Scp="C_EFFECT_DETACH" UseSleep="NO">
+                <Str_Arg Arg="1" Str="F_archer_chargeshot_shot_light"/>
+                <Num Num="0.1"/>
+            </ToolScp>
+            <ToolScp Client="NO" Scp="SKL_STOP_SOUND" UseSleep="NO">
+                <Str Str="voice_archer_fulldraw_cast"/>
+                <Str Str="voice_archer_m_fulldraw_cast"/>
+            </ToolScp>
+        </EndScripts>
+        <KeyInputStart>
+            <ToolScp Client="YES" Scp="MONSKL_C_PLAY_ANIM" UseSleep="NO">
+                <Str Str="SKL_CARACOLE_CAST_RIDE"/>
+                <Num Num="1"/>
+                <Num Num="1"/>
+            </ToolScp>
+            <ToolScp Client="YES" Scp="MONSKL_C_RESERVE_ANIM" UseSleep="NO">
+                <Str Str="SKL_CARACOLE_LOOP_RIDE"/>
+                <Num Num="1"/>
+                <Num Num="0"/>
+            </ToolScp>
+            <ToolScp Client="YES" Scp="C_EFFECT" UseSleep="NO">
+                <Str_Arg Arg="1" Str="I_archer_caracole_cast_fire"/>
+                <Str Str="Dummy_effect_sub_pistol"/>
+                <Num Num="0"/>
+            </ToolScp>
+            <ToolScp Client="NO" Scp="SKL_PLAY_SOUND" UseSleep="NO">
+                <Str Str="voice_atk_long_cast_f"/>
+                <Num Num="0"/>
+                <Str Str="voice_war_atk_long_cast"/>
+            </ToolScp>
+        </KeyInputStart>
+        <KeyInputEnd>
+            <ToolScp Client="YES" Scp="MONSKL_C_CLEAR_RESERVE_ANIM" UseSleep="NO"/>
+            <ToolScp Client="YES" Scp="C_EFFECT_DETACH" UseSleep="NO">
+                <Str_Arg Arg="1" Str="I_archer_caracole_cast_fire"/>
+                <Num Num="0.1"/>
+            </ToolScp>
+            <ToolScp Client="NO" Scp="SKL_STOP_SOUND" UseSleep="NO">
+                <Str Str="voice_atk_long_cast_f"/>
+                <Str Str="voice_war_atk_long_cast"/>
+            </ToolScp>
+            <ToolScp Client="YES" Scp="MONSKL_C_PLAY_ANIM" UseSleep="NO">
+                <Str Str="SKL_CARACOLE_SHOT_RIDE"/>
+                <Num Num="1"/>
+                <Num Num="1"/>
+            </ToolScp>
+        </KeyInputEnd>
+        <MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+            <MoveList>
+                <Frame Accel="0" Angle="0" Dist="-30" Gravity="600" Height="0" JumpPower="300" MoveType="0" Time="0"/>
+                <Frame Accel="1" Angle="0" Dist="-120" Gravity="600" Height="0" JumpPower="300" MoveType="0" Time="300"/>
+            </MoveList>
+            <HitList>
+                <Frame Angle="0" AniTime="200" Dist="0" ForceATK="1" HitCount="1" Length="150" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" TermMax="0" TermMin="0" Time="0" Type="SQUARE" Width="20"/>
+            </HitList>
+            <EtcList>
+                <Scp Client="YES" Scp="C_VOICE_SOUND" Time="0" UseSleep="NO">
+                    <Str Str="voice_war_atk_medium"/>
+                    <Str Str="voice_atk_medium_war_f"/>
+                </Scp>
+                <Scp Client="YES" Scp="C_EFFECT_ATTACH" Time="0" UseSleep="NO">
+                    <Str_Arg Arg="1" Str="I_smoke014_3"/>
+                    <Num Num="1.5"/>
+                    <Pos Angle="0" Dist="0" Height="-20"/>
+                    <Num Num="0"/>
+                </Scp>
+                <Scp Client="YES_Time" Scp="C_FORCE_EFT" Time="80" UseSleep="NO">
+                    <Str_Arg Arg="0.80000001" Str="I_archer_pistol_caracol#Dummy_effect_pistol"/>
+                    <Str Str="arrow_cast"/>
+                    <Str_Arg Arg="1" Str="None"/>
+                    <Str Str="arrow_blow"/>
+                    <Str Str="SLOW"/>
+                    <Num Num="800"/>
+                    <Num Num="1"/>
+                    <Num Num="0"/>
+                    <Angle_Abs Angle="0"/>
+                    <Num Num="0"/>
+                    <Num Num="5"/>
+                    <Num Num="0"/>
+                    <Num Num="0"/>
+                    <Num Num="1"/>
+                    <Num Num="1"/>
+                    <Str Str="None"/>
+                    <Num Num="0"/>
+                    <Num Num="0"/>
+                    <Num Num="0"/>
+                    <Num Num="0"/>
+                </Scp>
+                <Scp Client="YES" Scp="C_SHOCKWAVE" Time="200" UseSleep="NO">
+                    <Num Num="5"/>
+                    <Num Num="0.30000001"/>
+                    <Num Num="45"/>
+                    <Num Num="999"/>
+                </Scp>
+            </EtcList>
+            <ResultList>
+                <ToolScp Client="YES" Scp="C_SR_EFT" UseSleep="NO">
+                    <Str_Arg Arg="1" Str="F_archer_caracol_hit"/>
+                    <Pos Angle="0" Dist="0" PosType="1"/>
+                    <Num Num="0"/>
+                    <Num Num="0"/>
+                </ToolScp>
+                <ToolScp Client="NO" Scp="S_R_TGTBUFF" UseSleep="NO">
+                    <Str Str="Caracole_Debuff"/>
+                    <Num FuncTxt="return skill.Level" Num="0" UseFunc="1"/>
+                    <Num Num="0"/>
+                    <Num Num="10000"/>
+                    <Num Num="1"/>
+                    <Num Num="100"/>
+                    <Num Num="-1"/>
+                </ToolScp>
+                <ToolScp Client="NO" Scp="S_R_COND_ABILITY" UseSleep="NO">
+                    <Str Str="Schwarzereiter17"/>
+                </ToolScp>
+                <ToolScp Client="NO" Scp="S_R_SET_FORCE_DAMAGE" UseSleep="NO">
+                    <Num Num="0.5"/>
+                    <Num Num="1"/>
+                    <Num Num="2"/>
+                    <Str_Arg Arg="0.69999999" Str="I_archer_pistol_caracol#Dummy_effect_pistol"/>
+                    <Str Str="arrow_cast"/>
+                    <Str_Arg Arg="1" Str="F_hit_good"/>
+                    <Str Str="arrow_blow"/>
+                    <Str Str="SLOW"/>
+                    <Num Num="800"/>
+                    <Num Num="1"/>
+                    <Num Num="0"/>
+                    <Angle_Abs Angle="0"/>
+                    <Num Num="5"/>
+                    <Num Num="0"/>
+                    <Num Num="0"/>
+                    <Num Num="2"/>
+                    <Num Num="100"/>
+                    <Num Num="0.1"/>
+                    <Num Num="2"/>
+                    <Num Num="180"/>
+                </ToolScp>
+            </ResultList>
+        </MainSkl>
+        <ByCondSkills>
+            <SubSkl>
+                <Cond>
+                    <ToolScp Client="NO" Scp="SKL_SELECT_ABIL" UseSleep="NO">
+                        <Str Str="Schwarzereiter16"/>
+                    </ToolScp>
+                </Cond>
+                <Skill JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+                    <MoveList>
+                        <Frame Accel="1" Angle="0" Dist="-70" Gravity="600" Height="0" JumpPower="300" MoveType="0" Time="200"/>
+                    </MoveList>
+                    <HitList>
+                        <Frame Angle="0" AniTime="200" Dist="0" ForceATK="1" HitCount="1" Length="150" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" TermMax="0" TermMin="0" Time="0" Type="SQUARE" Width="20"/>
+                    </HitList>
+                    <EtcList>
+                        <Scp Client="YES" Scp="C_VOICE_SOUND" Time="0" UseSleep="NO">
+                            <Str Str="voice_war_atk_medium"/>
+                            <Str Str="voice_atk_medium_war_f"/>
+                        </Scp>
+                        <Scp Client="YES" Scp="C_EFFECT_ATTACH" Time="0" UseSleep="NO">
+                            <Str_Arg Arg="1" Str="I_smoke014_3"/>
+                            <Num Num="1.5"/>
+                            <Pos Angle="0" Dist="0" Height="-20"/>
+                            <Num Num="0"/>
+                        </Scp>
+                        <Scp Client="YES_Time" Scp="C_FORCE_EFT" Time="80" UseSleep="NO">
+                            <Str_Arg Arg="1.5" Str="I_archer_pistol_caracol#Dummy_effect_pistol"/>
+                            <Str Str="arrow_cast"/>
+                            <Str_Arg Arg="1" Str="None"/>
+                            <Str Str="arrow_blow"/>
+                            <Str Str="SLOW"/>
+                            <Num Num="800"/>
+                            <Num Num="1"/>
+                            <Num Num="0"/>
+                            <Angle_Abs Angle="0"/>
+                            <Num Num="0"/>
+                            <Num Num="5"/>
+                            <Num Num="0"/>
+                            <Num Num="0"/>
+                            <Num Num="1"/>
+                            <Num Num="1"/>
+                            <Str Str="None"/>
+                            <Num Num="0"/>
+                            <Num Num="0"/>
+                            <Num Num="0"/>
+                            <Num Num="0"/>
+                        </Scp>
+                        <Scp Client="YES" Scp="C_SHOCKWAVE" Time="200" UseSleep="NO">
+                            <Num Num="5"/>
+                            <Num Num="0.30000001"/>
+                            <Num Num="45"/>
+                            <Num Num="999"/>
+                        </Scp>
+                    </EtcList>
+                    <ResultList>
+                        <ToolScp Client="NO" Scp="S_R_TGTBUFF" UseSleep="NO">
+                            <Str Str="Caracole_Debuff"/>
+                            <Num FuncTxt="return skill.Level" Num="0" UseFunc="1"/>
+                            <Num Num="0"/>
+                            <Num Num="10000"/>
+                            <Num Num="1"/>
+                            <Num Num="100"/>
+                            <Num Num="-1"/>
+                        </ToolScp>
+                        <ToolScp Client="YES" Scp="C_SR_EFT" UseSleep="NO">
+                            <Str_Arg Arg="1" Str="F_archer_caracol_hit"/>
+                            <Pos Angle="0" Dist="0" PosType="1"/>
+                            <Num Num="0"/>
+                            <Num Num="0"/>
+                        </ToolScp>
+                        <ToolScp Client="NO" Scp="S_R_COND_ABILITY" UseSleep="NO">
+                            <Str Str="Schwarzereiter17"/>
+                        </ToolScp>
+                        <ToolScp Client="NO" Scp="S_R_SET_FORCE_DAMAGE" UseSleep="NO">
+                            <Num Num="0.5"/>
+                            <Num Num="1"/>
+                            <Num Num="2"/>
+                            <Str_Arg Arg="0.69999999" Str="I_archer_pistol_caracol#Dummy_effect_pistol"/>
+                            <Str Str="arrow_cast"/>
+                            <Str_Arg Arg="1" Str="F_hit_good"/>
+                            <Str Str="arrow_blow"/>
+                            <Str Str="SLOW"/>
+                            <Num Num="800"/>
+                            <Num Num="1"/>
+                            <Num Num="0"/>
+                            <Angle_Abs Angle="0"/>
+                            <Num Num="5"/>
+                            <Num Num="0"/>
+                            <Num Num="0"/>
+                            <Num Num="2"/>
+                            <Num Num="100"/>
+                            <Num Num="0.1"/>
+                            <Num Num="2"/>
+                            <Num Num="180"/>
+                        </ToolScp>
+                    </ResultList>
+                </Skill>
+            </SubSkl>
+        </ByCondSkills>
+    </Skill>
+    <Skill Name="Schwarzereiter_EvasiveAction">
+        <MainSkl ScrLock="None" JumpFlee="NO" MSPDToUsePos="0">
+            <EtcList>
+                <Scp Scp="C_SOUND" Client="YES" UseSleep="NO" Time="0">
+                    <Str Str="skl_eff_sinobi_kunai_cast_2"/>
+                </Scp>
+                <Scp Scp="C_VOICE_SOUND" Client="YES" UseSleep="NO" Time="100">
+                    <Str Str="voice_war_atk_medium"/>
+                    <Str Str="voice_atk_medium_war_f"/>
+                </Scp>
+                <Scp Scp="C_SOUND" Client="YES" UseSleep="NO" Time="200">
+                    <Str Str="skl_eff_archer_skl_shot4"/>
+                </Scp>
                 <Scp Client="NO" Scp="SKL_TGT_REMOVE_DEBUFF" Time="110" UseSleep="NO">
-                <Str FuncTxt="local func_name = 'get_remove_debuff_tooltip_' .. TryGetProp(obj, 'ClassName', 'None')
+                    <Str FuncTxt="local func_name = 'get_remove_debuff_tooltip_' .. TryGetProp(obj, 'ClassName', 'None')
                local func = _G[func_name]
                if func == nil then return end
                return func(obj.Level)" Str="0" UseFunc="1"/>
-               </Scp>
-			</EtcList>
-		</MainSkl>
-	</Skill>
-	<Skill Name="Schwarzereiter_WildShot">
-		<KeyInput>
-			<ToolScp Client="YES" Scp="SKL_KEY_GROUND_EVENT" UseSleep="NO">
-				<Num Num="0.5" />
-				<Num Num="0" />
-				<Num Num="0" />
-				<Num Num="1" />
-				<Num Num="150" />
-				<Num Num="0.1" />
-				<Num Num="0" />
-				<Num Num="1" />
-				<Num Num="1" />
-				<Str_Arg Arg="1" Str="None" />
-				<Str Str="None" />
-				<Num Num="0" />
-				<Num Num="0" />
-				<Num Num="5" />
-				<Num Num="1" />
-				<Num Num="45" />
-				<Num Num="0" />
-				<Num Num="0" />
-				<Num Num="0" />
-				<Num Num="0" />
-			</ToolScp>
-		</KeyInput>
-		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
-			<HitList>
-				<Frame Angle="0" AniTime="9999" Dist="0" ForceATK="0" HitCount="1" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="9799" Type="FAN" />
-			</HitList>
-			<EtcList>
-				<Scp Client="NO" Scp="SKL_SET_TARGET_CIRCLE" Time="0" UseSleep="NO">
-					<Pos Angle="0" Dist="0" PosType="3" />
-					<Num Num="30" />
-					<Num Num="5" />
-					<Num Num="2" />
-					<Num Num="0" />
-					<Num Num="1" />
-				</Scp>
-				<Scp Client="YES" Scp="C_VOICE_SOUND" Time="100" UseSleep="NO">
-					<Str Str="voice_war_atk_long_shot" />
-					<Str Str="voice_atk_long_war_f" />
-				</Scp>
-				<Scp Client="NO" Scp="EFT_AND_HIT" Time="350" TooltipScp="TOOLTIP_EFT_AND_HIT" UseSleep="YES">
-					<Pos Angle="0" Dist="0" PosType="3" />
-					<Str_Arg Arg="1" Str="None" />
-					<Num Num="0" />
-					<Str_Arg Arg="1" Str="None" />
-					<Num Num="20" />
-					<Num Num="100" />
-					<Num Num="0" />
-					<Num Num="1" />
-					<Num Num="1000" />
-					<Str_Arg Arg="1" Str="None" />
-					<Str Str="None" />
-					<Num Num="1" />
-					<Num Num="0" />
-					<Num Num="0" />
-				</Scp>
-				<Scp Client="YES_Time" Scp="C_FORCE_EFT" Time="430" UseSleep="NO">
-					<Str_Arg Arg="0.25" Str="I_arrow009_3#Dummy_effect_wildshot_L" />
-					<Str Str="arrow_cast" />
-					<Str_Arg Arg="1" Str="None" />
-					<Str Str="arrow_blow" />
-					<Str Str="DEAD" />
-					<Num Num="1000" />
-					<Num Num="1" />
-					<Num Num="0" />
-					<Angle_Abs Angle="0" />
-					<Num Num="0" />
-					<Num Num="5" />
-					<Num Num="0" />
-					<Num Num="0" />
-					<Num Num="1" />
-					<Num Num="1" />
-					<Num Num="1" />
-					<PosDist Angle="0" Dist="0" />
-					<Num Num="0" />
-					<Num Num="1" />
-				</Scp>
-				<Scp Client="NO" Scp="EFT_AND_HIT" Time="450" TooltipScp="TOOLTIP_EFT_AND_HIT" UseSleep="YES">
-					<Pos Angle="0" Dist="0" PosType="3" />
-					<Str_Arg Arg="1" Str="None" />
-					<Num Num="0" />
-					<Str_Arg Arg="1" Str="None" />
-					<Num Num="20" />
-					<Num Num="100" />
-					<Num Num="0" />
-					<Num Num="1" />
-					<Num Num="1000" />
-					<Str_Arg Arg="1" Str="None" />
-					<Str Str="None" />
-					<Num Num="1" />
-					<Num Num="0" />
-					<Num Num="0" />
-				</Scp>
-				<Scp Client="NO" Scp="EFT_AND_HIT" Time="550" TooltipScp="TOOLTIP_EFT_AND_HIT" UseSleep="YES">
-					<Pos Angle="0" Dist="0" PosType="3" />
-					<Str_Arg Arg="1" Str="None" />
-					<Num Num="0" />
-					<Str_Arg Arg="1" Str="None" />
-					<Num Num="20" />
-					<Num Num="100" />
-					<Num Num="0" />
-					<Num Num="1" />
-					<Num Num="1000" />
-					<Str_Arg Arg="1" Str="None" />
-					<Str Str="None" />
-					<Num Num="1" />
-					<Num Num="0" />
-					<Num Num="0" />
-				</Scp>
-				<Scp Client="YES_Time" Scp="C_FORCE_EFT" Time="615" UseSleep="NO">
-					<Str_Arg Arg="0.25" Str="I_arrow009_3#Dummy_effect_wildshot_L" />
-					<Str Str="arrow_cast" />
-					<Str_Arg Arg="1" Str="None" />
-					<Str Str="arrow_blow" />
-					<Str Str="DEAD" />
-					<Num Num="1000" />
-					<Num Num="1" />
-					<Num Num="0" />
-					<Angle_Abs Angle="0" />
-					<Num Num="0" />
-					<Num Num="5" />
-					<Num Num="0" />
-					<Num Num="0" />
-					<Num Num="1" />
-					<Num Num="1" />
-					<Num Num="1" />
-					<PosDist Angle="0" Dist="0" />
-					<Num Num="0" />
-					<Num Num="1" />
-				</Scp>
-				<Scp Client="NO" Scp="EFT_AND_HIT" Time="650" TooltipScp="TOOLTIP_EFT_AND_HIT" UseSleep="YES">
-					<Pos Angle="0" Dist="0" PosType="3" />
-					<Str_Arg Arg="1" Str="None" />
-					<Num Num="0" />
-					<Str_Arg Arg="1" Str="None" />
-					<Num Num="20" />
-					<Num Num="100" />
-					<Num Num="0" />
-					<Num Num="1" />
-					<Num Num="1000" />
-					<Str_Arg Arg="1" Str="None" />
-					<Str Str="None" />
-					<Num Num="1" />
-					<Num Num="0" />
-					<Num Num="0" />
-				</Scp>
-				<Scp Client="NO" Scp="EFT_AND_HIT" Time="750" TooltipScp="TOOLTIP_EFT_AND_HIT" UseSleep="YES">
-					<Pos Angle="0" Dist="0" PosType="3" />
-					<Str_Arg Arg="1" Str="None" />
-					<Num Num="0" />
-					<Str_Arg Arg="1" Str="None" />
-					<Num Num="20" />
-					<Num Num="100" />
-					<Num Num="0" />
-					<Num Num="1" />
-					<Num Num="1000" />
-					<Str_Arg Arg="1" Str="None" />
-					<Str Str="None" />
-					<Num Num="1" />
-					<Num Num="0" />
-					<Num Num="0" />
-				</Scp>
-				<Scp Client="YES_Time" Scp="C_FORCE_EFT" Time="795" UseSleep="NO">
-					<Str_Arg Arg="0.25" Str="I_arrow009_3#Dummy_effect_wildshot_L" />
-					<Str Str="arrow_cast" />
-					<Str_Arg Arg="1" Str="None" />
-					<Str Str="arrow_blow" />
-					<Str Str="DEAD" />
-					<Num Num="1000" />
-					<Num Num="1" />
-					<Num Num="0" />
-					<Angle_Abs Angle="0" />
-					<Num Num="0" />
-					<Num Num="5" />
-					<Num Num="0" />
-					<Num Num="0" />
-					<Num Num="1" />
-					<Num Num="1" />
-					<Num Num="1" />
-					<PosDist Angle="0" Dist="0" />
-					<Num Num="0" />
-					<Num Num="1" />
-				</Scp>
-				<Scp Client="NO" Scp="EFT_AND_HIT" Time="850" TooltipScp="TOOLTIP_EFT_AND_HIT" UseSleep="YES">
-					<Pos Angle="0" Dist="0" PosType="3" />
-					<Str_Arg Arg="1" Str="None" />
-					<Num Num="0" />
-					<Str_Arg Arg="1" Str="None" />
-					<Num Num="20" />
-					<Num Num="100" />
-					<Num Num="0" />
-					<Num Num="1" />
-					<Num Num="1000" />
-					<Str_Arg Arg="1" Str="None" />
-					<Str Str="None" />
-					<Num Num="1" />
-					<Num Num="0" />
-					<Num Num="0" />
-				</Scp>
-				<Scp Client="NO" Scp="EFT_AND_HIT" Time="950" TooltipScp="TOOLTIP_EFT_AND_HIT" UseSleep="YES">
-					<Pos Angle="0" Dist="0" PosType="3" />
-					<Str_Arg Arg="1" Str="None" />
-					<Num Num="0" />
-					<Str_Arg Arg="1" Str="None" />
-					<Num Num="20" />
-					<Num Num="100" />
-					<Num Num="0" />
-					<Num Num="1" />
-					<Num Num="1000" />
-					<Str_Arg Arg="1" Str="None" />
-					<Str Str="None" />
-					<Num Num="1" />
-					<Num Num="0" />
-					<Num Num="0" />
-				</Scp>
-				<Scp Client="YES_Time" Scp="C_FORCE_EFT" Time="1005" UseSleep="NO">
-					<Str_Arg Arg="0.25" Str="I_arrow009_3#Dummy_effect_wildshot_L" />
-					<Str Str="arrow_cast" />
-					<Str_Arg Arg="1" Str="None" />
-					<Str Str="arrow_blow" />
-					<Str Str="DEAD" />
-					<Num Num="1000" />
-					<Num Num="1" />
-					<Num Num="0" />
-					<Angle_Abs Angle="0" />
-					<Num Num="0" />
-					<Num Num="5" />
-					<Num Num="0" />
-					<Num Num="0" />
-					<Num Num="1" />
-					<Num Num="1" />
-					<Num Num="1" />
-					<PosDist Angle="0" Dist="0" />
-					<Num Num="0" />
-					<Num Num="1" />
-				</Scp>
-				<Scp Client="NO" Scp="EFT_AND_HIT" Time="1050" TooltipScp="TOOLTIP_EFT_AND_HIT" UseSleep="YES">
-					<Pos Angle="0" Dist="0" PosType="3" />
-					<Str_Arg Arg="1" Str="None" />
-					<Num Num="0" />
-					<Str_Arg Arg="1" Str="None" />
-					<Num Num="20" />
-					<Num Num="100" />
-					<Num Num="0" />
-					<Num Num="1" />
-					<Num Num="1000" />
-					<Str_Arg Arg="1" Str="None" />
-					<Str Str="None" />
-					<Num Num="1" />
-					<Num Num="0" />
-					<Num Num="0" />
-				</Scp>
-				<Scp Client="YES_Time" Scp="C_FORCE_EFT" Time="1340" UseSleep="NO">
-					<Str_Arg Arg="0.25" Str="I_arrow009_3#Dummy_effect_wildshot_L" />
-					<Str Str="arrow_cast" />
-					<Str_Arg Arg="1" Str="None" />
-					<Str Str="arrow_blow" />
-					<Str Str="DEAD" />
-					<Num Num="1000" />
-					<Num Num="1" />
-					<Num Num="0" />
-					<Angle_Abs Angle="0" />
-					<Num Num="0" />
-					<Num Num="5" />
-					<Num Num="0" />
-					<Num Num="0" />
-					<Num Num="1" />
-					<Num Num="1" />
-					<Num Num="1" />
-					<PosDist Angle="0" Dist="0" />
-					<Num Num="0" />
-					<Num Num="1" />
-				</Scp>
-				<Scp Client="NO" Scp="EFT_AND_HIT" Time="1400" TooltipScp="TOOLTIP_EFT_AND_HIT" UseSleep="YES">
-					<Pos Angle="0" Dist="0" PosType="3" />
-					<Str_Arg Arg="1" Str="None" />
-					<Num Num="0" />
-					<Str_Arg Arg="1" Str="None" />
-					<Num Num="20" />
-					<Num Num="100" />
-					<Num Num="0" />
-					<Num Num="1" />
-					<Num Num="1000" />
-					<Str_Arg Arg="1" Str="None" />
-					<Str Str="None" />
-					<Num Num="1" />
-					<Num Num="0" />
-					<Num Num="0" />
-				</Scp>
-			</EtcList>
-		</MainSkl>
-	</Skill>
-	<Skill Name="Schwarzereiter_RetreatShot">
-		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
-			<HitList>
-				<Frame Angle="0" AniTime="9999" Dist="0" ForceATK="0" HitCount="1" Length="30" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="9799" Type="FAN" Width="30" />
-			</HitList>
-			<EtcList>
-				<Scp Client="NO" Scp="SKL_BUFF" Time="0" TimeSync="0" UseSleep="NO">
-					<Str Str="RetreatShot" />
-					<Num Num="1" />
-					<Num Num="0" />
-					<Num Num="10000" />
-					<Num Num="1" />
-					<Num Num="100" />
-					<Num Num="0" />
-				</Scp>
-			</EtcList>
-			<ResultList>
-				<ToolScp Client="YES" Scp="C_SR_EFT2" UseSleep="NO">
-					<Str_Arg Arg="1" Str="F_archer_pistol_hit" />
-					<Str Str="None" />
-					<Num Num="0" />
-				</ToolScp>
-			</ResultList>
-		</MainSkl>
-	</Skill>
-	<Skill Name="Schwarzereiter_AssaultFire">
-		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
-			<HitList>
-				<Frame Angle="0" AniTime="9999" Dist="0" ForceATK="0" HitCount="1" Length="30" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="9799" Type="FAN" Width="30" />
-			</HitList>
-			<EtcList>
-				<Scp Client="NO" Scp="SKL_BUFF" Time="0" TimeSync="0" UseSleep="NO">
-					<Str Str="AssaultFire_Buff" />
-					<Num Num="1" />
-					<Num Num="0" />
-					<Num Num="5000" />
-					<Num Num="1" />
-					<Num Num="100" />
-					<Num Num="0" />
-				</Scp>
-			</EtcList>
-			<ResultList>
-				<ToolScp Client="YES" Scp="C_SR_EFT2" UseSleep="NO">
-					<Str_Arg Arg="1" Str="F_archer_pistol_hit" />
-					<Str Str="None" />
-					<Num Num="0" />
-				</ToolScp>
-			</ResultList>
-		</MainSkl>
-	</Skill>
-	<Skill Name="Schwarzereiter_Limacon">
-		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
-			<HitList>
-				<Frame Angle="0" AniTime="9999" Dist="0" ForceATK="0" HitCount="1" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" TermMax="0" TermMin="0" Time="9799" Type="FAN" />
-			</HitList>
-			<EtcList>
-				<Scp Client="YES" Scp="C_SOUND" Time="0" UseSleep="NO">
-					<Str Str="skl_eff_buff_shot_2" />
-				</Scp>
-				<Scp Client="YES" Scp="C_VOICE_SOUND" Time="100" UseSleep="NO">
-					<Str Str="voice_war_atk_medium" />
-					<Str Str="voice_atk_medium_war_f" />
-				</Scp>
-				<Scp Client="NO" Scp="SKL_BUFF" Time="600" UseSleep="NO">
-					<Str FuncTxt="local lhItem = GetEquipItem(self, 'LH') if lhItem ~= nil and lhItem.ClassType == &quot;Pistol&quot; then     return &quot;Limacon_Buff&quot; end return &quot;None&quot;" Str="Limacon_Buff" UseFunc="1" />
-					<Num Num="1" />
-					<Num Num="0" />
-					<Num Num="1800000" />
-					<Num Num="1" />
-					<Num Num="100" />
-					<Num Num="0" />
-				</Scp>
-			</EtcList>
-		</MainSkl>
-	</Skill>
-	<Skill Name="Schwarzereiter_ConcentratedFire">
-		<EndScripts>
-			<ToolScp Client="YES" Scp="MONSKL_C_PLAY_ANIM" UseSleep="NO">
-				<Str Str="SKL_CONCENTRATEDFIRE_END_RIDE" />
-				<Num Num="1" />
-				<Num Num="0" />
-			</ToolScp>
-		</EndScripts>
-		<KeyInput>
-			<ToolScp Client="YES" Scp="SKL_KEY_GROUND_EVENT" UseSleep="NO">
-				<Num Num="3" />
-				<Num Num="0" />
-				<Num Num="0" />
-				<Num Num="1" />
-				<Num Num="100" />
-				<Num Num="0.1" />
-				<Num Num="0" />
-				<Num Num="0" />
-				<Num Num="0" />
-				<Str_Arg Arg="1" Str="None" />
-				<Str Str="" />
-				<Num Num="0" />
-				<Num Num="0" />
-				<Num Num="3" />
-				<Num Num="0.2" />
-				<Num Num="100" />
-				<Num Num="0" />
-				<Num Num="0" />
-				<Num Num="0" />
-				<Num Num="0" />
-			</ToolScp>
-		</KeyInput>
-		<KeyInputStart>
-			<ToolScp Client="YES" Scp="MONSKL_C_PLAY_ANIM" UseSleep="NO">
-				<Str Str="SKL_CARACOLE_CAST_RIDE" />
-				<Num Num="1" />
-				<Num Num="1" />
-			</ToolScp>
-			<ToolScp Client="YES" Scp="MONSKL_C_RESERVE_ANIM" UseSleep="NO">
-				<Str Str="SKL_CARACOLE_LOOP_RIDE" />
-				<Num Num="1" />
-				<Num Num="1" />
-			</ToolScp>
-			<ToolScp Client="NO" Scp="SKL_PLAY_SOUND" UseSleep="NO">
-				<Str Str="voice_archer_multishot_cast" />
-				<Num Num="0" />
-				<Str Str="voice_archer_m_multishot_cast" />
-			</ToolScp>
-		</KeyInputStart>
-		<KeyInputEnd>
-			<ToolScp Client="YES" Scp="MONSKL_C_RESET_CASTING_ANIM" UseSleep="NO" />
-			<ToolScp Client="YES" Scp="MONSKL_C_CLEAR_RESERVE_ANIM" UseSleep="NO" />
-			<ToolScp Client="NO" Scp="SKL_STOP_SOUND" UseSleep="NO">
-				<Str Str="voice_archer_multishot_cast" />
-				<Str Str="voice_archer_m_multishot_cast" />
-			</ToolScp>
-		</KeyInputEnd>
-		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
-			<HitList>
-				<Frame Angle="0" AniTime="9999" Dist="0" ForceATK="0" HitCount="1" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" TermMax="0" TermMin="0" Time="9799" Type="FAN" />
-			</HitList>
-			<EtcList>
-				<Scp Client="YES" Scp="C_VOICE_SOUND" Time="0" UseSleep="NO">
-					<Str Str="voice_war_atk_long_shot" />
-					<Str Str="voice_atk_long_war_f" />
-				</Scp>
-				<Scp Client="NO" LoopTime="170" Scp="MSL_THROW" Time="50" TimeSync="0" TooltipScp="TOOLTIP_MSL_THROW" UseSleep="YES">
-					<Str_Arg Arg="0.60000002" Str="None" />
-					<Str_Arg Arg="0.60000002" Str="None" />
-					<Str_Arg Arg="1" Str="None" />
-					<Pos Angle="0" Dist="0" Height="15" PosType="3" />
-					<Num Num="40" />
-					<Num Num="0.1" />
-					<Num Num="0" />
-					<Num Num="30" />
-					<Num Num="1" />
-					<Num Num="1000" />
-					<Num Num="1" />
-					<Str_Arg Arg="1" Str="None" />
-					<Num Num="0" />
-					<Num Num="0" />
-				</Scp>
-				<Scp Client="YES" LoopTime="170" Scp="MONSKL_C_PLAY_ANIM" Time="50" UseSleep="NO">
-					<Str Str="SKL_CONCENTRATEDFIRE_SHOT_RIDE" />
-					<Num Num="1" />
-					<Num Num="1" />
-				</Scp>
-				<Scp Client="NO" Scp="SKL_CHECK_LOOPING_COUNT_INIT" Time="250" TimeSync="0" UseSleep="NO">
-					<Num FuncTxt="return 10 - 1;" Num="0" UseFunc="1" />
-				</Scp>
-				<Scp Client="NO" LoopTime="170" Scp="SKL_CHECK_LOOPING_COUNT" Time="250" TimeSync="0" UseSleep="NO" />
-			</EtcList>
-			<ResultList>
-				<ToolScp Client="YES" Scp="C_SR_EFT" UseSleep="NO">
-					<Str_Arg Arg="0.69999999" Str="F_archer_ConcentratedFire_hit" />
-					<Pos Angle="0" Dist="0" PosType="1" />
-					<Num Num="0.5" />
-					<Num Num="0" />
-				</ToolScp>
-			</ResultList>
-		</MainSkl>
-	</Skill>
-	</ToolSkill>
+                </Scp>
+            </EtcList>
+        </MainSkl>
+    </Skill>
+    <Skill Name="Schwarzereiter_WildShot">
+        <KeyInput>
+            <ToolScp Client="YES" Scp="SKL_KEY_GROUND_EVENT" UseSleep="NO">
+                <Num Num="0.5"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+                <Num Num="1"/>
+                <Num Num="150"/>
+                <Num Num="0.1"/>
+                <Num Num="0"/>
+                <Num Num="1"/>
+                <Num Num="1"/>
+                <Str_Arg Arg="1" Str="None"/>
+                <Str Str="None"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+                <Num Num="5"/>
+                <Num Num="1"/>
+                <Num Num="45"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+            </ToolScp>
+        </KeyInput>
+        <MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+            <HitList>
+                <Frame Angle="0" AniTime="9999" Dist="0" ForceATK="0" HitCount="1" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="9799" Type="FAN"/>
+            </HitList>
+            <EtcList>
+                <Scp Client="NO" Scp="SKL_SET_TARGET_CIRCLE" Time="0" UseSleep="NO">
+                    <Pos Angle="0" Dist="0" PosType="3"/>
+                    <Num Num="30"/>
+                    <Num Num="5"/>
+                    <Num Num="2"/>
+                    <Num Num="0"/>
+                    <Num Num="1"/>
+                </Scp>
+                <Scp Client="YES" Scp="C_VOICE_SOUND" Time="100" UseSleep="NO">
+                    <Str Str="voice_war_atk_long_shot"/>
+                    <Str Str="voice_atk_long_war_f"/>
+                </Scp>
+                <Scp Client="NO" Scp="EFT_AND_HIT" Time="350" TooltipScp="TOOLTIP_EFT_AND_HIT" UseSleep="YES">
+                    <Pos Angle="0" Dist="0" PosType="3"/>
+                    <Str_Arg Arg="1" Str="None"/>
+                    <Num Num="0"/>
+                    <Str_Arg Arg="1" Str="None"/>
+                    <Num Num="20"/>
+                    <Num Num="100"/>
+                    <Num Num="0"/>
+                    <Num Num="1"/>
+                    <Num Num="1000"/>
+                    <Str_Arg Arg="1" Str="None"/>
+                    <Str Str="None"/>
+                    <Num Num="1"/>
+                    <Num Num="0"/>
+                    <Num Num="0"/>
+                </Scp>
+                <Scp Client="YES_Time" Scp="C_FORCE_EFT" Time="430" UseSleep="NO">
+                    <Str_Arg Arg="0.25" Str="I_arrow009_3#Dummy_effect_wildshot_L"/>
+                    <Str Str="arrow_cast"/>
+                    <Str_Arg Arg="1" Str="None"/>
+                    <Str Str="arrow_blow"/>
+                    <Str Str="DEAD"/>
+                    <Num Num="1000"/>
+                    <Num Num="1"/>
+                    <Num Num="0"/>
+                    <Angle_Abs Angle="0"/>
+                    <Num Num="0"/>
+                    <Num Num="5"/>
+                    <Num Num="0"/>
+                    <Num Num="0"/>
+                    <Num Num="1"/>
+                    <Num Num="1"/>
+                    <Num Num="1"/>
+                    <PosDist Angle="0" Dist="0"/>
+                    <Num Num="0"/>
+                    <Num Num="1"/>
+                </Scp>
+                <Scp Client="NO" Scp="EFT_AND_HIT" Time="450" TooltipScp="TOOLTIP_EFT_AND_HIT" UseSleep="YES">
+                    <Pos Angle="0" Dist="0" PosType="3"/>
+                    <Str_Arg Arg="1" Str="None"/>
+                    <Num Num="0"/>
+                    <Str_Arg Arg="1" Str="None"/>
+                    <Num Num="20"/>
+                    <Num Num="100"/>
+                    <Num Num="0"/>
+                    <Num Num="1"/>
+                    <Num Num="1000"/>
+                    <Str_Arg Arg="1" Str="None"/>
+                    <Str Str="None"/>
+                    <Num Num="1"/>
+                    <Num Num="0"/>
+                    <Num Num="0"/>
+                </Scp>
+                <Scp Client="NO" Scp="EFT_AND_HIT" Time="550" TooltipScp="TOOLTIP_EFT_AND_HIT" UseSleep="YES">
+                    <Pos Angle="0" Dist="0" PosType="3"/>
+                    <Str_Arg Arg="1" Str="None"/>
+                    <Num Num="0"/>
+                    <Str_Arg Arg="1" Str="None"/>
+                    <Num Num="20"/>
+                    <Num Num="100"/>
+                    <Num Num="0"/>
+                    <Num Num="1"/>
+                    <Num Num="1000"/>
+                    <Str_Arg Arg="1" Str="None"/>
+                    <Str Str="None"/>
+                    <Num Num="1"/>
+                    <Num Num="0"/>
+                    <Num Num="0"/>
+                </Scp>
+                <Scp Client="YES_Time" Scp="C_FORCE_EFT" Time="615" UseSleep="NO">
+                    <Str_Arg Arg="0.25" Str="I_arrow009_3#Dummy_effect_wildshot_L"/>
+                    <Str Str="arrow_cast"/>
+                    <Str_Arg Arg="1" Str="None"/>
+                    <Str Str="arrow_blow"/>
+                    <Str Str="DEAD"/>
+                    <Num Num="1000"/>
+                    <Num Num="1"/>
+                    <Num Num="0"/>
+                    <Angle_Abs Angle="0"/>
+                    <Num Num="0"/>
+                    <Num Num="5"/>
+                    <Num Num="0"/>
+                    <Num Num="0"/>
+                    <Num Num="1"/>
+                    <Num Num="1"/>
+                    <Num Num="1"/>
+                    <PosDist Angle="0" Dist="0"/>
+                    <Num Num="0"/>
+                    <Num Num="1"/>
+                </Scp>
+                <Scp Client="NO" Scp="EFT_AND_HIT" Time="650" TooltipScp="TOOLTIP_EFT_AND_HIT" UseSleep="YES">
+                    <Pos Angle="0" Dist="0" PosType="3"/>
+                    <Str_Arg Arg="1" Str="None"/>
+                    <Num Num="0"/>
+                    <Str_Arg Arg="1" Str="None"/>
+                    <Num Num="20"/>
+                    <Num Num="100"/>
+                    <Num Num="0"/>
+                    <Num Num="1"/>
+                    <Num Num="1000"/>
+                    <Str_Arg Arg="1" Str="None"/>
+                    <Str Str="None"/>
+                    <Num Num="1"/>
+                    <Num Num="0"/>
+                    <Num Num="0"/>
+                </Scp>
+                <Scp Client="NO" Scp="EFT_AND_HIT" Time="750" TooltipScp="TOOLTIP_EFT_AND_HIT" UseSleep="YES">
+                    <Pos Angle="0" Dist="0" PosType="3"/>
+                    <Str_Arg Arg="1" Str="None"/>
+                    <Num Num="0"/>
+                    <Str_Arg Arg="1" Str="None"/>
+                    <Num Num="20"/>
+                    <Num Num="100"/>
+                    <Num Num="0"/>
+                    <Num Num="1"/>
+                    <Num Num="1000"/>
+                    <Str_Arg Arg="1" Str="None"/>
+                    <Str Str="None"/>
+                    <Num Num="1"/>
+                    <Num Num="0"/>
+                    <Num Num="0"/>
+                </Scp>
+                <Scp Client="YES_Time" Scp="C_FORCE_EFT" Time="795" UseSleep="NO">
+                    <Str_Arg Arg="0.25" Str="I_arrow009_3#Dummy_effect_wildshot_L"/>
+                    <Str Str="arrow_cast"/>
+                    <Str_Arg Arg="1" Str="None"/>
+                    <Str Str="arrow_blow"/>
+                    <Str Str="DEAD"/>
+                    <Num Num="1000"/>
+                    <Num Num="1"/>
+                    <Num Num="0"/>
+                    <Angle_Abs Angle="0"/>
+                    <Num Num="0"/>
+                    <Num Num="5"/>
+                    <Num Num="0"/>
+                    <Num Num="0"/>
+                    <Num Num="1"/>
+                    <Num Num="1"/>
+                    <Num Num="1"/>
+                    <PosDist Angle="0" Dist="0"/>
+                    <Num Num="0"/>
+                    <Num Num="1"/>
+                </Scp>
+                <Scp Client="NO" Scp="EFT_AND_HIT" Time="850" TooltipScp="TOOLTIP_EFT_AND_HIT" UseSleep="YES">
+                    <Pos Angle="0" Dist="0" PosType="3"/>
+                    <Str_Arg Arg="1" Str="None"/>
+                    <Num Num="0"/>
+                    <Str_Arg Arg="1" Str="None"/>
+                    <Num Num="20"/>
+                    <Num Num="100"/>
+                    <Num Num="0"/>
+                    <Num Num="1"/>
+                    <Num Num="1000"/>
+                    <Str_Arg Arg="1" Str="None"/>
+                    <Str Str="None"/>
+                    <Num Num="1"/>
+                    <Num Num="0"/>
+                    <Num Num="0"/>
+                </Scp>
+                <Scp Client="NO" Scp="EFT_AND_HIT" Time="950" TooltipScp="TOOLTIP_EFT_AND_HIT" UseSleep="YES">
+                    <Pos Angle="0" Dist="0" PosType="3"/>
+                    <Str_Arg Arg="1" Str="None"/>
+                    <Num Num="0"/>
+                    <Str_Arg Arg="1" Str="None"/>
+                    <Num Num="20"/>
+                    <Num Num="100"/>
+                    <Num Num="0"/>
+                    <Num Num="1"/>
+                    <Num Num="1000"/>
+                    <Str_Arg Arg="1" Str="None"/>
+                    <Str Str="None"/>
+                    <Num Num="1"/>
+                    <Num Num="0"/>
+                    <Num Num="0"/>
+                </Scp>
+                <Scp Client="YES_Time" Scp="C_FORCE_EFT" Time="1005" UseSleep="NO">
+                    <Str_Arg Arg="0.25" Str="I_arrow009_3#Dummy_effect_wildshot_L"/>
+                    <Str Str="arrow_cast"/>
+                    <Str_Arg Arg="1" Str="None"/>
+                    <Str Str="arrow_blow"/>
+                    <Str Str="DEAD"/>
+                    <Num Num="1000"/>
+                    <Num Num="1"/>
+                    <Num Num="0"/>
+                    <Angle_Abs Angle="0"/>
+                    <Num Num="0"/>
+                    <Num Num="5"/>
+                    <Num Num="0"/>
+                    <Num Num="0"/>
+                    <Num Num="1"/>
+                    <Num Num="1"/>
+                    <Num Num="1"/>
+                    <PosDist Angle="0" Dist="0"/>
+                    <Num Num="0"/>
+                    <Num Num="1"/>
+                </Scp>
+                <Scp Client="NO" Scp="EFT_AND_HIT" Time="1050" TooltipScp="TOOLTIP_EFT_AND_HIT" UseSleep="YES">
+                    <Pos Angle="0" Dist="0" PosType="3"/>
+                    <Str_Arg Arg="1" Str="None"/>
+                    <Num Num="0"/>
+                    <Str_Arg Arg="1" Str="None"/>
+                    <Num Num="20"/>
+                    <Num Num="100"/>
+                    <Num Num="0"/>
+                    <Num Num="1"/>
+                    <Num Num="1000"/>
+                    <Str_Arg Arg="1" Str="None"/>
+                    <Str Str="None"/>
+                    <Num Num="1"/>
+                    <Num Num="0"/>
+                    <Num Num="0"/>
+                </Scp>
+                <Scp Client="YES_Time" Scp="C_FORCE_EFT" Time="1340" UseSleep="NO">
+                    <Str_Arg Arg="0.25" Str="I_arrow009_3#Dummy_effect_wildshot_L"/>
+                    <Str Str="arrow_cast"/>
+                    <Str_Arg Arg="1" Str="None"/>
+                    <Str Str="arrow_blow"/>
+                    <Str Str="DEAD"/>
+                    <Num Num="1000"/>
+                    <Num Num="1"/>
+                    <Num Num="0"/>
+                    <Angle_Abs Angle="0"/>
+                    <Num Num="0"/>
+                    <Num Num="5"/>
+                    <Num Num="0"/>
+                    <Num Num="0"/>
+                    <Num Num="1"/>
+                    <Num Num="1"/>
+                    <Num Num="1"/>
+                    <PosDist Angle="0" Dist="0"/>
+                    <Num Num="0"/>
+                    <Num Num="1"/>
+                </Scp>
+                <Scp Client="NO" Scp="EFT_AND_HIT" Time="1400" TooltipScp="TOOLTIP_EFT_AND_HIT" UseSleep="YES">
+                    <Pos Angle="0" Dist="0" PosType="3"/>
+                    <Str_Arg Arg="1" Str="None"/>
+                    <Num Num="0"/>
+                    <Str_Arg Arg="1" Str="None"/>
+                    <Num Num="20"/>
+                    <Num Num="100"/>
+                    <Num Num="0"/>
+                    <Num Num="1"/>
+                    <Num Num="1000"/>
+                    <Str_Arg Arg="1" Str="None"/>
+                    <Str Str="None"/>
+                    <Num Num="1"/>
+                    <Num Num="0"/>
+                    <Num Num="0"/>
+                </Scp>
+            </EtcList>
+        </MainSkl>
+    </Skill>
+    <Skill Name="Schwarzereiter_RetreatShot">
+        <MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+            <HitList>
+                <Frame Angle="0" AniTime="9999" Dist="0" ForceATK="0" HitCount="1" Length="30" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="9799" Type="FAN" Width="30"/>
+            </HitList>
+            <EtcList>
+                <Scp Client="NO" Scp="SKL_BUFF" Time="0" TimeSync="0" UseSleep="NO">
+                    <Str Str="RetreatShot"/>
+                    <Num Num="1"/>
+                    <Num Num="0"/>
+                    <Num Num="10000"/>
+                    <Num Num="1"/>
+                    <Num Num="100"/>
+                    <Num Num="0"/>
+                </Scp>
+            </EtcList>
+            <ResultList>
+                <ToolScp Client="YES" Scp="C_SR_EFT2" UseSleep="NO">
+                    <Str_Arg Arg="1" Str="F_archer_pistol_hit"/>
+                    <Str Str="None"/>
+                    <Num Num="0"/>
+                </ToolScp>
+            </ResultList>
+        </MainSkl>
+    </Skill>
+    <Skill Name="Schwarzereiter_AssaultFire">
+        <KeyInput>
+            <ToolScp Scp="SKL_KEY_DYNAMIC_CASTING" Client="YES" UseSleep="NO">
+                <Num Num="1"/>
+                <Num Num="0"/>
+                <Num Num="5"/>
+                <Num Num="1"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+                <Num Num="1"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+                <Num Num="1"/>
+                <Num Num="0"/>
+                <Str_Arg Str="None" Arg="1"/>
+                <Str Str="None"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+                <Num Num="5"/>
+                <Num Num="1"/>
+                <Num Num="45"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+                <Num Num="1"/>
+                <Str Str="None"/>
+                <Str Str="None"/>
+            </ToolScp>
+        </KeyInput>
+        <KeyInputStart>
+            <ToolScp Scp="SKL_BUFF" Client="NO" UseSleep="NO">
+                <Str Str="AssaultFire_Buff"/>
+                <Num Num="1"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+                <Num Num="1"/>
+                <Num Num="100"/>
+                <Num Num="0"/>
+            </ToolScp>
+        </KeyInputStart>
+        <KeyInputEnd>
+            <ToolScp Scp="SKL_BUFF_REMOVE" Client="NO" UseSleep="NO">
+                <Str Str="AssaultFire_Buff"/>
+            </ToolScp>
+        </KeyInputEnd>
+        <MainSkl ScrLock="None" JumpFlee="NO" MSPDToUsePos="0">
+            <HitList>
+                <Frame Type="FAN" Time="9799" HitCount="1" TermMin="0" TermMax="0" PosType="0" Dist="0" RandDist="0" RandomPerHit="0" Angle="0" Width="30" Length="30" SklAngle="0.17453292" AniTime="9999" RotAngle="0" ForceATK="0" ScriptIndex="0" ScriptName="" SkillType="0"/>
+            </HitList>
+        </MainSkl>
+    </Skill>
+    <Skill Name="Schwarzereiter_Limacon">
+        <MainSkl ScrLock="None" JumpFlee="NO" MSPDToUsePos="0">
+            <HitList>
+                <Frame Type="FAN" Time="9799" HitCount="1" TermMin="0" TermMax="0" PosType="0" Dist="0" RandDist="0" RandomPerHit="0" Angle="0" AniTime="9999" RotAngle="0" ForceATK="0"/>
+            </HitList>
+            <EtcList>
+                <Scp Scp="C_SOUND" Client="YES" UseSleep="NO" Time="0">
+                    <Str Str="skl_eff_buff_shot_2"/>
+                </Scp>
+                <Scp Scp="C_VOICE_SOUND" Client="YES" UseSleep="NO" Time="100">
+                    <Str Str="voice_war_atk_medium"/>
+                    <Str Str="voice_atk_medium_war_f"/>
+                </Scp>
+                <Scp Scp="SKL_BUFF" Client="NO" UseSleep="NO" Time="600">
+                    <Str Str="Limacon_Buff" UseFunc="1" FuncTxt="local lhItem = GetEquipItem(self, 'LH') if lhItem ~= nil and lhItem.ClassType == &quot;Pistol&quot; then     return &quot;Limacon_Buff&quot; end return &quot;None&quot;"/>
+                    <Num Num="1"/>
+                    <Num Num="0"/>
+                    <Num FuncTxt="local value = 1800000; 
+local abil = GetAbility(self, 'Schwarzereiter27')
+if abil ~= nil then
+    value = 45000
+end
+return value" Num="0" UseFunc="1"/>
+                    <Num Num="1"/>
+                    <Num Num="100"/>
+                    <Num Num="0"/>
+                </Scp>
+            </EtcList>
+        </MainSkl>
+    </Skill>
+    <Skill Name="Schwarzereiter_ConcentratedFire">
+        <EndScripts>
+            <ToolScp Client="YES" Scp="MONSKL_C_PLAY_ANIM" UseSleep="NO">
+                <Str Str="SKL_CONCENTRATEDFIRE_END_RIDE"/>
+                <Num Num="1"/>
+                <Num Num="0"/>
+            </ToolScp>
+        </EndScripts>
+        <KeyInput>
+            <ToolScp Client="YES" Scp="SKL_KEY_GROUND_EVENT" UseSleep="NO">
+                <Num Num="3"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+                <Num Num="1"/>
+                <Num Num="100"/>
+                <Num Num="0.1"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+                <Str_Arg Arg="1" Str="None"/>
+                <Str Str=""/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+                <Num Num="3"/>
+                <Num Num="0.2"/>
+                <Num Num="100"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+            </ToolScp>
+        </KeyInput>
+        <KeyInputStart>
+            <ToolScp Client="YES" Scp="MONSKL_C_PLAY_ANIM" UseSleep="NO">
+                <Str Str="SKL_CARACOLE_CAST_RIDE"/>
+                <Num Num="1"/>
+                <Num Num="1"/>
+            </ToolScp>
+            <ToolScp Client="YES" Scp="MONSKL_C_RESERVE_ANIM" UseSleep="NO">
+                <Str Str="SKL_CARACOLE_LOOP_RIDE"/>
+                <Num Num="1"/>
+                <Num Num="1"/>
+            </ToolScp>
+            <ToolScp Client="NO" Scp="SKL_PLAY_SOUND" UseSleep="NO">
+                <Str Str="voice_archer_multishot_cast"/>
+                <Num Num="0"/>
+                <Str Str="voice_archer_m_multishot_cast"/>
+            </ToolScp>
+        </KeyInputStart>
+        <KeyInputEnd>
+            <ToolScp Client="YES" Scp="MONSKL_C_RESET_CASTING_ANIM" UseSleep="NO"/>
+            <ToolScp Client="YES" Scp="MONSKL_C_CLEAR_RESERVE_ANIM" UseSleep="NO"/>
+            <ToolScp Client="NO" Scp="SKL_STOP_SOUND" UseSleep="NO">
+                <Str Str="voice_archer_multishot_cast"/>
+                <Str Str="voice_archer_m_multishot_cast"/>
+            </ToolScp>
+        </KeyInputEnd>
+        <MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+            <HitList>
+                <Frame Angle="0" AniTime="9999" Dist="0" ForceATK="0" HitCount="1" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" TermMax="0" TermMin="0" Time="9799" Type="FAN"/>
+            </HitList>
+            <EtcList>
+                <Scp Client="YES" Scp="C_VOICE_SOUND" Time="0" UseSleep="NO">
+                    <Str Str="voice_war_atk_long_shot"/>
+                    <Str Str="voice_atk_long_war_f"/>
+                </Scp>
+                <Scp Client="NO" LoopTime="170" Scp="MSL_THROW" Time="50" TimeSync="0" TooltipScp="TOOLTIP_MSL_THROW" UseSleep="YES">
+                    <Str_Arg Arg="0.60000002" Str="None"/>
+                    <Str_Arg Arg="0.60000002" Str="None"/>
+                    <Str_Arg Arg="1" Str="None"/>
+                    <Pos Angle="0" Dist="0" Height="15" PosType="3"/>
+                    <Num Num="40"/>
+                    <Num Num="0.1"/>
+                    <Num Num="0"/>
+                    <Num Num="30"/>
+                    <Num Num="1"/>
+                    <Num Num="1000"/>
+                    <Num Num="1"/>
+                    <Str_Arg Arg="1" Str="None"/>
+                    <Num Num="0"/>
+                    <Num Num="0"/>
+                </Scp>
+                <Scp Client="YES" LoopTime="170" Scp="MONSKL_C_PLAY_ANIM" Time="50" UseSleep="NO">
+                    <Str Str="SKL_CONCENTRATEDFIRE_SHOT_RIDE"/>
+                    <Num Num="1"/>
+                    <Num Num="1"/>
+                </Scp>
+                <Scp Client="NO" Scp="SKL_CHECK_LOOPING_COUNT_INIT" Time="250" TimeSync="0" UseSleep="NO">
+                    <Num FuncTxt="return 10 - 1;" Num="0" UseFunc="1"/>
+                </Scp>
+                <Scp Client="NO" LoopTime="170" Scp="SKL_CHECK_LOOPING_COUNT" Time="250" TimeSync="0" UseSleep="NO"/>
+            </EtcList>
+            <ResultList>
+                <ToolScp Client="YES" Scp="C_SR_EFT" UseSleep="NO">
+                    <Str_Arg Arg="0.69999999" Str="F_archer_ConcentratedFire_hit"/>
+                    <Pos Angle="0" Dist="0" PosType="1"/>
+                    <Num Num="0.5"/>
+                    <Num Num="0"/>
+                </ToolScp>
+            </ResultList>
+        </MainSkl>
+    </Skill>
+</ToolSkill>

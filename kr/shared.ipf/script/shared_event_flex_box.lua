@@ -14,7 +14,7 @@ end
 
 -- 일일 콘텐츠 클리어 보상 획득 가능 최대 수량
 function GET_EVENT_FLEX_BOX_DAILY_CONTENTS_MAX_CONSUME_COUNT()
-    return 30;
+    return 50;
 end
 
 -- flex box 개봉 가능 수량, None 이면 max 제한 없음

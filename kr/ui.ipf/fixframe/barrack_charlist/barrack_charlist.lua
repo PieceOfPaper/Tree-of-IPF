@@ -486,7 +486,11 @@ function BARRACK_GET_INDUN_MAX_ENTERANCE_COUNT(resetGroupID)
             end
         end
 
-        return contentsCls.EnterableCount
+        local ret = contentsCls.EnterableCount
+        if ret == 0 then
+            ret = "{img infinity_text 20 10}"
+        end
+        return ret
 	else
 		local indunClsList, cnt = GetClassList('Indun');
 		local indunCls = nil;
@@ -1179,6 +1183,12 @@ function SELECT_GAMESTART_CHANNEL(parent, ctrl)
 end
 
 function BARRACK_TO_GAME()
+	if IS_SEASON_SERVER() == "YES" and IS_SEASON_SERVER_OPEN() == false then
+		if session.IsGM() ~= 1 then
+			ui.SysMsg(ClMsg("CantUseNow"));
+            return;
+        end
+	end
 	
 	local myaccount = session.barrack.GetMyAccount();
 	if nil == myaccount then

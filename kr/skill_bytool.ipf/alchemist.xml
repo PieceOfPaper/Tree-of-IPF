@@ -113,7 +113,7 @@
                 <Num Num="0"/>
                 <Num Num="1" UseFunc="1" FuncTxt="return 1"/>
                 <Num Num="0"/>
-                <Num Num="0"/>
+                <Num Num="1"/>
                 <Num Num="0"/>
                 <Num Num="0"/>
                 <Num Num="0"/>
@@ -131,6 +131,8 @@
                 <Num Num="0"/>
                 <Num Num="1"/>
                 <Num Num="0"/>
+                <Str Str=""/>
+                <Str Str=""/>
             </ToolScp>
         </KeyInput>
         <KeyInputStart>
@@ -192,12 +194,12 @@
                 </Scp>
             </EtcList>
             <ResultList>
-            <ToolScp Client="NO" Scp="S_R_TGT_REMOVE_BUFF" UseSleep="NO">
-                <Str FuncTxt="local func_name = 'get_remove_buff_tooltip_' .. TryGetProp(skill, 'ClassName', 'None')
+                <ToolScp Scp="S_R_TGT_REMOVE_BUFF" Client="NO" UseSleep="NO">
+                    <Str Str="0" UseFunc="1" FuncTxt="local func_name = 'get_remove_buff_tooltip_' .. TryGetProp(skill, 'ClassName', 'None')
                local func = _G[func_name]
                if func == nil then return end
-               return func(skill.Level)" Str="0" UseFunc="1"/>
-              </ToolScp>
+               return func(skill.Level)"/>
+                </ToolScp>
             </ResultList>
         </MainSkl>
     </Skill>

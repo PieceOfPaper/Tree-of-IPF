@@ -595,11 +595,11 @@ function SET_PARTYINFO_ITEM(frame, msg, partyMemberInfo, count, makeLogoutPC, le
 	lvbox:Resize(levelRichText:GetWidth(), lvbox:GetHeight());
 		
 	if frame:GetName() == 'partyinfo' then
-		frame:Resize(frame:GetOriginalWidth(), (count+1) * 100);
+		frame:Resize(frame:GetOriginalWidth(), count * partyInfoCtrlSet:GetHeight());
 	else
-		frame:Resize(frame:GetOriginalWidth(),frame:GetOriginalHeight());
+		frame:Resize(frame:GetOriginalWidth(), frame:GetOriginalHeight());
 	end
-
+	
 	return 1;
 end
 
@@ -676,7 +676,7 @@ function SET_LOGOUT_PARTYINFO_ITEM(frame, msg, partyMemberInfo, count, makeLogou
 	hpGauge:SetColorTone(color);
 	spGauge:SetColorTone(color);
 
-	frame:Resize(frame:GetWidth(), (count+1) * 100);
+	frame:Resize(frame:GetWidth(), count * partyInfoCtrlSet:GetHeight());
 	return 1;
 end
 

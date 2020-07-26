@@ -1,488 +1,488 @@
 <?xml version='1.0' encoding='utf-8'?>
-<ToolSkill><Skill Name="Dragoon_DragoonHelmet">
-		<EnableScripts>
-			<ToolScp Client="BOTH" Scp="SKL_CHECK_CHECK_NOBUFF" UseSleep="NO">
-				<Str Str="murmillo_helmet" />
-			</ToolScp>
-			<ToolScp Client="BOTH" Scp="SKL_CHECK_CHECK_NOBUFF" UseSleep="NO">
-				<Str Str="EquipDesrption_Debeff" />
-			</ToolScp>
-		</EnableScripts>
-		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
-			<HitList>
-				<Frame Angle="0" AniTime="9999" Dist="0" ForceATK="0" HitCount="1" Length="30" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="9799" Type="FAN" Width="30" />
-			</HitList>
-			<EtcList>
-				<Scp Client="NO" Scp="SKL_RUN_SCRIPT" Time="450" UseSleep="NO">
-					<Str Str="EQUIP_DARGOONHELMET" />
-				</Scp>
-			</EtcList>
-		</MainSkl>
-		<ByCondSkills>
-			<SubSkl>
-				<Cond>
-					<ToolScp Client="NO" Scp="SKL_SELECT_BUFF" UseSleep="NO">
-						<Str Str="DragoonHelmet_Buff" />
-					</ToolScp>
-				</Cond>
-				<Skill JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
-					<HitList>
-						<Frame Angle="0" AniTime="9999" Dist="0" ForceATK="0" HitCount="1" Length="30" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="9799" Type="FAN" Width="30" />
-					</HitList>
-					<EtcList>
-						<Scp Client="NO" Scp="SKL_RESET_COOLTIME" Time="0" UseSleep="NO">
-							<Str Str="Dragoon_DragoonHelmet" />
-						</Scp>
-						<Scp Client="NO" Scp="SKL_BUFF_REMOVE" Time="80" UseSleep="NO">
-							<Str Str="DragoonHelmet_Buff" />
-						</Scp>
-					</EtcList>
-				</Skill>
-			</SubSkl>
-			<SubSkl>
-				<Cond>
-					<ToolScp Client="NO" Scp="SKL_SELECT_BUFF" UseSleep="NO">
-						<Str Str="DragoonHelmet_Abil_Buff" />
-					</ToolScp>
-				</Cond>
-				<Skill JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
-					<HitList>
-						<Frame Angle="0" AniTime="9999" Dist="0" ForceATK="0" HitCount="1" Length="30" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="9799" Type="FAN" Width="30" />
-					</HitList>
-					<EtcList>
-						<Scp Client="NO" Scp="SKL_RESET_COOLTIME" Time="0" UseSleep="NO">
-							<Str Str="Dragoon_DragoonHelmet" />
-						</Scp>
-						<Scp Client="NO" Scp="SKL_BUFF_REMOVE" Time="80" UseSleep="NO">
-							<Str Str="DragoonHelmet_Abil_Buff" />
-						</Scp>
-					</EtcList>
-				</Skill>
-			</SubSkl>
-		</ByCondSkills>
-	</Skill>
-	<Skill Name="Dragoon_DragonFall">
-		<EndScripts>
-			<ToolScp Client="YES" Scp="C_EFFECT_DETACH_ALL" UseSleep="NO">
-				<Str_Arg Arg="1" Str="F_warrior_dragonfall002" />
-				<Num Num="1" />
-			</ToolScp>
-		</EndScripts>
-		<KeyInput>
-			<ToolScp Client="YES" Scp="SKL_KEY_GROUND_EVENT" UseSleep="NO">
-                <Num Num="1" />
-				<Num Num="0" />
-				<Num Num="0" />
-				<Num Num="1" />
-				<Num Num="200" />
-				<Num Num="0.1" />
-                <Num Num="0" />
-				<Num Num="0" />
-				<Num Num="0" />
-				<Str_Arg Arg="1" Str="None" />
-				<Str Str="None" />
-				<Num Num="0" />
-				<Num Num="0" />
-				<Num Num="5" />
-				<Num Num="1" />
-				<Num Num="45" />
-				<Num Num="0" />
-				<Num Num="0" />
-				<Num Num="0" />
-				<Num Num="0" />
-			</ToolScp>
-		</KeyInput>
-		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
-			<HitList>
-				<Frame Angle="0" AniTime="99999" Dist="0" ForceATK="0" HitCount="1" Length="30" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="99799" Type="FAN" Width="30" />
-			</HitList>
-			<EtcList>
-				<Scp Client="YES" Scp="MONSKL_C_PLAY_ANIM" Time="0" UseSleep="NO">
-					<Str Str="SKL_DRAGONFALL_CAST" />
-					<Num Num="1" />
-					<Num Num="0" />
-				</Scp>
-				<Scp Client="YES" Scp="C_VOICE_SOUND" Time="300" UseSleep="NO">
-					<Str Str="voice_war_atk_long_shot" />
-					<Str Str="voice_atk_long_war_f" />
-				</Scp>
-				<Scp Client="YES" Scp="C_EFFECT" Time="400" UseSleep="NO">
-					<Str_Arg Arg="3" Str="F_warrior_dragonfall001" />
-					<Str Str="None" />
-					<Num Num="0" />
-				</Scp>
-				<Scp Client="YES" Scp="C_EFFECT" Time="1000" UseSleep="NO">
-					<Str_Arg Arg="2.7" Str="F_warrior_dragonfall002" />
-					<Str FuncTxt="if SKL_CHECK_RIDING_COMPANION_C(self, obj) == 0 then           return 'None'           else           return 'Dummy_emitter';           end" Str="None" UseFunc="1" />
-					<Num Num="0" />
-				</Scp>
-				<Scp Client="NO" Scp="SKL_SETPOS" Time="1000" UseSleep="NO">
-					<Pos Angle="0" Dist="0" PosType="3" />
-					<Str_Arg Arg="1" Str="None" />
-				</Scp>
-				<Scp Client="YES" Scp="SKL_C_RESUME_ANI" Time="1000" UseSleep="NO" />
-				<Scp Client="YES" Scp="MONSKL_C_PLAY_ANIM" Time="1000" UseSleep="NO">
-					<Str Str="SKL_DRAGONFALL_SHOT" />
-					<Num Num="1.8" />
-                    <Num Num="0" />
-					<Num Num="1" />
-				</Scp>
-				<Scp Client="NO" Scp="SKL_SET_TARGET_CIRCLE" Time="1000" UseSleep="NO">
-					<Pos Angle="0" Dist="0" PosType="3" />
-					<Num Num="70" />
-					<Num Num="30" />
-					<Num Num="2" />
-					<Num Num="0" />
-					<Num Num="0" />
-					<Num Num="0" />
-				</Scp>
-				<Scp Client="NO" Scp="SKL_TGT_DMG" Time="1200" UseSleep="NO">
-					<Num Num="1" />
-					<Num Num="1" />
-					<Num Num="0" />
-				</Scp>
-				<Scp Client="YES" Scp="C_SHOCKWAVE" Time="1200" UseSleep="NO">
-					<Num Num="5" />
-					<Num Num="1" />
-					<Num Num="45" />
-					<Num Num="999" />
-				</Scp>
-                <Scp Client="NO" Scp="SKL_TGT_DMG" Time="1300" UseSleep="NO">
-                    <Num Num="1" />
-                    <Num Num="1" />
-                    <Num Num="0" />
-                </Scp>
-                <Scp Client="NO" Scp="SKL_TGT_DMG" Time="1400" UseSleep="NO">
-                    <Num Num="1" />
-                    <Num Num="1" />
-                    <Num Num="0" />
-                </Scp>
-			</EtcList>
-          <ResultList>
-            <ToolScp Client="NO" Scp="S_R_TGT_Decrease_heal_debuff" UseSleep="NO">
-              <Str FuncTxt="local func_name = 'get_decrease_heal_debuff_tooltip_' .. TryGetProp(skill, 'ClassName', 'None')
-               local func = _G[func_name]
-               if func == nil then return end
-               return func(skill.Level)" Str="0" UseFunc="1"/>
+<ToolSkill>
+    <Skill Name="Dragoon_DragoonHelmet">
+        <EnableScripts>
+            <ToolScp Client="BOTH" Scp="SKL_CHECK_CHECK_NOBUFF" UseSleep="NO">
+                <Str Str="murmillo_helmet"/>
             </ToolScp>
-          </ResultList>
-
-		</MainSkl>
+            <ToolScp Client="BOTH" Scp="SKL_CHECK_CHECK_NOBUFF" UseSleep="NO">
+                <Str Str="EquipDesrption_Debeff"/>
+            </ToolScp>
+        </EnableScripts>
+        <MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+            <HitList>
+                <Frame Angle="0" AniTime="9999" Dist="0" ForceATK="0" HitCount="1" Length="30" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="9799" Type="FAN" Width="30"/>
+            </HitList>
+            <EtcList>
+                <Scp Client="NO" Scp="SKL_RUN_SCRIPT" Time="450" UseSleep="NO">
+                    <Str Str="EQUIP_DARGOONHELMET"/>
+                </Scp>
+            </EtcList>
+        </MainSkl>
         <ByCondSkills>
             <SubSkl>
                 <Cond>
-                    <ToolScp Client="NO" Scp="SKL_SELECT_ABIL" UseSleep="NO">
-                        <Str Str="Dragoon21" />
+                    <ToolScp Client="NO" Scp="SKL_SELECT_BUFF" UseSleep="NO">
+                        <Str Str="DragoonHelmet_Buff"/>
                     </ToolScp>
                 </Cond>
                 <Skill JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
                     <HitList>
-                        <Frame Angle="0" AniTime="99999" Dist="0" ForceATK="0" HitCount="1" Length="30" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="99799" Type="FAN" Width="30" />
+                        <Frame Angle="0" AniTime="9999" Dist="0" ForceATK="0" HitCount="1" Length="30" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="9799" Type="FAN" Width="30"/>
                     </HitList>
                     <EtcList>
-                        <Scp Client="YES" Scp="MONSKL_C_PLAY_ANIM" Time="0" UseSleep="NO">
-                            <Str Str="SKL_DRAGONFALL_CAST" />
-                            <Num Num="1" />
-                            <Num Num="1" />
-                            <Num Num="0" />
+                        <Scp Client="NO" Scp="SKL_RESET_COOLTIME" Time="0" UseSleep="NO">
+                            <Str Str="Dragoon_DragoonHelmet"/>
                         </Scp>
-                        <Scp Client="YES" Scp="C_VOICE_SOUND" Time="300" UseSleep="NO">
-                            <Str Str="voice_war_atk_long_shot" />
-                            <Str Str="voice_atk_long_war_f" />
+                        <Scp Client="NO" Scp="SKL_BUFF_REMOVE" Time="80" UseSleep="NO">
+                            <Str Str="DragoonHelmet_Buff"/>
                         </Scp>
-                        <Scp Client="YES" Scp="C_EFFECT" Time="400" UseSleep="NO">
-                            <Str_Arg Arg="3" Str="F_warrior_dragonfall001" />
-                            <Str Str="None" />
-                            <Num Num="0" />
+                    </EtcList>
+                </Skill>
+            </SubSkl>
+            <SubSkl>
+                <Cond>
+                    <ToolScp Client="NO" Scp="SKL_SELECT_BUFF" UseSleep="NO">
+                        <Str Str="DragoonHelmet_Abil_Buff"/>
+                    </ToolScp>
+                </Cond>
+                <Skill JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+                    <HitList>
+                        <Frame Angle="0" AniTime="9999" Dist="0" ForceATK="0" HitCount="1" Length="30" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="9799" Type="FAN" Width="30"/>
+                    </HitList>
+                    <EtcList>
+                        <Scp Client="NO" Scp="SKL_RESET_COOLTIME" Time="0" UseSleep="NO">
+                            <Str Str="Dragoon_DragoonHelmet"/>
                         </Scp>
-                        <Scp Client="YES" Scp="C_EFFECT_POS" Time="850" UseSleep="NO">
-                            <Str_Arg Arg="1" Str="I_warrior_DragonFall_spear_mesh" />
-                            <Pos Angle="0" Dist="0" PosType="3" />
-                            <Num Num="0" />
-                        </Scp>
-                        <Scp Client="YES" Scp="C_EFFECT_POS" Time="1000" UseSleep="NO">
-                            <Str_Arg Arg="1.2" Str="F_warrior_dragonfall002" />
-                            <Pos Angle="0" Dist="0" PosType="3" />
-                            <Num Num="0" />
-                        </Scp>
-                        <Scp Client="YES" Scp="SKL_C_RESUME_ANI" Time="1000" UseSleep="NO" />
-                        <Scp Client="YES" Scp="MONSKL_C_PLAY_ANIM" Time="1000" UseSleep="NO">
-                            <Str Str="SKL_DRAGONFALL_SHOT" />
-                            <Num Num="1.8" />
-                            <Num Num="0" />
-                            <Num Num="1" />
-                        </Scp>
-                        <Scp Client="NO" Scp="SKL_SET_TARGET_CIRCLE" Time="1000" UseSleep="NO">
-                            <Pos Angle="0" Dist="0" PosType="3" />
-                            <Num Num="70" />
-                            <Num Num="30" />
-                            <Num Num="2" />
-                            <Num Num="0" />
-                            <Num Num="0" />
-                            <Num Num="0" />
-                        </Scp>
-                        <Scp Client="NO" Scp="SKL_TGT_DMG" Time="1200" UseSleep="NO">
-                            <Num Num="1" />
-                            <Num Num="1" />
-                            <Num Num="0" />
-                        </Scp>
-                        <Scp Client="YES" Scp="C_SHOCKWAVE" Time="1200" UseSleep="NO">
-                            <Num Num="5" />
-                            <Num Num="1" />
-                            <Num Num="45" />
-                            <Num Num="999" />
-                        </Scp>
-                        <Scp Client="NO" Scp="SKL_TGT_DMG" Time="1300" UseSleep="NO">
-                            <Num Num="1" />
-                            <Num Num="1" />
-                            <Num Num="0" />
-                        </Scp>
-                        <Scp Client="NO" Scp="SKL_TGT_DMG" Time="1400" UseSleep="NO">
-                            <Num Num="1" />
-                            <Num Num="1" />
-                            <Num Num="0" />
+                        <Scp Client="NO" Scp="SKL_BUFF_REMOVE" Time="80" UseSleep="NO">
+                            <Str Str="DragoonHelmet_Abil_Buff"/>
                         </Scp>
                     </EtcList>
                 </Skill>
             </SubSkl>
         </ByCondSkills>
-	</Skill>
-	<Skill Name="Dragoon_DargonDive">
-		<EndScripts>
-			<ToolScp Client="YES" Scp="C_SKL_LOCK_MOVE" UseSleep="NO">
-				<Num Num="0" />
-			</ToolScp>
-			<ToolScp Client="YES" Scp="MONSKL_C_CLEAR_RESERVE_ANIM" UseSleep="NO" />
-		</EndScripts>
-		<KeyInput>
-			<ToolScp Client="YES" Scp="SKL_KEY_GROUND_EVENT" UseSleep="NO">
-				<Num Num="3" />
-				<Num Num="0" />
-				<Num Num="0" />
-				<Num Num="1" />
-				<Num Num="100" />
-				<Num Num="0" />
-				<Num Num="0" />
-				<Num Num="0" />
-				<Num Num="0" />
-				<Str_Arg Arg="3" Str="None" />
-				<Str Str="None" />
-				<Num Num="1" />
-				<Num Num="0" />
-				<Num Num="3" />
-				<Num Num="0.2" />
-				<Num Num="100" />
-				<Num Num="0" />
-				<Num Num="0" />
-				<Num Num="0" />
-				<Num Num="0" />
-			</ToolScp>
-		</KeyInput>
-		<KeyInputStart>
-			<ToolScp Client="YES" Scp="MONSKL_C_PLAY_ANIM" UseSleep="NO">
-				<Str Str="SKL_DRAGONDIVE_CAST" />
-				<Num Num="1" />
-				<Num Num="0" />
-			</ToolScp>
-			<ToolScp Client="YES" Scp="MONSKL_C_RESERVE_ANIM" UseSleep="NO">
-				<Str Str="SKL_DRAGONDIVE_LOOP" />
-				<Num Num="1" />
-				<Num Num="0" />
-			</ToolScp>
-			<ToolScp Client="YES" Scp="C_EFFECT" UseSleep="NO">
-				<Str_Arg Arg="1" Str="F_warrior_Dragondive_cast_lineup" />
-				<Str Str="None" />
-				<Num Num="0" />
-			</ToolScp>
-			<ToolScp Client="NO" Scp="SKL_PLAY_SOUND" UseSleep="NO">
-				<Str Str="voice_atk_long_cast_f" />
-				<Num Num="0" />
-				<Str Str="voice_war_atk_long_cast" />
-			</ToolScp>
-		</KeyInputStart>
-		<KeyInputEnd>
-			<ToolScp Client="YES" Scp="MONSKL_C_CLEAR_RESERVE_ANIM" UseSleep="NO" />
-			<ToolScp Client="YES" Scp="C_EFFECT_DETACH" UseSleep="NO">
-				<Str_Arg Arg="1" Str="F_warrior_Dragondive_cast_lineup" />
-				<Num Num="0.5" />
-			</ToolScp>
-			<ToolScp Client="NO" Scp="SKL_STOP_SOUND" UseSleep="NO">
-				<Str Str="voice_atk_long_cast_f" />
-				<Str Str="voice_war_atk_long_cast" />
-			</ToolScp>
-		</KeyInputEnd>
-		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
-			<HitList>
-				<Frame Angle="0" AniTime="9999" Dist="0" ForceATK="0" HitCount="1" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="9799" Type="CIRCLE" />
-			</HitList>
-			<EtcList>
-				<Scp Client="YES" Scp="C_FIX_CAM_POSY" Time="0" UseSleep="NO">
-					<Num Num="2200" />
-				</Scp>
-				<Scp Client="YES" Scp="C_SKL_LOCK_MOVE" Time="0" UseSleep="NO">
-					<Num Num="1" />
-				</Scp>
-				<Scp Client="YES" Scp="MONSKL_C_PLAY_ANIM" Time="150" UseSleep="NO">
-					<Str Str="SKL_DRAGONDIVE_SHOT" />
-					<Num Num="1" />
-					<Num Num="0" />
-				</Scp>
-				<Scp Client="YES" Scp="SKL_FAST_FALL" Time="150" UseSleep="NO">
-					<Num Num="150" />
-				</Scp>
-				<Scp Client="YES" Scp="C_VOICE_SOUND" Time="1600" UseSleep="NO">
-					<Str Str="voice_war_atk_long_shot" />
-					<Str Str="voice_atk_long_war_f" />
-				</Scp>
-				<Scp Client="YES" Scp="C_SOUND" Time="1600" UseSleep="NO">
-					<Str Str="skl_eff_whoosh_2" />
-				</Scp>
-				<Scp Client="YES" Scp="C_SOUND" Time="1800" UseSleep="NO">
-					<Str Str="skl_eff_sturzhau_whoosh_2" />
-				</Scp>
-				<Scp Client="YES" Scp="SKL_C_RESERVE_LANDANIM" Time="1850" UseSleep="NO">
-					<Str Str="SKL_DRAGONDIVE_LAND" />
-					<Num Num="1" />
-					<Num Num="0" />
-					<Num Num="150" />
-				</Scp>
-				<Scp Client="NO" Scp="SKL_SETPOS" Time="1899" UseSleep="NO">
-					<Pos Angle="0" Dist="0" Height="170" PosType="3" />
-					<Str_Arg Arg="1" Str="None" />
-				</Scp>
-				<Scp Client="YES" Scp="C_SOUND" Time="1900" UseSleep="NO">
-					<Str Str="stone_soar" />
-				</Scp>
-				<Scp Client="YES" Scp="MONSKL_C_PLAY_ANIM" Time="1900" UseSleep="NO">
-					<Str Str="SFALL" />
-					<Num Num="1" />
-					<Num Num="1" />
-				</Scp>
-				<Scp Client="YES" Scp="C_SKL_LOCK_MOVE" Time="2300" UseSleep="NO">
-					<Num Num="0" />
-				</Scp>
-				<Scp Client="NO" Scp="SKL_HIT_CIRCLE" Time="2300" UseSleep="NO">
-					<Pos Angle="0" Dist="0" PosType="3" />
-					<Num Num="50" />
-				</Scp>
-				<Scp Client="YES" Scp="SKL_FAST_FALL" Time="2400" UseSleep="NO">
-					<Num Num="1" />
-				</Scp>
-			</EtcList>
-		</MainSkl>
-	</Skill>
-	<Skill Name="Dragoon_Dethrone">
-		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
-			<HitList>
-				<Frame Angle="0" AniTime="350" Dist="0" ForceATK="0" HitCount="1" Length="200" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453299" TermMax="0" TermMin="0" Time="150" Type="SQUARE" Width="28" />
-			</HitList>
-			<EtcList>
-				<Scp Client="YES" Scp="C_VOICE_SOUND" Time="0" UseSleep="NO">
-					<Str Str="voice_archer_atk" />
-					<Str Str="voice_archer_f_atk" />
-				</Scp>
-				<Scp Client="YES" Scp="MONSKL_C_PLAY_ANIM" Time="0" UseSleep="NO">
-					<Str Str="SKL_DETHRONE" />
-					<Num Num="1.5" />
-					<Num Num="1" />
-					<Num Num="0" />
-				</Scp>
-				<Scp Client="YES" Scp="C_VOICE_SOUND" Time="250" UseSleep="NO">
-					<Str Str="voice_war_atk_medium" />
-					<Str Str="voice_atk_medium_war_f" />
-				</Scp>
-				<Scp Client="YES" Scp="C_EFFECT_POS" Time="400" UseSleep="NO">
-					<Str_Arg Arg="0.85000002" Str="F_ground068_smoke2" />
-					<Pos Angle="0" Dist="20" />
-					<Num Num="0" />
-					<Str Str="None" />
-				</Scp>
-				<Scp Client="YES" Scp="C_EFFECT_POS" Time="480" UseSleep="NO">
-					<Str_Arg Arg="0.85000002" Str="F_ground068_smoke2" />
-					<Pos Angle="0" Dist="40" />
-					<Num Num="0" />
-					<Str Str="None" />
-				</Scp>
-				<Scp Client="YES" Scp="C_EFFECT_POS" Time="500" UseSleep="NO">
-					<Str_Arg Arg="0.85000002" Str="F_ground068_smoke2" />
-					<Pos Angle="0" Dist="60" />
-					<Num Num="0" />
-					<Str Str="None" />
-				</Scp>
-				<Scp Client="YES" Scp="C_EFFECT_POS" Time="520" UseSleep="NO">
-					<Str_Arg Arg="0.85000002" Str="F_ground068_smoke2" />
-					<Pos Angle="0" Dist="80" />
-					<Num Num="0" />
-					<Str Str="None" />
-				</Scp>
-				<Scp Client="YES" Scp="C_EFFECT_POS" Time="540" UseSleep="NO">
-					<Str_Arg Arg="0.85000002" Str="F_ground068_smoke2" />
-					<Pos Angle="0" Dist="100" />
-					<Num Num="0" />
-					<Str Str="None" />
-				</Scp>
-				<Scp Client="YES" Scp="C_EFFECT_POS" Time="560" UseSleep="NO">
-					<Str_Arg Arg="0.85000002" Str="F_ground068_smoke2" />
-					<Pos Angle="0" Dist="120" />
-					<Num Num="0" />
-					<Str Str="None" />
-				</Scp>
-				<Scp Client="YES" Scp="C_EFFECT_POS" Time="580" UseSleep="NO">
-					<Str_Arg Arg="0.85000002" Str="F_ground068_smoke2" />
-					<Pos Angle="0" Dist="140" />
-					<Num Num="0" />
-					<Str Str="None" />
-				</Scp>
-			</EtcList>
-			<ResultList>
-				<ToolScp Client="YES" Scp="C_SR_EFT" UseSleep="NO">
-					<Str_Arg Arg="0.40000001" Str="F_warrior_Dethrone_hit" />
-					<Pos Angle="0" Dist="0" Height="10" PosType="1" />
-					<Num Num="0" />
-					<Num Num="0" />
-				</ToolScp>
-			</ResultList>
-		</MainSkl>
-	</Skill>
-	<Skill Name="Dragoon_Gae_Bulg">
-		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
-			<HitList>
-				<Frame Angle="0" AniTime="10199" Dist="0" ForceATK="0" HitCount="1" Length="30" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453299" TermMax="0" TermMin="0" Time="9999" Type="FAN" Width="30" />
-			</HitList>
-			<EtcList>
-				<Scp Client="YES" Scp="MONSKL_C_PLAY_ANIM" Time="0" UseSleep="NO">
-                    <Str Str="SKL_GAEBULG" />
-                    <Num Num="1.8" />
-                    <Num Num="1" />
-                    <Num Num="0" />
+    </Skill>
+    <Skill Name="Dragoon_DragonFall">
+        <EndScripts>
+            <ToolScp Client="YES" Scp="C_EFFECT_DETACH_ALL" UseSleep="NO">
+                <Str_Arg Arg="1" Str="F_warrior_dragonfall002"/>
+                <Num Num="1"/>
+            </ToolScp>
+        </EndScripts>
+        <KeyInput>
+            <ToolScp Client="YES" Scp="SKL_KEY_GROUND_EVENT" UseSleep="NO">
+                <Num Num="1"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+                <Num Num="1"/>
+                <Num Num="200"/>
+                <Num Num="0.1"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+                <Str_Arg Arg="1" Str="None"/>
+                <Str Str="None"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+                <Num Num="5"/>
+                <Num Num="1"/>
+                <Num Num="45"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+            </ToolScp>
+        </KeyInput>
+        <MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+            <HitList>
+                <Frame Angle="0" AniTime="99999" Dist="0" ForceATK="0" HitCount="1" Length="30" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="99799" Type="FAN" Width="30"/>
+            </HitList>
+            <EtcList>
+                <Scp Client="YES" Scp="MONSKL_C_PLAY_ANIM" Time="0" UseSleep="NO">
+                    <Str Str="SKL_DRAGONFALL_CAST"/>
+                    <Num Num="1"/>
+                    <Num Num="0"/>
+                </Scp>
+                <Scp Client="YES" Scp="C_VOICE_SOUND" Time="300" UseSleep="NO">
+                    <Str Str="voice_war_atk_long_shot"/>
+                    <Str Str="voice_atk_long_war_f"/>
+                </Scp>
+                <Scp Client="YES" Scp="C_EFFECT" Time="400" UseSleep="NO">
+                    <Str_Arg Arg="3" Str="F_warrior_dragonfall001"/>
+                    <Str Str="None"/>
+                    <Num Num="0"/>
+                </Scp>
+                <Scp Client="YES" Scp="C_EFFECT" Time="1000" UseSleep="NO">
+                    <Str_Arg Arg="2.7" Str="F_warrior_dragonfall002"/>
+                    <Str FuncTxt="if SKL_CHECK_RIDING_COMPANION_C(self, obj) == 0 then           return 'None'           else           return 'Dummy_emitter';           end" Str="None" UseFunc="1"/>
+                    <Num Num="0"/>
+                </Scp>
+                <Scp Client="NO" Scp="SKL_SETPOS" Time="1000" UseSleep="NO">
+                    <Pos Angle="0" Dist="0" PosType="3"/>
+                    <Str_Arg Arg="1" Str="None"/>
+                </Scp>
+                <Scp Client="YES" Scp="SKL_C_RESUME_ANI" Time="1000" UseSleep="NO"/>
+                <Scp Client="YES" Scp="MONSKL_C_PLAY_ANIM" Time="1000" UseSleep="NO">
+                    <Str Str="SKL_DRAGONFALL_SHOT"/>
+                    <Num Num="1.8"/>
+                    <Num Num="0"/>
+                    <Num Num="1"/>
+                </Scp>
+                <Scp Client="NO" Scp="SKL_SET_TARGET_CIRCLE" Time="1000" UseSleep="NO">
+                    <Pos Angle="0" Dist="0" PosType="3"/>
+                    <Num Num="70"/>
+                    <Num Num="30"/>
+                    <Num Num="2"/>
+                    <Num Num="0"/>
+                    <Num Num="0"/>
+                    <Num Num="0"/>
+                </Scp>
+                <Scp Client="NO" Scp="SKL_TGT_DMG" Time="1200" UseSleep="NO">
+                    <Num Num="1"/>
+                    <Num Num="1"/>
+                    <Num Num="0"/>
+                </Scp>
+                <Scp Client="YES" Scp="C_SHOCKWAVE" Time="1200" UseSleep="NO">
+                    <Num Num="5"/>
+                    <Num Num="1"/>
+                    <Num Num="45"/>
+                    <Num Num="999"/>
+                </Scp>
+                <Scp Client="NO" Scp="SKL_TGT_DMG" Time="1300" UseSleep="NO">
+                    <Num Num="1"/>
+                    <Num Num="1"/>
+                    <Num Num="0"/>
+                </Scp>
+                <Scp Client="NO" Scp="SKL_TGT_DMG" Time="1400" UseSleep="NO">
+                    <Num Num="1"/>
+                    <Num Num="1"/>
+                    <Num Num="0"/>
+                </Scp>
+            </EtcList>
+            <ResultList>
+                <ToolScp Client="NO" Scp="S_R_TGT_Decrease_heal_debuff" UseSleep="NO">
+                    <Str FuncTxt="local func_name = 'get_decrease_heal_debuff_tooltip_' .. TryGetProp(skill, 'ClassName', 'None')
+               local func = _G[func_name]
+               if func == nil then return end
+               return func(skill.Level)" Str="0" UseFunc="1"/>
+                </ToolScp>
+            </ResultList>
+        </MainSkl>
+        <ByCondSkills>
+            <SubSkl>
+                <Cond>
+                    <ToolScp Client="NO" Scp="SKL_SELECT_ABIL" UseSleep="NO">
+                        <Str Str="Dragoon21"/>
+                    </ToolScp>
+                </Cond>
+                <Skill JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+                    <HitList>
+                        <Frame Angle="0" AniTime="99999" Dist="0" ForceATK="0" HitCount="1" Length="30" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="99799" Type="FAN" Width="30"/>
+                    </HitList>
+                    <EtcList>
+                        <Scp Client="YES" Scp="MONSKL_C_PLAY_ANIM" Time="0" UseSleep="NO">
+                            <Str Str="SKL_DRAGONFALL_CAST"/>
+                            <Num Num="1"/>
+                            <Num Num="1"/>
+                            <Num Num="0"/>
+                        </Scp>
+                        <Scp Client="YES" Scp="C_VOICE_SOUND" Time="300" UseSleep="NO">
+                            <Str Str="voice_war_atk_long_shot"/>
+                            <Str Str="voice_atk_long_war_f"/>
+                        </Scp>
+                        <Scp Client="YES" Scp="C_EFFECT" Time="400" UseSleep="NO">
+                            <Str_Arg Arg="3" Str="F_warrior_dragonfall001"/>
+                            <Str Str="None"/>
+                            <Num Num="0"/>
+                        </Scp>
+                        <Scp Client="YES" Scp="C_EFFECT_POS" Time="850" UseSleep="NO">
+                            <Str_Arg Arg="1" Str="I_warrior_DragonFall_spear_mesh"/>
+                            <Pos Angle="0" Dist="0" PosType="3"/>
+                            <Num Num="0"/>
+                        </Scp>
+                        <Scp Client="YES" Scp="C_EFFECT_POS" Time="1000" UseSleep="NO">
+                            <Str_Arg Arg="1.2" Str="F_warrior_dragonfall002"/>
+                            <Pos Angle="0" Dist="0" PosType="3"/>
+                            <Num Num="0"/>
+                        </Scp>
+                        <Scp Client="YES" Scp="SKL_C_RESUME_ANI" Time="1000" UseSleep="NO"/>
+                        <Scp Client="YES" Scp="MONSKL_C_PLAY_ANIM" Time="1000" UseSleep="NO">
+                            <Str Str="SKL_DRAGONFALL_SHOT"/>
+                            <Num Num="1.8"/>
+                            <Num Num="0"/>
+                            <Num Num="1"/>
+                        </Scp>
+                        <Scp Client="NO" Scp="SKL_SET_TARGET_CIRCLE" Time="1000" UseSleep="NO">
+                            <Pos Angle="0" Dist="0" PosType="3"/>
+                            <Num Num="70"/>
+                            <Num Num="30"/>
+                            <Num Num="2"/>
+                            <Num Num="0"/>
+                            <Num Num="0"/>
+                            <Num Num="0"/>
+                        </Scp>
+                        <Scp Client="NO" Scp="SKL_TGT_DMG" Time="1200" UseSleep="NO">
+                            <Num Num="1"/>
+                            <Num Num="1"/>
+                            <Num Num="0"/>
+                        </Scp>
+                        <Scp Client="YES" Scp="C_SHOCKWAVE" Time="1200" UseSleep="NO">
+                            <Num Num="5"/>
+                            <Num Num="1"/>
+                            <Num Num="45"/>
+                            <Num Num="999"/>
+                        </Scp>
+                        <Scp Client="NO" Scp="SKL_TGT_DMG" Time="1300" UseSleep="NO">
+                            <Num Num="1"/>
+                            <Num Num="1"/>
+                            <Num Num="0"/>
+                        </Scp>
+                        <Scp Client="NO" Scp="SKL_TGT_DMG" Time="1400" UseSleep="NO">
+                            <Num Num="1"/>
+                            <Num Num="1"/>
+                            <Num Num="0"/>
+                        </Scp>
+                    </EtcList>
+                </Skill>
+            </SubSkl>
+        </ByCondSkills>
+    </Skill>
+    <Skill Name="Dragoon_DargonDive">
+        <EndScripts>
+            <ToolScp Client="YES" Scp="C_SKL_LOCK_MOVE" UseSleep="NO">
+                <Num Num="0"/>
+            </ToolScp>
+            <ToolScp Client="YES" Scp="MONSKL_C_CLEAR_RESERVE_ANIM" UseSleep="NO"/>
+        </EndScripts>
+        <KeyInput>
+            <ToolScp Client="YES" Scp="SKL_KEY_GROUND_EVENT" UseSleep="NO">
+                <Num Num="3"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+                <Num Num="1"/>
+                <Num Num="100"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+                <Str_Arg Arg="3" Str="None"/>
+                <Str Str="None"/>
+                <Num Num="1"/>
+                <Num Num="0"/>
+                <Num Num="3"/>
+                <Num Num="0.2"/>
+                <Num Num="100"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+            </ToolScp>
+        </KeyInput>
+        <KeyInputStart>
+            <ToolScp Client="YES" Scp="MONSKL_C_PLAY_ANIM" UseSleep="NO">
+                <Str Str="SKL_DRAGONDIVE_CAST"/>
+                <Num Num="1"/>
+                <Num Num="0"/>
+            </ToolScp>
+            <ToolScp Client="YES" Scp="MONSKL_C_RESERVE_ANIM" UseSleep="NO">
+                <Str Str="SKL_DRAGONDIVE_LOOP"/>
+                <Num Num="1"/>
+                <Num Num="0"/>
+            </ToolScp>
+            <ToolScp Client="YES" Scp="C_EFFECT" UseSleep="NO">
+                <Str_Arg Arg="1" Str="F_warrior_Dragondive_cast_lineup"/>
+                <Str Str="None"/>
+                <Num Num="0"/>
+            </ToolScp>
+            <ToolScp Client="NO" Scp="SKL_PLAY_SOUND" UseSleep="NO">
+                <Str Str="voice_atk_long_cast_f"/>
+                <Num Num="0"/>
+                <Str Str="voice_war_atk_long_cast"/>
+            </ToolScp>
+        </KeyInputStart>
+        <KeyInputEnd>
+            <ToolScp Client="YES" Scp="MONSKL_C_CLEAR_RESERVE_ANIM" UseSleep="NO"/>
+            <ToolScp Client="YES" Scp="C_EFFECT_DETACH" UseSleep="NO">
+                <Str_Arg Arg="1" Str="F_warrior_Dragondive_cast_lineup"/>
+                <Num Num="0.5"/>
+            </ToolScp>
+            <ToolScp Client="NO" Scp="SKL_STOP_SOUND" UseSleep="NO">
+                <Str Str="voice_atk_long_cast_f"/>
+                <Str Str="voice_war_atk_long_cast"/>
+            </ToolScp>
+        </KeyInputEnd>
+        <MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+            <HitList>
+                <Frame Angle="0" AniTime="9999" Dist="0" ForceATK="0" HitCount="1" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="9799" Type="CIRCLE"/>
+            </HitList>
+            <EtcList>
+                <Scp Client="YES" Scp="C_FIX_CAM_POSY" Time="0" UseSleep="NO">
+                    <Num Num="2200"/>
+                </Scp>
+                <Scp Client="YES" Scp="C_SKL_LOCK_MOVE" Time="0" UseSleep="NO">
+                    <Num Num="1"/>
+                </Scp>
+                <Scp Client="YES" Scp="MONSKL_C_PLAY_ANIM" Time="150" UseSleep="NO">
+                    <Str Str="SKL_DRAGONDIVE_SHOT"/>
+                    <Num Num="1"/>
+                    <Num Num="0"/>
+                </Scp>
+                <Scp Client="YES" Scp="SKL_FAST_FALL" Time="150" UseSleep="NO">
+                    <Num Num="150"/>
+                </Scp>
+                <Scp Client="YES" Scp="C_VOICE_SOUND" Time="1600" UseSleep="NO">
+                    <Str Str="voice_war_atk_long_shot"/>
+                    <Str Str="voice_atk_long_war_f"/>
+                </Scp>
+                <Scp Client="YES" Scp="C_SOUND" Time="1600" UseSleep="NO">
+                    <Str Str="skl_eff_whoosh_2"/>
+                </Scp>
+                <Scp Client="YES" Scp="C_SOUND" Time="1800" UseSleep="NO">
+                    <Str Str="skl_eff_sturzhau_whoosh_2"/>
+                </Scp>
+                <Scp Client="YES" Scp="SKL_C_RESERVE_LANDANIM" Time="1850" UseSleep="NO">
+                    <Str Str="SKL_DRAGONDIVE_LAND"/>
+                    <Num Num="1"/>
+                    <Num Num="0"/>
+                    <Num Num="150"/>
+                </Scp>
+                <Scp Client="NO" Scp="SKL_SETPOS" Time="1899" UseSleep="NO">
+                    <Pos Angle="0" Dist="0" Height="170" PosType="3"/>
+                    <Str_Arg Arg="1" Str="None"/>
+                </Scp>
+                <Scp Client="YES" Scp="C_SOUND" Time="1900" UseSleep="NO">
+                    <Str Str="stone_soar"/>
+                </Scp>
+                <Scp Client="YES" Scp="MONSKL_C_PLAY_ANIM" Time="1900" UseSleep="NO">
+                    <Str Str="SFALL"/>
+                    <Num Num="1"/>
+                    <Num Num="1"/>
+                </Scp>
+                <Scp Client="YES" Scp="C_SKL_LOCK_MOVE" Time="2300" UseSleep="NO">
+                    <Num Num="0"/>
+                </Scp>
+                <Scp Client="NO" Scp="SKL_HIT_CIRCLE" Time="2300" UseSleep="NO">
+                    <Pos Angle="0" Dist="0" PosType="3"/>
+                    <Num Num="50"/>
+                </Scp>
+                <Scp Client="YES" Scp="SKL_FAST_FALL" Time="2400" UseSleep="NO">
+                    <Num Num="1"/>
+                </Scp>
+            </EtcList>
+        </MainSkl>
+    </Skill>
+    <Skill Name="Dragoon_Dethrone">
+        <MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+            <HitList>
+                <Frame Angle="0" AniTime="350" Dist="0" ForceATK="0" HitCount="1" Length="200" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453299" TermMax="0" TermMin="0" Time="150" Type="SQUARE" Width="28"/>
+            </HitList>
+            <EtcList>
+                <Scp Client="YES" Scp="C_VOICE_SOUND" Time="0" UseSleep="NO">
+                    <Str Str="voice_archer_atk"/>
+                    <Str Str="voice_archer_f_atk"/>
+                </Scp>
+                <Scp Client="YES" Scp="MONSKL_C_PLAY_ANIM" Time="0" UseSleep="NO">
+                    <Str Str="SKL_DETHRONE"/>
+                    <Num Num="1.5"/>
+                    <Num Num="1"/>
+                    <Num Num="0"/>
+                </Scp>
+                <Scp Client="YES" Scp="C_VOICE_SOUND" Time="250" UseSleep="NO">
+                    <Str Str="voice_war_atk_medium"/>
+                    <Str Str="voice_atk_medium_war_f"/>
+                </Scp>
+                <Scp Client="YES" Scp="C_EFFECT_POS" Time="400" UseSleep="NO">
+                    <Str_Arg Arg="0.85000002" Str="F_ground068_smoke2"/>
+                    <Pos Angle="0" Dist="20"/>
+                    <Num Num="0"/>
+                    <Str Str="None"/>
+                </Scp>
+                <Scp Client="YES" Scp="C_EFFECT_POS" Time="480" UseSleep="NO">
+                    <Str_Arg Arg="0.85000002" Str="F_ground068_smoke2"/>
+                    <Pos Angle="0" Dist="40"/>
+                    <Num Num="0"/>
+                    <Str Str="None"/>
+                </Scp>
+                <Scp Client="YES" Scp="C_EFFECT_POS" Time="500" UseSleep="NO">
+                    <Str_Arg Arg="0.85000002" Str="F_ground068_smoke2"/>
+                    <Pos Angle="0" Dist="60"/>
+                    <Num Num="0"/>
+                    <Str Str="None"/>
+                </Scp>
+                <Scp Client="YES" Scp="C_EFFECT_POS" Time="520" UseSleep="NO">
+                    <Str_Arg Arg="0.85000002" Str="F_ground068_smoke2"/>
+                    <Pos Angle="0" Dist="80"/>
+                    <Num Num="0"/>
+                    <Str Str="None"/>
+                </Scp>
+                <Scp Client="YES" Scp="C_EFFECT_POS" Time="540" UseSleep="NO">
+                    <Str_Arg Arg="0.85000002" Str="F_ground068_smoke2"/>
+                    <Pos Angle="0" Dist="100"/>
+                    <Num Num="0"/>
+                    <Str Str="None"/>
+                </Scp>
+                <Scp Client="YES" Scp="C_EFFECT_POS" Time="560" UseSleep="NO">
+                    <Str_Arg Arg="0.85000002" Str="F_ground068_smoke2"/>
+                    <Pos Angle="0" Dist="120"/>
+                    <Num Num="0"/>
+                    <Str Str="None"/>
+                </Scp>
+                <Scp Client="YES" Scp="C_EFFECT_POS" Time="580" UseSleep="NO">
+                    <Str_Arg Arg="0.85000002" Str="F_ground068_smoke2"/>
+                    <Pos Angle="0" Dist="140"/>
+                    <Num Num="0"/>
+                    <Str Str="None"/>
+                </Scp>
+            </EtcList>
+            <ResultList>
+                <ToolScp Client="YES" Scp="C_SR_EFT" UseSleep="NO">
+                    <Str_Arg Arg="0.40000001" Str="F_warrior_Dethrone_hit"/>
+                    <Pos Angle="0" Dist="0" Height="10" PosType="1"/>
+                    <Num Num="0"/>
+                    <Num Num="0"/>
+                </ToolScp>
+            </ResultList>
+        </MainSkl>
+    </Skill>
+    <Skill Name="Dragoon_Gae_Bulg">
+        <MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+            <HitList>
+                <Frame Angle="0" AniTime="10199" Dist="0" ForceATK="0" HitCount="1" Length="30" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453299" TermMax="0" TermMin="0" Time="9999" Type="FAN" Width="30"/>
+            </HitList>
+            <EtcList>
+                <Scp Client="YES" Scp="MONSKL_C_PLAY_ANIM" Time="0" UseSleep="NO">
+                    <Str Str="SKL_GAEBULG"/>
+                    <Num Num="1.8"/>
+                    <Num Num="1"/>
+                    <Num Num="0"/>
                 </Scp>
                 <Scp Client="YES" Scp="C_VOICE_SOUND" Time="0" UseSleep="NO">
-					<Str Str="voice_war_atk_short" />
-					<Str Str="voice_atk_short_war_f" />
-				</Scp>
-				<Scp Client="YES" Scp="C_VOICE_SOUND" Time="300" UseSleep="NO">
-					<Str Str="voice_war_atk_medium" />
-					<Str Str="voice_atk_medium_war_f" />
-				</Scp>
-				<Scp Client="YES" Scp="C_SHOCKWAVE" Time="650" UseSleep="NO">
-					<Num Num="8" />
-					<Num Num="1" />
-					<Num Num="45" />
-					<Num Num="999" />
-				</Scp>
-				<Scp Client="NO" Scp="SKL_THROW_EQUIP_OBJECT" Time="800" TimeSync="0" UseSleep="YES">
-					<Str Str="warrior_f_" />
-					<Str Str="RH" />
-					<Pos Angle="0" Dist="60" />
-					<Str_Arg Arg="1" Str="F_warrior_GaeBulg_shot_smoke" />
-					<Num Num="60" />
-					<Num Num="0.075" />
-					<Num Num="0" />
-					<Num Num="0" />
-					<Num Num="0.01" />
-					<Str Str="Spear" />
-				</Scp>
-			<Scp Scp="SCR_PAD_DESTORY_BUILDUP_BUFF" Client="NO" UseSleep="NO" Time="800">
+                    <Str Str="voice_war_atk_short"/>
+                    <Str Str="voice_atk_short_war_f"/>
+                </Scp>
+                <Scp Client="YES" Scp="C_VOICE_SOUND" Time="300" UseSleep="NO">
+                    <Str Str="voice_war_atk_medium"/>
+                    <Str Str="voice_atk_medium_war_f"/>
+                </Scp>
+                <Scp Client="YES" Scp="C_SHOCKWAVE" Time="650" UseSleep="NO">
+                    <Num Num="8"/>
+                    <Num Num="1"/>
+                    <Num Num="45"/>
+                    <Num Num="999"/>
+                </Scp>
+                <Scp Client="NO" Scp="SKL_THROW_EQUIP_OBJECT" Time="800" TimeSync="0" UseSleep="YES">
+                    <Str Str="warrior_f_"/>
+                    <Str Str="RH"/>
+                    <Pos Angle="0" Dist="60"/>
+                    <Str_Arg Arg="1" Str="F_warrior_GaeBulg_shot_smoke"/>
+                    <Num Num="60"/>
+                    <Num Num="0.075"/>
+                    <Num Num="0"/>
+                    <Num Num="0"/>
+                    <Num Num="0.01"/>
+                    <Str Str="Spear"/>
+                </Scp>
+                <Scp Scp="SCR_PAD_DESTORY_BUILDUP_BUFF" Client="NO" UseSleep="NO" Time="800">
                     <Pos Angle="0" Dist="60"/>
                     <Str Str="ENEMY"/>
                     <Num Num="80"/>
@@ -495,162 +495,270 @@
                     <Str_Arg Str="None" Arg="1"/>
                 </Scp>
             </EtcList>
-			<ResultList>
-				<ToolScp Client="NO" Scp="S_R_TGT_Decrease_heal_debuff" UseSleep="NO">
-                <Str FuncTxt="local func_name = 'get_decrease_heal_debuff_tooltip_' .. TryGetProp(skill, 'ClassName', 'None')
+            <ResultList>
+                <ToolScp Client="NO" Scp="S_R_TGT_Decrease_heal_debuff" UseSleep="NO">
+                    <Str FuncTxt="local func_name = 'get_decrease_heal_debuff_tooltip_' .. TryGetProp(skill, 'ClassName', 'None')
                local func = _G[func_name]
                if func == nil then return end
                return func(skill.Level)" Str="0" UseFunc="1"/>
                 </ToolScp>
-			</ResultList>
-		</MainSkl>
-	</Skill>
-	<Skill Name="Dragoon_Serpentine">
-		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
-			<HitList>
-                <Frame Angle="0" AniTime="250" Dist="0" ForceATK="0" HitCount="1" Length="80" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="50" Type="SQUARE" Width="30" />
-                <Frame Angle="0" AniTime="300" Dist="0" ForceATK="0" HitCount="1" Length="80" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="100" Type="SQUARE" Width="30" />
-                <Frame Angle="0" AniTime="350" Dist="0" ForceATK="0" HitCount="1" Length="80" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="150" Type="SQUARE" Width="30" />
-                <Frame Angle="0" AniTime="400" Dist="0" ForceATK="0" HitCount="1" Length="80" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="200" Type="SQUARE" Width="30" />
-                <Frame Angle="0" AniTime="600" Dist="0" ForceATK="0" HitCount="1" Length="80" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="400" Type="SQUARE" Width="30" />
-                <Frame Angle="0" AniTime="700" Dist="0" ForceATK="0" HitCount="1" Length="80" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="500" Type="SQUARE" Width="30" />
-                <Frame Angle="0" AniTime="900" Dist="0" ForceATK="0" HitCount="1" Length="80" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="700" Type="SQUARE" Width="30" />
-			</HitList>
-			<EtcList>
+            </ResultList>
+        </MainSkl>
+    </Skill>
+    <Skill Name="Dragoon_Serpentine">
+        <MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+            <HitList>
+                <Frame Angle="0" AniTime="250" Dist="0" ForceATK="0" HitCount="1" Length="80" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="50" Type="SQUARE" Width="30"/>
+                <Frame Angle="0" AniTime="300" Dist="0" ForceATK="0" HitCount="1" Length="80" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="100" Type="SQUARE" Width="30"/>
+                <Frame Angle="0" AniTime="350" Dist="0" ForceATK="0" HitCount="1" Length="80" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="150" Type="SQUARE" Width="30"/>
+                <Frame Angle="0" AniTime="400" Dist="0" ForceATK="0" HitCount="1" Length="80" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="200" Type="SQUARE" Width="30"/>
+                <Frame Angle="0" AniTime="600" Dist="0" ForceATK="0" HitCount="1" Length="80" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="400" Type="SQUARE" Width="30"/>
+                <Frame Angle="0" AniTime="700" Dist="0" ForceATK="0" HitCount="1" Length="80" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="500" Type="SQUARE" Width="30"/>
+                <Frame Angle="0" AniTime="900" Dist="0" ForceATK="0" HitCount="1" Length="80" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="700" Type="SQUARE" Width="30"/>
+            </HitList>
+            <EtcList>
                 <Scp Client="YES" Scp="MONSKL_C_PLAY_ANIM" Time="0" UseSleep="NO">
-                    <Str Str="SKL_SERPENTINE" />
-                    <Num Num="1.8" />
-                    <Num Num="1" />
-                    <Num Num="0" />
+                    <Str Str="SKL_SERPENTINE"/>
+                    <Num Num="1.8"/>
+                    <Num Num="1"/>
+                    <Num Num="0"/>
                 </Scp>
-				<Scp Client="YES" Scp="SET_ENABLESKILLCANCEL_HITINDEX_C" Time="0" UseSleep="NO">
-					<Num Num="7" />
-				</Scp>
-				<Scp Client="YES" Scp="C_VOICE_SOUND" Time="400" UseSleep="NO">
-					<Str Str="voice_war_atk_short" />
-					<Str Str="voice_atk_short_war_f" />
-				</Scp>
-				<Scp Client="YES" Scp="C_VOICE_SOUND" Time="1400" UseSleep="NO">
-					<Str Str="voice_war_atk_long_shot" />
-					<Str Str="voice_atk_long_war_f" />
-				</Scp>
-			</EtcList>
-			<ResultList>
-				<ToolScp Client="NO" Scp="S_R_COND_ABILITY" UseSleep="NO">
-					<Str Str="Dragoon12" />
-				</ToolScp>
-				<ToolScp Client="NO" Scp="S_R_TGTBUFF" UseSleep="NO">
-					<Str Str="Serpentine_Debuff" />
-					<Num FuncTxt="return GET_ABIL_LEVEL(self, 'Dragoon12')" Num="1" UseFunc="1" />
-					<Num Num="0" />
-					<Num Num="10000" />
-					<Num Num="1" />
-					<Num Num="100" />
-					<Num Num="-1" />
-				</ToolScp>
-			</ResultList>
-		</MainSkl>
-	</Skill>
-	<Skill Name="Dragoon_Dragon_Soar">
-		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
-			<HitList>
-				<Frame Angle="0" AniTime="300" Dist="0" ForceATK="0" HitCount="1" Length="50" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="100" Type="SQUARE" Width="30" />
-				<Frame Angle="0" AniTime="400" Dist="0" ForceATK="0" HitCount="1" Length="50" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="200" Type="SQUARE" Width="30" />
-				<Frame Angle="0" AniTime="500" Dist="0" ForceATK="0" HitCount="1" Length="50" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="300" Type="SQUARE" Width="30" />
-				<Frame Angle="0" AniTime="600" Dist="0" ForceATK="0" HitCount="1" Length="50" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="400" Type="SQUARE" Width="30" />
-				<Frame Angle="0" AniTime="700" Dist="0" ForceATK="0" HitCount="1" Length="50" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="500" Type="SQUARE" Width="30" />
-			</HitList>
-			<EtcList>
-				<Scp Client="YES" Scp="SET_ENABLESKILLCANCEL_HITINDEX_C" Time="0" UseSleep="NO">
-					<Num Num="5" />
-				</Scp>
-				<Scp Client="YES" Scp="C_VOICE_SOUND" Time="100" UseSleep="NO">
-					<Str Str="voice_war_atk_long_shot" />
-					<Str Str="voice_atk_long_cast_f" />
-				</Scp>
-			</EtcList>
-		</MainSkl>
-	</Skill>
-	<Skill Name="Dragoon_Dragontooth">
-		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
-			<HitList>
-				<Frame Angle="0" AniTime="50" Dist="0" ForceATK="0" HitCount="1" Length="130" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="0" Type="SQUARE" Width="30" />
-				<Frame Angle="0" AniTime="100" Dist="0" ForceATK="0" HitCount="1" Length="130" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="0" Type="SQUARE" Width="30" />
-				<Frame Angle="0" AniTime="150" Dist="0" ForceATK="0" HitCount="1" Length="130" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="0" Type="SQUARE" Width="30" />
-				<Frame Angle="0" AniTime="200" Dist="0" ForceATK="0" HitCount="1" Length="130" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="0" Type="SQUARE" Width="30" />
-				<Frame Angle="0" AniTime="250" Dist="0" ForceATK="0" HitCount="1" Length="130" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="300" Type="SQUARE" Width="30" />
-				<Frame Angle="0" AniTime="300" Dist="0" ForceATK="0" HitCount="1" Length="130" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="400" Type="SQUARE" Width="30" />
-			</HitList>
-			<EtcList>
-				<Scp Client="YES" Scp="C_VOICE_SOUND" Time="0" UseSleep="NO">
-					<Str Str="voice_war_atk_long_shot" />
-					<Str Str="voice_atk_long_war_f" />
-				</Scp>
-				<Scp Client="YES" Scp="SET_ENABLESKILLCANCEL_HITINDEX_C" Time="0" UseSleep="NO">
-					<Num Num="6" />
-				</Scp>
-			</EtcList>
-          <ResultList>
-            <ToolScp Client="NO" Scp="S_R_TGT_Decrease_heal_debuff" UseSleep="NO">
-              <Str FuncTxt="local func_name = 'get_decrease_heal_debuff_tooltip_' .. TryGetProp(skill, 'ClassName', 'None')
+                <Scp Client="YES" Scp="SET_ENABLESKILLCANCEL_HITINDEX_C" Time="0" UseSleep="NO">
+                    <Num Num="7"/>
+                </Scp>
+                <Scp Client="YES" Scp="C_VOICE_SOUND" Time="400" UseSleep="NO">
+                    <Str Str="voice_war_atk_short"/>
+                    <Str Str="voice_atk_short_war_f"/>
+                </Scp>
+                <Scp Client="YES" Scp="C_VOICE_SOUND" Time="1400" UseSleep="NO">
+                    <Str Str="voice_war_atk_long_shot"/>
+                    <Str Str="voice_atk_long_war_f"/>
+                </Scp>
+            </EtcList>
+            <ResultList>
+                <ToolScp Client="NO" Scp="S_R_COND_ABILITY" UseSleep="NO">
+                    <Str Str="Dragoon12"/>
+                </ToolScp>
+                <ToolScp Client="NO" Scp="S_R_TGTBUFF" UseSleep="NO">
+                    <Str Str="Serpentine_Debuff"/>
+                    <Num FuncTxt="return GET_ABIL_LEVEL(self, 'Dragoon12')" Num="1" UseFunc="1"/>
+                    <Num Num="0"/>
+                    <Num Num="10000"/>
+                    <Num Num="1"/>
+                    <Num Num="100"/>
+                    <Num Num="-1"/>
+                </ToolScp>
+            </ResultList>
+        </MainSkl>
+    </Skill>
+    <Skill Name="Dragoon_Dragon_Soar">
+        <MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+            <HitList>
+                <Frame Angle="0" AniTime="300" Dist="0" ForceATK="0" HitCount="1" Length="50" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="100" Type="SQUARE" Width="30"/>
+                <Frame Angle="0" AniTime="400" Dist="0" ForceATK="0" HitCount="1" Length="50" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="200" Type="SQUARE" Width="30"/>
+                <Frame Angle="0" AniTime="500" Dist="0" ForceATK="0" HitCount="1" Length="50" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="300" Type="SQUARE" Width="30"/>
+                <Frame Angle="0" AniTime="600" Dist="0" ForceATK="0" HitCount="1" Length="50" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="400" Type="SQUARE" Width="30"/>
+                <Frame Angle="0" AniTime="700" Dist="0" ForceATK="0" HitCount="1" Length="50" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="500" Type="SQUARE" Width="30"/>
+            </HitList>
+            <EtcList>
+                <Scp Client="YES" Scp="SET_ENABLESKILLCANCEL_HITINDEX_C" Time="0" UseSleep="NO">
+                    <Num Num="5"/>
+                </Scp>
+                <Scp Client="YES" Scp="C_VOICE_SOUND" Time="100" UseSleep="NO">
+                    <Str Str="voice_war_atk_long_shot"/>
+                    <Str Str="voice_atk_long_cast_f"/>
+                </Scp>
+            </EtcList>
+        </MainSkl>
+    </Skill>
+    <Skill Name="Dragoon_Dragontooth">
+        <EndScripts>
+            <ToolScp Scp="C_EFFECT_DETACH_ALL" Client="YES" UseSleep="NO">
+                <Str_Arg Str="I_cleric_melstis_loop_levitation" Arg="1.5"/>
+                <Num Num="0.5"/>
+            </ToolScp>
+        </EndScripts>
+        <KeyInput>
+            <ToolScp Scp="SKL_KEY_DYNAMIC_CASTING_HAVE_ABIL" Client="YES" UseSleep="NO">
+                <Num Num="0"/>
+                <Num Num="0"/>
+                <Num Num="1"/>
+                <Num Num="0"/>
+                <Num Num="1"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+                <Num Num="1"/>
+                <Num Num="1"/>
+                <Str_Arg Str="None" Arg="1"/>
+                <Str Str="None"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+                <Num Num="5"/>
+                <Num Num="1"/>
+                <Num Num="45"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+                <Str Str="None"/>
+                <Str Str="Dragoon28"/>
+            </ToolScp>
+        </KeyInput>
+        <KeyInputStart>
+            <ToolScp Scp="C_EFFECT_ABIL" Client="YES" UseSleep="NO">
+                <Str Str="Dragoon28"/>
+                <Str_Arg Str="F_levitation051_orange_loop" Arg="2"/>
+                <Str Str="Bip01"/>
+                <Num Num="0"/>
+            </ToolScp>
+            <ToolScp Scp="MONSKL_C_PLAY_ANIM" Client="YES" UseSleep="NO">
+                <Str Str="skl_dragontooth_Abil_cast"/>
+                <Num Num="1"/>
+                <Num Num="1"/>
+                <Num Num="0"/>
+            </ToolScp>
+            <ToolScp Scp="C_SOUND" Client="YES" UseSleep="NO">
+                <Str Str="skl_eff_dragontooth_cast_abil"/>
+            </ToolScp>
+        </KeyInputStart>
+        <KeyInputEnd>
+            <ToolScp Scp="C_EFFECT_DETACH" Client="YES" UseSleep="NO">
+                <Str_Arg Str="F_levitation051_orange_loop" Arg="1.5"/>
+                <Num Num="0.5"/>
+            </ToolScp>
+            <ToolScp Scp="C_SOUND" Client="YES" UseSleep="NO">
+                <Str Str="skl_eff_dragontooth_shot_abil"/>
+            </ToolScp>
+        </KeyInputEnd>
+        <MainSkl ScrLock="None" JumpFlee="NO" MSPDToUsePos="0">
+            <HitList>
+                <Frame Type="SQUARE" Time="0" HitCount="1" TermMin="0" TermMax="0" PosType="0" Dist="0" RandDist="0" RandomPerHit="0" Angle="0" Width="30" Length="130" SklAngle="0.17453292" AniTime="50" RotAngle="0" ForceATK="0" ScriptIndex="0" ScriptName="" SkillType="0"/>
+                <Frame Type="SQUARE" Time="0" HitCount="1" TermMin="0" TermMax="0" PosType="0" Dist="0" RandDist="0" RandomPerHit="0" Angle="0" Width="30" Length="130" SklAngle="0.17453292" AniTime="100" RotAngle="0" ForceATK="0" ScriptIndex="0" ScriptName="" SkillType="0"/>
+                <Frame Type="SQUARE" Time="0" HitCount="1" TermMin="0" TermMax="0" PosType="0" Dist="0" RandDist="0" RandomPerHit="0" Angle="0" Width="30" Length="130" SklAngle="0.17453292" AniTime="150" RotAngle="0" ForceATK="0" ScriptIndex="0" ScriptName="" SkillType="0"/>
+                <Frame Type="SQUARE" Time="0" HitCount="1" TermMin="0" TermMax="0" PosType="0" Dist="0" RandDist="0" RandomPerHit="0" Angle="0" Width="30" Length="130" SklAngle="0.17453292" AniTime="200" RotAngle="0" ForceATK="0" ScriptIndex="0" ScriptName="" SkillType="0"/>
+                <Frame Type="SQUARE" Time="300" HitCount="1" TermMin="0" TermMax="0" PosType="0" Dist="0" RandDist="0" RandomPerHit="0" Angle="0" Width="30" Length="130" SklAngle="0.17453292" AniTime="250" RotAngle="0" ForceATK="0" ScriptIndex="0" ScriptName="" SkillType="0"/>
+                <Frame Type="SQUARE" Time="400" HitCount="1" TermMin="0" TermMax="0" PosType="0" Dist="0" RandDist="0" RandomPerHit="0" Angle="0" Width="30" Length="130" SklAngle="0.17453292" AniTime="300" RotAngle="0" ForceATK="0" ScriptIndex="0" ScriptName="" SkillType="0"/>
+            </HitList>
+            <EtcList>
+                <Scp Scp="MONSKL_C_PLAY_ANIM" Client="YES" UseSleep="NO" Time="0">
+                    <Str Str="skl_dethrone_shot"/>
+                    <Num Num="1"/>
+                    <Num Num="1"/>
+                    <Num Num="0"/>
+                </Scp>
+                <Scp Scp="C_VOICE_SOUND" Client="YES" UseSleep="NO" Time="0">
+                    <Str Str="voice_war_atk_long_shot"/>
+                    <Str Str="voice_atk_long_war_f"/>
+                </Scp>
+                <Scp Scp="SET_ENABLESKILLCANCEL_HITINDEX_C" Client="YES" UseSleep="NO" Time="0">
+                    <Num Num="6"/>
+                </Scp>
+            </EtcList>
+            <ResultList>
+                <ToolScp Scp="S_R_TGT_Decrease_heal_debuff" Client="NO" UseSleep="NO">
+                    <Str Str="0" UseFunc="1" FuncTxt="local func_name = 'get_decrease_heal_debuff_tooltip_' .. TryGetProp(skill, 'ClassName', 'None')
                local func = _G[func_name]
                if func == nil then return end
-               return func(skill.Level)" Str="0" UseFunc="1"/>
-            </ToolScp>        
-          </ResultList>
-		</MainSkl>
-	</Skill>
-	<Skill Name="Dragoon_DragonFear">
-		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
-			<HitList>
-				<Frame Angle="0" AniTime="9999" Dist="0" ForceATK="0" HitCount="1" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" TermMax="0" TermMin="0" Time="9799" Type="FAN" />
-			</HitList>
-			<EtcList>
-				<Scp Client="NO" Scp="SKL_BUFF" Time="0" UseSleep="NO">
-					<Str Str="DragonFear_Buff" />
-					<Num FuncTxt="return obj.Level;" Num="1" UseFunc="1" />
-					<Num Num="0" />
-					<Num Num="30000" />
-					<Num Num="1" />
-					<Num Num="100" />
-					<Num Num="0" />
-				</Scp>
-				<Scp Client="NO" Scp="SKL_SET_TARGET_CIRCLE" Time="0" UseSleep="NO">
-					<Pos Angle="0" Dist="0" />
-					<Num Num="100" />
-					<Num FuncTxt="return 10 + (obj.Level-1) * 3" Num="10" UseFunc="1" />
-					<Num Num="2" />
-					<Num Num="0" />
-					<Num Num="1" />
-					<Num Num="0" />
-				</Scp>
-				<Scp Client="NO" Scp="SKL_TGT_BUFF" Time="0" UseSleep="NO">
-                    <Str Str="DragonFear_Slow_Debuff" />
-					<Num FuncTxt="return obj.Level" Num="1" UseFunc="1" />
-					<Num Num="0" />
-					<Num FuncTxt="return 10000 + (obj.Level-1) * 5000" Num="10000" UseFunc="1" />
-					<Num Num="1" />
-					<Num Num="100" />
-					<Num Num="0" />
-					<Num Num="0" />
-				</Scp>
-				<Scp Client="YES" Scp="C_SOUND" Time="0" UseSleep="NO">
-					<Str Str="skl_eff_debuff_19" />
-				</Scp>
-				<Scp Client="YES" Scp="C_VOICE_SOUND" Time="100" UseSleep="NO">
-					<Str Str="voice_war_atk_medium" />
-					<Str Str="voice_atk_medium_war_f" />
-				</Scp>
-				<Scp Client="YES" Scp="C_SOUND" Time="300" UseSleep="NO">
-					<Str Str="skl_eff_buff_16" />
-				</Scp>
+               return func(skill.Level)"/>
+                </ToolScp>
+            </ResultList>
+        </MainSkl>
+        <ByCondSkills>
+            <SubSkl>
+                <Cond>
+                    <ToolScp Scp="SKL_SELECT_ABIL" Client="NO" UseSleep="NO">
+                        <Str Str="Dragoon28"/>
+                    </ToolScp>
+                </Cond>
+                <Skill ScrLock="None" JumpFlee="NO" MSPDToUsePos="0">
+                    <HitList>
+                        <Frame Type="SQUARE" Time="0" HitCount="1" TermMin="0" TermMax="0" PosType="0" Dist="0" RandDist="0" RandomPerHit="0" Angle="0" Width="30" Length="230" SklAngle="0.17453292" AniTime="50" RotAngle="0" ForceATK="0" ScriptIndex="0" ScriptName="" SkillType="0"/>
+                        <Frame Type="SQUARE" Time="0" HitCount="1" TermMin="0" TermMax="0" PosType="0" Dist="0" RandDist="0" RandomPerHit="0" Angle="0" Width="30" Length="230" SklAngle="0.17453292" AniTime="100" RotAngle="0" ForceATK="0" ScriptIndex="0" ScriptName="" SkillType="0"/>
+                        <Frame Type="SQUARE" Time="0" HitCount="1" TermMin="0" TermMax="0" PosType="0" Dist="0" RandDist="0" RandomPerHit="0" Angle="0" Width="30" Length="230" SklAngle="0.17453292" AniTime="150" RotAngle="0" ForceATK="0" ScriptIndex="0" ScriptName="" SkillType="0"/>
+                        <Frame Type="SQUARE" Time="0" HitCount="1" TermMin="0" TermMax="0" PosType="0" Dist="0" RandDist="0" RandomPerHit="0" Angle="0" Width="30" Length="230" SklAngle="0.17453292" AniTime="200" RotAngle="0" ForceATK="0" ScriptIndex="0" ScriptName="" SkillType="0"/>
+                        <Frame Type="SQUARE" Time="50" HitCount="1" TermMin="0" TermMax="0" PosType="0" Dist="0" RandDist="0" RandomPerHit="0" Angle="0" Width="30" Length="230" SklAngle="0.17453292" AniTime="250" RotAngle="0" ForceATK="0" ScriptIndex="0" ScriptName="" SkillType="0"/>
+                        <Frame Type="SQUARE" Time="100" HitCount="1" TermMin="0" TermMax="0" PosType="0" Dist="0" RandDist="0" RandomPerHit="0" Angle="0" Width="30" Length="230" SklAngle="0.17453292" AniTime="300" RotAngle="0" ForceATK="0" ScriptIndex="0" ScriptName="" SkillType="0"/>
+                    </HitList>
+                    <EtcList>
+                        <Scp Scp="C_VOICE_SOUND" Client="YES" UseSleep="NO" Time="0">
+                            <Str Str="voice_war_atk_long_shot"/>
+                            <Str Str="voice_atk_long_war_f"/>
+                        </Scp>
+                        <Scp Scp="SET_ENABLESKILLCANCEL_HITINDEX_C" Client="YES" UseSleep="NO" Time="0">
+                            <Num Num="6"/>
+                        </Scp>
+                        <Scp Scp="MONSKL_C_PLAY_ANIM" Client="YES" UseSleep="NO" Time="0">
+                            <Str Str="skl_dragontooth_Abil_shot"/>
+                            <Num Num="1"/>
+                            <Num Num="1"/>
+                            <Num Num="0"/>
+                        </Scp>
+                    </EtcList>
+                    <ResultList>
+                        <ToolScp Scp="S_R_TGT_Decrease_heal_debuff" Client="NO" UseSleep="NO">
+                            <Str Str="0" UseFunc="1" FuncTxt="local func_name = 'get_decrease_heal_debuff_tooltip_' .. TryGetProp(skill, 'ClassName', 'None')
+               local func = _G[func_name]
+               if func == nil then return end
+               return func(skill.Level)"/>
+                        </ToolScp>
+                    </ResultList>
+                </Skill>
+            </SubSkl>
+        </ByCondSkills>
+    </Skill>
+    <Skill Name="Dragoon_DragonFear">
+        <MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+            <HitList>
+                <Frame Angle="0" AniTime="9999" Dist="0" ForceATK="0" HitCount="1" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" TermMax="0" TermMin="0" Time="9799" Type="FAN"/>
+            </HitList>
+            <EtcList>
+                <Scp Client="NO" Scp="SKL_BUFF" Time="0" UseSleep="NO">
+                    <Str Str="DragonFear_Buff"/>
+                    <Num FuncTxt="return obj.Level;" Num="1" UseFunc="1"/>
+                    <Num Num="0"/>
+                    <Num Num="30000"/>
+                    <Num Num="1"/>
+                    <Num Num="100"/>
+                    <Num Num="0"/>
+                </Scp>
+                <Scp Client="NO" Scp="SKL_SET_TARGET_CIRCLE" Time="0" UseSleep="NO">
+                    <Pos Angle="0" Dist="0"/>
+                    <Num Num="100"/>
+                    <Num FuncTxt="return 10 + (obj.Level-1) * 3" Num="10" UseFunc="1"/>
+                    <Num Num="2"/>
+                    <Num Num="0"/>
+                    <Num Num="1"/>
+                    <Num Num="0"/>
+                </Scp>
+                <Scp Client="NO" Scp="SKL_TGT_BUFF" Time="0" UseSleep="NO">
+                    <Str Str="DragonFear_Slow_Debuff"/>
+                    <Num FuncTxt="return obj.Level" Num="1" UseFunc="1"/>
+                    <Num Num="0"/>
+                    <Num FuncTxt="return 10000 + (obj.Level-1) * 5000" Num="10000" UseFunc="1"/>
+                    <Num Num="1"/>
+                    <Num Num="100"/>
+                    <Num Num="0"/>
+                    <Num Num="0"/>
+                </Scp>
+                <Scp Client="YES" Scp="C_SOUND" Time="0" UseSleep="NO">
+                    <Str Str="skl_eff_debuff_19"/>
+                </Scp>
+                <Scp Client="YES" Scp="C_VOICE_SOUND" Time="100" UseSleep="NO">
+                    <Str Str="voice_war_atk_medium"/>
+                    <Str Str="voice_atk_medium_war_f"/>
+                </Scp>
+                <Scp Client="YES" Scp="C_SOUND" Time="300" UseSleep="NO">
+                    <Str Str="skl_eff_buff_16"/>
+                </Scp>
                 <Scp Client="NO" Scp="SKL_TGT_REMOVE_BUFF" Time="500" UseSleep="NO">
-                <Str FuncTxt="local func_name = 'get_remove_buff_tooltip_' .. TryGetProp(obj, 'ClassName', 'None')
+                    <Str FuncTxt="local func_name = 'get_remove_buff_tooltip_' .. TryGetProp(obj, 'ClassName', 'None')
                local func = _G[func_name]
                if func == nil then return end
                return func(obj.Level)" Str="0" UseFunc="1"/>
-              </Scp>   
-			</EtcList>
-		</MainSkl>
-	</Skill>
-	</ToolSkill>
+                </Scp>
+            </EtcList>
+        </MainSkl>
+    </Skill>
+</ToolSkill>

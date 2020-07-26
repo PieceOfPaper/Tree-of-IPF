@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="EUC-KR"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by IMCGames Co., Ltd (IMCGames Co., Ltd) -->
+<ActionDesc>
+	<Particle frame="0" attachNode="Dummy_emitter" particleName="F_wizard_BRIQUETTING_STEP1_smoke" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" soft2DValue="0" targetPos="false"/>
+	<Particle frame="0" attachNode="Dummy_emitter" particleName="E_warrior_Dragontooth_dash_abil" useAttach="false" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" soft2DValue="0" targetPos="false"/>
+	<Particle frame="0" attachNode="Dummy_emitter" particleName="E_warrior_dragontooth_Abil_shot_ground" useAttach="false" hiddenObj="false" changeEffect="None" scale="1.3" pause="true" use2DEffect="false" soft2DValue="0" targetPos="false"/>
+	<Shockwave frame="0" type="2" intensity="5" frequency="70" duration="0.6" range="1000"/>
+	<BlendOn frame="0" R="0" G="0" B="0" A="50"/>
+	<BlendOn frame="1" R="230" G="200" B="165" A="100"/>
+	<BlendOn frame="2" R="210" G="190" B="160" A="100"/>
+	<BlendOn frame="3" R="200" G="180" B="155" A="100"/>
+	<BlendOn frame="4" R="190" G="170" B="150" A="100"/>
+	<BlendOn frame="5" R="180" G="160" B="145" A="100"/>
+	<BlendOn frame="6" R="160" G="150" B="140" A="100"/>
+	<BlendOn frame="7" R="150" G="140" B="130" A="100"/>
+	<BlendOn frame="8" R="120" G="120" B="100" A="100"/>
+	<BlendOn frame="9" R="90" G="80" B="60" A="100"/>
+	<BlendOn frame="10" R="60" G="50" B="30" A="100"/>
+	<BlendOn frame="11" R="40" G="30" B="20" A="100"/>
+	<BlendOn frame="12" R="20" G="10" B="5" A="100"/>
+	<BlendOn frame="13" R="0" G="0" B="0" A="100"/>
+	<BlendOff frame="14" R="0" G="0" B="0" A="0"/>
+</ActionDesc>

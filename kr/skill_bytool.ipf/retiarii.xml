@@ -1,538 +1,623 @@
 <?xml version='1.0' encoding='utf-8'?>
-<ToolSkill><Skill Name="Retiarii_BlandirCadena">
-		<EndScripts>
-			<ToolScp Client="NO" Scp="SKL_SET_IMMUNE_STATE_REMOVE" UseSleep="YES">
-				<Str Str="Skill_SuperArmor_Buff" />
-				<Num Num="0" />
-			</ToolScp>
-		<ToolScp Client="YES" Scp="C_COLORBLEND_ACTOR" UseSleep="NO">
-                <Num Num="1" />
-                <Num Num="0" />
-                <Num Num="0.5" />
-                <Num Num="0.5" />
-                <Num Num="0.5" />
-                <Num Num="0" />
-                <Num Num="1" />
+<ToolSkill>
+    <Skill Name="Retiarii_BlandirCadena">
+        <EndScripts>
+            <ToolScp Client="NO" Scp="SKL_SET_IMMUNE_STATE_REMOVE" UseSleep="YES">
+                <Str Str="Skill_SuperArmor_Buff"/>
+                <Num Num="0"/>
+            </ToolScp>
+            <ToolScp Client="YES" Scp="C_COLORBLEND_ACTOR" UseSleep="NO">
+                <Num Num="1"/>
+                <Num Num="0"/>
+                <Num Num="0.5"/>
+                <Num Num="0.5"/>
+                <Num Num="0.5"/>
+                <Num Num="0"/>
+                <Num Num="1"/>
             </ToolScp>
         </EndScripts>
-		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
-			<HitList>
-				<Frame Angle="0" AniTime="250" Dist="0" ForceATK="0" HitCount="1" Length="80" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="150" Type="SQUARE" Width="30" />
-				<Frame Angle="0" AniTime="500" Dist="0" ForceATK="0" HitCount="1" Length="80" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="300" Type="SQUARE" Width="30" />
-			</HitList>
-			<EtcList>
-				<Scp Client="YES" Scp="MONSKL_C_PLAY_ANIM" Time="0" UseSleep="NO">
-                    <Str Str="SKL_BLANDIRCADENA" />
-                    <Num Num="2" />
-                    <Num Num="1" />
-                    <Num Num="0" />
+        <MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+            <HitList>
+                <Frame Angle="0" AniTime="250" Dist="0" ForceATK="0" HitCount="1" Length="80" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="150" Type="SQUARE" Width="30"/>
+                <Frame Angle="0" AniTime="500" Dist="0" ForceATK="0" HitCount="1" Length="80" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="300" Type="SQUARE" Width="30"/>
+            </HitList>
+            <EtcList>
+                <Scp Client="YES" Scp="MONSKL_C_PLAY_ANIM" Time="0" UseSleep="NO">
+                    <Str Str="SKL_BLANDIRCADENA"/>
+                    <Num Num="2"/>
+                    <Num Num="1"/>
+                    <Num Num="0"/>
                 </Scp>
                 <Scp Client="YES" Scp="C_COLORBLEND_ACTOR" Time="0" UseSleep="NO">
-					<Num Num="1" />
-					<Num Num="1" />
-					<Num Num="0.1" />
-					<Num Num="0.2" />
-					<Num Num="0.30000001" />
-					<Num Num="0" />
-					<Num Num="1" />
-				</Scp>
-				<Scp Client="YES" Scp="C_EFFECT" Time="0" UseSleep="NO">
-					<Str_Arg Arg="1" Str="E_warrior_blandircadena" />
-					<Str Str="None" />
-					<Num Num="0" />
-				</Scp>
-				<Scp Client="YES" Scp="C_VOICE_SOUND" Time="0" UseSleep="NO">
-					<Str Str="voice_war_atk_long_cast" />
-					<Str Str="voice_atk_long_cast_f" />
-				</Scp>
-				<Scp Client="NO" Scp="SKL_SET_IMMUNE_STATE" Time="0" UseSleep="NO">
-					<Str Str="Skill_SuperArmor_Buff" />
-					<Num Num="100" />
-				</Scp>
-				<Scp Client="YES" Scp="C_SHOCKWAVE" Time="0" UseSleep="NO">
-					<Num Num="5" />
-					<Num Num="0.1" />
-					<Num Num="45" />
-					<Num Num="999" />
-				</Scp>
-				<Scp Client="YES" Scp="C_SHOCKWAVE" Time="0" UseSleep="NO">
-					<Num Num="5" />
-					<Num Num="0.1" />
-					<Num Num="45" />
-					<Num Num="999" />
-				</Scp>
-				<Scp Client="YES" Scp="C_COLORBLEND_ACTOR" Time="0" UseSleep="NO">
-					<Num Num="1" />
-					<Num Num="1" />
-					<Num Num="0.1" />
-					<Num Num="0.1" />
-					<Num Num="0.30000001" />
-					<Num Num="0" />
-					<Num Num="1" />
-				</Scp>
-				<Scp Client="YES" Scp="C_SHOCKWAVE" Time="140" UseSleep="NO">
-					<Num Num="5" />
-					<Num Num="0.1" />
-					<Num Num="45" />
-					<Num Num="999" />
-				</Scp>
-				<Scp Client="YES" Scp="C_EFFECT" Time="440" UseSleep="NO">
-					<Str_Arg Arg="2" Str="F_warrior_blandircadena_ground" />
-					<Str Str="None" />
-					<Num Num="0" />
-				</Scp>
-				<Scp Client="YES" Scp="C_SHOCKWAVE" Time="440" UseSleep="NO">
-					<Num Num="5" />
-					<Num Num="0.80000001" />
-					<Num Num="80" />
-					<Num Num="999" />
-				</Scp>
-				<Scp Client="YES" Scp="C_COLORBLEND_ACTOR" Time="500" UseSleep="NO">
-					<Num Num="1" />
-					<Num Num="0" />
-					<Num Num="0.1" />
-					<Num Num="0.1" />
-					<Num Num="0.2" />
-					<Num Num="0" />
-					<Num Num="1" />
-					</Scp>
+                    <Num Num="1"/>
+                    <Num Num="1"/>
+                    <Num Num="0.1"/>
+                    <Num Num="0.2"/>
+                    <Num Num="0.30000001"/>
+                    <Num Num="0"/>
+                    <Num Num="1"/>
+                </Scp>
+                <Scp Client="YES" Scp="C_EFFECT" Time="0" UseSleep="NO">
+                    <Str_Arg Arg="1" Str="E_warrior_blandircadena"/>
+                    <Str Str="None"/>
+                    <Num Num="0"/>
+                </Scp>
+                <Scp Client="YES" Scp="C_VOICE_SOUND" Time="0" UseSleep="NO">
+                    <Str Str="voice_war_atk_long_cast"/>
+                    <Str Str="voice_atk_long_cast_f"/>
+                </Scp>
+                <Scp Client="NO" Scp="SKL_SET_IMMUNE_STATE" Time="0" UseSleep="NO">
+                    <Str Str="Skill_SuperArmor_Buff"/>
+                    <Num Num="100"/>
+                </Scp>
+                <Scp Client="YES" Scp="C_SHOCKWAVE" Time="0" UseSleep="NO">
+                    <Num Num="5"/>
+                    <Num Num="0.1"/>
+                    <Num Num="45"/>
+                    <Num Num="999"/>
+                </Scp>
+                <Scp Client="YES" Scp="C_SHOCKWAVE" Time="0" UseSleep="NO">
+                    <Num Num="5"/>
+                    <Num Num="0.1"/>
+                    <Num Num="45"/>
+                    <Num Num="999"/>
+                </Scp>
+                <Scp Client="YES" Scp="C_COLORBLEND_ACTOR" Time="0" UseSleep="NO">
+                    <Num Num="1"/>
+                    <Num Num="1"/>
+                    <Num Num="0.1"/>
+                    <Num Num="0.1"/>
+                    <Num Num="0.30000001"/>
+                    <Num Num="0"/>
+                    <Num Num="1"/>
+                </Scp>
+                <Scp Client="YES" Scp="C_SHOCKWAVE" Time="140" UseSleep="NO">
+                    <Num Num="5"/>
+                    <Num Num="0.1"/>
+                    <Num Num="45"/>
+                    <Num Num="999"/>
+                </Scp>
+                <Scp Client="YES" Scp="C_EFFECT" Time="440" UseSleep="NO">
+                    <Str_Arg Arg="2" Str="F_warrior_blandircadena_ground"/>
+                    <Str Str="None"/>
+                    <Num Num="0"/>
+                </Scp>
+                <Scp Client="YES" Scp="C_SHOCKWAVE" Time="440" UseSleep="NO">
+                    <Num Num="5"/>
+                    <Num Num="0.80000001"/>
+                    <Num Num="80"/>
+                    <Num Num="999"/>
+                </Scp>
+                <Scp Client="YES" Scp="C_COLORBLEND_ACTOR" Time="500" UseSleep="NO">
+                    <Num Num="1"/>
+                    <Num Num="0"/>
+                    <Num Num="0.1"/>
+                    <Num Num="0.1"/>
+                    <Num Num="0.2"/>
+                    <Num Num="0"/>
+                    <Num Num="1"/>
+                </Scp>
                 <Scp Client="NO" Scp="SKL_HIT_CIRCLE_ADJUSTMENT" Time="610" UseSleep="NO">
-                    <Pos Angle="0" Dist="20" />
-					<Num Num="60" />
-					<Str Str="None" />
-					<Str Str="Aries" />
-					<Num Num="0" />
-					<Num Num="0" />
-				<Num Num="3" />
-					<Num Num="0" />
-					<Num Num="150" />
-					<Num Num="10" />
-					<Num Num="0" />
-					<Num Num="1" />
-					<Num Num="2" />
-				</Scp>
-				<Scp Client="NO" Scp="SKL_HIT_CIRCLE_ADJUSTMENT" Time="640" UseSleep="NO">
-					<Pos Angle="0" Dist="20" />
-					<Num Num="60" />
-					<Str Str="None" />
-					<Str Str="Aries" />
-					<Num Num="0" />
-					<Num Num="0" />
-					<Num Num="3" />
-					<Num Num="0" />
-					<Num Num="150" />
-					<Num Num="10" />
-					<Num Num="0" />
-					<Num Num="1" />
-					<Num Num="2" />
-				</Scp>
-				<Scp Client="NO" Scp="SKL_HIT_CIRCLE_ADJUSTMENT" Time="670" UseSleep="NO">
-					<Pos Angle="0" Dist="20" />
-					<Num Num="70" />
-					<Str Str="None" />
-					<Str Str="Aries" />
-					<Num Num="0" />
-					<Num Num="1" />
-					<Num Num="4" />
-					<Num Num="3" />
-					<Num Num="300" />
-					<Num Num="89" />
-					<Num Num="0" />
-					<Num Num="1" />
-					<Num Num="3" />
-				</Scp>
-			</EtcList>
-			<ResultList>
-              <ToolScp Client="NO" Scp="S_R_TGT_Decrease_heal_debuff" UseSleep="NO">
-                <Str FuncTxt="local func_name = 'get_decrease_heal_debuff_tooltip_' .. TryGetProp(skill, 'ClassName', 'None')
+                    <Pos Angle="0" Dist="20"/>
+                    <Num Num="60"/>
+                    <Str Str="None"/>
+                    <Str Str="Aries"/>
+                    <Num Num="0"/>
+                    <Num Num="0"/>
+                    <Num Num="3"/>
+                    <Num Num="0"/>
+                    <Num Num="150"/>
+                    <Num Num="10"/>
+                    <Num Num="0"/>
+                    <Num Num="1"/>
+                    <Num Num="2"/>
+                </Scp>
+                <Scp Client="NO" Scp="SKL_HIT_CIRCLE_ADJUSTMENT" Time="640" UseSleep="NO">
+                    <Pos Angle="0" Dist="20"/>
+                    <Num Num="60"/>
+                    <Str Str="None"/>
+                    <Str Str="Aries"/>
+                    <Num Num="0"/>
+                    <Num Num="0"/>
+                    <Num Num="3"/>
+                    <Num Num="0"/>
+                    <Num Num="150"/>
+                    <Num Num="10"/>
+                    <Num Num="0"/>
+                    <Num Num="1"/>
+                    <Num Num="2"/>
+                </Scp>
+                <Scp Client="NO" Scp="SKL_HIT_CIRCLE_ADJUSTMENT" Time="670" UseSleep="NO">
+                    <Pos Angle="0" Dist="20"/>
+                    <Num Num="70"/>
+                    <Str Str="None"/>
+                    <Str Str="Aries"/>
+                    <Num Num="0"/>
+                    <Num Num="1"/>
+                    <Num Num="4"/>
+                    <Num Num="3"/>
+                    <Num Num="300"/>
+                    <Num Num="89"/>
+                    <Num Num="0"/>
+                    <Num Num="1"/>
+                    <Num Num="3"/>
+                </Scp>
+            </EtcList>
+            <ResultList>
+                <ToolScp Client="NO" Scp="S_R_TGT_Decrease_heal_debuff" UseSleep="NO">
+                    <Str FuncTxt="local func_name = 'get_decrease_heal_debuff_tooltip_' .. TryGetProp(skill, 'ClassName', 'None')
                local func = _G[func_name]
                if func == nil then return end
                return func(skill.Level)" Str="0" UseFunc="1"/>
-              </ToolScp>
-				<ToolScp Client="NO" Scp="S_R_COND_ABILITY" UseSleep="NO">
-					<Str Str="Retiarii12" />
-				</ToolScp>
-				<ToolScp Client="NO" Scp="S_R_TGTBUFF" UseSleep="NO">
-					<Str Str="BlandirCadena_Debuff" />
-					<Num Num="1" />
-					<Num Num="0" />
-					<Num Num="15500" />
-					<Num Num="1" />
-					<Num Num="100" />
-					<Num Num="-1" />
-				</ToolScp>
-			</ResultList>
-		</MainSkl>
-	</Skill>
-	<Skill Name="Retiarii_VitalPointProtection">
-		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
-			<HitList>
-				<Frame Angle="0" AniTime="99999" Dist="0" ForceATK="0" HitCount="1" Length="30" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="99799" Type="FAN" Width="30" />
-			</HitList>
-			<EtcList>
-				<Scp Client="YES" Scp="C_SOUND" Time="0" UseSleep="NO">
-					<Str Str="skl_eff_vitalpointprotection" />
-				</Scp>
-				<Scp Client="YES" Scp="C_VOICE_SOUND" Time="100" UseSleep="NO">
-					<Str Str="voice_war_atk_medium" />
-					<Str Str="voice_atk_medium_war_f" />
-				</Scp>
-				<Scp Client="NO" Scp="SKL_BUFF" Time="300" UseSleep="NO">
-					<Str Str="VitalProtection_Buff" />
-					<Num Num="1" />
-					<Num Num="0" />
-					<Num FuncTxt="return 10000 + obj.Level * 2000;" Num="50000" UseFunc="1" />
-					<Num Num="1" />
-					<Num Num="100" />
-					<Num Num="0" />
-				</Scp>
-			</EtcList>
-		</MainSkl>
-	</Skill>
-	<Skill Name="Retiarii_DaggerFinish">
-		<EndScripts>
-			<ToolScp Client="NO" Scp="SKL_SET_IMMUNE_STATE_REMOVE" UseSleep="YES">
-				<Str Str="Skill_SuperArmor_Buff" />
-				<Num Num="0" />
-			</ToolScp>
-		</EndScripts>
-		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
-			<MoveList>
-				<Frame Accel="1" Angle="0" Dist="0" Gravity="600" Height="0" JumpPower="300" MoveType="0" Time="0" />
-				<Frame Accel="1" Angle="0" Dist="70" Gravity="600" Height="0" JumpPower="150" MoveType="1" Time="500" />
-			</MoveList>
-			<HitList>
-				<Frame Angle="0" AniTime="600" Dist="0" ForceATK="0" HitCount="1" Length="5" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="400" Type="CIRCLE" Width="50" />
-			</HitList>
-			<EtcList>
-				<Scp Client="NO" Scp="SKL_SET_IMMUNE_STATE" Time="0" UseSleep="NO">
-					<Str Str="Skill_SuperArmor_Buff" />
-					<Num Num="100" />
-				</Scp>
-				<Scp Client="YES" Scp="C_EFFECT" Time="150" UseSleep="NO">
-					<Str_Arg Arg="5.5" Str="F_explosion123_2" />
-					<Str Str="Bip01 Pelvis" />
-					<Num Num="0" />
-				</Scp>
-				<Scp Client="YES" Scp="C_VOICE_SOUND" Time="200" UseSleep="NO">
-					<Str Str="voice_war_m_tridentfinish_cast" />
-					<Str Str="voice_war_f_tridentfinish_cast" />
-				</Scp>
-				<Scp Client="YES" Scp="C_EFFECT" Time="400" UseSleep="NO">
-					<Str_Arg Arg="1" Str="E_daggerFinish001" />
-					<Str Str="Dummy_emitter" />
-					<Num Num="0" />
-				</Scp>
-				<Scp Client="YES" Scp="C_EFFECT" Time="500" UseSleep="NO">
-					<Str_Arg Arg="4" Str="F_buff_basic051" />
-					<Str Str="None" />
-					<Num Num="0" />
-				</Scp>
-				<Scp Client="YES" Scp="C_EFFECT" Time="600" UseSleep="NO">
-					<Str_Arg Arg="2" Str="F_smoke173" />
-					<Str Str="None" />
-					<Num Num="0" />
-				</Scp>
-			</EtcList>
-		<ResultList>
-                <ToolScp Client="NO" Scp="S_R_TGTBUFF" UseSleep="NO">
-                    <Str Str="Common_Slow" />
-                    <Num Num="1" />
-                    <Num Num="0" />
-                    <Num Num="2500" />
-                    <Num Num="1" />
-                    <Num Num="100" />
-                    <Num Num="-1" />
                 </ToolScp>
-            </ResultList>            
+                <ToolScp Client="NO" Scp="S_R_COND_ABILITY" UseSleep="NO">
+                    <Str Str="Retiarii12"/>
+                </ToolScp>
+                <ToolScp Client="NO" Scp="S_R_TGTBUFF" UseSleep="NO">
+                    <Str Str="BlandirCadena_Debuff"/>
+                    <Num Num="1"/>
+                    <Num Num="0"/>
+                    <Num Num="15500"/>
+                    <Num Num="1"/>
+                    <Num Num="100"/>
+                    <Num Num="-1"/>
+                </ToolScp>
+            </ResultList>
         </MainSkl>
-	</Skill>
-	<Skill Name="Retiarii_DaggerGuard">
-		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
-			<HitList>
-				<Frame Angle="0" AniTime="999999" Dist="0" ForceATK="0" HitCount="1" Length="30" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="999799" Type="FAN" Width="30" />
-			</HitList>
-			<EtcList>
-				<Scp Client="YES" Scp="C_SOUND" Time="0" UseSleep="NO">
-					<Str Str="skl_eff_daggerguard_shot" />
-				</Scp>
-				<Scp Client="YES" Scp="C_VOICE_SOUND" Time="100" UseSleep="NO">
-					<Str Str="voice_war_atk_medium" />
-					<Str Str="voice_atk_medium_war_f" />
-				</Scp>
-				<Scp Client="NO" Scp="SKL_BUFF" Time="300" UseSleep="NO">
-					<Str Str="DaggerGuard_Buff" />
-					<Num FuncTxt="return obj.Level;" Num="1" UseFunc="1" />
-					<Num Num="0" />
-					<Num Num="1800000" />
-					<Num Num="1" />
-					<Num Num="100" />
-					<Num Num="0" />
-				</Scp>
-			</EtcList>
-		</MainSkl>
-	</Skill>
-	<Skill Name="Retiarii_EquipDesrption">
-		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
-			<HitList>
-				<Frame Angle="0" AniTime="450" Dist="0" ForceATK="0" HitCount="1" Length="80" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="400" Type="SQUARE" Width="50" />
-			</HitList>
-			<EtcList>
-				<Scp Client="YES" Scp="MONSKL_C_PLAY_ANIM" Time="0" UseSleep="NO">
-                    <Str Str="SKL_EQUIPDESRPTION" />
-                    <Num Num="2.2" />
-                    <Num Num="1" />
-                    <Num Num="0" />
+    </Skill>
+    <Skill Name="Retiarii_VitalPointProtection">
+        <MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+            <HitList>
+                <Frame Angle="0" AniTime="99999" Dist="0" ForceATK="0" HitCount="1" Length="30" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="99799" Type="FAN" Width="30"/>
+            </HitList>
+            <EtcList>
+                <Scp Client="YES" Scp="C_SOUND" Time="0" UseSleep="NO">
+                    <Str Str="skl_eff_vitalpointprotection"/>
+                </Scp>
+                <Scp Client="YES" Scp="C_VOICE_SOUND" Time="100" UseSleep="NO">
+                    <Str Str="voice_war_atk_medium"/>
+                    <Str Str="voice_atk_medium_war_f"/>
+                </Scp>
+                <Scp Client="NO" Scp="SKL_BUFF" Time="300" UseSleep="NO">
+                    <Str Str="VitalProtection_Buff"/>
+                    <Num Num="1"/>
+                    <Num Num="0"/>
+                    <Num FuncTxt="return 10000 + obj.Level * 2000;" Num="50000" UseFunc="1"/>
+                    <Num Num="1"/>
+                    <Num Num="100"/>
+                    <Num Num="0"/>
+                </Scp>
+            </EtcList>
+        </MainSkl>
+    </Skill>
+    <Skill Name="Retiarii_DaggerFinish">
+        <EndScripts>
+            <ToolScp Client="NO" Scp="SKL_SET_IMMUNE_STATE_REMOVE" UseSleep="YES">
+                <Str Str="Skill_SuperArmor_Buff"/>
+                <Num Num="0"/>
+            </ToolScp>
+        </EndScripts>
+        <MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+            <MoveList>
+                <Frame Accel="1" Angle="0" Dist="0" Gravity="600" Height="0" JumpPower="300" MoveType="0" Time="0"/>
+                <Frame Accel="1" Angle="0" Dist="70" Gravity="600" Height="0" JumpPower="150" MoveType="1" Time="500"/>
+            </MoveList>
+            <HitList>
+                <Frame Angle="0" AniTime="600" Dist="0" ForceATK="0" HitCount="1" Length="5" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="400" Type="CIRCLE" Width="50"/>
+            </HitList>
+            <EtcList>
+                <Scp Client="NO" Scp="SKL_SET_IMMUNE_STATE" Time="0" UseSleep="NO">
+                    <Str Str="Skill_SuperArmor_Buff"/>
+                    <Num Num="100"/>
+                </Scp>
+                <Scp Client="YES" Scp="C_EFFECT" Time="150" UseSleep="NO">
+                    <Str_Arg Arg="5.5" Str="F_explosion123_2"/>
+                    <Str Str="Bip01 Pelvis"/>
+                    <Num Num="0"/>
                 </Scp>
                 <Scp Client="YES" Scp="C_VOICE_SOUND" Time="200" UseSleep="NO">
-					<Str Str="voice_war_m_equipdesrption_cast" />
-					<Str Str="voice_war_f_equipdesrption_cast" />
-				</Scp>
-			</EtcList>
-			<ResultList>
-				<ToolScp Client="NO" Scp="S_R_TGTBUFF" UseSleep="NO">
-					<Str Str="EquipDesrption_Debeff" />
-					<Num Num="1" />
-					<Num Num="0" />
-					<Num Num="5000" />
-					<Num Num="1" />
-					<Num Num="100" />
-					<Num Num="-1" />
-				</ToolScp>
-			</ResultList>
-		</MainSkl>
-	</Skill>
-	<Skill Name="Retiarii_TridentFinish">
-		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
-			<HitList>
-				<Frame Angle="0" AniTime="300" Dist="0" ForceATK="0" HitCount="1" Length="70" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="100" Type="SQUARE" Width="25" />
-			</HitList>
-			<EtcList>
-				<Scp Client="YES" Scp="C_SOUND" Time="0" UseSleep="NO">
-					<Str Str="skl_eff_short_impact_whoosh_1" />
-				</Scp>
-				<Scp Client="YES" Scp="C_SOUND" Time="100" UseSleep="NO">
-					<Str Str="skl_eff_short_impact_whoosh_2" />
-				</Scp>
-				<Scp Client="YES" Scp="C_VOICE_SOUND" Time="100" UseSleep="NO">
-					<Str Str="voice_war_m_tridentfinish_cast" />
-					<Str Str="voice_war_f_tridentfinish_cast" />
-				</Scp>
-			</EtcList>
-		</MainSkl>
-	</Skill>
-	<Skill Name="Retiarii_ThrowingFishingNet">
-		<KeyInput>
-			<ToolScp Client="YES" Scp="SKL_KEY_GROUND_EVENT" UseSleep="NO">
-				<Num Num="3" />
-				<Num Num="0" />
-				<Num Num="0" />
-				<Num Num="1" />
-				<Num Num="300" />
-				<Num Num="0.1" />
-				<Num Num="0" />
-				<Num Num="0" />
-				<Num Num="0" />
-				<Str_Arg Arg="1" Str="None" />
-				<Str Str="None" />
-				<Num Num="0" />
-				<Num Num="0" />
-				<Num Num="5" />
-				<Num Num="1" />
-				<Num Num="45" />
-				<Num Num="0" />
-				<Num Num="0" />
-				<Num Num="1" />
-				<Num Num="0" />
-			</ToolScp>
-		</KeyInput>
-		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
-			<HitList>
-				<Frame Angle="0" AniTime="99999" Dist="0" ForceATK="0" HitCount="1" Length="30" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="99799" Type="FAN" Width="30" />
-			</HitList>
-			<EtcList>
-				<Scp Client="YES" Scp="C_EFFECT" Time="0" UseSleep="NO">
-					<Str_Arg Arg="1" Str="I_warrior_FishingNets_Throwing_1" />
-					<Str Str="Bip01 R Hand" />
-					<Num Num="0" />
-				</Scp>
-				<Scp Client="NO" Scp="SKL_SET_TARGET_CIRCLE" Time="0" UseSleep="NO">
-					<Pos Angle="0" Dist="0" PosType="3" />
-					<Num Num="60" />
-					<Num FuncTxt="local value = 3 + obj.Level*3;
+                    <Str Str="voice_war_m_tridentfinish_cast"/>
+                    <Str Str="voice_war_f_tridentfinish_cast"/>
+                </Scp>
+                <Scp Client="YES" Scp="C_EFFECT" Time="400" UseSleep="NO">
+                    <Str_Arg Arg="1" Str="E_daggerFinish001"/>
+                    <Str Str="Dummy_emitter"/>
+                    <Num Num="0"/>
+                </Scp>
+                <Scp Client="YES" Scp="C_EFFECT" Time="500" UseSleep="NO">
+                    <Str_Arg Arg="4" Str="F_buff_basic051"/>
+                    <Str Str="None"/>
+                    <Num Num="0"/>
+                </Scp>
+                <Scp Client="YES" Scp="C_EFFECT" Time="600" UseSleep="NO">
+                    <Str_Arg Arg="2" Str="F_smoke173"/>
+                    <Str Str="None"/>
+                    <Num Num="0"/>
+                </Scp>
+            </EtcList>
+            <ResultList>
+                <ToolScp Client="NO" Scp="S_R_TGTBUFF" UseSleep="NO">
+                    <Str Str="Common_Slow"/>
+                    <Num Num="1"/>
+                    <Num Num="0"/>
+                    <Num Num="2500"/>
+                    <Num Num="1"/>
+                    <Num Num="100"/>
+                    <Num Num="-1"/>
+                </ToolScp>
+            </ResultList>
+        </MainSkl>
+    </Skill>
+    <Skill Name="Retiarii_DaggerGuard">
+        <MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+            <HitList>
+                <Frame Angle="0" AniTime="999999" Dist="0" ForceATK="0" HitCount="1" Length="30" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="999799" Type="FAN" Width="30"/>
+            </HitList>
+            <EtcList>
+                <Scp Client="YES" Scp="C_SOUND" Time="0" UseSleep="NO">
+                    <Str Str="skl_eff_daggerguard_shot"/>
+                </Scp>
+                <Scp Client="YES" Scp="C_VOICE_SOUND" Time="100" UseSleep="NO">
+                    <Str Str="voice_war_atk_medium"/>
+                    <Str Str="voice_atk_medium_war_f"/>
+                </Scp>
+                <Scp Client="NO" Scp="SKL_BUFF" Time="300" UseSleep="NO">
+                    <Str Str="DaggerGuard_Buff"/>
+                    <Num FuncTxt="return obj.Level;" Num="1" UseFunc="1"/>
+                    <Num Num="0"/>
+                    <Num Num="1800000"/>
+                    <Num Num="1"/>
+                    <Num Num="100"/>
+                    <Num Num="0"/>
+                </Scp>
+            </EtcList>
+        </MainSkl>
+    </Skill>
+    <Skill Name="Retiarii_EquipDesrption">
+        <MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+            <HitList>
+                <Frame Angle="0" AniTime="450" Dist="0" ForceATK="0" HitCount="1" Length="80" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="400" Type="SQUARE" Width="50"/>
+            </HitList>
+            <EtcList>
+                <Scp Client="YES" Scp="MONSKL_C_PLAY_ANIM" Time="0" UseSleep="NO">
+                    <Str Str="SKL_EQUIPDESRPTION"/>
+                    <Num Num="2.2"/>
+                    <Num Num="1"/>
+                    <Num Num="0"/>
+                </Scp>
+                <Scp Client="YES" Scp="C_VOICE_SOUND" Time="200" UseSleep="NO">
+                    <Str Str="voice_war_m_equipdesrption_cast"/>
+                    <Str Str="voice_war_f_equipdesrption_cast"/>
+                </Scp>
+            </EtcList>
+            <ResultList>
+                <ToolScp Client="NO" Scp="S_R_TGTBUFF" UseSleep="NO">
+                    <Str Str="EquipDesrption_Debeff"/>
+                    <Num Num="1"/>
+                    <Num Num="0"/>
+                    <Num Num="5000"/>
+                    <Num Num="1"/>
+                    <Num Num="100"/>
+                    <Num Num="-1"/>
+                </ToolScp>
+            </ResultList>
+        </MainSkl>
+    </Skill>
+    <Skill Name="Retiarii_TridentFinish">
+        <MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+            <HitList>
+                <Frame Angle="0" AniTime="300" Dist="0" ForceATK="0" HitCount="1" Length="70" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="100" Type="SQUARE" Width="25"/>
+            </HitList>
+            <EtcList>
+                <Scp Client="YES" Scp="C_SOUND" Time="0" UseSleep="NO">
+                    <Str Str="skl_eff_short_impact_whoosh_1"/>
+                </Scp>
+                <Scp Client="YES" Scp="C_SOUND" Time="100" UseSleep="NO">
+                    <Str Str="skl_eff_short_impact_whoosh_2"/>
+                </Scp>
+                <Scp Client="YES" Scp="C_VOICE_SOUND" Time="100" UseSleep="NO">
+                    <Str Str="voice_war_m_tridentfinish_cast"/>
+                    <Str Str="voice_war_f_tridentfinish_cast"/>
+                </Scp>
+            </EtcList>
+        </MainSkl>
+    </Skill>
+    <Skill Name="Retiarii_ThrowingFishingNet">
+        <KeyInput>
+            <ToolScp Scp="SKL_KEY_GROUND_EVENT" Client="YES" UseSleep="NO">
+                <Num Num="3"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+                <Num Num="1"/>
+                <Num Num="300"/>
+                <Num Num="0.1"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+                <Str_Arg Str="None" Arg="1"/>
+                <Str Str="None"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+                <Num Num="5"/>
+                <Num Num="1"/>
+                <Num Num="45"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+                <Num Num="1"/>
+                <Num Num="0"/>
+            </ToolScp>
+        </KeyInput>
+        <MainSkl ScrLock="None" JumpFlee="NO" MSPDToUsePos="0">
+            <HitList>
+                <Frame Type="FAN" Time="99799" HitCount="1" TermMin="0" TermMax="0" PosType="0" Dist="0" RandDist="0" RandomPerHit="0" Angle="0" Width="30" Length="30" SklAngle="0.17453292" AniTime="99999" RotAngle="0" ForceATK="0" ScriptIndex="0" ScriptName="" SkillType="0"/>
+            </HitList>
+            <EtcList>
+                <Scp Scp="C_EFFECT" Client="YES" UseSleep="NO" Time="0">
+                    <Str_Arg Str="I_warrior_FishingNets_Throwing_1" Arg="1"/>
+                    <Str Str="Bip01 R Hand"/>
+                    <Num Num="0"/>
+                </Scp>
+                <Scp Scp="SKL_SET_TARGET_CIRCLE" Client="NO" UseSleep="NO" Time="0">
+                    <Pos Angle="0" Dist="0" PosType="3"/>
+                    <Num Num="60"/>
+                    <Num Num="10" UseFunc="1" FuncTxt="local value = 3 + obj.Level*3;
                     if IsPVPServer(self) == 1 or IsPVPField(self) == 1 then
                     value = value / 3
                     end
-                    return value" Num="10" UseFunc="1" />
-					<Num Num="2" />
-					<Num Num="0" />
-					<Num Num="0" />
-					<Num Num="0" />
-				</Scp>
-				<Scp Client="YES" Scp="C_VOICE_SOUND" Time="200" UseSleep="NO">
-					<Str Str="voice_war_m_throwingfishingnet_cast" />
-					<Str Str="voice_war_f_throwingfishingnet_cast" />
-				</Scp>
-				<Scp Client="YES" Scp="C_EFFECT_POS" Time="200" UseSleep="NO">
-					<Str_Arg Arg="1.3" Str="I_warrior_FishingNets_Throwing_2" />
-					<Pos Angle="0" Dist="3.8255448e-43" PosType="3" />
-					<Num Num="0" />
-					<Str Str="None" />
-				</Scp>
-				<Scp Client="NO" Scp="SKL_TGT_BUFF" Time="300" UseSleep="NO">
-					<Str Str="ThrowingFishingNet_Debuff" />
-					<Num Num="1" />
-					<Num Num="0" />
-					<Num FuncTxt="local time = 5000 + obj.Level * 1000 + (GetExProp(self, 'ITEM_THROWINGFISHINGNET_TIMEUP')); local target = GetSkillTarget(self); if target ~= nil then     if IS_PC(target) == true then         time = time * 0.33;     else         if TryGetProp(target, 'MonRank') == 'Boss' then             time = time * 0.5;         end     end end return time;" Num="7000" UseFunc="1" />
-					<Num Num="1" />
-					<Num Num="100" />
-					<Num Num="0" />
-				</Scp>
-                <Scp Client="NO" Scp="SKL_TGT_BUFF_ABIL" Time="300" UseSleep="NO">
-                    <Str Str="Retiarii13" />
-                    <Str Str="ThrowingFishingNetSilence_Debuff" />
-                    <Num Num="1" />
-                    <Num Num="-1" />
-                    <Num Num="3000" />
-                    <Num Num="0" />
-                    <Num Num="1" />
-                    <Num Num="100" />
+                    return value"/>
+                    <Num Num="2"/>
+                    <Num Num="0"/>
+                    <Num Num="0"/>
+                    <Num Num="0"/>
                 </Scp>
-				<Scp Client="YES" Scp="C_EFFECT_POS" Time="600" UseSleep="NO">
-					<Str_Arg Arg="3" Str="F_smoke082" />
-					<Pos Angle="0" Dist="3.8255448e-43" PosType="3" />
-					<Num Num="0" />
-					<Str Str="None" />
-				</Scp>
-				<Scp Client="YES" Scp="C_EFFECT_POS" Time="680" UseSleep="NO">
-					<Str_Arg Arg="0.64999998" Str="F_ground071_smoke" />
-					<Pos Angle="0" Dist="3.8255448e-43" PosType="3" />
-					<Num Num="0" />
-					<Str Str="None" />
-				</Scp>
-                <Scp Client="NO" Scp="SKL_TGT_REMOVE_BUFF" Time="500" UseSleep="NO">
-                <Str FuncTxt="local func_name = 'get_remove_buff_tooltip_' .. TryGetProp(obj, 'ClassName', 'None')
+                <Scp Scp="C_VOICE_SOUND" Client="YES" UseSleep="NO" Time="200">
+                    <Str Str="voice_war_m_throwingfishingnet_cast"/>
+                    <Str Str="voice_war_f_throwingfishingnet_cast"/>
+                </Scp>
+                <Scp Scp="C_EFFECT_POS" Client="YES" UseSleep="NO" Time="200">
+                    <Str_Arg Str="I_warrior_FishingNets_Throwing_2" Arg="1.3"/>
+                    <Pos Angle="0" Dist="3.8255448e-43" PosType="3"/>
+                    <Num Num="0"/>
+                    <Str Str="None"/>
+                </Scp>
+                <Scp Scp="SKL_TGT_BUFF" Client="NO" UseSleep="NO" Time="300">
+                    <Str Str="ThrowingFishingNet_Debuff"/>
+                    <Num Num="1"/>
+                    <Num Num="0"/>
+                    <Num Num="7000" UseFunc="1" FuncTxt="local time = 5000 + obj.Level * 1000 + (GetExProp(self, 'ITEM_THROWINGFISHINGNET_TIMEUP')); local target = GetSkillTarget(self); if target ~= nil then     if IS_PC(target) == true then         time = time * 0.33;     else         if TryGetProp(target, 'MonRank') == 'Boss' then             time = time * 0.5;         end     end end return time;"/>
+                    <Num Num="1"/>
+                    <Num Num="100"/>
+                    <Num Num="0"/>
+                </Scp>
+                <Scp Scp="SKL_TGT_BUFF_ABIL" Client="NO" UseSleep="NO" Time="300">
+                    <Str Str="Retiarii13"/>
+                    <Str Str="ThrowingFishingNetSilence_Debuff"/>
+                    <Num Num="1"/>
+                    <Num Num="-1"/>
+                    <Num Num="3000"/>
+                    <Num Num="0"/>
+                    <Num Num="1"/>
+                    <Num Num="100"/>
+                </Scp>
+                <Scp Scp="C_EFFECT_POS" Client="YES" UseSleep="NO" Time="600">
+                    <Str_Arg Str="F_smoke082" Arg="3"/>
+                    <Pos Angle="0" Dist="3.8255448e-43" PosType="3"/>
+                    <Num Num="0"/>
+                    <Str Str="None"/>
+                </Scp>
+                <Scp Scp="C_EFFECT_POS" Client="YES" UseSleep="NO" Time="680">
+                    <Str_Arg Str="F_ground071_smoke" Arg="0.64999998"/>
+                    <Pos Angle="0" Dist="3.8255448e-43" PosType="3"/>
+                    <Num Num="0"/>
+                    <Str Str="None"/>
+                </Scp>
+                <Scp Scp="SKL_TGT_REMOVE_BUFF" Client="NO" UseSleep="NO" Time="500">
+                    <Str Str="0" UseFunc="1" FuncTxt="local func_name = 'get_remove_buff_tooltip_' .. TryGetProp(obj, 'ClassName', 'None')
                local func = _G[func_name]
                if func == nil then return end
-               return func(obj.Level)" Str="0" UseFunc="1"/>
-              </Scp>   
-			</EtcList>
-		</MainSkl>
-	</Skill>
-	<Skill Name="Retiarii_FishingNetsDraw">
-		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
-			<HitList>
-				<Frame Angle="0" AniTime="99999" Dist="0" ForceATK="0" HitCount="1" Length="30" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="99799" Type="FAN" Width="30" />
-			</HitList>
-			<EtcList>
-				<Scp Client="NO" Scp="SKL_SET_TARGET_FAN_BOSSCHECK" Time="0" UseSleep="NO">
-					<Pos Angle="0" Dist="3.8255448e-43" />
-					<Num Num="55" />
-					<Num Num="160" />
-					<Num FuncTxt="local value = 3 + obj.Level*3;
+               return func(obj.Level)"/>
+                </Scp>
+            </EtcList>
+        </MainSkl>
+        <ByCondSkills>
+            <SubSkl>
+                <Cond>
+                    <ToolScp Scp="SKL_SELECT_ABIL" Client="NO" UseSleep="NO">
+                        <Str Str="Retiarii24"/>
+                    </ToolScp>
+                </Cond>
+                <Skill ScrLock="None" JumpFlee="NO" MSPDToUsePos="0">
+                    <HitList>
+                        <Frame Type="FAN" Time="99799" HitCount="1" TermMin="0" TermMax="0" PosType="0" Dist="0" RandDist="0" RandomPerHit="0" Angle="0" Width="30" Length="30" SklAngle="0.17453292" AniTime="99999" RotAngle="0" ForceATK="0" ScriptIndex="0" ScriptName="" SkillType="0"/>
+                    </HitList>
+                    <EtcList>
+                        <Scp Scp="C_EFFECT" Client="YES" UseSleep="NO" Time="0">
+                            <Str_Arg Str="I_warrior_FishingNets_Throwing_1" Arg="1"/>
+                            <Str Str="Bip01 R Hand"/>
+                            <Num Num="0"/>
+                        </Scp>
+                        <Scp Scp="SKL_SET_TARGET_CIRCLE" Client="NO" UseSleep="NO" Time="0">
+                            <Pos Angle="0" Dist="0" PosType="3"/>
+                            <Num Num="120"/>
+                            <Num Num="10" UseFunc="1" FuncTxt="    local value = (3 + obj.Level * 3) * 2;
+    if IsPVPServer(self) == 1 or IsPVPField(self) == 1 then
+    value = value / 3
+    end
+    return value"/>
+                            <Num Num="2"/>
+                            <Num Num="0"/>
+                            <Num Num="0"/>
+                            <Num Num="0"/>
+                        </Scp>
+                        <Scp Scp="C_SOUND" Client="YES" UseSleep="NO" Time="0">
+                            <Str Str="skl_eff_retiarii_throwingfishingnet_shot_abil"/>
+                        </Scp>
+                        <Scp Scp="C_VOICE_SOUND" Client="YES" UseSleep="NO" Time="200">
+                            <Str Str="voice_war_m_throwingfishingnet_cast"/>
+                            <Str Str="voice_war_f_throwingfishingnet_cast"/>
+                        </Scp>
+                        <Scp Scp="C_EFFECT_POS" Client="YES" UseSleep="NO" Time="200">
+                            <Str_Arg Str="I_warrior_FishingNets_Throwing_2" Arg="2.5999999"/>
+                            <Pos Angle="0" Dist="3.8255448e-43" PosType="3"/>
+                            <Num Num="0"/>
+                            <Str Str="None"/>
+                        </Scp>
+                        <Scp Scp="SKL_TGT_BUFF_ABIL" Client="NO" UseSleep="NO" Time="300">
+                            <Str Str="Retiarii13"/>
+                            <Str Str="ThrowingFishingNetSilence_Debuff"/>
+                            <Num Num="1"/>
+                            <Num Num="-1"/>
+                            <Num Num="3000"/>
+                            <Num Num="0"/>
+                            <Num Num="1"/>
+                            <Num Num="100"/>
+                        </Scp>
+                        <Scp Scp="SKL_TGT_BUFF" Client="NO" UseSleep="NO" Time="300">
+                            <Str Str="ThrowingFishingNet_Debuff"/>
+                            <Num Num="1"/>
+                            <Num Num="0"/>
+                            <Num Num="7000" UseFunc="1" FuncTxt="local time = 5000 + obj.Level * 1000 + (GetExProp(self, 'ITEM_THROWINGFISHINGNET_TIMEUP')); local target = GetSkillTarget(self); if target ~= nil then     if IS_PC(target) == true then         time = time * 0.33;     else         if TryGetProp(target, 'MonRank') == 'Boss' then             time = time * 0.5;         end     end end return time;"/>
+                            <Num Num="1"/>
+                            <Num Num="100"/>
+                            <Num Num="0"/>
+                        </Scp>
+                        <Scp Scp="SKL_TGT_REMOVE_BUFF" Client="NO" UseSleep="NO" Time="500">
+                            <Str Str="0" UseFunc="1" FuncTxt="local func_name = 'get_remove_buff_tooltip_' .. TryGetProp(obj, 'ClassName', 'None')
+               local func = _G[func_name]
+               if func == nil then return end
+               return func(obj.Level)"/>
+                        </Scp>
+                        <Scp Scp="C_EFFECT_POS" Client="YES" UseSleep="NO" Time="600">
+                            <Str_Arg Str="F_smoke082" Arg="4"/>
+                            <Pos Angle="0" Dist="3.8255448e-43" PosType="3"/>
+                            <Num Num="0"/>
+                            <Str Str="None"/>
+                        </Scp>
+                        <Scp Scp="C_EFFECT_POS" Client="YES" UseSleep="NO" Time="680">
+                            <Str_Arg Str="F_ground071_smoke" Arg="1"/>
+                            <Pos Angle="0" Dist="3.8255448e-43" PosType="3"/>
+                            <Num Num="0"/>
+                            <Str Str="None"/>
+                        </Scp>
+                    </EtcList>
+                </Skill>
+            </SubSkl>
+        </ByCondSkills>
+    </Skill>
+    <Skill Name="Retiarii_FishingNetsDraw">
+        <MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+            <HitList>
+                <Frame Angle="0" AniTime="99999" Dist="0" ForceATK="0" HitCount="1" Length="30" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="99799" Type="FAN" Width="30"/>
+            </HitList>
+            <EtcList>
+                <Scp Client="NO" Scp="SKL_SET_TARGET_FAN_BOSSCHECK" Time="0" UseSleep="NO">
+                    <Pos Angle="0" Dist="3.8255448e-43"/>
+                    <Num Num="55"/>
+                    <Num Num="160"/>
+                    <Num FuncTxt="local value = 3 + obj.Level*3;
                     if IsPVPServer(self) == 1 or IsPVPField(self) == 1 then
                     value = value / 3
                     end
-                    return value" Num="8" UseFunc="1" />
-					<Num Num="2" />
-					<Num Num="0" />
-					<Num Num="1" />
-					<Num Num="1" />
-					<Num Num="1" />
-				</Scp>
-				<Scp Client="YES" Scp="C_SOUND" Time="0" UseSleep="NO">
-					<Str Str="skl_eff_fishingnetdraw_cast" />
-				</Scp>
-				<Scp Client="YES" Scp="C_EFFECT" Time="100" UseSleep="NO">
-					<Str_Arg Arg="1.5" Str="I_warrior_pullrete" />
-					<Str Str="Dummy_emitter" />
-					<Num Num="0" />
-				</Scp>
-				<Scp Client="YES" Scp="C_VOICE_SOUND" Time="200" UseSleep="NO">
-					<Str Str="voice_war_m_fishingnetsdraw_cast" />
-					<Str Str="voice_war_f_fishingnetsdraw_cast" />
-				</Scp>
-				<Scp Client="YES" Scp="MONSKL_C_PLAY_ANIM" Time="700" UseSleep="NO">
-					<Str Str="SKL_FISHINGNETS_DEBUFF" />
-					<Num Num="1" />
-					<Num Num="1" />
-					<Num Num="0" />
-				</Scp>
-				<Scp Client="YES" Scp="C_SOUND" Time="800" UseSleep="NO">
-					<Str Str="skl_eff_fishingnetdraw_shot" />
-				</Scp>
-				<Scp Client="NO" Scp="SKL_TGT_BUFF_ABIL" Time="900" UseSleep="NO">
-					<Str Str="Retiarii13" />
-					<Str Str="FishingNetsDrawSilence_Debuff" />
-					<Num Num="1" />
-					<Num Num="-1" />
-                    <Num Num="2000" />
-					<Num Num="0" />
-					<Num Num="1" />
-					<Num Num="100" />
-				</Scp>
-				<Scp Client="NO" Scp="RETIARII_FISHINGNETSDRAW" Time="1000" UseSleep="NO">
-					<Pos Angle="0.0082468344" Dist="30.267237" Rand="10" />
-					<Num Num="200" />
-					<Num Num="300" />
-					<Num Num="1" />
-					<Num Num="1" />
-					<Str Str="FishingNetsDraw_Debuff" />
-                    <Num FuncTxt="return 2500 + obj.Level * 1000" UseFunc="1" Num="3000" />
-				</Scp>
-			</EtcList>
-		</MainSkl>
-	</Skill>
-	<Skill Name="Retiarii_Quest1">
-		<KeyInput>
-			<ToolScp Client="YES" Scp="SKL_KEY_GROUND_EVENT" UseSleep="NO">
-				<Num Num="3" />
-				<Num Num="0" />
-				<Num Num="0" />
-				<Num Num="1" />
-				<Num Num="200" />
-				<Num Num="0.1" />
-				<Num Num="0" />
-				<Num Num="0" />
-				<Num Num="0" />
-				<Str_Arg Arg="1" Str="None" />
-				<Str Str="None" />
-				<Num Num="0" />
-				<Num Num="0" />
-				<Num Num="5" />
-				<Num Num="1" />
-				<Num Num="45" />
-				<Num Num="0" />
-				<Num Num="0" />
-				<Num Num="0" />
-				<Num Num="0" />
-			</ToolScp>
-		</KeyInput>
-		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
-			<HitList>
-				<Frame Angle="0" AniTime="99999" Dist="0" ForceATK="0" HitCount="1" Length="120" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="99799" Type="FAN" Width="30" />
-			</HitList>
-			<EtcList>
-				<Scp Client="NO" Scp="SKL_SET_TARGET_CIRCLE" Time="0" UseSleep="NO">
-					<Pos Angle="0" Dist="0" PosType="3" />
-					<Num Num="15" />
-					<Num Num="5" />
-					<Num Num="2" />
-					<Num Num="0" />
-					<Num Num="1" />
-				</Scp>
-				<Scp Client="YES" Scp="C_EFFECT" Time="0" UseSleep="NO">
-					<Str_Arg Arg="1" Str="I_warrior_FishingNets_Throwing_1" />
-					<Str Str="Bip01 R Hand" />
-					<Num Num="0" />
-				</Scp>
-				<Scp Client="YES" Scp="C_EFFECT_POS" Time="200" UseSleep="NO">
-					<Str_Arg Arg="0.64999998" Str="I_warrior_FishingNets_Throwing_2" />
-					<Pos Angle="0" Dist="3.8255448e-43" PosType="3" />
-					<Num Num="0" />
-					<Str Str="None" />
-				</Scp>
-			</EtcList>
-		</MainSkl>
-	</Skill>
-	</ToolSkill>
+                    return value" Num="8" UseFunc="1"/>
+                    <Num Num="2"/>
+                    <Num Num="0"/>
+                    <Num Num="1"/>
+                    <Num Num="1"/>
+                    <Num Num="1"/>
+                </Scp>
+                <Scp Client="YES" Scp="C_SOUND" Time="0" UseSleep="NO">
+                    <Str Str="skl_eff_fishingnetdraw_cast"/>
+                </Scp>
+                <Scp Client="YES" Scp="C_EFFECT" Time="100" UseSleep="NO">
+                    <Str_Arg Arg="1.5" Str="I_warrior_pullrete"/>
+                    <Str Str="Dummy_emitter"/>
+                    <Num Num="0"/>
+                </Scp>
+                <Scp Client="YES" Scp="C_VOICE_SOUND" Time="200" UseSleep="NO">
+                    <Str Str="voice_war_m_fishingnetsdraw_cast"/>
+                    <Str Str="voice_war_f_fishingnetsdraw_cast"/>
+                </Scp>
+                <Scp Client="YES" Scp="MONSKL_C_PLAY_ANIM" Time="700" UseSleep="NO">
+                    <Str Str="SKL_FISHINGNETS_DEBUFF"/>
+                    <Num Num="1"/>
+                    <Num Num="1"/>
+                    <Num Num="0"/>
+                </Scp>
+                <Scp Client="YES" Scp="C_SOUND" Time="800" UseSleep="NO">
+                    <Str Str="skl_eff_fishingnetdraw_shot"/>
+                </Scp>
+                <Scp Client="NO" Scp="SKL_TGT_BUFF_ABIL" Time="900" UseSleep="NO">
+                    <Str Str="Retiarii13"/>
+                    <Str Str="FishingNetsDrawSilence_Debuff"/>
+                    <Num Num="1"/>
+                    <Num Num="-1"/>
+                    <Num Num="2000"/>
+                    <Num Num="0"/>
+                    <Num Num="1"/>
+                    <Num Num="100"/>
+                </Scp>
+                <Scp Client="NO" Scp="RETIARII_FISHINGNETSDRAW" Time="1000" UseSleep="NO">
+                    <Pos Angle="0.0082468344" Dist="30.267237" Rand="10"/>
+                    <Num Num="200"/>
+                    <Num Num="300"/>
+                    <Num Num="1"/>
+                    <Num Num="1"/>
+                    <Str Str="FishingNetsDraw_Debuff"/>
+                    <Num FuncTxt="return 2500 + obj.Level * 1000" UseFunc="1" Num="3000"/>
+                </Scp>
+            </EtcList>
+        </MainSkl>
+    </Skill>
+    <Skill Name="Retiarii_Quest1">
+        <KeyInput>
+            <ToolScp Client="YES" Scp="SKL_KEY_GROUND_EVENT" UseSleep="NO">
+                <Num Num="3"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+                <Num Num="1"/>
+                <Num Num="200"/>
+                <Num Num="0.1"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+                <Str_Arg Arg="1" Str="None"/>
+                <Str Str="None"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+                <Num Num="5"/>
+                <Num Num="1"/>
+                <Num Num="45"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+            </ToolScp>
+        </KeyInput>
+        <MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+            <HitList>
+                <Frame Angle="0" AniTime="99999" Dist="0" ForceATK="0" HitCount="1" Length="120" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="99799" Type="FAN" Width="30"/>
+            </HitList>
+            <EtcList>
+                <Scp Client="NO" Scp="SKL_SET_TARGET_CIRCLE" Time="0" UseSleep="NO">
+                    <Pos Angle="0" Dist="0" PosType="3"/>
+                    <Num Num="15"/>
+                    <Num Num="5"/>
+                    <Num Num="2"/>
+                    <Num Num="0"/>
+                    <Num Num="1"/>
+                </Scp>
+                <Scp Client="YES" Scp="C_EFFECT" Time="0" UseSleep="NO">
+                    <Str_Arg Arg="1" Str="I_warrior_FishingNets_Throwing_1"/>
+                    <Str Str="Bip01 R Hand"/>
+                    <Num Num="0"/>
+                </Scp>
+                <Scp Client="YES" Scp="C_EFFECT_POS" Time="200" UseSleep="NO">
+                    <Str_Arg Arg="0.64999998" Str="I_warrior_FishingNets_Throwing_2"/>
+                    <Pos Angle="0" Dist="3.8255448e-43" PosType="3"/>
+                    <Num Num="0"/>
+                    <Str Str="None"/>
+                </Scp>
+            </EtcList>
+        </MainSkl>
+    </Skill>
+</ToolSkill>
