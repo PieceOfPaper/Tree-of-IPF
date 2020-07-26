@@ -897,6 +897,7 @@
 		<Class ClassID="8106" ClassName="UnsummonCompanion" Data="컴패니언 역소환"/>
 		<Class ClassID="8107" ClassName="Pet_Aready_Summoned" Data="컴패니언이 이미 소환되어 있습니다. {nl}보이지 않는 경우 컴패니언 정보창에서 활성상태를 확인해 주세요."/>
 		<Class ClassID="8108" ClassName="Can_Not_Summoned_Yet" Data="아직 소환할 수 없습니다."/>
+		<Class ClassID="8109" ClassName="SummonedLandPetDoesNotExist" Data="소환된 지상형 컴패니언이 없습니다."/>
 	</Category>
 	<Category Name="RestMode">
 		<Class ClassID="9001" ClassName="WhereToMakeCampFire?" Data="어디에 모닥불을 피워볼까?"/>

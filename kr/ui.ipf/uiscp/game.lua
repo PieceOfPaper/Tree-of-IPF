@@ -3701,7 +3701,6 @@ end
 function IS_EXIST_BRIQUETTING_OR_BEAUTYSHOP_ITEM(actor, spot, skillType, skillClassId, itemClassId)
 	if skillClassId == nil then return false; end
 	if itemClassId == nil then return false; end
-
 	local spotItem = session.GetEquipItemBySpot(item.GetEquipSpotNum(spot));
 	if spotItem ~= nil then
 		local obj = GetIES(spotItem:GetObject());
@@ -3719,7 +3718,6 @@ function IS_EXIST_BRIQUETTING_OR_BEAUTYSHOP_ITEM(actor, spot, skillType, skillCl
 						end
 					end
 				else
-					effect.StopGoddessCubeItemEffectByAnimEvent(actor, 0);
 					if skillClassId == 53 or skillClassId == 57 then
 						-- inv item check
 						if obj.ClassID == itemClassId or obj.BriquettingIndex == itemClassId then
