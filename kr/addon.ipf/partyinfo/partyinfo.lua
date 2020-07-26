@@ -775,7 +775,7 @@ function GET_INVITED_GUILD_INFO(code, ret_json)
     if filefind.FileExists(emblemPath, true) == false then
     	emblemPath = "None";
     end
-    GUILDINFO_DETAIL_ON_INIT(parsedJson, emblemPath, parsedJson['additionalInfo'], parsedJson["id"] )
+    GUILDINFO_DETAIL_INIT(parsedJson, emblemPath, parsedJson['additionalInfo'], parsedJson["id"] )
 end
 
 function PARTY_AUTO_REFUSE_INVITE(familyName)

@@ -1268,3 +1268,19 @@ end
 function DOLL_GABIA_BUFF_LEAVE(actor, obj, buff)
 	SCR_REMOVE_FAIRY(actor:GetHandleVal(), "doll_gabia");
 end
+
+function XMAS_EFFECT_2019_ENTER(actor, obj, buff)
+    effect.AddActorEffectByOffset(actor, "E_effectitem_whitebird", 0.4, "BOT");
+end
+
+function XMAS_EFFECT_2019_LEAVE(actor, obj, buff)
+    effect.DetachActorEffect(actor, "E_effectitem_whitebird", 0.0);
+end
+
+function WEEKLY_MIRTIS_EFFECT_ENTER(actor, obj, buff)
+    effect.AddActorEffectByOffset(actor, "E_effectitem_mirtis", 1, "BOT");
+end
+
+function WEEKLY_MIRTIS_EFFECT_LEAVE(actor, obj, buff)
+    effect.DetachActorEffect(actor, "E_effectitem_mirtis", 0.0);
+end

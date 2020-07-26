@@ -237,12 +237,14 @@ function SKL_SKILL_REUSE_ON_BTN_UP(actor, obj, dik, buffName)
 end
 
 function SKL_PARTY_TARGET_BY_KEY(actor, obj, dik, showHPGauge)
-
-	local abil = session.GetAbilityByName("Cleric30");
-	if abil ~= nil then
-		local obj = GetIES(abil:GetObject());
-		if obj ~= nil and obj.ActiveState == 1 then
-			return 0, 1;
+	
+	if obj.type == 40001 then
+		local abil = session.GetAbilityByName("Cleric30");
+		if abil ~= nil then
+			local abil_obj = GetIES(abil:GetObject());
+			if abil_obj ~= nil and abil_obj.ActiveState == 1 then
+				return 0, 1;
+			end
 		end
 	end
 
