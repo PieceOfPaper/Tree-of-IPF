@@ -159,7 +159,6 @@ function ICORADD_CTRL_REG_MAIN_ITEM(ctrlSet, itemID)
 
 	local slot = GET_CHILD_RECURSIVELY(ctrlSet, "slot")
 	local slotInvItem = GET_SLOT_ITEM(slot)
-
 	if slotInvItem == nil then
 		-- invitem 이 slot 들어갈 템이 아니면 에러후 리턴
 		if TryGetProp(itemObj, 'LegendGroup', 'None') == 'None' then
@@ -220,9 +219,8 @@ function ICORADD_CTRL_REG_ADD_ITEM(ctrlSet, itemID)
 		return
 	end
 
-	local item = GetIES(invItem:GetObject())
-	local itemCls = GetClassByType('Item', item.ClassID)
-	local invitem = item
+	local itemObj = GetIES(invItem:GetObject())
+	local itemCls = GetClassByType('Item', itemObj.ClassID)
 
 	local pc = GetMyPCObject()
 	if pc == nil then
@@ -230,7 +228,7 @@ function ICORADD_CTRL_REG_ADD_ITEM(ctrlSet, itemID)
 	end
 
 	-- invItem 이 아이커가 아니면 에러 후 리턴 if invItem
-	if TryGetProp(invitem, 'GroupName') ~= 'Icor' then
+	if TryGetProp(itemObj, 'GroupName') ~= 'Icor' then
 		ui.SysMsg(ClMsg("MustEquipIcor"))
 		return
 	end
@@ -250,12 +248,12 @@ function ICORADD_CTRL_REG_ADD_ITEM(ctrlSet, itemID)
 	end
     
 	--아이커의 atk 과 slot 의 atk 이 맞아야만 장착가능
-	local targetItem = GetClass('Item', invitem.InheritanceItemName)
+	local targetItem = GetClass('Item', itemObj.InheritanceItemName)
     if targetItem == nil then
-        targetItem = GetClass('Item', invitem.InheritanceRandomItemName)
+        targetItem = GetClass('Item', itemObj.InheritanceRandomItemName)
     end
         
-	if targetItem.ClassType ~= slotInvItemCls.ClassType or (IS_ICORABLE_RANDOM_LEGEND_ITEM(slotInvItemCls) and invitem.InheritanceRandomItemName ~= 'None') then
+	if targetItem.ClassType ~= slotInvItemCls.ClassType or (IS_ICORABLE_RANDOM_LEGEND_ITEM(slotInvItemCls) and itemObj.InheritanceRandomItemName ~= 'None') then
 		ui.SysMsg(ClMsg('NotMatchItemClassType')) -- atk 타입이 안맞아서 리턴
 		return
 	end
@@ -376,23 +374,23 @@ function ICORADD_CTRL_REG_ADD_ITEM(ctrlSet, itemID)
 		local propValue = "RandomOptionValue_"..i
 		local clientMessage = 'None'
 		
-		if invitem[propGroupName] == 'ATK' then
+		if itemObj[propGroupName] == 'ATK' then
 		    clientMessage = 'ItemRandomOptionGroupATK'
-		elseif invitem[propGroupName] == 'DEF' then
+		elseif itemObj[propGroupName] == 'DEF' then
 		    clientMessage = 'ItemRandomOptionGroupDEF'
-		elseif invitem[propGroupName] == 'UTIL_WEAPON' then
+		elseif itemObj[propGroupName] == 'UTIL_WEAPON' then
 		    clientMessage = 'ItemRandomOptionGroupUTIL'
-		elseif invitem[propGroupName] == 'UTIL_ARMOR' then
+		elseif itemObj[propGroupName] == 'UTIL_ARMOR' then
 		    clientMessage = 'ItemRandomOptionGroupUTIL'
-		elseif invitem[propGroupName] == 'UTIL_SHILED' then
+		elseif itemObj[propGroupName] == 'UTIL_SHILED' then
 		    clientMessage = 'ItemRandomOptionGroupUTIL'
-		elseif invitem[propGroupName] == 'STAT' then
+		elseif itemObj[propGroupName] == 'STAT' then
 		    clientMessage = 'ItemRandomOptionGroupSTAT'
 		end
 
-		if invitem[propValue] ~= 0 and invitem[propName] ~= "None" then
-			local opName = string.format("%s %s", ClMsg(clientMessage), ScpArgMsg(invitem[propName]))
-			local strInfo = ABILITY_DESC_NO_PLUS(opName, invitem[propValue], 0)
+		if itemObj[propValue] ~= 0 and itemObj[propName] ~= "None" then
+			local opName = string.format("%s %s", ClMsg(clientMessage), ScpArgMsg(itemObj[propName]))
+			local strInfo = ABILITY_DESC_NO_PLUS(opName, itemObj[propValue], 0)
 
 			inner_yPos = ADD_ITEM_PROPERTY_TEXT_NARROW(property_gbox, strInfo, 0, inner_yPos)
 		end
@@ -433,6 +431,7 @@ end
 
 function ICORADD_MULTIPLE_EXEC(frame)
 	frame = frame:GetTopParentFrame()
+	local invframe = ui.GetFrame('inventory')
 	
 	local max_count = GET_ICOR_MULTIPLE_MAX_COUNT()
 	for i = 1, max_count do
@@ -445,11 +444,21 @@ function ICORADD_MULTIPLE_EXEC(frame)
 		local invItem_add = GET_SLOT_ITEM(slot_add)
 
 		if invItem ~= nil then
+			if true == invItem.isLockState or true == IS_TEMP_LOCK(invframe, invItem) then
+				ui.SysMsg(ClMsg("MaterialItemIsLock"))
+				return
+			end
+
 			if invItem_add == nil then
 				-- 메인 아이템만 등록하고 아이커 아이템 안올려놨다면 리턴
 				ui.SysMsg(ClMsg("MustAddIcorToSlot"))
 				return
 			else
+				if invItem_add.isLockState or true == IS_TEMP_LOCK(invframe, invItem_add) then
+					ui.SysMsg(ClMsg("MaterialItemIsLock"))
+					return
+				end
+
 				local obj = GetIES(invItem:GetObject())
 				local obj_add = GetIES(invItem_add:GetObject())
 				if (TryGetProp(obj, 'InheritanceItemName', 'None') ~= 'None' and TryGetProp(obj_add, 'InheritanceItemName', 'None') ~= 'None')
@@ -467,7 +476,7 @@ end
 
 function _ICORADD_MULTIPLE_CANCEL()
 	local frame = ui.GetFrame("icoradd_multiple")
-end;
+end
 
 function _ICORADD_MULTIPLE_EXEC(checkRebuildFlag)
 	local frame = ui.GetFrame("icoradd_multiple")
@@ -528,14 +537,10 @@ function SUCCESS_ICOR_ADD_MULTIPLE(frame)
 	local do_add = GET_CHILD_RECURSIVELY(frame, "do_add")
 	do_add:ShowWindow(0)
 
-	--ui.SetHoldUI(true)
-
 	ReserveScript("_SUCCESS_ICOR_ADD_MULTIPLE()", 0.01)
 end
 
 function _SUCCESS_ICOR_ADD_MULTIPLE()
-	--ui.SetHoldUI(false)
-
 	local frame = ui.GetFrame("icoradd_multiple")
 	if frame:IsVisible() == 0 then
 		return

@@ -387,6 +387,11 @@ function ICORRELEASE_RANDOM_MULTIPLE_EXEC(frame)
 		local slot = GET_CHILD_RECURSIVELY(ctrlSet, "slot")
 		local invItem = GET_SLOT_ITEM(slot)
 		if invItem ~= nil then
+			if true == invItem.isLockState or true == IS_TEMP_LOCK(invframe, invItem) then
+				ui.SysMsg(ClMsg("MaterialItemIsLock"))
+				return
+			end
+			
 			local invItemObj = GetIES(invItem:GetObject())
 			local eachPrice = GET_OPTION_RELEASE_COST(invItemObj, GET_COLONY_TAX_RATE_CURRENT_MAP())
 

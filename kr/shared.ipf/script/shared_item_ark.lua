@@ -35,9 +35,9 @@ end
 -- 축석 개수, 신비한 서 낱장, 시에라 스톤 순으로 반환
 shared_item_ark.get_require_count_for_next_lv = function(goal_lv, max_lv)    
     if max_lv == nil or max_lv == 0 then
-        max_lv = 7
+        max_lv = 5
     else
-        max_lv = 7
+        max_lv = 5
     end
 
     local multiple = tonumber(string.format('%.2f',math.floor(goal_lv * (goal_lv * item_ark_grow_ratio))))    
