@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by imc (imc) -->
 <uiframe name="guildinfo" x="0" y="0" width="1600" height="900" create="open" version="2">
 	<draw drawtitlebar="false"/>
 	<skin frameskin="test_frame_low" titlebarskin="test_frame_top" activetitlebarskin="test_frame_top"/>
@@ -105,7 +105,7 @@
 											<layoutsection name="agitinfo_mileage_change_section">
 												<groupbox name="gbox_agitinfo_mileage_section" hittest="true" hittestbox="true" skin="test_frame_midle" scrollbar="true">
 													<richtext name="txt_agitinfo_mileage_title" margin="10 10 0 0" rect="0 0 580 52" format="{@st42}{s20}%s{/}{/}" param1="value" param1_def="기여도 및 길드 마일리지 관리" textalign="left top" resizebytext="true" spacey="0" maxwidth="0" fontname="white_16_ol" fixwidth="true" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top"/>
-													<picture name="pic_question_agitinfo_mileage" rect="0 0 44 44" margin="0 7 10 0" layout_gravity="right top" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" hittest="true" image="testquesten_button" oversound="button_over" texttooltip="[내 기여도를 길드 마일리지로 전환]{nl}- 1(길드 기여도) : 1(길드 마일리지)의 비율로 기여도가 길드 마일리지로 전환됩니다.{nl} {nl}[길드 마일리지를 기여도로 전환]{nl}- 10(길드 마일리지) : 1(길드 기여도)의 비율로 길드 마일리지가 기여도로 전환됩니다.{nl}- 해당 기능은 길드 마스터만 이용이 가능합니다.{nl} {nl}[길드원에게 기여도 분배]{nl}- 1(내 기여도) : 1(길드원 기여도)의 비율로 기여도를 길드원에게 분배할 수 있습니다.{nl}- 해당 기능은 길드 마스터만 이용이 가능합니다."/>
+													<picture name="pic_question_agitinfo_mileage" rect="0 0 44 44" margin="0 7 10 0" layout_gravity="right top" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" hittest="true" image="testquesten_button" oversound="button_over" texttooltip="[내 기여도를 길드 마일리지로 전환]{nl}- 1(길드 기여도) : 1(길드 마일리지)의 비율로 기여도가 길드 마일리지로 전환됩니다.{nl} {nl}[길드 마일리지를 기여도로 전환]{nl}- 10(길드 마일리지) : 1(길드 기여도)의 비율로 길드 마일리지가 기여도로 전환됩니다.{nl}- 해당 기능은 길드 마스터만 이용이 가능합니다.{nl} {nl}[길드원에게 기여도 분배]{nl}- 1(내 기여도) : 1(길드원 기여도)의 비율로 기여도를 길드원에게 분배할 수 있습니다.{nl}- 해당 기능은 길드 마스터만 이용이 가능합니다.{nl} {nl}[길드 기여도 획득 방법 및 점수]{nl}- 길드 콜로니전 참여 : 200{nl}- 길드 퀘스트 참여 : 30{nl}- 길드 성장 : 탈트, 길드 퀘스트 보상 주화 등을 통해 성장에 기여한 수치에 따라 다름{nl}- 길드 자금 입금 : 5,000 실버당 기여도 1 획득{nl}- 길드 아지트 레이드 참여 : 길드 레벨과 공헌 등급에 따라 다르며 최대 120까지 획득 가능"/>
 													<picture name="pic_agitinfo_mileage_title_header_line" rect="0 0 680 2" margin="0 46 0 0" layout_gravity="center top" image="guild_line_h2" stretch="true"/>
 													<groupbox name="gbox_agitinfo_mileage_info" margin="10 60 0 0" rect="0 0 665 90" hittest="true" hittestbox="true" skin="brownbox_is">
 														<richtext name="txt_guild_mileage" margin="15 15 0 0" rect="0 0 500 52" format="{@st42}{s18}길드 마일리지 : %s{/}{/}" param1="value" param1_def="0" textalign="left top" resizebytext="true" spacey="0" maxwidth="0" fontname="white_16_ol" fixwidth="true" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top"/>

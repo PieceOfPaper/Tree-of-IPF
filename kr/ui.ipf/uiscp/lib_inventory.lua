@@ -728,6 +728,64 @@ function GET_INV_ITEM_COUNT_BY_PROPERTY(propCondList, exceptLock, itemList, chec
     return count, matchedList;
 end
 
+function GET_INV_ITEM_COUNT_BY_CLASSID(classID)	
+	if itemList == nil then
+		itemList = session.GetInvItemList();
+	end
+	local guidList = itemList:GetGuidList();
+	local cnt = guidList:Count();
+    local count = 0;
+    local matchedList = {};
+	for i = 0, cnt - 1 do
+		local guid = guidList:Get(i);
+		local invItem = itemList:GetItemByGuid(guid);
+        if invItem ~= nil and invItem:GetObject() ~= nil and invItem.isLockState == false then
+			local itemObj = GetIES(invItem:GetObject());
+			if TryGetProp(itemObj, "ClassID", "None") == tonumber(classID) then
+				if itemObj.MaxStack > 1 then
+	                count = count + invItem.count;
+	            else -- 비스택형 아이템
+		            count = count + 1;
+				end
+				
+				matchedList[#matchedList + 1] = invItem;
+			end
+	    end
+	end
+
+    return count, matchedList;
+end
+
+function GET_NEXT_ITEM_GUID_BY_CLASSID(classID)
+	local itemList = session.GetInvItemList();
+	local guidList = itemList:GetGuidList();
+	local cnt = guidList:Count();
+    local matchedList = {};
+	for i = 0, cnt - 1 do
+		local guid = guidList:Get(i);
+		local invItem = itemList:GetItemByGuid(guid);
+        if invItem ~= nil and invItem:GetObject() ~= nil and invItem.isLockState == false then
+			local itemObj = GetIES(invItem:GetObject());
+			if TryGetProp(itemObj, "ClassID") == tonumber(classID) then
+				matchedList[#matchedList + 1] = invItem;
+			end
+	    end
+	end
+
+	local itemClass = GetClassByType("Item", classID);
+	if 0 < itemClass.LifeTime then
+		table.sort(matchedList, INVENTORY_SORT_BY_LIMIT_TIME);
+	end
+	
+	if #matchedList == 0 then
+		return nil;
+	end
+
+	local ret_item = matchedList[1];
+
+    return ret_item:GetIESID();
+end
+
 function SELECT_INV_SLOT_BY_GUID(guid, isSelect)
 	local invSlot = GET_SLOT_BY_ITEMID(nil, guid);
 	if invSlot == nil then

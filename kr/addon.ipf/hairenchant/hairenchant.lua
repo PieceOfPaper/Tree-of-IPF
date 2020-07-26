@@ -13,7 +13,7 @@ function HAIRENCHANT_OK_BTN(frame, ctrl)
 	item.DoPremiumItemEnchantchip(itemIES, enchantGuid);
 end
 
-function HAIRENCHANT_SUCEECD(itemIES)
+function HAIRENCHANT_SUCEECD(itemIES, moruItemClassID)
 	HAIRENCHANT_UPDATE_ITEM_OPTION(itemIES);
 		
 	local invItem = session.GetInvItemByGuid(itemIES);
@@ -45,9 +45,13 @@ function HAIRENCHANT_SUCEECD(itemIES)
 	local invItem = session.GetInvItemByGuid(enchantGuid)
 	local cnt = enchantFrame:GetChild("scrollCnt");
 	if invItem ~= nil then
-	cnt:SetTextByKey("value", tostring(invItem.count));
+		cnt:SetTextByKey("value", tostring(invItem.count));
 	else
-		cnt:SetTextByKey("value", tostring(0));
+		enchantGuid = GET_NEXT_ITEM_GUID_BY_CLASSID(moruItemClassID);
+		enchantFrame:SetUserValue("Enchant", enchantGuid);
+		local itemHaveCount = GET_INV_ITEM_COUNT_BY_CLASSID(moruItemClassID);
+
+		cnt:SetTextByKey("value", itemHaveCount);
 	end
 end
 

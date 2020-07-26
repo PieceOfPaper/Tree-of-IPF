@@ -2659,11 +2659,6 @@ function SCR_Get_Sta_Run(self)
     elseif IsBuffApplied(self, 'Stamina_Max_buff') == 'YES' then
         value = SCR_FIELD_DUNGEON_CONSUME_DECREASE(self, 'Sta_Run', value);
     end
-
-    -- EVENT_2004_UPHILL
-    if IsBuffApplied(self, "EVENT_2004_UPHILL_BUFF") == "YES" then
-        return 0
-    end
     
     return math.floor(value);
 end
@@ -2704,12 +2699,6 @@ function SCR_Get_Sta_Runable(self)
 end
 
 function SCR_Get_Sta_Jump(self)
-    
-    -- EVENT_2004_UPHILL
-    if IsBuffApplied(self, "EVENT_2004_UPHILL_BUFF") == "YES" then
-        return 0
-    end
-
     return 1000;
 end
 
@@ -4356,21 +4345,21 @@ function SCR_Get_HEAL_PWR(self)
     
     local byRateBuff = 0;
 
-    local byRateBuffTemp = TryGetProp(self, "HEAL_PWR_RATE_BM");
+    local byRateBuffTemp = TryGetProp(self, "HEAL_PWR_RATE_BM");    
     if byRateBuffTemp ~= nil then
         byRateBuff = byRateBuff + byRateBuffTemp;
     end
     
-    byRateBuff = math.floor(value * byRateBuffTemp);
-    
-    value = value + byBuff + byRateBuff;
-    
+    byRateBuff = math.floor(value * byRateBuffTemp);    
+    value = value + byBuff + byRateBuff;    
     local byAbil = GetExProp(self, "ABIL_MACE_ADDHEAL")
     if byAbil == nil then
         byAbil = 0
     end
-	
-    value = value * (1 + byAbil) 
+    
+    local seal_option = GetExProp(self, "ITEM_Cleric_PatronSaint_HwpRate")        
+    seal_option = seal_option / 1000 -- 치유력 증가 합연산으로 처리한다
+    value = value * (1 + byAbil + seal_option) 
     
     if value < 1 then
     	value = 1;

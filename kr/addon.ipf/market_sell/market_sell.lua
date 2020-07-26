@@ -625,15 +625,18 @@ function MARKET_SELL_REGISTER(parent, ctrl)
 	commission = registerFeeValueCtrl:GetTextByKey("value");	
 	commission = string.gsub(commission, ",", "");
 	commission = math.max(tonumber(commission), 1);
+	
+	local price_text = GET_CHILD_RECURSIVELY(frame, "priceText");
+	local price_msg = ScpArgMsg("RegMarketItem{Price}","Price", price_text:GetTextByKey("priceText"));	
 	if nil~= obj and obj.ItemType =='Equip' then
 		if 0 < obj.BuffValue then
 			-- 장비그룹만 buffValue가 있다.
-			ui.MsgBox(ScpArgMsg("BuffDestroy{Price}","Price", tostring(commission)), yesScp, "None");
+			ui.MsgBox(price_msg..ScpArgMsg("BuffDestroy{Price}","Price", tostring(commission)), yesScp, "None");
 		else
-			ui.MsgBox(ScpArgMsg("CommissionRegMarketItem{Price}","Price", GetMonetaryString(commission)), yesScp, "None");			
+			ui.MsgBox(price_msg..ScpArgMsg("CommissionRegMarketItem{Price}","Price", GetMonetaryString(commission)), yesScp, "None");			
 		end
 	else
-		ui.MsgBox(ScpArgMsg("CommissionRegMarketItem{Price}","Price", GetMonetaryString(commission)), yesScp, "None");
+		ui.MsgBox(price_msg..ScpArgMsg("CommissionRegMarketItem{Price}","Price", GetMonetaryString(commission)), yesScp, "None");
 	end
 end
 

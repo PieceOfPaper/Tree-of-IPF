@@ -85,7 +85,8 @@ function GET_DEF_PROP_CHANGEVALUETOOLTIP_LIST()
     list[#list+1] = "StrikeDEF";
     list[#list+1] = "HR";
     list[#list+1] = "DR";
-    list[#list+1] = "LootingChance";    
+    list[#list+1] = "LootingChance";
+    list[#list+1] = "ADD_BOSS_ATK";   
 	return list;
 
 end
@@ -243,6 +244,7 @@ function GET_DEF_PROP_LIST()
     list[#list+1] = "HR";
     list[#list+1] = "DR";
     list[#list+1] = "LootingChance";
+    list[#list+1] = "ADD_BOSS_ATK";
 	return list;
 
 end

@@ -110,7 +110,7 @@ function GET_MORE_EVENT_EXP(pc)
 	sumExp = sumExp + IsBuffAppliedEXP(pc, 'EVENT_2002_CHOCO_BUFF3'); -- 더 달콤한 발렌타인 초콜릿 3단계
 	sumExp = sumExp + IsBuffAppliedEXP(pc, 'EVENT_2002_CHOCO_BUFF4'); -- 더 달콤한 발렌타인 초콜릿 4단계
 	sumExp = sumExp + IsBuffAppliedEXP(pc, 'EVENT_2002_CHOCO_BUFF5'); -- 더 달콤한 발렌타인 초콜릿 5단계
-	-- sumExp = sumExp + IsBuffAppliedEXP(pc, 'EVENT_2002_FISHING_CAT_BUFF'); -- 2002 낚시 이벤트 고양이 버프
+--  sumExp = sumExp + IsBuffAppliedEXP(pc, 'EVENT_2002_FISHING_CAT_BUFF'); -- 2002 낚시 이벤트 고양이 버프
 	sumExp = sumExp + IsBuffAppliedEXP(pc, 'Event_Steam_New_World_Buff'); -- 스팀 시즌 서버 혜택
 	sumExp = sumExp + IsBuffAppliedEXP(pc, 'EVENT_SEASON_NEWWRORLD_PASSIVE_2'); -- 2002 [이벤트] 유대감
 	sumExp = sumExp + IsBuffAppliedEXP(pc, 'EVENT_2004_FRUIT_BUFF1'); -- 축복받은 열매 1단계
@@ -118,9 +118,7 @@ function GET_MORE_EVENT_EXP(pc)
 	sumExp = sumExp + IsBuffAppliedEXP(pc, 'EVENT_2004_FRUIT_BUFF3'); -- 축복받은 열매 3단계
 	sumExp = sumExp + IsBuffAppliedEXP(pc, 'EVENT_2004_FRUIT_BUFF4'); -- 축복받은 열매 4단계
 	sumExp = sumExp + IsBuffAppliedEXP(pc, 'EVENT_2004_FRUIT_BUFF5'); -- 축복받은 열매 5단계
-	if  TryGetProp(pc, 'Lv', 0) < 380 then
-	    sumExp = sumExp + IsBuffAppliedEXP(pc, 'EVENT_1905_TOS_CHIILD_BUFF1'); --자라나라 나무나무 성장 버프 --
-	end
+	sumExp = sumExp + IsBuffAppliedEXP(pc, 'EVENT_1905_TOS_CHIILD_BUFF1'); --자라나라 나무나무 성장 버프 --
 	if  TryGetProp(pc, 'Lv', 0) < 450 then
 	    sumExp = sumExp + IsBuffAppliedEXP(pc, 'ITEM_BUFF_2020ArborDay_ExpUP'); --2020 근본--
 	end

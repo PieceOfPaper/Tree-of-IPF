@@ -66,11 +66,11 @@ function SORT_ANCIENT(a,b)
         return a.starrank > b.starrank
     end
     local a_exp = a:GetStrExp();
-    local a_xpInfo = gePetXP.GetXPInfo(0, tonumber(a_exp))
+    local a_xpInfo = gePetXP.GetXPInfo(gePetXP.EXP_ANCIENT, tonumber(a_exp))
     local a_level = a_xpInfo.level
 
     local b_exp = b:GetStrExp();
-    local b_xpInfo = gePetXP.GetXPInfo(0, tonumber(b_exp))
+    local b_xpInfo = gePetXP.GetXPInfo(gePetXP.EXP_ANCIENT, tonumber(b_exp))
     local b_level = b_xpInfo.level
     if a_level ~= b_level then
         return a_level > b_level
@@ -174,7 +174,7 @@ function GET_ANCIENT_COMBO_CALC_VALUE(combo,cardList)
     local grade = 0;
     for i = 1, #cardList do
         local exp = cardList[i]:GetStrExp();
-        local xpInfo = gePetXP.GetXPInfo(0, tonumber(exp))
+        local xpInfo = gePetXP.GetXPInfo(gePetXP.EXP_ANCIENT, tonumber(exp))
         local addLv = xpInfo.level
         if addLv >= PC_MAX_LEVEL then
             addLv = PC_MAX_LEVEL
@@ -206,7 +206,7 @@ function GET_ANCIENT_COMBO_PERCENT_CALC_VALUE(combo, cardList)
     
     for i = 1, #cardList do
         local exp = cardList[i]:GetStrExp();
-        local xpInfo = gePetXP.GetXPInfo(0, tonumber(exp))
+        local xpInfo = gePetXP.GetXPInfo(gePetXP.EXP_ANCIENT, tonumber(exp))
         local addLv = xpInfo.level
         if addLv >= PC_MAX_LEVEL then
             addLv = PC_MAX_LEVEL
@@ -235,7 +235,7 @@ function GET_ANCIENT_CALC_VALUE(infoCls,card)
     local defaultValue = infoCls.NumArg1
 
     local exp = card:GetStrExp();
-    local xpInfo = gePetXP.GetXPInfo(0, tonumber(exp))
+    local xpInfo = gePetXP.GetXPInfo(gePetXP.EXP_ANCIENT, tonumber(exp))
     local level = xpInfo.level
     if level >= PC_MAX_LEVEL then
         level = PC_MAX_LEVEL
@@ -267,7 +267,7 @@ function GET_ANCIENT_PERCENT_CALC_VALUE(infoCls,card)
     local lvRate = (maxValue - defaultValue)/PC_MAX_LEVEL
     
     local exp = card:GetStrExp();
-    local xpInfo = gePetXP.GetXPInfo(0, tonumber(exp))
+    local xpInfo = gePetXP.GetXPInfo(gePetXP.EXP_ANCIENT, tonumber(exp))
     local level = xpInfo.level
     if level >= PC_MAX_LEVEL then
         level = PC_MAX_LEVEL

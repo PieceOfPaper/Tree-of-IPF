@@ -317,12 +317,6 @@
 		</ItemList>
 	</Effect_Item>
 	<Effect_Item>
-		<ItemList ItemClassName="wing_littleprince">
-			<effect TargetNode="None" effect="wing_littleprince_effect" scale="0.35" offset="0;48" ReinforceValue="0" UseAttach="NO" PlayType="All" IsKeeping="NO" BlendMode="NO" OnLifeTime="NO" LifeTimeValue="0.0" GiveAttackFromEffect="none" UseTrailEffectChange="true" GiveAttackFromEffectScale="1" GiveAttackSelfEffect="None" GiveAttackSelfEffectScale="0.5" GiveAttackFromSound="None" GiveAttackSelfSound="None" TakeAttackEffect="None" TakeAttackEffectScale="0.5" TakeAttackSound="None" GiveAttackFromEffectOffSet="0;0" GiveAttackSelfEffectOffSet="0;0" TakeAttackEffectOffSet="0;0" SoundVolume="1"/>
-			<effect TargetNode="None" effect="F_light169_white" scale="0.7" offset="0;52" ReinforceValue="0" UseAttach="NO" PlayType="All" IsKeeping="NO" BlendMode="NO" OnLifeTime="NO" LifeTimeValue="0.0" GiveAttackFromEffect="none" UseTrailEffectChange="true" GiveAttackFromEffectScale="1" GiveAttackSelfEffect="None" GiveAttackSelfEffectScale="0.5" GiveAttackFromSound="None" GiveAttackSelfSound="None" TakeAttackEffect="None" TakeAttackEffectScale="0.5" TakeAttackSound="None" GiveAttackFromEffectOffSet="0;0" GiveAttackSelfEffectOffSet="0;0" TakeAttackEffectOffSet="0;0" SoundVolume="1"/>
-		</ItemList>
-	</Effect_Item>
-	<Effect_Item>
 		<ItemList ItemClassName="EP12_Artefact_013">
 			<effect TargetNode="Dummy_trail02" effect="F_bg_light015_blue" scale="1" offset="0;0" ReinforceValue="0" UseAttach="YES" PlayType="All" IsKeeping="NO" BlendMode="NO" OnLifeTime="NO" LifeTimeValue="0.0" GiveAttackFromEffect="none" UseTrailEffectChange="true" GiveAttackFromEffectScale="1" GiveAttackSelfEffect="None" GiveAttackSelfEffectScale="0.5" GiveAttackFromSound="None" GiveAttackSelfSound="None" TakeAttackEffect="None" TakeAttackEffectScale="0.5" TakeAttackSound="None" GiveAttackFromEffectOffSet="0;0" GiveAttackSelfEffectOffSet="0;0" TakeAttackEffectOffSet="0;0" SoundVolume="1"/>
 		</ItemList>

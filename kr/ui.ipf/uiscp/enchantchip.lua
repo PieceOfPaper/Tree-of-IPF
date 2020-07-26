@@ -27,6 +27,7 @@ function CLIENT_ENCHANTCHIP(invItem)
 	end
 
 	HAIRENCHANT_UI_RESET();
+	local itemHaveCount = GET_INV_ITEM_COUNT_BY_CLASSID(obj.ClassID);
 
 	local enchantFrame = ui.GetFrame("hairenchant");
 	local invframe = ui.GetFrame("inventory");
@@ -35,7 +36,7 @@ function CLIENT_ENCHANTCHIP(invItem)
 	enchantFrame:SetMargin(0, 65, invframe:GetWidth(), 0);
 	enchantFrame:SetUserValue("Enchant", invItem:GetIESID());
 	local cnt = enchantFrame:GetChild("scrollCnt");
-	cnt:SetTextByKey("value", tostring(invItem.count));
+	cnt:SetTextByKey("value", itemHaveCount);
 	
 	ui.SetEscapeScp("CANCEL_ENCHANTCHIP()");
 

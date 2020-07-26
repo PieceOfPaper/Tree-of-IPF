@@ -964,51 +964,6 @@
             </ToolScp>
         </StartList>
     </AI>
-    <AI Name="ANCIENT_QUEST_DUNGEON_SELF_KILL" ActiveMessageMapInBattle="1">
-        <List>
-            <ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
-                <Str Str="SCR_ANCIENT_QUEST_DUNGEON_SELF_KILL_SIMPLE_AI"/>
-            </ToolScp>
-        </List>
-    </AI>
-    <AI Name="ANCIENT_QUEST_OBJECT" UpdateMS="1000" ActiveMessageMapInBattle="1">
-        <List>
-            <ToolScp Scp="S_AI_EFFECT" Client="NO" UseSleep="NO">
-                <Num Num="0"/>
-                <Str_Arg Str="I_pc_question_arrow_mash" Arg="1"/>
-                <Str Str="TOP"/>
-            </ToolScp>
-        </List>
-    </AI>
-    <AI Name="ANCIENT_QUEST_OBJECT2" UpdateMS="1000" ActiveMessageMapInBattle="1">
-        <List>
-            <ToolScp Scp="S_AI_EFFECT" Client="NO" UseSleep="NO">
-                <Num Num="0"/>
-                <Str_Arg Str="I_pc_question_arrow_mash" Arg="1"/>
-                <Str Str="TOP"/>
-            </ToolScp>
-            <ToolScp Scp="S_AI_CUSTOM_SCRIPT" Client="NO" UseSleep="YES">
-                <Str Str="ANCIENT_QUEST3_DUNGEON_AI"/>
-                <Num Num="0"/>
-            </ToolScp>
-        </List>
-    </AI>
-    <AI Name="ANCIENT_QUEST_OBJECT3" UpdateMS="1000" ActiveMessageMapInBattle="1">
-        <List>
-            <ToolScp Scp="S_AI_EFFECT" Client="NO" UseSleep="NO">
-                <Num Num="0"/>
-                <Str_Arg Str="I_pc_question_arrow_mash" Arg="1"/>
-                <Str Str="TOP"/>
-            </ToolScp>
-        </List>
-    </AI>
-    <AI Name="ANCIENT_SOLO_DUNGEON_SELF_KILL" ActiveMessageMapInBattle="1">
-        <List>
-            <ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
-                <Str Str="SCR_ANCIENT_SOLO_DUNGEON_SELF_KILL_SIMPLE_AI"/>
-            </ToolScp>
-        </List>
-    </AI>
     <AI Name="ASIOMAGE_THBOW_RABBIT_SIMPLE_AI" UpdateMS="1000" ActiveMessageMapInBattle="1">
         <List>
             <ToolScp Scp="S_AI_CUSTOM_SCRIPT" Client="NO" UseSleep="YES">
@@ -2082,7 +2037,7 @@
             </ToolScp>
         </List>
     </AI>
-<AI Name="CASTLE96_MQ_4_RUN_AI" UpdateMS="1000" ActiveMessageMapInBattle="1">
+    <AI Name="CASTLE96_MQ_4_RUN_AI" UpdateMS="1000" ActiveMessageMapInBattle="1">
         <List>
             <ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
                 <Str Str="CASTLE96_MQ_4_RUN_AI_1"/>
@@ -2285,7 +2240,7 @@
             <ToolScp Scp="EnableAIOutOfPC" Client="NO" UseSleep="NO"/>
         </StartList>
     </AI>
-    			<AI Name="CASTLE_20_1_SQ_3_AI" UpdateMS="3000" ActiveMessageMapInBattle="1">
+    <AI Name="CASTLE_20_1_SQ_3_AI" UpdateMS="3000" ActiveMessageMapInBattle="1">
         <List>
             <ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
                 <Str Str="SCR_CASTLE_20_1_OBJ_3_AI_RUN"/>
@@ -5365,7 +5320,7 @@
             <ToolScp Scp="S_AI_EFFECT_DEATCH" Client="NO" UseSleep="NO">
                 <Num Num="0"/>
                 <Str_Arg Str="F_cleric_ausirine_loop" Arg="1"/>
-                <Num Num="0.5"/>
+                <Num Num="0.1"/>
             </ToolScp>
             <ToolScp Scp="SAI_DEAD_REMOVE_PAD" Client="NO" UseSleep="NO">
                 <Num Num="0"/>
@@ -5606,7 +5561,7 @@
                 <Str_Arg Str="F_light078_holy_yellow_loop2" Arg="0.5"/>
                 <Str Str="BOT"/>
             </ToolScp>
-            </StartList>
+        </StartList>
     </AI>
     <AI Name="EP12_PRELUDE_Namot_SetUp_Place_AI" ActiveMessageMapInBattle="1">
         <List>
@@ -5870,7 +5825,12 @@
             </ToolScp>
         </StartList>
     </AI>
-    <AI Name="EVENT_1909_ANVIL_MON_BIG" ActiveMessageMapInBattle="1">
+    <AI Name="EVENT_1909_ANVIL_MON_BIG" UpdateMS="3000" ActiveMessageMapInBattle="1">
+        <List>
+            <ToolScp Scp="S_AI_PLAYANI" Client="NO" UseSleep="NO">
+                <Str Str="STD"/>
+            </ToolScp>
+        </List>
         <StartList>
             <ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
                 <Num Num="0"/>
@@ -6237,6 +6197,24 @@
             </ToolScp>
         </List>
         <StartList>
+            <ToolScp Scp="EnableAIOutOfPC" Client="NO" UseSleep="NO"/>
+        </StartList>
+    </AI>
+    <AI Name="EVENT_TP_SHOP_1912_NPC_AI" UpdateMS="60000" ActiveMessageMapInBattle="1">
+        <List>
+            <ToolScp Scp="SAI_FUNC_DIRECT" Client="NO" UseSleep="NO">
+                <Str Str="SCR_EVENT_TP_SHOP_1912_NPC_AI_UPDATE"/>
+            </ToolScp>
+        </List>
+        <DeadList>
+            <ToolScp Scp="SAI_DEAD_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+                <Str Str="SCR_EVENT_TP_SHOP_1912_NPC_AI_LEAVE"/>
+            </ToolScp>
+        </DeadList>
+        <StartList>
+            <ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+                <Str Str="SCR_EVENT_TP_SHOP_1912_NPC_AI_BORN"/>
+            </ToolScp>
             <ToolScp Scp="EnableAIOutOfPC" Client="NO" UseSleep="NO"/>
         </StartList>
     </AI>
@@ -6638,7 +6616,7 @@
     <AI Name="FARM47_MAGIC32_AI" UpdateMS="1000" ActiveMessageMapInBattle="1">
         <List>
             <ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
-                <Str Str="FARM47_MAGIC31_AI_ACT_01"/>
+                <Str Str="FARM47_MAGIC32_AI_ACT_01"/>
             </ToolScp>
         </List>
     </AI>
@@ -10014,6 +9992,44 @@
             </ToolScp>
         </List>
     </AI>
+    <AI Name="F_Moringponia_Summon_AI" ActiveMessageMapInBattle="1">
+        <List>
+            <ToolScp Scp="S_AI_CUSTOM_SCRIPT" Client="NO" UseSleep="YES">
+                <Str Str="SCR_MORINGPONIA_RECOVERED_SPHERE_S_AI_1"/>
+                <Num Num="10"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_BUFF" Client="NO" UseSleep="NO">
+                <Num Num="0"/>
+                <Str Str="MoveSpeedFix"/>
+                <Num Num="30"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+                <Num Num="1"/>
+                <Num Num="100"/>
+            </ToolScp>
+        </List>
+        <HitList>
+            <ToolScp Scp="SCR_MORINGPONIA_RECOVERED_SPHERE_S_AI_HIT" Client="NO" UseSleep="NO">
+                <Num Num="2"/>
+                <Str Str="None"/>
+            </ToolScp>
+        </HitList>
+        <StartList>
+            <ToolScp Scp="EnableAIOutOfPC" Client="NO" UseSleep="NO"/>
+        </StartList>
+    </AI>
+    <AI Name="F_SKIACLIPSE_PRISON_PROTECT_AI" UpdateMS="1000" ActiveMessageMapInBattle="1">
+        <List>
+            <ToolScp Scp="SAI_FUNC_DIRECT" Client="NO" UseSleep="NO">
+                <Str Str="F_SKIACLIPSE_PRISON_PROTECT"/>
+            </ToolScp>
+        </List>
+        <EnterList>
+            <ToolScp Scp="SAI_DEAD_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+                <Str Str="F_SKIACLIPSE_PRISON_ENTER_PROTECT"/>
+            </ToolScp>
+        </EnterList>
+    </AI>
     <AI Name="FieldRift_Ballist_Atk" ActiveMessageMapInBattle="1">
         <List>
             <ToolScp Scp="S_AI_ATTACK_NEAR_MAXHATECOUNT_CHECK" Client="NO" UseSleep="NO">
@@ -11469,6 +11485,17 @@
             <ToolScp Scp="EnableAIOutOfPC" Client="NO" UseSleep="NO"/>
         </StartList>
     </AI>
+    <AI Name="F_SKIACLIPSE_Tornado_AI" ActiveMessageMapInBattle="1">
+        <List>
+            <ToolScp Scp="S_AI_CUSTOM_SCRIPT" Client="NO" UseSleep="YES">
+                <Str Str="SCR_F_SKIACLIPSE_Tornado_AI"/>
+                <Num Num="100"/>
+            </ToolScp>
+        </List>
+        <StartList>
+            <ToolScp Scp="EnableAIOutOfPC" Client="NO" UseSleep="NO"/>
+        </StartList>
+    </AI>
     <AI Name="Hidden_door_Effect" ActiveMessageMapInBattle="1">
         <StartList>
             <ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
@@ -12442,15 +12469,6 @@
             </ToolScp>
         </List>
     </AI>
-    <AI Name="LEGEND_RAID_STAGE1_ORB_AI" ActiveMessageMapInBattle="1">
-        <List>
-            <ToolScp Scp="S_AI_ADD_HATE_AROUND" Client="NO" UseSleep="NO">
-                <Num Num="20"/>
-                <Num Num="100"/>
-                <Num Num="0"/>
-            </ToolScp>
-        </List>
-    </AI>
     <AI Name="LEGEND_RAID_STAGE2_COLOR_ANI" ActiveMessageMapInBattle="1">
         <List>
             <ToolScp Scp="S_AI_CUSTOM_SCRIPT" Client="NO" UseSleep="YES">
@@ -12459,8 +12477,7 @@
             </ToolScp>
         </List>
     </AI>
-    <AI Name="LEGEND_RAID_STAGE2_NUMBER_DEVICE" ActiveMessageMapInBattle="1"/>
-	<AI Name="LETICIA_CUBE_AI" UpdateMS="60000" ActiveMessageMapInBattle="1">
+    <AI Name="LETICIA_CUBE_AI" UpdateMS="60000" ActiveMessageMapInBattle="1">
         <List>
             <ToolScp Scp="SAI_FUNC_DIRECT" Client="NO" UseSleep="NO">
                 <Str Str="SCR_LETICIA_CUBE_AI_UPDATE"/>
@@ -14586,6 +14603,46 @@ if self.HP == 0 then return 1; else return 0; end;">
             </ToolScp>
         </List>
     </AI>
+    <AI Name="MNQ_QUEST7_HIDDEN_NPC_AI" ActiveMessageMapInBattle="1">
+        <List>
+            <ToolScp Scp="SAI_FUNC_DIRECT" Client="NO" UseSleep="NO">
+                <Str Str="MNQ_QUEST7_HIDDEN_NPC_ACTION"/>
+            </ToolScp>
+        </List>
+    </AI>
+    <AI Name="MNQ_RANGDA_1_ITEM_RUN_MON_AI" ActiveMessageMapInBattle="1">
+        <List>
+            <ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+                <Str Str="MNQ_RANGDA_1_ITEM_RUN_MON_AI_MON"/>
+            </ToolScp>
+        </List>
+    </AI>
+    <AI Name="MNQ_RANGDA_3_ITEM_RUN_MON_AI" ActiveMessageMapInBattle="1">
+        <List>
+            <ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+                <Str Str="MNQ_RANGDA_3_ITEM_RUN_MON_AI_MON"/>
+            </ToolScp>
+        </List>
+    </AI>
+    <AI Name="MNQ_RANGDA_8_RUN_NPC_AI" ActiveMessageMapInBattle="1">
+        <List>
+            <ToolScp Scp="SAI_FUNC_DIRECT" Client="NO" UseSleep="NO">
+                <Str Str="MNQ_RANGDA_8_RUN_NPC_RUN"/>
+            </ToolScp>
+        </List>
+    </AI>
+    <AI Name="MNQ_RANGDA_MASTER_RUN_AI" ActiveMessageMapInBattle="1">
+        <List>
+            <ToolScp Scp="SAI_FUNC_DIRECT" Client="NO" UseSleep="NO">
+                <Str Str="MNQ_RANGDA_MASTER_RUN"/>
+            </ToolScp>
+        </List>
+        <StartList>
+            <ToolScp Scp="SAI_FUNC_DIRECT" Client="NO" UseSleep="NO">
+                <Str Str="MNQ_RANGDA_MASTER_RUN_SPEED"/>
+            </ToolScp>
+        </StartList>
+    </AI>
     <AI Name="MODPAT_CHAT_FLOW_AI" ActiveMessageMapInBattle="1">
         <List>
             <ToolScp Scp="SAI_LOOKAT" Client="NO" UseSleep="NO"/>
@@ -14656,18 +14713,18 @@ if self.HP == 0 then return 1; else return 0; end;">
         </StartList>
     </AI>
     <AI Name="MON_DUMMY" UpdateMS="100000" ActiveMessageMapInBattle="1"/>
-    <AI Name="MORINGPONIA_POISON_AI" UpdateMS="5000" ActiveMessageMapInBattle="1">
+	<AI Name="MORINGPONIA_POISON_AI" UpdateMS="5000" ActiveMessageMapInBattle="1">
         <List>
             <ToolScp Scp="S_AI_CUSTOM_SCRIPT" Client="NO" UseSleep="YES">
-                <Str Str="SCR_MORINGPONIA_POISON_AI"/>
+				<Str Str="SCR_MORINGPONIA_POISON_AI"/>
                 <Num Num="0"/>
             </ToolScp>
         </List>
     </AI>
-    <AI Name="MORINGPONIA_HARD_POISON_AI" UpdateMS="5000" ActiveMessageMapInBattle="1">
+	<AI Name="MORINGPONIA_HARD_POISON_AI" UpdateMS="5000" ActiveMessageMapInBattle="1">
         <List>
             <ToolScp Scp="S_AI_CUSTOM_SCRIPT" Client="NO" UseSleep="YES">
-                <Str Str="SCR_MORINGPONIA_HARD_POISON_AI"/>
+				<Str Str="SCR_MORINGPONIA_HARD_POISON_AI"/>
                 <Num Num="0"/>
             </ToolScp>
         </List>
@@ -18076,13 +18133,13 @@ if self.HP == 0 then return 1; else return 0; end;">
             </ToolScp>
         </List>
     </AI>
-    <AI Name="ANCIENT_SOLO_DUNGEON_SELF_KILL" ActiveMessageMapInBattle="1">
-        <List>
-            <ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
-                <Str Str="SCR_ANCIENT_SOLO_DUNGEON_SELF_KILL_SIMPLE_AI"/>
-            </ToolScp>
-        </List>
-    </AI>
+	<AI Name="ANCIENT_SOLO_DUNGEON_SELF_KILL" ActiveMessageMapInBattle="1">
+		<List>
+			<ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+				<Str Str="SCR_ANCIENT_SOLO_DUNGEON_SELF_KILL_SIMPLE_AI"/>
+			</ToolScp>
+		</List>
+	</AI>
     <AI Name="SOUT_LAST_POINT" UpdateMS="1000" ActiveMessageMapInBattle="1">
         <List>
             <ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
@@ -24330,13 +24387,6 @@ if self.HP == 0 then return 1; else return 0; end;">
             </ToolScp>
         </List>
     </AI>
-    <AI Name="companion_pet_sparrow" ActiveMessageMapInBattle="1">
-		<List>
-			<ToolScp Scp="SAI_FUNC2_DIRECT_SLEEP" Client="NO" UseSleep="YES">
-				<Str Str="PET_LOOP_AI"/>
-			</ToolScp>
-		</List>
-	</AI>
     <AI Name="companion_Piggy" ActiveMessageMapInBattle="1">
         <List>
             <ToolScp Scp="SAI_FUNC2_DIRECT_SLEEP" Client="NO" UseSleep="YES">
@@ -26452,47 +26502,29 @@ return GET_RATE_MHP(self, damage) * 100"/>
         </HitList>
     </AI>
     <AI Name="F_Moringponia_Summon_AI" ActiveMessageMapInBattle="1">
-        <List>
-            <ToolScp Scp="S_AI_CUSTOM_SCRIPT" Client="NO" UseSleep="YES">
-                <Str Str="SCR_MORINGPONIA_RECOVERED_SPHERE_S_AI_1"/>
+		<List>
+			<ToolScp Scp="S_AI_CUSTOM_SCRIPT" Client="NO" UseSleep="YES">
+				<Str Str="SCR_MORINGPONIA_RECOVERED_SPHERE_S_AI_1"/>
 				<Num Num="10"/>
-            </ToolScp>
-        <ToolScp Scp="S_AI_BUFF" Client="NO" UseSleep="NO">
-                <Num Num="0"/>
+			</ToolScp>
+			<ToolScp Scp="S_AI_BUFF" Client="NO" UseSleep="NO">
+				<Num Num="0"/>
 				<Str Str="MoveSpeedFix"/>
 				<Num Num="30"/>
 				<Num Num="0"/>
 				<Num Num="0"/>
 				<Num Num="1"/>
 				<Num Num="100"/>
-            </ToolScp>
-        </List>
-        <StartList>
-            <ToolScp Scp="EnableAIOutOfPC" Client="NO" UseSleep="NO"/>
-                </StartList>
-            <HitList>
-            <ToolScp Scp="SCR_MORINGPONIA_RECOVERED_SPHERE_S_AI_HIT" Client="NO" UseSleep="NO">
+			</ToolScp>
+		</List>
+		<StartList>
+			<ToolScp Scp="EnableAIOutOfPC" Client="NO" UseSleep="NO"/>
+		</StartList>
+		<HitList>
+			<ToolScp Scp="SCR_MORINGPONIA_RECOVERED_SPHERE_S_AI_HIT" Client="NO" UseSleep="NO">
 				<Num Num="2"/>
 				<Str Str="None"/>
-        </ToolScp>
+			</ToolScp>
 		</HitList>
-    </AI>
-    <AI Name="EVENT_TP_SHOP_1912_NPC_AI" UpdateMS="60000" ActiveMessageMapInBattle="1">
-        <List>
-            <ToolScp Scp="SAI_FUNC_DIRECT" Client="NO" UseSleep="NO">
-                <Str Str="SCR_EVENT_TP_SHOP_1912_NPC_AI_UPDATE"/>
-            </ToolScp>
-        </List>
-        <DeadList>
-            <ToolScp Scp="SAI_DEAD_FUNC2_DIRECT" Client="NO" UseSleep="NO">
-                <Str Str="SCR_EVENT_TP_SHOP_1912_NPC_AI_LEAVE"/>
-            </ToolScp>
-        </DeadList>
-        <StartList>
-            <ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
-                <Str Str="SCR_EVENT_TP_SHOP_1912_NPC_AI_BORN"/>
-            </ToolScp>
-            <ToolScp Scp="EnableAIOutOfPC" Client="NO" UseSleep="NO"/>
-        </StartList>
-    </AI>
+	</AI>
 </AIList>

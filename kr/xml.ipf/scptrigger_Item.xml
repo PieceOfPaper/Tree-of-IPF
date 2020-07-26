@@ -10951,6 +10951,32 @@ end"/>
 			</Trigger>
 		</TriggerList>
 	</SpcItem>
+	<SpcItem Name="wing_littleprince">
+		<TriggerList Act="Equip">
+			<Trigger>
+				<ExecList>
+					<ToolScp Scp="SPCI_BUFF_EQUIPITEM" Client="NO" UseSleep="NO">
+						<Str Str="ITEM_LITTLE_PRINCE_BALLOON"/>
+						<Num Num="1"/>
+						<Num Num="0"/>
+						<Num Num="0"/>
+						<Num Num="1"/>
+						<Num Num="100"/>
+						<Num Num="-1"/>
+					</ToolScp>
+				</ExecList>
+			</Trigger>
+		</TriggerList>
+		<TriggerList Act="UnEquip">
+			<Trigger>
+				<ExecList>
+					<ToolScp Scp="SPCI_REMOVE_BUFF_UNEQUIP" Client="NO" UseSleep="NO">
+						<Str Str="ITEM_LITTLE_PRINCE_BALLOON"/>
+					</ToolScp>
+				</ExecList>
+			</Trigger>
+		</TriggerList>
+	</SpcItem>
 	<SpcItem Name="Effect_GabiaFire">
 		<TriggerList Act="Equip">
 			<Trigger>
@@ -11568,7 +11594,7 @@ end"/>
 			</Trigger>
 		</TriggerList>
 	</SpcItem>
-        <SpcItem Name="STF04_127_1">
+	<SpcItem Name="STF04_127_1">
 		<TriggerList Act="Equip">
 			<Trigger>
 				<ExecList>
@@ -11696,6 +11722,318 @@ end"/>
 					<ToolScp Scp="SPCI_BUFF_EQUIPITEM" Client="NO" UseSleep="NO">
 						<Str Str="20MAGICAL02_JUMP"/>
 						<Num Num="1"/>
+						<Num Num="0"/>
+						<Num Num="0"/>
+						<Num Num="1"/>
+						<Num Num="100"/>
+						<Num Num="-1"/>
+					</ToolScp>
+				</ExecList>
+			</Trigger>
+		</TriggerList>
+	</SpcItem>
+	<SpcItem Name="EP12_TOP04_001">
+		<TriggerList Act="UnEquip">
+			<Trigger>
+				<ExecList>
+					<ToolScp Scp="SPCI_REMOVE_BUFF_UNEQUIP_ADDOVER" Client="NO" UseSleep="NO">
+						<Str Str="ITEM_BUFF_moth430_cloth"/>
+					</ToolScp>
+				</ExecList>
+			</Trigger>
+		</TriggerList>
+		<TriggerList Act="Equip">
+			<Trigger>
+				<ExecList>
+					<ToolScp Scp="SPCI_BUFF_EQUIPITEM_ADDOVER" Client="NO" UseSleep="NO">
+						<Str Str="ITEM_BUFF_moth430_cloth"/>
+						<Num Num="99"/>
+						<Num Num="0"/>
+						<Num Num="0"/>
+						<Num Num="1"/>
+						<Num Num="100"/>
+						<Num Num="-1"/>
+					</ToolScp>
+				</ExecList>
+			</Trigger>
+		</TriggerList>
+	</SpcItem>
+	<SpcItem Name="EP12_LEG04_001">
+		<TriggerList Act="UnEquip">
+			<Trigger>
+				<ExecList>
+					<ToolScp Scp="SPCI_REMOVE_BUFF_UNEQUIP_ADDOVER" Client="NO" UseSleep="NO">
+						<Str Str="ITEM_BUFF_moth430_cloth"/>
+					</ToolScp>
+				</ExecList>
+			</Trigger>
+		</TriggerList>
+		<TriggerList Act="Equip">
+			<Trigger>
+				<ExecList>
+					<ToolScp Scp="SPCI_BUFF_EQUIPITEM_ADDOVER" Client="NO" UseSleep="NO">
+						<Str Str="ITEM_BUFF_moth430_cloth"/>
+						<Num Num="99"/>
+						<Num Num="0"/>
+						<Num Num="0"/>
+						<Num Num="1"/>
+						<Num Num="100"/>
+						<Num Num="-1"/>
+					</ToolScp>
+				</ExecList>
+			</Trigger>
+		</TriggerList>
+	</SpcItem>
+	<SpcItem Name="EP12_FOOT04_001">
+		<TriggerList Act="UnEquip">
+			<Trigger>
+				<ExecList>
+					<ToolScp Scp="SPCI_REMOVE_BUFF_UNEQUIP_ADDOVER" Client="NO" UseSleep="NO">
+						<Str Str="ITEM_BUFF_moth430_cloth"/>
+					</ToolScp>
+				</ExecList>
+			</Trigger>
+		</TriggerList>
+		<TriggerList Act="Equip">
+			<Trigger>
+				<ExecList>
+					<ToolScp Scp="SPCI_BUFF_EQUIPITEM_ADDOVER" Client="NO" UseSleep="NO">
+						<Str Str="ITEM_BUFF_moth430_cloth"/>
+						<Num Num="99"/>
+						<Num Num="0"/>
+						<Num Num="0"/>
+						<Num Num="1"/>
+						<Num Num="100"/>
+						<Num Num="-1"/>
+					</ToolScp>
+				</ExecList>
+			</Trigger>
+		</TriggerList>
+	</SpcItem>
+	<SpcItem Name="EP12_HAND04_001">
+		<TriggerList Act="UnEquip">
+			<Trigger>
+				<ExecList>
+					<ToolScp Scp="SPCI_REMOVE_BUFF_UNEQUIP_ADDOVER" Client="NO" UseSleep="NO">
+						<Str Str="ITEM_BUFF_moth430_cloth"/>
+					</ToolScp>
+				</ExecList>
+			</Trigger>
+		</TriggerList>
+		<TriggerList Act="Equip">
+			<Trigger>
+				<ExecList>
+					<ToolScp Scp="SPCI_BUFF_EQUIPITEM_ADDOVER" Client="NO" UseSleep="NO">
+						<Str Str="ITEM_BUFF_moth430_cloth"/>
+						<Num Num="99"/>
+						<Num Num="0"/>
+						<Num Num="0"/>
+						<Num Num="1"/>
+						<Num Num="100"/>
+						<Num Num="-1"/>
+					</ToolScp>
+				</ExecList>
+			</Trigger>
+		</TriggerList>
+	</SpcItem>
+	<SpcItem Name="EP12_TOP04_002">
+		<TriggerList Act="UnEquip">
+			<Trigger>
+				<ExecList>
+					<ToolScp Scp="SPCI_REMOVE_BUFF_UNEQUIP_ADDOVER" Client="NO" UseSleep="NO">
+						<Str Str="ITEM_BUFF_moth430_leather"/>
+					</ToolScp>
+				</ExecList>
+			</Trigger>
+		</TriggerList>
+		<TriggerList Act="Equip">
+			<Trigger>
+				<ExecList>
+					<ToolScp Scp="SPCI_BUFF_EQUIPITEM_ADDOVER" Client="NO" UseSleep="NO">
+						<Str Str="ITEM_BUFF_moth430_leather"/>
+						<Num Num="99"/>
+						<Num Num="0"/>
+						<Num Num="0"/>
+						<Num Num="1"/>
+						<Num Num="100"/>
+						<Num Num="-1"/>
+					</ToolScp>
+				</ExecList>
+			</Trigger>
+		</TriggerList>
+	</SpcItem>
+	<SpcItem Name="EP12_LEG04_002">
+		<TriggerList Act="UnEquip">
+			<Trigger>
+				<ExecList>
+					<ToolScp Scp="SPCI_REMOVE_BUFF_UNEQUIP_ADDOVER" Client="NO" UseSleep="NO">
+						<Str Str="ITEM_BUFF_moth430_leather"/>
+					</ToolScp>
+				</ExecList>
+			</Trigger>
+		</TriggerList>
+		<TriggerList Act="Equip">
+			<Trigger>
+				<ExecList>
+					<ToolScp Scp="SPCI_BUFF_EQUIPITEM_ADDOVER" Client="NO" UseSleep="NO">
+						<Str Str="ITEM_BUFF_moth430_leather"/>
+						<Num Num="99"/>
+						<Num Num="0"/>
+						<Num Num="0"/>
+						<Num Num="1"/>
+						<Num Num="100"/>
+						<Num Num="-1"/>
+					</ToolScp>
+				</ExecList>
+			</Trigger>
+		</TriggerList>
+	</SpcItem>
+	<SpcItem Name="EP12_FOOT04_002">
+		<TriggerList Act="UnEquip">
+			<Trigger>
+				<ExecList>
+					<ToolScp Scp="SPCI_REMOVE_BUFF_UNEQUIP_ADDOVER" Client="NO" UseSleep="NO">
+						<Str Str="ITEM_BUFF_moth430_leather"/>
+					</ToolScp>
+				</ExecList>
+			</Trigger>
+		</TriggerList>
+		<TriggerList Act="Equip">
+			<Trigger>
+				<ExecList>
+					<ToolScp Scp="SPCI_BUFF_EQUIPITEM_ADDOVER" Client="NO" UseSleep="NO">
+						<Str Str="ITEM_BUFF_moth430_leather"/>
+						<Num Num="99"/>
+						<Num Num="0"/>
+						<Num Num="0"/>
+						<Num Num="1"/>
+						<Num Num="100"/>
+						<Num Num="-1"/>
+					</ToolScp>
+				</ExecList>
+			</Trigger>
+		</TriggerList>
+	</SpcItem>
+	<SpcItem Name="EP12_HAND04_002">
+		<TriggerList Act="UnEquip">
+			<Trigger>
+				<ExecList>
+					<ToolScp Scp="SPCI_REMOVE_BUFF_UNEQUIP_ADDOVER" Client="NO" UseSleep="NO">
+						<Str Str="ITEM_BUFF_moth430_leather"/>
+					</ToolScp>
+				</ExecList>
+			</Trigger>
+		</TriggerList>
+		<TriggerList Act="Equip">
+			<Trigger>
+				<ExecList>
+					<ToolScp Scp="SPCI_BUFF_EQUIPITEM_ADDOVER" Client="NO" UseSleep="NO">
+						<Str Str="ITEM_BUFF_moth430_leather"/>
+						<Num Num="99"/>
+						<Num Num="0"/>
+						<Num Num="0"/>
+						<Num Num="1"/>
+						<Num Num="100"/>
+						<Num Num="-1"/>
+					</ToolScp>
+				</ExecList>
+			</Trigger>
+		</TriggerList>
+	</SpcItem>
+	<SpcItem Name="EP12_TOP04_003">
+		<TriggerList Act="UnEquip">
+			<Trigger>
+				<ExecList>
+					<ToolScp Scp="SPCI_REMOVE_BUFF_UNEQUIP_ADDOVER" Client="NO" UseSleep="NO">
+						<Str Str="ITEM_BUFF_moth430_iron"/>
+					</ToolScp>
+				</ExecList>
+			</Trigger>
+		</TriggerList>
+		<TriggerList Act="Equip">
+			<Trigger>
+				<ExecList>
+					<ToolScp Scp="SPCI_BUFF_EQUIPITEM_ADDOVER" Client="NO" UseSleep="NO">
+						<Str Str="ITEM_BUFF_moth430_iron"/>
+						<Num Num="99"/>
+						<Num Num="0"/>
+						<Num Num="0"/>
+						<Num Num="1"/>
+						<Num Num="100"/>
+						<Num Num="-1"/>
+					</ToolScp>
+				</ExecList>
+			</Trigger>
+		</TriggerList>
+	</SpcItem>
+	<SpcItem Name="EP12_LEG04_003">
+		<TriggerList Act="UnEquip">
+			<Trigger>
+				<ExecList>
+					<ToolScp Scp="SPCI_REMOVE_BUFF_UNEQUIP_ADDOVER" Client="NO" UseSleep="NO">
+						<Str Str="ITEM_BUFF_moth430_iron"/>
+					</ToolScp>
+				</ExecList>
+			</Trigger>
+		</TriggerList>
+		<TriggerList Act="Equip">
+			<Trigger>
+				<ExecList>
+					<ToolScp Scp="SPCI_BUFF_EQUIPITEM_ADDOVER" Client="NO" UseSleep="NO">
+						<Str Str="ITEM_BUFF_moth430_iron"/>
+						<Num Num="99"/>
+						<Num Num="0"/>
+						<Num Num="0"/>
+						<Num Num="1"/>
+						<Num Num="100"/>
+						<Num Num="-1"/>
+					</ToolScp>
+				</ExecList>
+			</Trigger>
+		</TriggerList>
+	</SpcItem>
+	<SpcItem Name="EP12_FOOT04_003">
+		<TriggerList Act="UnEquip">
+			<Trigger>
+				<ExecList>
+					<ToolScp Scp="SPCI_REMOVE_BUFF_UNEQUIP_ADDOVER" Client="NO" UseSleep="NO">
+						<Str Str="ITEM_BUFF_moth430_iron"/>
+					</ToolScp>
+				</ExecList>
+			</Trigger>
+		</TriggerList>
+		<TriggerList Act="Equip">
+			<Trigger>
+				<ExecList>
+					<ToolScp Scp="SPCI_BUFF_EQUIPITEM_ADDOVER" Client="NO" UseSleep="NO">
+						<Str Str="ITEM_BUFF_moth430_iron"/>
+						<Num Num="99"/>
+						<Num Num="0"/>
+						<Num Num="0"/>
+						<Num Num="1"/>
+						<Num Num="100"/>
+						<Num Num="-1"/>
+					</ToolScp>
+				</ExecList>
+			</Trigger>
+		</TriggerList>
+	</SpcItem>
+	<SpcItem Name="EP12_HAND04_003">
+		<TriggerList Act="UnEquip">
+			<Trigger>
+				<ExecList>
+					<ToolScp Scp="SPCI_REMOVE_BUFF_UNEQUIP_ADDOVER" Client="NO" UseSleep="NO">
+						<Str Str="ITEM_BUFF_moth430_iron"/>
+					</ToolScp>
+				</ExecList>
+			</Trigger>
+		</TriggerList>
+		<TriggerList Act="Equip">
+			<Trigger>
+				<ExecList>
+					<ToolScp Scp="SPCI_BUFF_EQUIPITEM_ADDOVER" Client="NO" UseSleep="NO">
+						<Str Str="ITEM_BUFF_moth430_iron"/>
+						<Num Num="99"/>
 						<Num Num="0"/>
 						<Num Num="0"/>
 						<Num Num="1"/>

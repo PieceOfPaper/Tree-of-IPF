@@ -646,14 +646,14 @@ function BGMPLAYER_PLAYBTN_RESET(frame)
      local haltImageName = topFrame:GetUserConfig("PLAY_HALT_BTN_IMAGE_NAME");
      local startImageName = topFrame:GetUserConfig("PLAY_START_BTN_IMAGE_NAME");
      if title[2] == selectBgmClsName then
-        btn:SetImage(haltImageName);
-        btn:SetTooltipArg(ScpArgMsg('BgmPlayer_StartBtnToolTip'));
-        BGMPLAYER_REDUCTION_SET_PLAYBTN(true);
+        if IsBgmPause() ~= 1 then
+            btn:SetImage(haltImageName);
+            btn:SetTooltipArg(ScpArgMsg('BgmPlayer_StartBtnToolTip'));
+            BGMPLAYER_REDUCTION_SET_PLAYBTN(true);
+        end
      elseif title[2] ~= nil and title[2] ~= selectBgmClsName then
         btn:SetImage(startImageName);
         btn:SetTooltipArg(ScpArgMsg('BgmPlayer_StartBtnToolTip'));
-        SetPause(0);
-        SetPauseTime(0);
         BGMPLAYER_REDUCTION_SET_PLAYBTN(false);
      end
 end

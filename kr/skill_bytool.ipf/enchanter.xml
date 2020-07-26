@@ -128,7 +128,10 @@ end"/>
 	</Skill>
 	<Skill Name="Enchanter_EnchantEarth">
         <MainSkl ScrLock="None" JumpFlee="NO" MSPDToUsePos="0">
-			<EtcList>
+			<HitList>
+                <Frame Type="FAN" Time="999799" HitCount="1" TermMin="0" TermMax="0" PosType="0" Dist="0" RandDist="0" RandomPerHit="0" Angle="0" Width="30" Length="30" SklAngle="0.17453292" AniTime="999999" RotAngle="0" ForceATK="0"/>
+            </HitList>
+            <EtcList>
                 <Scp Scp="SKL_SET_TARGET_CIRCLE" Client="NO" UseSleep="NO" Time="0">
 					<Pos Angle="0" Dist="0" />
 					<Num Num="150" />

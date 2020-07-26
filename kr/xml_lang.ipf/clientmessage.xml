@@ -768,11 +768,11 @@
 		<Class ClassID="5042" ClassName="BLK_BREAK_BM" Data="관통"/>
 		<Class ClassID="5043" ClassName="Holy_Atk_BM" Data="신성 속성 대미지"/>
 		<Class ClassID="5044" ClassName="Ice_Atk_BM" Data="얼음 속성 대미지"/>
-		<Class ClassID="5045" ClassName="ITEM_Swordman_GungHo_DMGRate" Data="겅호 대미지 추가 증가 {img green_up_arrow 16 16}{value}%"/>
-		<Class ClassID="5046" ClassName="ITEM_Wizard_Lethargy_DMGRate" Data="래써지 마법진 대미지 추가 효과 증가 {img green_up_arrow 16 16}{value}%"/>
-		<Class ClassID="5047" ClassName="ITEM_Cleric_PatronSaint_HwpRate" Data="수호 성인 사용시 치유력, 대미지 증가 {img green_up_arrow 16 16}{value}%"/>
-		<Class ClassID="5048" ClassName="ITEM_Archer_Concentration_CRTHRRate" Data="콘센트레이션 치명타 발생 추가 증가 {img green_up_arrow 16 16}{value}%"/>
-		<Class ClassID="5049" ClassName="ITEM_Scout_Cloaking_CloakingDMGRate" Data="클로킹 대미지 추가 증가 {img green_up_arrow 16 16}{value}%"/>
+		<Class ClassID="5045" ClassName="ITEM_Swordman_GungHo_DMGRate" Data="대미지 증가 {img green_up_arrow 16 16}{value}%"/>
+		<Class ClassID="5046" ClassName="ITEM_Wizard_Lethargy_DMGRate" Data="대미지 증가, 소환수 대미지 증가 {img green_up_arrow 16 16}{value}%"/>
+		<Class ClassID="5047" ClassName="ITEM_Cleric_PatronSaint_HwpRate" Data="치유력, 대미지 증가 {img green_up_arrow 16 16}{value}%"/>
+		<Class ClassID="5048" ClassName="ITEM_Archer_Concentration_CRTHRRate" Data="대미지 증가 {img green_up_arrow 16 16}{value}%"/>
+		<Class ClassID="5049" ClassName="ITEM_Scout_Cloaking_CloakingDMGRate" Data="대미지 증가 {img green_up_arrow 16 16}{value}%"/>
 		<Class ClassID="5050" ClassName="SortByStarrank" Data="진화등급순"/>
 		<Class ClassID="5051" ClassName="ArkOptionText{Option}{interval}{addvalue}" Data="{@st41b}{s16}{#ffc500}{interval}{/} 레벨당 {#ffc500}{Option} {addvalue}{/} 증가"/>
 		<Class ClassID="5052" ClassName="Add_Damage_Atk_BM" Data="추가 대미지"/>
@@ -5293,6 +5293,7 @@
 		<Class ClassID="28189" ClassName="GUILD_SYSTEM_MSG10" Data="길드원분들의 참여로 [{#33FF33}{MISSION}{/}] 길드 퀘스트를 성공했습니다."/>
 		<Class ClassID="28190" ClassName="GUILD_SYSTEM_MSG11" Data="길드 타워가 [{#33FF33}{ZONE}{/}] 지역 1채널에 설치되었습니다."/>
 		<Class ClassID="28191" ClassName="GUILD_SYSTEM_MSG12" Data="{@st64}하단 메뉴 '{img sysmenu_guild_rank}'버튼이나 'Alt + R'키를 눌러 '길드 홍보' UI에서 원하시는 길드를 찾아 가입하실 수 있습니다!"/>
+		<Class ClassID="28192" ClassName="GUILD_SYSTEM_MSG13" Data="[{#33FF33}{SELF}{/}]님이 길드 최초로 [{#33FF33}치유력 : {NUM}{/}]을 돌파하셨습니다."/>
 		<Class ClassID="28200" ClassName="JOURNEY_SHOP_QUEST_WARP_MSG1" Data="[{COUNT}] 곳의 '여신 바카리네의 상'이 활성화되었습니다!"/>
 		<Class ClassID="28201" ClassName="JOURNEY_SHOP_LvRewards_Msg1" Data="모두 수령"/>
 		<Class ClassID="28202" ClassName="JOURNEY_SHOP_LvRewards_Msg2" Data="{#003399}{LV} 레벨{/} 보상 수령"/>
@@ -9142,6 +9143,7 @@
 		<Class ClassID="91001" ClassName="ASSISTOR_QUEST_MSG_01" Data="어시스터에 대해서 묻기"/>
 		<Class ClassID="91002" ClassName="ASSISTOR_QUEST_MSG_02" Data="젬 교환에 대해서 묻기"/>
 		<Class ClassID="91003" ClassName="GET_{CARDNAME}" Data="{CARDNAME} 받기."/>
+		<Class ClassID="91015" ClassName="GODDESS_ROULETTE_COIN_LIMIT_BY_CONTENTS" Data="오늘 콘텐츠 플레이로 획득 가능한 [여신의 룰렛 코인]을 전부 획득하셨습니다."/>
 	</Category>
 	<Category Name="BattleText">
 		<Class ClassID="100001" ClassName="ADD_DAMAGE_{Auto_1}!" Data="추가 대미지 {Auto_1}!"/>
@@ -9827,6 +9829,7 @@
 		<Class ClassID="106128" ClassName="IcorArmorBoots" Data="아이커 - 신발"/>
 		<Class ClassID="106129" ClassName="Skin" Data="스킨"/>
 		<Class ClassID="106130" ClassName="IcorWeaponTrinket" Data="아이커 - 무기장식"/>
+		<Class ClassID="106131" ClassName="RegMarketItem{Price}" Data="{#ff0000}{s20}판매가 : 개당 {Price}실버{/}{/}{nl} {nl}"/>
 	</Category>
 	<Category Name="AutoSeller">
 		<Class ClassID="107001" ClassName="InputPriceMoreThanOne" Data="가격을 1이상 입력해주세요."/>
@@ -13847,6 +13850,12 @@
 		<Class ClassID="302095" ClassName="STAMP_TOUR_TRADE_WARNING" Data="{item} 아이템은 팀창고 이동이 불가능합니다.{nl}수령하시겠습니까?"/>
 		<Class ClassID="302096" ClassName="STAMP_TOUR_WEEK_MSG" Data="{week}주차에 공개됩니다."/>
 		<Class ClassID="302097" ClassName="STAMP_TOUR_PERSONAL_HOUSING_POINT" Data="[스탬프 투어]주거 정착 물품 교환{nl}{count}/{max}"/>
+		<Class ClassID="302098" ClassName="NewUserShop2004" Data="트린이날 이벤트 상점"/>
+		<Class ClassID="302099" ClassName="EVENT_2004_NEWUSER_SEL_MSG1" Data="{#003399}[트린이날]{/} 이벤트 설명"/>
+		<Class ClassID="302100" ClassName="EVENT_2004_NEWUSER_SEL_MSG2" Data="{#003399}[트린이날]{/} 이벤트 상점"/>
+		<Class ClassID="302101" ClassName="EVENT_2004_NEWUSER_CHECK_MESSAGE{TIME}{COIN}" Data="[이벤트] 포포리온 뱃지 일일 획득 정보{nl}1시간 접속시 뱃지 20개 획득 ({TIME}/60분){nl}일일 총 획득량 ({COIN}/200){nl}{#FF0000}※ 1시간 접속 획득 주화는 일일 주화 획득 제한에 포함됩니다.{/}{nl}{#FF0000}※일일 최대 획득량은 오전 6시 초기화 됩니다.{/}"/>
+		<Class ClassID="302102" ClassName="EVENT_2004_NEWUSER_CHECK_MESSAGE_DONE" Data="[이벤트] 포포리온 뱃지 일일 획득 정보{nl}오늘 획득 가능한 [이벤트] 포포리온 뱃지를 모두 획득하였습니다.{nl}{#FF0000}※일일 최대 획득량은 오전 6시 초기화 됩니다.{/}"/>
+		<Class ClassID="302103" ClassName="EVENT_COIN_FULL{COIN}" Data="오늘 획득 가능한 {COIN}을(를) 전부 획득하셨습니다."/>
 	</Category>
 	<Category Name="Account">
 		<Class ClassID="303001" ClassName="MaxAccountWarehouseCount" Data="팀 창고"/>
@@ -13960,7 +13969,7 @@
 		<Class ClassID="501236" ClassName="JOB_BALLENCE_REWARD_NPC_CM_11_GLOBAL3" Data="{#003399}아처 계열{/}{nl} - {Char3}"/>
 		<Class ClassID="501237" ClassName="JOB_BALLENCE_REWARD_NPC_CM_11_GLOBAL4" Data="{#003399}클레릭 계열{/}{nl} - {Char4}"/>
 		<Class ClassID="501238" ClassName="JOB_BALLENCE_REWARD_NPC_CM_11_GLOBAL5" Data="{#003399}스카우트 계열{/}{nl} - {Char5}"/>
-		<Class ClassID="501241" ClassName="JOB_BALLENCE_REWARD_NPC_CHECK_CLASS" Data="[지원 대상 클래스를 확인한다]를 선택하시면 현재 구원자님의 클래스에 따라 지원 절차가 진행됩니다."/>
+		<Class ClassID="501241" ClassName="JOB_BALLENCE_REWARD_NPC_CHECK_CLASS" Data="[지원 대상 클래스를 확인한다] 또는 [추가 대상 클래스를 확인한다]를 선택하시면 현재 구원자님의 클래스에 따라 지원 절차가 진행됩니다.{nl} {nl}[추가 지원 대상 클래스]{nl} - {#003399}무녀, 카발리스트{/}"/>
 		<Class ClassID="501244" ClassName="2020_AbillityArts_Box_1" Data="계열 상자 선택"/>
 		<Class ClassID="501245" ClassName="2020_AbillityArts_Box_2" Data="아츠 초기화 포션 선택"/>
 		<Class ClassID="501246" ClassName="Event_irredians_accessory_box" Data="장비 선택"/>
@@ -14081,7 +14090,7 @@
 		<Class ClassID="510733" ClassName="PvpMine_TeamA_NPC_Dead" Data="{ol}{img mine_pvp_teamicon_bladetryst 40 40}{/}{#ff6d00} 칼날서약 용병단원{/}을 {NAME}이(가) 처치하였습니다.{nl}{ol}{img mine_pvp_teamicon_bladetryst 40 40}{/}{#ff6d00} 칼날서약 용병단원{/}의 포인트 {POINT}이 약탈되었습니다."/>
 		<Class ClassID="510734" ClassName="PVP_MINE_TAKE_DAMAGE_MSG_1" Data="{ol}{img mine_pvp_teamicon_goldencroon 40 40}{/}{#5ae2e7} 황금노래 용병단원{/}이 피해를 입고 있습니다."/>
 		<Class ClassID="510735" ClassName="PVP_MINE_TAKE_DAMAGE_MSG_2" Data="{ol}{img mine_pvp_teamicon_bladetryst 40 40}{/}{#ff6d00} 칼날서약 용병단원{/}이 피해를 받고 있습니다."/>
-	    </Category>
+	</Category>
 	<Category Name="Beauty_Shop">
 		<Class ClassID="510801" ClassName="Beauty_Shop_IN" Data="뷰티샵 입장"/>
 		<Class ClassID="510802" ClassName="Beauty_Shop_OUT" Data="클라페다로 이동"/>
@@ -14965,6 +14974,8 @@
 		<Class ClassID="560019" ClassName="marnox_emotion02" Data="{nl} {nl}사용한 캐릭터가 채팅 이모티콘을 흭득합니다.{nl} {nl}{#FF0000}사용 후 복구가 불가능합니다.{nl} {nl}{@st66d_y}이모티콘을 습득하시겠습니까?"/>
 		<Class ClassID="560020" ClassName="malsuns_emotion88" Data="{nl} {nl}사용한 캐릭터가 채팅 이모티콘을 흭득합니다.{nl} {nl}{#FF0000}사용 후 복구가 불가능합니다.{nl} {nl}{@st66d_y}이모티콘을 습득하시겠습니까?"/>
 		<Class ClassID="560021" ClassName="malsuns_emotion95" Data="{nl} {nl}사용한 캐릭터가 채팅 이모티콘을 흭득합니다.{nl} {nl}{#FF0000}사용 후 복구가 불가능합니다.{nl} {nl}{@st66d_y}이모티콘을 습득하시겠습니까?"/>
+		<Class ClassID="560022" ClassName="Rozaliia_emotion01" Data="{nl} {nl}사용한 캐릭터가 채팅 이모티콘을 흭득합니다.{nl} {nl}{#FF0000}사용 후 복구가 불가능합니다.{nl} {nl}{@st66d_y}이모티콘을 습득하시겠습니까?"/>
+		<Class ClassID="560023" ClassName="Boruble_emotion01" Data="{nl} {nl}사용한 캐릭터가 채팅 이모티콘을 흭득합니다.{nl} {nl}{#FF0000}사용 후 복구가 불가능합니다.{nl} {nl}{@st66d_y}이모티콘을 습득하시겠습니까?"/>
 	</Category>
 	<Category Name="Gesture">
 		<Class ClassID="570000" ClassName="Already_Gesture" Data="이미 보유한 제스쳐입니다."/>

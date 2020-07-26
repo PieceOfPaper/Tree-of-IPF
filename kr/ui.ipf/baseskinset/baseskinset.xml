@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by imc (imc) -->
 <!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by MintPC (Mi) -->
 <skinset name="Base">
 	<skinlist category="frames">
@@ -4464,6 +4464,19 @@
 			<img name="bottomright" imgrect="473 87 40 27"/>
 		</skin>
 	</skinlist>
+	<skinlist category="yiseul_frames">
+		<skin name="childrens_day_balloon" texture="\skin\say_balloon.tga">
+			<img name="topleft" imgrect="86 749 55 29"/>
+			<img name="topcore" imgrect="142 749 62 29"/>
+			<img name="topright" imgrect="205 749 55 29"/>
+			<img name="bodyleft" imgrect="86 779 55 28"/>
+			<img name="bodycore" imgrect="142 779 62 28"/>
+			<img name="bodyright" imgrect="205 779 55 28"/>
+			<img name="bottomleft" imgrect="86 808 55 29"/>
+			<img name="bottomcore" imgrect="142 808 62 29"/>
+			<img name="bottomright" imgrect="205 808 55 29"/>
+		</skin>
+	</skinlist>
 	<skinlist category="buttons">
 		<skin name="button_companion" texture="\skin\barrack.tga">
 			<img name="topleft" imgrect="726 0 1 1"/>
@@ -7554,6 +7567,8 @@
 		<image name="bg_ark_craft" file="\skin\bg_ark_craft.tga" imgrect="0 0 700 538" CMM_Caption="아크 제작 배경"/>
 	</imagelist>
 	<imagelist category="yiseul_image">
+		<image name="childrens_day_balloon_direction" file="\skin\say_balloon.tga" imgrect="1 533 82 75" CMM_Caption="트린이날 말풍선 꼬리"/>
+		<image name="childrens_day_balloon_decoration" file="\skin\say_balloon.tga" imgrect="263 597 72 52" CMM_Caption="트린이날 말풍선 장식"/>
 		<image name="gemston_randombg_new_low" file="\skin\pip_test_item.tga" imgrect="0 1025 200 169" CMM_Caption="젬 뽑기 배경_low"/>
 		<image name="gemston_randombg_new_mid" file="\skin\pip_test_item.tga" imgrect="201 1025 200 169" CMM_Caption="젬 뽑기 배경_mid"/>
 		<image name="gemston_randombg_new_high" file="\skin\pip_test_item.tga" imgrect="402 1025 200 169" CMM_Caption="젬 뽑기 배경_high"/>
@@ -8879,6 +8894,8 @@
 		<image name="malsuns_emotion98" file="\icon\emoticon\malsuns_emotion22.png" imgrect="0 0 128 128"/>
 		<image name="malsuns_emotion99" file="\icon\emoticon\malsuns_emotion23.png" imgrect="0 0 128 128"/>
 		<image name="malsuns_emotion100" file="\icon\emoticon\malsuns_emotion24.png" imgrect="0 0 128 128"/>
+		<image name="Rozaliia_emotion01" file="\icon\emoticon\Rozaliia_emotion01.png" imgrect="0 0 128 128"/>
+		<image name="Boruble_emotion01" file="\icon\emoticon\Boruble_emotion01.png" imgrect="0 0 128 128"/>
 	</imagelist>
 	<imagelist category="itemtooltip_image">
 		<image name="circle_gem" file="\skin\tooltip_skin_3.tga" imgrect="805 228 30 30"/>
