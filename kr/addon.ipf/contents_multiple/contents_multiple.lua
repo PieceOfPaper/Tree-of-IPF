@@ -29,9 +29,16 @@ local function SET_TARGET_SLOT(frame, targetItem)
 
 	if targetItem ~= nil then
 		local targetItemObj = GetIES(targetItem:GetObject())
-		if TryGetProp(targetItemObj, 'ClassName', 'None') ~= req_item_name then
-			ui.SysMsg(ClMsg('IMPOSSIBLE_ITEM'))
-			return
+		if req_item_name == 'EP12_EXPERT_MODE_MULTIPLE' or req_item_name == 'EP12_EXPERT_MODE_MULTIPLE_NoTrade' then
+			if TryGetProp(targetItemObj, 'ClassName', 'None') ~= 'EP12_EXPERT_MODE_MULTIPLE' and TryGetProp(targetItemObj, 'ClassName', 'None') ~= 'EP12_EXPERT_MODE_MULTIPLE_NoTrade' then							
+				ui.SysMsg(ClMsg('IMPOSSIBLE_ITEM'))
+				return
+			end
+		else
+			if (TryGetProp(targetItemObj, 'ClassName', 'None') ~= req_item_name) then						
+				ui.SysMsg(ClMsg('IMPOSSIBLE_ITEM'))
+				return
+			end
 		end
 		
 		SET_SLOT_ITEM(slot, targetItem)
