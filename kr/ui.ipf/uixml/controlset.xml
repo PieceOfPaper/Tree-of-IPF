@@ -5133,12 +5133,18 @@
 			<richtext name="name" rect="0 0 500 100" margin="90 0 0 0" layout_gravity="left center" format="{#000000}%s" param1="value" param1_def="내용"/>
 		</controls>
 	</controlset>
-	<controlset name="raid_ranking_info" width="690" height="90" hittest="false" hittestset="false" draw="true" skin="test_skin_01">
+	<controlset name="raid_ranking_info" width="690" height="90" hittest="true" hittestset="false" draw="true" skin="test_skin_01">
 		<controls>
 			<picture name="pic" rect="0 0 75 62" margin="15 -2 0 0" layout_gravity="left center" stretch="true" image="raid_week_rank_01" hittest="false"/>
-			<richtext name="rank" rect="0 0 50 100" margin="35 0 0 0" layout_gravity="left center" textalign="center center" fontname="black_18" format="%s" param1="value" param1_def="내용"/>
-			<richtext name="time" rect="0 0 500 100" margin="130 0 0 0" layout_gravity="left center" fontname="black_18" format="%s" param1="value" param1_def="내용"/>
-			<groupbox name="membergb" rect="0 0 440 110" margin="0 0 0 0" layout_gravity="right center" scrollbar="false" draw="false"/>
+			<richtext name="rank" rect="0 0 50 100" margin="35 0 0 0" layout_gravity="left center" textalign="center center" fontname="black_18" format="%s" param1="value" param1_def="내용" hittest="false"/>
+			<richtext name="time" rect="0 0 500 100" margin="130 0 0 0" layout_gravity="left center" fontname="black_18" format="%s" param1="value" param1_def="내용" hittest="false"/>
+			<groupbox name="membergb" rect="0 0 440 110" margin="0 0 0 0" layout_gravity="right center" scrollbar="false" draw="false" hittest="true"/>
+		</controls>
+	</controlset>
+	<controlset name="raid_ranking_info_member" width="420" height="20" hittest="true" hittestset="false" draw="false">
+		<controls>			
+			<richtext name="guild" rect="0 0 170 20" margin="75 0 0 0" layout_gravity="left center" textalign="left center" fontname="black_18" caption="" resizebytext="false" omitbywidth="true" ellipsistexttooltip="true" hittest="true"/>
+			<richtext name="team" rect="0 0 170 20" margin="250 0 0 0" layout_gravity="left center" textalign="left center" fontname="black_18" caption="" resizebytext="false" omitbywidth="true" ellipsistexttooltip="true" hittest="true"/>
 		</controls>
 	</controlset>
 </controlsetlist>

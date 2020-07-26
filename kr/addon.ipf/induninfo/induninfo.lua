@@ -1975,20 +1975,19 @@ function RAID_RANKING_INFO_DETAIL(y, rank, time, member)
         local infostrlist = StringSplit(memberstrlist[i], ' ');
         local teamname = "";
         local guildname = "";
+        local memberCtrl = membergb:CreateOrGetControlSet("raid_ranking_info_member", "member_"..i, 0, membery);
         if 1 < #infostrlist then
             guildname = infostrlist[1];
             teamname = infostrlist[2];
 
-            local guildCtrl = membergb:CreateOrGetControl("richtext", "member_guild_"..i, 500, 30, ui.LEFT, ui.TOP, 75, membery, 0, 0);
+            local guildCtrl = GET_CHILD(memberCtrl, "guild");
             guildCtrl:SetText(guildname);
-            guildCtrl:SetFontName("black_18");
         else
             teamname = infostrlist[1];
         end
         
-        local memberCtrl = membergb:CreateOrGetControl("richtext", "member_"..i, 500, 30, ui.LEFT, ui.TOP, 250, membery, 0, 0);
-        memberCtrl:SetText(teamname);
-        memberCtrl:SetFontName("black_18");
+        local teamCtrl = GET_CHILD(memberCtrl, "team");
+        teamCtrl:SetText(teamname);
 
         local myHandle = session.GetMyHandle();
         if teamname == info.GetFamilyName(myHandle) then
