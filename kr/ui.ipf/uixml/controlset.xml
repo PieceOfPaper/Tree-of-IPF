@@ -4997,7 +4997,7 @@
 	<controlset name="ancient_card_item_slot" hittest="true" width="163" height="218" skin="test_frame_midle_light" stateskin="false" enabledrag="true">
 		<controls>
 			<groupbox name="default_box" rect="0 0 161 214" margin="0 0 0 0" hittest="false" layout_gravity="center center" skin="mon_card_hollow"/>
-			<picture name="default_image" parent="default_box" rect="0 0 161 214" margin="0 0 0 0" hittest="false" layout_gravity="center center" image="socket_slot_bg"/>
+			<picture name="default_image" parent="default_box" rect="0 0 121 115" margin="0 0 0 0" hittest="false" layout_gravity="center center" image="socket_slot_bg"/>
 			<groupbox name="ancient_card_gbox" margin="0 0 0 0" rect="0 0 163 218" hittestbox="false" hittest="false" layout_gravity="left top" draw="false"/>
 			<picture name="ancient_card_background" parent="ancient_card_gbox" rect="0 0 163 218" margin="0 0 0 0" layout_gravity="center center"/>
 			<richtext name="ancient_card_lv" parent="ancient_card_gbox" layout_gravity="center top" textalign="center top" rect="0 0 70 20" margin="0 8 0 0" resizebytext="true"/>

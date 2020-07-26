@@ -122,7 +122,7 @@ function INIT_ANCIENT_CARD_INFO_TAB(frame)
 end
 
 function INIT_ANCIENT_CARD_SLOTS(frame,type)
-    local gbox = GET_CHILD_RECURSIVELY(frame,'ancient_card_slot_Gbox')
+    local gbox =  GET_CHILD_RECURSIVELY(frame,'ancient_card_slot_Gbox')
     if gbox == nil then
         return;
     end
@@ -161,26 +161,16 @@ function INIT_ANCIENT_CARD_SLOTS(frame,type)
             if card ~= nil then
                 SET_ANCIENT_CARD_SLOT(ctrlSet,card)
             end
-            local default_image = GET_CHILD_RECURSIVELY(ctrlSet,"default_image")
-            AUTO_CAST(default_image)
-            default_image:SetImage("toketmon_info_slot")
         elseif type == ANCIENT_COMBINE_TAB or type == ANCIENT_EVOLVE_TAB then
             ctrlSet:SetEventScript(ui.DROP,"ON_ANCIENT_CARD_COMBINE_DROP")
             ctrlSet:SetEventScript(ui.RBUTTONDOWN, 'ANCIENT_CARD_SLOT_POP_COMBINE')
             if index == 3 then
                 local default_image = GET_CHILD_RECURSIVELY(ctrlSet,"default_image")
                 AUTO_CAST(default_image)
-                default_image:SetImage("toketmon_result")
-                -- default_image:SetAlpha(60)
+                default_image:SetImage("m_question_mark")
+                default_image:Resize(97,128)
+                default_image:SetAlpha(60)
                 ctrlSet:SetEventScript(ui.RBUTTONDOWN,"ON_ANCIENT_CARD_RELOAD")
-            else
-                local default_image = GET_CHILD_RECURSIVELY(ctrlSet,"default_image")
-                AUTO_CAST(default_image)
-                if type == ANCIENT_COMBINE_TAB then
-                    default_image:SetImage("toketmon_compose_slot")
-                elseif type == ANCIENT_EVOLVE_TAB then
-                    default_image:SetImage("toketmon_evolution_slot")
-                end
             end
         end
     end
@@ -548,19 +538,7 @@ function ANCIENT_CARD_COMBINE(parent, control, argStr, argNum)
         addon.BroadMsg("NOTICE_Dm_!", ClMsg("ImpossibleInCurrentMap"), 3);
         return
     end
-    local msgStr = ScpArgMsg("AncientCombineConfirm")
-	local yesScp = string.format("EXEC_ANCIENT_CARD_COMBINE()");
-    local msgBox = ui.MsgBox(msgStr, yesScp, "None");
-end
-
-function EXEC_ANCIENT_CARD_COMBINE()
-    local frame = ui.GetFrame('ancient_card_list')
-    local tab = frame:GetChild("tab")
-    AUTO_CAST(tab)
-    local index = tab:GetSelectItemIndex();
-    if index ~= ANCIENT_COMBINE_TAB then
-        return
-    end
+    local frame = parent:GetTopParentFrame()
     local guids = {}
     for i = 0,2 do
         local gbox = GET_CHILD_RECURSIVELY(frame,'COMBINE_'..i)
@@ -574,9 +552,7 @@ function EXEC_ANCIENT_CARD_COMBINE()
         return
     end
     ReqCombineAncientCard(guids[1],guids[2],guids[3])
-
-    local button = GET_CHILD_RECURSIVELY(frame,"ancient_card_combine_btn")
-    button:SetEnable(0)
+    control:SetEnable(0)
 
     local card = session.pet.GetAncientCardByGuid(guids[3])
     frame:SetUserValue("RARITY",card.rarity)
@@ -588,19 +564,7 @@ function ANCIENT_CARD_EVOLVE(parent, control, argStr, argNum)
         addon.BroadMsg("NOTICE_Dm_!", ClMsg("ImpossibleInCurrentMap"), 3);
         return
     end
-    local msgStr = ScpArgMsg("AncientEvolveConfirm")
-	local yesScp = string.format("EXEC_ANCIENT_CARD_EVOLVE()");
-    local msgBox = ui.MsgBox(msgStr, yesScp, "None");
-end
-
-function EXEC_ANCIENT_CARD_EVOLVE()
-    local frame = ui.GetFrame('ancient_card_list')
-    local tab = frame:GetChild("tab")
-    AUTO_CAST(tab)
-    local index = tab:GetSelectItemIndex();
-    if index ~= ANCIENT_EVOLVE_TAB then
-        return
-    end
+    local frame = parent:GetTopParentFrame()
     local guids = {}
     for i = 0,2 do
         local gbox = GET_CHILD_RECURSIVELY(frame,'COMBINE_'..i)
@@ -614,9 +578,7 @@ function EXEC_ANCIENT_CARD_EVOLVE()
         return
     end
     ReqEvolveAncientCard(guids[1],guids[2],guids[3])
-    
-    local button = GET_CHILD_RECURSIVELY(frame,"ancient_card_combine_btn")
-    button:SetEnable(0)
+    control:SetEnable(0)
 end
 
 function ANCIENT_CARD_SWAP_ON_DROP(parent,toCtrlSet, argStr, argNum)
