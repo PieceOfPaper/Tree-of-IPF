@@ -94,7 +94,7 @@ function ON_CABINET_ITEM_LIST(frame)
             if whereFrom == "market_sell" then
                 count = cabinetItem.sellItemAmount;
             elseif whereFrom ~= "market_sell" then
-                count = cabinetItem.count;
+                count = tonumber(cabinetItem:GetCount());  
             end
 
             if 100000 <= count then	-- 6자리 수 폰트 크기 조정
@@ -112,7 +112,7 @@ function ON_CABINET_ITEM_LIST(frame)
 		local etcShow = false;
 		if whereFrom ~= 'market_sell' and whereFrom ~= 'market_buy' and itemObj.ClassName ~= MONEY_NAME then
 			local etcText = etcBox:GetChild('etcText');
-			etcText:SetTextByKey('count', cabinetItem.count);
+			etcText:SetTextByKey('count', tonumber(cabinetItem:GetCount()));
 			etcBox:ShowWindow(1);
 			etcShow = true;
 		else
@@ -139,20 +139,20 @@ function ON_CABINET_ITEM_LIST(frame)
         -- fees / NEXON_PC 조건도 추가해야 된다. / 추후 작업
         --local fees = 0;
         --if true == session.loginInfo.IsPremiumState(ITEM_TOKEN) then					
-			--fees = cabinetItem.count * 0.1
+			--fees = tonumber(cabinetItem:GetCount()) * 0.1
 		--elseif false == session.loginInfo.IsPremiumState(ITEM_TOKEN) then
-			--fees = cabinetItem.count * 0.3   			
+			--fees = tonumber(cabinetItem:GetCount()) * 0.3   			
 		--end
 
         -- price (count - fees)
         local totalPrice = GET_CHILD_RECURSIVELY(ctrlSet, "totalPrice");            --10,000 처럼 표기
 		local totalPriceStr = GET_CHILD_RECURSIVELY(ctrlSet, "totalPriceStr");      --1만    처럼 표기
         if itemObj.ClassName == MONEY_NAME or (whereFrom == 'market_sell' and etcShow == false) then
-			if cabinetItem.count < 70 then
-				ClientRemoteLog("CABINET_ITEM_PRICE_ERROR - ".. cabinetItem.count);
-			end
-		    totalPrice:SetTextByKey("value", GET_COMMAED_STRING(cabinetItem.count));
-		    totalPriceStr:SetTextByKey("value", GetMonetaryString(cabinetItem.count));
+			if tonumber(cabinetItem:GetCount()) < 70 then
+				ClientRemoteLog("CABINET_ITEM_PRICE_ERROR - ".. tonumber(cabinetItem:GetCount()));
+            end
+		    totalPrice:SetTextByKey("value", GET_COMMAED_STRING(tonumber(cabinetItem:GetCount())));
+		    totalPriceStr:SetTextByKey("value", GetMonetaryString(tonumber(cabinetItem:GetCount())));
         else
             totalPrice:ShowWindow(0);
             totalPriceStr:ShowWindow(0);

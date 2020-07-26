@@ -234,7 +234,24 @@ function TPITEM_OPEN(frame)
 	RECYCLE_MAKE_TREE(frame);
 	COSTUME_EXCHANGE_MAKE_TREE(frame);
 	NEWBIE_MAKE_TREE(frame);
-	RETURNUSER_MAKE_TREE(frame);
+    RETURNUSER_MAKE_TREE(frame);
+    
+    -- 해외 UI 세팅
+    if (config.GetServiceNation() ~= "KOR") then
+        TPSHOP_GLOBAL_UI_SETTING(frame)
+	end
+end
+
+function TPSHOP_GLOBAL_UI_SETTING(frame)
+    local btn1 = GET_CHILD_RECURSIVELY(frame, 'rcycle_resetPreviewBtn')
+    local btn2 = GET_CHILD_RECURSIVELY(frame, 'rcycle_tomedalBtn')
+    local btn3 = GET_CHILD_RECURSIVELY(frame, 'rcycle_toitemBtn')
+    local btn4 = GET_CHILD_RECURSIVELY(frame, 'resetPreviewBtn')
+
+    btn1:SetTextFixWidth(1)
+    btn2:SetTextFixWidth(1)
+    btn3:SetTextFixWidth(1)
+    btn4:SetTextFixWidth(1)
 end
 
 function TPSHOP_TAB_VIEW(frame, curtabIndex)

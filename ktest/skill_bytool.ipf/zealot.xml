@@ -1,141 +1,147 @@
 <?xml version='1.0' encoding='utf-8'?>
-<ToolSkill><Skill Name="Zealot_Invulnerable">
-		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
-			<EtcList>
-				<Scp Client="NO" Scp="SKL_BUFF" Time="0" UseSleep="NO">
-					<Str Str="Invulnerable_Buff" />
-					<Num FuncTxt="return obj.Level" Num="0" UseFunc="1" />
-					<Num Num="0" />
-					<Num FuncTxt="return 20000 + obj.Level * 1000;" Num="0" UseFunc="1" />
-					<Num Num="1" />
-					<Num Num="100" />
-					<Num Num="0" />
-				</Scp>
-				<Scp Client="YES" Scp="C_EFFECT" Time="0" UseSleep="NO">
-					<Str_Arg Arg="1.3" Str="I_light004_green_is2D" />
-					<Str Str="Dummy_L_HAND" />
-					<Num Num="0.5" />
-				</Scp>
-				<Scp Client="YES" Scp="C_VOICE_SOUND" Time="0" UseSleep="NO">
-					<Str Str="voice_cleric_m_Invulnerable_cast" />
-					<Str Str="voice_cleric_Invulnerable_cast" />
-				</Scp>
-				<Scp Client="YES" Scp="C_EFFECT_ATTACH" Time="450" UseSleep="NO">
-					<Str_Arg Arg="2" Str="F_cleric_Invulnerable_buff" />
-					<Num Num="1" />
-					<Pos Angle="0" Dist="-2" />
-					<Num Num="0" />
-				</Scp>
-				<Scp Client="YES" Scp="C_EFFECT" Time="450" UseSleep="NO">
-					<Str_Arg Arg="0.69999999" Str="I_spread_out001_light_is2D" />
-					<Str Str="Dummy_L_HAND" />
-					<Num Num="0.30000001" />
-				</Scp>
+<ToolSkill>
+    <Skill Name="Zealot_Invulnerable">
+        <MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+            <EtcList>
+                <Scp Client="NO" Scp="SKL_BUFF" Time="0" UseSleep="NO">
+                    <Str Str="Invulnerable_Buff"/>
+                    <Num FuncTxt="return obj.Level" Num="0" UseFunc="1"/>
+                    <Num Num="0"/>
+                    <Num FuncTxt="return 20000 + obj.Level * 1000;" Num="0" UseFunc="1"/>
+                    <Num Num="1"/>
+                    <Num Num="100"/>
+                    <Num Num="0"/>
+                </Scp>
+                <Scp Client="YES" Scp="C_EFFECT" Time="0" UseSleep="NO">
+                    <Str_Arg Arg="1.3" Str="I_light004_green_is2D"/>
+                    <Str Str="Dummy_L_HAND"/>
+                    <Num Num="0.5"/>
+                </Scp>
+                <Scp Client="YES" Scp="C_VOICE_SOUND" Time="0" UseSleep="NO">
+                    <Str Str="voice_cleric_m_Invulnerable_cast"/>
+                    <Str Str="voice_cleric_Invulnerable_cast"/>
+                </Scp>
+                <Scp Client="YES" Scp="C_EFFECT_ATTACH" Time="450" UseSleep="NO">
+                    <Str_Arg Arg="2" Str="F_cleric_Invulnerable_buff"/>
+                    <Num Num="1"/>
+                    <Pos Angle="0" Dist="-2"/>
+                    <Num Num="0"/>
+                </Scp>
+                <Scp Client="YES" Scp="C_EFFECT" Time="450" UseSleep="NO">
+                    <Str_Arg Arg="0.69999999" Str="I_spread_out001_light_is2D"/>
+                    <Str Str="Dummy_L_HAND"/>
+                    <Num Num="0.30000001"/>
+                </Scp>
                 <Scp Client="NO" Scp="SKL_TGT_REMOVE_DEBUFF" Time="500" UseSleep="NO">
-                <Str FuncTxt="local func_name = 'get_remove_debuff_tooltip_' .. TryGetProp(obj, 'ClassName', 'None')
+                    <Str FuncTxt="local func_name = 'get_remove_debuff_tooltip_' .. TryGetProp(obj, 'ClassName', 'None')
                local func = _G[func_name]
                if func == nil then return end
                return func(obj.Level)" Str="0" UseFunc="1"/>
-               </Scp>
-			</EtcList>
-		</MainSkl>
-	</Skill>
-	<Skill Name="Zealot_EmphasisTrust">
-		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
-			<EtcList>
-				<Scp Client="NO" Scp="SKL_SET_TARGET_CIRCLE" Time="0" UseSleep="NO">
-					<Pos Angle="0" Dist="3.8076374e-36" />
-					<Num Num="90" />
-					<Num Num="10" />
-					<Num Num="2" />
-					<Num Num="0" />
-					<Num Num="0" />
-					<Num Num="1" />
-				</Scp>
-				<Scp Client="YES" Scp="C_EFFECT" Time="0" UseSleep="NO">
-					<Str_Arg Arg="2.5" Str="F_cleric_EmphasisTrust_ground" />
-					<Str Str="None" />
-					<Num Num="0" />
-				</Scp>
-				<Scp Client="YES" Scp="C_SOUND" Time="0" UseSleep="NO">
-					<Str Str="skl_eff_zealot_emphasistrust_boom_spread" />
-				</Scp>
-				<Scp Client="YES" Scp="C_VOICE_SOUND" Time="0" UseSleep="NO">
-					<Str Str="voice_cleric_m_emphasistrust_cast" />
-					<Str Str="voice_cleric_f_emphasistrust_cast" />
-				</Scp>
-				<Scp Client="NO" Scp="SKL_TGT_BUFF" Time="200" UseSleep="NO">
-					<Str Str="EmphasisTrust_Debuff" />
-					<Num Num="1" />
-					<Num Num="0" />
-					<Num FuncTxt="return 15000+obj.Level*2000;" Num="10000" UseFunc="1" />
-					<Num Num="1" />
-					<Num Num="100" />
-					<Num Num="0" />
-				</Scp>
+                </Scp>
+            </EtcList>
+        </MainSkl>
+    </Skill>
+    <Skill Name="Zealot_EmphasisTrust">
+        <MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+            <EtcList>
+                <Scp Client="NO" Scp="SKL_SET_TARGET_CIRCLE" Time="0" UseSleep="NO">
+                    <Pos Angle="0" Dist="3.8076374e-36"/>
+                    <Num Num="90"/>
+                    <Num Num="10"/>
+                    <Num Num="2"/>
+                    <Num Num="0"/>
+                    <Num Num="0"/>
+                    <Num Num="1"/>
+                </Scp>
+                <Scp Client="YES" Scp="C_EFFECT" Time="0" UseSleep="NO">
+                    <Str_Arg Arg="2.5" Str="F_cleric_EmphasisTrust_ground"/>
+                    <Str Str="None"/>
+                    <Num Num="0"/>
+                </Scp>
+                <Scp Client="YES" Scp="C_SOUND" Time="0" UseSleep="NO">
+                    <Str Str="skl_eff_zealot_emphasistrust_boom_spread"/>
+                </Scp>
+                <Scp Client="YES" Scp="C_VOICE_SOUND" Time="0" UseSleep="NO">
+                    <Str Str="voice_cleric_m_emphasistrust_cast"/>
+                    <Str Str="voice_cleric_f_emphasistrust_cast"/>
+                </Scp>
+                <Scp Client="NO" Scp="SKL_TGT_BUFF" Time="200" UseSleep="NO">
+                    <Str Str="EmphasisTrust_Debuff"/>
+                    <Num Num="1"/>
+                    <Num Num="0"/>
+                    <Num FuncTxt="return 15000+obj.Level*2000;" Num="10000" UseFunc="1"/>
+                    <Num Num="1"/>
+                    <Num Num="100"/>
+                    <Num Num="0"/>
+                </Scp>
                 <Scp Client="NO" Scp="SKL_TGT_REMOVE_BUFF" Time="100" UseSleep="NO">
-                <Str FuncTxt="local func_name = 'get_remove_buff_tooltip_' .. TryGetProp(obj, 'ClassName', 'None')
+                    <Str FuncTxt="local func_name = 'get_remove_buff_tooltip_' .. TryGetProp(obj, 'ClassName', 'None')
                local func = _G[func_name]
                if func == nil then return end
                return func(obj.Level)" Str="0" UseFunc="1"/>
-              </Scp>  
-			</EtcList>
-		</MainSkl>
-	</Skill>
-	<Skill Name="Zealot_BlindFaith">
-		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
-			<EtcList>
-				<Scp Client="NO" Scp="SKL_BUFF" Time="0" UseSleep="NO">
-					<Str Str="BlindFaith_Buff" />
-					<Num FuncTxt="return obj.Level;" Num="0" UseFunc="1" />
-					<Num Num="0" />
-					<Num Num="40000" />
-					<Num Num="1" />
-					<Num Num="100" />
-					<Num Num="0" />
-				</Scp>
-				<Scp Client="YES" Scp="C_SOUND" Time="0" UseSleep="NO">
-					<Str Str="skl_eff_zealot_blindfaith_shot" />
-				</Scp>
-				<Scp Client="YES" Scp="C_VOICE_SOUND" Time="0" UseSleep="NO">
-					<Str Str="voice_cleric_m_BlindFaith_cast" />
-					<Str Str="voice_cleric_BlindFaith_cast" />
-				</Scp>
-				<Scp Client="YES" Scp="C_EFFECT" Time="500" UseSleep="NO">
-					<Str_Arg Arg="2" Str="F_buff_cleric_blindfaith" />
-					<Str Str="None" />
-					<Num Num="0" />
-				</Scp>
-			</EtcList>
-		</MainSkl>
-	</Skill>
-	<Skill Name="Zealot_FanaticIllusion">
-		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
-			<EtcList>
-				<Scp Client="NO" Scp="SKL_BUFF" Time="0" UseSleep="NO">
-					<Str Str="FanaticIllusion_Buff" />
-					<Num FuncTxt="return obj.Level;" Num="0" UseFunc="1" />
-					<Num Num="0" />
-					<Num Num="15000" />
-					<Num Num="1" />
-					<Num Num="100" />
-					<Num Num="0" />
-				</Scp>
-				<Scp Client="YES" Scp="C_SOUND" Time="0" UseSleep="NO">
-					<Str Str="skl_eff_zealot_fanaticllusion_shot" />
-				</Scp>
-				<Scp Client="YES" Scp="C_VOICE_SOUND" Time="0" UseSleep="NO">
-					<Str Str="voice_cleric_m_FanaticIllusion_cast" />
-					<Str Str="voice_cleric_FanaticIllusion_cast" />
-				</Scp>
-				<Scp Client="YES" Scp="C_EFFECT" Time="200" UseSleep="NO">
-					<Str_Arg Arg="3" Str="F_rize015_1_yellow_drop" />
-					<Str Str="None" />
-					<Num Num="0" />
-				</Scp>
-			</EtcList>
-		</MainSkl>
-	</Skill>
+                </Scp>
+            </EtcList>
+        </MainSkl>
+    </Skill>
+    <Skill Name="Zealot_BlindFaith">
+        <MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+            <EtcList>
+                <Scp Client="NO" Scp="SKL_BUFF" Time="0" UseSleep="NO">
+                    <Str Str="BlindFaith_Buff"/>
+                    <Num FuncTxt="return obj.Level;" Num="0" UseFunc="1"/>
+                    <Num Num="0"/>
+                    <Num Num="40000"/>
+                    <Num Num="1"/>
+                    <Num Num="100"/>
+                    <Num Num="0"/>
+                </Scp>
+                <Scp Client="YES" Scp="C_SOUND" Time="0" UseSleep="NO">
+                    <Str Str="skl_eff_zealot_blindfaith_shot"/>
+                </Scp>
+                <Scp Client="YES" Scp="C_VOICE_SOUND" Time="0" UseSleep="NO">
+                    <Str Str="voice_cleric_m_BlindFaith_cast"/>
+                    <Str Str="voice_cleric_BlindFaith_cast"/>
+                </Scp>
+                <Scp Client="YES" Scp="C_EFFECT" Time="500" UseSleep="NO">
+                    <Str_Arg Arg="2" Str="F_buff_cleric_blindfaith"/>
+                    <Str Str="None"/>
+                    <Num Num="0"/>
+                </Scp>
+            </EtcList>
+        </MainSkl>
+    </Skill>
+    <Skill Name="Zealot_FanaticIllusion">
+        <MainSkl ScrLock="None" JumpFlee="NO" MSPDToUsePos="0">
+            <EtcList>
+                <Scp Scp="SKL_BUFF" Client="NO" UseSleep="NO" Time="0">
+                    <Str Str="" UseFunc="1" FuncTxt="    local buff = &quot;FanaticIllusion_Buff&quot;
+    local abil = GetAbility(self, &quot;Zealot16&quot;)
+    if abil ~= nil and TryGetProp(abil, &quot;ActiveState&quot;, 0) == 1 then
+        buff = &quot;FanaticIllusion_Abil_Buff&quot;
+    end
+    return buff"/>
+                    <Num Num="0" UseFunc="1" FuncTxt="return obj.Level;"/>
+                    <Num Num="0"/>
+                    <Num Num="15000"/>
+                    <Num Num="1"/>
+                    <Num Num="100"/>
+                    <Num Num="0"/>
+                </Scp>
+                <Scp Scp="C_SOUND" Client="YES" UseSleep="NO" Time="0">
+                    <Str Str="skl_eff_zealot_fanaticllusion_shot"/>
+                </Scp>
+                <Scp Scp="C_VOICE_SOUND" Client="YES" UseSleep="NO" Time="0">
+                    <Str Str="voice_cleric_m_FanaticIllusion_cast"/>
+                    <Str Str="voice_cleric_FanaticIllusion_cast"/>
+                </Scp>
+                <Scp Scp="C_EFFECT" Client="YES" UseSleep="NO" Time="200">
+                    <Str_Arg Str="F_rize015_1_yellow_drop" Arg="3"/>
+                    <Str Str="None"/>
+                    <Num Num="0"/>
+                </Scp>
+            </EtcList>
+        </MainSkl>
+    </Skill>
 	<Skill Name="Zealot_BeadyEyed">
 		<EndScripts>
 			<ToolScp Client="NO" Scp="SKL_BUFF" UseSleep="NO">
@@ -250,73 +256,73 @@
 				</Scp>
 			</EtcList>
 		</MainSkl>
-	</Skill>
-	<Skill Name="Zealot_Immolation">
-		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
-			<EtcList>
-				<Scp Client="YES" Scp="C_EFFECT" Time="0" UseSleep="NO">
-					<Str_Arg Arg="4.5" Str="F_spread_in032_fire3" />
-					<Str Str="None" />
-					<Num Num="0" />
-				</Scp>
-				<Scp Client="YES" Scp="C_SOUND" Time="0" UseSleep="NO">
-					<Str Str="skl_eff_zealot_immolation_shot" />
-				</Scp>
-				<Scp Client="YES" Scp="C_VOICE_SOUND" Time="0" UseSleep="NO">
-					<Str Str="voice_cleric_m_Immolation_cast" />
-					<Str Str="voice_cleric_Immolation_cast" />
-				</Scp>
-				<Scp Client="NO" Scp="SKL_SET_TARGET_CIRCLE" Time="0" UseSleep="NO">
-					<Pos Angle="0" Dist="0" />
-					<Num Num="100" />
-					<Num Num="10" />
-					<Num Num="2" />
-					<Num Num="0" />
-					<Num Num="0" />
-					<Num Num="0" />
-				</Scp>
-				<Scp Client="NO" Scp="SKL_TGT_BUFF" Time="100" UseSleep="NO">
-					<Str Str="Immolation_Debuff" />
-					<Num FuncTxt="return obj.Level;" Num="1" UseFunc="1" />
-					<Num Num="0" />
-					<Num Num="5000" />
-					<Num Num="1" />
-					<Num Num="100" />
-					<Num Num="0" />
-				</Scp>
-				<Scp Client="NO" Scp="SKL_BUFF" Time="100" UseSleep="NO">
-					<Str Str="Immolation_Self_Buff" />
-					<Num FuncTxt="return obj.Level;" Num="1" UseFunc="1" />
-					<Num Num="0" />
-					<Num Num="5000" />
-					<Num Num="1" />
-					<Num Num="100" />
-					<Num Num="0" />
-				</Scp>
-				<Scp Client="NO" Scp="SKL_RUN_SCRIPT" Time="100" UseSleep="NO">
-					<Str Str="SCR_ZEALOT_IMMOLATION_ABIL_BUFF_CHECK" />
-				</Scp>
-				<Scp Client="NO" Scp="SKL_TGT_BUFF_ABIL" Time="150" UseSleep="NO">
-					<Str Str="Zealot9" />
-					<Str Str="ImmolationMeltArmor_Debuff" />
-					<Num Num="1" />
-					<Num Num="-1" />
-					<Num Num="5000" />
-					<Num Num="0" />
-					<Num Num="1" />
-					<Num Num="100" />
-				</Scp>
-				<Scp Client="NO" Scp="SKL_BUFF_ABIL" Time="150" UseSleep="NO">
-					<Str Str="Zealot9" />
-					<Str Str="ImmolationMeltArmor_Buff" />
-					<Num Num="1" />
-					<Num Num="0" />
-					<Num Num="5000" />
-					<Num Num="1" />
-					<Num Num="100" />
-					<Num Num="0" />
-				</Scp>
-			</EtcList>
-		</MainSkl>
-	</Skill>
-	</ToolSkill>
+	</Skill>    
+    <Skill Name="Zealot_Immolation">
+        <MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+            <EtcList>
+                <Scp Client="YES" Scp="C_EFFECT" Time="0" UseSleep="NO">
+                    <Str_Arg Arg="4.5" Str="F_spread_in032_fire3"/>
+                    <Str Str="None"/>
+                    <Num Num="0"/>
+                </Scp>
+                <Scp Client="YES" Scp="C_SOUND" Time="0" UseSleep="NO">
+                    <Str Str="skl_eff_zealot_immolation_shot"/>
+                </Scp>
+                <Scp Client="YES" Scp="C_VOICE_SOUND" Time="0" UseSleep="NO">
+                    <Str Str="voice_cleric_m_Immolation_cast"/>
+                    <Str Str="voice_cleric_Immolation_cast"/>
+                </Scp>
+                <Scp Client="NO" Scp="SKL_SET_TARGET_CIRCLE" Time="0" UseSleep="NO">
+                    <Pos Angle="0" Dist="0"/>
+                    <Num Num="100"/>
+                    <Num Num="10"/>
+                    <Num Num="2"/>
+                    <Num Num="0"/>
+                    <Num Num="0"/>
+                    <Num Num="0"/>
+                </Scp>
+                <Scp Client="NO" Scp="SKL_TGT_BUFF" Time="100" UseSleep="NO">
+                    <Str Str="Immolation_Debuff"/>
+                    <Num FuncTxt="return obj.Level;" Num="1" UseFunc="1"/>
+                    <Num Num="0"/>
+                    <Num Num="5000"/>
+                    <Num Num="1"/>
+                    <Num Num="100"/>
+                    <Num Num="0"/>
+                </Scp>
+                <Scp Client="NO" Scp="SKL_BUFF" Time="100" UseSleep="NO">
+                    <Str Str="Immolation_Self_Buff"/>
+                    <Num FuncTxt="return obj.Level;" Num="1" UseFunc="1"/>
+                    <Num Num="0"/>
+                    <Num Num="5000"/>
+                    <Num Num="1"/>
+                    <Num Num="100"/>
+                    <Num Num="0"/>
+                </Scp>
+                <Scp Client="NO" Scp="SKL_RUN_SCRIPT" Time="100" UseSleep="NO">
+                    <Str Str="SCR_ZEALOT_IMMOLATION_ABIL_BUFF_CHECK"/>
+                </Scp>
+                <Scp Client="NO" Scp="SKL_TGT_BUFF_ABIL" Time="150" UseSleep="NO">
+                    <Str Str="Zealot9"/>
+                    <Str Str="ImmolationMeltArmor_Debuff"/>
+                    <Num Num="1"/>
+                    <Num Num="-1"/>
+                    <Num Num="5000"/>
+                    <Num Num="0"/>
+                    <Num Num="1"/>
+                    <Num Num="100"/>
+                </Scp>
+                <Scp Client="NO" Scp="SKL_BUFF_ABIL" Time="150" UseSleep="NO">
+                    <Str Str="Zealot9"/>
+                    <Str Str="ImmolationMeltArmor_Buff"/>
+                    <Num Num="1"/>
+                    <Num Num="0"/>
+                    <Num Num="5000"/>
+                    <Num Num="1"/>
+                    <Num Num="100"/>
+                    <Num Num="0"/>
+                </Scp>
+            </EtcList>
+        </MainSkl>
+    </Skill>
+</ToolSkill>

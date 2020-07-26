@@ -69,7 +69,7 @@ function IS_MORU_NOT_DESTROY_TARGET_UNIQUE_ITEM(moruItem)
         return false;
     end
 
-    if moruItem.StringArg == 'unique_gold_Moru' then
+    if moruItem.StringArg == 'unique_gold_Moru' or moruItem.StringArg == 'gold_Moru' then
         return true;
     end
 

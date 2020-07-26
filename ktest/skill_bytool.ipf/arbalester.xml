@@ -233,7 +233,12 @@
             </HitList>
             <EtcList>
                 <Scp Scp="SKL_BUFF" Client="NO" UseSleep="NO" Time="0">
-                    <Str Str="DeadZone_Buff"/>
+                    <Str Str="DeadZone_Buff" UseFunc="1" FuncTxt="local value = 'DeadZone_Buff'
+                    local abil = GetAbility(self, 'Arbalester18')
+                    if abil ~= nil and TryGetProp(abil, 'ActiveState', 0) == 1 then
+                    value = 'DeadZone_Abil_Buff'
+                    end
+                    return value"/>
                     <Num Num="1"/>
                     <Num Num="0"/>
                     <Num Num="10000"/>

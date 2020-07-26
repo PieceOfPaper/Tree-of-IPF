@@ -3280,6 +3280,34 @@ function GET_MODIFIED_PROPERTIES_STRING(item, invitem)
     return str;
 end
 
+function IS_ABILRESET_ITEM(itemClsName)
+    local itemCls = GetClass('Item', itemClsName)
+    if itemCls ~= nil then
+        local strArg = TryGetProp(itemCls, 'StringArg', 'None')
+        local numArg1 = TryGetProp(itemCls, 'NumberArg1', -1)
+        local numArg2 = TryGetProp(itemCls, 'NumberArg2', -1)
+        if strArg == 'AbilityPointReset' and numArg1 == 0 and numArg2 == 0 then
+            return true
+        end
+    end
+
+    return false
+end
+
+function IS_ARTSRESET_ITEM(itemClsName)
+    local itemCls = GetClass('Item', itemClsName)
+    if itemCls ~= nil then
+        local strArg = TryGetProp(itemCls, 'StringArg', 'None')
+        local numArg1 = TryGetProp(itemCls, 'NumberArg1', -1)
+        local numArg2 = TryGetProp(itemCls, 'NumberArg2', -1)
+        if strArg == 'AbilityPointReset' and numArg1 > 0 and numArg2 > 0 then
+            return true
+        end
+    end
+
+    return false
+end
+
 function RANDOM_SHUFFLE(tbl)
     for i = #tbl, 2, -1 do
         local j = math.random(1, i);

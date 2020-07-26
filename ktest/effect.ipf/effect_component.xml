@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by ÀÌÁ¤¿ë (IMCGames Co., Ltd) -->
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
 <ComponentList>
 	<Particle name="line006" texture="line006" width="5.00" height="5.00" pivot_x="0.5" pivot_y="0.5" texel_x="0" texel_y="0" texel_width="128" texel_height="128"/>
 	<Particle name="bat3" texture="bat3" width="5.00" height="5.00" pivot_x="0.5" pivot_y="0.5" texel_x="101" texel_y="0" texel_width="64" texel_height="64"/>
@@ -690,6 +690,7 @@
 	<Trail name="smoke002" texture="smoke002" height="10.00" texel_x="512" texel_y="512" texel_width="64" texel_height="64"/>
 	<Model name="policeline001" model="policeline001.xac" motion="None" texturepath="effect\high\modeltexture\" overlap="true" AlphaType="BLEND"/>
 	<Model name="brick_big" model="brick_big.xac" motion="brick_big_ani.xsm" texturepath="effect\high\modeltexture\" overlap="true" AlphaType="BLEND"/>
+	<Model name="Brick01_dead" model="Brick01_dead.xac" motion="Brick01_dead_ani.xsm" texturepath="item_texture\" overlap="true" AlphaType="BLEND"/>
 	<Model name="buddhahand001" model="buddhahand001.xac" motion="buddhahand001_ani.xsm" texturepath="effect\high\modeltexture\" overlap="true" AlphaType="BLEND"/>
 	<Model name="glacier_skl10_mesh" model="glacier_skl10_mesh.xac" motion="glacier_skl10_mesh_ani.xsm" texturepath="effect\high\modeltexture\" overlap="true" AlphaType="BLEND"/>
 	<Model name="effect_item_warpulis" model="effect_item_warpulis.xac" motion="effect_item_warpulis_ani.xsm" texturepath="effect\high\modeltexture\" overlap="true" AlphaType="BLEND"/>

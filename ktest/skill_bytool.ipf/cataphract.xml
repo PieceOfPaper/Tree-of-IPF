@@ -86,29 +86,35 @@
 			</SubSkl>
 		</ByCondSkills>
 	</Skill>
-	<Skill Name="Cataphract_SteedCharge">
-		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
-			<MoveList>
-				<Frame Accel="1" Angle="-0.00059771544" Dist="0" Gravity="600" Height="0" JumpPower="300" MoveType="0" Time="0"/>
-				<Frame Accel="2" Angle="0.0034086369" Dist="177.43427" Gravity="600" Height="0" JumpPower="300" MoveType="0" Time="130"/>
-			</MoveList>
-			<HitList>
-				<Frame Angle="-0.12974454" AniTime="250" Dist="33.077538" ForceATK="0" HitCount="1" Length="200" PosType="1" RandDist="0" RandomPerHit="0" RotAngle="3.1415927" SklAngle="0.69813174" TermMax="0" TermMin="0" Time="50" Type="SQUARE" Width="28"/>
-			</HitList>
-			<EtcList>
-				<Scp Client="YES" Scp="C_VOICE_SOUND" Time="0" UseSleep="NO">
-					<Str Str="voice_war_atk_long_shot"/>
-					<Str Str="voice_atk_long_war_f"/>
-				</Scp>
-				<Scp Client="YES" Scp="C_SOUND" Time="0" UseSleep="NO">
-					<Str Str="skl_fgt_ultimatedash_shot"/>
-				</Scp>
-				<Scp Client="YES" Scp="C_SHOCKWAVE" Time="300" UseSleep="NO">
-					<Num Num="5"/>
-					<Num Num="1"/>
-					<Num Num="60"/>
-					<Num Num="999"/>
-				</Scp>
+    <Skill Name="Cataphract_SteedCharge">
+        <MainSkl ScrLock="None" JumpFlee="NO" MSPDToUsePos="0">
+            <MoveList>
+                <Frame Time="0" Dist="0" Angle="-0.00059771544" Accel="1" Height="0" MoveType="0" Gravity="600" JumpPower="300"/>
+                <Frame Time="130" Dist="177.43427" Angle="0.0034086369" Accel="2" Height="0" MoveType="0" Gravity="600" JumpPower="300"/>
+            </MoveList>
+            <HitList>
+                <Frame Type="SQUARE" Time="50" HitCount="1" TermMin="0" TermMax="0" PosType="1" Dist="33.077538" RandDist="0" RandomPerHit="0" Angle="-0.12974454" Width="28" Length="200" SklAngle="0.69813174" AniTime="250" RotAngle="3.1415927" ForceATK="0" ScriptIndex="0" ScriptName="" SkillType="0"/>
+            </HitList>
+            <EtcList>
+                <Scp Scp="MONSKL_C_PLAY_ANIM" Client="YES" UseSleep="NO" Time="0">
+                    <Str Str="skl_SteedCharge_shot_ride"/>
+                    <Num Num="1"/>
+                    <Num Num="1"/>
+                    <Num Num="0"/>
+                </Scp>
+                <Scp Scp="C_VOICE_SOUND" Client="YES" UseSleep="NO" Time="0">
+                    <Str Str="voice_war_atk_long_shot"/>
+                    <Str Str="voice_atk_long_war_f"/>
+                </Scp>
+                <Scp Scp="C_SOUND" Client="YES" UseSleep="NO" Time="0">
+                    <Str Str="skl_fgt_ultimatedash_shot"/>
+                </Scp>
+                <Scp Scp="C_SHOCKWAVE" Client="YES" UseSleep="NO" Time="300">
+                    <Num Num="5"/>
+                    <Num Num="1"/>
+                    <Num Num="60"/>
+                    <Num Num="999"/>
+                </Scp>
                 <Scp Scp="SCR_PAD_DESTORY_BUILDUP_BUFF" Client="NO" UseSleep="NO" Time="300">
                     <Pos Angle="0" Dist="200"/>
                     <Str Str="ENEMY"/>
@@ -120,9 +126,79 @@
                     <Str Str="None"/>
                     <Num Num="1000"/>
                     <Str_Arg Str="None" Arg="1"/>
-                </Scp>			</EtcList>
-		</MainSkl>
-	</Skill>
+                </Scp>
+            </EtcList>
+        </MainSkl>
+        <ByCondSkills>
+            <SubSkl>
+                <Cond>
+                    <ToolScp Scp="SKL_SELECT_ABIL" Client="NO" UseSleep="NO">
+                        <Str Str="Cataphract40"/>
+                    </ToolScp>
+                </Cond>
+                <Skill ScrLock="None" JumpFlee="NO" MSPDToUsePos="0">
+                    <MoveList>
+                        <Frame Time="0" Dist="0" Angle="0.1122155" Accel="1" Height="0" MoveType="0" Gravity="600" JumpPower="300"/>
+                        <Frame Time="130" Dist="88" Angle="0.0034086369" Accel="2" Height="0" MoveType="0" Gravity="600" JumpPower="300"/>
+                    </MoveList>
+                    <HitList>
+                        <Frame Type="SQUARE" Time="50" HitCount="1" TermMin="0" TermMax="0" PosType="1" Dist="33.077538" RandDist="0" RandomPerHit="0" Angle="-0.12974454" Width="28" Length="100" SklAngle="0.69813174" AniTime="250" RotAngle="3.1415927" ForceATK="0" ScriptIndex="0" ScriptName="" SkillType="0"/>
+                    </HitList>
+                    <EtcList>
+                        <Scp Scp="C_VOICE_SOUND" Client="YES" UseSleep="NO" Time="0">
+                            <Str Str="voice_war_atk_long_shot"/>
+                            <Str Str="voice_atk_long_war_f"/>
+                        </Scp>
+                        <Scp Scp="C_SOUND" Client="YES" UseSleep="NO" Time="0">
+                            <Str Str="skl_fgt_ultimatedash_shot"/>
+                        </Scp>
+                        <Scp Scp="MONSKL_C_PLAY_ANIM" Client="YES" UseSleep="NO" Time="0">
+                            <Str Str="skl_steedcharge_Abil_ride"/>
+                            <Num Num="1"/>
+                            <Num Num="1"/>
+                            <Num Num="0"/>
+                        </Scp>
+                        <Scp Scp="C_SOUND" Client="YES" UseSleep="NO" Time="0">
+                            <Str Str="skl_fgt_ultimatedash_shot"/>
+                        </Scp>
+                        <Scp Scp="C_EFFECT" Client="YES" UseSleep="NO" Time="0">
+                            <Str_Arg Str="I_warrior_steedcharge001_mesh" Arg="1.5"/>
+                            <Str Str="Dummy_effect_moulinet_shot_pet"/>
+                            <Num Num="0"/>
+                        </Scp>
+                        <Scp Scp="MONSKL_CRE_PAD_VERTICAL" Client="NO" UseSleep="YES" Time="100">
+                            <Pos Angle="0" Dist="50"/>
+                            <Num Num="0"/>
+                            <Str Str="Cataphract_SteedCharge"/>
+                            <Num Num="1"/>
+                            <Num Num="35"/>
+                            <Str_Arg Str="F_firewall_long_z" Arg="1"/>
+                            <Str_Arg Str="F_firewall_short_z" Arg="1"/>
+                            <Num Num="0.07"/>
+                        </Scp>
+                        <Scp Scp="C_SHOCKWAVE" Client="YES" UseSleep="NO" Time="300">
+                            <Num Num="5"/>
+                            <Num Num="1"/>
+                            <Num Num="60"/>
+                            <Num Num="999"/>
+                        </Scp>
+                        <Scp Scp="SCR_PAD_DESTORY_BUILDUP_BUFF" Client="NO" UseSleep="NO" Time="300">
+                            <Pos Angle="0" Dist="200"/>
+                            <Str Str="ENEMY"/>
+                            <Num Num="50"/>
+                            <Num Num="1"/>
+                            <Str Str="Padbreak_Buff"/>
+                            <Num Num="10"/>
+                            <Num Num="10"/>
+                            <Str Str="None"/>
+                            <Num Num="1000"/>
+                            <Str_Arg Str="None" Arg="1"/>
+                        </Scp>
+                    </EtcList>
+                </Skill>
+            </SubSkl>
+        </ByCondSkills>
+    </Skill>
 	<Skill Name="Cataphract_DoomSpike">
 		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
 			<HitList>
@@ -250,7 +326,7 @@
 					<Str Str="None"/>
 					<Num Num="0"/>
 					<Num Num="1"/>
-                    <Str Str="Impaler_Debuff" />
+					<Str Str="Impaler_Debuff"/>
 				</Scp>
 			</EtcList>
 		</MainSkl>

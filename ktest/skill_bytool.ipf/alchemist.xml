@@ -109,11 +109,11 @@
         </EndScripts>
         <KeyInput>
             <ToolScp Scp="SKL_KEY_DYNAMIC_CASTING" Client="YES" UseSleep="NO">
-                <Num Num="1"/>
+                <Num Num="0"/>
                 <Num Num="0"/>
                 <Num Num="1" UseFunc="1" FuncTxt="return 1"/>
                 <Num Num="0"/>
-                <Num Num="0"/>
+                <Num Num="1"/>
                 <Num Num="0"/>
                 <Num Num="0"/>
                 <Num Num="0"/>
@@ -131,7 +131,7 @@
                 <Num Num="0"/>
                 <Num Num="1"/>
                 <Num Num="0"/>
-            </ToolScp>
+                </ToolScp>
         </KeyInput>
         <KeyInputStart>
             <ToolScp Scp="C_EFFECT_ATTACH" Client="YES" UseSleep="NO">
@@ -192,12 +192,12 @@
                 </Scp>
             </EtcList>
             <ResultList>
-            <ToolScp Client="NO" Scp="S_R_TGT_REMOVE_BUFF" UseSleep="NO">
-                <Str FuncTxt="local func_name = 'get_remove_buff_tooltip_' .. TryGetProp(skill, 'ClassName', 'None')
+                <ToolScp Client="NO" Scp="S_R_TGT_REMOVE_BUFF" UseSleep="NO">
+                    <Str FuncTxt="local func_name = 'get_remove_buff_tooltip_' .. TryGetProp(skill, 'ClassName', 'None')
                local func = _G[func_name]
                if func == nil then return end
-               return func(skill.Level)" Str="0" UseFunc="1"/>
-              </ToolScp>
+               return func(skill.Level)"Str="0" UseFunc="1"/>
+                </ToolScp>
             </ResultList>
         </MainSkl>
     </Skill>

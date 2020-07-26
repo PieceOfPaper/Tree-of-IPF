@@ -1,139 +1,139 @@
 <?xml version='1.0' encoding='utf-8'?>
 <ToolSkill>
     <Skill Name="Assassin_Quest4">
-		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
-			<EtcList>
-				<Scp Client="NO" Scp="SKL_SET_TARGET_SQUARE" Time="0" UseSleep="NO">
-					<Pos Angle="0" Dist="0" />
-					<Num Num="0" />
-					<Num Num="30" />
-					<Num Num="20" />
-					<Num Num="1" />
-					<Num Num="2" />
-					<Num Num="0" />
-					<Num Num="1" />
-					<Num Num="0" />
-				</Scp>
-				<Scp Client="NO" Scp="SKL_RUN_SCRIPT" Time="100" UseSleep="NO">
-					<Str Str="SCR_JOB_ASSASSIN_Q1_SKILL_DAMAGE" />
-				</Scp>
-			</EtcList>
-		</MainSkl>
-	</Skill>
-	<Skill Name="Assassin_Quest3">
-		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
-			<EtcList>
-				<Scp Client="NO" Scp="SKL_SET_TARGET_SQUARE" Time="0" UseSleep="NO">
-					<Pos Angle="0" Dist="0" />
-					<Num Num="0" />
-					<Num Num="30" />
-					<Num Num="20" />
-					<Num Num="1" />
-					<Num Num="2" />
-					<Num Num="0" />
-					<Num Num="1" />
-					<Num Num="0" />
-				</Scp>
-				<Scp Client="NO" Scp="SKL_RUN_SCRIPT" Time="100" UseSleep="NO">
-					<Str Str="SCR_JOB_ASSASSIN_Q1_SKILL_DAMAGE" />
-				</Scp>
-			</EtcList>
-		</MainSkl>
-	</Skill>
-	<Skill Name="Assassin_Quest2">
-		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
-			<EtcList>
-				<Scp Client="NO" Scp="SKL_SET_TARGET_SQUARE" Time="0" UseSleep="NO">
-					<Pos Angle="0" Dist="0" />
-					<Num Num="0" />
-					<Num Num="30" />
-					<Num Num="20" />
-					<Num Num="1" />
-					<Num Num="2" />
-					<Num Num="0" />
-					<Num Num="1" />
-					<Num Num="0" />
-				</Scp>
-				<Scp Client="NO" Scp="SKL_RUN_SCRIPT" Time="100" UseSleep="NO">
-					<Str Str="SCR_JOB_ASSASSIN_Q1_SKILL_DAMAGE" />
-				</Scp>
-			</EtcList>
-		</MainSkl>
-	</Skill>
-	<Skill Name="Assassin_Quest1">
-		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
-			<EtcList>
-				<Scp Client="NO" Scp="SKL_SET_TARGET_SQUARE" Time="0" UseSleep="NO">
-					<Pos Angle="0" Dist="0" />
-					<Num Num="0" />
-					<Num Num="30" />
-					<Num Num="20" />
-					<Num Num="1" />
-					<Num Num="2" />
-					<Num Num="0" />
-					<Num Num="1" />
-					<Num Num="0" />
-				</Scp>
-				<Scp Client="NO" Scp="SKL_RUN_SCRIPT" Time="100" UseSleep="NO">
-					<Str Str="SCR_JOB_ASSASSIN_Q1_SKILL_DAMAGE" />
-				</Scp>
-			</EtcList>
-		</MainSkl>
-	</Skill>
-	<Skill Name="Assassin_Hasisas">
-		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
-			<HitList>
-				<Frame Angle="0" AniTime="9999" Dist="0" ForceATK="0" HitCount="1" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" TermMax="0" TermMin="0" Time="9799" Type="FAN" />
-			</HitList>
-			<EtcList>
-				<Scp Client="YES" Scp="C_VOICE_SOUND" Time="0" UseSleep="NO">
-					<Str Str="voice_scout_m_hasisas_cast" />
-					<Str Str="voice_scout_f_hasisas_cast" />
-				</Scp>
-				<Scp Client="NO" Scp="SKL_BUFF" Time="300" UseSleep="NO">
-					<Str Str="Hasisas_Buff" />
-					<Num FuncTxt="return obj.Level;" Num="1" UseFunc="1" />
-					<Num Num="0" />
-					<Num Num="1800000" />
-					<Num Num="1" />
-					<Num Num="100" />
-					<Num Num="0" />
-				</Scp>
-			</EtcList>
-		</MainSkl>
-	</Skill>
-	<Skill Name="Assassin_Behead">
-		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
-			<HitList>
-				<Frame Angle="0" AniTime="300" Dist="0" ForceATK="0" HitCount="1" Length="50" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="100" Type="SQUARE" Width="30" />
-			</HitList>
-			<EtcList>
-				<Scp Client="YES" Scp="MONSKL_C_PLAY_ANIM" Time="0" UseSleep="NO">
-					<Str Str="SKL_BEHEAD1" />
-					<Num Num="1.5" />
-					<Num Num="1" />
-					<Num Num="0" />
-				</Scp>
-				<Scp Client="YES" Scp="C_VOICE_SOUND" Time="100" UseSleep="NO">
-					<Str Str="voice_scout_m_behead_cast"/>
-					<Str Str="voice_scout_f_behead_cast"/>
-				</Scp>
-			</EtcList>
-			<ResultList>
-				<ToolScp Client="NO" Scp="S_R_TGTBUFF" UseSleep="NO">
-					<Str Str="Behead_Debuff" />
-					<Num Num="1" />
-					<Num Num="0" />
-					<Num FuncTxt="local pc = GetSkillOwner(skill)  local time = 30000  if pc ~= nil then   local abil = GetAbility(pc, 'Assassin6')   if abil ~= nil and abil.ActiveState == 1 and TryGetProp(target, &quot;MonRank&quot;) ~= &quot;Boss&quot; then    time = time * 0.5   end  end  return time" Num="60000" UseFunc="1" />
-					<Num Num="1" />
-					<Num Num="100" />
-					<Num Num="-1" />
-				</ToolScp>
-			</ResultList>
-		</MainSkl>
-		<ByCondSkills>
-			<SubSkl>
-				<Cond>
+        <MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+            <EtcList>
+                <Scp Client="NO" Scp="SKL_SET_TARGET_SQUARE" Time="0" UseSleep="NO">
+                    <Pos Angle="0" Dist="0"/>
+                    <Num Num="0"/>
+                    <Num Num="30"/>
+                    <Num Num="20"/>
+                    <Num Num="1"/>
+                    <Num Num="2"/>
+                    <Num Num="0"/>
+                    <Num Num="1"/>
+                    <Num Num="0"/>
+                </Scp>
+                <Scp Client="NO" Scp="SKL_RUN_SCRIPT" Time="100" UseSleep="NO">
+                    <Str Str="SCR_JOB_ASSASSIN_Q1_SKILL_DAMAGE"/>
+                </Scp>
+            </EtcList>
+        </MainSkl>
+    </Skill>
+    <Skill Name="Assassin_Quest3">
+        <MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+            <EtcList>
+                <Scp Client="NO" Scp="SKL_SET_TARGET_SQUARE" Time="0" UseSleep="NO">
+                    <Pos Angle="0" Dist="0"/>
+                    <Num Num="0"/>
+                    <Num Num="30"/>
+                    <Num Num="20"/>
+                    <Num Num="1"/>
+                    <Num Num="2"/>
+                    <Num Num="0"/>
+                    <Num Num="1"/>
+                    <Num Num="0"/>
+                </Scp>
+                <Scp Client="NO" Scp="SKL_RUN_SCRIPT" Time="100" UseSleep="NO">
+                    <Str Str="SCR_JOB_ASSASSIN_Q1_SKILL_DAMAGE"/>
+                </Scp>
+            </EtcList>
+        </MainSkl>
+    </Skill>
+    <Skill Name="Assassin_Quest2">
+        <MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+            <EtcList>
+                <Scp Client="NO" Scp="SKL_SET_TARGET_SQUARE" Time="0" UseSleep="NO">
+                    <Pos Angle="0" Dist="0"/>
+                    <Num Num="0"/>
+                    <Num Num="30"/>
+                    <Num Num="20"/>
+                    <Num Num="1"/>
+                    <Num Num="2"/>
+                    <Num Num="0"/>
+                    <Num Num="1"/>
+                    <Num Num="0"/>
+                </Scp>
+                <Scp Client="NO" Scp="SKL_RUN_SCRIPT" Time="100" UseSleep="NO">
+                    <Str Str="SCR_JOB_ASSASSIN_Q1_SKILL_DAMAGE"/>
+                </Scp>
+            </EtcList>
+        </MainSkl>
+    </Skill>
+    <Skill Name="Assassin_Quest1">
+        <MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+            <EtcList>
+                <Scp Client="NO" Scp="SKL_SET_TARGET_SQUARE" Time="0" UseSleep="NO">
+                    <Pos Angle="0" Dist="0"/>
+                    <Num Num="0"/>
+                    <Num Num="30"/>
+                    <Num Num="20"/>
+                    <Num Num="1"/>
+                    <Num Num="2"/>
+                    <Num Num="0"/>
+                    <Num Num="1"/>
+                    <Num Num="0"/>
+                </Scp>
+                <Scp Client="NO" Scp="SKL_RUN_SCRIPT" Time="100" UseSleep="NO">
+                    <Str Str="SCR_JOB_ASSASSIN_Q1_SKILL_DAMAGE"/>
+                </Scp>
+            </EtcList>
+        </MainSkl>
+    </Skill>
+    <Skill Name="Assassin_Hasisas">
+        <MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+            <HitList>
+                <Frame Angle="0" AniTime="9999" Dist="0" ForceATK="0" HitCount="1" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" TermMax="0" TermMin="0" Time="9799" Type="FAN"/>
+            </HitList>
+            <EtcList>
+                <Scp Client="YES" Scp="C_VOICE_SOUND" Time="0" UseSleep="NO">
+                    <Str Str="voice_scout_m_hasisas_cast"/>
+                    <Str Str="voice_scout_f_hasisas_cast"/>
+                </Scp>
+                <Scp Client="NO" Scp="SKL_BUFF" Time="300" UseSleep="NO">
+                    <Str Str="Hasisas_Buff"/>
+                    <Num FuncTxt="return obj.Level;" Num="1" UseFunc="1"/>
+                    <Num Num="0"/>
+                    <Num Num="1800000"/>
+                    <Num Num="1"/>
+                    <Num Num="100"/>
+                    <Num Num="0"/>
+                </Scp>
+            </EtcList>
+        </MainSkl>
+    </Skill>
+    <Skill Name="Assassin_Behead">
+        <MainSkl ScrLock="None" JumpFlee="NO" MSPDToUsePos="0">
+            <HitList>
+                <Frame Type="SQUARE" Time="100" HitCount="1" TermMin="0" TermMax="0" PosType="0" Dist="0" RandDist="0" RandomPerHit="0" Angle="0" Width="30" Length="50" SklAngle="0.17453292" AniTime="300" RotAngle="0" ForceATK="0"/>
+            </HitList>
+            <EtcList>
+                <Scp Scp="MONSKL_C_PLAY_ANIM" Client="YES" UseSleep="NO" Time="0">
+                    <Str Str="SKL_BEHEAD1"/>
+                    <Num Num="1.5"/>
+                    <Num Num="1"/>
+                    <Num Num="0"/>
+                </Scp>
+                <Scp Scp="C_VOICE_SOUND" Client="YES" UseSleep="NO" Time="100">
+                    <Str Str="voice_scout_m_behead_cast"/>
+                    <Str Str="voice_scout_f_behead_cast"/>
+                </Scp>
+            </EtcList>
+            <ResultList>
+                <ToolScp Scp="S_R_TGTBUFF" Client="NO" UseSleep="NO">
+                    <Str Str="Behead_Debuff"/>
+                    <Num Num="1"/>
+                    <Num Num="0"/>
+                    <Num Num="60000" UseFunc="1" FuncTxt="local pc = GetSkillOwner(skill)  local time = 30000  if pc ~= nil then   local abil = GetAbility(pc, 'Assassin6')   if abil ~= nil and abil.ActiveState == 1 and TryGetProp(target, &quot;MonRank&quot;) ~= &quot;Boss&quot; then    time = time * 0.5   end  end  return time"/>
+                    <Num Num="1"/>
+                    <Num Num="100"/>
+                    <Num Num="-1"/>
+                </ToolScp>
+            </ResultList>
+        </MainSkl>
+        <ByCondSkills>
+            <SubSkl>
+                <Cond>
                     <ToolScp Scp="SKL_SELECT_ASSASSIN_HIDDEN" Client="NO" UseSleep="NO">
                         <Num Num="150"/>
                     </ToolScp>
@@ -175,231 +175,284 @@
             </SubSkl>
             <SubSkl>
                 <Cond>
-					<ToolScp Client="BOTH" Scp="SKL_SELECT_TARGET_TYPE" UseSleep="NO">
-						<Num Num="1" />
-						<Num Num="150" />
-					</ToolScp>
-				</Cond>
-				<Skill JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
-					<HitList>
-						<Frame Angle="0" AniTime="9999" Dist="0" ForceATK="0" HitCount="1" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" TermMax="0" TermMin="0" Time="9799" Type="SQUARE" />
-					</HitList>
-					<EtcList>
-						<Scp Client="NO" Scp="SKL_SET_TARGET_CLIENT_TARGETTING" Time="0" UseSleep="NO" />
-						<Scp Client="NO" Scp="SKL_LOOK_TGT" Time="200" UseSleep="NO" />
-						<Scp Client="NO" Scp="SKL_SETPOS_TARGET_AND_DAMAGE" Time="500" UseSleep="NO">
-							<Str_Arg Arg="1" Str="None" />
-							<Num Num="135" />
-							<Num Num="20" />
-							<Num Num="150" />
-						</Scp>
-						<Scp Client="YES" Scp="MONSKL_C_PLAY_ANIM" Time="300" UseSleep="NO">
-							<Str Str="SKL_BEHEAD2" />
-							<Num Num="1.5" />
-							<Num Num="1" />
-							<Num Num="0" />
-						</Scp>
-					</EtcList>
-					<ResultList>
-						<ToolScp Client="NO" Scp="S_R_TGTBUFF" UseSleep="NO">
-							<Str Str="Behead_Debuff" />
-							<Num Num="1" />
-							<Num Num="0" />
-							<Num FuncTxt="local pc = GetSkillOwner(skill)  local time = 30000  if pc ~= nil then   local abil = GetAbility(pc, 'Assassin6')   if abil ~= nil and abil.ActiveState == 1 and TryGetProp(target, &quot;MonRank&quot;) ~= &quot;Boss&quot; then    time = time * 0.5   end  end  return time" Num="60000" UseFunc="1" />
-							<Num Num="1" />
-							<Num Num="100" />
-							<Num Num="-1" />
-						</ToolScp>
-					</ResultList>
-				</Skill>
-			</SubSkl>
-		</ByCondSkills>
-	</Skill>
-	<Skill Name="Assassin_InstantaneousAcceleration">
-		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
-			<HitList>
-				<Frame Angle="0" AniTime="250" Dist="0" ForceATK="0" HitCount="1" Length="100" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" TermMax="0" TermMin="0" Time="50" Type="SQUARE" Width="30" />
-			</HitList>
-			<EtcList>
-				<Scp Client="YES" Scp="MONSKL_C_PLAY_ANIM" Time="0" UseSleep="NO">
-					<Str Str="SKL_INSTANTANEOUSACCELERATION" />
-					<Num Num="1.9" />
-					<Num Num="1" />
-					<Num Num="0" />
-				</Scp>
-				<Scp Client="YES" Scp="C_VOICE_SOUND" Time="0" UseSleep="NO">
-					<Str Str="voice_scout_m_instantaneousacceleration_cast" />
-					<Str Str="voice_scout_f_instantaneousacceleration_cast" />
-				</Scp>
-				<Scp Client="NO" Scp="SKL_SETPOS" Time="100" UseSleep="NO">
-					<Pos Angle="0" Dist="100" />
-					<Str_Arg Arg="1" Str="None" />
-				</Scp>
-			</EtcList>
-			<ResultList>
-				<ToolScp Client="NO" Scp="S_R_COND_ABILITY" UseSleep="NO">
-					<Str Str="Assassin9" />
-				</ToolScp>
-				<ToolScp Client="NO" Scp="S_R_TGTBUFF" UseSleep="NO">
-					<Str Str="Stun" />
-					<Num Num="1" />
-					<Num Num="0" />
+                    <ToolScp Scp="SKL_SELECT_TARGET_TYPE" Client="BOTH" UseSleep="NO">
+                        <Num Num="1"/>
+                        <Num Num="150"/>
+                    </ToolScp>
+                </Cond>
+                <Skill ScrLock="None" JumpFlee="NO" MSPDToUsePos="0">
+                    <HitList>
+                        <Frame Type="SQUARE" Time="9799" HitCount="1" TermMin="0" TermMax="0" PosType="0" Dist="0" RandDist="0" RandomPerHit="0" Angle="0" AniTime="9999" RotAngle="0" ForceATK="0"/>
+                    </HitList>
+                    <EtcList>
+                        <Scp Scp="SKL_SET_TARGET_CLIENT_TARGETTING" Client="NO" UseSleep="NO" Time="0"/>
+                        <Scp Scp="SKL_LOOK_TGT" Client="NO" UseSleep="NO" Time="200"/>
+                        <Scp Scp="SKL_SETPOS_TARGET_AND_DAMAGE" Client="NO" UseSleep="NO" Time="500">
+                            <Str_Arg Str="None" Arg="1"/>
+                            <Num Num="135"/>
+                            <Num Num="20"/>
+                            <Num Num="150"/>
+                        </Scp>
+                        <Scp Scp="MONSKL_C_PLAY_ANIM" Client="YES" UseSleep="NO" Time="300">
+                            <Str Str="SKL_BEHEAD2"/>
+                            <Num Num="1.5"/>
+                            <Num Num="1"/>
+                            <Num Num="0"/>
+                        </Scp>
+                    </EtcList>
+                    <ResultList>
+                        <ToolScp Scp="S_R_TGTBUFF" Client="NO" UseSleep="NO">
+                            <Str Str="Behead_Debuff"/>
+                            <Num Num="1"/>
+                            <Num Num="0"/>
+                            <Num Num="60000" UseFunc="1" FuncTxt="local pc = GetSkillOwner(skill)  local time = 30000  if pc ~= nil then   local abil = GetAbility(pc, 'Assassin6')   if abil ~= nil and abil.ActiveState == 1 and TryGetProp(target, &quot;MonRank&quot;) ~= &quot;Boss&quot; then    time = time * 0.5   end  end  return time"/>
+                            <Num Num="1"/>
+                            <Num Num="100"/>
+                            <Num Num="-1"/>
+                        </ToolScp>
+                    </ResultList>
+                </Skill>
+            </SubSkl>
+        </ByCondSkills>
+    </Skill>
+    <Skill Name="Assassin_InstantaneousAcceleration">
+        <MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+            <HitList>
+                <Frame Angle="0" AniTime="250" Dist="0" ForceATK="0" HitCount="1" Length="100" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" TermMax="0" TermMin="0" Time="50" Type="SQUARE" Width="30"/>
+            </HitList>
+            <EtcList>
+                <Scp Client="YES" Scp="MONSKL_C_PLAY_ANIM" Time="0" UseSleep="NO">
+                    <Str Str="SKL_INSTANTANEOUSACCELERATION"/>
+                    <Num Num="1.9"/>
+                    <Num Num="1"/>
+                    <Num Num="0"/>
+                </Scp>
+                <Scp Client="YES" Scp="C_VOICE_SOUND" Time="0" UseSleep="NO">
+                    <Str Str="voice_scout_m_instantaneousacceleration_cast"/>
+                    <Str Str="voice_scout_f_instantaneousacceleration_cast"/>
+                </Scp>
+                <Scp Client="NO" Scp="SKL_SETPOS" Time="100" UseSleep="NO">
+                    <Pos Angle="0" Dist="100"/>
+                    <Str_Arg Arg="1" Str="None"/>
+                </Scp>
+            </EtcList>
+            <ResultList>
+                <ToolScp Client="NO" Scp="S_R_COND_ABILITY" UseSleep="NO">
+                    <Str Str="Assassin9"/>
+                </ToolScp>
+                <ToolScp Client="NO" Scp="S_R_TGTBUFF" UseSleep="NO">
+                    <Str Str="Stun"/>
+                    <Num Num="1"/>
+                    <Num Num="0"/>
                     <Num Num="1000"/>
-					<Num Num="1" />
-					<Num Num="100" />
-					<Num Num="-1" />
-				</ToolScp>
-			</ResultList>
-		</MainSkl>
-	</Skill>
-	<Skill Name="Assassin_HallucinationSmoke">
-		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
-			<HitList>
-				<Frame Angle="0" AniTime="9999" Dist="0" ForceATK="0" HitCount="1" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" TermMax="0" TermMin="0" Time="9799" Type="FAN" />
-			</HitList>
-			<EtcList>
-				<Scp Client="YES" Scp="MONSKL_C_PLAY_ANIM" Time="0" UseSleep="NO">
-					<Str Str="SKL_HALLUCINATIONSMOKE" />
-					<Num Num="1" />
-					<Num Num="1" />
-					<Num Num="0" />
-				</Scp>
-				<Scp Client="NO" Scp="MONSKL_CRE_PAD" Time="300" UseSleep="NO">
-					<Pos Angle="0" Dist="0" />
-					<Angle Angle="0" />
-					<Str Str="Assassin_HallucinationSmoke" />
-				</Scp>
-				<Scp Client="YES" Scp="C_VOICE_SOUND" Time="400" UseSleep="NO">
-					<Str Str="voice_scout_m_hallucinationsmoke_cast" />
-					<Str Str="voice_scout_f_hallucinationsmoke_cast" />
-				</Scp>
-			</EtcList>
-		</MainSkl>
-	</Skill>
-	<Skill Name="Assassin_PiercingHeart">
-		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
-			<HitList>
-				<Frame Angle="0" AniTime="200" Dist="0" ForceATK="0" HitCount="1" Length="70" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="0" Type="SQUARE" Width="25" />
-			</HitList>
-			<EtcList>
-				<Scp Client="YES" Scp="MONSKL_C_PLAY_ANIM" Time="0" UseSleep="NO">
-					<Str Str="SKL_PIERCINGHEART" />
-					<Num Num="1.5" />
-					<Num Num="1" />
-					<Num Num="0" />
-				</Scp>
-				<Scp Client="YES" Scp="C_VOICE_SOUND" Time="0" UseSleep="NO">
-					<Str Str="voice_scout_m_piercingheart_cast" />
-					<Str Str="voice_scout_f_piercingheart_cast" />
-				</Scp>
-				<Scp Client="NO" Scp="SKL_BUFF_ABIL" Time="200" UseSleep="NO">
-					<Str Str="Assassin14" />
-					<Str Str="PiercingHeart_Buff" />
-					<Num Num="1" />
-					<Num Num="0" />
-					<Num Num="10000" />
-					<Num Num="1" />
-					<Num Num="100" />
-					<Num Num="0" />
-				</Scp>
-			</EtcList>
-			<ResultList>
-				<ToolScp Client="NO" Scp="S_R_TGTBUFF" UseSleep="NO">
-					<Str Str="PiercingHeart_Debuff" />
-					<Num Num="1" />
-					<Num Num="0" />
-					<Num FuncTxt="local pc = GetSkillOwner(skill); return 10500 + (GET_ABIL_LEVEL(pc, 'Assassin13') * 1000)" Num="10000" UseFunc="1" />
-					<Num Num="1" />
-					<Num Num="100" />
-					<Num Num="-1" />
-				</ToolScp>
-			</ResultList>
-		</MainSkl>
-	</Skill>
-	<Skill Name="Assassin_Annihilation">
-		<EndScripts>
-			<ToolScp Client="NO" Scp="SKL_SET_IMMUNE_STATE_REMOVE" UseSleep="YES">
-				<Str Str="Skill_NoDamage_Buff" />
-				<Num Num="0" />
-			</ToolScp>
-			<ToolScp Client="YES" Scp="C_COLORBLEND_ACTOR" UseSleep="NO">
-				<Num Num="1" />
-				<Num Num="0" />
-				<Num Num="0" />
-				<Num Num="0" />
-				<Num Num="0" />
-				<Num Num="1" />
-				<Num Num="0" />
-			</ToolScp>
-			<ToolScp Client="NO" Scp="SKL_BUFF_ABIL" UseSleep="NO">
-				<Str Str="Assassin16" />
-				<Str Str="Annihilation_Buff" />
-				<Num Num="1" />
-				<Num Num="0" />
-				<Num FuncTxt="return GET_ABIL_LEVEL(self, 'Assassin16') * 1000" Num="3000" UseFunc="1" />
-				<Num Num="1" />
-				<Num Num="100" />
-				<Num Num="0" />
-			</ToolScp>
-			<ToolScp Client="YES" Scp="C_SHOW_PARTS_MODEL" UseSleep="NO">
-				<Str Str="LH" />
-				<Num Num="0" />
-				<Num Num="1" />
-			</ToolScp>
-			<ToolScp Client="YES" Scp="C_SHOW_PARTS_MODEL" UseSleep="NO">
-				<Str Str="RH" />
-				<Num Num="0" />
-				<Num Num="1" />
-			</ToolScp>
-		</EndScripts>
-		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
-			<HitList>
-				<Frame Angle="0" AniTime="200" Dist="0" ForceATK="0" HitCount="1" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.52359879" TermMax="0" TermMin="0" Time="0" Type="CIRCLE" Width="100" />
-				<Frame Angle="0" AniTime="600" Dist="0" ForceATK="0" HitCount="1" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.52359879" TermMax="0" TermMin="0" Time="400" Type="CIRCLE" Width="100" />
-				<Frame Angle="0" AniTime="1000" Dist="0" ForceATK="0" HitCount="1" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.52359879" TermMax="0" TermMin="0" Time="800" Type="CIRCLE" Width="100" />
-				<Frame Angle="0" AniTime="1400" Dist="0" ForceATK="0" HitCount="1" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.52359879" TermMax="0" TermMin="0" Time="1200" Type="CIRCLE" Width="100" />
-				<Frame Angle="0" AniTime="1800" Dist="0" ForceATK="0" HitCount="1" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.52359879" TermMax="0" TermMin="0" Time="1600" Type="CIRCLE" Width="100" />
-				<Frame Angle="0" AniTime="2200" Dist="0" ForceATK="0" HitCount="1" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.52359879" TermMax="0" TermMin="0" Time="2000" Type="CIRCLE" Width="100" />
-				<Frame Angle="0" AniTime="2600" Dist="0" ForceATK="0" HitCount="1" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.52359879" TermMax="0" TermMin="0" Time="2400" Type="CIRCLE" Width="100" />
-			</HitList>
-			<EtcList>
-				<Scp Client="NO" Scp="SKL_SET_IMMUNE_STATE" Time="0" UseSleep="NO">
-					<Str Str="Skill_NoDamage_Buff" />
-					<Num Num="100" />
-				</Scp>
-				<Scp Client="YES" Scp="MONSKL_C_PLAY_ANIM" Time="0" UseSleep="NO">
-					<Str Str="SKL_ANNIHILATION" />
-					<Num Num="0.69999999" />
-					<Num Num="1" />
-					<Num Num="0" />
-				</Scp>
-				<Scp Client="YES" Scp="C_COLORBLEND_ACTOR" Time="0" UseSleep="NO">
-					<Num Num="1" />
-					<Num Num="1" />
-					<Num Num="0" />
-					<Num Num="0" />
-					<Num Num="0" />
-					<Num Num="0" />
-					<Num Num="0" />
-				</Scp>
-				<Scp Client="YES" Scp="C_SOUND" Time="0" UseSleep="NO">
-					<Str Str="skl_eff_assassin_annihilation" />
-				</Scp>
-				<Scp Client="YES" Scp="C_VOICE_SOUND" Time="0" UseSleep="NO">
-					<Str Str="voice_war_atk_long_cast"/>
-					<Str Str="voice_atk_long_cast_f"/>
-				</Scp>
-				<Scp Client="YES" Scp="C_SHOW_PARTS_MODEL" Time="0" UseSleep="NO">
-					<Str Str="RH" />
-					<Num Num="0" />
-					<Num Num="1" />
-				</Scp>
-				<Scp Client="YES" Scp="C_SHOW_PARTS_MODEL" Time="0" UseSleep="NO">
-					<Str Str="LH" />
-					<Num Num="0" />
-					<Num Num="1" />
-				</Scp>
-			</EtcList>
-		</MainSkl>
-	</Skill>
-	</ToolSkill>
+                    <Num Num="1"/>
+                    <Num Num="100"/>
+                    <Num Num="-1"/>
+                </ToolScp>
+            </ResultList>
+        </MainSkl>
+    </Skill>
+    <Skill Name="Assassin_HallucinationSmoke">
+        <MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+            <HitList>
+                <Frame Angle="0" AniTime="9999" Dist="0" ForceATK="0" HitCount="1" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" TermMax="0" TermMin="0" Time="9799" Type="FAN"/>
+            </HitList>
+            <EtcList>
+                <Scp Client="YES" Scp="MONSKL_C_PLAY_ANIM" Time="0" UseSleep="NO">
+                    <Str Str="SKL_HALLUCINATIONSMOKE"/>
+                    <Num Num="1"/>
+                    <Num Num="1"/>
+                    <Num Num="0"/>
+                </Scp>
+                <Scp Client="NO" Scp="MONSKL_CRE_PAD" Time="300" UseSleep="NO">
+                    <Pos Angle="0" Dist="0"/>
+                    <Angle Angle="0"/>
+                    <Str Str="Assassin_HallucinationSmoke"/>
+                </Scp>
+                <Scp Client="YES" Scp="C_VOICE_SOUND" Time="400" UseSleep="NO">
+                    <Str Str="voice_scout_m_hallucinationsmoke_cast"/>
+                    <Str Str="voice_scout_f_hallucinationsmoke_cast"/>
+                </Scp>
+            </EtcList>
+        </MainSkl>
+    </Skill>
+    <Skill Name="Assassin_PiercingHeart">
+        <MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+            <HitList>
+                <Frame Angle="0" AniTime="200" Dist="0" ForceATK="0" HitCount="1" Length="70" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="0" Type="SQUARE" Width="25"/>
+            </HitList>
+            <EtcList>
+                <Scp Client="YES" Scp="MONSKL_C_PLAY_ANIM" Time="0" UseSleep="NO">
+                    <Str Str="SKL_PIERCINGHEART"/>
+                    <Num Num="1.5"/>
+                    <Num Num="1"/>
+                    <Num Num="0"/>
+                </Scp>
+                <Scp Client="YES" Scp="C_VOICE_SOUND" Time="0" UseSleep="NO">
+                    <Str Str="voice_scout_m_piercingheart_cast"/>
+                    <Str Str="voice_scout_f_piercingheart_cast"/>
+                </Scp>
+                <Scp Client="NO" Scp="SKL_BUFF_ABIL" Time="200" UseSleep="NO">
+                    <Str Str="Assassin14"/>
+                    <Str Str="PiercingHeart_Buff"/>
+                    <Num Num="1"/>
+                    <Num Num="0"/>
+                    <Num Num="10000"/>
+                    <Num Num="1"/>
+                    <Num Num="100"/>
+                    <Num Num="0"/>
+                </Scp>
+            </EtcList>
+            <ResultList>
+                <ToolScp Client="NO" Scp="S_R_TGTBUFF" UseSleep="NO">
+                    <Str Str="PiercingHeart_Debuff"/>
+                    <Num Num="1"/>
+                    <Num Num="0"/>
+                    <Num FuncTxt="local pc = GetSkillOwner(skill); return 10500 + (GET_ABIL_LEVEL(pc, 'Assassin13') * 1000)" Num="10000" UseFunc="1"/>
+                    <Num Num="1"/>
+                    <Num Num="100"/>
+                    <Num Num="-1"/>
+                </ToolScp>
+            </ResultList>
+        </MainSkl>
+    </Skill>
+    <Skill Name="Assassin_Annihilation">
+        <EndScripts>
+            <ToolScp Scp="SKL_SET_IMMUNE_STATE_REMOVE" Client="NO" UseSleep="YES">
+                <Str Str="Skill_NoDamage_Buff"/>
+                <Num Num="0"/>
+            </ToolScp>
+            <ToolScp Scp="C_COLORBLEND_ACTOR" Client="YES" UseSleep="NO">
+                <Num Num="1"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+                <Num Num="1"/>
+                <Num Num="0"/>
+            </ToolScp>
+            <ToolScp Scp="SKL_BUFF_ABIL" Client="NO" UseSleep="NO">
+                <Str Str="Assassin16"/>
+                <Str Str="Annihilation_Buff"/>
+                <Num Num="1"/>
+                <Num Num="0"/>
+                <Num Num="3000" UseFunc="1" FuncTxt="return GET_ABIL_LEVEL(self, 'Assassin16') * 1000"/>
+                <Num Num="1"/>
+                <Num Num="100"/>
+                <Num Num="0"/>
+            </ToolScp>
+            <ToolScp Scp="C_SHOW_PARTS_MODEL" Client="YES" UseSleep="NO">
+                <Str Str="LH"/>
+                <Num Num="0"/>
+                <Num Num="1"/>
+            </ToolScp>
+            <ToolScp Scp="C_SHOW_PARTS_MODEL" Client="YES" UseSleep="NO">
+                <Str Str="RH"/>
+                <Num Num="0"/>
+                <Num Num="1"/>
+            </ToolScp>
+        </EndScripts>
+        <MainSkl ScrLock="None" JumpFlee="NO" MSPDToUsePos="0">
+            <HitList>
+                <Frame Type="CIRCLE" Time="0" HitCount="1" TermMin="0" TermMax="0" PosType="0" Dist="0" RandDist="0" RandomPerHit="0" Angle="0" Width="100" SklAngle="0.52359879" AniTime="200" RotAngle="0" ForceATK="0"/>
+                <Frame Type="CIRCLE" Time="400" HitCount="1" TermMin="0" TermMax="0" PosType="0" Dist="0" RandDist="0" RandomPerHit="0" Angle="0" Width="100" SklAngle="0.52359879" AniTime="600" RotAngle="0" ForceATK="0"/>
+                <Frame Type="CIRCLE" Time="800" HitCount="1" TermMin="0" TermMax="0" PosType="0" Dist="0" RandDist="0" RandomPerHit="0" Angle="0" Width="100" SklAngle="0.52359879" AniTime="1000" RotAngle="0" ForceATK="0"/>
+                <Frame Type="CIRCLE" Time="1200" HitCount="1" TermMin="0" TermMax="0" PosType="0" Dist="0" RandDist="0" RandomPerHit="0" Angle="0" Width="100" SklAngle="0.52359879" AniTime="1400" RotAngle="0" ForceATK="0"/>
+                <Frame Type="CIRCLE" Time="1600" HitCount="1" TermMin="0" TermMax="0" PosType="0" Dist="0" RandDist="0" RandomPerHit="0" Angle="0" Width="100" SklAngle="0.52359879" AniTime="1800" RotAngle="0" ForceATK="0"/>
+                <Frame Type="CIRCLE" Time="2000" HitCount="1" TermMin="0" TermMax="0" PosType="0" Dist="0" RandDist="0" RandomPerHit="0" Angle="0" Width="100" SklAngle="0.52359879" AniTime="2200" RotAngle="0" ForceATK="0"/>
+                <Frame Type="CIRCLE" Time="2400" HitCount="1" TermMin="0" TermMax="0" PosType="0" Dist="0" RandDist="0" RandomPerHit="0" Angle="0" Width="100" SklAngle="0.52359879" AniTime="2600" RotAngle="0" ForceATK="0"/>
+            </HitList>
+            <EtcList>
+                <Scp Scp="SKL_SET_IMMUNE_STATE" Client="NO" UseSleep="NO" Time="0">
+                    <Str Str="Skill_NoDamage_Buff"/>
+                    <Num Num="100"/>
+                </Scp>
+                <Scp Scp="MONSKL_C_PLAY_ANIM" Client="YES" UseSleep="NO" Time="0">
+                    <Str Str="SKL_ANNIHILATION"/>
+                    <Num Num="0.69999999"/>
+                    <Num Num="1"/>
+                    <Num Num="0"/>
+                </Scp>
+                <Scp Scp="C_COLORBLEND_ACTOR" Client="YES" UseSleep="NO" Time="0">
+                    <Num Num="1"/>
+                    <Num Num="1"/>
+                    <Num Num="0"/>
+                    <Num Num="0"/>
+                    <Num Num="0"/>
+                    <Num Num="0"/>
+                    <Num Num="0"/>
+                </Scp>
+                <Scp Scp="C_SOUND" Client="YES" UseSleep="NO" Time="0">
+                    <Str Str="skl_eff_assassin_annihilation"/>
+                </Scp>
+                <Scp Scp="C_VOICE_SOUND" Client="YES" UseSleep="NO" Time="0">
+                    <Str Str="voice_war_atk_long_cast"/>
+                    <Str Str="voice_atk_long_cast_f"/>
+                </Scp>
+                <Scp Scp="C_SHOW_PARTS_MODEL" Client="YES" UseSleep="NO" Time="0">
+                    <Str Str="RH"/>
+                    <Num Num="0"/>
+                    <Num Num="1"/>
+                </Scp>
+                <Scp Scp="C_SHOW_PARTS_MODEL" Client="YES" UseSleep="NO" Time="0">
+                    <Str Str="LH"/>
+                    <Num Num="0"/>
+                    <Num Num="1"/>
+                </Scp>
+            </EtcList>
+        </MainSkl>
+        <ByCondSkills>
+            <SubSkl>
+                <Cond>
+                    <ToolScp Scp="SKL_SELECT_ABIL" Client="NO" UseSleep="NO">
+                        <Str Str="Assassin23"/>
+                    </ToolScp>
+                </Cond>
+                <Skill ScrLock="None" JumpFlee="NO" MSPDToUsePos="0">
+                    <EtcList>
+                        <Scp Scp="C_COLORBLEND_ACTOR" Client="YES" UseSleep="NO" Time="0">
+                            <Num Num="1"/>
+                            <Num Num="1"/>
+                            <Num Num="0"/>
+                            <Num Num="0"/>
+                            <Num Num="0"/>
+                            <Num Num="0"/>
+                            <Num Num="0"/>
+                        </Scp>
+                        <Scp Scp="C_SOUND" Client="YES" UseSleep="NO" Time="0">
+                            <Str Str="skl_eff_assassin_annihilation"/>
+                        </Scp>
+                        <Scp Scp="C_VOICE_SOUND" Client="YES" UseSleep="NO" Time="0">
+                            <Str Str="voice_war_atk_long_cast"/>
+                            <Str Str="voice_atk_long_cast_f"/>
+                        </Scp>
+                        <Scp Scp="C_SHOW_PARTS_MODEL" Client="YES" UseSleep="NO" Time="0">
+                            <Str Str="RH"/>
+                            <Num Num="0"/>
+                            <Num Num="1"/>
+                        </Scp>
+                        <Scp Scp="C_SHOW_PARTS_MODEL" Client="YES" UseSleep="NO" Time="0">
+                            <Str Str="LH"/>
+                            <Num Num="0"/>
+                            <Num Num="1"/>
+                        </Scp>
+                        <Scp Scp="MONSKL_CRE_PAD" Client="NO" UseSleep="NO" Time="0">
+                            <Pos Angle="0" Dist="0"/>
+                            <Angle Angle="0"/>
+                            <Str Str="Annihilation_Assassin23_Pad"/>
+                        </Scp>
+                        <Scp Scp="C_COLORBLEND_ACTOR" Client="YES" UseSleep="NO" Time="500">
+                            <Num Num="1"/>
+                            <Num Num="1"/>
+                            <Num Num="1"/>
+                            <Num Num="1"/>
+                            <Num Num="1"/>
+                            <Num Num="1"/>
+                            <Num Num="0"/>
+                        </Scp>
+                    </EtcList>
+                </Skill>
+            </SubSkl>
+        </ByCondSkills>
+    </Skill>
+</ToolSkill>

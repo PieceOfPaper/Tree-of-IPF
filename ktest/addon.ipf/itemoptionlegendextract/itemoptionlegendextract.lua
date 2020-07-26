@@ -642,7 +642,7 @@ function OPTION_LEGEND_EXTRACT_EXEC(frame)
 		local slot = GET_CHILD_RECURSIVELY(frame, "targetitemslot_"..i);
 		local targetguid = slot:GetUserValue("SELECTED_INV_GUID");
 		if targetguid == "None" then
-			ui.SysMsg(ClMsg("NoEnoguhtItem"));
+			ui.SysMsg(ClMsg("REQUEST_TAKE_ITEM"));
 			return;
 		end
 	end

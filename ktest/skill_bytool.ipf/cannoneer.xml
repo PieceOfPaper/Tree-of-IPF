@@ -7,18 +7,18 @@
 			</HitList>
 			<EtcList>
                 <Scp Scp="C_VOICE_SOUND" Client="YES" UseSleep="NO" Time="0">
-					<Str Str="voice_archer_m_SweepingCannon_cast" />
-					<Str Str="voice_archer_SweepingCannon_cast" />
-				</Scp>
+                    <Str Str="voice_archer_m_SweepingCannon_cast"/>
+                    <Str Str="voice_archer_SweepingCannon_cast"/>
+                </Scp>
                 <Anim Time="100" Anim="SKL_SWEEPINGCANNON" Speed="1.6"/>
                 <Scp Scp="C_VOICE_SOUND" Client="YES" UseSleep="NO" Time="1200">
-					<Str Str="voice_archer_m_SweepingCannon_shot" />
-					<Str Str="voice_archer_SweepingCannon_shot" />
-				</Scp>
+                    <Str Str="voice_archer_m_SweepingCannon_shot"/>
+                    <Str Str="voice_archer_SweepingCannon_shot"/>
+                </Scp>
                 <Scp Scp="SKL_RUN_SCRIPT" Client="NO" UseSleep="NO" Time="1300">
                     <Str Str="SCR_SWEEPINGCANNON_ARTS"/>
                 </Scp>
-			</EtcList>
+            </EtcList>
             <ResultList>
                 <ToolScp Scp="S_R_TGT_REMOVE_BUFF" Client="NO" UseSleep="NO">
                     <Str Str="0" UseFunc="1" FuncTxt="local func_name = 'get_remove_buff_tooltip_' .. TryGetProp(skill, 'ClassName', 'None')
@@ -27,143 +27,79 @@
                return func(skill.Level)"/>
                 </ToolScp>
             </ResultList>
-		</MainSkl>
-	</Skill>
-	<Skill Name="Cannoneer_SmokeGrenade">
-		<KeyInput>
-			<ToolScp Client="YES" Scp="SKL_KEY_GROUND_EVENT" UseSleep="NO">
-				<Num Num="3" />
-				<Num Num="0" />
-				<Num Num="0" />
-				<Num Num="1" />
-				<Num Num="200" />
-				<Num Num="0.1" />
-				<Num Num="0" />
-				<Num Num="0" />
-				<Num Num="0" />
-				<Str_Arg Arg="1" Str="None" />
-				<Str Str="None" />
-				<Num Num="0" />
-				<Num Num="0" />
-				<Num Num="5" />
-				<Num Num="1" />
-				<Num Num="45" />
-				<Num Num="0" />
-				<Num Num="0" />
-				<Num Num="1" />
-				<Num Num="0" />
-			</ToolScp>
-		</KeyInput>
-		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
-			<HitList>
-				<Frame Angle="0" AniTime="9999" Dist="0" ForceATK="0" HitCount="1" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" TermMax="0" TermMin="0" Time="9799" Type="FAN" />
-			</HitList>
-			<EtcList>
-				<Scp Client="YES" Scp="C_VOICE_SOUND" Time="200" UseSleep="NO">
-					<Str Str="voice_war_atk_medium" />
-					<Str Str="voice_atk_medium_war_f" />
-				</Scp>
-				<Scp Client="NO" Scp="MSL_PAD_THROW" Time="450" UseSleep="YES">
-					<Str_Arg Arg="0.60000002" Str="I_archer_Lachrymator_force_mash#Dummy_effect_canon" />
-					<Str_Arg Arg="1" Str="I_bomb003_dark" />
-					<Str_Arg Arg="1" Str="None" />
-					<Pos Angle="0" Dist="0" PosType="3" />
-					<Num Num="0" />
-					<Num Num="0.30000001" />
-					<Num Num="0" />
-					<Num Num="200" />
-					<Num Num="1" />
-					<Num Num="200" />
-					<Num Num="0" />
-					<Str_Arg Arg="1" Str="None" />
-					<Num Num="0" />
-					<Num Num="0" />
-					<Angle Angle="0" />
-					<Str Str="Cannoneer_SmokeGrenade" />
-				</Scp>
-			</EtcList>
-		</MainSkl>
-	</Skill>
-	<Skill Name="Cannoneer_CannonBarrage">
-		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
-			<HitList>
-				<Frame Angle="0" AniTime="550" Dist="0" ForceATK="0" HitCount="1" PosType="2" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="350" Type="CIRCLE" Width="45" />
-				<Frame Angle="0" AniTime="700" Dist="0" ForceATK="0" HitCount="1" PosType="2" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="500" Type="CIRCLE" Width="45" />
-				<Frame Angle="0" AniTime="950" Dist="0" ForceATK="0" HitCount="1" PosType="2" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="750" Type="CIRCLE" Width="45" />
-			</HitList>
-			<EtcList>
-				<Scp Client="YES" Scp="MONSKL_C_PLAY_ANIM" Time="0" UseSleep="NO">
-					<Str Str="SKL_CANNONBARRAGE" />
-					<Num Num="1" />
-					<Num Num="1" />
-				<Num Num="1" />
+        </MainSkl>
+    </Skill>
+    <Skill Name="Cannoneer_SmokeGrenade">
+        <KeyInput>
+            <ToolScp Client="YES" Scp="SKL_KEY_GROUND_EVENT" UseSleep="NO">
+                <Num Num="3"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+                <Num Num="1"/>
+                <Num Num="200"/>
+                <Num Num="0.1"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+                <Str_Arg Arg="1" Str="None"/>
+                <Str Str="None"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+                <Num Num="5"/>
+                <Num Num="1"/>
+                <Num Num="45"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+                <Num Num="1"/>
+                <Num Num="0"/>
+            </ToolScp>
+        </KeyInput>
+        <MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+            <HitList>
+                <Frame Angle="0" AniTime="9999" Dist="0" ForceATK="0" HitCount="1" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" TermMax="0" TermMin="0" Time="9799" Type="FAN"/>
+            </HitList>
+            <EtcList>
+                <Scp Client="YES" Scp="C_VOICE_SOUND" Time="200" UseSleep="NO">
+                    <Str Str="voice_war_atk_medium"/>
+                    <Str Str="voice_atk_medium_war_f"/>
                 </Scp>
-				<Scp Client="YES_Time" Scp="C_FORCE_EFT" Time="450" UseSleep="NO">
-					<Str_Arg Arg="0.60000002" Str="I_archer_canon_force2#Dummy_effect_canon" />
-					<Str Str="arrow_cast" />
-					<Str_Arg Arg="0.60000002" Str="F_archer_CannonShot_explosion2" />
-					<Str Str="arrow_blow" />
-					<Str Str="SLOW" />
-					<Num Num="700" />
-					<Num Num="1" />
-					<Num Num="0" />
-					<Angle_Abs Angle="0" />
-					<Num Num="0" />
-					<Num Num="5" />
-					<Num Num="10" />
-					<Num Num="0" />
-					<Num Num="1" />
-					<Num Num="1" />
-					<Str Str="None" />
-					<PosDist Angle="0" Dist="0" />
-					<Num Num="0" />
-				</Scp>
-				<Scp Client="YES_Time" Scp="C_FORCE_EFT" Time="500" UseSleep="NO">
-					<Str_Arg Arg="0.60000002" Str="I_archer_canon_force2#Dummy_effect_canon" />
-					<Str Str="arrow_cast" />
-					<Str_Arg Arg="0.60000002" Str="F_archer_CannonShot_explosion2" />
-					<Str Str="arrow_blow" />
-					<Str Str="SLOW" />
-					<Num Num="700" />
-					<Num Num="1" />
-					<Num Num="0" />
-					<Angle_Abs Angle="0" />
-					<Num Num="0" />
-					<Num Num="5" />
-					<Num Num="10" />
-					<Num Num="0" />
-					<Num Num="1" />
-					<Num Num="1" />
-					<Str Str="None" />
-					<PosDist Angle="0" Dist="0" />
-					<Num Num="0" />
-				</Scp>
-				<Scp Client="YES" Scp="C_VOICE_SOUND" Time="500" UseSleep="NO">
-					<Str Str="voice_archer_m_cannonshot_shot" />
-					<Str Str="voice_archer_cannonshot_shot" />
-				</Scp>
-				<Scp Client="YES_Time" Scp="C_FORCE_EFT" Time="550" UseSleep="NO">
-					<Str_Arg Arg="0.60000002" Str="I_archer_canon_force2#Dummy_effect_canon" />
-					<Str Str="arrow_cast" />
-					<Str_Arg Arg="0.60000002" Str="F_archer_CannonShot_explosion2" />
-					<Str Str="arrow_blow" />
-					<Str Str="SLOW" />
-					<Num Num="700" />
-					<Num Num="1" />
-					<Num Num="0" />
-					<Angle_Abs Angle="0" />
-					<Num Num="0" />
-					<Num Num="5" />
-					<Num Num="10" />
-					<Num Num="0" />
-					<Num Num="1" />
-					<Num Num="1" />
-					<Str Str="None" />
-					<PosDist Angle="0" Dist="0" />
-					<Num Num="0" />
-				</Scp>
-                <Scp Client="NO" Scp="SKL_BUFF" Time="0" UseSleep="NO">
-                    <Str FuncTxt="local str = &quot;None&quot; if GetExProp(self, 'ITEM_CANNONHOLD_BUFF') == 1 then str = &quot;CannonHold_Buff&quot; end return str" UseFunc="1" Str="None"/>
+                <Scp Client="NO" Scp="MSL_PAD_THROW" Time="450" UseSleep="YES">
+                    <Str_Arg Arg="0.60000002" Str="I_archer_Lachrymator_force_mash#Dummy_effect_canon"/>
+                    <Str_Arg Arg="1" Str="I_bomb003_dark"/>
+                    <Str_Arg Arg="1" Str="None"/>
+                    <Pos Angle="0" Dist="0" PosType="3"/>
+                    <Num Num="0"/>
+                    <Num Num="0.30000001"/>
+                    <Num Num="0"/>
+                    <Num Num="200"/>
+                    <Num Num="1"/>
+                    <Num Num="200"/>
+                    <Num Num="0"/>
+                    <Str_Arg Arg="1" Str="None"/>
+                    <Num Num="0"/>
+                    <Num Num="0"/>
+                    <Angle Angle="0"/>
+                    <Str Str="Cannoneer_SmokeGrenade"/>
+                </Scp>
+            </EtcList>
+        </MainSkl>
+    </Skill>
+    <Skill Name="Cannoneer_CannonBarrage">
+        <MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+            <HitList>
+                <Frame Angle="0" AniTime="550" Dist="0" ForceATK="0" HitCount="1" PosType="2" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="350" Type="CIRCLE" Width="45"/>
+                <Frame Angle="0" AniTime="700" Dist="0" ForceATK="0" HitCount="1" PosType="2" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="500" Type="CIRCLE" Width="45"/>
+                <Frame Angle="0" AniTime="950" Dist="0" ForceATK="0" HitCount="1" PosType="2" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="750" Type="CIRCLE" Width="45"/>
+            </HitList>
+            <EtcList>
+                <Scp Client="YES" Scp="MONSKL_C_PLAY_ANIM" Time="0" UseSleep="NO">
+                    <Str Str="SKL_CANNONBARRAGE"/>
+                    <Num Num="1"/>
+                    <Num Num="1"/>
+                    <Num Num="1"/>
+                </Scp>
+                <Scp Scp="SKL_BUFF" Client="NO" UseSleep="NO" Time="0">
+                    <Str Str="None" UseFunc="1" FuncTxt="local str = &quot;None&quot; if GetExProp(self, 'ITEM_CANNONHOLD_BUFF') == 1 then str = &quot;CannonHold_Buff&quot; end return str"/>
                     <Num Num="1"/>
                     <Num Num="0"/>
                     <Num Num="3000"/>
@@ -171,141 +107,205 @@
                     <Num Num="100"/>
                     <Num Num="0"/>
                 </Scp>
-			</EtcList>
-			<ResultList>
-				<ToolScp Client="NO" Scp="S_R_TGTBUFF" UseSleep="NO">
-					<Str Str="Stun" />
-					<Num Num="1" />
-					<Num Num="0" />
-					<Num Num="3000" />
-					<Num Num="1" />
-					<Num Num="30" />
-					<Num Num="-1" />
-				</ToolScp>
-			</ResultList>
-		</MainSkl>
-		<ByCondSkills>
-			<SubSkl>
-				<Cond>
-					<ToolScp Client="NO" Scp="SKL_SELECT_BUFF" UseSleep="NO">
-						<Str Str="Archer_Kneelingshot" />
-					</ToolScp>
-				</Cond>
-				<Skill JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
-					<HitList>
-						<Frame Angle="0" AniTime="550" Dist="0" ForceATK="0" HitCount="1" PosType="2" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="350" Type="CIRCLE" Width="40" />
-						<Frame Angle="0" AniTime="700" Dist="0" ForceATK="0" HitCount="1" PosType="2" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="500" Type="CIRCLE" Width="40" />
-						<Frame Angle="0" AniTime="950" Dist="0" ForceATK="0" HitCount="1" PosType="2" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="750" Type="CIRCLE" Width="40" />
-					</HitList>
-					<EtcList>
-						<Scp Client="YES" Scp="MONSKL_C_PLAY_ANIM" Time="0" UseSleep="NO">
-							<Str Str="SKL_KNEELINGSHOT_CANNONBARRAGE" />
-							<Num Num="1" />
-							<Num Num="1" />
-						<Num Num="1" />
+                <Scp Client="YES_Time" Scp="C_FORCE_EFT" Time="450" UseSleep="NO">
+                    <Str_Arg Arg="0.60000002" Str="I_archer_canon_force2#Dummy_effect_canon"/>
+                    <Str Str="arrow_cast"/>
+                    <Str_Arg Arg="0.60000002" Str="F_archer_CannonShot_explosion2"/>
+                    <Str Str="arrow_blow"/>
+                    <Str Str="SLOW"/>
+                    <Num Num="700"/>
+                    <Num Num="1"/>
+                    <Num Num="0"/>
+                    <Angle_Abs Angle="0"/>
+                    <Num Num="0"/>
+                    <Num Num="5"/>
+                    <Num Num="10"/>
+                    <Num Num="0"/>
+                    <Num Num="1"/>
+                    <Num Num="1"/>
+                    <Str Str="None"/>
+                    <PosDist Angle="0" Dist="0"/>
+                    <Num Num="0"/>
+                </Scp>
+                <Scp Client="YES_Time" Scp="C_FORCE_EFT" Time="500" UseSleep="NO">
+                    <Str_Arg Arg="0.60000002" Str="I_archer_canon_force2#Dummy_effect_canon"/>
+                    <Str Str="arrow_cast"/>
+                    <Str_Arg Arg="0.60000002" Str="F_archer_CannonShot_explosion2"/>
+                    <Str Str="arrow_blow"/>
+                    <Str Str="SLOW"/>
+                    <Num Num="700"/>
+                    <Num Num="1"/>
+                    <Num Num="0"/>
+                    <Angle_Abs Angle="0"/>
+                    <Num Num="0"/>
+                    <Num Num="5"/>
+                    <Num Num="10"/>
+                    <Num Num="0"/>
+                    <Num Num="1"/>
+                    <Num Num="1"/>
+                    <Str Str="None"/>
+                    <PosDist Angle="0" Dist="0"/>
+                    <Num Num="0"/>
+                </Scp>
+                <Scp Client="YES" Scp="C_VOICE_SOUND" Time="500" UseSleep="NO">
+                    <Str Str="voice_archer_m_cannonshot_shot"/>
+                    <Str Str="voice_archer_cannonshot_shot"/>
+                </Scp>
+                <Scp Client="YES_Time" Scp="C_FORCE_EFT" Time="550" UseSleep="NO">
+                    <Str_Arg Arg="0.60000002" Str="I_archer_canon_force2#Dummy_effect_canon"/>
+                    <Str Str="arrow_cast"/>
+                    <Str_Arg Arg="0.60000002" Str="F_archer_CannonShot_explosion2"/>
+                    <Str Str="arrow_blow"/>
+                    <Str Str="SLOW"/>
+                    <Num Num="700"/>
+                    <Num Num="1"/>
+                    <Num Num="0"/>
+                    <Angle_Abs Angle="0"/>
+                    <Num Num="0"/>
+                    <Num Num="5"/>
+                    <Num Num="10"/>
+                    <Num Num="0"/>
+                    <Num Num="1"/>
+                    <Num Num="1"/>
+                    <Str Str="None"/>
+                    <PosDist Angle="0" Dist="0"/>
+                    <Num Num="0"/>
+                </Scp>
+            </EtcList>
+            <ResultList>
+                <ToolScp Client="NO" Scp="S_R_TGTBUFF" UseSleep="NO">
+                    <Str Str="Stun"/>
+                    <Num Num="1"/>
+                    <Num Num="0"/>
+                    <Num Num="3000"/>
+                    <Num Num="1"/>
+                    <Num Num="30"/>
+                    <Num Num="-1"/>
+                </ToolScp>
+            </ResultList>
+        </MainSkl>
+        <ByCondSkills>
+            <SubSkl>
+                <Cond>
+                    <ToolScp Client="NO" Scp="SKL_SELECT_BUFF" UseSleep="NO">
+                        <Str Str="Archer_Kneelingshot"/>
+                    </ToolScp>
+                </Cond>
+                <Skill JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+                    <HitList>
+                        <Frame Angle="0" AniTime="550" Dist="0" ForceATK="0" HitCount="1" PosType="2" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="350" Type="CIRCLE" Width="40"/>
+                        <Frame Angle="0" AniTime="700" Dist="0" ForceATK="0" HitCount="1" PosType="2" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="500" Type="CIRCLE" Width="40"/>
+                        <Frame Angle="0" AniTime="950" Dist="0" ForceATK="0" HitCount="1" PosType="2" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="750" Type="CIRCLE" Width="40"/>
+                    </HitList>
+                    <EtcList>
+                        <Scp Client="YES" Scp="MONSKL_C_PLAY_ANIM" Time="0" UseSleep="NO">
+                            <Str Str="SKL_KNEELINGSHOT_CANNONBARRAGE"/>
+                            <Num Num="1"/>
+                            <Num Num="1"/>
+                            <Num Num="1"/>
                         </Scp>
-						<Scp Client="YES_Time" Scp="C_FORCE_EFT" Time="450" UseSleep="NO">
-							<Str_Arg Arg="0.60000002" Str="I_archer_canon_force2#Dummy_effect_canon" />
-							<Str Str="arrow_cast" />
-							<Str_Arg Arg="0.60000002" Str="F_archer_CannonShot_explosion2" />
-							<Str Str="arrow_blow" />
-							<Str Str="SLOW" />
-							<Num Num="700" />
-							<Num Num="1" />
-							<Num Num="0" />
-							<Angle_Abs Angle="0" />
-							<Num Num="0" />
-							<Num Num="5" />
-							<Num Num="10" />
-							<Num Num="0" />
-							<Num Num="1" />
-							<Num Num="1" />
-							<Str Str="None" />
-							<PosDist Angle="0" Dist="0" />
-							<Num Num="0" />
-						</Scp>
-						<Scp Client="YES_Time" Scp="C_FORCE_EFT" Time="500" UseSleep="NO">
-							<Str_Arg Arg="0.60000002" Str="I_archer_canon_force2#Dummy_effect_canon" />
-							<Str Str="arrow_cast" />
-							<Str_Arg Arg="0.60000002" Str="F_archer_CannonShot_explosion2" />
-							<Str Str="arrow_blow" />
-							<Str Str="SLOW" />
-							<Num Num="700" />
-							<Num Num="1" />
-							<Num Num="0" />
-							<Angle_Abs Angle="0" />
-							<Num Num="0" />
-							<Num Num="5" />
-							<Num Num="10" />
-							<Num Num="0" />
-							<Num Num="1" />
-							<Num Num="1" />
-							<Str Str="None" />
-							<PosDist Angle="0" Dist="0" />
-							<Num Num="0" />
-						</Scp>
-						<Scp Client="YES" Scp="C_VOICE_SOUND" Time="500" UseSleep="NO">
-							<Str Str="voice_archer_m_cannonshot_shot" />
-							<Str Str="voice_archer_cannonshot_shot" />
-						</Scp>
-						<Scp Client="YES_Time" Scp="C_FORCE_EFT" Time="550" UseSleep="NO">
-							<Str_Arg Arg="0.60000002" Str="I_archer_canon_force2#Dummy_effect_canon" />
-							<Str Str="arrow_cast" />
-							<Str_Arg Arg="0.60000002" Str="F_archer_CannonShot_explosion2" />
-							<Str Str="arrow_blow" />
-							<Str Str="SLOW" />
-							<Num Num="700" />
-							<Num Num="1" />
-							<Num Num="0" />
-							<Angle_Abs Angle="0" />
-							<Num Num="0" />
-							<Num Num="5" />
-							<Num Num="10" />
-							<Num Num="0" />
-							<Num Num="1" />
-							<Num Num="1" />
-							<Str Str="None" />
-							<PosDist Angle="0" Dist="0" />
-							<Num Num="0" />
-						</Scp>
-					</EtcList>
-					<ResultList>
-						<ToolScp Client="NO" Scp="S_R_COND_ABILITY" UseSleep="NO">
-							<Str Str="Cannoneer12" />
-						</ToolScp>
-						<ToolScp Client="NO" Scp="S_R_TGTBUFF" UseSleep="NO">
-							<Str Str="Stun" />
-							<Num Num="1" />
-							<Num Num="0" />
-							<Num Num="3000" />
-							<Num Num="1" />
-							<Num FuncTxt="return GET_ABIL_LEVEL(self, 'Cannoneer12') * 5" Num="100" UseFunc="1" />
-							<Num Num="-1" />
-						</ToolScp>
-					</ResultList>
-				</Skill>
-			</SubSkl>
-		</ByCondSkills>
-	</Skill>
-	<Skill Name="Cannoneer_CannonBlast">
+                        <Scp Client="YES_Time" Scp="C_FORCE_EFT" Time="450" UseSleep="NO">
+                            <Str_Arg Arg="0.60000002" Str="I_archer_canon_force2#Dummy_effect_canon"/>
+                            <Str Str="arrow_cast"/>
+                            <Str_Arg Arg="0.60000002" Str="F_archer_CannonShot_explosion2"/>
+                            <Str Str="arrow_blow"/>
+                            <Str Str="SLOW"/>
+                            <Num Num="700"/>
+                            <Num Num="1"/>
+                            <Num Num="0"/>
+                            <Angle_Abs Angle="0"/>
+                            <Num Num="0"/>
+                            <Num Num="5"/>
+                            <Num Num="10"/>
+                            <Num Num="0"/>
+                            <Num Num="1"/>
+                            <Num Num="1"/>
+                            <Str Str="None"/>
+                            <PosDist Angle="0" Dist="0"/>
+                            <Num Num="0"/>
+                        </Scp>
+                        <Scp Client="YES_Time" Scp="C_FORCE_EFT" Time="500" UseSleep="NO">
+                            <Str_Arg Arg="0.60000002" Str="I_archer_canon_force2#Dummy_effect_canon"/>
+                            <Str Str="arrow_cast"/>
+                            <Str_Arg Arg="0.60000002" Str="F_archer_CannonShot_explosion2"/>
+                            <Str Str="arrow_blow"/>
+                            <Str Str="SLOW"/>
+                            <Num Num="700"/>
+                            <Num Num="1"/>
+                            <Num Num="0"/>
+                            <Angle_Abs Angle="0"/>
+                            <Num Num="0"/>
+                            <Num Num="5"/>
+                            <Num Num="10"/>
+                            <Num Num="0"/>
+                            <Num Num="1"/>
+                            <Num Num="1"/>
+                            <Str Str="None"/>
+                            <PosDist Angle="0" Dist="0"/>
+                            <Num Num="0"/>
+                        </Scp>
+                        <Scp Client="YES" Scp="C_VOICE_SOUND" Time="500" UseSleep="NO">
+                            <Str Str="voice_archer_m_cannonshot_shot"/>
+                            <Str Str="voice_archer_cannonshot_shot"/>
+                        </Scp>
+                        <Scp Client="YES_Time" Scp="C_FORCE_EFT" Time="550" UseSleep="NO">
+                            <Str_Arg Arg="0.60000002" Str="I_archer_canon_force2#Dummy_effect_canon"/>
+                            <Str Str="arrow_cast"/>
+                            <Str_Arg Arg="0.60000002" Str="F_archer_CannonShot_explosion2"/>
+                            <Str Str="arrow_blow"/>
+                            <Str Str="SLOW"/>
+                            <Num Num="700"/>
+                            <Num Num="1"/>
+                            <Num Num="0"/>
+                            <Angle_Abs Angle="0"/>
+                            <Num Num="0"/>
+                            <Num Num="5"/>
+                            <Num Num="10"/>
+                            <Num Num="0"/>
+                            <Num Num="1"/>
+                            <Num Num="1"/>
+                            <Str Str="None"/>
+                            <PosDist Angle="0" Dist="0"/>
+                            <Num Num="0"/>
+                        </Scp>
+                    </EtcList>
+                    <ResultList>
+                        <ToolScp Client="NO" Scp="S_R_COND_ABILITY" UseSleep="NO">
+                            <Str Str="Cannoneer12"/>
+                        </ToolScp>
+                        <ToolScp Client="NO" Scp="S_R_TGTBUFF" UseSleep="NO">
+                            <Str Str="Stun"/>
+                            <Num Num="1"/>
+                            <Num Num="0"/>
+                            <Num Num="3000"/>
+                            <Num Num="1"/>
+                            <Num FuncTxt="return GET_ABIL_LEVEL(self, 'Cannoneer12') * 5" Num="100" UseFunc="1"/>
+                            <Num Num="-1"/>
+                        </ToolScp>
+                    </ResultList>
+                </Skill>
+            </SubSkl>
+        </ByCondSkills>
+    </Skill>
+    <Skill Name="Cannoneer_CannonBlast">
         <MainSkl ScrLock="None" JumpFlee="NO" MSPDToUsePos="0">
-			<HitList>
+            <HitList>
                 <Frame Type="FAN" Time="0" HitCount="1" TermMin="0" TermMax="0" PosType="0" Dist="0" RandDist="0" RandomPerHit="0" Angle="0" Width="50" Length="110" SklAngle="0.95993114" AniTime="200" RotAngle="0" ForceATK="0"/>
-			</HitList>
-			<EtcList>
+            </HitList>
+            <EtcList>
                 <Scp Scp="MONSKL_C_PLAY_ANIM" Client="YES" UseSleep="NO" Time="0">
-					<Str Str="SKL_CANNONBLAST" />
-					<Num Num="1" />
-					<Num Num="1" />
-				<Num Num="1" />
+                    <Str Str="SKL_CANNONBLAST"/>
+                    <Num Num="1"/>
+                    <Num Num="1"/>
+                    <Num Num="1"/>
                 </Scp>
                 <Scp Scp="SKL_BUFF" Client="NO" UseSleep="NO" Time="0">
                     <Str Str="None" UseFunc="1" FuncTxt="local str = &quot;None&quot; if GetExProp(self, 'ITEM_CANNONHOLD_BUFF') == 1 then str = &quot;CannonHold_Buff&quot; end return str"/>
-                    <Num Num="1" />
-                    <Num Num="0" />
-                    <Num Num="3000" />
-                    <Num Num="1" />
-                    <Num Num="100" />
+                    <Num Num="1"/>
+                    <Num Num="0"/>
+                    <Num Num="3000"/>
+                    <Num Num="1"/>
+                    <Num Num="100"/>
                     <Num Num="0"/>
                 </Scp>
                 <Scp Scp="C_VOICE_SOUND" Client="YES" UseSleep="NO" Time="100">
@@ -313,665 +313,680 @@
                     <Str Str="voice_atk_medium_war_f"/>
                 </Scp>
                 <Scp Scp="MONSKL_C_STOP_ANIM" Client="YES" UseSleep="NO" Time="700"/>
-			</EtcList>
-			<ResultList>
+            </EtcList>
+            <ResultList>
                 <ToolScp Scp="S_R_COND_ARMORMATERIAL" Client="NO" UseSleep="NO">
-					<Str Str="Iron" />
-				</ToolScp>
+                    <Str Str="Iron"/>
+                </ToolScp>
                 <ToolScp Scp="S_R_TGTBUFF" Client="NO" UseSleep="NO" CondFunc="">
-					<Str Str="UC_armorbreak" />
-					<Num Num="1" />
-					<Num Num="0" />
-					<Num Num="3000" />
-					<Num Num="1" />
-					<Num Num="50" />
-					<Num Num="-1" />
-				</ToolScp>
-			</ResultList>
-		</MainSkl>
-		<ByCondSkills>
-			<SubSkl>
-				<Cond>
+                    <Str Str="UC_armorbreak"/>
+                    <Num Num="1"/>
+                    <Num Num="0"/>
+                    <Num Num="3000"/>
+                    <Num Num="1"/>
+                    <Num Num="100"/>
+                    <Num Num="-1"/>
+                </ToolScp>
+            </ResultList>
+        </MainSkl>
+        <ByCondSkills>
+            <SubSkl>
+                <Cond>
                     <ToolScp Scp="SKL_SELECT_BUFF" Client="NO" UseSleep="NO">
-						<Str Str="Archer_Kneelingshot" />
-					</ToolScp>
-				</Cond>
+                        <Str Str="Archer_Kneelingshot"/>
+                    </ToolScp>
+                </Cond>
                 <Skill ScrLock="None" JumpFlee="NO" MSPDToUsePos="0">
-					<HitList>
+                    <HitList>
                         <Frame Type="FAN" Time="0" HitCount="1" TermMin="0" TermMax="0" PosType="0" Dist="0" RandDist="0" RandomPerHit="0" Angle="0" Width="50" Length="100" SklAngle="0.95993114" AniTime="200" RotAngle="0" ForceATK="0"/>
-					</HitList>
-					<EtcList>
+                    </HitList>
+                    <EtcList>
                         <Scp Scp="MONSKL_C_PLAY_ANIM" Client="YES" UseSleep="NO" Time="0">
-							<Str Str="SKL_KNEELINGSHOT_CANNONBLAST" />
-							<Num Num="1" />
-							<Num Num="1" />
-						<Num Num="1" />
+                            <Str Str="SKL_KNEELINGSHOT_CANNONBLAST"/>
+                            <Num Num="1"/>
+                            <Num Num="1"/>
+                            <Num Num="1"/>
                         </Scp>
                         <Scp Scp="C_VOICE_SOUND" Client="YES" UseSleep="NO" Time="100">
-							<Str Str="voice_war_atk_medium" />
-							<Str Str="voice_atk_medium_war_f" />
-						</Scp>
-					</EtcList>
-					<ResultList>
+                            <Str Str="voice_war_atk_medium"/>
+                            <Str Str="voice_atk_medium_war_f"/>
+                        </Scp>
+                    </EtcList>
+                    <ResultList>
                         <ToolScp Scp="S_R_COND_ABILITY" Client="NO" UseSleep="NO">
-							<Str Str="Cannoneer8" />
-						</ToolScp>
+                            <Str Str="Cannoneer8"/>
+                        </ToolScp>
                         <ToolScp Scp="S_R_TGTBUFF" Client="NO" UseSleep="NO" CondFunc="">
-							<Str Str="UC_armorbreak" />
-							<Num Num="1" />
-							<Num Num="0" />
-							<Num Num="3000" />
-							<Num Num="1" />
+                            <Str Str="UC_armorbreak"/>
+                            <Num Num="1"/>
+                            <Num Num="0"/>
+                            <Num Num="3000"/>
+                            <Num Num="1"/>
                             <Num Num="100" UseFunc="1" FuncTxt="return GET_ABIL_LEVEL(self, &quot;Cannoneer8&quot;) * 7"/>
-							<Num Num="-1" />
-						</ToolScp>
-					</ResultList>
-				</Skill>
-			</SubSkl>
-		</ByCondSkills>
-	</Skill>
-	<Skill Name="Cannoneer_ShootDown">
-		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
-			<HitList>
-				<Frame Angle="0" AniTime="400" Dist="0" ForceATK="1" HitCount="1" PosType="2" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="200" Type="CIRCLE" Width="50" />
-			</HitList>
-			<EtcList>
-				<Scp Client="YES" Scp="MONSKL_C_PLAY_ANIM" Time="0" UseSleep="NO">
-					<Str Str="SKL_SHOOTDOWN" />
-					<Num Num="1" />
-					<Num Num="1" />
-				<Num Num="1" />
+                            <Num Num="-1"/>
+                        </ToolScp>
+                    </ResultList>
+                </Skill>
+            </SubSkl>
+        </ByCondSkills>
+    </Skill>
+    <Skill Name="Cannoneer_ShootDown">
+        <MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+            <HitList>
+                <Frame Angle="0" AniTime="400" Dist="0" ForceATK="1" HitCount="1" PosType="2" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="200" Type="CIRCLE" Width="50"/>
+            </HitList>
+            <EtcList>
+                <Scp Client="YES" Scp="MONSKL_C_PLAY_ANIM" Time="0" UseSleep="NO">
+                    <Str Str="SKL_SHOOTDOWN"/>
+                    <Num Num="1"/>
+                    <Num Num="1"/>
+                    <Num Num="1"/>
                 </Scp>
-				<Scp Client="YES" Scp="C_VOICE_SOUND" Time="400" UseSleep="NO">
-					<Str Str="voice_war_atk_short" />
-					<Str Str="voice_atk_short_war_f" />
-				</Scp>
-				<Scp Client="YES_Time" Scp="C_FORCE_EFT" Time="580" UseSleep="NO">
-					<Str_Arg Arg="1" Str="I_archer_canon_force2#Dummy_effect_canon" />
-					<Str Str="arrow_cast" />
-					<Str_Arg Arg="0.60000002" Str="F_archer_ShootDown_hit_explosion" />
-					<Str Str="arrow_blow" />
-					<Str Str="SLOW" />
-					<Num Num="700" />
-					<Num Num="1" />
-					<Num Num="0" />
-					<Angle_Abs Angle="0" />
-					<Num Num="0" />
-					<Num Num="5" />
-					<Num Num="10" />
-					<Num Num="0" />
-					<Num Num="1" />
-					<Num Num="1" />
-					<Str Str="None" />
-					<PosDist Angle="0" Dist="0" />
-					<Num Num="0" />
-				</Scp>
-			</EtcList>
-			<ResultList>
-				<ToolScp Client="YES" Scp="C_SR_EFT" UseSleep="NO">
-					<Str_Arg Arg="0.60000002" Str="F_archer_ShootDown_hit_explosion" />
-					<Pos Angle="0" Dist="0" Height="15" PosType="1" />
-					<Num Num="0" />
-					<Num Num="0" />
-				</ToolScp>
-				<ToolScp Client="NO" Scp="S_R_COND_ABILITY" UseSleep="NO">
-					<Str Str="Cannoneer6" />
-				</ToolScp>
-				<ToolScp Client="NO" Scp="S_R_COND_MOVETYPE" UseSleep="NO">
-					<Str Str="Flying" />
-				</ToolScp>
-				<ToolScp Client="NO" Scp="S_R_TGTBUFF" UseSleep="NO">
-					<Str Str="ShootDown_Debuff" />
-					<Num Num="1" />
-					<Num Num="0" />
-					<Num FuncTxt="return 2200 + GET_ABIL_LEVEL(self, &quot;Cannoneer6&quot;) * 1800;" Num="0" UseFunc="1" />
-					<Num Num="1" />
-					<Num Num="100" />
-					<Num Num="-1" />
-				</ToolScp>
-			</ResultList>
-		</MainSkl>
-		<ByCondSkills>
-			<SubSkl>
-				<Cond>
-					<ToolScp Client="NO" Scp="SKL_SELECT_BUFF" UseSleep="NO">
-						<Str Str="Archer_Kneelingshot" />
-					</ToolScp>
-				</Cond>
-				<Skill JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
-					<HitList>
-						<Frame Angle="0" AniTime="400" Dist="0" ForceATK="1" HitCount="1" PosType="2" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="200" Type="CIRCLE" Width="40" />
-					</HitList>
-					<EtcList>
-						<Scp Client="YES" Scp="MONSKL_C_PLAY_ANIM" Time="0" UseSleep="NO">
-							<Str Str="SKL_KNEELINGSHOT_SHOOTDOWN" />
-							<Num Num="1" />
-							<Num Num="1" />
-						<Num Num="1" />
-                        </Scp>
-						<Scp Client="YES" Scp="C_VOICE_SOUND" Time="400" UseSleep="NO">
-							<Str Str="voice_war_atk_short" />
-							<Str Str="voice_atk_short_war_f" />
-						</Scp>
-						<Scp Client="YES_Time" Scp="C_FORCE_EFT" Time="580" UseSleep="NO">
-							<Str_Arg Arg="1" Str="I_archer_canon_force2#Dummy_effect_canon" />
-							<Str Str="arrow_cast" />
-							<Str_Arg Arg="0.60000002" Str="F_archer_ShootDown_hit_explosion" />
-							<Str Str="arrow_blow" />
-							<Str Str="SLOW" />
-							<Num Num="700" />
-							<Num Num="1" />
-							<Num Num="0" />
-							<Angle_Abs Angle="0" />
-							<Num Num="0" />
-							<Num Num="5" />
-							<Num Num="10" />
-							<Num Num="0" />
-							<Num Num="1" />
-							<Num Num="1" />
-							<Str Str="None" />
-							<PosDist Angle="0" Dist="0" />
-							<Num Num="0" />
-						</Scp>
-					</EtcList>
-					<ResultList>
-						<ToolScp Client="YES" Scp="C_SR_EFT" UseSleep="NO">
-							<Str_Arg Arg="0.60000002" Str="F_archer_ShootDown_hit_explosion" />
-							<Pos Angle="0" Dist="0" Height="15" PosType="1" />
-							<Num Num="0" />
-							<Num Num="0" />
-						</ToolScp>
-						<ToolScp Client="NO" Scp="S_R_COND_ABILITY" UseSleep="NO">
-							<Str Str="Cannoneer6" />
-						</ToolScp>
-						<ToolScp Client="NO" Scp="S_R_TGTBUFF" UseSleep="NO">
-							<Str Str="ShootDown_Debuff" />
-							<Num Num="1" />
-							<Num Num="0" />
-							<Num FuncTxt="return 2200 + GET_ABIL_LEVEL(self, &quot;Cannoneer6&quot;) * 1800;" Num="0" UseFunc="1" />
-							<Num Num="1" />
-							<Num Num="100" />
-							<Num Num="-1" />
-						</ToolScp>
-					</ResultList>
-				</Skill>
-			</SubSkl>
-		</ByCondSkills>
-	</Skill>
-	<Skill Name="Cannoneer_SiegeBurst">
-		<EndScripts>
-			<ToolScp Client="NO" Scp="SKL_SET_IMMUNE_STATE_REMOVE" UseSleep="YES">
-				<Str Str="Skill_SuperArmor_Buff" />
-				<Num Num="500" />
-			</ToolScp>
-		</EndScripts>
-		<KeyInput>
-			<ToolScp Client="YES" Scp="SKL_KEY_GROUND_EVENT" UseSleep="NO">
-				<Num FuncTxt=" return obj.Level * 0.1;" Num="1" UseFunc="1" />
-				<Num Num="0" />
-				<Num Num="0" />
-				<Num Num="1" />
-				<Num FuncTxt="local abil = GetAbilityObjByCast('Cannoneer7'); if abil ~= nil and abil.ActiveState == 1 then return 200 + abil.Level * 25; else return 200; end" Num="300" UseFunc="1" />
-				<Num Num="0.1" />
-				<Num FuncTxt=" return 0.1" Num="1" UseFunc="1" />
-				<Num Num="1" />
-				<Num Num="0" />
-				<Str_Arg Arg="1" Str="None" />
-				<Str Str="None" />
-				<Num Num="0" />
-				<Num Num="0" />
-				<Num Num="5" />
-				<Num Num="1" />
-				<Num Num="45" />
-				<Num Num="0" />
-				<Num Num="0" />
-				<Num Num="0" />
-				<Num Num="0" />
-			</ToolScp>
-		</KeyInput>
-		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
-			<HitList>
-				<Frame Angle="0" AniTime="9999" Dist="0" ForceATK="0" HitCount="1" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="9799" Type="FAN" />
-			</HitList>
-			<EtcList>
-				<Scp Client="NO" Scp="MSL_THROW" Time="0" TooltipScp="TOOLTIP_MSL_THROW" UseSleep="YES">
-					<Str_Arg Arg="1" Str="I_archer_canon_force3#Dummy_effect_SiegeBurst" />
-					<Str_Arg Arg="1.2" Str="F_archer_SiegeBurst_explosion2" />
-					<Str_Arg Arg="1" Str="None" />
-					<Pos Angle="0" Dist="0" PosType="3" />
-					<Num Num="50" />
-					<Num Num="1" />
-					<Num Num="0" />
-					<Num Num="2000" />
-					<Num Num="1" />
-					<Num Num="200" />
-					<Num Num="1" />
-					<Str_Arg Arg="1" Str="F_sys_target_pc" />
-					<Num Num="800" />
-					<Num Num="0" />
-					<Num Num="0" />
-					<Num Num="1" />
-					<Num Num="0" />
-				</Scp>
-				<Scp Client="YES" Scp="MONSKL_C_PLAY_ANIM" Time="0" UseSleep="NO">
-					<Str Str="SKL_SIEGEBURST" />
-					<Num Num="1" />
-					<Num Num="1" />
-				<Num Num="1" />
+                <Scp Client="YES" Scp="C_VOICE_SOUND" Time="400" UseSleep="NO">
+                    <Str Str="voice_war_atk_short"/>
+                    <Str Str="voice_atk_short_war_f"/>
                 </Scp>
-				<Scp Client="NO" Scp="SKL_SET_IMMUNE_STATE" Time="0" UseSleep="NO">
-					<Str Str="Skill_SuperArmor_Buff" />
-					<Num Num="100" />
-				</Scp>
-				<Scp Client="YES" Scp="C_VOICE_SOUND" Time="400" UseSleep="NO">
-					<Str Str="voice_archer_m_siegeburst_shot" />
-					<Str Str="voice_archer_siegeburst_shot" />
-				</Scp>
-				<Scp Client="YES" Scp="C_SHOCKWAVE" Time="800" UseSleep="NO">
-					<Num Num="1" />
-					<Num Num="1" />
-					<Num Num="45" />
-					<Num Num="999" />
-				</Scp>
-				<Scp Client="NO" Scp="SKL_RUN_SCRIPT" Time="800" UseSleep="NO">
-					<Str Str="SCR_SIEGEBURST_FLASHBOMB" />
-				</Scp>
-				<Scp Client="NO" Scp="SKL_SET_IMMUNE_STATE_REMOVE" Time="800" UseSleep="YES">
-					<Str Str="Skill_SuperArmor_Buff" />
-					<Num Num="500" />
-				</Scp>
-			</EtcList>
-			<ResultList>
-				<ToolScp Client="NO" Scp="S_R_SPC_DEF_MULTI_DAMAGE" UseSleep="YES">
-					<Str Str="Structure" />
-					<Num Num="5" />
-					<Num Num="50" />
-				</ToolScp>
-				<ToolScp Client="NO" Scp="S_R_KNOCK_TARGET" TooltipScp="TOOLTIP_MONSKL_R_KNOCKDOWN" UseSleep="NO">
-					<Num Num="4" />
-					<Num Num="0" />
-					<Num Num="350" />
-					<Num Num="85" />
-					<Num Num="0" />
-					<Num Num="3" />
-					<Num Num="2" />
-				</ToolScp>
-			</ResultList>
-		</MainSkl>
-		<ByCondSkills>
-			<SubSkl>
-				<Cond>
-					<ToolScp Client="NO" Scp="SKL_SELECT_BUFF" UseSleep="NO">
-						<Str Str="Archer_Kneelingshot" />
-					</ToolScp>
-				</Cond>
-				<Skill JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
-					<HitList>
-						<Frame Angle="0" AniTime="9999" Dist="0" ForceATK="0" HitCount="1" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="9799" Type="FAN" />
-					</HitList>
-					<EtcList>
-						<Scp Client="NO" Scp="MSL_THROW" Time="0" TooltipScp="TOOLTIP_MSL_THROW" UseSleep="YES">
-							<Str_Arg Arg="1" Str="I_archer_canon_force3#Dummy_effect_SiegeBurst" />
-							<Str_Arg Arg="1.2" Str="F_archer_SiegeBurst_explosion2" />
-							<Str_Arg Arg="1" Str="None" />
-							<Pos Angle="0" Dist="0" PosType="3" />
-							<Num Num="50" />
-							<Num Num="1" />
-							<Num Num="0" />
-							<Num Num="2000" />
-							<Num Num="1" />
-							<Num Num="200" />
-							<Num Num="1" />
-							<Str_Arg Arg="1" Str="F_sys_target_pc" />
-							<Num Num="800" />
-							<Num Num="0" />
-							<Num Num="0" />
-							<Num Num="1" />
-							<Num Num="0" />
-						</Scp>
-						<Scp Client="YES" Scp="MONSKL_C_PLAY_ANIM" Time="0" UseSleep="NO">
-							<Str Str="SKL_KNEELINGSHOT_SIEGEBURST" />
-							<Num Num="1" />
-							<Num Num="1" />
-						<Num Num="1" />
+                <Scp Client="YES_Time" Scp="C_FORCE_EFT" Time="580" UseSleep="NO">
+                    <Str_Arg Arg="1" Str="I_archer_canon_force2#Dummy_effect_canon"/>
+                    <Str Str="arrow_cast"/>
+                    <Str_Arg Arg="0.60000002" Str="F_archer_ShootDown_hit_explosion"/>
+                    <Str Str="arrow_blow"/>
+                    <Str Str="SLOW"/>
+                    <Num Num="700"/>
+                    <Num Num="1"/>
+                    <Num Num="0"/>
+                    <Angle_Abs Angle="0"/>
+                    <Num Num="0"/>
+                    <Num Num="5"/>
+                    <Num Num="10"/>
+                    <Num Num="0"/>
+                    <Num Num="1"/>
+                    <Num Num="1"/>
+                    <Str Str="None"/>
+                    <PosDist Angle="0" Dist="0"/>
+                    <Num Num="0"/>
+                </Scp>
+            </EtcList>
+            <ResultList>
+                <ToolScp Client="YES" Scp="C_SR_EFT" UseSleep="NO">
+                    <Str_Arg Arg="0.60000002" Str="F_archer_ShootDown_hit_explosion"/>
+                    <Pos Angle="0" Dist="0" Height="15" PosType="1"/>
+                    <Num Num="0"/>
+                    <Num Num="0"/>
+                </ToolScp>
+                <ToolScp Client="NO" Scp="S_R_COND_ABILITY" UseSleep="NO">
+                    <Str Str="Cannoneer6"/>
+                </ToolScp>
+                <ToolScp Client="NO" Scp="S_R_COND_MOVETYPE" UseSleep="NO">
+                    <Str Str="Flying"/>
+                </ToolScp>
+                <ToolScp Client="NO" Scp="S_R_TGTBUFF" UseSleep="NO">
+                    <Str Str="ShootDown_Debuff"/>
+                    <Num Num="1"/>
+                    <Num Num="0"/>
+                    <Num FuncTxt="return 2200 + GET_ABIL_LEVEL(self, &quot;Cannoneer6&quot;) * 1800;" Num="0" UseFunc="1"/>
+                    <Num Num="1"/>
+                    <Num Num="100"/>
+                    <Num Num="-1"/>
+                </ToolScp>
+            </ResultList>
+        </MainSkl>
+        <ByCondSkills>
+            <SubSkl>
+                <Cond>
+                    <ToolScp Client="NO" Scp="SKL_SELECT_BUFF" UseSleep="NO">
+                        <Str Str="Archer_Kneelingshot"/>
+                    </ToolScp>
+                </Cond>
+                <Skill JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+                    <HitList>
+                        <Frame Angle="0" AniTime="400" Dist="0" ForceATK="1" HitCount="1" PosType="2" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="200" Type="CIRCLE" Width="40"/>
+                    </HitList>
+                    <EtcList>
+                        <Scp Client="YES" Scp="MONSKL_C_PLAY_ANIM" Time="0" UseSleep="NO">
+                            <Str Str="SKL_KNEELINGSHOT_SHOOTDOWN"/>
+                            <Num Num="1"/>
+                            <Num Num="1"/>
+                            <Num Num="1"/>
                         </Scp>
-						<Scp Client="YES" Scp="C_VOICE_SOUND" Time="400" UseSleep="NO">
-							<Str Str="voice_archer_m_siegeburst_shot" />
-							<Str Str="voice_archer_siegeburst_shot" />
-						</Scp>
-						<Scp Client="YES" Scp="C_SHOCKWAVE" Time="800" UseSleep="NO">
-							<Num Num="1" />
-							<Num Num="1" />
-							<Num Num="45" />
-							<Num Num="999" />
-						</Scp>
-						<Scp Client="NO" Scp="SKL_RUN_SCRIPT" Time="800" UseSleep="NO">
-							<Str Str="SCR_SIEGEBURST_FLASHBOMB" />
-						</Scp>
-						</EtcList>
-					<ResultList>
-						<ToolScp Client="NO" Scp="S_R_SPC_DEF_MULTI_DAMAGE" UseSleep="YES">
-							<Str Str="Structure" />
-							<Num Num="5" />
-							<Num Num="50" />
-						</ToolScp>
-						<ToolScp Client="NO" Scp="S_R_KNOCK_TARGET" TooltipScp="TOOLTIP_MONSKL_R_KNOCKDOWN" UseSleep="NO">
-							<Num Num="4" />
-							<Num Num="0" />
-							<Num Num="350" />
-							<Num Num="85" />
-							<Num Num="0" />
-							<Num Num="3" />
-							<Num Num="2" />
-						</ToolScp>
-					</ResultList>
-				</Skill>
-			</SubSkl>
-			<SubSkl>
-				<Cond>
-					<ToolScp Client="NO" Scp="SKL_SELECT_ABIL" UseSleep="NO">
-						<Str Str="Cannoneer11" />
-					</ToolScp>
-				</Cond>
-				<Skill JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
-					<HitList>
-						<Frame Angle="0" AniTime="9999" Dist="0" ForceATK="0" HitCount="1" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="9799" Type="FAN" />
-					</HitList>
-					<EtcList>
-						<Scp Client="NO" Scp="MSL_THROW" Time="0" TooltipScp="TOOLTIP_MSL_THROW" UseSleep="YES">
-							<Str_Arg Arg="1" Str="I_archer_canon_force3#Dummy_effect_SiegeBurst" />
-							<Str_Arg Arg="1.2" Str="F_archer_SiegeBurst_explosion2" />
-							<Str_Arg Arg="1" Str="None" />
-							<Pos Angle="0" Dist="0" PosType="3" />
-							<Num Num="50" />
-							<Num Num="1" />
-							<Num Num="0" />
-							<Num Num="2000" />
-							<Num Num="1" />
-							<Num Num="200" />
-							<Num Num="1" />
-							<Str_Arg Arg="1" Str="F_sys_target_pc" />
-							<Num Num="800" />
-							<Num Num="0" />
-							<Num Num="0" />
-							<Num Num="1" />
-							<Num Num="0" />
-						</Scp>
-						<Scp Client="YES" Scp="MONSKL_C_PLAY_ANIM" Time="0" UseSleep="NO">
-							<Str Str="SKL_SIEGEBURST" />
-							<Num Num="1" />
-							<Num Num="1" />
-						<Num Num="1" />
+                        <Scp Client="YES" Scp="C_VOICE_SOUND" Time="400" UseSleep="NO">
+                            <Str Str="voice_war_atk_short"/>
+                            <Str Str="voice_atk_short_war_f"/>
                         </Scp>
-						<Scp Client="YES" Scp="C_VOICE_SOUND" Time="400" UseSleep="NO">
-							<Str Str="voice_archer_m_siegeburst_shot" />
-							<Str Str="voice_archer_siegeburst_shot" />
-						</Scp>
-						<Scp Client="YES" Scp="C_SHOCKWAVE" Time="800" UseSleep="NO">
-							<Num Num="1" />
-							<Num Num="1" />
-							<Num Num="45" />
-							<Num Num="999" />
-						</Scp>
-						<Scp Client="NO" Scp="SKL_RUN_SCRIPT" Time="800" UseSleep="NO">
-							<Str Str="SCR_SIEGEBURST_FLASHBOMB" />
-						</Scp>
-						<Scp Client="NO" Scp="SCR_PAD_DESTORY" Time="800" UseSleep="NO">
-							<Pos Angle="0" Dist="0" PosType="3" />
-							<Str Str="ENEMY" />
-							<Num Num="80" />
-							<Num Num="10" />
-							<Str Str="I_pattern008_explosion_mash_square" />
-							<Num Num="1000" />
-							<Str_Arg Arg="0.5" Str="F_smoke117" />
-						</Scp>
-					</EtcList>
-					<ResultList>
-						<ToolScp Client="NO" Scp="S_R_SPC_DEF_MULTI_DAMAGE" UseSleep="YES">
-							<Str Str="Structure" />
-							<Num Num="5" />
-							<Num Num="50" />
-						</ToolScp>
-						<ToolScp Client="NO" Scp="S_R_KNOCK_TARGET" TooltipScp="TOOLTIP_MONSKL_R_KNOCKDOWN" UseSleep="NO">
-							<Num Num="4" />
-							<Num Num="0" />
-							<Num Num="350" />
-							<Num Num="85" />
-							<Num Num="0" />
-							<Num Num="3" />
-							<Num Num="2" />
-						</ToolScp>
-					</ResultList>
-				</Skill>
-			</SubSkl>
-			<SubSkl>
-				<Cond>
-					<ToolScp Client="NO" Scp="SKL_SELECT_BUFF" UseSleep="NO">
-						<Str Str="Archer_Kneelingshot" />
-					</ToolScp>
-					<ToolScp Client="NO" Scp="SKL_SELECT_ABIL" UseSleep="NO">
-						<Str Str="Cannoneer11" />
-					</ToolScp>
-				</Cond>
-				<Skill JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
-					<HitList>
-						<Frame Angle="0" AniTime="9999" Dist="0" ForceATK="0" HitCount="1" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="9799" Type="FAN" />
-					</HitList>
-					<EtcList>
-						<Scp Client="NO" Scp="MSL_THROW" Time="0" TooltipScp="TOOLTIP_MSL_THROW" UseSleep="YES">
-							<Str_Arg Arg="1" Str="I_archer_canon_force3#Dummy_effect_SiegeBurst" />
-							<Str_Arg Arg="1.2" Str="F_archer_SiegeBurst_explosion2" />
-							<Str_Arg Arg="1" Str="None" />
-							<Pos Angle="0" Dist="0" PosType="3" />
-							<Num Num="50" />
-							<Num Num="1" />
-							<Num Num="0" />
-							<Num Num="2000" />
-							<Num Num="1" />
-							<Num Num="200" />
-							<Num Num="1" />
-							<Str_Arg Arg="1" Str="F_sys_target_pc" />
-							<Num Num="800" />
-							<Num Num="0" />
-							<Num Num="0" />
-							<Num Num="1" />
-							<Num Num="0" />
-						</Scp>
-						<Scp Client="YES" Scp="MONSKL_C_PLAY_ANIM" Time="0" UseSleep="NO">
-							<Str Str="SKL_KNEELINGSHOT_SIEGEBURST" />
-							<Num Num="1" />
-							<Num Num="1" />
-						<Num Num="1" />
+                        <Scp Client="YES_Time" Scp="C_FORCE_EFT" Time="580" UseSleep="NO">
+                            <Str_Arg Arg="1" Str="I_archer_canon_force2#Dummy_effect_canon"/>
+                            <Str Str="arrow_cast"/>
+                            <Str_Arg Arg="0.60000002" Str="F_archer_ShootDown_hit_explosion"/>
+                            <Str Str="arrow_blow"/>
+                            <Str Str="SLOW"/>
+                            <Num Num="700"/>
+                            <Num Num="1"/>
+                            <Num Num="0"/>
+                            <Angle_Abs Angle="0"/>
+                            <Num Num="0"/>
+                            <Num Num="5"/>
+                            <Num Num="10"/>
+                            <Num Num="0"/>
+                            <Num Num="1"/>
+                            <Num Num="1"/>
+                            <Str Str="None"/>
+                            <PosDist Angle="0" Dist="0"/>
+                            <Num Num="0"/>
                         </Scp>
-						<Scp Client="YES" Scp="C_VOICE_SOUND" Time="400" UseSleep="NO">
-							<Str Str="voice_archer_m_siegeburst_shot" />
-							<Str Str="voice_archer_siegeburst_shot" />
-						</Scp>
-						<Scp Client="YES" Scp="C_SHOCKWAVE" Time="800" UseSleep="NO">
-							<Num Num="1" />
-							<Num Num="1" />
-							<Num Num="45" />
-							<Num Num="999" />
-						</Scp>
-						<Scp Client="NO" Scp="SKL_RUN_SCRIPT" Time="1200" UseSleep="NO">
-							<Str Str="SCR_SIEGEBURST_FLASHBOMB" />
-						</Scp>
-						<Scp Client="YES" Scp="C_SHOCKWAVE" Time="1900" UseSleep="NO">
-							<Num Num="10" />
-							<Num Num="1" />
-							<Num Num="45" />
-							<Num Num="999" />
-						</Scp>
-						<Scp Client="NO" Scp="SCR_PAD_DESTORY" Time="1900" UseSleep="NO">
-							<Pos Angle="0" Dist="0" PosType="3" />
-							<Str Str="ENEMY" />
-							<Num Num="80" />
-							<Num Num="10" />
-							<Str Str="I_pattern008_explosion_mash_square" />
-							<Num Num="1000" />
-							<Str_Arg Arg="0.5" Str="F_smoke117" />
-						</Scp>
-					</EtcList>
-					<ResultList>
-						<ToolScp Client="NO" Scp="S_R_SPC_DEF_MULTI_DAMAGE" UseSleep="YES">
-							<Str Str="Structure" />
-							<Num Num="5" />
-							<Num Num="50" />
-						</ToolScp>
-						<ToolScp Client="NO" Scp="S_R_KNOCK_TARGET" TooltipScp="TOOLTIP_MONSKL_R_KNOCKDOWN" UseSleep="NO">
-							<Num Num="4" />
-							<Num Num="0" />
-							<Num Num="350" />
-							<Num Num="85" />
-							<Num Num="0" />
-							<Num Num="3" />
-							<Num Num="2" />
-						</ToolScp>
-					</ResultList>
-				</Skill>
-			</SubSkl>
-		</ByCondSkills>
-	</Skill>
-	<Skill Name="Cannoneer_CannonShot">
+                    </EtcList>
+                    <ResultList>
+                        <ToolScp Client="YES" Scp="C_SR_EFT" UseSleep="NO">
+                            <Str_Arg Arg="0.60000002" Str="F_archer_ShootDown_hit_explosion"/>
+                            <Pos Angle="0" Dist="0" Height="15" PosType="1"/>
+                            <Num Num="0"/>
+                            <Num Num="0"/>
+                        </ToolScp>
+                        <ToolScp Client="NO" Scp="S_R_COND_ABILITY" UseSleep="NO">
+                            <Str Str="Cannoneer6"/>
+                        </ToolScp>
+                        <ToolScp Client="NO" Scp="S_R_TGTBUFF" UseSleep="NO">
+                            <Str Str="ShootDown_Debuff"/>
+                            <Num Num="1"/>
+                            <Num Num="0"/>
+                            <Num FuncTxt="return 2200 + GET_ABIL_LEVEL(self, &quot;Cannoneer6&quot;) * 1800;" Num="0" UseFunc="1"/>
+                            <Num Num="1"/>
+                            <Num Num="100"/>
+                            <Num Num="-1"/>
+                        </ToolScp>
+                    </ResultList>
+                </Skill>
+            </SubSkl>
+        </ByCondSkills>
+    </Skill>
+    <Skill Name="Cannoneer_SiegeBurst">
+        <EndScripts>
+            <ToolScp Client="NO" Scp="SKL_SET_IMMUNE_STATE_REMOVE" UseSleep="YES">
+                <Str Str="Skill_SuperArmor_Buff"/>
+                <Num Num="500"/>
+            </ToolScp>
+        </EndScripts>
+        <KeyInput>
+            <ToolScp Client="YES" Scp="SKL_KEY_GROUND_EVENT" UseSleep="NO">
+                <Num FuncTxt=" return obj.Level * 0.1;" Num="1" UseFunc="1"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+                <Num Num="1"/>
+                <Num FuncTxt="local abil = GetAbilityObjByCast('Cannoneer7'); if abil ~= nil and abil.ActiveState == 1 then return 200 + abil.Level * 25; else return 200; end" Num="300" UseFunc="1"/>
+                <Num Num="0.1"/>
+                <Num FuncTxt=" return 0.1" Num="1" UseFunc="1"/>
+                <Num Num="1"/>
+                <Num Num="0"/>
+                <Str_Arg Arg="1" Str="None"/>
+                <Str Str="None"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+                <Num Num="5"/>
+                <Num Num="1"/>
+                <Num Num="45"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+            </ToolScp>
+        </KeyInput>
+        <MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+            <HitList>
+                <Frame Angle="0" AniTime="9999" Dist="0" ForceATK="0" HitCount="1" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="9799" Type="FAN"/>
+            </HitList>
+            <EtcList>
+                <Scp Client="NO" Scp="MSL_THROW" Time="0" TooltipScp="TOOLTIP_MSL_THROW" UseSleep="YES">
+                    <Str_Arg Arg="1" Str="I_archer_canon_force3#Dummy_effect_SiegeBurst"/>
+                    <Str_Arg Arg="1.2" Str="F_archer_SiegeBurst_explosion2"/>
+                    <Str_Arg Arg="1" Str="None"/>
+                    <Pos Angle="0" Dist="0" PosType="3"/>
+                    <Num Num="50"/>
+                    <Num Num="1"/>
+                    <Num Num="0"/>
+                    <Num Num="2000"/>
+                    <Num Num="1"/>
+                    <Num Num="200"/>
+                    <Num Num="1"/>
+                    <Str_Arg Arg="1" Str="F_sys_target_pc"/>
+                    <Num Num="800"/>
+                    <Num Num="0"/>
+                    <Num Num="0"/>
+                    <Num Num="1"/>
+                    <Num Num="0"/>
+                </Scp>
+                <Scp Client="YES" Scp="MONSKL_C_PLAY_ANIM" Time="0" UseSleep="NO">
+                    <Str Str="SKL_SIEGEBURST"/>
+                    <Num Num="1"/>
+                    <Num Num="1"/>
+                    <Num Num="1"/>
+                </Scp>
+                <Scp Client="NO" Scp="SKL_SET_IMMUNE_STATE" Time="0" UseSleep="NO">
+                    <Str Str="Skill_SuperArmor_Buff"/>
+                    <Num Num="100"/>
+                </Scp>
+                <Scp Client="YES" Scp="C_VOICE_SOUND" Time="400" UseSleep="NO">
+                    <Str Str="voice_archer_m_siegeburst_shot"/>
+                    <Str Str="voice_archer_siegeburst_shot"/>
+                </Scp>
+                <Scp Client="YES" Scp="C_SHOCKWAVE" Time="800" UseSleep="NO">
+                    <Num Num="1"/>
+                    <Num Num="1"/>
+                    <Num Num="45"/>
+                    <Num Num="999"/>
+                </Scp>
+                <Scp Client="NO" Scp="SKL_RUN_SCRIPT" Time="800" UseSleep="NO">
+                    <Str Str="SCR_SIEGEBURST_FLASHBOMB"/>
+                </Scp>
+                <Scp Client="NO" Scp="SKL_SET_IMMUNE_STATE_REMOVE" Time="800" UseSleep="YES">
+                    <Str Str="Skill_SuperArmor_Buff"/>
+                    <Num Num="500"/>
+                </Scp>
+            </EtcList>
+            <ResultList>
+                <ToolScp Client="NO" Scp="S_R_SPC_DEF_MULTI_DAMAGE" UseSleep="YES">
+                    <Str Str="Structure"/>
+                    <Num Num="5"/>
+                    <Num Num="50"/>
+                </ToolScp>
+                <ToolScp Client="NO" Scp="S_R_KNOCK_TARGET" TooltipScp="TOOLTIP_MONSKL_R_KNOCKDOWN" UseSleep="NO">
+                    <Num Num="4"/>
+                    <Num Num="0"/>
+                    <Num Num="350"/>
+                    <Num Num="85"/>
+                    <Num Num="0"/>
+                    <Num Num="3"/>
+                    <Num Num="2"/>
+                </ToolScp>
+            </ResultList>
+        </MainSkl>
+        <ByCondSkills>
+            <SubSkl>
+                <Cond>
+                    <ToolScp Client="NO" Scp="SKL_SELECT_BUFF" UseSleep="NO">
+                        <Str Str="Archer_Kneelingshot"/>
+                    </ToolScp>
+                </Cond>
+                <Skill JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+                    <HitList>
+                        <Frame Angle="0" AniTime="9999" Dist="0" ForceATK="0" HitCount="1" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="9799" Type="FAN"/>
+                    </HitList>
+                    <EtcList>
+                        <Scp Client="NO" Scp="MSL_THROW" Time="0" TooltipScp="TOOLTIP_MSL_THROW" UseSleep="YES">
+                            <Str_Arg Arg="1" Str="I_archer_canon_force3#Dummy_effect_SiegeBurst"/>
+                            <Str_Arg Arg="1.2" Str="F_archer_SiegeBurst_explosion2"/>
+                            <Str_Arg Arg="1" Str="None"/>
+                            <Pos Angle="0" Dist="0" PosType="3"/>
+                            <Num Num="50"/>
+                            <Num Num="1"/>
+                            <Num Num="0"/>
+                            <Num Num="2000"/>
+                            <Num Num="1"/>
+                            <Num Num="200"/>
+                            <Num Num="1"/>
+                            <Str_Arg Arg="1" Str="F_sys_target_pc"/>
+                            <Num Num="800"/>
+                            <Num Num="0"/>
+                            <Num Num="0"/>
+                            <Num Num="1"/>
+                            <Num Num="0"/>
+                        </Scp>
+                        <Scp Client="YES" Scp="MONSKL_C_PLAY_ANIM" Time="0" UseSleep="NO">
+                            <Str Str="SKL_KNEELINGSHOT_SIEGEBURST"/>
+                            <Num Num="1"/>
+                            <Num Num="1"/>
+                            <Num Num="1"/>
+                        </Scp>
+                        <Scp Client="YES" Scp="C_VOICE_SOUND" Time="400" UseSleep="NO">
+                            <Str Str="voice_archer_m_siegeburst_shot"/>
+                            <Str Str="voice_archer_siegeburst_shot"/>
+                        </Scp>
+                        <Scp Client="YES" Scp="C_SHOCKWAVE" Time="800" UseSleep="NO">
+                            <Num Num="1"/>
+                            <Num Num="1"/>
+                            <Num Num="45"/>
+                            <Num Num="999"/>
+                        </Scp>
+                        <Scp Client="NO" Scp="SKL_RUN_SCRIPT" Time="800" UseSleep="NO">
+                            <Str Str="SCR_SIEGEBURST_FLASHBOMB"/>
+                        </Scp>
+                    </EtcList>
+                    <ResultList>
+                        <ToolScp Client="NO" Scp="S_R_SPC_DEF_MULTI_DAMAGE" UseSleep="YES">
+                            <Str Str="Structure"/>
+                            <Num Num="5"/>
+                            <Num Num="50"/>
+                        </ToolScp>
+                        <ToolScp Client="NO" Scp="S_R_KNOCK_TARGET" TooltipScp="TOOLTIP_MONSKL_R_KNOCKDOWN" UseSleep="NO">
+                            <Num Num="4"/>
+                            <Num Num="0"/>
+                            <Num Num="350"/>
+                            <Num Num="85"/>
+                            <Num Num="0"/>
+                            <Num Num="3"/>
+                            <Num Num="2"/>
+                        </ToolScp>
+                    </ResultList>
+                </Skill>
+            </SubSkl>
+            <SubSkl>
+                <Cond>
+                    <ToolScp Client="NO" Scp="SKL_SELECT_ABIL" UseSleep="NO">
+                        <Str Str="Cannoneer11"/>
+                    </ToolScp>
+                </Cond>
+                <Skill JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+                    <HitList>
+                        <Frame Angle="0" AniTime="9999" Dist="0" ForceATK="0" HitCount="1" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="9799" Type="FAN"/>
+                    </HitList>
+                    <EtcList>
+                        <Scp Client="NO" Scp="MSL_THROW" Time="0" TooltipScp="TOOLTIP_MSL_THROW" UseSleep="YES">
+                            <Str_Arg Arg="1" Str="I_archer_canon_force3#Dummy_effect_SiegeBurst"/>
+                            <Str_Arg Arg="1.2" Str="F_archer_SiegeBurst_explosion2"/>
+                            <Str_Arg Arg="1" Str="None"/>
+                            <Pos Angle="0" Dist="0" PosType="3"/>
+                            <Num Num="50"/>
+                            <Num Num="1"/>
+                            <Num Num="0"/>
+                            <Num Num="2000"/>
+                            <Num Num="1"/>
+                            <Num Num="200"/>
+                            <Num Num="1"/>
+                            <Str_Arg Arg="1" Str="F_sys_target_pc"/>
+                            <Num Num="800"/>
+                            <Num Num="0"/>
+                            <Num Num="0"/>
+                            <Num Num="1"/>
+                            <Num Num="0"/>
+                        </Scp>
+                        <Scp Client="YES" Scp="MONSKL_C_PLAY_ANIM" Time="0" UseSleep="NO">
+                            <Str Str="SKL_SIEGEBURST"/>
+                            <Num Num="1"/>
+                            <Num Num="1"/>
+                            <Num Num="1"/>
+                        </Scp>
+                        <Scp Client="YES" Scp="C_VOICE_SOUND" Time="400" UseSleep="NO">
+                            <Str Str="voice_archer_m_siegeburst_shot"/>
+                            <Str Str="voice_archer_siegeburst_shot"/>
+                        </Scp>
+                        <Scp Client="YES" Scp="C_SHOCKWAVE" Time="800" UseSleep="NO">
+                            <Num Num="1"/>
+                            <Num Num="1"/>
+                            <Num Num="45"/>
+                            <Num Num="999"/>
+                        </Scp>
+                        <Scp Client="NO" Scp="SKL_RUN_SCRIPT" Time="800" UseSleep="NO">
+                            <Str Str="SCR_SIEGEBURST_FLASHBOMB"/>
+                        </Scp>
+                        <Scp Client="NO" Scp="SCR_PAD_DESTORY" Time="800" UseSleep="NO">
+                            <Pos Angle="0" Dist="0" PosType="3"/>
+                            <Str Str="ENEMY"/>
+                            <Num Num="80"/>
+                            <Num Num="10"/>
+                            <Str Str="I_pattern008_explosion_mash_square"/>
+                            <Num Num="1000"/>
+                            <Str_Arg Arg="0.5" Str="F_smoke117"/>
+                        </Scp>
+                    </EtcList>
+                    <ResultList>
+                        <ToolScp Client="NO" Scp="S_R_SPC_DEF_MULTI_DAMAGE" UseSleep="YES">
+                            <Str Str="Structure"/>
+                            <Num Num="5"/>
+                            <Num Num="50"/>
+                        </ToolScp>
+                        <ToolScp Client="NO" Scp="S_R_KNOCK_TARGET" TooltipScp="TOOLTIP_MONSKL_R_KNOCKDOWN" UseSleep="NO">
+                            <Num Num="4"/>
+                            <Num Num="0"/>
+                            <Num Num="350"/>
+                            <Num Num="85"/>
+                            <Num Num="0"/>
+                            <Num Num="3"/>
+                            <Num Num="2"/>
+                        </ToolScp>
+                    </ResultList>
+                </Skill>
+            </SubSkl>
+            <SubSkl>
+                <Cond>
+                    <ToolScp Client="NO" Scp="SKL_SELECT_BUFF" UseSleep="NO">
+                        <Str Str="Archer_Kneelingshot"/>
+                    </ToolScp>
+                    <ToolScp Client="NO" Scp="SKL_SELECT_ABIL" UseSleep="NO">
+                        <Str Str="Cannoneer11"/>
+                    </ToolScp>
+                </Cond>
+                <Skill JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+                    <HitList>
+                        <Frame Angle="0" AniTime="9999" Dist="0" ForceATK="0" HitCount="1" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="9799" Type="FAN"/>
+                    </HitList>
+                    <EtcList>
+                        <Scp Client="NO" Scp="MSL_THROW" Time="0" TooltipScp="TOOLTIP_MSL_THROW" UseSleep="YES">
+                            <Str_Arg Arg="1" Str="I_archer_canon_force3#Dummy_effect_SiegeBurst"/>
+                            <Str_Arg Arg="1.2" Str="F_archer_SiegeBurst_explosion2"/>
+                            <Str_Arg Arg="1" Str="None"/>
+                            <Pos Angle="0" Dist="0" PosType="3"/>
+                            <Num Num="50"/>
+                            <Num Num="1"/>
+                            <Num Num="0"/>
+                            <Num Num="2000"/>
+                            <Num Num="1"/>
+                            <Num Num="200"/>
+                            <Num Num="1"/>
+                            <Str_Arg Arg="1" Str="F_sys_target_pc"/>
+                            <Num Num="800"/>
+                            <Num Num="0"/>
+                            <Num Num="0"/>
+                            <Num Num="1"/>
+                            <Num Num="0"/>
+                        </Scp>
+                        <Scp Client="YES" Scp="MONSKL_C_PLAY_ANIM" Time="0" UseSleep="NO">
+                            <Str Str="SKL_KNEELINGSHOT_SIEGEBURST"/>
+                            <Num Num="1"/>
+                            <Num Num="1"/>
+                            <Num Num="1"/>
+                        </Scp>
+                        <Scp Client="YES" Scp="C_VOICE_SOUND" Time="400" UseSleep="NO">
+                            <Str Str="voice_archer_m_siegeburst_shot"/>
+                            <Str Str="voice_archer_siegeburst_shot"/>
+                        </Scp>
+                        <Scp Client="YES" Scp="C_SHOCKWAVE" Time="800" UseSleep="NO">
+                            <Num Num="1"/>
+                            <Num Num="1"/>
+                            <Num Num="45"/>
+                            <Num Num="999"/>
+                        </Scp>
+                        <Scp Client="NO" Scp="SKL_RUN_SCRIPT" Time="1200" UseSleep="NO">
+                            <Str Str="SCR_SIEGEBURST_FLASHBOMB"/>
+                        </Scp>
+                        <Scp Client="YES" Scp="C_SHOCKWAVE" Time="1900" UseSleep="NO">
+                            <Num Num="10"/>
+                            <Num Num="1"/>
+                            <Num Num="45"/>
+                            <Num Num="999"/>
+                        </Scp>
+                        <Scp Client="NO" Scp="SCR_PAD_DESTORY" Time="1900" UseSleep="NO">
+                            <Pos Angle="0" Dist="0" PosType="3"/>
+                            <Str Str="ENEMY"/>
+                            <Num Num="80"/>
+                            <Num Num="10"/>
+                            <Str Str="I_pattern008_explosion_mash_square"/>
+                            <Num Num="1000"/>
+                            <Str_Arg Arg="0.5" Str="F_smoke117"/>
+                        </Scp>
+                    </EtcList>
+                    <ResultList>
+                        <ToolScp Client="NO" Scp="S_R_SPC_DEF_MULTI_DAMAGE" UseSleep="YES">
+                            <Str Str="Structure"/>
+                            <Num Num="5"/>
+                            <Num Num="50"/>
+                        </ToolScp>
+                        <ToolScp Client="NO" Scp="S_R_KNOCK_TARGET" TooltipScp="TOOLTIP_MONSKL_R_KNOCKDOWN" UseSleep="NO">
+                            <Num Num="4"/>
+                            <Num Num="0"/>
+                            <Num Num="350"/>
+                            <Num Num="85"/>
+                            <Num Num="0"/>
+                            <Num Num="3"/>
+                            <Num Num="2"/>
+                        </ToolScp>
+                    </ResultList>
+                </Skill>
+            </SubSkl>
+        </ByCondSkills>
+    </Skill>
+    <Skill Name="Cannoneer_CannonShot">
         <MainSkl ScrLock="None" JumpFlee="NO" MSPDToUsePos="0">
-			<HitList>
+            <HitList>
                 <Frame Type="CIRCLE" Time="300" HitCount="1" TermMin="0" TermMax="0" PosType="2" Dist="0" RandDist="0" RandomPerHit="0" Angle="0" Width="50" SklAngle="0.17453292" AniTime="500" RotAngle="0" ForceATK="0"/>
-			</HitList>
-			<EtcList>
+            </HitList>
+            <EtcList>
                 <Scp Scp="MONSKL_C_PLAY_ANIM" Client="YES" UseSleep="NO" Time="0">
-					<Str Str="SKL_CANNONSHOT" />
-					<Num Num="1" />
-					<Num Num="1" />
-				<Num Num="1" />
+                    <Str Str="SKL_CANNONSHOT"/>
+                    <Num Num="1"/>
+                    <Num Num="1"/>
+                    <Num Num="1"/>
                 </Scp>
                 <Scp Scp="C_FORCE_EFT" Client="YES_Time" UseSleep="NO" Time="450">
                     <Str_Arg Str="I_archer_canon_force4#Dummy_effect_canon" Arg="1"/>
-					<Str Str="arrow_cast" />
+                    <Str Str="arrow_cast"/>
                     <Str_Arg Str="F_archer_ShootDown_hit_explosion" Arg="0.69999999"/>
-					<Str Str="arrow_blow" />
-					<Str Str="SLOW" />
-					<Num Num="900" />
-					<Num Num="1" />
-					<Num Num="0" />
-					<Angle_Abs Angle="0" />
-					<Num Num="0" />
-					<Num Num="5" />
-					<Num Num="10" />
-					<Num Num="0" />
-					<Num Num="1" />
-					<Num Num="1" />
-					<Str Str="None" />
-					<PosDist Angle="0" Dist="0" />
-					<Num Num="0" />
-				</Scp>
+                    <Str Str="arrow_blow"/>
+                    <Str Str="SLOW"/>
+                    <Num Num="900"/>
+                    <Num Num="1"/>
+                    <Num Num="0"/>
+                    <Angle_Abs Angle="0"/>
+                    <Num Num="0"/>
+                    <Num Num="5"/>
+                    <Num Num="10"/>
+                    <Num Num="0"/>
+                    <Num Num="1"/>
+                    <Num Num="1"/>
+                    <Str Str="None"/>
+                    <PosDist Angle="0" Dist="0"/>
+                    <Num Num="0"/>
+                </Scp>
                 <Scp Scp="C_VOICE_SOUND" Client="YES" UseSleep="NO" Time="500">
-					<Str Str="voice_archer_m_cannonshot_shot" />
-					<Str Str="voice_archer_cannonshot_shot" />
-				</Scp>
+                    <Str Str="voice_archer_m_cannonshot_shot"/>
+                    <Str Str="voice_archer_cannonshot_shot"/>
+                </Scp>
                 <Scp Scp="MONSKL_C_STOP_ANIM" Client="YES" UseSleep="NO" Time="600"/>
-			</EtcList>
-			<ResultList>
+            </EtcList>
+            <ResultList>
                 <ToolScp Scp="C_SR_EFT" Client="YES" UseSleep="NO">
                     <Str_Arg Str="F_archer_CannonShot_explosion2" Arg="0.60000002"/>
                     <Pos Angle="0" Dist="0" PosType="1" Height="15"/>
-					<Num Num="0" />
-					<Num Num="0" />
-				</ToolScp>
-			</ResultList>
-		</MainSkl>
-		<ByCondSkills>
-			<SubSkl>
-				<Cond>
+                    <Num Num="0"/>
+                    <Num Num="0"/>
+                </ToolScp>
+            </ResultList>
+        </MainSkl>
+        <ByCondSkills>
+            <SubSkl>
+                <Cond>
                     <ToolScp Scp="SKL_SELECT_BUFF" Client="NO" UseSleep="NO">
-						<Str Str="Archer_Kneelingshot" />
-					</ToolScp>
-				</Cond>
+                        <Str Str="Archer_Kneelingshot"/>
+                    </ToolScp>
+                </Cond>
                 <Skill ScrLock="None" JumpFlee="NO" MSPDToUsePos="0">
-					<HitList>
+                    <HitList>
                         <Frame Type="CIRCLE" Time="450" HitCount="1" TermMin="0" TermMax="0" PosType="2" Dist="0" RandDist="0" RandomPerHit="0" Angle="0" Width="40" SklAngle="0.17453292" AniTime="650" RotAngle="0" ForceATK="0"/>
-					</HitList>
-					<EtcList>
+                    </HitList>
+                    <EtcList>
                         <Scp Scp="MONSKL_C_PLAY_ANIM" Client="YES" UseSleep="NO" Time="0">
-							<Str Str="SKL_KNEELINGSHOT_CANNONSHOT" />
-							<Num Num="1" />
-							<Num Num="1" />
-						<Num Num="1" />
+                            <Str Str="SKL_KNEELINGSHOT_CANNONSHOT"/>
+                            <Num Num="1"/>
+                            <Num Num="1"/>
+                            <Num Num="1"/>
                         </Scp>
                         <Scp Scp="C_FORCE_EFT" Client="YES_Time" UseSleep="NO" Time="450">
                             <Str_Arg Str="I_archer_canon_force2#Dummy_effect_canon" Arg="0.60000002"/>
-							<Str Str="arrow_cast" />
+                            <Str Str="arrow_cast"/>
                             <Str_Arg Str="F_archer_CannonShot_explosion2" Arg="0.60000002"/>
-							<Str Str="arrow_blow" />
-							<Str Str="SLOW" />
-							<Num Num="700" />
-							<Num Num="1" />
-							<Num Num="0" />
-							<Angle_Abs Angle="0" />
-							<Num Num="0" />
-							<Num Num="5" />
-							<Num Num="10" />
-							<Num Num="0" />
-							<Num Num="1" />
-							<Num Num="1" />
-							<Str Str="None" />
-							<PosDist Angle="0" Dist="0" />
-							<Num Num="0" />
-						</Scp>
+                            <Str Str="arrow_blow"/>
+                            <Str Str="SLOW"/>
+                            <Num Num="700"/>
+                            <Num Num="1"/>
+                            <Num Num="0"/>
+                            <Angle_Abs Angle="0"/>
+                            <Num Num="0"/>
+                            <Num Num="5"/>
+                            <Num Num="10"/>
+                            <Num Num="0"/>
+                            <Num Num="1"/>
+                            <Num Num="1"/>
+                            <Str Str="None"/>
+                            <PosDist Angle="0" Dist="0"/>
+                            <Num Num="0"/>
+                        </Scp>
                         <Scp Scp="C_VOICE_SOUND" Client="YES" UseSleep="NO" Time="500">
-							<Str Str="voice_archer_m_cannonshot_shot" />
-							<Str Str="voice_archer_cannonshot_shot" />
-						</Scp>
-					</EtcList>
-					<ResultList>
+                            <Str Str="voice_archer_m_cannonshot_shot"/>
+                            <Str Str="voice_archer_cannonshot_shot"/>
+                        </Scp>
+                    </EtcList>
+                    <ResultList>
                         <ToolScp Scp="C_SR_EFT" Client="YES" UseSleep="NO">
                             <Str_Arg Str="F_archer_CannonShot_explosion2" Arg="0.60000002"/>
                             <Pos Angle="0" Dist="0" PosType="1" Height="15"/>
-							<Num Num="0" />
-							<Num Num="0" />
-						</ToolScp>
-					</ResultList>
-				</Skill>
-			</SubSkl>
-		</ByCondSkills>
-	</Skill>
-	<Skill Name="Cannoneer_Bazooka">
-		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
-			<EtcList>
-				<Anim Anim="SKL_BAZOOCA_SIT" Speed="1.5" Time="0" />
-				<Scp Client="NO" Scp="SKL_BUFF" Time="0" UseSleep="NO">
-					<Str Str="Bazooka_Buff" />
-					<Num FuncTxt="return obj.Level" Num="1" UseFunc="1" />
-					<Num Num="0" />
-					<Num Num="0" />
-					<Num Num="1" />
-					<Num Num="100" />
-					<Num Num="0" />
-				</Scp>
-				<Scp Client="NO" Scp="SKL_RESET_COOLTIME" Time="0" UseSleep="NO">
-					<Str Str="Cannoneer_Bazooka" />
-				</Scp>
-			</EtcList>
-		</MainSkl>
-		<ByCondSkills>
-			<SubSkl>
-				<Cond>
-					<ToolScp Client="NO" Scp="SKL_SELECT_BUFF" UseSleep="NO">
-						<Str Str="Bazooka_Buff" />
-					</ToolScp>
-				</Cond>
-				<Skill JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
-					<EtcList>
-						<Anim Anim="SKL_BAZOOCA_UP" Speed="1.5" Time="0" />
-						<Scp Client="YES" Scp="C_VOICE_SOUND" Time="0" UseSleep="NO">
-							<Str Str="voice_archer_m_atk" />
-							<Str Str="voice_archer_f_atk" />
-						</Scp>
-						<Scp Client="NO" Scp="SKL_BUFF_REMOVE" Time="0" UseSleep="NO">
-							<Str Str="Bazooka_Buff" />
-						</Scp>
-					</EtcList>
-				</Skill>
-			</SubSkl>
-		</ByCondSkills>
-	</Skill>
-	</ToolSkill>
+                            <Num Num="0"/>
+                            <Num Num="0"/>
+                        </ToolScp>
+                    </ResultList>
+                </Skill>
+            </SubSkl>
+        </ByCondSkills>
+    </Skill>
+    <Skill Name="Cannoneer_Bazooka">
+        <MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+            <EtcList>
+                <Anim Anim="SKL_BAZOOCA_SIT" Speed="1.5" Time="0"/>
+                <Scp Client="NO" Scp="SKL_BUFF" Time="0" UseSleep="NO">
+                    <Str Str="None" UseFunc="1" FuncTxt="local value = 'Bazooka_Buff'
+local abil = GetAbility(self, 'Cannoneer31')
+if abil ~= nil then
+    value = 'Bazooka_Abill_Buff'
+end
+return value"/>
+                    <Num FuncTxt="return obj.Level" Num="1" UseFunc="1"/>
+                    <Num Num="0"/>
+                    <Num Num="0"/>
+                    <Num Num="1"/>
+                    <Num Num="100"/>
+                    <Num Num="0"/>
+                </Scp>
+                <Scp Client="NO" Scp="SKL_RESET_COOLTIME" Time="0" UseSleep="NO">
+                    <Str Str="Cannoneer_Bazooka"/>
+                </Scp>
+            </EtcList>
+        </MainSkl>
+        <ByCondSkills>
+            <SubSkl>
+                <Cond>
+                    <ToolScp Client="NO" Scp="SKL_SELECT_BUFF" UseSleep="NO">
+                        <Str Str="None" UseFunc="1" FuncTxt="local value = 'Bazooka_Buff'
+local abil = GetAbility(self, 'Cannoneer31')
+if abil ~= nil then
+    value = 'Bazooka_Abill_Buff'
+end
+return value"/>
+                    </ToolScp>
+                </Cond>
+                <Skill JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+                    <EtcList>
+                        <Anim Anim="SKL_BAZOOCA_UP" Speed="1.5" Time="0"/>
+                        <Scp Client="YES" Scp="C_VOICE_SOUND" Time="0" UseSleep="NO">
+                            <Str Str="voice_archer_m_atk"/>
+                            <Str Str="voice_archer_f_atk"/>
+                        </Scp>
+                        <Scp Client="NO" Scp="SKL_BUFF_REMOVE" Time="0" UseSleep="NO">
+                            <Str Str="None" UseFunc="1" FuncTxt="local value = 'Bazooka_Buff'
+local abil = GetAbility(self, 'Cannoneer31')
+if abil ~= nil then
+    value = 'Bazooka_Abill_Buff'
+end
+return value"/>
+                        </Scp>
+                    </EtcList>
+                </Skill>
+            </SubSkl>
+        </ByCondSkills>
+    </Skill>
+</ToolSkill>

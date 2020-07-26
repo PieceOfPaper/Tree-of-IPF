@@ -50,8 +50,8 @@ end
 function GET_EVENT_PROGRESS_CHECK_CUR_VALUE(type, accObj)
     local table = 
     {
-        [1] = {TryGetProp(accObj, "GODDESS_ROULETTE_COIN_ACQUIRE_COUNT", 0), math.floor(TryGetProp(accObj, "GODDESS_ROULETTE_DAILY_PLAY_TIME_MINUTE", 0) / 60) * 10, GET_EVENT_PROGRESS_STAMP_TOUR_CLEAR_COUNT(), TryGetProp(accObj, "GODDESS_ROULETTE_DAILY_CONTENTS_ACQUIRE_COUNT", 0), TryGetProp(accObj, "GODDESS_ROULETTE_USE_ROULETTE_COUNT", 0)},
-        [2] = {TryGetProp(accObj, "EVENT_NEW_SEASON_SERVER_COIN_ACQUIRE_COUNT", 0), math.floor(TryGetProp(accObj, "EVENT_NEW_SEASON_SERVER_DAY_PLAY_TIME_MINUTE", 0) / 60) * 2, GET_EVENT_PROGRESS_STAMP_TOUR_CLEAR_COUNT(), CREATE_EVENT_PROGRESS_CHECK_CONTENTS_MISSION_CLEAR_COUNT(), TryGetProp(accObj, "EVENT_NEW_SEASON_SERVER_USE_ROULETTE_COUNT", 0)},
+        [1] = {TryGetProp(accObj, "GODDESS_ROULETTE_COIN_ACQUIRE_COUNT", 0), TryGetProp(accObj, "GODDESS_ROULETTE_DAILY_PLAY_TIME_MINUTE", 0), GET_EVENT_PROGRESS_STAMP_TOUR_CLEAR_COUNT(), TryGetProp(accObj, "GODDESS_ROULETTE_DAILY_CONTENTS_ACQUIRE_COUNT", 0), TryGetProp(accObj, "GODDESS_ROULETTE_USE_ROULETTE_COUNT", 0)},
+        [2] = {TryGetProp(accObj, "EVENT_NEW_SEASON_SERVER_COIN_ACQUIRE_COUNT", 0), TryGetProp(accObj, "EVENT_NEW_SEASON_SERVER_DAY_PLAY_TIME_MINUTE", 0), GET_EVENT_PROGRESS_STAMP_TOUR_CLEAR_COUNT(), CREATE_EVENT_PROGRESS_CHECK_CONTENTS_MISSION_CLEAR_COUNT(), TryGetProp(accObj, "EVENT_NEW_SEASON_SERVER_USE_ROULETTE_COUNT", 0)},
         [3] = {TryGetProp(accObj, "EVENT_FLEX_BOX_ACQUIRE_CONSUME_COUNT", 0), TryGetProp(accObj, "EVENT_FLEX_BOX_DAILY_PLAY_CONSUME_COUNT", 0), GET_EVENT_PROGRESS_STAMP_TOUR_CLEAR_COUNT(), TryGetProp(accObj, "EVENT_FLEX_BOX_DAILY_CONTENTS_CONSUME_COUNT", 0), TryGetProp(accObj, "EVENT_FLEX_BOX_OPEN_COUNT", 0)},
     }
 
@@ -75,7 +75,7 @@ function GET_EVENT_PROGRESS_CHECK_EVENT_STATE(type)
     {
         [1] = {"cur", "cur", "cur", "pre", "pre"},
         [2] = {"cur", "cur", "cur", "cur", "pre"},
-        [3] = {"cur", "pre", "cur", "pre", "pre"},
+        [3] = {"cur", "cur", "cur", "cur", "cur"},
     }
 
     return table[type];
@@ -149,6 +149,18 @@ function GET_EVENT_PROGRESS_CHECK_ACQUIRE_STATE_CLEAR_TEXT(type)
     return table[type];
 end
 
+function GET_EVENT_PROGRESS_DAILY_PLAY_TIME_TYPE(type)
+    -- min = 접속 시간 분 표시, count = 일일 획득 주화 표시 
+    local table = 
+    {
+        [1] = "min",
+        [2] = "min",
+        [3] = "count",
+    }
+
+    return table[type];
+end
+
 ------------------- 스탬프 투어 -------------------
 function GET_EVENT_PROGRESS_CHECK_STAMP_GROUP(type)
     -- note_eventlist.xml Group 
@@ -199,9 +211,9 @@ function GET_EVENT_PROGRESS_CONTENTS_MAX_CONSUME_COUNT(type)
     -- first : 첫 클리어 시에만 보상 제공, daily: 매일 획득 가능 수량 초기화
     local table = 
     {
-        [1] = {"daily", 30},
-        [2] = {"first", 36},
-        [3] = {"daily", 30},
+        [1] = "daily",
+        [2] = "first",
+        [3] = "daily",
     }
 
     return table[type];

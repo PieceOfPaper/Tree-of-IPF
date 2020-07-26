@@ -11,6 +11,11 @@ end
 function SOLODUNGEON_RANKINGPAGE_OPEN(frame)
     SOLODUNGEON_RANKINGPAGE_SHOW_PERMANENT(frame)
     ui.OpenFrame("solodungeonrankingpage")
+
+    -- 해외 UI 세팅
+    if (config.GetServiceNation() ~= "KOR") then
+        SOLODUNGEON_RANKINGPAGE_GLOBAL_UI_SETTING(frame)
+    end
 end
 
 function SOLODUNGEON_RANKINGPAGE_CLOSE()
@@ -29,6 +34,20 @@ function SOLODUNGEON_RANKINGPAGE_CLEAR(ctrlType)
     end
 
     rankGbox:RemoveAllChild()
+end
+
+function SOLODUNGEON_RANKINGPAGE_GLOBAL_UI_SETTING(frame)
+    local btn1 = GET_CHILD_RECURSIVELY(frame, 'permanentBtn')
+    local btn2 = GET_CHILD_RECURSIVELY(frame, 'lastWeekBtn')
+    local btn3 = GET_CHILD_RECURSIVELY(frame, 'thisWeekBtn')
+
+    -- btn1:AdjustFontSizeByWidth(80)
+    -- btn2:AdjustFontSizeByWidth(80)
+    -- btn3:AdjustFontSizeByWidth(80)
+
+    local tab = GET_CHILD_RECURSIVELY(frame, 'tab_joblist')
+    
+    tab:SetItemsFixWidth(140)
 end
 
 function SOLODUNGEON_UPDATE_GUILD_EMBLEM_IMAGE(code, return_json)

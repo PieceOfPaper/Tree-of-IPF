@@ -144,6 +144,13 @@ function EVENT_PROGRESS_CHECK_ACQUIRE_STATE_OPEN(frame, type)
 
 			clear_text:SetTextByKey("value", ClMsg("EndEventMessage"));
 		end
+
+		if i == 2 then
+			local timetype = GET_EVENT_PROGRESS_DAILY_PLAY_TIME_TYPE(type);
+			if timetype == "min" then
+				maxvalue = ScpArgMsg("{Min}", "Min", maxvalue);
+			end
+		end
 		
 		state:SetTextByKey('cur', curvalue);
 		state:SetTextByKey('max', maxvalue);
@@ -278,11 +285,13 @@ function ENABLE_CREATE_EVENT_PROGRESS_CHECK_STAMP_TOUR_LIST(missionCls, i, j)
 		return true;
 	end
 
-	if EVENT_STAMP_IS_HIDDEN_SUMMER(accObj, (3 * i) + j) == false then
-		return true;
+	if EVENT_STAMP_IS_VALID_WEEK_SUMMER(weekNum) == false then
+		return false;
 	end
 
-	if EVENT_STAMP_IS_HIDDEN_SUMMER(accObj, (3 * i) + j) == true and EVENT_STAMP_IS_VALID_WEEK_SUMMER(weekNum) == true then
+	local accObj = GetMyAccountObj();
+	local isHidden = EVENT_STAMP_IS_VALID_WEEK_SUMMER(weekNum) == false or EVENT_STAMP_IS_HIDDEN_SUMMER(accObj, (3 * i) + j) == true;
+	if isHidden == false then
 		return true;
 	end
 
@@ -327,15 +336,16 @@ function EVENT_PROGRESS_CHECK_CONTENTS_STATE_OPEN(frame, type)
 		ctrl:SetText(ClMsg("EndEventMessage"));	
 	else
 		local accObj = GetMyAccountObj();
+		local maxlist = GET_EVENT_PROGRESS_CHECK_ACQUIRE_STATE_MAX_VALUE(type);
 		local curlist = GET_EVENT_PROGRESS_CHECK_CUR_VALUE(type, accObj);
 		local contentslist = GET_EVENT_PROGRESS_CONTENTS_MAX_CONSUME_COUNT(type);
-		if contentslist[1] == "daily" then
-			if contentslist[2] <= curlist[4] then
+		if contentslist == "daily" then
+			if maxlist[4] <= curlist[4] then
 				overtext:ShowWindow(1);
 				return;
 			end
 			CREATE_EVENT_PROGRESS_CHECK_CONTENTS_LIST_DAILY(type, listgb);
-		elseif contentslist[1] == "first" then
+		elseif contentslist == "first" then
 			local y = 0;
 			y = CREATE_EVENT_PROGRESS_CHECK_CONTENTS_LIST_FIRST(type, y, listgb, false);	-- 완료 되지 않은 목표 우선 표시
 			y = CREATE_EVENT_PROGRESS_CHECK_CONTENTS_LIST_FIRST(type, y, listgb, true);

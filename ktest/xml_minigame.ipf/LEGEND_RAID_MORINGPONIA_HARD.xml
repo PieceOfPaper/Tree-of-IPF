@@ -958,6 +958,9 @@
                             </ToolScp>
                         </condList>
                         <execList>
+                            <ToolScp Scp="MGAME_EVT_EXEC_SET_BGM" Client="NO" UseSleep="NO">
+                                <Str Str="boss_lepidoptera"/>
+                            </ToolScp>
                             <ToolScp Scp="MGAME_EXEC_ACTORSCP" Client="NO" UseSleep="NO">
                                 <Str Str="SCR_TANTALISER_HARD_APPEAR_MSG01"/>
                             </ToolScp>

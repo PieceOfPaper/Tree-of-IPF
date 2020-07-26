@@ -25,6 +25,11 @@ function OPEN_HOUSING_SHOP_PAYMENT(frame)
 	else
 		txt_coupon_none:ShowWindow(1);
 	end
+	local txt_coupon_title = GET_CHILD_RECURSIVELY(frame, "txt_coupon_title");
+	local btn_auto = GET_CHILD_RECURSIVELY(frame, "btn_auto");
+	local btn_auto_margin =  btn_auto:GetMargin();
+	btn_auto_margin.left = txt_coupon_title:GetWidth() + 35
+
 	
 	local txt_sellPrice = GET_CHILD_RECURSIVELY(frame, "txt_sellPrice");
 	txt_sellPrice:ResetParamInfo();

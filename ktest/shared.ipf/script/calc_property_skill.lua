@@ -1,4 +1,4 @@
---- calc_property_skill.lua
+﻿--- calc_property_skill.lua
 
 function HAS_DRAGON_POWER(pc)
     if pc == nil  then
@@ -2861,11 +2861,11 @@ function SCR_GET_Commence_Ratio(skill)
 end
 
 function SCR_GET_Commence_Ratio2(skill)
+    local value = skill.Level * 1.875
 
-    local value = 5 * skill.Level
     value = math.floor(value * SCR_REINFORCEABILITY_TOOLTIP(skill))
-    return value
 
+    return value
 end
 
 function SCR_GET_Commence_Bufftime(skill)
@@ -4287,7 +4287,11 @@ function SCR_GET_FrostCloud_Ratio(skill)
 end
 
 function SCR_GET_FrostCloud_Ratio2(skill)
-
+    local pc = GetSkillOwner(skill);
+    local abil = GetAbility(pc, "Elementalist40")
+    if abil ~= nil and TryGetProp(abil, "ActiveState", 0) == 1 then
+        return 6 + skill.Level * 1
+    end
     return 12 + skill.Level * 2
 
 end
@@ -5257,6 +5261,39 @@ function SCR_GET_Carve_Ratio2(skill)
 
 end
 
+function SCR_Get_CarveOwl_Add_SkillFactor(skill, level)
+    local pc = GetSkillOwner(skill)
+    local value = skill.SklFactorByLevel * level
+    local reinfabil = TryGetProp(skill, "ReinforceAbility", 'None')
+    local abil = GetAbility(pc, reinfabil)
+    if reinfabil ~= 'None' and abil ~= nil then
+        local abilLevel = TryGetProp(abil, "Level")
+        local masterAddValue = 0
+        if abilLevel == 100 then
+            masterAddValue = 0.1
+        end
+        
+        value = value * (1 + ((abilLevel * 0.005) + masterAddValue))
+        
+        local hidden_abil_cls = GetClass("HiddenAbility_Reinforce", skill.ClassName)
+        if abilLevel >= 65 and hidden_abil_cls ~= nil then
+        	local hidden_abil_name = TryGetProp(hidden_abil_cls, "HiddenReinforceAbil")
+        	local hidden_abil = GetAbility(pc, hidden_abil_name)
+        	if hidden_abil ~= nil then
+        		local abil_level = TryGetProp(hidden_abil, "Level")
+        		local add_factor = TryGetProp(hidden_abil_cls, "FactorByLevel", 0) * 0.01
+        		local add_value = 0
+        		if abil_level == 10 then
+        			add_value = TryGetProp(hidden_abil_cls, "AddFactor", 0) * 0.01
+        		end
+        		value = value * (1 + (abil_level * add_factor) + add_value)
+        	end
+        end
+    end
+    
+    return math.floor(value)
+end
+
 function SCR_Get_SkillFactor_CarveOwl2(skill)
 
     local value = skill.SklFactor
@@ -5266,6 +5303,13 @@ function SCR_Get_SkillFactor_CarveOwl2(skill)
         local carveOwlSkl = GetSkill(pc, "Dievdirbys_CarveOwl")
         if carveOwlSkl ~= nil then
             value = carveOwlSkl.SkillFactor
+
+            local addLv = GetExProp(owl, 'OWL_LV_UP')
+            if addLv ~= nil and addLv > 0 then
+                local addFactor = SCR_Get_CarveOwl_Add_SkillFactor(carveOwlSkl, addLv)
+    
+                value = value + addFactor
+            end
         end
     end
 
@@ -5423,8 +5467,8 @@ function SCR_Get_SkillFactor_DoublePunch(skill)
 end
 
 function SCR_GET_PalmStrike_Ratio(skill)
-    local value = 2 * skill.Level
-    return value
+    local value = skill.Level
+    return math.floor(value)
 end
 
 function SCR_GET_HandKnife_Ratio(skill)
@@ -5678,7 +5722,7 @@ function SCR_GET_MagnusExorcismus_Ratio(skill)
 end
 
 function SCR_GET_PlagueVapours_Ratio(skill)
-    local value = skill.Level * 4
+    local value = skill.Level * 2
 
     return value
 end
@@ -7367,8 +7411,8 @@ end
 
 
 function SCR_GET_BlockAndShoot_Ratio(skill)
-    local value = skill.Level * 20
-    value = math.floor(value * SCR_REINFORCEABILITY_TOOLTIP(skill))
+    local value = skill.Level * 10
+    
     return value
 end
 
@@ -8212,18 +8256,13 @@ end
 
 function SCR_GET_SynchroThrusting_Ratio(skill)
     local pc = GetSkillOwner(skill);
-    local equipWeapon = GetEquipItem(pc, 'LH');
-    
-    if equipWeapon ~= nil and IS_NO_EQUIPITEM(equipWeapon) == 0 then            
-        leftHandAttribute   = equipWeapon.Attribute;
+    local value = 65
+    local abil = GetAbility(pc, "Hoplite40")
+    if abil ~= nil and TryGetProp(abil, "ActiveState", 0) == 1 then
+        value = 50
     end
     
-    local def = equipWeapon.DEF;
---  local value = def * 5 + skill.SkillAtkAdd
-    local value = def
-    
-    return math.floor(value);
-
+    return value
 end
 
 
@@ -10502,7 +10541,7 @@ function SCR_NORMAL_SYNCHROTHRUSTING(self, from, skill, splash, ret)
     if lhEquipWeapon ~= nil and IS_NO_EQUIPITEM(lhEquipWeapon) == 0 then
         leftHandAttribute = lhEquipWeapon.Attribute;
     end
-    
+     
     local byItem = 0;
     local byItemList = { "DEF", "ADD_DEF" };
     for i = 1, #byItemList do
@@ -10519,6 +10558,11 @@ function SCR_NORMAL_SYNCHROTHRUSTING(self, from, skill, splash, ret)
     local shieldDEF = TryGetProp(lhEquipWeapon, "DEF", 0)
     
     local atkRate = 0.65;
+    local abilHoplite40 = GetAbility(from, "Hoplite40")
+    if abilHoplite40 ~= nil and TryGetProp(abilHoplite40, "ActiveState", 0) == 1 then
+        atkRate = 0.5
+    end
+
     local strikeDamage = (shieldDEF + basicDEF) * atkRate
     -------------------------------------------
     
@@ -10537,9 +10581,17 @@ function SCR_NORMAL_SYNCHROTHRUSTING(self, from, skill, splash, ret)
 end
 
 function SCR_SYNCHROTHRUSTING_TAKEDAMAGE(self, from, skill, ariesDamage, strikeDamage, rightHandAttribute, leftHandAttribute)
-    TakeDamage(from, self, skill.ClassName, ariesDamage, rightHandAttribute, "Aries", "Melee", HIT_BASIC, 0);
-    sleep(200)
-    TakeDamage(from, self, skill.ClassName, strikeDamage, leftHandAttribute, "Strike", "Melee", HIT_BASIC, 0);
+    local cnt = 1
+    local abil = GetAbility(from, "Hoplite40")
+    if abil ~= nil and TryGetProp(abil, "ActiveState", 0) == 1 then
+        cnt = 2
+    end
+
+    for i = 1, cnt do
+        TakeDamage(from, self, skill.ClassName, ariesDamage, rightHandAttribute, "Aries", "Melee", HIT_BASIC, 0);
+        sleep(200)
+        TakeDamage(from, self, skill.ClassName, strikeDamage, leftHandAttribute, "Strike", "Melee", HIT_BASIC, 0);
+    end
 end
 
 
@@ -10623,6 +10675,67 @@ function SCR_GET_SR_LV(skill)
     return value
 end
 
+-- done, 해당 함수 내용은 cpp로 이전되었습니다. 변경 사항이 있다면 반드시 프로그램팀에 알려주시기 바랍니다.
+function SCR_GET_SR_LV_PalmStrike(skill)
+
+    local pc = GetSkillOwner(skill);
+    if pc == nil and ui.GetFrame("pub_createchar"):IsVisible() == 1 then
+        return skill.SklSR;
+    end
+
+    local value = pc.SR + skill.SklSR;
+    local abil = GetAbility(pc, "Monk34")
+    if abil ~= nil and TryGetProp(abil, "ActiveState", 0) == 1 then
+        value = value * 2
+    end
+    
+    if value < 1 then
+        value = 1
+    end
+    
+    return value
+end
+
+-- done, 해당 함수 내용은 cpp로 이전되었습니다. 변경 사항이 있다면 반드시 프로그램팀에 알려주시기 바랍니다.
+function SCR_GET_SR_LV_Dragoon28(skill)
+    local pc = GetSkillOwner(skill);
+    if pc == nil and ui.GetFrame("pub_createchar"):IsVisible() == 1 then
+        return skill.SklSR;
+    end
+
+    local value = pc.SR + skill.SklSR;
+
+    local abilDragoon28 = GetAbility(pc, "Dragoon28")
+    if abilDragoon28 ~= nil and TryGetProp(abilDragoon28, "ActiveState", 0) == 1 then
+        value = value + 20
+    end
+    
+    if value < 1 then
+        value = 1
+    end
+    
+    return value
+end
+
+-- function SCR_GET_SR_LV_SeptEtoiles(skill)
+--     local pc = GetSkillOwner(skill);
+--     if pc == nil and ui.GetFrame("pub_createchar"):IsVisible() == 1 then
+--         return skill.SklSR;
+--     end
+
+--     local value = pc.SR + skill.SklSR;
+    
+--     if value < 1 then
+--         value = 1
+--     end
+
+--     local abil = GetAbility(pc, "Fencer20")
+--     if abil ~= nil and TryGetProp(abil, "ActiveState", 0) == 1 then
+--         value = value + 20
+--     end
+    
+--     return value
+-- end
 
 function SCR_GET_SR_LV_OUTLAW2(skill)
     local pc = GetSkillOwner(skill);
@@ -10943,7 +11056,7 @@ function SCR_GET_Devaluation_Ratio(skill)
 end
 
 function SCR_GET_Devaluation_Ratio2(skill)
-    local value = 15
+    local value = skill.Level * 1.8
     
     value = math.floor(value * SCR_REINFORCEABILITY_TOOLTIP(skill))
     
@@ -10951,7 +11064,8 @@ function SCR_GET_Devaluation_Ratio2(skill)
 end
 
 function SCR_GET_Devaluation_Ratio3(skill)
-    local value = 15
+    local value = skill.Level * 1.8
+
     value = math.floor(value * SCR_REINFORCEABILITY_TOOLTIP(skill))
     
     return value
@@ -11394,7 +11508,11 @@ end
 function SCR_GET_ThrowingFishingNet_Ratio2(skill)
     local pc = GetSkillOwner(skill);
     local value = 3 + skill.Level * 3;
-    
+    local abil = GetAbility(pc, "Retiarii24")
+    if abil ~= nil and TryGetProp(abil, "ActiveState", 0) == 1 then
+        value = value * 2
+    end
+
     if IsPVPServer(pc) == 1 then
         value = value / 3
     end
@@ -12879,6 +12997,25 @@ function SCR_GET_DeadZone_Time(skill)
     return value
 end
 
+function SCR_GET_DeadZone_Ratio(skill)
+    local pc = GetSkillOwner(skill)
+    local value = 3
+
+    local abil = GetAbility(pc, 'Arbalester18')
+    if abil ~= nil and TryGetProp(abil, 'ActiveState', 0) == 1 then
+        value = 7
+    end
+
+    return value
+end
+
+function SCR_GET_DeadZone_Ratio2(skill)
+    local pc = GetSkillOwner(skill)
+    local value = 2
+
+    return value
+end
+
 function SCR_GET_ShiningBurst_Time(skill)
     local value = 5
     return value
@@ -13580,6 +13717,21 @@ function SCR_GET_SKL_COOLDOWN_MozambiqueDrill(skill)
     return math.floor(ret);
 end
 
+-- done, 해당 함수 내용은 cpp로 이전되었습니다. 변경 사항이 있다면 반드시 프로그램팀에 알려주시기 바랍니다.
+function SCR_GET_SKL_COOLDOWN_YinYangConsonance(skill)
+    local pc = GetSkillOwner(skill);
+    local basicCoolDown = TryGetProp(skill, "BasicCoolDown", 0)
+    local abilAddCoolDown = GetAbilityAddSpendValue(pc, skill.ClassName, "CoolDown");
+    local abil = GetAbility(pc, "Onmyoji28")
+    if abil ~= nil and TryGetProp(abil, "ActiveState", 0) == 1 then
+        basicCoolDown = basicCoolDown - 22500;
+    end
+    basicCoolDown = basicCoolDown + abilAddCoolDown;
+    basicCoolDown = SCR_COMMON_COOLDOWN_DECREASE(pc, skill, basicCoolDown)
+    return math.floor(basicCoolDown);
+end
+
+-- done, 해당 함수 내용은 cpp로 이전되었습니다. 변경 사항이 있다면 반드시 프로그램팀에 알려주시기 바랍니다.
 function SCR_Get_SkillFactor_Vibora_Katadikazo(skill)
     local pc = GetSkillOwner(skill)
     local skl = GetSkill(pc, "Exorcist_Katadikazo")
@@ -13640,4 +13792,17 @@ function SCR_GET_Karys_Ratio(skill)
     end
 
     return value;
+end
+
+function SCR_GET_SKL_COOLDOWN_DownFall(skill)
+    local pc = GetSkillOwner(skill);
+    local basicCoolDown = TryGetProp(skill, "BasicCoolDown", 0)
+    local abilAddCoolDown = GetAbilityAddSpendValue(pc, skill.ClassName, "CoolDown");
+    local abil = GetAbility(pc, "Mergen24")
+    if abil ~= nil and TryGetProp(abil, "ActiveState", 0) == 1 then
+        basicCoolDown = basicCoolDown - 10000;
+    end
+    basicCoolDown = basicCoolDown + abilAddCoolDown;
+    basicCoolDown = SCR_COMMON_COOLDOWN_DECREASE(pc, skill, basicCoolDown)
+    return math.floor(basicCoolDown);
 end

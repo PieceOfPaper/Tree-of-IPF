@@ -1,387 +1,392 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
 <ToolSkill>
-	<Skill Name="Oracle_TwistOfFate">
-		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
-			<EtcList>
-				<Scp Client="NO" Scp="CHECK_PVP_AND_BUFF_APPLIED" Time="0" UseSleep="NO"/>
-				<Scp Client="YES" Scp="C_VOICE_SOUND" Time="300" UseSleep="NO">
-					<Str Str="voice_cleric_m_twistoffate_shot"/>
-					<Str Str="voice_cleric_f_twistoffate_shot"/>
-				</Scp>
-				<Scp Client="YES_Time" Scp="C_FORCE_EFT" Time="600" UseSleep="NO">
-					<Str_Arg Arg="5" Str="I_cleric_TwistOfFate_force_trail"/>
-					<Str Str="skl_eff_rune_born_light_4"/>
-					<Str_Arg Arg="0.80000001" Str="F_cleric_TwistOfFate_hit"/>
-					<Str Str="skl_eff_acid_blood_hit"/>
-					<Str Str="SLOW"/>
-					<Num Num="600"/>
-					<Num Num="1"/>
-					<Num Num="0"/>
-					<Angle_Abs Angle="0"/>
-					<Num Num="0"/>
-					<Num Num="5"/>
-					<Num Num="10"/>
-					<Num Num="0"/>
-					<Num Num="1"/>
-					<Num Num="1"/>
-					<Str Str="None"/>
-					<PosDist Angle="0" Dist="0"/>
-					<Num Num="0"/>
-				</Scp>
-			</EtcList>
-			<ResultList>
-				<ToolScp Client="NO" Scp="S_R_TGTBUFF" UseSleep="NO">
-					<Str FuncTxt="local buffName = &quot;TwistOfFate_Debuff&quot; if IS_PC(target) == true and IsBuffApplied(target, &quot;TwistOfFate_Debuff&quot;) == &quot;YES&quot; then buffName = &quot;None&quot; end return buffName" UseFunc="1" Str="TwistOfFate_Debuff"/>
-					<Num FuncTxt="return skill.Level;" Num="1" UseFunc="1"/>
-					<Num Num="0"/>
-					<Num Num="30000"/>
-					<Num Num="1"/>
-					<Num Num="100"/>
-					<Num Num="-1"/>
-				</ToolScp>
-			</ResultList>
-		</MainSkl>
-	</Skill>
-	<Skill Name="Oracle_Foretell">
-		<MainSkl ScrLock="None" JumpFlee="NO" MSPDToUsePos="0">
-			<HitList>
-				<Frame Type="FAN" Time="9799" HitCount="1" TermMin="0" TermMax="0" PosType="0" Dist="0" RandDist="0" RandomPerHit="0" Angle="0" Width="30" Length="30" SklAngle="0.17453292" AniTime="9999" RotAngle="0" ForceATK="0"/>
-			</HitList>
-			<EtcList>
-				<Scp Scp="MONSKL_C_PLAY_ANIM" Client="YES" UseSleep="NO" Time="0">
-					<Str Str="PUBLIC_BUFF"/>
-					<Num Num="1.5"/>
-					<Num Num="1"/>
-					<Num Num="0"/>
-				</Scp>
-				<Scp Scp="MONSKL_CRE_PAD" Client="NO" UseSleep="NO" Time="790">
-					<Pos Angle="0" Dist="0" PosType="3"/>
-					<Angle Angle="0"/>
-					<Str Str="Oracle_Foretell"/>
-				</Scp>
-			</EtcList>
-		</MainSkl>
-	</Skill>
-	<Skill Name="Oracle_SwitchGender">
-		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
-			<EtcList>
-				<Scp Client="YES" Scp="C_VOICE_SOUND" Time="200" UseSleep="NO">
-					<Str Str="voice_cleric_m_switchgender_shot"/>
-					<Str Str="voice_cleric_switchgender_shot"/>
-				</Scp>
-			</EtcList>
-		</MainSkl>
-	</Skill>
-	<Skill Name="Oracle_Prophecy">
-		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
-			<HitList>
-				<Frame Angle="0" AniTime="10999" Dist="0" ForceATK="0" HitCount="1" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" TermMax="0" TermMin="0" Time="10799" Type="FAN"/>
-			</HitList>
-			<EtcList>
-				<Scp Client="YES" Scp="C_VOICE_SOUND" Time="200" UseSleep="NO">
-					<Str Str="voice_cleric_m_prophery_shot"/>
-					<Str Str="voice_cleric_prophery_shot"/>
-				</Scp>
-				<Scp Client="NO" Scp="SKL_BUFF" Time="500" UseSleep="NO">
-					<Str Str="Prophecy_Buff"/>
-					<Num FuncTxt="return obj.Level;" Num="1" UseFunc="1"/>
-					<Num Num="0"/>
-					<Num FuncTxt="local value = 30000; if IsPVPServer(self) == 1 then value = value / 3 end return value" Num="1" UseFunc="1"/>
-					<Num Num="1"/>
-					<Num Num="100"/>
-					<Num Num="1"/>
-				</Scp>
-			</EtcList>
-		</MainSkl>
-	</Skill>
-	<Skill Name="Oracle_DeathVerdict">
-		<MainSkl ScrLock="None" JumpFlee="NO" MSPDToUsePos="0">
-			<HitList>
-				<Frame Type="SQUARE" Time="99999" HitCount="1" TermMin="0" TermMax="0" PosType="0" Dist="0" RandDist="0" RandomPerHit="0" Angle="0" SklAngle="0.17453292" AniTime="9999" RotAngle="0" ForceATK="0"/>
-			</HitList>
-			<EtcList>
-				<Scp Scp="SKL_SET_TARGET_SQUARE" Client="NO" UseSleep="NO" Time="0">
-					<Pos Angle="0" Dist="0"/>
-					<Num Num="0"/>
-					<Num Num="100"/>
-					<Num Num="40"/>
-					<Num Num="0" UseFunc="1" FuncTxt="return 5 + obj.Level;"/>
-					<Num Num="2"/>
-					<Num Num="0"/>
-				</Scp>
-				<Scp Scp="C_VOICE_SOUND" Client="YES" UseSleep="NO" Time="0">
-					<Str Str="voice_cleric_m_deathsverdict_shot"/>
-					<Str Str="voice_cleric_deathsverdict_shot"/>
-				</Scp>
-				<Scp Scp="SKL_TGT_BUFF" Client="NO" UseSleep="NO" Time="700">
-					<Str Str="DeathVerdict_Buff"/>
-					<Num Num="1" UseFunc="1" FuncTxt="return obj.Level"/>
-					<Num Num="0"/>
-					<Num Num="0" UseFunc="1" FuncTxt=" local value = 25000  local abil = GetAbility(self, &quot;Oracle18&quot;)  if abil ~= nil and abil.ActiveState >= 1 then   value = 11000 + abil.Level * 1000 end return value"/>
-					<Num Num="1"/>
-					<Num Num="100"/>
-					<Num Num="0"/>
-				</Scp>
-			</EtcList>
-		</MainSkl>
-	</Skill>
-	<Skill Name="Oracle_CounterSpell">
-		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
-			<HitList>
-				<Frame Angle="0" AniTime="99999" Dist="0" ForceATK="0" HitCount="1" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" TermMax="0" TermMin="0" Time="99799" Type="FAN"/>
-			</HitList>
-			<EtcList>
-				<Scp Client="YES" Scp="C_EFFECT" Time="0" UseSleep="NO">
-					<Str_Arg Arg="1.5" Str="F_cleric_CounterSpell_cast"/>
-					<Str Str="Dummy_emitter"/>
-					<Num Num="0"/>
-				</Scp>
-				<Scp Client="YES" Scp="C_VOICE_SOUND" Time="0" UseSleep="NO">
-					<Str Str="voice_cleric_m_counterspell_shot"/>
-					<Str Str="voice_cleric_counterspell_shot"/>
-				</Scp>
-				<Scp Client="YES" Scp="C_SOUND" Time="400" UseSleep="NO">
-					<Str Str="skl_eff_counterspell_shot"/>
-				</Scp>
-				<Scp Client="NO" Scp="SKL_PAD_DESTRUCTION_RELATION" Time="1000" UseSleep="NO">
-					<Pos Angle="0" Dist="0"/>
-					<Num Num="99"/>
-					<Num Num="100"/>
-					<Str Str="MAGIC"/>
-					<Str Str="ENEMY"/>
-					<Str_Arg Arg="1" Str="None"/>
-					<Num Num="0"/>
-					<Num Num="0"/>
-					<Num Num="0"/>
-				</Scp>
-				<Scp Client="NO" Scp="MONSKL_CRE_PAD" Time="1000" UseSleep="NO">
-					<Pos Angle="0" Dist="0"/>
-					<Angle Angle="0"/>
-					<Str Str="counterspell_pad"/>
-				</Scp>
-			</EtcList>
-		</MainSkl>
-	</Skill>
-	<Skill Name="Oracle_ArcaneEnergy">
-		<MainSkl ScrLock="None" JumpFlee="NO" MSPDToUsePos="0">
-			<HitList>
-				<Frame Type="FAN" Time="99799" HitCount="1" TermMin="0" TermMax="0" PosType="0" Dist="0" RandDist="0" RandomPerHit="0" Angle="0" AniTime="99999" RotAngle="0" ForceATK="0"/>
-			</HitList>
-			<EtcList>
-				<Scp Scp="MONSKL_C_PLAY_ANIM" Client="YES" UseSleep="NO" Time="0">
-					<Str Str="PUBLIC_BUFF"/>
-					<Num Num="1.5"/>
-					<Num Num="1"/>
-					<Num Num="0"/>
-				</Scp>
-				<Scp Scp="C_VOICE_SOUND" Client="YES" UseSleep="NO" Time="0">
-					<Str Str="voice_cleric_m_arcaneenergy_shot"/>
-					<Str Str="voice_cleric_arcaneenergy_shot"/>
-				</Scp>
-				<Scp Scp="C_EFFECT_POS" Client="YES" UseSleep="NO" Time="0">
-					<Str_Arg Str="F_cleric_ArcaneEnergy_light" Arg="1"/>
-					<Pos Angle="0" Dist="5"/>
-					<Num Num="0"/>
-					<Str Str="None"/>
-				</Scp>
-				<Scp Scp="SKL_BUFF" Client="NO" UseSleep="NO" Time="790">
-					<Str Str="ArcaneEnergy_Buff"/>
-					<Num Num="1" UseFunc="1" FuncTxt="return obj.Level;"/>
-					<Num Num="0"/>
-					<Num Num="300000" UseFunc="1" FuncTxt=" local time = 1000 * obj.Level  local abil = GetAbility(self, 'Oracle7')  if abil ~= nil and abil.ActiveState == 1 then   time = time + abil.Level * 1000  end    return time"/>
-					<Num Num="1"/>
-					<Num Num="100"/>
-					<Num Num="1"/>
-				</Scp>
-			</EtcList>
-		</MainSkl>
-	</Skill>
-	<Skill Name="Oracle_Forecast">
-		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
-			<HitList>
-				<Frame Angle="0" AniTime="10199" Dist="0" ForceATK="0" HitCount="1" Length="1" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="9999" Type="FAN" Width="1"/>
-			</HitList>
-			<EtcList>
-				<Scp Client="YES" Scp="C_VOICE_SOUND" Time="0" UseSleep="NO">
-					<Str Str="voice_cleric_m_forecast_shot"/>
-					<Str Str="voice_cleric_forecast_shot"/>
-				</Scp>
-				<Scp Client="NO" Scp="SKL_BUFF" Time="500" UseSleep="NO">
-					<Str Str="Forecast_Buff"/>
-					<Num Num="1"/>
-					<Num Num="0"/>
-					<Num FuncTxt="return 300000 + GET_ABIL_LEVEL(self, &quot;Oracle3&quot;) * 60000;" Num="0" UseFunc="1"/>
-					<Num Num="1"/>
-					<Num Num="100"/>
-					<Num Num="1"/>
-				</Scp>
-				<Scp Client="NO" Scp="SKL_EFFECT_POS" Time="500" UseSleep="NO">
-					<Str_Arg Arg="1" Str="F_cleric_forecast_ground"/>
-					<Pos Angle="0" Dist="0" PosType="8"/>
-					<Num Num="0"/>
-				</Scp>
-			</EtcList>
-		</MainSkl>
-	</Skill>
-	<Skill Name="Oracle_Change">
-		<EnableScripts>
-			<ToolScp Client="BOTH" Scp="CHECK_IS_VILLAGE" UseSleep="NO"/>
-		</EnableScripts>
-		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
-			<HitList>
-				<Frame Angle="0" AniTime="10199" Dist="0" ForceATK="0" HitCount="1" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" TermMax="0" TermMin="0" Time="9999" Type="FAN"/>
-			</HitList>
-			<EtcList>
-				<Scp Client="YES" Scp="C_VOICE_SOUND" Time="0" UseSleep="NO">
-					<Str Str="voice_cleric_m_change_shot"/>
-					<Str Str="voice_cleric_change_shot"/>
-				</Scp>
-				<Scp Client="NO" Scp="SKL_SET_TARGET_SQUARE" Time="500" UseSleep="NO">
-					<Pos Angle="0" Dist="0"/>
-					<Num Num="0"/>
-					<Num Num="40"/>
-					<Num Num="20"/>
-					<Num Num="1"/>
-					<Str Str="ENEMY"/>
-					<Num Num="0"/>
-				</Scp>
-				<Scp Client="NO" Scp="TGT_REBORN_CUSTOM" Time="500" UseSleep="NO">
-					<Num FuncTxt="return obj.Level;" Num="5" UseFunc="1"/>
-					<Str Str="GET_ORACLE_CHANGE_MON_LIST"/>
-				</Scp>
-				<Scp Client="NO" Scp="SKL_EFFECT_POS" Time="500" UseSleep="NO">
-					<Str_Arg Arg="1" Str="F_cleric_reborn_shot"/>
-					<Pos Angle="0" Dist="0" PosType="8"/>
-					<Num Num="0"/>
-				</Scp>
-			</EtcList>
-		</MainSkl>
-	</Skill>
-	<Skill Name="Oracle_Ressetting">
-		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
-			<HitList>
-				<Frame Angle="0" AniTime="10199" Dist="0" ForceATK="0" HitCount="1" Length="30" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="9999" Type="FAN" Width="30"/>
-			</HitList>
-			<EtcList>
-				<Scp Client="YES" Scp="C_VOICE_SOUND" Time="0" UseSleep="NO">
-					<Str Str="voice_cleric_m_resetting_shot"/>
-					<Str Str="voice_cleric_resetting_shot"/>
-				</Scp>
-				<Scp Client="NO" Scp="SKL_SET_TARGET_SQUARE" Time="500" UseSleep="NO">
-					<Pos Angle="0" Dist="0"/>
-					<Num Num="0"/>
-					<Num Num="40"/>
-					<Num Num="20"/>
-					<Num Num="1"/>
-					<Num Num="2"/>
-					<Num Num="0"/>
-				</Scp>
-				<Scp Client="NO" Scp="TGT_CHANGE_DROP_ITEM" Time="500" UseSleep="NO"/>
-				<Scp Client="NO" Scp="SKL_EFFECT_POS" Time="500" UseSleep="NO">
-					<Str_Arg Arg="1" Str="F_cleric_Ressetting_ground"/>
-					<Pos Angle="0" Dist="0" PosType="8"/>
-					<Num Num="0"/>
-				</Scp>
-			</EtcList>
-		</MainSkl>
-	</Skill>
-	<Skill Name="Oracle_Clairvoyance">
-		<MainSkl ScrLock="None" JumpFlee="NO" MSPDToUsePos="0">
-			<HitList>
-				<Frame Type="FAN" Time="9999" HitCount="1" TermMin="0" TermMax="0" PosType="0" Dist="0" RandDist="0" RandomPerHit="0" Angle="0" Width="30" Length="30" SklAngle="0.17453292" AniTime="10199" RotAngle="0" ForceATK="0"/>
-			</HitList>
-			<EtcList>
-				<Scp Scp="MONSKL_C_PLAY_ANIM" Client="YES" UseSleep="NO" Time="0">
-					<Str Str="PUBLIC_BUFF"/>
-					<Num Num="1.5"/>
-					<Num Num="1"/>
-					<Num Num="0"/>
-				</Scp>
-				<Scp Scp="C_VOICE_SOUND" Client="YES" UseSleep="NO" Time="0">
-					<Str Str="voice_cleric_m_clairvoyance_shot"/>
-					<Str Str="voice_cleric_clairvoyance_shot"/>
-				</Scp>
-				<Scp Scp="SKL_SET_TARGET_SQUARE" Client="NO" UseSleep="NO" Time="500">
-					<Pos Angle="0" Dist="0"/>
-					<Num Num="0"/>
-					<Num Num="40"/>
-					<Num Num="20"/>
-					<Num Num="1"/>
-					<Num Num="2"/>
-					<Num Num="0"/>
-				</Scp>
-				<Scp Scp="SKL_CANCEL_IF_NOTARGET" Client="NO" UseSleep="NO" Time="500"/>
-				<Scp Scp="TGT_SHOW_DROP_ITEM" Client="NO" UseSleep="NO" Time="500"/>
-				<Scp Scp="SKL_EFFECT_POS" Client="NO" UseSleep="NO" Time="790">
-					<Str_Arg Str="F_cleric_clairvoyance_ground" Arg="1"/>
-					<Pos Angle="0" Dist="0" PosType="8"/>
-					<Num Num="0"/>
-				</Scp>
-			</EtcList>
-		</MainSkl>
-	</Skill>
-	<Skill Name="Oracle_CallOfDeities">
-		<EnableScripts>
-			<ToolScp Client="BOTH" Scp="SKL_CHECK_NEAR_PAD" UseSleep="NO">
-				<Str Str="CallOfDeities"/>
-				<Num Num="0"/>
-				<Num Num="200"/>
-				<Str Str="ALL"/>
-			</ToolScp>
-		</EnableScripts>
-		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
-			<EtcList>
-				<Scp Client="YES" Scp="C_VOICE_SOUND" Time="0" UseSleep="NO">
-					<Str Str="voice_cleric_m_callofdeities_shot"/>
-					<Str Str="voice_cleric_callofdeities_shot"/>
-				</Scp>
-				<Scp Client="NO" Scp="MONSKL_CRE_PAD" Time="0" UseSleep="NO">
-					<Pos Angle="0" Dist="0"/>
-					<Angle Angle="0"/>
-					<Str Str="CallOfDeities"/>
-				</Scp>
-				<Scp Client="NO" Scp="SKL_SET_TGT_FIELDMON" Time="500" UseSleep="NO">
-					<Num FuncTxt="return 1 + obj.Level * 2;" Num="2" UseFunc="1"/>
-				</Scp>
-				<Scp Client="NO" Scp="TGT_SUMMON_TO_POS" Time="500" UseSleep="NO">
-					<Pos Angle="-0.04083515" Dist="50.86911"/>
-					<Num Num="30"/>
-					<Str_Arg Arg="1" Str="F_cleric_callofdeities_ground"/>
-					<Num Num="1"/>
-					<Num FuncTxt="return obj.Level;" Num="0"/>
-				</Scp>
-			</EtcList>
-		</MainSkl>
-	</Skill>
-	<Skill Name="Oracle_DivineMight">
-		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
-			<HitList>
-				<Frame Angle="0" AniTime="10199" Dist="0" ForceATK="0" HitCount="1" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" TermMax="0" TermMin="0" Time="9999" Type="FAN"/>
-			</HitList>
-			<EtcList>
-				<Scp Client="YES" Scp="C_SOUND" Time="0" UseSleep="NO">
-					<Str Str="skl_cleric_heal_shot"/>
-				</Scp>
-				<Scp Client="YES" Scp="C_VOICE_SOUND" Time="0" UseSleep="NO">
-					<Str Str="voice_cleric_m_divinemight_shot"/>
-					<Str Str="voice_cleric_divinemight_shot"/>
-				</Scp>
-				<Scp Client="NO" Scp="SKL_BUFF" Time="0" UseSleep="NO">
-					<Str Str="DivineMight_Buff" UseFunc="1" FuncTxt="local abilOracle23 = GetAbility(self, &apos;Oracle23&apos;); if abilOracle23 ~= nil and TryGetProp(abilOracle23, &apos;ActiveState&apos;) ==1 then return &apos;None&apos;; end return &apos;DivineMight_Buff&apos;"/>
-					<Num FuncTxt="return obj.Level;" Num="1" UseFunc="1"/>
-					<Num Num="0"/>
-					<Num Num="60000"/>
-					<Num Num="1"/>
-					<Num Num="100"/>
-					<Num Num="1"/>
-				</Scp>
-				<Scp Client="NO" Scp="MONSKL_CRE_PAD" Time="0" UseSleep="NO">
-					<Pos Angle="0" Dist="0"/>
-					<Angle Angle="0"/>
-					<Str Str="Oracle_DivineMight"/>
-				</Scp>
-			</EtcList>
-		</MainSkl>
-	</Skill>
+    <Skill Name="Oracle_TwistOfFate">
+        <MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+            <EtcList>
+                <Scp Client="NO" Scp="CHECK_PVP_AND_BUFF_APPLIED" Time="0" UseSleep="NO"/>
+                <Scp Client="YES" Scp="C_VOICE_SOUND" Time="300" UseSleep="NO">
+                    <Str Str="voice_cleric_m_twistoffate_shot"/>
+                    <Str Str="voice_cleric_f_twistoffate_shot"/>
+                </Scp>
+                <Scp Client="YES_Time" Scp="C_FORCE_EFT" Time="600" UseSleep="NO">
+                    <Str_Arg Arg="5" Str="I_cleric_TwistOfFate_force_trail"/>
+                    <Str Str="skl_eff_rune_born_light_4"/>
+                    <Str_Arg Arg="0.80000001" Str="F_cleric_TwistOfFate_hit"/>
+                    <Str Str="skl_eff_acid_blood_hit"/>
+                    <Str Str="SLOW"/>
+                    <Num Num="600"/>
+                    <Num Num="1"/>
+                    <Num Num="0"/>
+                    <Angle_Abs Angle="0"/>
+                    <Num Num="0"/>
+                    <Num Num="5"/>
+                    <Num Num="10"/>
+                    <Num Num="0"/>
+                    <Num Num="1"/>
+                    <Num Num="1"/>
+                    <Str Str="None"/>
+                    <PosDist Angle="0" Dist="0"/>
+                    <Num Num="0"/>
+                </Scp>
+            </EtcList>
+            <ResultList>
+                <ToolScp Client="NO" Scp="S_R_TGTBUFF" UseSleep="NO">
+                    <Str FuncTxt="local buffName = &quot;TwistOfFate_Debuff&quot; if IS_PC(target) == true and IsBuffApplied(target, &quot;TwistOfFate_Debuff&quot;) == &quot;YES&quot; then buffName = &quot;None&quot; end return buffName" UseFunc="1" Str="TwistOfFate_Debuff"/>
+                    <Num FuncTxt="return skill.Level;" Num="1" UseFunc="1"/>
+                    <Num Num="0"/>
+                    <Num Num="30000"/>
+                    <Num Num="1"/>
+                    <Num Num="100"/>
+                    <Num Num="-1"/>
+                </ToolScp>
+            </ResultList>
+        </MainSkl>
+    </Skill>
+    <Skill Name="Oracle_Foretell">
+        <MainSkl ScrLock="None" JumpFlee="NO" MSPDToUsePos="0">
+            <HitList>
+                <Frame Type="FAN" Time="9799" HitCount="1" TermMin="0" TermMax="0" PosType="0" Dist="0" RandDist="0" RandomPerHit="0" Angle="0" Width="30" Length="30" SklAngle="0.17453292" AniTime="9999" RotAngle="0" ForceATK="0" ScriptIndex="0" ScriptName="" SkillType="0"/>
+            </HitList>
+            <EtcList>
+                <Scp Scp="MONSKL_C_PLAY_ANIM" Client="YES" UseSleep="NO" Time="0">
+                    <Str Str="PUBLIC_BUFF"/>
+                    <Num Num="1.5"/>
+                    <Num Num="1"/>
+                    <Num Num="0"/>
+                </Scp>
+                <Scp Scp="MONSKL_CRE_PAD" Client="NO" UseSleep="NO" Time="790">
+                    <Pos Angle="0" Dist="0" PosType="3"/>
+                    <Angle Angle="0"/>
+                    <Str Str="" UseFunc="1" FuncTxt="    local pad = &quot;Oracle_Foretell&quot;
+    local abil = GetAbility(self, &quot;Oracle24&quot;)
+    if abil ~= nil and TryGetProp(abil, &quot;ActiveState&quot;, 0) == 1 then
+        pad = &quot;Oracle_Foretell_Abil&quot;
+    end
+    return pad"/>
+                </Scp>
+            </EtcList>
+        </MainSkl>
+    </Skill>
+    <Skill Name="Oracle_SwitchGender">
+        <MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+            <EtcList>
+                <Scp Client="YES" Scp="C_VOICE_SOUND" Time="200" UseSleep="NO">
+                    <Str Str="voice_cleric_m_switchgender_shot"/>
+                    <Str Str="voice_cleric_switchgender_shot"/>
+                </Scp>
+            </EtcList>
+        </MainSkl>
+    </Skill>
+    <Skill Name="Oracle_Prophecy">
+        <MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+            <HitList>
+                <Frame Angle="0" AniTime="10999" Dist="0" ForceATK="0" HitCount="1" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" TermMax="0" TermMin="0" Time="10799" Type="FAN"/>
+            </HitList>
+            <EtcList>
+                <Scp Client="YES" Scp="C_VOICE_SOUND" Time="200" UseSleep="NO">
+                    <Str Str="voice_cleric_m_prophery_shot"/>
+                    <Str Str="voice_cleric_prophery_shot"/>
+                </Scp>
+                <Scp Client="NO" Scp="SKL_BUFF" Time="500" UseSleep="NO">
+                    <Str Str="Prophecy_Buff"/>
+                    <Num FuncTxt="return obj.Level;" Num="1" UseFunc="1"/>
+                    <Num Num="0"/>
+                    <Num FuncTxt="local value = 30000; if IsPVPServer(self) == 1 then value = value / 3 end return value" Num="1" UseFunc="1"/>
+                    <Num Num="1"/>
+                    <Num Num="100"/>
+                    <Num Num="1"/>
+                </Scp>
+            </EtcList>
+        </MainSkl>
+    </Skill>
+    <Skill Name="Oracle_DeathVerdict">
+        <MainSkl ScrLock="None" JumpFlee="NO" MSPDToUsePos="0">
+            <HitList>
+                <Frame Type="SQUARE" Time="99999" HitCount="1" TermMin="0" TermMax="0" PosType="0" Dist="0" RandDist="0" RandomPerHit="0" Angle="0" SklAngle="0.17453292" AniTime="9999" RotAngle="0" ForceATK="0"/>
+            </HitList>
+            <EtcList>
+                <Scp Scp="SKL_SET_TARGET_SQUARE" Client="NO" UseSleep="NO" Time="0">
+                    <Pos Angle="0" Dist="0"/>
+                    <Num Num="0"/>
+                    <Num Num="100"/>
+                    <Num Num="40"/>
+                    <Num Num="0" UseFunc="1" FuncTxt="return 5 + obj.Level;"/>
+                    <Num Num="2"/>
+                    <Num Num="0"/>
+                </Scp>
+                <Scp Scp="C_VOICE_SOUND" Client="YES" UseSleep="NO" Time="0">
+                    <Str Str="voice_cleric_m_deathsverdict_shot"/>
+                    <Str Str="voice_cleric_deathsverdict_shot"/>
+                </Scp>
+                <Scp Scp="SKL_TGT_BUFF" Client="NO" UseSleep="NO" Time="700">
+                    <Str Str="DeathVerdict_Buff"/>
+                    <Num Num="1" UseFunc="1" FuncTxt="return obj.Level"/>
+                    <Num Num="0"/>
+                    <Num Num="0" UseFunc="1" FuncTxt=" local value = 25000  local abil = GetAbility(self, &quot;Oracle18&quot;)  if abil ~= nil and abil.ActiveState >= 1 then   value = 11000 + abil.Level * 1000 end return value"/>
+                    <Num Num="1"/>
+                    <Num Num="100"/>
+                    <Num Num="0"/>
+                </Scp>
+            </EtcList>
+        </MainSkl>
+    </Skill>
+    <Skill Name="Oracle_CounterSpell">
+        <MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+            <HitList>
+                <Frame Angle="0" AniTime="99999" Dist="0" ForceATK="0" HitCount="1" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" TermMax="0" TermMin="0" Time="99799" Type="FAN"/>
+            </HitList>
+            <EtcList>
+                <Scp Client="YES" Scp="C_EFFECT" Time="0" UseSleep="NO">
+                    <Str_Arg Arg="1.5" Str="F_cleric_CounterSpell_cast"/>
+                    <Str Str="Dummy_emitter"/>
+                    <Num Num="0"/>
+                </Scp>
+                <Scp Client="YES" Scp="C_VOICE_SOUND" Time="0" UseSleep="NO">
+                    <Str Str="voice_cleric_m_counterspell_shot"/>
+                    <Str Str="voice_cleric_counterspell_shot"/>
+                </Scp>
+                <Scp Client="YES" Scp="C_SOUND" Time="400" UseSleep="NO">
+                    <Str Str="skl_eff_counterspell_shot"/>
+                </Scp>
+                <Scp Client="NO" Scp="SKL_PAD_DESTRUCTION_RELATION" Time="1000" UseSleep="NO">
+                    <Pos Angle="0" Dist="0"/>
+                    <Num Num="99"/>
+                    <Num Num="100"/>
+                    <Str Str="MAGIC"/>
+                    <Str Str="ENEMY"/>
+                    <Str_Arg Arg="1" Str="None"/>
+                    <Num Num="0"/>
+                    <Num Num="0"/>
+                    <Num Num="0"/>
+                </Scp>
+                <Scp Client="NO" Scp="MONSKL_CRE_PAD" Time="1000" UseSleep="NO">
+                    <Pos Angle="0" Dist="0"/>
+                    <Angle Angle="0"/>
+                    <Str Str="counterspell_pad"/>
+                </Scp>
+            </EtcList>
+        </MainSkl>
+    </Skill>
+    <Skill Name="Oracle_ArcaneEnergy">
+        <MainSkl ScrLock="None" JumpFlee="NO" MSPDToUsePos="0">
+            <HitList>
+                <Frame Type="FAN" Time="99799" HitCount="1" TermMin="0" TermMax="0" PosType="0" Dist="0" RandDist="0" RandomPerHit="0" Angle="0" AniTime="99999" RotAngle="0" ForceATK="0"/>
+            </HitList>
+            <EtcList>
+                <Scp Scp="MONSKL_C_PLAY_ANIM" Client="YES" UseSleep="NO" Time="0">
+                    <Str Str="PUBLIC_BUFF"/>
+                    <Num Num="1.5"/>
+                    <Num Num="1"/>
+                    <Num Num="0"/>
+                </Scp>
+                <Scp Scp="C_VOICE_SOUND" Client="YES" UseSleep="NO" Time="0">
+                    <Str Str="voice_cleric_m_arcaneenergy_shot"/>
+                    <Str Str="voice_cleric_arcaneenergy_shot"/>
+                </Scp>
+                <Scp Scp="C_EFFECT_POS" Client="YES" UseSleep="NO" Time="0">
+                    <Str_Arg Str="F_cleric_ArcaneEnergy_light" Arg="1"/>
+                    <Pos Angle="0" Dist="5"/>
+                    <Num Num="0"/>
+                    <Str Str="None"/>
+                </Scp>
+                <Scp Scp="SKL_BUFF" Client="NO" UseSleep="NO" Time="790">
+                    <Str Str="ArcaneEnergy_Buff"/>
+                    <Num Num="1" UseFunc="1" FuncTxt="return obj.Level;"/>
+                    <Num Num="0"/>
+                    <Num Num="300000" UseFunc="1" FuncTxt=" local time = 1000 * obj.Level  local abil = GetAbility(self, 'Oracle7')  if abil ~= nil and abil.ActiveState == 1 then   time = time + abil.Level * 1000  end    return time"/>
+                    <Num Num="1"/>
+                    <Num Num="100"/>
+                    <Num Num="1"/>
+                </Scp>
+            </EtcList>
+        </MainSkl>
+    </Skill>
+    <Skill Name="Oracle_Forecast">
+        <MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+            <HitList>
+                <Frame Angle="0" AniTime="10199" Dist="0" ForceATK="0" HitCount="1" Length="1" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="9999" Type="FAN" Width="1"/>
+            </HitList>
+            <EtcList>
+                <Scp Client="YES" Scp="C_VOICE_SOUND" Time="0" UseSleep="NO">
+                    <Str Str="voice_cleric_m_forecast_shot"/>
+                    <Str Str="voice_cleric_forecast_shot"/>
+                </Scp>
+                <Scp Client="NO" Scp="SKL_BUFF" Time="500" UseSleep="NO">
+                    <Str Str="Forecast_Buff"/>
+                    <Num Num="1"/>
+                    <Num Num="0"/>
+                    <Num FuncTxt="return 300000 + GET_ABIL_LEVEL(self, &quot;Oracle3&quot;) * 60000;" Num="0" UseFunc="1"/>
+                    <Num Num="1"/>
+                    <Num Num="100"/>
+                    <Num Num="1"/>
+                </Scp>
+                <Scp Client="NO" Scp="SKL_EFFECT_POS" Time="500" UseSleep="NO">
+                    <Str_Arg Arg="1" Str="F_cleric_forecast_ground"/>
+                    <Pos Angle="0" Dist="0" PosType="8"/>
+                    <Num Num="0"/>
+                </Scp>
+            </EtcList>
+        </MainSkl>
+    </Skill>
+    <Skill Name="Oracle_Change">
+        <EnableScripts>
+            <ToolScp Client="BOTH" Scp="CHECK_IS_VILLAGE" UseSleep="NO"/>
+        </EnableScripts>
+        <MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+            <HitList>
+                <Frame Angle="0" AniTime="10199" Dist="0" ForceATK="0" HitCount="1" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" TermMax="0" TermMin="0" Time="9999" Type="FAN"/>
+            </HitList>
+            <EtcList>
+                <Scp Client="YES" Scp="C_VOICE_SOUND" Time="0" UseSleep="NO">
+                    <Str Str="voice_cleric_m_change_shot"/>
+                    <Str Str="voice_cleric_change_shot"/>
+                </Scp>
+                <Scp Client="NO" Scp="SKL_SET_TARGET_SQUARE" Time="500" UseSleep="NO">
+                    <Pos Angle="0" Dist="0"/>
+                    <Num Num="0"/>
+                    <Num Num="40"/>
+                    <Num Num="20"/>
+                    <Num Num="1"/>
+                    <Str Str="ENEMY"/>
+                    <Num Num="0"/>
+                </Scp>
+                <Scp Client="NO" Scp="TGT_REBORN_CUSTOM" Time="500" UseSleep="NO">
+                    <Num FuncTxt="return obj.Level;" Num="5" UseFunc="1"/>
+                    <Str Str="GET_ORACLE_CHANGE_MON_LIST"/>
+                </Scp>
+                <Scp Client="NO" Scp="SKL_EFFECT_POS" Time="500" UseSleep="NO">
+                    <Str_Arg Arg="1" Str="F_cleric_reborn_shot"/>
+                    <Pos Angle="0" Dist="0" PosType="8"/>
+                    <Num Num="0"/>
+                </Scp>
+            </EtcList>
+        </MainSkl>
+    </Skill>
+    <Skill Name="Oracle_Ressetting">
+        <MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+            <HitList>
+                <Frame Angle="0" AniTime="10199" Dist="0" ForceATK="0" HitCount="1" Length="30" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="9999" Type="FAN" Width="30"/>
+            </HitList>
+            <EtcList>
+                <Scp Client="YES" Scp="C_VOICE_SOUND" Time="0" UseSleep="NO">
+                    <Str Str="voice_cleric_m_resetting_shot"/>
+                    <Str Str="voice_cleric_resetting_shot"/>
+                </Scp>
+                <Scp Client="NO" Scp="SKL_SET_TARGET_SQUARE" Time="500" UseSleep="NO">
+                    <Pos Angle="0" Dist="0"/>
+                    <Num Num="0"/>
+                    <Num Num="40"/>
+                    <Num Num="20"/>
+                    <Num Num="1"/>
+                    <Num Num="2"/>
+                    <Num Num="0"/>
+                </Scp>
+                <Scp Client="NO" Scp="TGT_CHANGE_DROP_ITEM" Time="500" UseSleep="NO"/>
+                <Scp Client="NO" Scp="SKL_EFFECT_POS" Time="500" UseSleep="NO">
+                    <Str_Arg Arg="1" Str="F_cleric_Ressetting_ground"/>
+                    <Pos Angle="0" Dist="0" PosType="8"/>
+                    <Num Num="0"/>
+                </Scp>
+            </EtcList>
+        </MainSkl>
+    </Skill>
+    <Skill Name="Oracle_Clairvoyance">
+        <MainSkl ScrLock="None" JumpFlee="NO" MSPDToUsePos="0">
+            <HitList>
+                <Frame Type="FAN" Time="9999" HitCount="1" TermMin="0" TermMax="0" PosType="0" Dist="0" RandDist="0" RandomPerHit="0" Angle="0" Width="30" Length="30" SklAngle="0.17453292" AniTime="10199" RotAngle="0" ForceATK="0"/>
+            </HitList>
+            <EtcList>
+                <Scp Scp="MONSKL_C_PLAY_ANIM" Client="YES" UseSleep="NO" Time="0">
+                    <Str Str="PUBLIC_BUFF"/>
+                    <Num Num="1.5"/>
+                    <Num Num="1"/>
+                    <Num Num="0"/>
+                </Scp>
+                <Scp Scp="C_VOICE_SOUND" Client="YES" UseSleep="NO" Time="0">
+                    <Str Str="voice_cleric_m_clairvoyance_shot"/>
+                    <Str Str="voice_cleric_clairvoyance_shot"/>
+                </Scp>
+                <Scp Scp="SKL_SET_TARGET_SQUARE" Client="NO" UseSleep="NO" Time="500">
+                    <Pos Angle="0" Dist="0"/>
+                    <Num Num="0"/>
+                    <Num Num="40"/>
+                    <Num Num="20"/>
+                    <Num Num="1"/>
+                    <Num Num="2"/>
+                    <Num Num="0"/>
+                </Scp>
+                <Scp Scp="SKL_CANCEL_IF_NOTARGET" Client="NO" UseSleep="NO" Time="500"/>
+                <Scp Scp="TGT_SHOW_DROP_ITEM" Client="NO" UseSleep="NO" Time="500"/>
+                <Scp Scp="SKL_EFFECT_POS" Client="NO" UseSleep="NO" Time="790">
+                    <Str_Arg Str="F_cleric_clairvoyance_ground" Arg="1"/>
+                    <Pos Angle="0" Dist="0" PosType="8"/>
+                    <Num Num="0"/>
+                </Scp>
+            </EtcList>
+        </MainSkl>
+    </Skill>
+    <Skill Name="Oracle_CallOfDeities">
+        <EnableScripts>
+            <ToolScp Client="BOTH" Scp="SKL_CHECK_NEAR_PAD" UseSleep="NO">
+                <Str Str="CallOfDeities"/>
+                <Num Num="0"/>
+                <Num Num="200"/>
+                <Str Str="ALL"/>
+            </ToolScp>
+        </EnableScripts>
+        <MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+            <EtcList>
+                <Scp Client="YES" Scp="C_VOICE_SOUND" Time="0" UseSleep="NO">
+                    <Str Str="voice_cleric_m_callofdeities_shot"/>
+                    <Str Str="voice_cleric_callofdeities_shot"/>
+                </Scp>
+                <Scp Client="NO" Scp="MONSKL_CRE_PAD" Time="0" UseSleep="NO">
+                    <Pos Angle="0" Dist="0"/>
+                    <Angle Angle="0"/>
+                    <Str Str="CallOfDeities"/>
+                </Scp>
+                <Scp Client="NO" Scp="SKL_SET_TGT_FIELDMON" Time="500" UseSleep="NO">
+                    <Num FuncTxt="return 1 + obj.Level * 2;" Num="2" UseFunc="1"/>
+                </Scp>
+                <Scp Client="NO" Scp="TGT_SUMMON_TO_POS" Time="500" UseSleep="NO">
+                    <Pos Angle="-0.04083515" Dist="50.86911"/>
+                    <Num Num="30"/>
+                    <Str_Arg Arg="1" Str="F_cleric_callofdeities_ground"/>
+                    <Num Num="1"/>
+                    <Num FuncTxt="return obj.Level;" Num="0"/>
+                </Scp>
+            </EtcList>
+        </MainSkl>
+    </Skill>
+    <Skill Name="Oracle_DivineMight">
+        <MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+            <HitList>
+                <Frame Angle="0" AniTime="10199" Dist="0" ForceATK="0" HitCount="1" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" TermMax="0" TermMin="0" Time="9999" Type="FAN"/>
+            </HitList>
+            <EtcList>
+                <Scp Client="YES" Scp="C_SOUND" Time="0" UseSleep="NO">
+                    <Str Str="skl_cleric_heal_shot"/>
+                </Scp>
+                <Scp Client="YES" Scp="C_VOICE_SOUND" Time="0" UseSleep="NO">
+                    <Str Str="voice_cleric_m_divinemight_shot"/>
+                    <Str Str="voice_cleric_divinemight_shot"/>
+                </Scp>
+                <Scp Client="NO" Scp="SKL_BUFF" Time="0" UseSleep="NO">
+                    <Str Str="DivineMight_Buff" UseFunc="1" FuncTxt="local abilOracle23 = GetAbility(self, &apos;Oracle23&apos;); if abilOracle23 ~= nil and TryGetProp(abilOracle23, &apos;ActiveState&apos;) ==1 then return &apos;None&apos;; end return &apos;DivineMight_Buff&apos;"/>
+                    <Num FuncTxt="return obj.Level;" Num="1" UseFunc="1"/>
+                    <Num Num="0"/>
+                    <Num Num="60000"/>
+                    <Num Num="1"/>
+                    <Num Num="100"/>
+                    <Num Num="1"/>
+                </Scp>
+                <Scp Client="NO" Scp="MONSKL_CRE_PAD" Time="0" UseSleep="NO">
+                    <Pos Angle="0" Dist="0"/>
+                    <Angle Angle="0"/>
+                    <Str Str="Oracle_DivineMight"/>
+                </Scp>
+            </EtcList>
+        </MainSkl>
+    </Skill>
 </ToolSkill>

@@ -103,13 +103,13 @@ function EVENT_STAMP_TOUR_SET_PAGE(frame)
 		-- 미션 내용
 		local desc = GET_CHILD_RECURSIVELY(ctrlSet, 'desc');
 		local missiontext = dic.getTranslatedStr(TryGetProp(missionCls, "Desc"..i, ""));
-		local delimeter = string.find(missiontext,':')
+		local delimeter = string.find(missiontext,'::')
 
 		-- 툴팁으로 자세한 미션 내용 출력
 		if delimeter ~= nil then
 			local mainText = string.sub(missiontext,1,delimeter-1)
 			desc:SetTextByKey('value', mainText);
-			local subText = string.sub(missiontext,delimeter+1)
+			local subText = string.sub(missiontext,delimeter+2)
 			local tooltipText = string.format( "%s", subText);
 			desc:SetTextTooltip(tooltipText);
 			desc:EnableHitTest(1);
@@ -213,8 +213,12 @@ function EVENT_STAMP_TOUR_SET_PAGE(frame)
 				isHidden = EVENT_STAMP_IS_VALID_WEEK(weekNum) == false
 			elseif groupName == "EVENT_STAMP_TOUR_SUMMER" then
 				local time = frame:GetUserValue("OPEN_TIME")
-				time = imcTime.GetSysTimeByStr(time)
-				isHidden = EVENT_STAMP_IS_VALID_WEEK_SUMMER(weekNum,time) == false or EVENT_STAMP_IS_HIDDEN_SUMMER(accObj,(3 * currentpage) + i) == true
+				if time == "" then
+					isHidden = EVENT_STAMP_IS_VALID_WEEK_SUMMER(weekNum) == false or EVENT_STAMP_IS_HIDDEN_SUMMER(accObj,(3 * currentpage) + i) == true
+				else
+					time = imcTime.GetSysTimeByStr(time)
+					isHidden = EVENT_STAMP_IS_VALID_WEEK_SUMMER(weekNum, time) == false or EVENT_STAMP_IS_HIDDEN_SUMMER(accObj,(3 * currentpage) + i) == true
+				end				
 			end
 			
 			if isHidden == true then
@@ -225,6 +229,9 @@ function EVENT_STAMP_TOUR_SET_PAGE(frame)
 				helpBtn:SetEnable(0)
 				desc:SetTextByKey('value', ScpArgMsg("STAMP_TOUR_WEEK_MSG","week",weekNum));
 				desc:EnableHitTest(0);
+			end
+			if EVENT_STAMP_IS_HIDDEN_SUMMER(accObj,(3 * currentpage) + i) == true then
+				desc:SetTextByKey('value', ScpArgMsg("STAMP_TOUR_WEEK_HIDDEN_MSG","week",weekNum));
 			end
 		end
 	end

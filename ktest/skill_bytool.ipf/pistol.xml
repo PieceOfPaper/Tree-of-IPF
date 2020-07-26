@@ -75,6 +75,86 @@ end"/>
 				</ToolScp>
 			</ResultList>
 		</MainSkl>
+		<ByCondSkills>
+			<SubSkl>
+				<Cond>
+					<ToolScp Client="NO" Scp="SKL_SELECT_ACTIVE_ABIL" UseSleep="NO">
+                        <Str Str="Schwarzereiter27"/>
+                    </ToolScp>
+				</Cond>
+				<Skill ScrLock="None" JumpFlee="NO" MSPDToUsePos="0">
+					<EtcList>
+						<Scp Scp="C_FORCE_EFT" Client="YES_Time" UseSleep="NO" Time="100">
+							<Str_Arg Str="None" Arg="0.5"/>
+							<Str Str="None"/>
+							<Str_Arg Str="I_archer_pistol_atk_smoke" Arg="1"/>
+							<Str Str="arrow_blow"/>
+							<Str Str="DEAD"/>
+							<Num Num="300"/>
+							<Num Num="1"/>
+							<Num Num="0"/>
+							<Angle_Abs Angle="0"/>
+							<Num Num="0"/>
+							<Num Num="5"/>
+							<Num Num="2"/>
+							<Num Num="0"/>
+							<Num Num="1"/>
+							<Num Num="1"/>
+						</Scp>
+						<Scp Scp="C_EFFECT" Client="YES" UseSleep="NO" Time="200">
+							<Str_Arg Str="I_archer_pistol_atk" Arg="2"/>
+							<Str Str="Dummy_effect_pistol_pet" UseFunc="1" FuncTxt="if self == nil then
+		return 'Dummy_effect_pistol_pet'
+		end
+		local abilBuff = info.GetBuffByName(self:GetHandleVal(), &quot;Limacon_Buff&quot;)
+		if abilBuff ~= nil or SKL_CHECK_RIDING_COMPANION_C(self, obj) == 1 then
+		return 'Dummy_effect_pistol_pet';
+		else
+		return 'Dummy_effect_pns_bow_atk';
+		end"/>
+							<Num Num="0"/>
+						</Scp>
+						<Scp Scp="C_EFFECT" Client="YES" UseSleep="NO" Time="300">
+							<Str_Arg Str="I_archer_pistol_atk_smoke" Arg="1"/>
+							<Str Str="Dummy_effect_pistol_R"/>
+							<Num Num="0"/>
+						</Scp>
+						<Scp Scp="SKL_RUN_SCRIPT" Client="NO" UseSleep="NO" Time="0">
+							<Str Str="SCR_VIBORA_PISTOL_Pistol_Attack2"/>
+						</Scp>
+					</EtcList>
+					<ResultList>
+						<ToolScp Scp="S_R_SPEND_SP" Client="NO" UseSleep="NO">
+							<Num Num="0" UseFunc="1" FuncTxt="local value = 12; local lv = self.Lv local bylvCorrect = lv - 300 if bylvCorrect &lt; 0 then     bylvCorrect = bylvCorrect * 2.75 / 1000 elseif bylvCorrect >= 0 then     bylvCorrect = bylvCorrect * 1.25 / 1000 end value = value * (1 + bylvCorrect) local abilSchwarzereiter18 = GetAbility(self, 'Schwarzereiter18'); if abilSchwarzereiter18 ~= nil then value = value + 5; end return math.floor(value)"/>
+							<Str Str="None"/>
+							<Str Str="SCR_LIMACON_SPEND_SP"/>
+						</ToolScp>
+						<ToolScp Scp="S_R_SET_FORCE_DAMAGE" Client="NO" UseSleep="NO">
+							<Num Num="1"/>
+							<Num Num="1"/>
+							<Num Num="2"/>
+							<Str_Arg Str="I_archer_pistol_atk_wildshot" Arg="1"/>
+							<Str Str="arrow_cast"/>
+							<Str_Arg Str="I_archer_pistol_hit" Arg="1"/>
+							<Str Str="arrow_blow"/>
+							<Str Str="SLOW"/>
+							<Num Num="800"/>
+							<Num Num="1"/>
+							<Num Num="0"/>
+							<Angle_Abs Angle="0"/>
+							<Num Num="5"/>
+							<Num Num="10"/>
+							<Num Num="0"/>
+							<Num Num="2"/>
+							<Num Num="50"/>
+							<Num Num="0.1"/>
+							<Num Num="5"/>
+							<Num Num="40"/>
+						</ToolScp>
+					</ResultList>
+				</Skill>
+			</SubSkl>
+		</ByCondSkills>
 	</Skill>
 	<Skill Name="Pistol_Attack">
 		<MainSkl ScrLock="None" JumpFlee="NO" MSPDToUsePos="0" >

@@ -8698,6 +8698,7 @@ return monDir-87.5"/>
                     <Num Num="35"/>
                     <Num Num="2"/>
                     <Num Num="0"/>
+                    <Num Num="1"/>
                 </Scp>
                 <Anim Time="1200" Anim="skl2" Speed="1.5"/>
                 <Scp Scp="C_SOUND" Client="YES" UseSleep="NO" Time="1400">
@@ -8730,6 +8731,7 @@ return monDir-87.5"/>
                     <Num Num="35"/>
                     <Num Num="2"/>
                     <Num Num="0"/>
+                    <Num Num="1"/>
                 </Scp>
                 <Scp Scp="C_SOUND" Client="YES" UseSleep="NO" Time="2500">
                     <Str Str="boss_skl_eff_force_whoosh_1"/>
@@ -8773,6 +8775,11 @@ return monDir-87.5"/>
                     <Num Num="0"/>
                     <Num Num="1"/>
                     <Num Num="2"/>
+                    <Num Num="0"/>
+                    <Num Num="0"/>
+                    <Num Num="0"/>
+                    <Num Num="1"/>
+                    <Num Num="1"/>
                 </Scp>
                 <Scp Scp="SKL_HIT_SQUARE_ADJUSTMENT" Client="NO" UseSleep="NO" Time="3500">
                     <PosDist Angle="0" Dist="0"/>
@@ -8789,6 +8796,11 @@ return monDir-87.5"/>
                     <Num Num="0"/>
                     <Num Num="1"/>
                     <Num Num="2"/>
+                    <Num Num="0"/>
+                    <Num Num="0"/>
+                    <Num Num="0"/>
+                    <Num Num="1"/>
+                    <Num Num="1"/>
                 </Scp>
                 <Scp Scp="SKL_HIT_SQUARE_ADJUSTMENT" Client="NO" UseSleep="NO" Time="3600">
                     <PosDist Angle="0" Dist="0"/>
@@ -8805,6 +8817,11 @@ return monDir-87.5"/>
                     <Num Num="0"/>
                     <Num Num="1"/>
                     <Num Num="2"/>
+                    <Num Num="0"/>
+                    <Num Num="0"/>
+                    <Num Num="0"/>
+                    <Num Num="1"/>
+                    <Num Num="1"/>
                 </Scp>
                 <Scp Scp="C_SOUND" Client="YES" UseSleep="NO" Time="3600">
                     <Str Str="skl_eff_light_shot"/>
@@ -8824,6 +8841,11 @@ return monDir-87.5"/>
                     <Num Num="0"/>
                     <Num Num="1"/>
                     <Num Num="2"/>
+                    <Num Num="0"/>
+                    <Num Num="0"/>
+                    <Num Num="0"/>
+                    <Num Num="1"/>
+                    <Num Num="1"/>
                 </Scp>
                 <Scp Scp="SKL_HIT_SQUARE_ADJUSTMENT" Client="NO" UseSleep="NO" Time="3800">
                     <PosDist Angle="0" Dist="0"/>
@@ -8840,6 +8862,11 @@ return monDir-87.5"/>
                     <Num Num="0"/>
                     <Num Num="1"/>
                     <Num Num="2"/>
+                    <Num Num="0"/>
+                    <Num Num="0"/>
+                    <Num Num="0"/>
+                    <Num Num="1"/>
+                    <Num Num="1"/>
                 </Scp>
                 <Scp Scp="SKL_HIT_SQUARE_ADJUSTMENT" Client="NO" UseSleep="NO" Time="3900">
                     <PosDist Angle="0" Dist="0"/>
@@ -8856,6 +8883,11 @@ return monDir-87.5"/>
                     <Num Num="0"/>
                     <Num Num="1"/>
                     <Num Num="2"/>
+                    <Num Num="0"/>
+                    <Num Num="0"/>
+                    <Num Num="0"/>
+                    <Num Num="1"/>
+                    <Num Num="1"/>
                 </Scp>
                 <Scp Scp="C_SOUND" Client="YES" UseSleep="NO" Time="4100">
                     <Str Str="skl_eff_dark"/>
@@ -9639,6 +9671,7 @@ return monDir-87.5"/>
                     <Num Num="20"/>
                     <Num Num="1"/>
                     <Num Num="0"/>
+                    <Num Num="1"/>
                 </Scp>
                 <Scp Scp="MSL_BUCK" Client="NO" UseSleep="YES" Time="1500">
                     <Pos Angle="1.7278759" Dist="100"/>
@@ -9661,6 +9694,7 @@ return monDir-87.5"/>
                     <Num Num="20"/>
                     <Num Num="1"/>
                     <Num Num="0"/>
+                    <Num Num="1"/>
                 </Scp>
                 <Scp Scp="MSL_BUCK" Client="NO" UseSleep="YES" Time="1500">
                     <Pos Angle="1.7278759" Dist="100"/>
@@ -9683,6 +9717,7 @@ return monDir-87.5"/>
                     <Num Num="20"/>
                     <Num Num="1"/>
                     <Num Num="0"/>
+                    <Num Num="1"/>
                 </Scp>
                 <Scp Scp="MSL_BUCK" Client="NO" UseSleep="YES" Time="1500">
                     <Pos Angle="-1.3962634" Dist="70"/>
@@ -9705,6 +9740,7 @@ return monDir-87.5"/>
                     <Num Num="20"/>
                     <Num Num="1"/>
                     <Num Num="0"/>
+                    <Num Num="1"/>
                 </Scp>
                 <Scp Scp="MSL_FALL_MON" Client="NO" UseSleep="YES" TooltipScp="TOOLTIP_MSL_FALL" Time="1500">
                     <Str_Arg Str="I_force018_trail_ice2_800" Arg="1"/>
@@ -10037,6 +10073,29 @@ return monDir-87.5"/>
                 <Scp Scp="C_SOUND" Client="YES" UseSleep="NO" Time="0">
                     <Str Str="mon_voice_glacier_skl2_script"/>
                 </Scp>
+                <Scp Scp="MSL_BUCK" Client="NO" UseSleep="YES" Time="500">
+                    <Pos Angle="0" Dist="0"/>
+                    <Angle Angle="-3.1415927"/>
+                    <Num Num="3"/>
+                    <Num Num="40"/>
+                    <Num Num="120"/>
+                    <Num Num="0"/>
+                    <Num Num="0"/>
+                    <Num Num="1"/>
+                    <Num Num="0"/>
+                    <Num Num="150"/>
+                    <Num Num="60"/>
+                    <Num Num="1.1"/>
+                    <Str_Arg Str="I_light006_blue##1" Arg="5"/>
+                    <Num Num="0"/>
+                    <Num Num="0"/>
+                    <Num Num="1"/>
+                    <Num Num="0"/>
+                    <Num Num="20"/>
+                    <Num Num="1"/>
+                    <Num Num="0"/>
+                    <Num Num="1"/>
+                </Scp>
                 <Scp Scp="C_SOUND" Client="YES" UseSleep="NO" Time="600">
                     <Str Str="skl_eff_atk_move_l_16"/>
                 </Scp>
@@ -10061,28 +10120,7 @@ return monDir-87.5"/>
                     <Num Num="20"/>
                     <Num Num="1"/>
                     <Num Num="0"/>
-                </Scp>
-                <Scp Scp="MSL_BUCK" Client="NO" UseSleep="YES" Time="600">
-                    <Pos Angle="0" Dist="0"/>
-                    <Angle Angle="1.5707964"/>
-                    <Num Num="3"/>
-                    <Num Num="40"/>
-                    <Num Num="120"/>
-                    <Num Num="0"/>
-                    <Num Num="0"/>
                     <Num Num="1"/>
-                    <Num Num="0"/>
-                    <Num Num="150"/>
-                    <Num Num="60"/>
-                    <Num Num="1.1"/>
-                    <Str_Arg Str="I_light006_blue##1" Arg="5"/>
-                    <Num Num="0"/>
-                    <Num Num="0"/>
-                    <Num Num="1"/>
-                    <Num Num="0"/>
-                    <Num Num="20"/>
-                    <Num Num="1"/>
-                    <Num Num="0"/>
                 </Scp>
                 <Scp Scp="MSL_BUCK" Client="NO" UseSleep="YES" Time="600">
                     <Pos Angle="0" Dist="0"/>
@@ -10105,10 +10143,11 @@ return monDir-87.5"/>
                     <Num Num="20"/>
                     <Num Num="1"/>
                     <Num Num="0"/>
+                    <Num Num="1"/>
                 </Scp>
-                <Scp Scp="MSL_BUCK" Client="NO" UseSleep="YES" Time="600">
+                <Scp Scp="MSL_BUCK" Client="NO" UseSleep="YES" Time="700">
                     <Pos Angle="0" Dist="0"/>
-                    <Angle Angle="-3.1415927"/>
+                    <Angle Angle="1.5707964"/>
                     <Num Num="3"/>
                     <Num Num="40"/>
                     <Num Num="120"/>
@@ -10127,6 +10166,7 @@ return monDir-87.5"/>
                     <Num Num="20"/>
                     <Num Num="1"/>
                     <Num Num="0"/>
+                    <Num Num="1"/>
                 </Scp>
                 <Scp Scp="C_SOUND" Client="YES" UseSleep="NO" Time="700">
                     <Str Str="skl_eff_debuff_2"/>

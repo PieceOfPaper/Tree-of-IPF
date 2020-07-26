@@ -25,11 +25,11 @@
         </MainSkl>
     </Skill>
     <Skill Name="Templer_AdvancedOrders">
-		<EnableScripts>
-			<ToolScp Client="BOTH" Scp="SKL_CHECK_USE_TEMPLER_SKILL" UseSleep="NO">
-				<Str Str="Templar8"/>
-			</ToolScp>
-		</EnableScripts>
+        <EnableScripts>
+            <ToolScp Client="BOTH" Scp="SKL_CHECK_USE_TEMPLER_SKILL" UseSleep="NO">
+                <Str Str="Templar8"/>
+            </ToolScp>
+        </EnableScripts>
         <MainSkl ScrLock="None" JumpFlee="NO" MSPDToUsePos="0">
             <HitList>
                 <Frame Type="FAN" Time="9799" HitCount="1" TermMin="0" TermMax="0" PosType="0" Dist="0" RandDist="0" RandomPerHit="0" Angle="0" AniTime="9999" RotAngle="0" ForceATK="0"/>
@@ -228,18 +228,17 @@ end
                 <Scp Client="NO" LoopTime="1000" Scp="SKL_CONSUME_SP" Time="500" UseSleep="NO">
                     <Num FuncTxt="local value = 42 + obj.Level*2 return value;" Num="9" UseFunc="1"/>
                 </Scp>
-
                 <Scp Client="NO" Scp="SKL_TGT_REMOVE_DEBUFF" Time="550" UseSleep="NO">
                     <Str FuncTxt="local func_name = 'get_remove_debuff_tooltip_' .. TryGetProp(obj, 'ClassName', 'None')
                         local func = _G[func_name]
                         if func == nil then return end
-                            return func(obj.Level)" Str="0" UseFunc="1"/>       
-                        <Num FuncTxt="return TryGetProp(obj, 'MaxR', 100)"  UseFunc="1"/>
-                        <Num FuncTxt="local x, y, z = GetPos(self) return x"  UseFunc="1"/>
-                        <Num FuncTxt="local x, y, z = GetPos(self) return y"  UseFunc="1"/>
-                        <Num FuncTxt="local x, y, z = GetPos(self) return z"  UseFunc="1"/>             
+                            return func(obj.Level)" Str="0" UseFunc="1"/>
+                    <Num FuncTxt="return TryGetProp(obj, 'MaxR', 100)" UseFunc="1"/>
+                    <Num FuncTxt="local x, y, z = GetPos(self) return x" UseFunc="1"/>
+                    <Num FuncTxt="local x, y, z = GetPos(self) return y" UseFunc="1"/>
+                    <Num FuncTxt="local x, y, z = GetPos(self) return z" UseFunc="1"/>
                 </Scp>
-            </EtcList>            
+            </EtcList>
         </MainSkl>
         <ByCondSkills>
             <SubSkl>
@@ -400,36 +399,36 @@ end
     </Skill>
     <Skill Name="Templer_BuildForge">
         <EnableScripts>
-            <ToolScp Client="NO" Scp="SKL_CHECK_BY_SCRIPT" UseSleep="NO">
+            <ToolScp Scp="SKL_CHECK_BY_SCRIPT" Client="NO" UseSleep="NO">
                 <Str Str="ENABLE_FORGE_CHECK"/>
             </ToolScp>
         </EnableScripts>
-        <MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+        <MainSkl ScrLock="None" JumpFlee="NO" MSPDToUsePos="0">
             <HitList>
-                <Frame Angle="0" AniTime="9999" Dist="0" ForceATK="0" HitCount="1" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" TermMax="0" TermMin="0" Time="9799" Type="FAN"/>
+                <Frame Type="FAN" Time="9799" HitCount="1" TermMin="0" TermMax="0" PosType="0" Dist="0" RandDist="0" RandomPerHit="0" Angle="0" AniTime="9999" RotAngle="0" ForceATK="0" ScriptIndex="0" ScriptName="" SkillType="0"/>
             </HitList>
             <EtcList>
-                <Scp Client="NO" Scp="MONSKL_KILL_FOL_EXPROP" Time="0" UseSleep="NO">
+                <Scp Scp="MONSKL_KILL_FOL_EXPROP" Client="NO" UseSleep="NO" Time="0">
                     <Str Str="EXIST_MON"/>
                     <Num Num="1"/>
                 </Scp>
-                <Scp Client="NO" Scp="MONSKL_CRE_MON_SCR" Time="100" UseSleep="NO">
+                <Scp Scp="MONSKL_CRE_MON_SCR" Client="NO" UseSleep="NO" Time="100">
                     <Str Str="Forge"/>
                     <Pos Angle="-0.070860364" Dist="13.83"/>
                     <Angle Angle="0"/>
                     <Str Str="포지"/>
                     <Str Str="PC_Summon_Holding_Forge"/>
                     <Num Num="0"/>
-                    <Num FuncTxt="local value = 50 + obj.Level * 2; if IsPVPServer(self) == 1 then return value * 0.5 else  return value end" Num="90" UseFunc="1"/>
+                    <Num Num="90" UseFunc="1" FuncTxt="local value = 50 + obj.Level * 2; if IsPVPServer(self) == 1 then return value * 0.5 else  return value end"/>
                     <Str Str="None"/>
                     <MonProp/>
                     <Str Str="FORGE_MON"/>
                 </Scp>
-                <Scp Client="NO" Scp="SKL_SET_TGT_EXPROP_RECENT" Time="120" UseSleep="NO">
+                <Scp Scp="SKL_SET_TGT_EXPROP_RECENT" Client="NO" UseSleep="NO" Time="120">
                     <Str Str="EXIST_MON"/>
                     <Num Num="1"/>
                 </Scp>
-                <Scp Client="YES" Scp="MONSKL_C_STOP_ANIM" Time="1700" UseSleep="NO"/>
+                <Scp Scp="MONSKL_C_STOP_ANIM" Client="YES" UseSleep="NO" Time="1700"/>
             </EtcList>
         </MainSkl>
     </Skill>
@@ -482,11 +481,11 @@ end
         </MainSkl>
     </Skill>
     <Skill Name="Templer_BattleOrders">
-		<EnableScripts>
-			<ToolScp Client="BOTH" Scp="SKL_CHECK_USE_TEMPLER_SKILL" UseSleep="NO">
-				<Str Str="Templar8"/>
-			</ToolScp>
-		</EnableScripts>
+        <EnableScripts>
+            <ToolScp Client="BOTH" Scp="SKL_CHECK_USE_TEMPLER_SKILL" UseSleep="NO">
+                <Str Str="Templar8"/>
+            </ToolScp>
+        </EnableScripts>
         <MainSkl ScrLock="None" JumpFlee="NO" MSPDToUsePos="0">
             <HitList>
                 <Frame Type="FAN" Time="9799" HitCount="1" TermMin="0" TermMax="0" PosType="0" Dist="0" RandDist="0" RandomPerHit="0" Angle="0" AniTime="9999" RotAngle="0" ForceATK="0"/>

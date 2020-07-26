@@ -36,7 +36,7 @@
 		<!-- OPTION INFO -->
 		<groupbox name="info_bg" rect="0 0 498 625" margin="0 88 35 0" layout_gravity="right top" draw="true" skin="test_frame_midle" scrollbar="false"/>	
 		<groupbox name="optioninfo" rect="0 0 490 200" margin="0 98 35 0" layout_gravity="right top" draw="false" scrollbar="false"/>
-		<richtext name="optioninfo_lable" parent="optioninfo" rect="0 0 350 30" margin="5 0 0 0" layout_gravity="left top" caption="{@st43b}{s20}개인 하우징 공개 옵션" textalign="left center" resizebytext="false"/>
+		<richtext name="optioninfo_lable" parent="optioninfo" rect="0 0 470 30" margin="5 0 0 0" layout_gravity="left top" caption="{@st43b}{s20}개인 하우징 공개 옵션" textalign="left center" resizebytext="false"/>
 		<labelline name="labelline5" parent="optioninfo" rect="0 0 488 2" margin="0 37 0 0" layout_gravity="center top" skin="labelline_def_4"/>
 		<groupbox name="optioninfo_list" parent="optioninfo" rect="0 0 470 150" margin="0 48 10 0" layout_gravity="right top" draw="false" scrollbar="true"/>
 		<!-- POINT INFO -->

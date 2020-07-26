@@ -52,7 +52,12 @@
             </EtcList>
             <ResultList>
                 <ToolScp Scp="S_R_TGTBUFF" Client="NO" UseSleep="NO">
-                    <Str Str="Luka_Debuff"/>
+                    <Str Str="None" UseFunc="1" FuncTxt="local value = 'Luka_Debuff'
+local abil = GetAbility(self, 'Rangda15')
+if abil ~= nil then
+    value = 'None'
+end
+return value"/>
                     <Num Num="1"/>
                     <Num Num="0"/>
                     <Num Num="10000" UseFunc="1" FuncTxt="local addTime = 0;
@@ -74,6 +79,60 @@ return 10000 + addTime * 1000"/>
             </ResultList>
         </MainSkl>
         <ByCondSkills>
+            <SubSkl>
+                <Cond>
+                    <ToolScp Scp="SKL_SELECT_ABIL" Client="NO" UseSleep="NO">
+                        <Str Str="Rangda15"/>
+                    </ToolScp>
+                </Cond>
+                <Skill ScrLock="None" JumpFlee="NO" MSPDToUsePos="0">
+                    <HitList>
+                        <Frame Type="SQUARE" Time="50" HitCount="1" TermMin="0" TermMax="0" PosType="0" Dist="0" RandDist="0" RandomPerHit="0" Angle="0" Width="50" Length="125" SklAngle="0.17453292" AniTime="250" RotAngle="0" ForceATK="0" ScriptIndex="0" ScriptName="" SkillType="0"/>
+                    </HitList>
+                    <EtcList>
+                        <Scp Scp="MONSKL_C_PLAY_ANIM" Client="YES" UseSleep="NO" Time="0">
+                            <Str Str="None" UseFunc="1" FuncTxt="
+                            local value = 'SKL_LUKA_DAGGER'
+                            local speed = 1
+                            local leftHand = session.GetEquipItemBySpot(item.GetEquipSpotNum('LH'));
+                            local equipItemObj = GetIES(leftHand:GetObject());
+                            if equipItemObj.ClassType == 'Pistol' then
+                                value = 'SKL_LUKA_PISTOL'
+                                speed = 1.3
+                            end
+                            return value, speed"/>
+                            <Num Num="1"/>
+                            <Num Num="1"/>
+                            <Num Num="0"/>
+                        </Scp>
+                        <Scp Scp="C_EFFECT" Client="YES" UseSleep="NO" Time="100">
+                            <Str_Arg Str="I_scout_luka_dagger" UseFunc="1" FuncTxt="
+                            local value = 'I_scout_luka_dagger'
+                            local scale = 1.5
+                            local leftHand = session.GetEquipItemBySpot(item.GetEquipSpotNum('LH'));
+                            local equipItemObj = GetIES(leftHand:GetObject());
+                            if equipItemObj.ClassType == 'Pistol' then
+                                value = 'I_scout_luka_gun'
+                                scale = 2.5
+                            end
+                            return value, scale;
+
+" Arg="1"/>
+                            <Str_Arg Str="F_explosion001_dark" UseFunc="1" FuncTxt="
+                            local value = 'Dummy_florysh_weapon_0'
+                            local leftHand = session.GetEquipItemBySpot(item.GetEquipSpotNum('LH'));
+                            local equipItemObj = GetIES(leftHand:GetObject());
+                            if equipItemObj.ClassType == 'Pistol' then
+                                value = 'Dummy_effect_pistolshot'
+                            end
+                            return value;
+
+" Arg="1"/>
+                            <Num Num="0"/>
+                        </Scp>
+                    </EtcList>
+                </Skill>
+            </SubSkl>
             <SubSkl>
                 <Cond>
                     <ToolScp Scp="SKL_SELECT_EQUIP_WEAPON" Client="NO" UseSleep="NO">
@@ -120,7 +179,12 @@ return 10000 + addTime * 1000"/>
                     </EtcList>
                     <ResultList>
                         <ToolScp Scp="S_R_TGTBUFF" Client="NO" UseSleep="NO">
-                            <Str Str="Luka_Debuff"/>
+                            <Str Str="Luka_Debuff" UseFunc="1" FuncTxt="local value = 'Luka_Debuff'
+local abil = GetAbility(self, 'Rangda15')
+if abil ~= nil then
+    value = 'None'
+end
+return value"/>
                             <Num Num="1"/>
                             <Num Num="0"/>
                             <Num Num="10000" UseFunc="1" FuncTxt="local addTime = 0;

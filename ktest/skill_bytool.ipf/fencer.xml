@@ -16,15 +16,15 @@
                     <Str Str="voice_atk_short_war_f"/>
                 </Scp>
             </EtcList>
-          <ResultList>
-            <ToolScp Client="NO" Scp="S_R_TGT_Decrease_heal_debuff" UseSleep="NO">
-              <Str FuncTxt="local func_name = 'get_decrease_heal_debuff_tooltip_' .. TryGetProp(skill, 'ClassName', 'None')
+            <ResultList>
+                <ToolScp Client="NO" Scp="S_R_TGT_Decrease_heal_debuff" UseSleep="NO">
+                    <Str FuncTxt="local func_name = 'get_decrease_heal_debuff_tooltip_' .. TryGetProp(skill, 'ClassName', 'None')
                local func = _G[func_name]
                if func == nil then return end
                return func(skill.Level)" Str="0" UseFunc="1"/>
-            </ToolScp>              
+                </ToolScp>
             </ResultList>
-        </MainSkl>          
+        </MainSkl>
     </Skill>
     <Skill Name="Fencer_AttaqueAuFer">
         <MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
@@ -140,11 +140,11 @@
             </EtcList>
             <ResultList>
                 <ToolScp Client="NO" Scp="S_R_TGT_REMOVE_BUFF" UseSleep="NO">
-                <Str FuncTxt="local func_name = 'get_remove_buff_tooltip_' .. TryGetProp(skill, 'ClassName', 'None')
+                    <Str FuncTxt="local func_name = 'get_remove_buff_tooltip_' .. TryGetProp(skill, 'ClassName', 'None')
                local func = _G[func_name]
                if func == nil then return end
                return func(skill.Level)" Str="0" UseFunc="1"/>
-              </ToolScp>
+                </ToolScp>
                 <ToolScp Client="NO" Scp="S_R_TGTBUFF" UseSleep="NO">
                     <Str Str="BalestraFente_Debuff"/>
                     <Num FuncTxt="return skill.Level" Num="1" UseFunc="1"/>
@@ -370,14 +370,14 @@
     <Skill Name="Fencer_SeptEtoiles">
         <MainSkl ScrLock="None" JumpFlee="NO" MSPDToUsePos="0">
             <HitList>
-                <Frame Type="SQUARE" Time="300" HitCount="1" TermMin="0" TermMax="0" PosType="0" Dist="0" RandDist="0" RandomPerHit="0" Angle="0" Width="20" Length="68" SklAngle="0.17453292" AniTime="500" RotAngle="0" ForceATK="0"/>
-                <Frame Type="SQUARE" Time="650" HitCount="1" TermMin="0" TermMax="0" PosType="0" Dist="0" RandDist="0" RandomPerHit="0" Angle="0" Width="20" Length="68" SklAngle="0.17453292" AniTime="850" RotAngle="0" ForceATK="0"/>
-                <Frame Type="SQUARE" Time="800" HitCount="1" TermMin="0" TermMax="0" PosType="0" Dist="0" RandDist="0" RandomPerHit="0" Angle="0" Width="20" Length="68" SklAngle="0.17453292" AniTime="1000" RotAngle="0" ForceATK="0"/>
-                <Frame Type="SQUARE" Time="900" HitCount="1" TermMin="0" TermMax="0" PosType="0" Dist="0" RandDist="0" RandomPerHit="0" Angle="0" Width="20" Length="68" SklAngle="0.17453292" AniTime="1100" RotAngle="0" ForceATK="0"/>
-                <Frame Type="SQUARE" Time="1000" HitCount="1" TermMin="0" TermMax="0" PosType="0" Dist="0" RandDist="0" RandomPerHit="0" Angle="0" Width="20" Length="68" SklAngle="0.17453292" AniTime="1200" RotAngle="0" ForceATK="0"/>
-                <Frame Type="SQUARE" Time="1100" HitCount="1" TermMin="0" TermMax="0" PosType="0" Dist="0" RandDist="0" RandomPerHit="0" Angle="0" Width="20" Length="68" SklAngle="0.17453292" AniTime="1300" RotAngle="0" ForceATK="0"/>
-                <Frame Type="SQUARE" Time="1200" HitCount="1" TermMin="0" TermMax="0" PosType="0" Dist="0" RandDist="0" RandomPerHit="0" Angle="0" Width="20" Length="68" SklAngle="0.17453292" AniTime="1400" RotAngle="0" ForceATK="0"/>
-                <Frame Type="SQUARE" Time="1300" HitCount="1" TermMin="0" TermMax="0" PosType="0" Dist="0" RandDist="0" RandomPerHit="0" Angle="0" Width="20" Length="68" SklAngle="0.17453292" AniTime="1500" RotAngle="0" ForceATK="0"/>
+                <Frame Type="SQUARE" Time="300" HitCount="1" TermMin="0" TermMax="0" PosType="0" Dist="0" RandDist="0" RandomPerHit="0" Angle="0" Width="20" Length="68" SklAngle="0.17453292" AniTime="500" RotAngle="0" ForceATK="0" ScriptIndex="0" ScriptName="" SkillType="0"/>
+                <Frame Type="SQUARE" Time="650" HitCount="1" TermMin="0" TermMax="0" PosType="0" Dist="0" RandDist="0" RandomPerHit="0" Angle="0" Width="20" Length="68" SklAngle="0.17453292" AniTime="850" RotAngle="0" ForceATK="0" ScriptIndex="0" ScriptName="" SkillType="0"/>
+                <Frame Type="SQUARE" Time="800" HitCount="1" TermMin="0" TermMax="0" PosType="0" Dist="0" RandDist="0" RandomPerHit="0" Angle="0" Width="20" Length="68" SklAngle="0.17453292" AniTime="1000" RotAngle="0" ForceATK="0" ScriptIndex="0" ScriptName="" SkillType="0"/>
+                <Frame Type="SQUARE" Time="900" HitCount="1" TermMin="0" TermMax="0" PosType="0" Dist="0" RandDist="0" RandomPerHit="0" Angle="0" Width="20" Length="68" SklAngle="0.17453292" AniTime="1100" RotAngle="0" ForceATK="0" ScriptIndex="0" ScriptName="" SkillType="0"/>
+                <Frame Type="SQUARE" Time="1000" HitCount="1" TermMin="0" TermMax="0" PosType="0" Dist="0" RandDist="0" RandomPerHit="0" Angle="0" Width="20" Length="68" SklAngle="0.17453292" AniTime="1200" RotAngle="0" ForceATK="0" ScriptIndex="0" ScriptName="" SkillType="0"/>
+                <Frame Type="SQUARE" Time="1100" HitCount="1" TermMin="0" TermMax="0" PosType="0" Dist="0" RandDist="0" RandomPerHit="0" Angle="0" Width="20" Length="68" SklAngle="0.17453292" AniTime="1300" RotAngle="0" ForceATK="0" ScriptIndex="0" ScriptName="" SkillType="0"/>
+                <Frame Type="SQUARE" Time="1200" HitCount="1" TermMin="0" TermMax="0" PosType="0" Dist="0" RandDist="0" RandomPerHit="0" Angle="0" Width="20" Length="68" SklAngle="0.17453292" AniTime="1400" RotAngle="0" ForceATK="0" ScriptIndex="0" ScriptName="" SkillType="0"/>
+                <Frame Type="SQUARE" Time="1300" HitCount="1" TermMin="0" TermMax="0" PosType="0" Dist="0" RandDist="0" RandomPerHit="0" Angle="0" Width="20" Length="68" SklAngle="0.17453292" AniTime="1500" RotAngle="0" ForceATK="0" ScriptIndex="0" ScriptName="" SkillType="0"/>
             </HitList>
             <EtcList>
                 <Scp Scp="MONSKL_C_PLAY_ANIM" Client="YES" UseSleep="NO" Time="0">

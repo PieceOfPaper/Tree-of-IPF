@@ -486,7 +486,11 @@ function BARRACK_GET_INDUN_MAX_ENTERANCE_COUNT(resetGroupID)
             end
         end
 
-        return contentsCls.EnterableCount
+        local ret = contentsCls.EnterableCount
+        if ret == 0 then
+            ret = "{img infinity_text 20 10}"
+        end
+        return ret
 	else
 		local indunClsList, cnt = GetClassList('Indun');
 		local indunCls = nil;

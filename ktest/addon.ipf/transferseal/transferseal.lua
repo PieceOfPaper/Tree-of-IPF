@@ -88,9 +88,11 @@ function OPEN_TRANSFER_SEAL(frame)
 end
 
 function CLOSE_TRANSFER_SEAL(frame)
+	if ui.CheckHoldedUI() == true then
+		return;
+	end
+	
 	INVENTORY_SET_CUSTOM_RBTNDOWN("None");
-	control.DialogOk();
-
     frame:ShowWindow(0);
 end
 
@@ -101,6 +103,7 @@ function TRANSFER_SEAL_UI_RESET()
 
     local desc_slot = GET_CHILD_RECURSIVELY(frame, "desc_slot");
     desc_slot:ClearIcon();
+	desc_slot:EnableHitTest(0);
 
     local src_slot = GET_CHILD_RECURSIVELY(frame, "src_slot");
     src_slot:ClearIcon();
@@ -198,10 +201,14 @@ function TRANSFER_SEAL_SRC_REG(guid)
     src_slot_img:ShowWindow(0);
     
     local itemCls = GetClass("Item", transferName);
-    local desc_slot = GET_CHILD_RECURSIVELY(frame, "desc_slot");
-    desc_slot:EnableHitTest(1);
-    SET_SLOT_ITEM_CLS(desc_slot, itemCls);
-    
+	local desc_slot = GET_CHILD_RECURSIVELY(frame, "desc_slot");
+	desc_slot:EnableHitTest(1);
+	SET_SLOT_IMG(desc_slot, itemCls.Icon);
+
+	local ctrl = desc_slot:GetIcon();
+    SET_ITEM_TOOLTIP_TYPE(ctrl, itemCls.ClassID);
+	ctrl:SetTooltipArg("TransferSeal", itemCls.ClassID, guid);
+
     local fullname = string.format("+%d %s", curLv, itemCls.Name);
     local desc_item_text = GET_CHILD_RECURSIVELY(frame, "desc_item_text");
     desc_item_text:ShowWindow(1);    

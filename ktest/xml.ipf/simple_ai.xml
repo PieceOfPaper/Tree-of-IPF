@@ -5083,9 +5083,7 @@
 	</AI>
 	<AI Name="D_UNDERAQUEDUCT_BOSS_SKILL_DESTROY_Gimmick_AI" ActiveMessageMapInBattle="1">
 		<List>
-			<ToolScp Scp="SAI_FUNC_DIRECT" Client="NO" UseSleep="NO">
-				<Str Str="SCR_D_UNDERAQUEDUCT_BOSS_SKILL_DESTROY_SAFE"/>
-			</ToolScp>
+			<ToolScp Scp="SAI_FUNC_DIRECT" Client="NO" UseSleep="NO"/>
 		</List>
 	</AI>
 	<AI Name="D_UNDERAQUEDUCT_BOSS_TIME_OVER_AI" UpdateMS="1000" ActiveMessageMapInBattle="1">
@@ -10098,32 +10096,32 @@
 			</ToolScp>
 		</EnterList>
 	</AI>
-    <AI Name="F_TABLELAND_28_2_RAID_10_CRU_MINI_AI_01" UpdateMS="3000" ActiveMessageMapInBattle="1">
-        <List>
-            <ToolScp Scp="S_AI_EFFECT" Client="NO" UseSleep="NO">
-                <Num Num="0"/>
-                <Str_Arg Str="F_smoke180_dark" Arg="1"/>
-                <Str Str="TOP"/>
-            </ToolScp>
-            <ToolScp Scp="S_AI_EFFECT" Client="NO" UseSleep="NO">
-                <Num Num="0"/>
-                <Str_Arg Str="F_explosion001_dark_Low" Arg="1"/>
-                <Str Str="TOP"/>
-            </ToolScp>
-        </List>
-        <StartList>
-            <ToolScp Scp="SAI_FUNC_DIRECT" Client="NO" UseSleep="NO">
-                <Str Str="F_TABLELAND_28_2_RAID_10_CRU_MINI_AI_01"/>
-            </ToolScp>
-        </StartList>
-    </AI>
-    <AI Name="F_TABLELAND_28_2_RAID_10_MINI_MON_AI" ActiveMessageMapInBattle="1">
-        <StartList>
-            <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO" CondFunc="">
-                <Num Num="1000"/>
-            </ToolScp>
-        </StartList>
-    </AI>
+	<AI Name="F_TABLELAND_28_2_RAID_10_CRU_MINI_AI_01" UpdateMS="3000" ActiveMessageMapInBattle="1">
+		<List>
+			<ToolScp Scp="S_AI_EFFECT" Client="NO" UseSleep="NO">
+				<Num Num="0"/>
+				<Str_Arg Str="F_smoke180_dark" Arg="1"/>
+				<Str Str="TOP"/>
+			</ToolScp>
+			<ToolScp Scp="S_AI_EFFECT" Client="NO" UseSleep="NO">
+				<Num Num="0"/>
+				<Str_Arg Str="F_explosion001_dark_Low" Arg="1"/>
+				<Str Str="TOP"/>
+			</ToolScp>
+		</List>
+		<StartList>
+			<ToolScp Scp="SAI_FUNC_DIRECT" Client="NO" UseSleep="NO">
+				<Str Str="F_TABLELAND_28_2_RAID_10_CRU_MINI_AI_01"/>
+			</ToolScp>
+		</StartList>
+	</AI>
+	<AI Name="F_TABLELAND_28_2_RAID_10_MINI_MON_AI" ActiveMessageMapInBattle="1">
+		<StartList>
+			<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO" CondFunc="">
+				<Num Num="1000"/>
+			</ToolScp>
+		</StartList>
+	</AI>
 	<AI Name="FieldRift_Ballist_Atk" ActiveMessageMapInBattle="1">
 		<List>
 			<ToolScp Scp="S_AI_ATTACK_NEAR_MAXHATECOUNT_CHECK" Client="NO" UseSleep="NO">
@@ -10660,21 +10658,21 @@
 		</StartList>
 	</AI>
 	<AI Name="GM_BK_Reigning_1" ActiveMessageMapInBattle="1">
-        <List>
-            <ToolScp Scp="S_AI_ATTACK_NEAR_MAXHATECOUNT_CHECK" Client="NO" UseSleep="NO">
-                <Num Num="1000"/>
-            </ToolScp>
-            <ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
-                <Str Str="GM_MGAME_BORUTA_SCREAM_DEAD_COUNT"/>
-            </ToolScp>
-        </List>
-        <StartList>
-            <ToolScp Scp="S_AI_SET_TENDENCY" Client="NO" UseSleep="NO">
-                <Str Str="Attack"/>
-            </ToolScp>
-        </StartList>
-    </AI>
-    <AI Name="GM_D_CASTLE_GIMMICK2_CHECK" UpdateMS="1000" ActiveMessageMapInBattle="1">
+		<List>
+			<ToolScp Scp="S_AI_ATTACK_NEAR_MAXHATECOUNT_CHECK" Client="NO" UseSleep="NO">
+				<Num Num="1000"/>
+			</ToolScp>
+			<ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+				<Str Str="GM_MGAME_BORUTA_SCREAM_DEAD_COUNT"/>
+			</ToolScp>
+		</List>
+		<StartList>
+			<ToolScp Scp="S_AI_SET_TENDENCY" Client="NO" UseSleep="NO">
+				<Str Str="Attack"/>
+			</ToolScp>
+		</StartList>
+	</AI>
+	<AI Name="GM_D_CASTLE_GIMMICK2_CHECK" UpdateMS="1000" ActiveMessageMapInBattle="1">
 		<List>
 			<ToolScp Scp="SAI_FUNC_DIRECT" Client="NO" UseSleep="NO">
 				<Str Str="GM_CASTLE_01_GIMMICK2_BUFF_ADD"/>
@@ -12647,7 +12645,6 @@
             <ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
                 <Str Str="SCR_EVENT_FLEX_BOX_NPC_AI_BORN"/>
             </ToolScp>
-            <ToolScp Scp="EnableAIOutOfPC" Client="NO" UseSleep="NO"/>
         </StartList>
         <List>
             <ToolScp Scp="SAI_FUNC_DIRECT" Client="NO" UseSleep="NO">
@@ -24052,19 +24049,19 @@ if self.HP == 0 then return 1; else return 0; end;">
 			</ToolScp>
 		</StartList>
 	</AI>
-    <AI Name="WARPULIS_SUMMON_CORE" ActiveMessageMapInBattle="1">
-        <List>
-            <ToolScp Scp="S_AI_CUSTOM_SCRIPT" Client="NO" UseSleep="YES">
-                <Str Str="SCR_WARPULIS_SUMMON_CORE_SIMPLE_AI"/>
-                <Num Num="0"/>
-            </ToolScp>
-        </List>
-        <EnterList>
-            <ToolScp Scp="SAI_DEAD_FUNC2_DIRECT" Client="NO" UseSleep="NO">
-                <Str Str="SCR_WARPULIS_SUMMON_CORE_ENTER"/>
-            </ToolScp>
-        </EnterList>
-    </AI>
+	<AI Name="WARPULIS_SUMMON_CORE" ActiveMessageMapInBattle="1">
+		<List>
+			<ToolScp Scp="S_AI_CUSTOM_SCRIPT" Client="NO" UseSleep="YES">
+				<Str Str="SCR_WARPULIS_SUMMON_CORE_SIMPLE_AI"/>
+				<Num Num="0"/>
+			</ToolScp>
+		</List>
+		<EnterList>
+			<ToolScp Scp="SAI_DEAD_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+				<Str Str="SCR_WARPULIS_SUMMON_CORE_ENTER"/>
+			</ToolScp>
+		</EnterList>
+	</AI>
 	<AI Name="WARP_1101_TO_WARP_1102" UpdateMS="1200" ActiveMessageMapInBattle="1">
 		<List>
 			<ToolScp Scp="SAI_FUNC_DIRECT" Client="NO" UseSleep="NO">
@@ -24776,6 +24773,13 @@ if self.HP == 0 then return 1; else return 0; end;">
 		</List>
 	</AI>
 	<AI Name="companion_pet_policedog" ActiveMessageMapInBattle="1">
+		<List>
+			<ToolScp Scp="SAI_FUNC2_DIRECT_SLEEP" Client="NO" UseSleep="YES">
+				<Str Str="PET_LOOP_AI"/>
+			</ToolScp>
+		</List>
+	</AI>
+	<AI Name="companion_pet_cadet_armadillo" ActiveMessageMapInBattle="1">
 		<List>
 			<ToolScp Scp="SAI_FUNC2_DIRECT_SLEEP" Client="NO" UseSleep="YES">
 				<Str Str="PET_LOOP_AI"/>

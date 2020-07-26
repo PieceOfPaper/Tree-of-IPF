@@ -211,7 +211,7 @@ function INIT_LANGUAGE_CONFIG(frame)
 	local selIndex = 0;
 	local cnt = option.GetNumCountry();
 	for i = 0 , cnt - 1 do
-		local lanUIString = option.GetPossibleCountryUIName(i);
+		local lanUIString =  string.format("{@st42b}%s", option.GetPossibleCountryUIName(i));
 		local NationGroup = GetServerNation();
 		if (lanUIString ~= "kr") then 
 			if NationGroup == "GLOBAL" then

@@ -105,6 +105,9 @@
                             </ToolScp>
                         </condList>
                         <execList>
+                            <ToolScp Scp="MGAME_EVT_EXEC_SET_BGM" Client="NO" UseSleep="NO">
+                                <Str Str="raid_shadow_trans"/>
+                            </ToolScp>
                             <ToolScp Scp="MGAME_EXEC_RUNSCRIPT" Client="NO" UseSleep="NO">
                                 <Str Str="SCR_SHADOW_RAID_SLEEP"/>
                             </ToolScp>

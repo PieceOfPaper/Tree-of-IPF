@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="EUC-KR"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<ActionDesc>
+	<HeadRotBip frame="0" BipName="none"/>
+	<Sound frame="0.00" soundFile="swd_attack2"/>
+	<Sound frame="0.00" soundFile="walk_left"/>
+	<Sound frame="8.00" soundFile="walk_left"/>
+	<Sound frame="8.00" soundFile="swd_attack2"/>
+	<HeadRotBip frame="8" BipName="Bip01"/>
+	<HeadRotBip frame="15" BipName="none"/>
+	<Particle frame="0" attachNode="Dummy_emitter" particleName="E_warrior_pouncing_swrodtrail_art" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false"/>
+	<Particle frame="1" attachNode="Dummy_emitter" particleName="F_pc_run_smoke" useAttach="false" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="false"/>
+	<Particle frame="9" attachNode="Dummy_emitter" particleName="F_pc_run_smoke" useAttach="false" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="false"/>
+	<Particle frame="4" attachNode="Bip01 Spine1" particleName="F_warrior_pouncing_light" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="true"/>
+	<Particle frame="12" attachNode="Bip01 Spine1" particleName="F_warrior_pouncing_light" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="true"/>
+</ActionDesc>

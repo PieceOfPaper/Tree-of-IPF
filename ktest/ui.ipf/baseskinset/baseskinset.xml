@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by imc (imc) -->
 <!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by MintPC (Mi) -->
 <skinset name="Base">
 	<skinlist category="frames">
@@ -6500,6 +6500,9 @@
 		<image name="Map_Moringponia_Raid" file="\skin\indunmap\Map_Moringponia_Raid.png" imgrect="0 0 295 450" CMM_Caption="유니크 모링포니아 레이드"/>
 		<image name="Map_Fedimian" file="\skin\indunmap\Map_Fedimian.png" imgrect="0 0 295 450" CMM_Caption="페디미안"/>
 		<image name="Map_Glacier_Raid" file="\skin\indunmap\Map_Glacier_Raid.png" imgrect="0 0 295 450" CMM_Caption="글레이시어"/>
+		<image name="Map_Pvp_Tournament" file="\skin\indunmap\Map_Pvp_Tournament.png" imgrect="0 0 295 450" CMM_Caption="팀 배틀 리그"/>
+		<image name="Map_Solo_Dungeon" file="\skin\indunmap\Map_Solo_Dungeon.png" imgrect="0 0 295 450" CMM_Caption="베르니케 파편 던전"/>
+		<image name="Map_Pvp_Mine" file="\skin\indunmap\Map_Pvp_Mine.png" imgrect="0 0 295 450" CMM_Caption="PVP광산 무법지대"/>
 	</imagelist>
 	<imagelist category="jootest_image">
 		<image name="market_hairacc" file="\skin\market_skin.tga" imgrect="1927 447 60 60" CMM_Caption="마켓_헤어악세사리"/>
@@ -6671,6 +6674,9 @@
 		<image name="test_companion_29" file="\icon\companion.tga" imgrect="808 615 100 122" CMM_Caption="셰퍼드_탭버튼"/>
 		<image name="test_companion_29_cursoron" file="\icon\companion.tga" imgrect="909 615 100 122"/>
 		<image name="test_companion_29_clicked" file="\icon\companion.tga" imgrect="909 615 100 122"/>
+		<image name="test_companion_30" file="\icon\companion.tga" imgrect="0 738 100 122" CMM_Caption="사관생도 아르마딜로_탭버튼"/>
+		<image name="test_companion_30_cursoron" file="\icon\companion.tga" imgrect="101 738 100 122"/>
+		<image name="test_companion_30_clicked" file="\icon\companion.tga" imgrect="101 738 100 122"/>
 		<image name="test_com_ability" file="\skin\pip_test.tga" imgrect="1832 851 54 35" CMM_Caption="컴패니언_특성플러스"/>
 		<image name="test_com_ability_cursoron" file="\skin\pip_test.tga" imgrect="1832 887 54 35"/>
 		<image name="test_com_ability_clicked" file="\skin\pip_test.tga" imgrect="1832 923 54 35"/>
@@ -7635,6 +7641,9 @@
 		<image name="vacation_note_memo_shadow" file="\skin\summer_stamp_tour.tga" imgrect="649 251 541 250" CMM_Caption="트캉스_미션달성"/>
 		<image name="vacation_note_memo_select" file="\skin\summer_stamp_tour.tga" imgrect="649 502 531 239" CMM_Caption="트캉스_미션활성화"/>
 		<image name="vacation_watermelon_stamp" file="\skin\summer_stamp_tour.tga" imgrect="1191 0 161 161" CMM_Caption="트캉스_수박도장"/>
+		<image name="toketmon_compound_plus" file="\skin\tocket_monsters.tga" imgrect="755 80 125 129" CMM_Caption="트켓몬 합성 마크"/>
+		<image name="toketmon_evolution_star" file="\skin\tocket_monsters.tga" imgrect="881 80 130 129" CMM_Caption="트켓몬 진화 마크"/>
+		<image name="monster_card_g_frame_02" file="\skin\tocket_monsters.tga" imgrect="971 506 161 221" CMM_Caption="트켓몬 프레임_02"/>
 	</imagelist>
 	<imagelist category="yiseul_image">
 		<image name="AbillityReset_skin" file="\skin\paid_skin_title.tga" imgrect="0 330 316 165" CMM_Caption="특성 초기화"/>
@@ -8142,6 +8151,9 @@
 		<image name="vacation_04week_hidden" file="\skin\summer_stamp_tour.tga" imgrect="444 1086 147 62"/>
 		<image name="vacation_04week_hidden_cursoron" file="\skin\summer_stamp_tour.tga" imgrect="592 1086 147 62"/>
 		<image name="vacation_04week_hidden_clicked" file="\skin\summer_stamp_tour.tga" imgrect="740 1086 147 62"/>
+		<image name="volunteer_scramble_btn" file="\skin\PVP_skin.tga" imgrect="904 662 67 69" CMM_Caption="자원쟁탈전 팝업 버튼"/>
+		<image name="volunteer_scramble_btn_cursoron" file="\skin\PVP_skin.tga" imgrect="972 662 67 69"/>
+		<image name="volunteer_scramble_btn_clicked" file="\skin\PVP_skin.tga" imgrect="1040 662 67 69"/>
 	</imagelist>
 	<imagelist category="yiseul_button">
 		<image name="pvpmine_shop_btn" file="\skin\pip_test.tga" imgrect="2049 61 66 59" CMM_Caption="용병단 증표 ui 버튼"/>
@@ -8385,6 +8397,7 @@
 		<image name="companion_school_dodo" file="\icon\companion_Velhider.tga" imgrect="80 320 80 80"/>
 		<image name="companion_hedgehog" file="\icon\companion_Velhider.tga" imgrect="160 320 80 80"/>
 		<image name="companion_policedog" file="\icon\companion_Velhider.tga" imgrect="240 320 80 80"/>
+		<image name="companion_pet_cadet_armadillo" file="\icon\companion_Velhider.tga" imgrect="320 320 80 80"/>
 		<image name="bg_w" file="\skin\button.tga" imgrect="252 974 50 50"/>
 		<image name="barrack_signboard" file="\skin\barrack.tga" imgrect="356 0 257 192"/>
 		<image name="barrack_attack_icon" file="\skin\barrack.tga" imgrect="59 720 55 61"/>
@@ -9020,6 +9033,9 @@
 		<image name="glacier_emoticon103" file="\icon\emoticon\glacier_emoticon_01.png" imgrect="0 0 128 128"/>
 		<image name="glacier_emoticon104" file="\icon\emoticon\glacier_emoticon_02.png" imgrect="0 0 128 128"/>
 		<image name="glacier_emoticon105" file="\icon\emoticon\glacier_emoticon_03.png" imgrect="0 0 128 128"/>
+		<image name="medeina_emotion04" file="\icon\emoticon\medeina_emotion04.png" imgrect="0 0 128 128"/>
+		<image name="medeina_emotion05" file="\icon\emoticon\medeina_emotion05.png" imgrect="0 0 128 128"/>
+		<image name="medeina_emotion06" file="\icon\emoticon\medeina_emotion06.png" imgrect="0 0 128 128"/>
 	</imagelist>
 	<imagelist category="itemtooltip_image">
 		<image name="circle_gem" file="\skin\tooltip_skin_3.tga" imgrect="805 228 30 30"/>
@@ -9233,7 +9249,7 @@
 		<image name="copyright_2016_global" file="\skin\login_barrack.tga" imgrect="156 250 380 17"/>
 		<image name="logo_x2game" file="\skin\login_barrack.tga" imgrect="591 751 152 47"/>
 		<image name="game_rating_mark12" file="\skin\login_barrack.tga" imgrect="823 404 100 100"/>
-		<image name="OMG_logo" file="\skin\login_barrack.tga" imgrect="799 521 225 255"/>
+		<image name="OMG_logo" file="\skin\login_barrack.tga" imgrect="166 210 112 36"/>
 	</imagelist>
 	<imagelist category="etc">
 		<image name="popup_floor" file="\skin\popup_floor.png" imgrect="0 0 490 260"/>
@@ -9629,6 +9645,9 @@
 		<image name="icon_gesture_squat" file="\icon\social.tga" imgrect="163 568 80 80"/>
 		<image name="icon_gesture_fullup" file="\icon\social.tga" imgrect="244 568 80 80"/>
 		<image name="icon_gesture_dabdance" file="\icon\social.tga" imgrect="325 568 80 80"/>
+		<image name="icon_gesture_flex" file="\icon\social.tga" imgrect="82 649 80 80"/>
+		<image name="icon_gesture_homerun" file="\icon\social.tga" imgrect="163 649 80 80"/>
+		<image name="icon_gesture_nyang" file="\icon\social.tga" imgrect="244 649 80 80"/>
 		<image name="icon_gesture_gangster" file="\icon\social.tga" imgrect="325 649 80 80"/>
 	</imagelist>
 	<imagelist>
@@ -10692,6 +10711,16 @@
 		<image name="icon_WITCH_NERVOSITY" file="\icon\buff_icon3.tga" imgrect="896 1408 128 128" CMM_Caption="마녀의 신경질"/>
 		<image name="icon_WITCH_MADNESS" file="\icon\buff_icon3.tga" imgrect="0 1536 128 128" CMM_Caption="마녀의 광기"/>
 		<image name="icon_pet_policedog_buff" file="\icon\buff_icon3.tga" imgrect="256 1536 128 128" CMM_Caption="셰퍼드 버프"/>
+		<image name="icon_sweet_zongzi_buff" file="\icon\buff_icon3.tga" imgrect="512 1408 128 128" CMM_Caption="2020_단쫑즈"/>
+		<image name="icon_salty_zongzi_buff" file="\icon\buff_icon3.tga" imgrect="640 1408 128 128" CMM_Caption="2020_짠종즈"/>
+		<image name="icon_wizar_GenbuArmor_Abil" file="\icon\buff_icon3.tga" imgrect="0 1664 128 128" CMM_Caption="현무갑: 빙의"/>
+		<image name="icon_-wizar_GenbuArmor_Soul" file="\icon\buff_icon3.tga" imgrect="128 1664 128 128" CMM_Caption="현무갑: 염"/>
+		<image name="icon_wizar_GenbuArmor_Ice" file="\icon\buff_icon3.tga" imgrect="256 1664 128 128" CMM_Caption="현무갑: 얼음"/>
+		<image name="icon_wizar_GenbuArmor_Earth" file="\icon\buff_icon3.tga" imgrect="384 1664 128 128" CMM_Caption="현무갑: 땅"/>
+		<image name="icon_arch_Luckycoin" file="\icon\buff_icon3.tga" imgrect="512 1664 128 128" CMM_Caption="럭키 코인 버프"/>
+		<image name="icon_arch_Lucky" file="\icon\buff_icon3.tga" imgrect="640 1664 128 128" CMM_Caption="럭키 버프"/>
+		<image name="icon_arch_Coursingabil" file="\icon\buff_icon3.tga" imgrect="768 1664 128 128" CMM_Caption="피의 얼룩 디버프"/>
+		<image name="icon_pet_cadet_armadillo_buff" file="\icon\buff_icon3.tga" imgrect="896 1664 128 128" CMM_Caption="사관생도 아르마딜로"/>
 	</imagelist>
 	<imagelist category="housing_bufficon">
 		<image name="icon_Weapon_Klaida" file="\icon\icon_hosing_buff.tga" imgrect="0 0 128 128"/>

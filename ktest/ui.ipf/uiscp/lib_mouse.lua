@@ -13,10 +13,13 @@ end
 function _UPDATE_MOUSE_CURSOR(frame)
 	local obj = ui.GetFocusObject();
 	local isUp = 0;
+	local scp = frame:GetUserValue("MOUSE_CHECK_SCP");
+	local _func = _G[scp];
+	if _func == nil then
+		return 1
+	end
 	if obj ~= nil then
 		if obj:GetClassName() == "slot" then
-			local scp = frame:GetUserValue("MOUSE_CHECK_SCP");
-			local _func = _G[scp];
 			local slot = tolua.cast(obj, "ui::CSlot");
 			if _func(slot) == 1 then
 				isUp = 1;

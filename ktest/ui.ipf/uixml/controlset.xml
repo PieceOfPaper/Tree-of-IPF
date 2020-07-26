@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by Hey (IMCGames Co., Ltd) -->
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
 <controlsetlist>
 	<controlset name="barrack_pet_mini" toggle="false" hittestbox="false" hittest="true" width="350" height="60" skin="">
 		<controls>
@@ -1010,14 +1010,14 @@
 			<richtext name="memo_text" rect="20 80 300 30" caption="케릭터 메모" spacey="0" updateparent="true" layout_gravity="left top" hittest="false" textalign="center center"/>
 		</controls>
 	</controlset>
-	<controlset name="summonsinfo" toggle="false" hittest="true" width="450" height="25" skin="">
+	<controlset name="summonsinfo" toggle="false" hittest="false" width="450" height="25" skin="">
 		<controls>
 			<richtext name="summons_name" rect="0 0 150 25" margin="20 0 0 0" resizebytext="false" layout_gravity="left top" hittest="false" textalign="left center" format="{@st41b}{s16}{ds}%s{/}" param1="name" param1_def="" fontname="white_16_ol"/>
 			<richtext name="summons_count" rect="0 0 50 25" margin="0 0 270 0" resizebytext="false" layout_gravity="right top" hittest="false" textalign="right center" format="{@st41b}{s16}{ds}x%s{/}" param1="count" param1_def="" fontname="yellow_16_ol"/>
 			<picture name="index" rect="0 0 5 5" margin="14 0 0 0" hittest="false" layout_gravity="left center" image="white_dot" stretch="true"/>
 		</controls>
 	</controlset>
-	<controlset name="partyinfo" toggle="false" hittest="true" width="450" height="62" skin="">
+	<controlset name="partyinfo" toggle="false" hittest="false" width="450" height="62" skin="">
 		<controls>
 			<gauge name="hp" rect="0 0 134 22" margin="56 30 0 0" ratewidth="true" skin="party_info_gauge_hp_2" text1="{ds}{b}%v / %m" textoffset1="0 1" textfont1="white_12_ol" textalign1="center top" hittest="false" layout_gravity="left top" point="100"/>
 			<gauge name="sp" rect="0 0 134 22" margin="56 37 0 0" ratewidth="true" skin="party_info_gauge_sp_2" text1="" textoffset1="0 1" textfont1="white_12_ol" textalign1="center bottom" hittest="false" layout_gravity="left top" point="100"/>
@@ -3129,12 +3129,21 @@
 			<picture name="cycleCtrlPic" margin="0 4 67 0" rect="0 0 41 30" image="indun_icon_day_s" layout_gravity="right center"/>
 		</controls>
 	</controlset>
-	<controlset name="indun_detail_ctrl" hittest="true" width="340" height="30" hittestset="true" draw="false" skin="None">
+	<controlset name="pvp_indun_cate_ctrl" hittest="true" width="350" height="60" hittestset="false" draw="false" skin="None">
+		<userconfig SELECTED_BTN_SKIN="baseyellow_btn" NOT_SELECTED_BTN_SKIN="base_btn"/>
+		<controls>
+			<button name="button" hittest="true" margin="0 0 0 0" rect="0 0 350 60" layout_gravity="left top" skin="base_btn" textalign="center center" LBtnUpScp="PVP_INDUNINFO_CATEGORY_LBTN_CLICK"/>
+			<richtext name="name" hittest="false" margin="10 0 0 0" rect="0 0 230 35" fixwidth="true" textalign="left center" omitbywidth="true" layout_gravity="left center" format="{#000000}%s (%s){/}" param1="value" param1_def="던전" param2="cnt" param2_def="0"/>
+			<richtext name="timeText" margin="0 0 30 0" rect="0 0 120 35" fixwidth="true" textalign="right center" hittest="false" omitbywidth="true" layout_gravity="right center" format="{#000000}(%s~%s){/}" param1="start" param1_def="23:59" param2="end" param2_def="00:00"/>
+		</controls>
+	</controlset>
+	<controlset name="indun_detail_ctrl" hittest="true" width="350" height="30" hittestset="true" draw="false" skin="None">
 		<userconfig SELECTED_BOX_SKIN="guildbattle_win_bg" NOT_SELECTED_BOX_SKIN="chat_window_2"/>
 		<controls>
-			<groupbox name="skinBox" rect="0 0 312 30" margin="4 0 0 0" layout_gravity="left center" skin="None" hittest="false"/>
-			<richtext name="infoText" rect="0 0 340 30" margin="10 0 0 0" layout_gravity="left center" format="{@st42b}Lv %s{/}" param1="level" fixwidth="false" omitbywidth="false" param1_def="50" hittest="false"/>
-			<richtext name="nameText" rect="0 0 235 30" margin="80 0 0 0" layout_gravity="left center" format="{@st42b}%s{/}" param1="name" fixwidth="true" omitbywidth="true" param1_def="던전 이름" hittest="false"/>
+			<groupbox name="skinBox" rect="0 0 332 30" margin="4 0 0 0" layout_gravity="left center" skin="None" hittest="false"/>
+			<richtext name="infoText" rect="0 0 350 30" margin="10 0 0 0" layout_gravity="left center" format="{@st42b}Lv %s{/}" param1="level" fixwidth="false" omitbywidth="false" param1_def="50" hittest="false"/>
+			<richtext name="nameText" rect="0 0 245 30" margin="80 0 0 0" layout_gravity="left center" format="{@st42b}%s{/}" param1="name" fixwidth="true" omitbywidth="true" param1_def="던전 이름" hittest="false"/>
+			<picture name="onlinePic" rect="0 0 27 27" margin="0 5 40 0" layout_gravity="right top" image="guild_offline"/>
 		</controls>
 	</controlset>
 	<controlset name="keyconfig_tree" hittest="true" width="287" height="60" hittestset="false" draw="false" skin="none">
@@ -3652,7 +3661,7 @@
 		<userconfig INITIALIZATION_CATEGORY_IMG="{img test_cooltime 22 22}"/>
 		<controls>
 			<gauge name="score_guage" margin="0 23 0 0" rect="0 0 290 20" skin="test_gauge_barrack_defence" inverse="false" point="10" maxpoint="120" text1="%v / %m" textoffset1="0 0" textfont1="white_14_ol" textalign1="center center"/>
-			<richtext name="name_text" margin="0 0 0 0" rect="0 -2 100 27" layout_gravity="left top" format="%s" param1="value" param1_def="카테고리" textalign="left top" resizebytext="true" spacey="0" fixwidth="true" fontname="white_18_ol"/>
+			<richtext name="name_text" margin="0 0 0 0" rect="0 -2 250 27" layout_gravity="left top" format="%s" param1="value" param1_def="카테고리" textalign="left top" resizebytext="true" spacey="0" fixwidth="true" fontname="white_18_ol"/>
 		</controls>
 	</controlset>
 	<controlset name="adventure_book_main_guage_with_reward" toggle="false" hittest="true" hittestset="false" width="400" height="60" skin="">
@@ -5035,7 +5044,7 @@
 	<controlset name="housing_shop_itemset" hittest="true" width="460" height="55" toggle="false" skin="test_skin_01_btn">
 		<controls>
 			<slot name="slot" layout_gravity="left top" skin="slot_empty" rect="8 4 42 42"/>
-			<richtext name="ItemName_Count" rect="55 7 400 42" layout_gravity="left top" fixwidth="true" hittest="false" fontname="white_14_b_ds"/>
+			<richtext name="ItemName_Count" rect="55 7 370 42" layout_gravity="left top" fixwidth="true" omitbywidth="true" ellipsistexttooltip="true" hittest="false" fontname="white_14_b_ds"/>
 			<richtext name="Item_Price" rect="50 -7 400 42" layout_gravity="left bottom" fixwidth="true" hittest="false" fontname="white_14_b_ds"/>
 			<picture name="pic_new" rect="0 0 40 25" margin="0 5 5 0" hittest="false" layout_gravity="right top" stretch="false" image="new_inventory_icon"/>
 			<button name="btn_furniture_preview" rect="0 0 35 35" margin="0 0 10 0" layout_gravity="right center" MouseOnAnim="btn_mouseover" MouseOffAnim="btn_mouseoff" stretch="false" hittest="true" image="housing_magnifier" oversound="button_over" LBtnUpScp="BTN_HOUSING_SHOP_PREVIEW_FURNITURE" texttooltip="{@st59}미리보기"/>
@@ -5065,7 +5074,7 @@
 	<controlset name="ancient_card_item_slot" hittest="true" width="163" height="218" skin="test_frame_midle_light" stateskin="false" enabledrag="true">
 		<controls>
 			<groupbox name="default_box" rect="0 0 161 214" margin="0 0 0 0" hittest="false" layout_gravity="center center" skin="mon_card_hollow"/>
-			<picture name="default_image" parent="default_box" rect="0 0 161 214" margin="0 0 0 0" hittest="false" layout_gravity="center center" image="socket_slot_bg"/>
+			<picture name="default_image" parent="default_box" rect="0 0 161 214" margin="0 0 0 0" hittest="false" layout_gravity="center center" image="socket_slot_bg" imagealign="center center"/>
 			<groupbox name="ancient_card_gbox" margin="0 0 0 0" rect="0 0 163 218" hittestbox="false" hittest="false" layout_gravity="left top" draw="false"/>
 			<picture name="ancient_card_background" parent="ancient_card_gbox" rect="0 0 163 218" margin="0 0 0 0" layout_gravity="center center"/>
 			<richtext name="ancient_card_lv" parent="ancient_card_gbox" layout_gravity="center top" textalign="center top" rect="0 0 70 20" margin="0 8 0 0" resizebytext="true"/>
@@ -5277,6 +5286,7 @@
 			<picture name="icon" rect="0 0 60 60" margin="140 0 0 0" layout_gravity="left center" image="icon_item_Event_Roulette_Coin" stretch="true" imagealign="center center"/>
 			<richtext name="name" rect="0 0 270 40" margin="220 0 0 0" layout_gravity="left center" fontname="black_18_b" format="%s" param1="name" fixwidth="true" hittest="false" textalign="center center"/>
 			<richtext name="count" rect="0 0 60 40" margin="0 0 20 0" layout_gravity="right center" fontname="black_18_b" format="%s개" param1="count" fixwidth="true" hittest="false" textalign="right center"/>
+			<richtext name="text" rect="0 0 100 40" margin="25 0 0 0" layout_gravity="left center" format="{@st66b}{s20}%s" param1="value" fixwidth="true" hittest="false" textalign="center center" draw="false"/>
 		</controls>
 	</controlset>
 	<controlset name="craft_recipe" hittest="true" width="525" height="250" skin="earth_T_shop_skin" hittestset="true" draw="true" stateskin="false">

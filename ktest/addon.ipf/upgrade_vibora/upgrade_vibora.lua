@@ -21,8 +21,6 @@ function UPGRADE_VIBORA_CLOSE(frame)
 	end
 
 	INVENTORY_SET_CUSTOM_RBTNDOWN("None");
-	control.DialogOk();
-
     frame:ShowWindow(0);
 end
 
@@ -316,7 +314,7 @@ function UPGRADE_VIBORA_BTN_CLICK(parent, ctrl)
 	for i = 1, slot_count do 
 		local slot = GET_CHILD(frame, "slot_"..i);
 		if slot:GetIcon() == nil then
-			ui.SysMsg(ClMsg("NoEnoguhtItem"));
+			ui.SysMsg(ClMsg("REQUEST_TAKE_ITEM"));
 			return;
 		end
 

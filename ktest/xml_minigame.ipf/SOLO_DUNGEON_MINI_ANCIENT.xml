@@ -189,6 +189,13 @@
                             </ToolScp>
                         </execList>
                     </Event>
+                    <Event execCount="1" eventName="인던 횟수 차감">
+                        <execList>
+                            <ToolScp Scp="MGAME_ADD_INDUN_COUNT" Client="NO" UseSleep="NO">
+                                <Str Str="Ancient_Solo_dungeon"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
                 </StageEvents>
             </Stage>
             <Stage Name="STAGE_MANAGEEMENT" AutoStart="0">

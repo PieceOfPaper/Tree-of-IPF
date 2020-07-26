@@ -81,3 +81,51 @@ function SCP_GET_RANGE_Hoplite_ThrouwingSpear(className, range)
 		return 0;
 	end
 end
+
+function SCP_GET_RANGE_Retiarii_ThrowingFishingNet(className, range)
+	if className == nil then 
+		return 0;
+	end
+
+	local abil = session.GetAbilityByName("Retiarii24");
+	if abil ~= nil then
+		local abilObj = GetIES(abil:GetObject());
+		if abilObj.ActiveState == 1 then
+			range = 120
+		end
+	end
+
+	return range;
+end
+
+function SCP_GET_RANGE_Matross_CanisterShot(className, range)
+	if className == nil then 
+		return 0;
+	end
+
+	local abil = session.GetAbilityByName("Matross19");
+	if abil ~= nil then
+		local abilObj = GetIES(abil:GetObject());
+		if abilObj.ActiveState == 1 then
+			range = 80
+		end
+	end
+
+	return range;
+end
+
+function SCP_GET_RANGE_Wugushi_JincanGu(className, range)
+	if className == nil then 
+		return 0;
+	end
+
+	local abil = session.GetAbilityByName("Wugushi36");
+	if abil ~= nil then
+		local abilObj = GetIES(abil:GetObject());
+		if abilObj.ActiveState == 1 then
+			range = 100
+		end
+	end
+
+	return range;
+end

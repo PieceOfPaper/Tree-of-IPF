@@ -45,8 +45,20 @@ function UPDATE_BARRACK_COMPANION_INFO(actor)
 	else
 		gotopc:SetEnable(1);
 		gotopc:SetTextByKey("value", ScpArgMsg("GoTogether"));
-	end
-	
+    end
+    
+    -- 해외 UI 세팅
+    if (config.GetServiceNation() ~= "KOR") then
+        COMPANION_INFO_GLOBAL_UI_SETTING(frame)
+    end
+end
+
+function COMPANION_INFO_GLOBAL_UI_SETTING(frame)
+    local btn1 = GET_CHILD_RECURSIVELY(frame, 'gotopc')
+    local btn2 = GET_CHILD_RECURSIVELY(frame, 'movelayer')
+
+    -- btn1:AdjustFontSizeByWidth(140)
+    -- btn2:AdjustFontSizeByWidth(140)
 end
 
 function SEL_COMPANION_WITH_PC(parent, ctrl)

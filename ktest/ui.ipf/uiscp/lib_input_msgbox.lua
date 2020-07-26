@@ -225,7 +225,7 @@ function INPUT_GETALL_MSG_BOX(frame, ctrl, now, flag, moneyItem)
 
 			itemName:SetTextByKey("value2", GET_FULL_NAME(itemObj));
 			itemName:SetTextByKey("value3", cabinetItem.sellItemAmount)		
-			itemName:SetTextByKey("value4", GET_COMMAED_STRING(cabinetItem.count))
+			itemName:SetTextByKey("value4", GET_COMMAED_STRING(tonumber(cabinetItem:GetCount())))
 		elseif whereFrom ~= 'market_sell'  then 
 			--Draw ControlSet
 			local buyItemCtrl = gBox:CreateControlSet('market_cabinet_item_etc', 'Item_GetAll_Ctrl_'..i, 0, inner_yPos)
@@ -236,7 +236,7 @@ function INPUT_GETALL_MSG_BOX(frame, ctrl, now, flag, moneyItem)
 			local itemObj = GetIES(cabinetItem:GetObject());
 			
 			itemName:SetTextByKey("value2", GET_FULL_NAME(itemObj));
-			itemName:SetTextByKey("value3", cabinetItem.count)		
+			itemName:SetTextByKey("value3", tonumber(cabinetItem:GetCount()))		
 		end
 	end
 
@@ -292,10 +292,10 @@ function INPUT_TEXTMSG_BOX(marketFrame, strscp, charName, jobName, minNumber, ma
 		--수수료 계산 / 추후 작업
 		--local frame, fees, fessPercent;
 		--if true == session.loginInfo.IsPremiumState(ITEM_TOKEN) then	
-			--fees = cabinetItem.count * 0.1
+			--fees = tonumber(cabinetItem:GetCount()) * 0.1
 			--fessPercent = 10;
 		--elseif false == session.loginInfo.IsPremiumState(ITEM_TOKEN) then
-			--fees = cabinetItem.count * 0.3   			
+			--fees = tonumber(cabinetItem:GetCount()) * 0.3   			
 			--fessPercent = 30;
 		--end
 		if cabinetItem_Obj.MaxStack <= 1 then
@@ -306,7 +306,7 @@ function INPUT_TEXTMSG_BOX(marketFrame, strscp, charName, jobName, minNumber, ma
 			richText_1:SetTextByKey("item_reinforce_level", levelStr);
 		end
 		richText_1:SetTextByKey("itemCount", cabinetItem.sellItemAmount);
-		richText_1:SetTextByKey("itemPrice", GET_COMMAED_STRING(cabinetItem.count));
+		richText_1:SetTextByKey("itemPrice", GET_COMMAED_STRING(tonumber(cabinetItem:GetCount())));
 
 		--no btn ( market_sell )
 		local noBtn = GET_CHILD_RECURSIVELY(frame, "button_1")
@@ -315,7 +315,7 @@ function INPUT_TEXTMSG_BOX(marketFrame, strscp, charName, jobName, minNumber, ma
 		yesBtn:SetEventScript(ui.LBUTTONUP, strscp)        
 		yesBtn:SetEventScriptArgString(ui.LBUTTONUP, guid)
     else 
-		richText_1:SetTextByKey("itemCount", cabinetItem.count);
+		richText_1:SetTextByKey("itemCount", tonumber(cabinetItem:GetCount()));
 		--Reinforce Level Setting
 		local maxStack = cabinetItem_Obj.MaxStack;
 		if maxStack == nil then	

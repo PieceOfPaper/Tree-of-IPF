@@ -103,7 +103,10 @@
 							</ToolScp>
 						</condList>
 						<execList>
-							<ToolScp Scp="MGAME_EXEC_RUNSCRIPT" Client="NO" UseSleep="NO">
+							<ToolScp Scp="MGAME_EVT_EXEC_SET_BGM" Client="NO" UseSleep="NO">
+                                <Str Str="raid_shadow_trans"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_EXEC_RUNSCRIPT" Client="NO" UseSleep="NO">
 								<Str Str="SCR_SHADOW_RAID_SLEEP"/>
 							</ToolScp>
 							<ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
@@ -248,9 +251,6 @@
 								<Str Str="ANIM_END"/>
 								<Num Num="1"/>
 							</ToolScp>
-							<ToolScp Scp="MGAME_EVT_EXEC_DIRECTION_EACH" Client="NO" UseSleep="NO">
-								<Str Str="SHADOWMANCER_UNIQUE_TRACK02"/>
-							</ToolScp>
 							<ToolScp Scp="GAME_EVT_ON_BYNAME" Client="NO" UseSleep="NO">
 								<Str Str="ChangeBoss"/>
 							</ToolScp>
@@ -259,7 +259,10 @@
 								<Str Str="Clear"/>
 								<Num Num="1"/>
 							</ToolScp>
-							<ToolScp Scp="MGAME_EVT_EXEC_SET_BGM" Client="NO" UseSleep="NO">
+							<ToolScp Scp="MGAME_EVT_EXEC_DIRECTION_EACH" Client="NO" UseSleep="NO">
+                                <Str Str="SHADOWMANCER_UNIQUE_TRACK02"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_EVT_EXEC_SET_BGM" Client="NO" UseSleep="NO">
 								<Str Str="raid_shadow_trans"/>
 							</ToolScp>
 						</execList>

@@ -24,6 +24,15 @@ function MANAGEGEM_OPEN(frame)
 	ui.OpenFrame("inventory")
 	INVENTORY_SET_CUSTOM_RBTNDOWN("MANAGEGEM_INV_RBTN");
 	CLEAR_MANAGEGEM_UI()
+	if option.GetCurrentCountry() == 'German' then
+		local bodyGbox2 = GET_CHILD_RECURSIVELY(frame,'bodyGbox2')
+		local button_make_socket = GET_CHILD_RECURSIVELY(bodyGbox2,'button_make_socket')
+		local margin = button_make_socket:GetOriginalMargin()
+		button_make_socket:SetMargin(-100,margin.top,margin.right,margin.bottom)
+		local button_remove_gem = GET_CHILD_RECURSIVELY(bodyGbox2,'button_remove_gem')
+		margin = button_remove_gem:GetOriginalMargin()
+		button_remove_gem:SetMargin(100,margin.top,margin.right,margin.bottom)
+	end
 end
 
 function MANAGEGEM_CLOSE(frame)
@@ -169,7 +178,6 @@ function ADD_ITEM_TO_MANAGEGEM_FROM_INV(item)
 			
 			if equipGemID == 0 then
 				socketname = socketCls.Name .. ' '.. ScpArgMsg("JustSocket")
-
 				local socketCls = GetClassByType("Socket", GET_COMMON_SOCKET_TYPE());
 				socketicon = socketCls.SlotIcon
 
@@ -181,7 +189,6 @@ function ADD_ITEM_TO_MANAGEGEM_FROM_INV(item)
 			else
 			    local socketItemCls = GetClassByNumProp('Item', 'ClassID', equipGemID)
 			    socketname = socketItemCls.Name;
-
 				local socketCls = GetClassByType("Item", equipGemID);
 				socketicon = socketCls.Icon;
 
@@ -200,7 +207,6 @@ function ADD_ITEM_TO_MANAGEGEM_FROM_INV(item)
 
 				for i = 0 , cnt - 1 do
 					local addProp = socketProp:GetPropAddByType(type, i);
-					
 					local tempvalue = addProp.value
 					local plma_mark = POSITIVE_COLOR .. '+{/}'
 					if tempvalue < 0 then
@@ -210,7 +216,7 @@ function ADD_ITEM_TO_MANAGEGEM_FROM_INV(item)
 					if addProp:GetPropName() == "OptDesc" then
 						desc = addProp:GetPropDesc();
 					else
-					desc = desc .. ScpArgMsg(addProp:GetPropName()) .. " : ".. plma_mark .. tempvalue.."{nl}";
+					desc = "{@st42b}"..desc .. ScpArgMsg(addProp:GetPropName()) .. " : ".. plma_mark .. tempvalue.."{nl}";
 				end
 				end
 

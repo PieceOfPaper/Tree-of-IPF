@@ -433,6 +433,7 @@ function INVENTORY_CLOSE()
 	minimapFrame:ShowWindow(1);
 
 	item.RemoveTargetItem();
+	INVENTORY_SET_CUSTOM_RBTNDOWN("None");
 	ui.CloseFrame("inventory");
 
 	ui.CloseFrame("inventoryoption")
@@ -1761,6 +1762,10 @@ function INVENTORY_RBDC_ITEMUSE(frame, object, argStr, argNum)
 	end
 
 	if INVENTORY_RBTN_LEGENDDECOMPOSE(invitem) == true then
+		return;
+	end
+	
+	if INVENTORY_RBTN_MARKET_SELL(invitem) == true then
 		return;
 	end
 	
@@ -4059,6 +4064,25 @@ function INVENTORY_RBTN_LEGENDPREFIX(invItem)
 	end
 	LEGENDPREFIX_SET_ITEM(legendprefix, invItem:GetIESID());
 	return true;
+end
+
+function INVENTORY_RBTN_MARKET_SELL(invitem)
+	local market = ui.GetFrame('market');
+	if market ~= nil and market:IsVisible() == 1  then
+		return true;
+	end
+	
+	local market_sell = ui.GetFrame('market_sell');
+	if market_sell ~= nil and market_sell:IsVisible() == 1  then
+		return true;
+	end
+
+	local market_cabinet = ui.GetFrame('market_cabinet');
+	if market_cabinet ~= nil and market_cabinet:IsVisible() == 1  then
+		return true;
+	end
+
+	return false;
 end
 
 function INVENTORY_LBTN_MARKET_SELL(invitem)

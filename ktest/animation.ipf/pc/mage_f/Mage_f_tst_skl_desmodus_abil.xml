@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="EUC-KR"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<ActionDesc>
+	<Particle frame="1" attachNode="Dummy_emitter" particleName="F_wizard_desmodus_cast" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.3" pause="true" use2DEffect="false" soft2DValue="10"/>
+	<Particle frame="5" attachNode="Dummy_R_HAND" particleName="I_wizard_desmodus_bat" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="true" soft2DValue="0"/>
+	<Particle frame="5" attachNode="Dummy_emitter" particleName="E_wizard_desmodus_bat_abil" useAttach="false" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" soft2DValue="0"/>
+</ActionDesc>

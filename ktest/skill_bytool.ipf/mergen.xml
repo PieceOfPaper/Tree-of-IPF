@@ -1,190 +1,191 @@
 <?xml version='1.0' encoding='utf-8'?>
-<ToolSkill><Skill Name="Mergen_Zenith">
-		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
-			<HitList>
-				<Frame Angle="0" AniTime="100" Dist="0" ForceATK="0" HitCount="1" Length="130" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0.69813174" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="0" Type="SQUARE" Width="25" />
-				<Frame Angle="0" AniTime="150" Dist="0" ForceATK="0" HitCount="1" Length="130" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="1.308997" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="0" Type="SQUARE" Width="25" />
-				<Frame Angle="0" AniTime="200" Dist="0" ForceATK="0" HitCount="1" Length="130" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="1.9198623" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="0" Type="SQUARE" Width="25" />
-				<Frame Angle="0" AniTime="250" Dist="0" ForceATK="0" HitCount="1" Length="130" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="2.5307276" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="50" Type="SQUARE" Width="25" />
-				<Frame Angle="0" AniTime="300" Dist="0" ForceATK="0" HitCount="1" Length="130" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="3.1415927" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="100" Type="SQUARE" Width="25" />
-				<Frame Angle="0" AniTime="400" Dist="0" ForceATK="0" HitCount="1" Length="130" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="3.7524581" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="200" Type="SQUARE" Width="25" />
-				<Frame Angle="0" AniTime="450" Dist="0" ForceATK="0" HitCount="1" Length="130" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="4.3633232" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="250" Type="SQUARE" Width="25" />
-				<Frame Angle="0" AniTime="500" Dist="0" ForceATK="0" HitCount="1" Length="130" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="4.9741888" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="300" Type="SQUARE" Width="25" />
-				<Frame Angle="0" AniTime="550" Dist="0" ForceATK="0" HitCount="1" Length="130" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="5.5850539" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="350" Type="SQUARE" Width="25" />
-				<Frame Angle="0" AniTime="600" Dist="0" ForceATK="0" HitCount="1" Length="130" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="6.195919" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="400" Type="SQUARE" Width="25" />
-			</HitList>
-			<EtcList>
-				<Scp Client="YES" Scp="MONSKL_C_PLAY_ANIM" Time="0" UseSleep="NO">
-					<Str Str="SKL_ZENITH" />
-					<Num Num="2" />
-					<Num Num="1" />
-					<Num Num="0" />
-				</Scp>
-				<Scp Client="YES" Scp="C_EFFECT" Time="0" UseSleep="NO">
-					<Str_Arg Arg="1.5" Str="I_arrow002_white_move" />
-					<Str Str="Dummy_arrow_effect" />
-					<Num Num="0" />
-				</Scp>
-				<Scp Client="YES" Scp="C_EFFECT" Time="0" UseSleep="NO">
-					<Str_Arg Arg="3" Str="F_hit021_2" />
-					<Str Str="Dummy_arrow_effect" />
-					<Num Num="0" />
-				</Scp>
-				<Scp Client="YES" Scp="C_EFFECT" Time="0" UseSleep="NO">
-					<Str_Arg Arg="20" Str="F_archer_Zenith" />
-					<Str Str="None" />
-					<Num Num="0" />
-				</Scp>
-				<Scp Client="YES" Scp="C_EFFECT" Time="0" UseSleep="NO">
-					<Str_Arg Arg="3" Str="I_buff_003_red" />
-					<Str Str="None" />
-					<Num Num="0" />
-				</Scp>
-				<Scp Client="YES" Scp="C_EFFECT" Time="0" UseSleep="NO">
-					<Str_Arg Arg="8.5" Str="I_buff_003_red2" />
-					<Str Str="None" />
-					<Num Num="0" />
-				</Scp>
-				<Scp Client="YES" Scp="C_EFFECT" Time="0" UseSleep="NO">
-					<Str_Arg Arg="2" Str="F_archer_Zenith_light" />
-					<Str Str="None" />
-					<Num Num="0" />
-				</Scp>
-				<Scp Client="YES" Scp="C_VOICE_SOUND" Time="0" UseSleep="NO">
-					<Str Str="voice_archer_m_zenith_shot" />
-					<Str Str="voice_archer_f_zenith_shot" />
-				</Scp>
-				<Scp Client="YES" Scp="C_SHOCKWAVE" Time="0" UseSleep="NO">
-					<Num Num="4" />
-					<Num Num="1" />
-					<Num Num="65" />
-					<Num Num="999" />
-				</Scp>
-				<Scp Client="YES" Scp="C_SOUND" Time="100" UseSleep="NO">
-					<Str Str="skl_eff_mergen_zenith" />
-				</Scp>
-				<Scp Client="YES" Scp="C_EFFECT" Time="100" UseSleep="NO">
-					<Str_Arg Arg="3" Str="F_hit021_2" />
-					<Str Str="Dummy_arrow_effect" />
-					<Num Num="0" />
-				</Scp>
-				<Scp Client="YES" Scp="C_EFFECT" Time="200" UseSleep="NO">
-					<Str_Arg Arg="3" Str="F_hit021_2" />
-					<Str Str="Dummy_arrow_effect" />
-					<Num Num="0" />
-				</Scp>
-				<Scp Client="YES" Scp="C_EFFECT" Time="400" UseSleep="NO">
-					<Str_Arg Arg="3" Str="F_hit021_2" />
-					<Str Str="Dummy_arrow_effect" />
-					<Num Num="0" />
-				</Scp>
-				<Scp Client="YES" Scp="C_EFFECT" Time="500" UseSleep="NO">
-					<Str_Arg Arg="3" Str="F_hit021_2" />
-					<Str Str="Dummy_arrow_effect" />
-					<Num Num="0" />
-				</Scp>
-				<Scp Client="YES" Scp="C_EFFECT" Time="600" UseSleep="NO">
-					<Str_Arg Arg="3" Str="F_hit021_2" />
-					<Str Str="Dummy_arrow_effect" />
-					<Num Num="0" />
-				</Scp>
-				<Scp Client="YES" Scp="C_EFFECT" Time="650" UseSleep="NO">
-					<Str_Arg Arg="3" Str="F_hit021_2" />
-					<Str Str="Dummy_arrow_effect" />
-					<Num Num="0" />
-				</Scp>
-			</EtcList>
-		</MainSkl>
+<ToolSkill>
+    <Skill Name="Mergen_Zenith">
+        <MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+            <HitList>
+                <Frame Angle="0" AniTime="100" Dist="0" ForceATK="0" HitCount="1" Length="130" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0.69813174" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="0" Type="SQUARE" Width="25"/>
+                <Frame Angle="0" AniTime="150" Dist="0" ForceATK="0" HitCount="1" Length="130" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="1.308997" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="0" Type="SQUARE" Width="25"/>
+                <Frame Angle="0" AniTime="200" Dist="0" ForceATK="0" HitCount="1" Length="130" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="1.9198623" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="0" Type="SQUARE" Width="25"/>
+                <Frame Angle="0" AniTime="250" Dist="0" ForceATK="0" HitCount="1" Length="130" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="2.5307276" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="50" Type="SQUARE" Width="25"/>
+                <Frame Angle="0" AniTime="300" Dist="0" ForceATK="0" HitCount="1" Length="130" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="3.1415927" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="100" Type="SQUARE" Width="25"/>
+                <Frame Angle="0" AniTime="400" Dist="0" ForceATK="0" HitCount="1" Length="130" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="3.7524581" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="200" Type="SQUARE" Width="25"/>
+                <Frame Angle="0" AniTime="450" Dist="0" ForceATK="0" HitCount="1" Length="130" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="4.3633232" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="250" Type="SQUARE" Width="25"/>
+                <Frame Angle="0" AniTime="500" Dist="0" ForceATK="0" HitCount="1" Length="130" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="4.9741888" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="300" Type="SQUARE" Width="25"/>
+                <Frame Angle="0" AniTime="550" Dist="0" ForceATK="0" HitCount="1" Length="130" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="5.5850539" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="350" Type="SQUARE" Width="25"/>
+                <Frame Angle="0" AniTime="600" Dist="0" ForceATK="0" HitCount="1" Length="130" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="6.195919" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="400" Type="SQUARE" Width="25"/>
+            </HitList>
+            <EtcList>
+                <Scp Client="YES" Scp="MONSKL_C_PLAY_ANIM" Time="0" UseSleep="NO">
+                    <Str Str="SKL_ZENITH"/>
+                    <Num Num="2"/>
+                    <Num Num="1"/>
+                    <Num Num="0"/>
+                </Scp>
+                <Scp Client="YES" Scp="C_EFFECT" Time="0" UseSleep="NO">
+                    <Str_Arg Arg="1.5" Str="I_arrow002_white_move"/>
+                    <Str Str="Dummy_arrow_effect"/>
+                    <Num Num="0"/>
+                </Scp>
+                <Scp Client="YES" Scp="C_EFFECT" Time="0" UseSleep="NO">
+                    <Str_Arg Arg="3" Str="F_hit021_2"/>
+                    <Str Str="Dummy_arrow_effect"/>
+                    <Num Num="0"/>
+                </Scp>
+                <Scp Client="YES" Scp="C_EFFECT" Time="0" UseSleep="NO">
+                    <Str_Arg Arg="20" Str="F_archer_Zenith"/>
+                    <Str Str="None"/>
+                    <Num Num="0"/>
+                </Scp>
+                <Scp Client="YES" Scp="C_EFFECT" Time="0" UseSleep="NO">
+                    <Str_Arg Arg="3" Str="I_buff_003_red"/>
+                    <Str Str="None"/>
+                    <Num Num="0"/>
+                </Scp>
+                <Scp Client="YES" Scp="C_EFFECT" Time="0" UseSleep="NO">
+                    <Str_Arg Arg="8.5" Str="I_buff_003_red2"/>
+                    <Str Str="None"/>
+                    <Num Num="0"/>
+                </Scp>
+                <Scp Client="YES" Scp="C_EFFECT" Time="0" UseSleep="NO">
+                    <Str_Arg Arg="2" Str="F_archer_Zenith_light"/>
+                    <Str Str="None"/>
+                    <Num Num="0"/>
+                </Scp>
+                <Scp Client="YES" Scp="C_VOICE_SOUND" Time="0" UseSleep="NO">
+                    <Str Str="voice_archer_m_zenith_shot"/>
+                    <Str Str="voice_archer_f_zenith_shot"/>
+                </Scp>
+                <Scp Client="YES" Scp="C_SHOCKWAVE" Time="0" UseSleep="NO">
+                    <Num Num="4"/>
+                    <Num Num="1"/>
+                    <Num Num="65"/>
+                    <Num Num="999"/>
+                </Scp>
+                <Scp Client="YES" Scp="C_SOUND" Time="100" UseSleep="NO">
+                    <Str Str="skl_eff_mergen_zenith"/>
+                </Scp>
+                <Scp Client="YES" Scp="C_EFFECT" Time="100" UseSleep="NO">
+                    <Str_Arg Arg="3" Str="F_hit021_2"/>
+                    <Str Str="Dummy_arrow_effect"/>
+                    <Num Num="0"/>
+                </Scp>
+                <Scp Client="YES" Scp="C_EFFECT" Time="200" UseSleep="NO">
+                    <Str_Arg Arg="3" Str="F_hit021_2"/>
+                    <Str Str="Dummy_arrow_effect"/>
+                    <Num Num="0"/>
+                </Scp>
+                <Scp Client="YES" Scp="C_EFFECT" Time="400" UseSleep="NO">
+                    <Str_Arg Arg="3" Str="F_hit021_2"/>
+                    <Str Str="Dummy_arrow_effect"/>
+                    <Num Num="0"/>
+                </Scp>
+                <Scp Client="YES" Scp="C_EFFECT" Time="500" UseSleep="NO">
+                    <Str_Arg Arg="3" Str="F_hit021_2"/>
+                    <Str Str="Dummy_arrow_effect"/>
+                    <Num Num="0"/>
+                </Scp>
+                <Scp Client="YES" Scp="C_EFFECT" Time="600" UseSleep="NO">
+                    <Str_Arg Arg="3" Str="F_hit021_2"/>
+                    <Str Str="Dummy_arrow_effect"/>
+                    <Num Num="0"/>
+                </Scp>
+                <Scp Client="YES" Scp="C_EFFECT" Time="650" UseSleep="NO">
+                    <Str_Arg Arg="3" Str="F_hit021_2"/>
+                    <Str Str="Dummy_arrow_effect"/>
+                    <Num Num="0"/>
+                </Scp>
+            </EtcList>
+        </MainSkl>
         <ByCondSkills>
-			<SubSkl>
+            <SubSkl>
                 <Cond>
                     <ToolScp Client="NO" Scp="SKL_SELECT_ABIL" UseSleep="NO">
-                        <Str Str="Mergen17" />
+                        <Str Str="Mergen17"/>
                     </ToolScp>
                 </Cond>
-				<Skill JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
-					<HitList>
-						<Frame Angle="0.000000" AniTime="99999" Dist="0.000000" ForceATK="0" HitCount="1" Length="30.000000" PosType="0" RandDist="0.000000" RandomPerHit="0" RotAngle="0.000000" SklAngle="0.174533" TermMax="0" TermMin="0" Time="99799" Type="FAN" Width="30.000000" />
-					</HitList>
+                <Skill JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+                    <HitList>
+                        <Frame Angle="0.000000" AniTime="99999" Dist="0.000000" ForceATK="0" HitCount="1" Length="30.000000" PosType="0" RandDist="0.000000" RandomPerHit="0" RotAngle="0.000000" SklAngle="0.174533" TermMax="0" TermMin="0" Time="99799" Type="FAN" Width="30.000000"/>
+                    </HitList>
                     <EtcList>
                         <Scp Client="YES" Scp="MONSKL_C_PLAY_ANIM" Time="0" UseSleep="NO">
-                            <Str Str="SKL_ZENITH" />
-                            <Num Num="2" />
-                            <Num Num="1" />
-                            <Num Num="0" />
+                            <Str Str="SKL_ZENITH"/>
+                            <Num Num="2"/>
+                            <Num Num="1"/>
+                            <Num Num="0"/>
                         </Scp>
                         <Scp Client="YES" Scp="C_EFFECT" Time="0" UseSleep="NO">
-                            <Str_Arg Arg="1.5" Str="I_arrow002_white_move" />
-                            <Str Str="Dummy_arrow_effect" />
-                            <Num Num="0" />
+                            <Str_Arg Arg="1.5" Str="I_arrow002_white_move"/>
+                            <Str Str="Dummy_arrow_effect"/>
+                            <Num Num="0"/>
                         </Scp>
                         <Scp Client="YES" Scp="C_EFFECT" Time="0" UseSleep="NO">
-                            <Str_Arg Arg="3" Str="F_hit021_2" />
-                            <Str Str="Dummy_arrow_effect" />
-                            <Num Num="0" />
+                            <Str_Arg Arg="3" Str="F_hit021_2"/>
+                            <Str Str="Dummy_arrow_effect"/>
+                            <Num Num="0"/>
                         </Scp>
                         <Scp Client="YES" Scp="C_EFFECT" Time="0" UseSleep="NO">
-                            <Str_Arg Arg="20" Str="F_archer_Zenith" />
-                            <Str Str="None" />
-                            <Num Num="0" />
+                            <Str_Arg Arg="20" Str="F_archer_Zenith"/>
+                            <Str Str="None"/>
+                            <Num Num="0"/>
                         </Scp>
                         <Scp Client="YES" Scp="C_EFFECT" Time="0" UseSleep="NO">
-                            <Str_Arg Arg="3" Str="I_buff_003_red" />
-                            <Str Str="None" />
-                            <Num Num="0" />
+                            <Str_Arg Arg="3" Str="I_buff_003_red"/>
+                            <Str Str="None"/>
+                            <Num Num="0"/>
                         </Scp>
                         <Scp Client="YES" Scp="C_EFFECT" Time="0" UseSleep="NO">
-                            <Str_Arg Arg="8.5" Str="I_buff_003_red2" />
-                            <Str Str="None" />
-                            <Num Num="0" />
+                            <Str_Arg Arg="8.5" Str="I_buff_003_red2"/>
+                            <Str Str="None"/>
+                            <Num Num="0"/>
                         </Scp>
                         <Scp Client="YES" Scp="C_EFFECT" Time="0" UseSleep="NO">
-                            <Str_Arg Arg="2" Str="F_archer_Zenith_light" />
-                            <Str Str="None" />
-                            <Num Num="0" />
+                            <Str_Arg Arg="2" Str="F_archer_Zenith_light"/>
+                            <Str Str="None"/>
+                            <Num Num="0"/>
                         </Scp>
                         <Scp Client="YES" Scp="C_VOICE_SOUND" Time="0" UseSleep="NO">
-                            <Str Str="voice_archer_m_zenith_shot" />
-                            <Str Str="voice_archer_f_zenith_shot" />
+                            <Str Str="voice_archer_m_zenith_shot"/>
+                            <Str Str="voice_archer_f_zenith_shot"/>
                         </Scp>
                         <Scp Client="YES" Scp="C_SHOCKWAVE" Time="0" UseSleep="NO">
-                            <Num Num="4" />
-                            <Num Num="1" />
-                            <Num Num="65" />
-                            <Num Num="999" />
+                            <Num Num="4"/>
+                            <Num Num="1"/>
+                            <Num Num="65"/>
+                            <Num Num="999"/>
                         </Scp>
                         <Scp Client="YES" Scp="C_SOUND" Time="100" UseSleep="NO">
-                            <Str Str="skl_eff_mergen_zenith" />
+                            <Str Str="skl_eff_mergen_zenith"/>
                         </Scp>
                         <Scp Client="YES" Scp="C_EFFECT" Time="100" UseSleep="NO">
-                            <Str_Arg Arg="3" Str="F_hit021_2" />
-                            <Str Str="Dummy_arrow_effect" />
-                            <Num Num="0" />
+                            <Str_Arg Arg="3" Str="F_hit021_2"/>
+                            <Str Str="Dummy_arrow_effect"/>
+                            <Num Num="0"/>
                         </Scp>
                         <Scp Client="YES" Scp="C_EFFECT" Time="200" UseSleep="NO">
-                            <Str_Arg Arg="3" Str="F_hit021_2" />
-                            <Str Str="Dummy_arrow_effect" />
-                            <Num Num="0" />
+                            <Str_Arg Arg="3" Str="F_hit021_2"/>
+                            <Str Str="Dummy_arrow_effect"/>
+                            <Num Num="0"/>
                         </Scp>
                         <Scp Client="YES" Scp="C_EFFECT" Time="400" UseSleep="NO">
-                            <Str_Arg Arg="3" Str="F_hit021_2" />
-                            <Str Str="Dummy_arrow_effect" />
-                            <Num Num="0" />
+                            <Str_Arg Arg="3" Str="F_hit021_2"/>
+                            <Str Str="Dummy_arrow_effect"/>
+                            <Num Num="0"/>
                         </Scp>
                         <Scp Client="YES" Scp="C_EFFECT" Time="500" UseSleep="NO">
-                            <Str_Arg Arg="3" Str="F_hit021_2" />
-                            <Str Str="Dummy_arrow_effect" />
-                            <Num Num="0" />
+                            <Str_Arg Arg="3" Str="F_hit021_2"/>
+                            <Str Str="Dummy_arrow_effect"/>
+                            <Num Num="0"/>
                         </Scp>
                         <Scp Client="YES" Scp="C_EFFECT" Time="600" UseSleep="NO">
-                            <Str_Arg Arg="3" Str="F_hit021_2" />
-                            <Str Str="Dummy_arrow_effect" />
-                            <Num Num="0" />
+                            <Str_Arg Arg="3" Str="F_hit021_2"/>
+                            <Str Str="Dummy_arrow_effect"/>
+                            <Num Num="0"/>
                         </Scp>
                         <Scp Client="YES" Scp="C_EFFECT" Time="650" UseSleep="NO">
-                            <Str_Arg Arg="3" Str="F_hit021_2" />
-                            <Str Str="Dummy_arrow_effect" />
-                            <Num Num="0" />
+                            <Str_Arg Arg="3" Str="F_hit021_2"/>
+                            <Str Str="Dummy_arrow_effect"/>
+                            <Num Num="0"/>
                         </Scp>
                         <Scp Client="NO" Scp="SKL_SET_TARGET_CIRCLE" Time="0" UseSleep="NO">
                             <Pos Angle="0" Dist="0"/>
@@ -195,18 +196,18 @@
                             <Num Num="0"/>
                         </Scp>
                         <Scp Client="NO" Scp="SKL_TGT_DMG_BY_RANGE" Time="0" UseSleep="YES">
-							<Num FuncTxt="if #GetHardSkillTargetList(self) == 1 then return 1.2 end return 1" Num="1" UseFunc="1"/>
-							<Num Num="10" />
-							<Num Num="10" />
-                            <Num Num="30" />
-							<Num Num="5" />
-                            <Num Num="70" />
-							<Num Num="3" />
-                            <Num Num="130" />
-							<Num Num="1" />
-                            <Num Num="200" />
-							<Num Num="0" />
-						</Scp>
+                            <Num FuncTxt="if #GetHardSkillTargetList(self) == 1 then return 1.2 end return 1" Num="1" UseFunc="1"/>
+                            <Num Num="10"/>
+                            <Num Num="10"/>
+                            <Num Num="30"/>
+                            <Num Num="5"/>
+                            <Num Num="70"/>
+                            <Num Num="3"/>
+                            <Num Num="130"/>
+                            <Num Num="1"/>
+                            <Num Num="200"/>
+                            <Num Num="0"/>
+                        </Scp>
                         <Scp Client="NO" Scp="SKL_TGT_BUFF" Time="0" UseSleep="NO">
                             <Str Str="Common_Fear"/>
                             <Num Num="1"/>
@@ -218,713 +219,781 @@
                             <Num Num="1"/>
                         </Scp>
                     </EtcList>
-				</Skill>
-			</SubSkl>
-		</ByCondSkills>
-	</Skill>
-	<Skill Name="Mergen_DownFall">
-		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
-			<HitList>
-				<Frame Angle="0" AniTime="9999" Dist="0" ForceATK="0" HitCount="1" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" TermMax="0" TermMin="0" Time="9799" Type="FAN" />
-			</HitList>
-			<EtcList>
-				<Scp Client="NO" Scp="SKL_SET_TARGET_CLIENT_TARGETTING" Time="10" UseSleep="NO" />
-				<Scp Client="YES" Scp="C_VOICE_SOUND" Time="500" UseSleep="NO">
-					<Str Str="voice_archer_m_DownFall_cast" />
-					<Str Str="voice_archer_DownFall_cast" />
-				</Scp>
-				<Scp Client="YES" Scp="C_SHOCKWAVE" Time="890" UseSleep="NO">
-					<Num Num="1" />
-					<Num Num="3" />
-					<Num Num="70" />
-					<Num Num="999" />
-				</Scp>
-				<Scp Client="NO" Scp="SKL_TGT_BUFF" Time="900" UseSleep="NO">
-					<Str Str="DownFall_Debuff" />
-					<Num FuncTxt="return obj.Level;" Num="1" UseFunc="1" />
-					<Num Num="0" />
-					<Num FuncTxt="return obj.Level * 500 + 3000" Num="3000" UseFunc="1" />
-					<Num Num="1" />
-					<Num Num="100" />
-					<Num Num="0" />
-				</Scp>
-			</EtcList>
-		</MainSkl>
-	</Skill>
-	<Skill Name="Mergen_ParthianShaft">
-		<EnableScripts>
-			<ToolScp Client="BOTH" Scp="SKL_CHECK_MOVEING" UseSleep="NO" />
-		</EnableScripts>
-		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
-			<HitList>
-				<Frame Angle="0" AniTime="200" Dist="0" ForceATK="0" HitCount="1" Length="130" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="3.1415927" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="0" Type="SQUARE" Width="15" />
-			</HitList>
-			<EtcList>
-				<Scp Client="YES" Scp="C_VOICE_SOUND" Time="0" UseSleep="NO">
-					<Str Str="voice_war_atk_medium" />
-					<Str Str="voice_atk_medium_war_f" />
-				</Scp>
-				<Scp Client="YES_Time" Scp="C_FORCE_EFT" Time="200" UseSleep="NO">
-					<Str_Arg Arg="0.5" Str="I_archer_ParthianShaft_force#Dummy_effect_force_ParthianShaft" />
-					<Str Str="arrow_cast" />
-					<Str_Arg Arg="1" Str="None" />
-					<Str Str="arrow_blow" />
-					<Str Str="FAST" />
-					<Num Num="600" />
-					<Num Num="1" />
-					<Num Num="0" />
-					<Angle_Abs Angle="3.1415927" />
-					<Num Num="0" />
-					<Num Num="5" />
-					<Num Num="10" />
-					<Num Num="0" />
-					<Num Num="1" />
-					<Num Num="1" />
-					<Str Str="None" />
-					<PosDist Angle="0" Dist="0" />
-					<Num Num="0" />
-				</Scp>
-				<Scp Client="YES" Scp="C_NEXT_SKILL_RESERVE_RESETANIM" Time="250" UseSleep="NO" />
-			</EtcList>
-		</MainSkl>
-	</Skill>
-	<Skill Name="Mergen_TrickShot">
-		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
-			<HitList>
-				<Frame Angle="0" AniTime="420" Dist="0" ForceATK="0" HitCount="1" Length="140" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0.2617994" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="220" Type="SQUARE" Width="13" />
-				<Frame Angle="0" AniTime="420" Dist="0" ForceATK="0" HitCount="1" Length="135" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="220" Type="SQUARE" Width="13" />
-				<Frame Angle="0" AniTime="420" Dist="0" ForceATK="0" HitCount="1" Length="140" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="-0.2617994" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="220" Type="SQUARE" Width="13" />
-			</HitList>
-			<EtcList>
-				<Scp Client="YES" Scp="C_VOICE_SOUND" Time="200" UseSleep="NO">
-					<Str Str="voice_war_atk_medium" />
-					<Str Str="voice_atk_medium_war_f" />
-				</Scp>
-				<Scp Client="YES_Time" Scp="C_FORCE_EFT" Time="320" UseSleep="NO">
-					<Str_Arg Arg="0.5" Str="I_archer_TripleArrow_arrow_mash#Dummy_Force" />
-					<Str Str="arrow_cast" />
-					<Str_Arg Arg="0.5" Str="None" />
-					<Str Str="arrow_blow" />
-					<Str Str="FAST" />
-					<Num Num="900" />
-					<Num Num="1" />
-					<Num Num="0" />
-					<Angle_Abs Angle="0.17453292" />
-					<Num Num="0" />
-					<Num Num="5" />
-					<Num Num="0" />
-					<Num Num="0" />
-					<Num Num="1" />
-					<Num Num="1" />
-					<Num Num="1" />
-					<Num Num="1" />
-					<Num Num="1" />
-				</Scp>
-				<Scp Client="YES_Time" Scp="C_FORCE_EFT" Time="320" UseSleep="NO">
-					<Str_Arg Arg="0.5" Str="I_archer_TripleArrow_arrow_mash#Dummy_Force" />
-					<Str Str="arrow_cast" />
-					<Str_Arg Arg="0.5" Str="None" />
-					<Str Str="arrow_blow" />
-					<Str Str="FAST" />
-					<Num Num="900" />
-					<Num Num="1" />
-					<Num Num="0" />
-					<Angle_Abs Angle="0" />
-					<Num Num="0" />
-					<Num Num="5" />
-					<Num Num="0" />
-					<Num Num="0" />
-					<Num Num="1" />
-				</Scp>
-				<Scp Client="YES_Time" Scp="C_FORCE_EFT" Time="320" UseSleep="NO">
-					<Str_Arg Arg="0.5" Str="I_archer_TripleArrow_arrow_mash#Dummy_Force" />
-					<Str Str="arrow_cast" />
-					<Str_Arg Arg="0.5" Str="None" />
-					<Str Str="arrow_blow" />
-					<Str Str="FAST" />
-					<Num Num="900" />
-					<Num Num="1" />
-					<Num Num="0" />
-					<Angle_Abs Angle="-0.17453292" />
-					<Num Num="0" />
-					<Num Num="5" />
-					<Num Num="0" />
-					<Num Num="0" />
-					<Num Num="1" />
-				</Scp>
-				<Scp Client="YES" Scp="C_EFFECT_ATTACH" Time="320" UseSleep="NO">
-					<Str_Arg Arg="0.80000001" Str="F_hit003_light_violet#Dummy_Force" />
-					<Num Num="1" />
-					<Pos Angle="0" Dist="0" />
-				</Scp>
-			</EtcList>
-			<ResultList>
-				<ToolScp Client="NO" Scp="S_R_COND_RANDOM" UseSleep="NO">
-					<Num Num="50" />
-				</ToolScp>
-				<ToolScp Client="NO" Scp="S_R_EXPLODE_DAMAGE" UseSleep="NO">
-					<Str_Arg Arg="0.34999999" Str="F_archer_TripleArrow_hit_explosion" />
-					<Num Num="25" />
-					<Num Num="0.80000001" />
-					<Num Num="0.050000001" />
-				</ToolScp>
-			</ResultList>
-		</MainSkl>
-	</Skill>
-	<Skill Name="Mergen_QuickFire">
-		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
-			<EtcList>
-				<Scp Client="YES_Time" Scp="C_FORCE_EFT" Time="120" UseSleep="NO">
-					<Str_Arg Arg="0.69999999" Str="I_arrow009#Dummy_Force" />
-					<Str Str="arrow_cast" />
-					<Str_Arg Arg="1" Str="F_hit_good" />
-					<Str Str="arrow_blow" />
-					<Str Str="SLOW" />
-					<Num Num="800" />
-					<Num Num="2" />
-					<Num Num="0" />
-					<Angle_Abs Angle="0" />
-					<Num Num="0" />
-					<Num Num="5" />
-					<Num Num="0" />
-					<Num Num="0" />
-					<Num Num="1" />
-					<Num Num="0" />
-				</Scp>
-				<Scp Client="YES" Scp="C_VOICE_SOUND" Time="200" UseSleep="NO">
-					<Str Str="voice_archer_atk" />
-					<Str Str="voice_archer_f_atk" />
-				</Scp>
-			</EtcList>
-		</MainSkl>
-	</Skill>
-	<Skill Name="Mergen_FocusFire">
-		<KeyInput>
-			<ToolScp Client="YES" Scp="SKL_KEY_DYNAMIC_CASTING" UseSleep="NO">
-				<Num Num="1" />
-				<Num Num="0" />
-				<Num FuncTxt="local pc = GetMyPCObject() local abil = GetAbility(pc, &quot;Mergen12&quot;) local value = 1.5 if abil ~= nil and abil.ActiveState == 1 then value = value / 2 end  return value" Num="1.5" UseFunc="1" />
-				<Num Num="0" />
-				<Num Num="1" />
-				<Num Num="0" />
-				<Num Num="0" />
-				<Num Num="0" />
-				<Num Num="0" />
-				<Num FuncTxt="local pc = GetMyPCObject() local abil = GetAbility(pc, &quot;Mergen12&quot;) local value = 1.5 / obj.Level if abil ~= nil and abil.ActiveState == 1 then value = value / 2 end  return value" Num="1.5" UseFunc="1" />
-				<Num Num="1" />
-				<Num Num="0" />
-				<Str_Arg Arg="0" Str="E_pc_full_charge" />
-				<Str Str="" />
-				<Num Num="0" />
-				<Num Num="0" />
-				<Num Num="0" />
-				<Num Num="0" />
-				<Num Num="0" />
-				<Num Num="0" />
-				<Num Num="0" />
-				<Num Num="0" />
-			</ToolScp>
-		</KeyInput>
-		<KeyInputStart>
-			<ToolScp Client="YES" Scp="C_EFFECT" UseSleep="NO">
-				<Str_Arg Arg="1" Str="F_archer_FocusFire_cast_spread_in#Dummy_Force" />
-				<Str Str="Dummy_Force" />
-				<Num Num="0" />
-			</ToolScp>
-			<ToolScp Client="NO" Scp="SKL_PLAY_SOUND" UseSleep="NO">
-				<Str Str="voice_atk_long_cast_f" />
-				<Num Num="0" />
-				<Str Str="voice_war_atk_long_cast" />
-			</ToolScp>
-			<ToolScp Client="YES" Scp="MONSKL_C_CASTING_ANIM" UseSleep="NO">
-				<Str Str="SKL_FOCUSFIRE_LOOP2" />
-				<Str Str="None" />
-				<Num Num="1" />
-				<Num Num="1" />
-				<Str Str="None" />
-				<Str Str="ASTD" />
-			</ToolScp>
-		</KeyInputStart>
-		<KeyInputEnd>
-			<ToolScp Client="YES" Scp="MONSKL_C_CLEAR_RESERVE_ANIM" UseSleep="NO" />
-			<ToolScp Client="YES" Scp="C_EFFECT_DETACH" UseSleep="NO">
-				<Str_Arg Arg="1" Str="F_archer_FocusFire_cast_spread_in#Dummy_arrowstart" />
-				<Num Num="0.5" />
-			</ToolScp>
-			<ToolScp Client="YES" Scp="C_EFFECT" UseSleep="NO">
-				<Str_Arg Arg="3" Str="F_explosion035_blue" />
-				<Str Str="Dummy_arrowstart" />
-				<Num Num="0" />
-			</ToolScp>
-			<ToolScp Client="YES" Scp="C_SHOCKWAVE" UseSleep="NO">
-				<Num Num="8" />
-				<Num Num="0.2" />
-				<Num Num="80" />
-				<Num Num="999" />
-			</ToolScp>
-			<ToolScp Client="YES" Scp="MONSKL_C_RESET_CASTING_ANIM" UseSleep="NO" />
-			<ToolScp Client="NO" Scp="SKL_STOP_SOUND" UseSleep="NO">
-				<Str Str="voice_atk_long_cast_f" />
-				<Str Str="voice_war_atk_long_cast" />
-			</ToolScp>
-		</KeyInputEnd>
-		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
-			<HitList>
-				<Frame Angle="0" AniTime="0" Dist="0" ForceATK="1" HitCount="1" Length="130" PosType="0" RandDist="0" RandomPerHit="0" RandomSort="1" RotAngle="0" SklAngle="1.0471981" TermMax="0" TermMin="0" Time="0" Type="SQUARE" Width="60" />
-				<Frame Angle="0" AniTime="50" Dist="0" ForceATK="1" HitCount="1" Length="130" PosType="0" RandDist="0" RandomPerHit="0" RandomSort="1" RotAngle="0" SklAngle="1.0471981" TermMax="0" TermMin="0" Time="0" Type="SQUARE" Width="60" />
-				<Frame Angle="0" AniTime="100" Dist="0" ForceATK="1" HitCount="1" Length="130" PosType="0" RandDist="0" RandomPerHit="0" RandomSort="1" RotAngle="0" SklAngle="1.0471981" TermMax="0" TermMin="0" Time="0" Type="SQUARE" Width="60" />
-				<Frame Angle="0" AniTime="150" Dist="0" ForceATK="1" HitCount="1" Length="130" PosType="0" RandDist="0" RandomPerHit="0" RandomSort="1" RotAngle="0" SklAngle="1.0471981" TermMax="0" TermMin="0" Time="0" Type="SQUARE" Width="60" />
-				<Frame Angle="0" AniTime="200" Dist="0" ForceATK="1" HitCount="1" Length="130" PosType="0" RandDist="0" RandomPerHit="0" RandomSort="1" RotAngle="0" SklAngle="1.0471981" TermMax="0" TermMin="0" Time="0" Type="SQUARE" Width="60" />
-			</HitList>
-			<EtcList>
-				<Scp Client="YES" Scp="C_VOICE_SOUND" Time="0" UseSleep="NO">
-					<Str Str="voice_war_atk_long_cast" />
-					<Str Str="voice_atk_long_cast_f" />
-				</Scp>
-				<Scp Client="YES_Time" Scp="C_FORCE_EFT" Time="50" UseSleep="NO">
-					<Str_Arg Arg="7" Str="I_archer_FocusFire_arrow_trail#Dummy_Force" />
-					<Str Str="arrow_cast" />
-					<Str_Arg Arg="1" Str="None" />
-					<Str Str="arrow_blow" />
-					<Str Str="SLOW" />
-					<Num Num="700" />
-					<Num Num="0" />
-					<Num Num="0" />
-					<Angle_Abs Angle="0.78539819" />
-					<Num Num="0" />
-					<Num Num="5" />
-					<Num Num="12" />
-					<Num Num="2" />
-					<Num Num="0" />
-				</Scp>
-				<Scp Client="YES_Time" Scp="C_FORCE_EFT" Time="100" UseSleep="NO">
-					<Str_Arg Arg="7" Str="I_archer_FocusFire_arrow_trail#Dummy_Force" />
-					<Str Str="arrow_cast" />
-					<Str_Arg Arg="1" Str="None" />
-					<Str Str="arrow_blow" />
-					<Str Str="SLOW" />
-					<Num Num="700" />
-					<Num Num="0" />
-					<Num Num="0" />
-					<Angle_Abs Angle="0.2617994" />
-					<Num Num="1" />
-					<Num Num="5" />
-					<Num Num="12" />
-					<Num Num="2" />
-					<Num Num="0" />
-				</Scp>
-				<Scp Client="YES_Time" Scp="C_FORCE_EFT" Time="150" UseSleep="NO">
-					<Str_Arg Arg="7" Str="I_archer_FocusFire_arrow_trail#Dummy_Force" />
-					<Str Str="arrow_cast" />
-					<Str_Arg Arg="1" Str="None" />
-					<Str Str="arrow_blow" />
-					<Str Str="SLOW" />
-					<Num Num="700" />
-					<Num Num="0" />
-					<Num Num="0" />
-					<Angle_Abs Angle="0" />
-					<Num Num="2" />
-					<Num Num="5" />
-					<Num Num="12" />
-					<Num Num="2" />
-					<Num Num="0" />
-				</Scp>
-				<Scp Client="YES_Time" Scp="C_FORCE_EFT" Time="200" UseSleep="NO">
-					<Str_Arg Arg="7" Str="I_archer_FocusFire_arrow_trail#Dummy_Force" />
-					<Str Str="arrow_cast" />
-					<Str_Arg Arg="1" Str="None" />
-					<Str Str="arrow_blow" />
-					<Str Str="SLOW" />
-					<Num Num="700" />
-					<Num Num="0" />
-					<Num Num="0" />
-					<Angle_Abs Angle="-0.2617994" />
-					<Num Num="3" />
-					<Num Num="5" />
-					<Num Num="12" />
-					<Num Num="2" />
-					<Num Num="0" />
-				</Scp>
-				<Scp Client="YES_Time" Scp="C_FORCE_EFT" Time="250" UseSleep="NO">
-					<Str_Arg Arg="7" Str="I_archer_FocusFire_arrow_trail#Dummy_Force" />
-					<Str Str="arrow_cast" />
-					<Str_Arg Arg="1" Str="None" />
-					<Str Str="arrow_blow" />
-					<Str Str="SLOW" />
-					<Num Num="700" />
-					<Num Num="0" />
-					<Num Num="0" />
-					<Angle_Abs Angle="-0.78539819" />
-					<Num Num="4" />
-					<Num Num="5" />
-					<Num Num="12" />
-					<Num Num="2" />
-					<Num Num="1" />
-				</Scp>
-			</EtcList>
-		</MainSkl>
-	<ByCondSkills>
+                </Skill>
+            </SubSkl>
+        </ByCondSkills>
+    </Skill>
+    <Skill Name="Mergen_DownFall">
+        <KeyInput>
+            <ToolScp Scp="SKL_KEY_DYNAMIC_CASTING_HAVE_ABIL" Client="YES" UseSleep="NO">
+                <Num Num="0"/>
+                <Num Num="0"/>
+                <Num Num="2"/>
+                <Num Num="1"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+                <Num Num="1"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+                <Num Num="1"/>
+                <Num Num="0"/>
+                <Str_Arg Str="None" Arg="1"/>
+                <Str Str="None"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+                <Str Str="None"/>
+                <Str Str="Mergen24"/>
+            </ToolScp>
+        </KeyInput>
+        <MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+            <HitList>
+                <Frame Angle="0" AniTime="9999" Dist="0" ForceATK="0" HitCount="1" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" TermMax="0" TermMin="0" Time="9799" Type="FAN"/>
+            </HitList>
+            <EtcList>
+                <Scp Client="NO" Scp="SKL_SET_TARGET_CLIENT_TARGETTING" Time="10" UseSleep="NO"/>
+                <Scp Client="YES" Scp="C_VOICE_SOUND" Time="500" UseSleep="NO">
+                    <Str Str="voice_archer_m_DownFall_cast"/>
+                    <Str Str="voice_archer_DownFall_cast"/>
+                </Scp>
+                <Scp Client="YES" Scp="C_SHOCKWAVE" Time="890" UseSleep="NO">
+                    <Num Num="1"/>
+                    <Num Num="3"/>
+                    <Num Num="70"/>
+                    <Num Num="999"/>
+                </Scp>
+                <Scp Client="NO" Scp="SKL_TGT_BUFF" Time="900" UseSleep="NO">
+                    <Str Str="DownFall_Debuff"/>
+                    <Num FuncTxt="return obj.Level;" Num="1" UseFunc="1"/>
+                    <Num Num="0"/>
+                    <Num FuncTxt="return obj.Level * 500 + 3000" Num="3000" UseFunc="1"/>
+                    <Num Num="1"/>
+                    <Num Num="100"/>
+                    <Num Num="0"/>
+                </Scp>
+            </EtcList>
+        </MainSkl>
+        <ByCondSkills>
             <SubSkl>
                 <Cond>
-                    <ToolScp Client="NO" Scp="SKL_SELECT_BUFF" UseSleep="NO">
-                        <Str Str="LiedDerWeltbaum_Buff" />
+                    <ToolScp Scp="SKL_SELECT_ABIL" Client="NO" UseSleep="NO">
+                        <Str Str="Mergen24"/>
                     </ToolScp>
                 </Cond>
-                <Skill JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+                <Skill ScrLock="None" JumpFlee="NO" MSPDToUsePos="0">
                     <HitList>
-                        <Frame Angle="0" AniTime="0" Dist="0" ForceATK="1" HitCount="1" Length="130" PosType="0" RandDist="0" RandomPerHit="0" RandomSort="1" RotAngle="0" SklAngle="1.0471981" TermMax="0" TermMin="0" Time="0" Type="SQUARE" Width="60" />
-                        <Frame Angle="0" AniTime="33" Dist="0" ForceATK="1" HitCount="1" Length="130" PosType="0" RandDist="0" RandomPerHit="0" RandomSort="1" RotAngle="0" SklAngle="1.0471981" TermMax="0" TermMin="0" Time="0" Type="SQUARE" Width="60" />
-                        <Frame Angle="0" AniTime="66" Dist="0" ForceATK="1" HitCount="1" Length="130" PosType="0" RandDist="0" RandomPerHit="0" RandomSort="1" RotAngle="0" SklAngle="1.0471981" TermMax="0" TermMin="0" Time="0" Type="SQUARE" Width="60" />
-                        <Frame Angle="0" AniTime="99" Dist="0" ForceATK="1" HitCount="1" Length="130" PosType="0" RandDist="0" RandomPerHit="0" RandomSort="1" RotAngle="0" SklAngle="1.0471981" TermMax="0" TermMin="0" Time="0" Type="SQUARE" Width="60" />
-                        <Frame Angle="0" AniTime="132" Dist="0" ForceATK="1" HitCount="1" Length="130" PosType="0" RandDist="0" RandomPerHit="0" RandomSort="1" RotAngle="0" SklAngle="1.0471981" TermMax="0" TermMin="0" Time="0" Type="SQUARE" Width="60" />
-                        <Frame Angle="0" AniTime="165" Dist="0" ForceATK="1" HitCount="1" Length="130" PosType="0" RandDist="0" RandomPerHit="0" RandomSort="1" RotAngle="0" SklAngle="1.0471981" TermMax="0" TermMin="0" Time="0" Type="SQUARE" Width="60" />
-                        <Frame Angle="0" AniTime="200" Dist="0" ForceATK="1" HitCount="1" Length="130" PosType="0" RandDist="0" RandomPerHit="0" RandomSort="1" RotAngle="0" SklAngle="1.0471981" TermMax="0" TermMin="0" Time="0" Type="SQUARE" Width="60" />
+                        <Frame Type="FAN" Time="99799" HitCount="1" TermMin="0" TermMax="0" PosType="0" Dist="0" RandDist="0" RandomPerHit="0" Angle="0" SklAngle="0.17453292" AniTime="99999" RotAngle="0" ForceATK="0"/>
                     </HitList>
                     <EtcList>
-                        <Scp Client="YES" Scp="C_VOICE_SOUND" Time="0" UseSleep="NO">
-                            <Str Str="voice_war_atk_long_cast" />
-                            <Str Str="voice_atk_long_cast_f" />
+                        <Scp Scp="SKL_SET_TARGET_SQUARE" Client="NO" UseSleep="NO" Time="0" LoopTime="500">
+                            <Pos Angle="0" Dist="0" PosType="5"/>
+                            <Num Num="0"/>
+                            <Num Num="150"/>
+                            <Num Num="50"/>
+                            <Num Num="5" UseFunc="1" FuncTxt="local hitcnt = 3
+        local addhitcnt = TryGetProp(self, &quot;SR&quot;)
+        hitcnt = hitcnt + (addhitcnt / 3) return math.floor(hitcnt)"/>
+                            <Num Num="2"/>
+                            <Num Num="1"/>
+                            <Num Num="0"/>
+                            <Num Num="0"/>
                         </Scp>
-                        <Scp Client="YES_Time" Scp="C_FORCE_EFT" Time="0" UseSleep="NO">
-                            <Str_Arg Arg="7" Str="I_archer_FocusFire_arrow_trail#Dummy_Force" />
-                            <Str Str="arrow_cast" />
-                            <Str_Arg Arg="1" Str="None" />
-                            <Str Str="arrow_blow" />
-                            <Str Str="SLOW" />
-                            <Num Num="700" />
-                            <Num Num="0" />
-                            <Num Num="0" />
-                            <Angle_Abs Angle="0.78539819" />
-                            <Num Num="0" />
-                            <Num Num="5" />
-                            <Num Num="12" />
-                            <Num Num="2" />
-                            <Num Num="0" />
+                        <Scp Scp="SKL_TGT_DMG" Client="NO" UseSleep="NO" Time="285" LoopTime="60">
+                            <Num Num="1"/>
+                            <Num Num="1"/>
+                            <Num Num="0"/>
                         </Scp>
-                        <Scp Client="YES_Time" Scp="C_FORCE_EFT" Time="33" UseSleep="NO">
-                            <Str_Arg Arg="7" Str="I_archer_FocusFire_arrow_trail#Dummy_Force" />
-                            <Str Str="arrow_cast" />
-                            <Str_Arg Arg="1" Str="None" />
-                            <Str Str="arrow_blow" />
-                            <Str Str="SLOW" />
-                            <Num Num="700" />
-                            <Num Num="0" />
-                            <Num Num="0" />
-                            <Angle_Abs Angle="0.5235988" />
-                            <Num Num="1" />
-                            <Num Num="5" />
-                            <Num Num="12" />
-                            <Num Num="2" />
-                            <Num Num="0" />
-                        </Scp>
-                        <Scp Client="YES_Time" Scp="C_FORCE_EFT" Time="66" UseSleep="NO">
-                            <Str_Arg Arg="7" Str="I_archer_FocusFire_arrow_trail#Dummy_Force" />
-                            <Str Str="arrow_cast" />
-                            <Str_Arg Arg="1" Str="None" />
-                            <Str Str="arrow_blow" />
-                            <Str Str="SLOW" />
-                            <Num Num="700" />
-                            <Num Num="0" />
-                            <Num Num="0" />
-                            <Angle_Abs Angle="0.2617994" />
-                            <Num Num="2" />
-                            <Num Num="5" />
-                            <Num Num="12" />
-                            <Num Num="2" />
-                            <Num Num="0" />
-                        </Scp>
-                        <Scp Client="YES_Time" Scp="C_FORCE_EFT" Time="99" UseSleep="NO">
-                            <Str_Arg Arg="7" Str="I_archer_FocusFire_arrow_trail#Dummy_Force" />
-                            <Str Str="arrow_cast" />
-                            <Str_Arg Arg="1" Str="None" />
-                            <Str Str="arrow_blow" />
-                            <Str Str="SLOW" />
-                            <Num Num="700" />
-                            <Num Num="0" />
-                            <Num Num="0" />
-                            <Angle_Abs Angle="0" />
-                            <Num Num="3" />
-                            <Num Num="5" />
-                            <Num Num="12" />
-                            <Num Num="2" />
-                            <Num Num="0" />
-                        </Scp>
-                        <Scp Client="YES_Time" Scp="C_FORCE_EFT" Time="132" UseSleep="NO">
-                            <Str_Arg Arg="7" Str="I_archer_FocusFire_arrow_trail#Dummy_Force" />
-                            <Str Str="arrow_cast" />
-                            <Str_Arg Arg="1" Str="None" />
-                            <Str Str="arrow_blow" />
-                            <Str Str="SLOW" />
-                            <Num Num="700" />
-                            <Num Num="0" />
-                            <Num Num="0" />
-                            <Angle_Abs Angle="-0.2617994" />
-                            <Num Num="4" />
-                            <Num Num="5" />
-                            <Num Num="12" />
-                            <Num Num="2" />
-                            <Num Num="0" />
-                        </Scp>
-                        <Scp Client="YES_Time" Scp="C_FORCE_EFT" Time="165" UseSleep="NO">
-                            <Str_Arg Arg="7" Str="I_archer_FocusFire_arrow_trail#Dummy_Force" />
-                            <Str Str="arrow_cast" />
-                            <Str_Arg Arg="1" Str="None" />
-                            <Str Str="arrow_blow" />
-                            <Str Str="SLOW" />
-                            <Num Num="700" />
-                            <Num Num="0" />
-                            <Num Num="0" />
-                            <Angle_Abs Angle="-0.5235988" />
-                            <Num Num="5" />
-                            <Num Num="5" />
-                            <Num Num="12" />
-                            <Num Num="2" />
-                            <Num Num="0" />
-                        </Scp>
-                        <Scp Client="YES_Time" Scp="C_FORCE_EFT" Time="200" UseSleep="NO">
-                            <Str_Arg Arg="7" Str="I_archer_FocusFire_arrow_trail#Dummy_Force" />
-                            <Str Str="arrow_cast" />
-                            <Str_Arg Arg="1" Str="None" />
-                            <Str Str="arrow_blow" />
-                            <Str Str="SLOW" />
-                            <Num Num="700" />
-                            <Num Num="0" />
-                            <Num Num="0" />
-                            <Angle_Abs Angle="-0.78539819" />
-                            <Num Num="6" />
-                            <Num Num="5" />
-                            <Num Num="12" />
-                            <Num Num="2" />
-                            <Num Num="1" />
+                        <Scp Scp="C_VOICE_SOUND" Client="YES" UseSleep="NO" Time="500">
+                            <Str Str="voice_archer_m_DownFall_cast"/>
+                            <Str Str="voice_archer_DownFall_cast"/>
                         </Scp>
                     </EtcList>
                 </Skill>
             </SubSkl>
-        </ByCondSkills>        
+        </ByCondSkills>
     </Skill>
-	<Skill Name="Mergen_Unload">
-		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
-			<HitList>
-				<Frame Angle="0" AniTime="380" Dist="0" ForceATK="1" HitCount="1" Length="140" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0.34906587" SklAngle="0.61086529" TermMax="0" TermMin="0" Time="180" Type="FAN" />
-			</HitList>
-			<EtcList>
-				<Scp Client="YES" Scp="C_VOICE_SOUND" Time="0" UseSleep="NO">
-					<Str Str="voice_war_atk_medium" />
-					<Str Str="voice_atk_medium_war_f" />
-				</Scp>
-				<Scp Client="YES" Scp="C_EFFECT" Time="50" UseSleep="NO">
-					<Str_Arg Arg="1.3" Str="F_wizard_BRIQUETTING_STEP1_smoke" />
-					<Str Str="Dummy_emitter" />
-					<Num Num="0" />
-				</Scp>
-				<Scp Client="YES" Scp="C_EFFECT_ATTACH" Time="320" UseSleep="NO">
-					<Str_Arg Arg="0.40000001" Str="F_hit003_light_mint#Dummy_Force" />
-					<Num Num="1" />
-					<Pos Angle="0" Dist="0" />
-				</Scp>
-				<Scp Client="YES_Time" Scp="C_FORCE_EFT" Time="320" UseSleep="NO">
-					<Str_Arg Arg="0.5" Str="I_archer_SpreadShot_arrow_mash#Dummy_Force" />
-					<Str Str="arrow_cast" />
-					<Str_Arg Arg="0.5" Str="None" />
-					<Str Str="arrow_blow" />
-					<Str Str="FAST" />
-					<Num Num="900" />
-					<Num Num="1" />
-					<Num Num="0" />
-					<Angle_Abs Angle="0.34906584" />
-					<Num Num="0" />
-					<Num Num="5" />
-					<Num Num="0" />
-					<Num Num="0" />
-					<Num Num="0" />
-				</Scp>
-				<Scp Client="YES_Time" Scp="C_FORCE_EFT" Time="320" UseSleep="NO">
-					<Str_Arg Arg="0.5" Str="I_archer_SpreadShot_arrow_mash#Dummy_Force" />
-					<Str Str="arrow_cast" />
-					<Str_Arg Arg="0.5" Str="None" />
-					<Str Str="arrow_blow" />
-					<Str Str="FAST" />
-					<Num Num="900" />
-					<Num Num="1" />
-					<Num Num="0" />
-					<Angle_Abs Angle="0.17453292" />
-					<Num Num="1" />
-					<Num Num="5" />
-					<Num Num="0" />
-					<Num Num="0" />
-					<Num Num="0" />
-				</Scp>
-				<Scp Client="YES_Time" Scp="C_FORCE_EFT" Time="320" UseSleep="NO">
-					<Str_Arg Arg="0.5" Str="I_archer_SpreadShot_arrow_mash#Dummy_Force" />
-					<Str Str="arrow_cast" />
-					<Str_Arg Arg="0.5" Str="None" />
-					<Str Str="arrow_blow" />
-					<Str Str="FAST" />
-					<Num Num="900" />
-					<Num Num="1" />
-					<Num Num="0" />
-					<Angle_Abs Angle="0" />
-					<Num Num="2" />
-					<Num Num="5" />
-					<Num Num="0" />
-					<Num Num="0" />
-					<Num Num="0" />
-				</Scp>
-				<Scp Client="YES_Time" Scp="C_FORCE_EFT" Time="320" UseSleep="NO">
-					<Str_Arg Arg="0.5" Str="I_archer_SpreadShot_arrow_mash#Dummy_Force" />
-					<Str Str="arrow_cast" />
-					<Str_Arg Arg="0.5" Str="None" />
-					<Str Str="arrow_blow" />
-					<Str Str="FAST" />
-					<Num Num="900" />
-					<Num Num="1" />
-					<Num Num="0" />
-					<Angle_Abs Angle="-0.17453292" />
-					<Num Num="3" />
-					<Num Num="5" />
-					<Num Num="0" />
-					<Num Num="0" />
-					<Num Num="0" />
-				</Scp>
-				<Scp Client="YES_Time" Scp="C_FORCE_EFT" Time="320" UseSleep="NO">
-					<Str_Arg Arg="0.5" Str="I_archer_SpreadShot_arrow_mash#Dummy_Force" />
-					<Str Str="arrow_cast" />
-					<Str_Arg Arg="0.5" Str="None" />
-					<Str Str="arrow_blow" />
-					<Str Str="FAST" />
-					<Num Num="900" />
-					<Num Num="1" />
-					<Num Num="0" />
-					<Angle_Abs Angle="-0.34906584" />
-					<Num Num="4" />
-					<Num Num="5" />
-					<Num Num="0" />
-					<Num Num="0" />
-					<Num Num="1" />
-				</Scp>
-			</EtcList>
-			<ResultList>
-				<ToolScp Client="NO" Scp="S_R_COND_RANDOM" UseSleep="NO">
-					<Num Num="100" />
-				</ToolScp>
-				<ToolScp Client="NO" Scp="S_R_SET_FORCE_DAMAGE" UseSleep="NO">
-					<Num Num="0.5" />
-					<Num Num="1" />
-					<Num Num="2" />
-					<Str_Arg Arg="1" Str="I_archer_SpreadShot_arrow_mash" />
-					<Str Str="arrow_cast" />
-					<Str_Arg Arg="1" Str="F_hit_great" />
-					<Str Str="arrow_blow" />
-					<Str Str="FAST" />
-					<Num Num="450" />
-					<Num Num="1" />
-					<Num Num="0" />
-					<Angle_Abs Angle="0" />
-					<Num Num="5" />
-					<Num Num="10" />
-					<Num Num="0" />
-					<Num Num="2" />
-					<Num Num="50" />
-					<Num Num="0.050000001" />
-					<Num Num="1" />
-					<Num Num="40" />
-				</ToolScp>
-			</ResultList>
-		</MainSkl>
-	</Skill>
-	<Skill Name="Mergen_ArrowRain">
-		<KeyInput>
-			<ToolScp Client="YES" Scp="SKL_KEY_GROUND_EVENT" UseSleep="NO">
-				<Num Num="3" />
-				<Num Num="0" />
-				<Num Num="0" />
-				<Num Num="1" />
-				<Num Num="200" />
-				<Num Num="0.1" />
-				<Num Num="0" />
-				<Num Num="0" />
-				<Num Num="0" />
-				<Str_Arg Arg="1" Str="None" />
-				<Str Str="None" />
-				<Num Num="0" />
-				<Num Num="0" />
-				<Num Num="5" />
-				<Num Num="1" />
-				<Num Num="45" />
-				<Num Num="0" />
-				<Num Num="0" />
-				<Num Num="0" />
-				<Num Num="0" />
-			</ToolScp>
-		</KeyInput>
-		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
-			<HitList>
-				<Frame Angle="0" AniTime="9999" Dist="0" ForceATK="0" HitCount="1" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" TermMax="0" TermMin="0" Time="9799" Type="FAN" />
-			</HitList>
-			<EtcList>
-				<Scp Client="YES" Scp="C_VOICE_SOUND" Time="200" UseSleep="NO">
-					<Str Str="voice_war_atk_long_shot" />
-					<Str Str="voice_atk_long_war_f" />
-				</Scp>
-				<Scp Client="NO" Scp="MONSKL_CRE_PAD" Time="500" UseSleep="NO">
-					<Pos Angle="0" Dist="0" PosType="3" />
-					<Angle Angle="0" />
-					<Str Str="Mergen_ArrowRain" />
-				</Scp>
-				<Scp Client="NO" Scp="MONSKL_CRE_PAD" Time="530" UseSleep="NO">
-					<Pos Angle="0" Dist="0" PosType="3" />
-					<Angle Angle="0" />
-					<Str Str="Mergen_ArrowRain2" />
-				</Scp>
-				<Scp Client="YES" Scp="C_SHOCKWAVE" Time="890" UseSleep="NO">
-					<Num Num="1" />
-					<Num Num="3" />
-					<Num Num="70" />
-					<Num Num="999" />
-				</Scp>
-			</EtcList>
-		</MainSkl>
-		<ByCondSkills>
-			<SubSkl>
-				<Cond>
-					<ToolScp Scp="SKL_CHECK_EXPROP" Client="NO" UseSleep="NO">
-						<Str Str="ITEM_VIBORA_ARROW_RAIN"/>
-						<Num Num="1"/>
-					</ToolScp>
-				</Cond>
-				<Skill ScrLock="None" JumpFlee="NO" MSPDToUsePos="0">
-					<HitList>
-						<Frame Type="FAN" Time="9799" HitCount="1" TermMin="0" TermMax="0" PosType="0" Dist="0" RandDist="0" RandomPerHit="0" Angle="0" AniTime="9999" RotAngle="0" ForceATK="0" ScriptIndex="0" ScriptName="" SkillType="0"/>
-					</HitList>
-					<EtcList>
-						<Scp Scp="C_VOICE_SOUND" Client="YES" UseSleep="NO" Time="200">
-							<Str Str="voice_war_atk_long_shot"/>
-							<Str Str="voice_atk_long_war_f"/>
-						</Scp>
-						<Scp Scp="MONSKL_CRE_PAD" Client="NO" UseSleep="NO" Time="500">
-							<Pos Angle="0" Dist="0" PosType="3"/>
-							<Angle Angle="0"/>
-							<Str Str="Mergen_ArrowRain"/>
-						</Scp>
-						<Scp Scp="MONSKL_CRE_PAD" Client="NO" UseSleep="NO" Time="530">
-							<Pos Angle="0" Dist="0" PosType="3"/>
-							<Angle Angle="0"/>
-							<Str Str="Mergen_ArrowRain2"/>
-						</Scp>
-						<Scp Scp="MONSKL_CRE_PAD" Client="NO" UseSleep="NO" Time="500">
-							<Pos Angle="0" Dist="0" PosType="3"/>
-							<Angle Angle="0"/>
-							<Str Str="Mergen_ArrowRain3"/>
-						</Scp>
-						<Scp Scp="C_SHOCKWAVE" Client="YES" UseSleep="NO" Time="890">
-							<Num Num="1"/>
-							<Num Num="3"/>
-							<Num Num="70"/>
-							<Num Num="999"/>
-						</Scp>
-					</EtcList>
-				</Skill>
-			</SubSkl>
-		</ByCondSkills>
-	</Skill>
-	</ToolSkill>
+    <Skill Name="Mergen_ParthianShaft">
+        <EnableScripts>
+            <ToolScp Client="BOTH" Scp="SKL_CHECK_MOVEING" UseSleep="NO"/>
+        </EnableScripts>
+        <MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+            <HitList>
+                <Frame Angle="0" AniTime="200" Dist="0" ForceATK="0" HitCount="1" Length="130" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="3.1415927" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="0" Type="SQUARE" Width="15"/>
+            </HitList>
+            <EtcList>
+                <Scp Client="YES" Scp="C_VOICE_SOUND" Time="0" UseSleep="NO">
+                    <Str Str="voice_war_atk_medium"/>
+                    <Str Str="voice_atk_medium_war_f"/>
+                </Scp>
+                <Scp Client="YES_Time" Scp="C_FORCE_EFT" Time="200" UseSleep="NO">
+                    <Str_Arg Arg="0.5" Str="I_archer_ParthianShaft_force#Dummy_effect_force_ParthianShaft"/>
+                    <Str Str="arrow_cast"/>
+                    <Str_Arg Arg="1" Str="None"/>
+                    <Str Str="arrow_blow"/>
+                    <Str Str="FAST"/>
+                    <Num Num="600"/>
+                    <Num Num="1"/>
+                    <Num Num="0"/>
+                    <Angle_Abs Angle="3.1415927"/>
+                    <Num Num="0"/>
+                    <Num Num="5"/>
+                    <Num Num="10"/>
+                    <Num Num="0"/>
+                    <Num Num="1"/>
+                    <Num Num="1"/>
+                    <Str Str="None"/>
+                    <PosDist Angle="0" Dist="0"/>
+                    <Num Num="0"/>
+                </Scp>
+                <Scp Client="YES" Scp="C_NEXT_SKILL_RESERVE_RESETANIM" Time="250" UseSleep="NO"/>
+            </EtcList>
+        </MainSkl>
+    </Skill>
+    <Skill Name="Mergen_TrickShot">
+        <MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+            <HitList>
+                <Frame Angle="0" AniTime="420" Dist="0" ForceATK="0" HitCount="1" Length="140" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0.2617994" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="220" Type="SQUARE" Width="13"/>
+                <Frame Angle="0" AniTime="420" Dist="0" ForceATK="0" HitCount="1" Length="135" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="220" Type="SQUARE" Width="13"/>
+                <Frame Angle="0" AniTime="420" Dist="0" ForceATK="0" HitCount="1" Length="140" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="-0.2617994" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="220" Type="SQUARE" Width="13"/>
+            </HitList>
+            <EtcList>
+                <Scp Client="YES" Scp="C_VOICE_SOUND" Time="200" UseSleep="NO">
+                    <Str Str="voice_war_atk_medium"/>
+                    <Str Str="voice_atk_medium_war_f"/>
+                </Scp>
+                <Scp Client="YES_Time" Scp="C_FORCE_EFT" Time="320" UseSleep="NO">
+                    <Str_Arg Arg="0.5" Str="I_archer_TripleArrow_arrow_mash#Dummy_Force"/>
+                    <Str Str="arrow_cast"/>
+                    <Str_Arg Arg="0.5" Str="None"/>
+                    <Str Str="arrow_blow"/>
+                    <Str Str="FAST"/>
+                    <Num Num="900"/>
+                    <Num Num="1"/>
+                    <Num Num="0"/>
+                    <Angle_Abs Angle="0.17453292"/>
+                    <Num Num="0"/>
+                    <Num Num="5"/>
+                    <Num Num="0"/>
+                    <Num Num="0"/>
+                    <Num Num="1"/>
+                    <Num Num="1"/>
+                    <Num Num="1"/>
+                    <Num Num="1"/>
+                    <Num Num="1"/>
+                </Scp>
+                <Scp Client="YES_Time" Scp="C_FORCE_EFT" Time="320" UseSleep="NO">
+                    <Str_Arg Arg="0.5" Str="I_archer_TripleArrow_arrow_mash#Dummy_Force"/>
+                    <Str Str="arrow_cast"/>
+                    <Str_Arg Arg="0.5" Str="None"/>
+                    <Str Str="arrow_blow"/>
+                    <Str Str="FAST"/>
+                    <Num Num="900"/>
+                    <Num Num="1"/>
+                    <Num Num="0"/>
+                    <Angle_Abs Angle="0"/>
+                    <Num Num="0"/>
+                    <Num Num="5"/>
+                    <Num Num="0"/>
+                    <Num Num="0"/>
+                    <Num Num="1"/>
+                </Scp>
+                <Scp Client="YES_Time" Scp="C_FORCE_EFT" Time="320" UseSleep="NO">
+                    <Str_Arg Arg="0.5" Str="I_archer_TripleArrow_arrow_mash#Dummy_Force"/>
+                    <Str Str="arrow_cast"/>
+                    <Str_Arg Arg="0.5" Str="None"/>
+                    <Str Str="arrow_blow"/>
+                    <Str Str="FAST"/>
+                    <Num Num="900"/>
+                    <Num Num="1"/>
+                    <Num Num="0"/>
+                    <Angle_Abs Angle="-0.17453292"/>
+                    <Num Num="0"/>
+                    <Num Num="5"/>
+                    <Num Num="0"/>
+                    <Num Num="0"/>
+                    <Num Num="1"/>
+                </Scp>
+                <Scp Client="YES" Scp="C_EFFECT_ATTACH" Time="320" UseSleep="NO">
+                    <Str_Arg Arg="0.80000001" Str="F_hit003_light_violet#Dummy_Force"/>
+                    <Num Num="1"/>
+                    <Pos Angle="0" Dist="0"/>
+                </Scp>
+            </EtcList>
+            <ResultList>
+                <ToolScp Client="NO" Scp="S_R_COND_RANDOM" UseSleep="NO">
+                    <Num Num="50"/>
+                </ToolScp>
+                <ToolScp Client="NO" Scp="S_R_EXPLODE_DAMAGE" UseSleep="NO">
+                    <Str_Arg Arg="0.34999999" Str="F_archer_TripleArrow_hit_explosion"/>
+                    <Num Num="25"/>
+                    <Num Num="0.80000001"/>
+                    <Num Num="0.050000001"/>
+                </ToolScp>
+            </ResultList>
+        </MainSkl>
+    </Skill>
+    <Skill Name="Mergen_QuickFire">
+        <MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+            <EtcList>
+                <Scp Client="YES_Time" Scp="C_FORCE_EFT" Time="120" UseSleep="NO">
+                    <Str_Arg Arg="0.69999999" Str="I_arrow009#Dummy_Force"/>
+                    <Str Str="arrow_cast"/>
+                    <Str_Arg Arg="1" Str="F_hit_good"/>
+                    <Str Str="arrow_blow"/>
+                    <Str Str="SLOW"/>
+                    <Num Num="800"/>
+                    <Num Num="2"/>
+                    <Num Num="0"/>
+                    <Angle_Abs Angle="0"/>
+                    <Num Num="0"/>
+                    <Num Num="5"/>
+                    <Num Num="0"/>
+                    <Num Num="0"/>
+                    <Num Num="1"/>
+                    <Num Num="0"/>
+                </Scp>
+                <Scp Client="YES" Scp="C_VOICE_SOUND" Time="200" UseSleep="NO">
+                    <Str Str="voice_archer_atk"/>
+                    <Str Str="voice_archer_f_atk"/>
+                </Scp>
+            </EtcList>
+        </MainSkl>
+    </Skill>
+    <Skill Name="Mergen_FocusFire">
+        <KeyInput>
+            <ToolScp Scp="SKL_KEY_DYNAMIC_CASTING" Client="YES" UseSleep="NO">
+                <Num Num="0"/>
+                <Num Num="0"/>
+                <Num Num="1.5" UseFunc="1" FuncTxt="local pc = GetMyPCObject() local abil = GetAbility(pc, &quot;Mergen12&quot;) local value = 1.5 if abil ~= nil and abil.ActiveState == 1 then value = value / 2 end  return value"/>
+                <Num Num="0"/>
+                <Num Num="1"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+                <Num Num="1.5" UseFunc="1" FuncTxt="local pc = GetMyPCObject() local abil = GetAbility(pc, &quot;Mergen12&quot;) local value = 1.5 / obj.Level if abil ~= nil and abil.ActiveState == 1 then value = value / 2 end  return value"/>
+                <Num Num="1"/>
+                <Num Num="0"/>
+                <Str_Arg Str="E_pc_full_charge" Arg="0"/>
+                <Str Str=""/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+                <Str Str=""/>
+                <Str Str=""/>
+            </ToolScp>
+        </KeyInput>
+        <KeyInputStart>
+            <ToolScp Scp="C_EFFECT" Client="YES" UseSleep="NO">
+                <Str_Arg Str="F_archer_FocusFire_cast_spread_in#Dummy_Force" Arg="1"/>
+                <Str Str="Dummy_Force"/>
+                <Num Num="0"/>
+            </ToolScp>
+            <ToolScp Scp="SKL_PLAY_SOUND" Client="NO" UseSleep="NO">
+                <Str Str="voice_atk_long_cast_f"/>
+                <Num Num="0"/>
+                <Str Str="voice_war_atk_long_cast"/>
+            </ToolScp>
+            <ToolScp Scp="MONSKL_C_CASTING_ANIM" Client="YES" UseSleep="NO">
+                <Str Str="SKL_FOCUSFIRE_LOOP2"/>
+                <Str Str="None"/>
+                <Num Num="1"/>
+                <Num Num="1"/>
+                <Str Str="None"/>
+                <Str Str="ASTD"/>
+            </ToolScp>
+        </KeyInputStart>
+        <KeyInputEnd>
+            <ToolScp Scp="MONSKL_C_CLEAR_RESERVE_ANIM" Client="YES" UseSleep="NO"/>
+            <ToolScp Scp="C_EFFECT_DETACH" Client="YES" UseSleep="NO">
+                <Str_Arg Str="F_archer_FocusFire_cast_spread_in#Dummy_arrowstart" Arg="1"/>
+                <Num Num="0.5"/>
+            </ToolScp>
+            <ToolScp Scp="C_EFFECT" Client="YES" UseSleep="NO">
+                <Str_Arg Str="F_explosion035_blue" Arg="3"/>
+                <Str Str="Dummy_arrowstart"/>
+                <Num Num="0"/>
+            </ToolScp>
+            <ToolScp Scp="C_SHOCKWAVE" Client="YES" UseSleep="NO">
+                <Num Num="8"/>
+                <Num Num="0.2"/>
+                <Num Num="80"/>
+                <Num Num="999"/>
+            </ToolScp>
+            <ToolScp Scp="MONSKL_C_RESET_CASTING_ANIM" Client="YES" UseSleep="NO"/>
+            <ToolScp Scp="SKL_STOP_SOUND" Client="NO" UseSleep="NO">
+                <Str Str="voice_atk_long_cast_f"/>
+                <Str Str="voice_war_atk_long_cast"/>
+            </ToolScp>
+        </KeyInputEnd>
+        <MainSkl ScrLock="None" JumpFlee="NO" MSPDToUsePos="0">
+            <HitList>
+                <Frame Type="SQUARE" Time="0" HitCount="1" TermMin="0" TermMax="0" PosType="0" Dist="0" RandDist="0" RandomPerHit="0" Angle="0" Width="60" Length="130" SklAngle="1.0471981" AniTime="0" RotAngle="0" ForceATK="1" RandomSort="1" ScriptIndex="0" ScriptName="" SkillType="0"/>
+                <Frame Type="SQUARE" Time="0" HitCount="1" TermMin="0" TermMax="0" PosType="0" Dist="0" RandDist="0" RandomPerHit="0" Angle="0" Width="60" Length="130" SklAngle="1.0471981" AniTime="50" RotAngle="0" ForceATK="1" RandomSort="1" ScriptIndex="0" ScriptName="" SkillType="0"/>
+                <Frame Type="SQUARE" Time="0" HitCount="1" TermMin="0" TermMax="0" PosType="0" Dist="0" RandDist="0" RandomPerHit="0" Angle="0" Width="60" Length="130" SklAngle="1.0471981" AniTime="100" RotAngle="0" ForceATK="1" RandomSort="1" ScriptIndex="0" ScriptName="" SkillType="0"/>
+                <Frame Type="SQUARE" Time="0" HitCount="1" TermMin="0" TermMax="0" PosType="0" Dist="0" RandDist="0" RandomPerHit="0" Angle="0" Width="60" Length="130" SklAngle="1.0471981" AniTime="150" RotAngle="0" ForceATK="1" RandomSort="1" ScriptIndex="0" ScriptName="" SkillType="0"/>
+                <Frame Type="SQUARE" Time="0" HitCount="1" TermMin="0" TermMax="0" PosType="0" Dist="0" RandDist="0" RandomPerHit="0" Angle="0" Width="60" Length="130" SklAngle="1.0471981" AniTime="200" RotAngle="0" ForceATK="1" RandomSort="1" ScriptIndex="0" ScriptName="" SkillType="0"/>
+            </HitList>
+            <EtcList>
+                <Scp Scp="C_VOICE_SOUND" Client="YES" UseSleep="NO" Time="0">
+                    <Str Str="voice_war_atk_long_cast"/>
+                    <Str Str="voice_atk_long_cast_f"/>
+                </Scp>
+                <Scp Scp="C_FORCE_EFT" Client="YES_Time" UseSleep="NO" Time="50">
+                    <Str_Arg Str="I_archer_FocusFire_arrow_trail#Dummy_Force" Arg="7"/>
+                    <Str Str="arrow_cast"/>
+                    <Str_Arg Str="None" Arg="1"/>
+                    <Str Str="arrow_blow"/>
+                    <Str Str="SLOW"/>
+                    <Num Num="700"/>
+                    <Num Num="0"/>
+                    <Num Num="0"/>
+                    <Angle_Abs Angle="0.78539819"/>
+                    <Num Num="0"/>
+                    <Num Num="5"/>
+                    <Num Num="12"/>
+                    <Num Num="2"/>
+                    <Num Num="0"/>
+                </Scp>
+                <Scp Scp="C_FORCE_EFT" Client="YES_Time" UseSleep="NO" Time="100">
+                    <Str_Arg Str="I_archer_FocusFire_arrow_trail#Dummy_Force" Arg="7"/>
+                    <Str Str="arrow_cast"/>
+                    <Str_Arg Str="None" Arg="1"/>
+                    <Str Str="arrow_blow"/>
+                    <Str Str="SLOW"/>
+                    <Num Num="700"/>
+                    <Num Num="0"/>
+                    <Num Num="0"/>
+                    <Angle_Abs Angle="0.2617994"/>
+                    <Num Num="1"/>
+                    <Num Num="5"/>
+                    <Num Num="12"/>
+                    <Num Num="2"/>
+                    <Num Num="0"/>
+                </Scp>
+                <Scp Scp="C_FORCE_EFT" Client="YES_Time" UseSleep="NO" Time="150">
+                    <Str_Arg Str="I_archer_FocusFire_arrow_trail#Dummy_Force" Arg="7"/>
+                    <Str Str="arrow_cast"/>
+                    <Str_Arg Str="None" Arg="1"/>
+                    <Str Str="arrow_blow"/>
+                    <Str Str="SLOW"/>
+                    <Num Num="700"/>
+                    <Num Num="0"/>
+                    <Num Num="0"/>
+                    <Angle_Abs Angle="0"/>
+                    <Num Num="2"/>
+                    <Num Num="5"/>
+                    <Num Num="12"/>
+                    <Num Num="2"/>
+                    <Num Num="0"/>
+                </Scp>
+                <Scp Scp="C_FORCE_EFT" Client="YES_Time" UseSleep="NO" Time="200">
+                    <Str_Arg Str="I_archer_FocusFire_arrow_trail#Dummy_Force" Arg="7"/>
+                    <Str Str="arrow_cast"/>
+                    <Str_Arg Str="None" Arg="1"/>
+                    <Str Str="arrow_blow"/>
+                    <Str Str="SLOW"/>
+                    <Num Num="700"/>
+                    <Num Num="0"/>
+                    <Num Num="0"/>
+                    <Angle_Abs Angle="-0.2617994"/>
+                    <Num Num="3"/>
+                    <Num Num="5"/>
+                    <Num Num="12"/>
+                    <Num Num="2"/>
+                    <Num Num="0"/>
+                </Scp>
+                <Scp Scp="C_FORCE_EFT" Client="YES_Time" UseSleep="NO" Time="250">
+                    <Str_Arg Str="I_archer_FocusFire_arrow_trail#Dummy_Force" Arg="7"/>
+                    <Str Str="arrow_cast"/>
+                    <Str_Arg Str="None" Arg="1"/>
+                    <Str Str="arrow_blow"/>
+                    <Str Str="SLOW"/>
+                    <Num Num="700"/>
+                    <Num Num="0"/>
+                    <Num Num="0"/>
+                    <Angle_Abs Angle="-0.78539819"/>
+                    <Num Num="4"/>
+                    <Num Num="5"/>
+                    <Num Num="12"/>
+                    <Num Num="2"/>
+                    <Num Num="1"/>
+                </Scp>
+            </EtcList>
+        </MainSkl>
+        <ByCondSkills>
+            <SubSkl>
+                <Cond>
+                    <ToolScp Scp="SKL_SELECT_BUFF" Client="NO" UseSleep="NO">
+                        <Str Str="LiedDerWeltbaum_Buff"/>
+                    </ToolScp>
+                </Cond>
+                <Skill ScrLock="None" JumpFlee="NO" MSPDToUsePos="0">
+                    <HitList>
+                        <Frame Type="SQUARE" Time="0" HitCount="1" TermMin="0" TermMax="0" PosType="0" Dist="0" RandDist="0" RandomPerHit="0" Angle="0" Width="60" Length="130" SklAngle="1.0471981" AniTime="0" RotAngle="0" ForceATK="1" RandomSort="1" ScriptIndex="0" ScriptName="" SkillType="0"/>
+                        <Frame Type="SQUARE" Time="0" HitCount="1" TermMin="0" TermMax="0" PosType="0" Dist="0" RandDist="0" RandomPerHit="0" Angle="0" Width="60" Length="130" SklAngle="1.0471981" AniTime="33" RotAngle="0" ForceATK="1" RandomSort="1" ScriptIndex="0" ScriptName="" SkillType="0"/>
+                        <Frame Type="SQUARE" Time="0" HitCount="1" TermMin="0" TermMax="0" PosType="0" Dist="0" RandDist="0" RandomPerHit="0" Angle="0" Width="60" Length="130" SklAngle="1.0471981" AniTime="66" RotAngle="0" ForceATK="1" RandomSort="1" ScriptIndex="0" ScriptName="" SkillType="0"/>
+                        <Frame Type="SQUARE" Time="0" HitCount="1" TermMin="0" TermMax="0" PosType="0" Dist="0" RandDist="0" RandomPerHit="0" Angle="0" Width="60" Length="130" SklAngle="1.0471981" AniTime="99" RotAngle="0" ForceATK="1" RandomSort="1" ScriptIndex="0" ScriptName="" SkillType="0"/>
+                        <Frame Type="SQUARE" Time="0" HitCount="1" TermMin="0" TermMax="0" PosType="0" Dist="0" RandDist="0" RandomPerHit="0" Angle="0" Width="60" Length="130" SklAngle="1.0471981" AniTime="132" RotAngle="0" ForceATK="1" RandomSort="1" ScriptIndex="0" ScriptName="" SkillType="0"/>
+                        <Frame Type="SQUARE" Time="0" HitCount="1" TermMin="0" TermMax="0" PosType="0" Dist="0" RandDist="0" RandomPerHit="0" Angle="0" Width="60" Length="130" SklAngle="1.0471981" AniTime="165" RotAngle="0" ForceATK="1" RandomSort="1" ScriptIndex="0" ScriptName="" SkillType="0"/>
+                        <Frame Type="SQUARE" Time="0" HitCount="1" TermMin="0" TermMax="0" PosType="0" Dist="0" RandDist="0" RandomPerHit="0" Angle="0" Width="60" Length="130" SklAngle="1.0471981" AniTime="200" RotAngle="0" ForceATK="1" RandomSort="1" ScriptIndex="0" ScriptName="" SkillType="0"/>
+                    </HitList>
+                    <EtcList>
+                        <Scp Scp="C_VOICE_SOUND" Client="YES" UseSleep="NO" Time="0">
+                            <Str Str="voice_war_atk_long_cast"/>
+                            <Str Str="voice_atk_long_cast_f"/>
+                        </Scp>
+                        <Scp Scp="C_FORCE_EFT" Client="YES_Time" UseSleep="NO" Time="0">
+                            <Str_Arg Str="I_archer_FocusFire_arrow_trail#Dummy_Force" Arg="7"/>
+                            <Str Str="arrow_cast"/>
+                            <Str_Arg Str="None" Arg="1"/>
+                            <Str Str="arrow_blow"/>
+                            <Str Str="SLOW"/>
+                            <Num Num="700"/>
+                            <Num Num="0"/>
+                            <Num Num="0"/>
+                            <Angle_Abs Angle="0.78539819"/>
+                            <Num Num="0"/>
+                            <Num Num="5"/>
+                            <Num Num="12"/>
+                            <Num Num="2"/>
+                            <Num Num="0"/>
+                        </Scp>
+                        <Scp Scp="C_FORCE_EFT" Client="YES_Time" UseSleep="NO" Time="33">
+                            <Str_Arg Str="I_archer_FocusFire_arrow_trail#Dummy_Force" Arg="7"/>
+                            <Str Str="arrow_cast"/>
+                            <Str_Arg Str="None" Arg="1"/>
+                            <Str Str="arrow_blow"/>
+                            <Str Str="SLOW"/>
+                            <Num Num="700"/>
+                            <Num Num="0"/>
+                            <Num Num="0"/>
+                            <Angle_Abs Angle="0.52359879"/>
+                            <Num Num="1"/>
+                            <Num Num="5"/>
+                            <Num Num="12"/>
+                            <Num Num="2"/>
+                            <Num Num="0"/>
+                        </Scp>
+                        <Scp Scp="C_FORCE_EFT" Client="YES_Time" UseSleep="NO" Time="66">
+                            <Str_Arg Str="I_archer_FocusFire_arrow_trail#Dummy_Force" Arg="7"/>
+                            <Str Str="arrow_cast"/>
+                            <Str_Arg Str="None" Arg="1"/>
+                            <Str Str="arrow_blow"/>
+                            <Str Str="SLOW"/>
+                            <Num Num="700"/>
+                            <Num Num="0"/>
+                            <Num Num="0"/>
+                            <Angle_Abs Angle="0.2617994"/>
+                            <Num Num="2"/>
+                            <Num Num="5"/>
+                            <Num Num="12"/>
+                            <Num Num="2"/>
+                            <Num Num="0"/>
+                        </Scp>
+                        <Scp Scp="C_FORCE_EFT" Client="YES_Time" UseSleep="NO" Time="99">
+                            <Str_Arg Str="I_archer_FocusFire_arrow_trail#Dummy_Force" Arg="7"/>
+                            <Str Str="arrow_cast"/>
+                            <Str_Arg Str="None" Arg="1"/>
+                            <Str Str="arrow_blow"/>
+                            <Str Str="SLOW"/>
+                            <Num Num="700"/>
+                            <Num Num="0"/>
+                            <Num Num="0"/>
+                            <Angle_Abs Angle="0"/>
+                            <Num Num="3"/>
+                            <Num Num="5"/>
+                            <Num Num="12"/>
+                            <Num Num="2"/>
+                            <Num Num="0"/>
+                        </Scp>
+                        <Scp Scp="C_FORCE_EFT" Client="YES_Time" UseSleep="NO" Time="132">
+                            <Str_Arg Str="I_archer_FocusFire_arrow_trail#Dummy_Force" Arg="7"/>
+                            <Str Str="arrow_cast"/>
+                            <Str_Arg Str="None" Arg="1"/>
+                            <Str Str="arrow_blow"/>
+                            <Str Str="SLOW"/>
+                            <Num Num="700"/>
+                            <Num Num="0"/>
+                            <Num Num="0"/>
+                            <Angle_Abs Angle="-0.2617994"/>
+                            <Num Num="4"/>
+                            <Num Num="5"/>
+                            <Num Num="12"/>
+                            <Num Num="2"/>
+                            <Num Num="0"/>
+                        </Scp>
+                        <Scp Scp="C_FORCE_EFT" Client="YES_Time" UseSleep="NO" Time="165">
+                            <Str_Arg Str="I_archer_FocusFire_arrow_trail#Dummy_Force" Arg="7"/>
+                            <Str Str="arrow_cast"/>
+                            <Str_Arg Str="None" Arg="1"/>
+                            <Str Str="arrow_blow"/>
+                            <Str Str="SLOW"/>
+                            <Num Num="700"/>
+                            <Num Num="0"/>
+                            <Num Num="0"/>
+                            <Angle_Abs Angle="-0.52359879"/>
+                            <Num Num="5"/>
+                            <Num Num="5"/>
+                            <Num Num="12"/>
+                            <Num Num="2"/>
+                            <Num Num="0"/>
+                        </Scp>
+                        <Scp Scp="C_FORCE_EFT" Client="YES_Time" UseSleep="NO" Time="200">
+                            <Str_Arg Str="I_archer_FocusFire_arrow_trail#Dummy_Force" Arg="7"/>
+                            <Str Str="arrow_cast"/>
+                            <Str_Arg Str="None" Arg="1"/>
+                            <Str Str="arrow_blow"/>
+                            <Str Str="SLOW"/>
+                            <Num Num="700"/>
+                            <Num Num="0"/>
+                            <Num Num="0"/>
+                            <Angle_Abs Angle="-0.78539819"/>
+                            <Num Num="6"/>
+                            <Num Num="5"/>
+                            <Num Num="12"/>
+                            <Num Num="2"/>
+                            <Num Num="1"/>
+                        </Scp>
+                    </EtcList>
+                </Skill>
+            </SubSkl>
+        </ByCondSkills>
+    </Skill>
+    <Skill Name="Mergen_Unload">
+        <MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+            <HitList>
+                <Frame Angle="0" AniTime="380" Dist="0" ForceATK="1" HitCount="1" Length="140" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0.34906587" SklAngle="0.61086529" TermMax="0" TermMin="0" Time="180" Type="FAN"/>
+            </HitList>
+            <EtcList>
+                <Scp Client="YES" Scp="C_VOICE_SOUND" Time="0" UseSleep="NO">
+                    <Str Str="voice_war_atk_medium"/>
+                    <Str Str="voice_atk_medium_war_f"/>
+                </Scp>
+                <Scp Client="YES" Scp="C_EFFECT" Time="50" UseSleep="NO">
+                    <Str_Arg Arg="1.3" Str="F_wizard_BRIQUETTING_STEP1_smoke"/>
+                    <Str Str="Dummy_emitter"/>
+                    <Num Num="0"/>
+                </Scp>
+                <Scp Client="YES" Scp="C_EFFECT_ATTACH" Time="320" UseSleep="NO">
+                    <Str_Arg Arg="0.40000001" Str="F_hit003_light_mint#Dummy_Force"/>
+                    <Num Num="1"/>
+                    <Pos Angle="0" Dist="0"/>
+                </Scp>
+                <Scp Client="YES_Time" Scp="C_FORCE_EFT" Time="320" UseSleep="NO">
+                    <Str_Arg Arg="0.5" Str="I_archer_SpreadShot_arrow_mash#Dummy_Force"/>
+                    <Str Str="arrow_cast"/>
+                    <Str_Arg Arg="0.5" Str="None"/>
+                    <Str Str="arrow_blow"/>
+                    <Str Str="FAST"/>
+                    <Num Num="900"/>
+                    <Num Num="1"/>
+                    <Num Num="0"/>
+                    <Angle_Abs Angle="0.34906584"/>
+                    <Num Num="0"/>
+                    <Num Num="5"/>
+                    <Num Num="0"/>
+                    <Num Num="0"/>
+                    <Num Num="0"/>
+                </Scp>
+                <Scp Client="YES_Time" Scp="C_FORCE_EFT" Time="320" UseSleep="NO">
+                    <Str_Arg Arg="0.5" Str="I_archer_SpreadShot_arrow_mash#Dummy_Force"/>
+                    <Str Str="arrow_cast"/>
+                    <Str_Arg Arg="0.5" Str="None"/>
+                    <Str Str="arrow_blow"/>
+                    <Str Str="FAST"/>
+                    <Num Num="900"/>
+                    <Num Num="1"/>
+                    <Num Num="0"/>
+                    <Angle_Abs Angle="0.17453292"/>
+                    <Num Num="1"/>
+                    <Num Num="5"/>
+                    <Num Num="0"/>
+                    <Num Num="0"/>
+                    <Num Num="0"/>
+                </Scp>
+                <Scp Client="YES_Time" Scp="C_FORCE_EFT" Time="320" UseSleep="NO">
+                    <Str_Arg Arg="0.5" Str="I_archer_SpreadShot_arrow_mash#Dummy_Force"/>
+                    <Str Str="arrow_cast"/>
+                    <Str_Arg Arg="0.5" Str="None"/>
+                    <Str Str="arrow_blow"/>
+                    <Str Str="FAST"/>
+                    <Num Num="900"/>
+                    <Num Num="1"/>
+                    <Num Num="0"/>
+                    <Angle_Abs Angle="0"/>
+                    <Num Num="2"/>
+                    <Num Num="5"/>
+                    <Num Num="0"/>
+                    <Num Num="0"/>
+                    <Num Num="0"/>
+                </Scp>
+                <Scp Client="YES_Time" Scp="C_FORCE_EFT" Time="320" UseSleep="NO">
+                    <Str_Arg Arg="0.5" Str="I_archer_SpreadShot_arrow_mash#Dummy_Force"/>
+                    <Str Str="arrow_cast"/>
+                    <Str_Arg Arg="0.5" Str="None"/>
+                    <Str Str="arrow_blow"/>
+                    <Str Str="FAST"/>
+                    <Num Num="900"/>
+                    <Num Num="1"/>
+                    <Num Num="0"/>
+                    <Angle_Abs Angle="-0.17453292"/>
+                    <Num Num="3"/>
+                    <Num Num="5"/>
+                    <Num Num="0"/>
+                    <Num Num="0"/>
+                    <Num Num="0"/>
+                </Scp>
+                <Scp Client="YES_Time" Scp="C_FORCE_EFT" Time="320" UseSleep="NO">
+                    <Str_Arg Arg="0.5" Str="I_archer_SpreadShot_arrow_mash#Dummy_Force"/>
+                    <Str Str="arrow_cast"/>
+                    <Str_Arg Arg="0.5" Str="None"/>
+                    <Str Str="arrow_blow"/>
+                    <Str Str="FAST"/>
+                    <Num Num="900"/>
+                    <Num Num="1"/>
+                    <Num Num="0"/>
+                    <Angle_Abs Angle="-0.34906584"/>
+                    <Num Num="4"/>
+                    <Num Num="5"/>
+                    <Num Num="0"/>
+                    <Num Num="0"/>
+                    <Num Num="1"/>
+                </Scp>
+            </EtcList>
+            <ResultList>
+                <ToolScp Client="NO" Scp="S_R_COND_RANDOM" UseSleep="NO">
+                    <Num Num="100"/>
+                </ToolScp>
+                <ToolScp Client="NO" Scp="S_R_SET_FORCE_DAMAGE" UseSleep="NO">
+                    <Num Num="0.5"/>
+                    <Num Num="1"/>
+                    <Num Num="2"/>
+                    <Str_Arg Arg="1" Str="I_archer_SpreadShot_arrow_mash"/>
+                    <Str Str="arrow_cast"/>
+                    <Str_Arg Arg="1" Str="F_hit_great"/>
+                    <Str Str="arrow_blow"/>
+                    <Str Str="FAST"/>
+                    <Num Num="450"/>
+                    <Num Num="1"/>
+                    <Num Num="0"/>
+                    <Angle_Abs Angle="0"/>
+                    <Num Num="5"/>
+                    <Num Num="10"/>
+                    <Num Num="0"/>
+                    <Num Num="2"/>
+                    <Num Num="50"/>
+                    <Num Num="0.050000001"/>
+                    <Num Num="1"/>
+                    <Num Num="40"/>
+                </ToolScp>
+            </ResultList>
+        </MainSkl>
+    </Skill>
+    <Skill Name="Mergen_ArrowRain">
+        <KeyInput>
+            <ToolScp Scp="SKL_KEY_GROUND_EVENT" Client="YES" UseSleep="NO">
+                <Num Num="3"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+                <Num Num="1"/>
+                <Num Num="200"/>
+                <Num Num="0.1"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+                <Str_Arg Str="None" Arg="1"/>
+                <Str Str="None"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+                <Num Num="5"/>
+                <Num Num="1"/>
+                <Num Num="45"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+            </ToolScp>
+        </KeyInput>
+        <MainSkl ScrLock="None" JumpFlee="NO" MSPDToUsePos="0">
+            <HitList>
+                <Frame Type="FAN" Time="9799" HitCount="1" TermMin="0" TermMax="0" PosType="0" Dist="0" RandDist="0" RandomPerHit="0" Angle="0" AniTime="9999" RotAngle="0" ForceATK="0" ScriptIndex="0" ScriptName="" SkillType="0"/>
+            </HitList>
+            <EtcList>
+                <Scp Scp="C_VOICE_SOUND" Client="YES" UseSleep="NO" Time="200">
+                    <Str Str="voice_war_atk_long_shot"/>
+                    <Str Str="voice_atk_long_war_f"/>
+                </Scp>
+                <Scp Scp="MONSKL_CRE_PAD" Client="NO" UseSleep="NO" Time="500">
+                    <Pos Angle="0" Dist="0" PosType="3"/>
+                    <Angle Angle="0"/>
+                    <Str Str="Mergen_ArrowRain"/>
+                </Scp>
+                <Scp Scp="MONSKL_CRE_PAD" Client="NO" UseSleep="NO" Time="530">
+                    <Pos Angle="0" Dist="0" PosType="3"/>
+                    <Angle Angle="0"/>
+                    <Str Str="Mergen_ArrowRain2"/>
+                </Scp>
+                <Scp Scp="C_SHOCKWAVE" Client="YES" UseSleep="NO" Time="890">
+                    <Num Num="1"/>
+                    <Num Num="3"/>
+                    <Num Num="70"/>
+                    <Num Num="999"/>
+                </Scp>
+            </EtcList>
+        </MainSkl>
+        <ByCondSkills>
+            <SubSkl>
+                <Cond>
+                    <ToolScp Scp="SKL_CHECK_EXPROP" Client="NO" UseSleep="NO">
+                        <Str Str="ITEM_VIBORA_ARROW_RAIN"/>
+                        <Num Num="1"/>
+                    </ToolScp>
+                </Cond>
+                <Skill ScrLock="None" JumpFlee="NO" MSPDToUsePos="0">
+                    <HitList>
+                        <Frame Type="FAN" Time="9799" HitCount="1" TermMin="0" TermMax="0" PosType="0" Dist="0" RandDist="0" RandomPerHit="0" Angle="0" AniTime="9999" RotAngle="0" ForceATK="0" ScriptIndex="0" ScriptName="" SkillType="0"/>
+                    </HitList>
+                    <EtcList>
+                        <Scp Scp="C_VOICE_SOUND" Client="YES" UseSleep="NO" Time="200">
+                            <Str Str="voice_war_atk_long_shot"/>
+                            <Str Str="voice_atk_long_war_f"/>
+                        </Scp>
+                        <Scp Scp="MONSKL_CRE_PAD" Client="NO" UseSleep="NO" Time="500">
+                            <Pos Angle="0" Dist="0" PosType="3"/>
+                            <Angle Angle="0"/>
+                            <Str Str="Mergen_ArrowRain"/>
+                        </Scp>
+                        <Scp Scp="MONSKL_CRE_PAD" Client="NO" UseSleep="NO" Time="530">
+                            <Pos Angle="0" Dist="0" PosType="3"/>
+                            <Angle Angle="0"/>
+                            <Str Str="Mergen_ArrowRain2"/>
+                        </Scp>
+                        <Scp Scp="MONSKL_CRE_PAD" Client="NO" UseSleep="NO" Time="500">
+                            <Pos Angle="0" Dist="0" PosType="3"/>
+                            <Angle Angle="0"/>
+                            <Str Str="Mergen_ArrowRain3"/>
+                        </Scp>
+                        <Scp Scp="C_SHOCKWAVE" Client="YES" UseSleep="NO" Time="890">
+                            <Num Num="1"/>
+                            <Num Num="3"/>
+                            <Num Num="70"/>
+                            <Num Num="999"/>
+                        </Scp>
+                    </EtcList>
+                </Skill>
+            </SubSkl>
+        </ByCondSkills>
+    </Skill>
+</ToolSkill>

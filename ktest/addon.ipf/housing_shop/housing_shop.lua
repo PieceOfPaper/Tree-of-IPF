@@ -1000,15 +1000,15 @@ function SCP_HOUSING_SHOP_TAB_LANDSCAPE(frame, gbox)
 	droplist_search_first:ClearItems();
 	droplist_search_second:ClearItems();
 
-	droplist_search_first:AddItem(0, ClMsg("Auto_MoDu_BoKi"));
-	droplist_search_first:AddItem(1, ClMsg("Housing_Search_Item_First_Theme"));
-	droplist_search_first:AddItem(2, ClMsg("Housing_Search_Item_First_Purpose"));
+	droplist_search_first:AddItem(0, "{@st61}".. ClMsg("Auto_MoDu_BoKi"));
+	droplist_search_first:AddItem(1, "{@st61}".. ClMsg("Housing_Search_Item_First_Theme"));
+	droplist_search_first:AddItem(2, "{@st61}".. ClMsg("Housing_Search_Item_First_Purpose"));
 	
 	if IS_PERSONAL_HOUSING_PLACE() == true then
-		droplist_search_first:AddItem(3, ClMsg("Housing_Search_Item_First_Group"));
+		droplist_search_first:AddItem(3, "{@st61}".. ClMsg("Housing_Search_Item_First_Group"));
 	end
 	
-	droplist_search_second:AddItem(0, ClMsg("Auto_MoDu_BoKi"));
+	droplist_search_second:AddItem(0, "{@st61}".. ClMsg("Auto_MoDu_BoKi"));
 end
 
 function SCP_HOUSING_SHOP_TAB_FACILITIES(frame, gbox)

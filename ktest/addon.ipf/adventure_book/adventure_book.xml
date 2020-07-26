@@ -326,7 +326,8 @@
 		<richtext name="battlePointText" rect="0 0 300 30" parent="teamBattleCommonInfoBox" margin="0 0 0 0" layout_gravity="left bottom" caption="점수" fontname="black_18_b"/>
 		<richtext name="battlePointValueText" rect="0 0 300 30" parent="teamBattleCommonInfoBox" margin="0 0 0 0" layout_gravity="right bottom" format="%s 점" param1="point" param1_def="?" fontname="black_18"/>
 		<labelline name="battlePointLabelLine" rect="0 0 510 4" parent="teamBattleLeftBox" margin="55 0 0 185" layout_gravity="center bottom" skin="labelline_def_1"/>
-		<button name="teamBattleMatchingBtn" rect="0 0 250 60" parent="teamBattleLeftBox" margin="40 0 0 95" layout_gravity="center bottom" skin="test_red_button" caption="{@st59}참여{/}" LBtnUpScp="ADVENTURE_BOOK_JOIN_WORLDPVP" format="{s18}{ol}{#FFFFFF}%s" param1="text" param1_def="JOIN"/>
+		<button name="teamBattleMatchingBtn" rect="0 0 200 60" parent="teamBattleLeftBox" margin="180 0 0 95" layout_gravity="center bottom" skin="test_red_button" caption="{@st59}참여{/}" LBtnUpScp="ADVENTURE_BOOK_JOIN_WORLDPVP" format="{s18}{ol}{#FFFFFF}%s" param1="text" param1_def="JOIN"/>
+		<button name="teamBattleRewardBtn" rect="0 0 200 60" parent="teamBattleLeftBox" margin="-100 0 0 95" layout_gravity="center bottom" skin="test_pvp_btn" caption="{@st66b}보상 받기{/}" LBtnUpScp="PVP_REWARD"/>
 		<groupbox name="teamBattleRankingBox" rect="0 0 550 800" parent="page_teamBattleRanking" margin="13 20 35 0" layout_gravity="right top" draw="false" tabname="teamBattleRankingTab" tabchangescp="ADVENTURE_BOOK_TEAM_BATTLE_RANK"/>
 		<controlset name="teamBattleRankSet" rect="0 0 550 750" parent="teamBattleRankingBox" margin="0 10 0 0" layout_gravity="center bottom" type="team_battle_rank_page"/>
 		<groupbox name="teamBattleObserveBox" rect="0 0 550 800" parent="page_teamBattleRanking" margin="10 0 0 0" layout_gravity="right top" draw="false" tabname="teamBattleObserveTab" tabchangescp="REFRESH_PVP_OBSERVE_LIST" scrollbar="false"/>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<uiframe name="event_flex_box_reward_list" x="0" y="0" width="700" height="900">
+	<frame fullheight="false" fasthide="true" layout_gravity="right center" margin="0 0 0 0"/>
+	<skin frameskin="None"/>
+	<draw drawtitlebar="false"/>
+	<layer layerlevel="95"/>
+	<input moveable="true" hittestframe="true"/>
+	<option closebutton="false"/>
+	<controls>
+		<groupbox name="itemlist_gb" rect="0 0 630 790" margin="0 10 0 0" layout_gravity="center center" skin="test_paper_bg" draw="true" hittest="false"/>
+		<button name="itemlist_closeBtn" rect="0 0 36 37" margin="0 70 35 0" layout_gravity="right top" image="gold_close_button" LBtnUpScp="EVENT_FLEX_BOX_REWARD_LIST_CLOSE"/>
+		<groupbox name="title_gb" rect="0 0 520 80" margin="0 30 0 0" layout_gravity="center top" draw="true" skin="test_h_redribbon_skin" hittest="false"/>
+		<richtext name="title" parent="title_gb" rect="0 0 500 60" margin="0 0 0 0" layout_gravity="center center" caption="{@st42b}{s20}획득 가능 아이템"/>
+		<tab name="tab" rect="0 0 630 40" margin="70 120 0 0" layout_gravity="left top" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" clicksound="inven_arrange" fixwidth="true" itemspc="0" oversound="button_cursor_over_2" skin="tab2"/>
+		<!-- 획득 가능 보상 -->
+		<tabitem name="reward_tab" parent="tab" caption="{@st66b}획득 가능 보상{/}" width="150" layout_gravity="left top"/>
+		<groupbox name="itemlistbg" tabname="reward_tab" rect="0 0 570 610" margin="0 160 0 0" layout_gravity="center top" draw="true" skin="test_frame_midle" scrollbar="false"/>		
+		<richtext name="tiptext" tabname="reward_tab" rect="0 0 30 40" margin="0 0 0 85" layout_gravity="center bottom" caption="{@st66b}{s16}* 누적 이용 횟수에 따라 획득 가능 아이템 등급이 바뀝니다."/>
+		<groupbox name="itemlist" parent="itemlistbg" rect="0 0 570 540" margin="0 70 0 0" layout_gravity="center top" draw="false"/>
+		<groupbox name="gradeinfo_gb" parent="itemlistbg" rect="0 0 560 53" margin="0 11 0 0" layout_gravity="center top" skin="test_pvp_resul_team"/>
+		<richtext name="gradeinfo_text" parent="gradeinfo_gb" rect="0 0 500 40" margin="0 0 0 0" layout_gravity="center center" format="{@st42b}{s20}%s ~ %s" param1="startgrade" param2="endgrade"/>
+		<!-- 누적 개봉 보상 -->
+		<tabitem name="accrue_tab" parent="tab" caption="{@st66b}누적 개봉 보상" width="150" layout_gravity="left top"/>	
+		<groupbox name="accruebg" tabname="accrue_tab" rect="0 0 570 610" margin="0 160 0 0" layout_gravity="center top" draw="true" skin="test_frame_midle" scrollbar="false"/>		
+		<groupbox name="accruelist" parent="accruebg" rect="0 0 570 540" margin="0 0 0 0" layout_gravity="center top" draw="false"/>
+		<richtext name="accrue_tiptext" tabname="accrue_tab" rect="0 0 30 40" margin="0 0 0 85" layout_gravity="center bottom" caption="{@st66b}{s16}* 누적 개봉 보상은 자동 지급됩니다."/>
+	</controls>
+</uiframe>

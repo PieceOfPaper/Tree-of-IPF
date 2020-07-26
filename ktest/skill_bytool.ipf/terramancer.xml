@@ -4,11 +4,11 @@
     <Skill Name="TerraMancer_SandBlast">
         <KeyInput>
             <ToolScp Scp="SKL_KEY_DYNAMIC_CASTING" Client="YES" UseSleep="NO">
-                <Num Num="1"/>
+                <Num Num="0"/>
                 <Num Num="0"/>
                 <Num Num="0.2"/>
                 <Num Num="0"/>
-                <Num Num="0"/>
+                <Num Num="1"/>
                 <Num Num="0"/>
                 <Num Num="0"/>
                 <Num Num="0"/>
@@ -26,7 +26,9 @@
                 <Num Num="0"/>
                 <Num Num="1"/>
                 <Num Num="0"/>
-                </ToolScp>
+                <Str Str=""/>
+                <Str Str=""/>
+            </ToolScp>
         </KeyInput>
         <KeyInputStart>
             <ToolScp Scp="MONSKL_C_CASTING_ANIM" Client="YES" UseSleep="NO">
@@ -136,7 +138,12 @@
                 <Scp Scp="MONSKL_CRE_PAD" Client="NO" UseSleep="NO" Time="600">
                     <Pos Angle="0" Dist="0" PosType="3"/>
                     <Angle Angle="0"/>
-                    <Str Str="TerraMancer_SandWall"/>
+                    <Str Str="None" UseFunc="1" FuncTxt="local value = 'TerraMancer_SandWall'
+local abil = GetAbility(self, 'Terramancer19')
+if abil ~= nil then
+    value = 'TerraMancer_SandWall_Terramancer19'
+end
+return value"/>
                 </Scp>
             </EtcList>
         </MainSkl>
@@ -310,7 +317,7 @@
     <Skill Name="TerraMancer_Implosion">
         <KeyInput>
             <ToolScp Scp="SKL_KEY_DYNAMIC_CASTING" Client="YES" UseSleep="NO">
-                <Num Num="1"/>
+                <Num Num="0"/>
                 <Num Num="0"/>
                 <Num Num="1"/>
                 <Num Num="0"/>
@@ -332,6 +339,8 @@
                 <Num Num="0"/>
                 <Num Num="1"/>
                 <Num Num="0"/>
+                <Str Str=""/>
+                <Str Str=""/>
             </ToolScp>
         </KeyInput>
         <KeyInputStart>
@@ -373,7 +382,7 @@
         </KeyInputEnd>
         <MainSkl ScrLock="None" JumpFlee="NO" MSPDToUsePos="0">
             <HitList>
-                <Frame Type="SQUARE" Time="10999" HitCount="1" TermMin="0" TermMax="0" PosType="0" Dist="0" RandDist="0" RandomPerHit="0" Angle="0" Width="55" Length="160" SklAngle="1.0471981" AniTime="9999" RotAngle="0" ForceATK="0" RandomSort="1"/>
+                <Frame Type="SQUARE" Time="10999" HitCount="1" TermMin="0" TermMax="0" PosType="0" Dist="0" RandDist="0" RandomPerHit="0" Angle="0" Width="55" Length="160" SklAngle="1.0471981" AniTime="9999" RotAngle="0" ForceATK="0" RandomSort="1" ScriptIndex="0" ScriptName="" SkillType="0"/>
             </HitList>
             <EtcList>
                 <Scp Scp="C_EFFECT_ATTACH" Client="YES" UseSleep="NO" Time="0">
@@ -406,11 +415,11 @@
     <Skill Name="TerraMancer_HornOfGolem">
         <KeyInput>
             <ToolScp Scp="SKL_KEY_DYNAMIC_CASTING" Client="YES" UseSleep="NO">
+                <Num Num="0"/>
+                <Num Num="0"/>
                 <Num Num="1"/>
                 <Num Num="0"/>
                 <Num Num="1"/>
-                <Num Num="0"/>
-                <Num Num="0"/>
                 <Num Num="0"/>
                 <Num Num="0"/>
                 <Num Num="0"/>
@@ -428,6 +437,8 @@
                 <Num Num="0"/>
                 <Num Num="1"/>
                 <Num Num="0"/>
+                <Str Str=""/>
+                <Str Str=""/>
             </ToolScp>
         </KeyInput>
         <KeyInputStart>
@@ -464,7 +475,7 @@
         </KeyInputEnd>
         <MainSkl ScrLock="None" JumpFlee="NO" MSPDToUsePos="0">
             <HitList>
-                <Frame Type="FAN" Time="9799" HitCount="1" TermMin="0" TermMax="0" PosType="0" Dist="0" RandDist="0" RandomPerHit="0" Angle="0" AniTime="9999" RotAngle="0" ForceATK="0"/>
+                <Frame Type="FAN" Time="9799" HitCount="1" TermMin="0" TermMax="0" PosType="0" Dist="0" RandDist="0" RandomPerHit="0" Angle="0" AniTime="9999" RotAngle="0" ForceATK="0" ScriptIndex="0" ScriptName="" SkillType="0"/>
             </HitList>
             <EtcList>
                 <Scp Scp="MONSKL_PAD_FRONT_MSL" Client="NO" UseSleep="YES" Time="0">
@@ -496,7 +507,7 @@
                 </Cond>
                 <Skill ScrLock="None" JumpFlee="NO" MSPDToUsePos="0">
                     <HitList>
-                        <Frame Type="FAN" Time="9799" HitCount="1" TermMin="0" TermMax="0" PosType="0" Dist="0" RandDist="0" RandomPerHit="0" Angle="0" AniTime="9999" RotAngle="0" ForceATK="0"/>
+                        <Frame Type="FAN" Time="9799" HitCount="1" TermMin="0" TermMax="0" PosType="0" Dist="0" RandDist="0" RandomPerHit="0" Angle="0" AniTime="9999" RotAngle="0" ForceATK="0" ScriptIndex="0" ScriptName="" SkillType="0"/>
                     </HitList>
                     <EtcList>
                         <Scp Scp="MONSKL_CRE_PAD" Client="NO" UseSleep="NO" Time="0">

@@ -2102,7 +2102,7 @@
 				</Job>
 			</Motion>
 			<Motion Name="STD">
-				<Job Name="All">
+				<Job Name="All" LoopTime="300">
 					<Event>
 						<Particle frame="0" attachNode="Dummy_emitter" particleName="F_pose_jumping_light2" useAttach="false" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="false"/>
 					</Event>

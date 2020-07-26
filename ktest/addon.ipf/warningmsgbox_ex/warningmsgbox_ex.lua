@@ -97,7 +97,7 @@ function _WARNINGMSGBOX_EX_FRAME_OPEN_YES(parent, ctrl, argStr, argNum)
 			yesScp = arg_list[2]
 		end
 	end
-
+	compare_msg = dic.getTranslatedStr(compare_msg);
     if input_frame:GetText() ~= compare_msg then
         -- 확인메시지 불일치
 		ui.SysMsg(ClMsg('miss_match_confirm_text'))

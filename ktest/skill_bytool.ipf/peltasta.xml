@@ -21,11 +21,11 @@ return value"/>
                     <Num Num="0"/>
                 </Scp>
                 <Scp Client="NO" Scp="SKL_TGT_REMOVE_DEBUFF" Time="110" UseSleep="NO">
-                <Str FuncTxt="local func_name = 'get_remove_debuff_tooltip_' .. TryGetProp(obj, 'ClassName', 'None')
+                    <Str FuncTxt="local func_name = 'get_remove_debuff_tooltip_' .. TryGetProp(obj, 'ClassName', 'None')
                local func = _G[func_name]
                if func == nil then return end
                return func(obj.Level)" Str="0" UseFunc="1"/>
-               </Scp>
+                </Scp>
             </EtcList>
         </MainSkl>
     </Skill>
@@ -249,16 +249,16 @@ return value"/>
         </MainSkl>
     </Skill>
     <Skill Name="Peltasta_SwashBuckling">
-        <MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+        <MainSkl ScrLock="None" JumpFlee="NO" MSPDToUsePos="0">
             <HitList>
-                <Frame Angle="0" AniTime="200" Dist="0" ForceATK="0" HitCount="1" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" TermMax="0" TermMin="0" Time="0" Type="FAN"/>
+                <Frame Type="FAN" Time="0" HitCount="1" TermMin="0" TermMax="0" PosType="0" Dist="0" RandDist="0" RandomPerHit="0" Angle="0" AniTime="200" RotAngle="0" ForceATK="0" ScriptIndex="0" ScriptName="" SkillType="0"/>
             </HitList>
             <EtcList>
-                <Scp Client="YES" Scp="C_VOICE_SOUND" Time="0" UseSleep="NO">
+                <Scp Scp="C_VOICE_SOUND" Client="YES" UseSleep="NO" Time="0">
                     <Str Str="voice_archer_m_cloaking_shot"/>
                     <Str Str="voice_archer_cloaking_shot"/>
                 </Scp>
-                <Scp Client="NO" Scp="SKL_BUFF_ABIL" Time="0" UseSleep="NO">
+                <Scp Scp="SKL_BUFF_ABIL" Client="NO" UseSleep="NO" Time="0">
                     <Str Str="Peltasta1"/>
                     <Str Str="SwashBucklingReduceDamage_Buff"/>
                     <Num Num="1"/>
@@ -268,25 +268,25 @@ return value"/>
                     <Num Num="100"/>
                     <Num Num="0"/>
                 </Scp>
-                <Scp Client="NO" Scp="SKL_SET_TARGET_CIRCLE" Time="0" UseSleep="NO">
+                <Scp Scp="SKL_SET_TARGET_CIRCLE" Client="NO" UseSleep="NO" Time="0">
                     <Pos Angle="0" Dist="0"/>
                     <Num Num="400"/>
-                    <Num FuncTxt="local value = 4 * obj.Level;
+                    <Num Num="5" UseFunc="1" FuncTxt="local value = 4 * obj.Level;
                     if IsPVPField(self) == 1 then
                     value = obj.Level
                     end
-                    return value" Num="5" UseFunc="1"/>
+                    return value"/>
                     <Num Num="2"/>
                     <Num Num="0"/>
                     <Num Num="0"/>
                     <Num Num="1"/>
                 </Scp>
-                <Scp Client="NO" Scp="SKL_TGT_BUFF_IF_NOBUFF" Time="0" UseSleep="NO">
+                <Scp Scp="SKL_TGT_BUFF_IF_NOBUFF" Client="NO" UseSleep="NO" Time="0">
                     <Str Str="ProvocationImmunity_Debuff"/>
                     <Str Str="SwashBuckling_Debuff"/>
                     <Num Num="1"/>
                     <Num Num="0"/>
-                    <Num FuncTxt="local buffTime = 5000 + obj.Level * 2000
+                    <Num Num="1" UseFunc="1" FuncTxt="local buffTime = 5000 + obj.Level * 2000
                     if IsPVPField(self) == 1 then
                     buffTime = buffTime * 0.5
                     end
@@ -294,22 +294,64 @@ return value"/>
                     if abilPeltasta32 ~= nil and TryGetProp(abilPeltasta32, 'ActiveState') == 1 then
                     buffTime = buffTime + TryGetProp(abilPeltasta32, 'Level') * 1000;
                     end
-                    return buffTime;" Num="1" UseFunc="1"/>
+                    return buffTime;"/>
                     <Num Num="1"/>
                     <Num Num="100"/>
                     <Num Num="0"/>
                 </Scp>
-                <Scp Client="NO" Scp="SKL_BUFF" Time="100" UseSleep="NO">
+                <Scp Scp="SKL_BUFF" Client="NO" UseSleep="NO" Time="100">
                     <Str Str="SwashBuckling_Buff"/>
-                    <Num FuncTxt="return obj.Level" Num="1" UseFunc="1"/>
+                    <Num Num="1" UseFunc="1" FuncTxt="return obj.Level"/>
                     <Num Num="0"/>
-                    <Num FuncTxt="return 5000 + obj.Level * 2000" Num="1" UseFunc="1"/>
+                    <Num Num="1" UseFunc="1" FuncTxt="return 5000 + obj.Level * 2000"/>
                     <Num Num="1"/>
                     <Num Num="100"/>
                     <Num Num="0"/>
                 </Scp>
             </EtcList>
         </MainSkl>
+        <ByCondSkills>
+            <SubSkl>
+                <Cond>
+                    <ToolScp Scp="SKL_SELECT_ABIL" Client="NO" UseSleep="NO">
+                        <Str Str="Peltasta44"/>
+                    </ToolScp>
+                </Cond>
+                <Skill ScrLock="None" JumpFlee="NO" MSPDToUsePos="0">
+                    <HitList>
+                        <Frame Type="FAN" Time="0" HitCount="1" TermMin="0" TermMax="0" PosType="0" Dist="0" RandDist="0" RandomPerHit="0" Angle="0" AniTime="200" RotAngle="0" ForceATK="0" ScriptIndex="0" ScriptName="" SkillType="0"/>
+                    </HitList>
+                    <EtcList>
+                        <Scp Scp="C_VOICE_SOUND" Client="YES" UseSleep="NO" Time="0">
+                            <Str Str="voice_archer_m_cloaking_shot"/>
+                            <Str Str="voice_archer_cloaking_shot"/>
+                        </Scp>
+                        <Scp Scp="SKL_SET_TARGET_CIRCLE_DISTANCE" Client="NO" UseSleep="NO" Time="0">
+                            <Pos Angle="0" Dist="3.8255448e-43"/>
+                            <Num Num="120"/>
+                            <Num Num="5"/>
+                            <Num Num="2"/>
+                            <Num Num="1"/>
+                            <Str_Arg Str="None" Arg="1"/>
+                            <Num Num="0"/>
+                            <Num Num="1"/>
+                            <Num Num="1"/>
+                            <Num Num="1"/>
+                        </Scp>
+                        <Scp Scp="SKL_TGT_BUFF_IF_NOBUFF" Client="NO" UseSleep="NO" Time="100">
+                            <Str Str="SwashBuckling_Expletive_Immune_Debuff"/>
+                            <Str Str="SwashBuckling_Expletive_Debuff"/>
+                            <Num Num="1"/>
+                            <Num Num="0"/>
+                            <Num Num="5000"/>
+                            <Num Num="1"/>
+                            <Num Num="100"/>
+                            <Num Num="0"/>
+                        </Scp>
+                    </EtcList>
+                </Skill>
+            </SubSkl>
+        </ByCondSkills>
     </Skill>
     <Skill Name="Peltasta_RimBlow">
         <MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
@@ -350,14 +392,14 @@ return value"/>
                     <Num Num="999"/>
                 </Scp>
             </EtcList>
-          <ResultList>
-            <ToolScp Client="NO" Scp="S_R_TGT_REMOVE_BUFF" UseSleep="NO">
-              <Str FuncTxt="local func_name = 'get_remove_buff_tooltip_' .. TryGetProp(skill, 'ClassName', 'None')
+            <ResultList>
+                <ToolScp Client="NO" Scp="S_R_TGT_REMOVE_BUFF" UseSleep="NO">
+                    <Str FuncTxt="local func_name = 'get_remove_buff_tooltip_' .. TryGetProp(skill, 'ClassName', 'None')
                local func = _G[func_name]
                if func == nil then return end
                return func(skill.Level)" Str="0" UseFunc="1"/>
-            </ToolScp>
-          </ResultList>
+                </ToolScp>
+            </ResultList>
         </MainSkl>
     </Skill>
 </ToolSkill>

@@ -1,4 +1,4 @@
--- buffscp.lua
+﻿-- buffscp.lua
 
 function ShadowUmbrella_ENTER(actor, obj, buff)
 
@@ -116,17 +116,31 @@ function SlitheringClientScp_LEAVE(actor, obj, buff)
 end
 
 function PouncingClientScp_ENTER(actor, obj, buff)
-    
-    if actor:GetVehicleActor() ~= nil then
-        actor:GetAnimation():SetSTDAnim("SKL_POUNCING");
+    local abil = session.GetAbilityByName("Barbarian41");
+    if abil ~= nil then
+        local abilObj = GetIES(abil:GetObject());
+        if abilObj.ActiveState == 1 then
+            actor:GetAnimation():SetRUNAnim("SKL_POUNCING_STAND_ABIL");
+            actor:GetAnimation():SetWLKAnim("SKL_POUNCING_STAND_ABIL");
+            actor:GetAnimation():SetSTDAnim("SKL_POUNCING_STAND_ABIL");
+            actor:GetAnimation():SetTURNAnim("None");
+        elseif abilObj.ActiveState ~= 1 then
+            actor:GetAnimation():SetRUNAnim("SKL_POUNCING");
+            actor:GetAnimation():SetWLKAnim("SKL_POUNCING");
+            actor:GetAnimation():SetTURNAnim("None");
+            actor:GetAnimation():SetSTDAnim("SKL_POUNCING_STAND");
+        end
     else
+        actor:GetAnimation():SetRUNAnim("SKL_POUNCING");
+        actor:GetAnimation():SetWLKAnim("SKL_POUNCING");
+        actor:GetAnimation():SetTURNAnim("None");
         actor:GetAnimation():SetSTDAnim("SKL_POUNCING_STAND");
     end
     
-    actor:GetAnimation():SetRUNAnim("SKL_POUNCING");
-    actor:GetAnimation():SetWLKAnim("SKL_POUNCING");
-    actor:GetAnimation():SetTURNAnim("None");
-    
+    if actor:GetVehicleActor() ~= nil then
+        actor:GetAnimation():SetSTDAnim("SKL_POUNCING");
+    end
+
     actor:SetAlwaysBattleState(true);
 end
 
@@ -194,6 +208,16 @@ end
 function RunningShotClientScp_LEAVE(actor, obj, buff)
     actor:SetMovingShotAnimation("");
     ScpChangeMovingShotAnimationSet(actor, obj, buff)
+end
+
+function SnipersSerenityClientScp_ENTER(actor, obj, buff)
+    actor:GetAnimation():SetWLKAnim("SKL_SNIPERSSERENITY_AWLK");
+    actor:GetAnimation():SetRUNAnim("SKL_SNIPERSSERENITY_AWLK");
+end
+
+function SnipersSerenityClientScp_LEAVE(actor, obj, buff)
+    actor:GetAnimation():ResetWLKAnim();
+    actor:GetAnimation():ResetRUNAnim();
 end
 
 function FlutingClientScp_ENTER(actor, obj, buff)
@@ -271,18 +295,22 @@ end
 
 
 function BeakMask_ENTER(actor, obj, buff)
-
-
     actor:SetAlwaysBattleState(true);
-    
 end
 
 
 function BeakMask_LEAVE(actor, obj, buff)
+    local anim = "SKL_BEAKMASK_OFF"
+    local abil = session.GetAbilityByName("PlagueDoctor23");
+    if abil ~= nil then
+        local abilObj = GetIES(abil:GetObject());
+        if abilObj.ActiveState == 1 then
+            anim = "SKL_BEAKMASK_OFF_ABIL"
+        end
+    end
     
     actor:SetAlwaysBattleState(false);
-    actor:GetAnimation():PlayFixAnim('SKL_BEAKMASK_OFF', 1, 0);
-
+    actor:GetAnimation():PlayFixAnim(anim, 1, 0);
 end
 
 
@@ -1013,7 +1041,16 @@ end
 
 function ShadowPool_Buff_CLIENT_ENTER(actor, obj, buff)
     --movie.ShowModel(actor:GetHandleVal(), 0);
-    actor:GetEffect():SetColorBlend("ShadowPool", 0, 0, 0, 0, true, 0, false, 0);
+    
+    local value = actor:GetEffect():SetColorBlend("ShadowPool", 0, 0, 0, 0, true, 0, false, 0);
+    local pc = GetMyPCObject()
+    local abil = session.GetAbilityByName('Shadowmancer16');
+    if abil ~= nil then
+        local abilObj = GetIES(abil:GetObject());
+        if abilObj.ActiveState == 1 then
+            value = actor:GetEffect():SetColorBlend("ShadowPool", 0, 0, 0, 255, true, 0, false, 0);
+        end
+    end
 end
 
 function ShadowPool_Buff_CLIENT_LEAVE(actor, obj, buff)
@@ -1386,4 +1423,26 @@ end
 function EP12TACTICAL_EFFECT02_PRE_LEAVE(actor, obj, buff)
     effect.DetachActorEffect(actor, "I_policeline001_mesh", 0);
     actor:SetEquipItemFlagProp("EFFECTCOSTUME", 0);
+end
+
+-- Friedenslied_Debuff
+function FRIEDENSLIED_DANCE_ENTER(actor, obj, buff)
+    actor:GetAnimation():SetSTDAnim("FRIEDENSLIED_DANCE");
+    actor:SetAlwaysBattleState(true);
+end
+
+function FRIEDENSLIED_DANCE_LEAVE(actor, obj, buff)
+    actor:GetAnimation():ResetSTDAnim();
+    actor:SetAlwaysBattleState(false);
+end
+
+-- Friedenslied_AbilDance_Debuff
+function FRIEDENSLIED_ABILDANCE_ENTER(actor, obj, buff)
+    actor:GetAnimation():SetSTDAnim("FRIEDENSLIED_DANCE_ABIL");
+    actor:SetAlwaysBattleState(true);
+end
+
+function FRIEDENSLIED_ABILDANCE_LEAVE(actor, obj, buff)
+    actor:GetAnimation():ResetSTDAnim();
+    actor:SetAlwaysBattleState(false);
 end

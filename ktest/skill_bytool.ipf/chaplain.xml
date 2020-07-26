@@ -7,10 +7,10 @@
             </HitList>
             <EtcList>
                 <Scp Client="YES" Scp="MONSKL_C_PLAY_ANIM" Time="0" UseSleep="NO">
-                    <Str Str="SKL_BUILDCAPPELLA" />
-                    <Num Num="1" />
-                    <Num Num="1" />
-                    <Num Num="0" />
+                    <Str Str="SKL_BUILDCAPPELLA"/>
+                    <Num Num="1"/>
+                    <Num Num="1"/>
+                    <Num Num="0"/>
                 </Scp>
                 <Scp Client="NO" Scp="MONSKL_CRE_PAD" Time="2800" UseSleep="NO">
                     <Pos Angle="0" Dist="9"/>
@@ -32,10 +32,10 @@
                     </HitList>
                     <EtcList>
                         <Scp Client="YES" Scp="MONSKL_C_PLAY_ANIM" Time="0" UseSleep="NO">
-                            <Str Str="SKL_BUFF" />
-                            <Num Num="2" />
-                            <Num Num="1" />
-                            <Num Num="0" />
+                            <Str Str="SKL_BUFF"/>
+                            <Num Num="2"/>
+                            <Num Num="1"/>
+                            <Num Num="0"/>
                         </Scp>
                         <Scp Scp="SKL_BUFF" Client="NO" UseSleep="NO" Time="300">
                             <Str Str="BuildCappella_Buff"/>
@@ -45,7 +45,7 @@
                             <Num Num="1"/>
                             <Num Num="100"/>
                             <Num Num="0"/>
-                        </Scp>                        
+                        </Scp>
                     </EtcList>
                 </Skill>
             </SubSkl>
@@ -54,7 +54,7 @@
     <Skill Name="Chaplain_Aspergillum">
         <MainSkl ScrLock="None" JumpFlee="NO" MSPDToUsePos="0">
             <HitList>
-                <Frame Type="FAN" Time="9799" HitCount="1" TermMin="0" TermMax="0" PosType="0" Dist="0" RandDist="0" RandomPerHit="0" Angle="0" AniTime="9999" RotAngle="0" ForceATK="0"/>
+                <Frame Type="FAN" Time="9799" HitCount="1" TermMin="0" TermMax="0" PosType="0" Dist="0" RandDist="0" RandomPerHit="0" Angle="0" AniTime="9999" RotAngle="0" ForceATK="0" ScriptIndex="0" ScriptName="" SkillType="0"/>
             </HitList>
             <EtcList>
                 <Scp Scp="C_VOICE_SOUND" Client="YES" UseSleep="NO" Time="100">
@@ -72,6 +72,31 @@
                 </Scp>
             </EtcList>
         </MainSkl>
+        <ByCondSkills>
+            <SubSkl>
+                <Cond>
+                    <ToolScp Scp="SKL_SELECT_ABIL" Client="NO" UseSleep="NO">
+                        <Str Str="Chaplain21"/>
+                    </ToolScp>
+                </Cond>
+                <Skill ScrLock="None" JumpFlee="NO" MSPDToUsePos="0">
+                    <HitList>
+                        <Frame Type="FAN" Time="9799" HitCount="1" TermMin="0" TermMax="0" PosType="0" Dist="0" RandDist="0" RandomPerHit="0" Angle="0" AniTime="9999" RotAngle="0" ForceATK="0" ScriptIndex="0" ScriptName="" SkillType="0"/>
+                    </HitList>
+                    <EtcList>
+                        <Scp Scp="C_VOICE_SOUND" Client="YES" UseSleep="NO" Time="100">
+                            <Str Str="voice_cleric_m_aspergillum_shot"/>
+                            <Str Str="voice_cleric_f_aspergillum_shot"/>
+                        </Scp>
+                        <Scp Scp="MONSKL_CRE_PAD" Client="NO" UseSleep="NO" Time="590">
+                            <Pos Angle="0" Dist="40"/>
+                            <Angle Angle="0"/>
+                            <Str Str="Chaplain_MagnusExorcismus_Abil"/>
+                        </Scp>
+                    </EtcList>
+                </Skill>
+            </SubSkl>
+        </ByCondSkills>
     </Skill>
     <Skill Name="Chaplain_LastRites">
         <MainSkl ScrLock="None" JumpFlee="NO" MSPDToUsePos="0">
@@ -80,10 +105,10 @@
             </HitList>
             <EtcList>
                 <Scp Client="YES" Scp="MONSKL_C_PLAY_ANIM" Time="0" UseSleep="NO">
-                    <Str Str="SKL_BUFF6" />
-                    <Num Num="1.5" />
-                    <Num Num="1" />
-                    <Num Num="0" />
+                    <Str Str="SKL_BUFF6"/>
+                    <Num Num="1.5"/>
+                    <Num Num="1"/>
+                    <Num Num="0"/>
                 </Scp>
                 <Scp Scp="C_VOICE_SOUND" Client="YES" UseSleep="NO" Time="100">
                     <Str Str="voice_cleric_m_lastrites_shot"/>
@@ -121,11 +146,11 @@
                     <Str Str="voice_cleric_f_binatio_cast"/>
                 </Scp>
                 <Scp Client="NO" Scp="SKL_TGT_REMOVE_DEBUFF" Time="110" UseSleep="NO">
-                <Str FuncTxt="local func_name = 'get_remove_debuff_tooltip_' .. TryGetProp(obj, 'ClassName', 'None')
+                    <Str FuncTxt="local func_name = 'get_remove_debuff_tooltip_' .. TryGetProp(obj, 'ClassName', 'None')
                local func = _G[func_name]
                if func == nil then return end
                return func(obj.Level)" Str="0" UseFunc="1"/>
-               </Scp>
+                </Scp>
             </EtcList>
         </MainSkl>
     </Skill>
@@ -169,15 +194,15 @@
                 <Scp Client="YES" Scp="C_VOICE_SOUND" Time="0" UseSleep="NO">
                     <Str Str="voice_cleric_m_visibletalent_cast"/>
                     <Str Str="voice_cleric_f_visibletalent_cast"/>
-                </Scp>                
+                </Scp>
             </EtcList>
             <ResultList>
-            <ToolScp Client="NO" Scp="S_R_TGT_REMOVE_BUFF" UseSleep="NO">
-                <Str FuncTxt="local func_name = 'get_remove_buff_tooltip_' .. TryGetProp(skill, 'ClassName', 'None')
+                <ToolScp Client="NO" Scp="S_R_TGT_REMOVE_BUFF" UseSleep="NO">
+                    <Str FuncTxt="local func_name = 'get_remove_buff_tooltip_' .. TryGetProp(skill, 'ClassName', 'None')
                local func = _G[func_name]
                if func == nil then return end
                return func(skill.Level)" Str="0" UseFunc="1"/>
-              </ToolScp>
+                </ToolScp>
             </ResultList>
         </MainSkl>
     </Skill>

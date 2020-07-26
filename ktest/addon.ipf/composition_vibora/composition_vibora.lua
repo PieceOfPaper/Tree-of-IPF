@@ -21,7 +21,6 @@ function COMPOSITION_VIBORA_CLOSE(frame)
 	end
 
 	INVENTORY_SET_CUSTOM_RBTNDOWN("None");
-	control.DialogOk();
 
     frame:ShowWindow(0);
 end

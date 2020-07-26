@@ -255,8 +255,12 @@ function ON_UPDATE_MY_SUMMON_MONSTER(monIdList, monCountList)
 			    summonsCount:SetTextByKey("count", count_map[monName]);
             end		
         end
-    end
-
+	end
+	
+	local count = #mon_name_list;
+	local ctrlsetHeight = 25;
+	local originHeigth = 62;
+	frame:Resize(frame:GetWidth(), (count * ctrlsetHeight) + originHeigth)
     frame:Invalidate();
 	SUMMONSINFO_CONTROLSET_AUTO_ALIGN(frame);
 end

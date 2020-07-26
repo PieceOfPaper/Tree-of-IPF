@@ -112,6 +112,14 @@ function get_remove_buff_tooltip_Murmillo_ShieldTrain(level)
 
     -- buff_type, lv, count, percent, relation, boss_check
     local str = string.format('Buff/3/%d/%.2f/ENEMY/0', remove_count, percent)
+
+    if IsServerSection() == 0 then
+        local abil  = GetAbilityIESObject(GetMyPCObject(), "Murmillo28");             
+        if abil ~= nil and TryGetProp(abil, 'ActiveState' , 0) == 1 then
+            str = nil
+        end
+    end
+
     return str
 end
 
@@ -384,7 +392,15 @@ function get_remove_buff_tooltip_Matross_CanisterShot(level)
     local remove_count = 1
 
     -- buff_type, lv, count, percent, relation, boss_check
-    local str = string.format('Buff/3/%d/%.2f/ENEMY/0', remove_count, percent)    
+    local str = string.format('Buff/3/%d/%.2f/ENEMY/0', remove_count, percent)
+
+    if IsServerSection() == 0 then
+        local abil  = GetAbilityIESObject(GetMyPCObject(), "Matross19");             
+        if abil ~= nil and TryGetProp(abil, 'ActiveState' , 0) == 1 then
+            str = nil
+        end
+    end
+
     return str
 end
 
@@ -576,13 +592,21 @@ end
 
 -- 크루세이더 - 프로텍션 오브 가디스
 function get_remove_buff_tooltip_Crusader_ProtectionOfGoddess(level)    
-    local percent = 10 * tonumber(level)    
+    local percent = 10 * tonumber(level)
+    
+    if IsServerSection() == 0 then
+        local abil  = GetAbilityIESObject(GetMyPCObject(), "Crusader21");             
+        if abil ~= nil and TryGetProp(abil, 'ActiveState' , 0) == 1 then
+            percent = percent / 4
+        end
+    end
+
     if percent > 100 then
         percent = 100
     end
 
     local remove_count = 1
-
+    
     -- buff_type, lv, count, percent, relation, boss_check
     local str = string.format('Buff/3/%d/%.2f/ENEMY/0', remove_count, percent)    
     return str

@@ -482,3 +482,16 @@ function SCR_BULLETMARKER_CHECK_BUFFOVER_C(actor, skl, buffName)
     end
     return 0;
 end
+
+function SCR_CHECK_JOUST_ABIL_C()
+    local abil = session.GetAbilityByName('Lancer28')
+    if abil ~= nil then
+        obj = GetIES(abil:GetObject())
+    end
+    
+    if abil ~= nil and TryGetProp(obj, "ActiveState", 0) == 1 then
+        return 1
+    else
+        return 0
+    end
+end

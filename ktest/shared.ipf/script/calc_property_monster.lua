@@ -368,6 +368,9 @@ function SCR_Get_MON_DEF(self)
     
     value = value + byBuff + byRateBuff;
 
+    local decRatio = TryGetProp(self, 'DEF_RATE_MUL_BM', 1);
+    value = math.floor(value * decRatio)
+
     local infoCls = GetClass("Ancient_Info",self.ClassName)
     if infoCls ~= nil then
         local rarity= infoCls.Rarity
@@ -456,6 +459,9 @@ function SCR_Get_MON_MDEF(self)
 --    value = value * JAEDDURY_MON_DEF_RATE;      -- JAEDDURY
     
     value = value + byBuff + byRateBuff;
+    
+    local decRatio = TryGetProp(self, 'MDEF_RATE_MUL_BM', 1);
+        value = math.floor(value * decRatio)
     
     local infoCls = GetClass("Ancient_Info",self.ClassName)
     if infoCls ~= nil then
@@ -613,6 +619,9 @@ function SCR_Get_MON_CRTDR(self)
 	
     value = value + byBuff + byRateBuff;
     
+    local decRatio = TryGetProp(self, 'CRTDR_RATE_MUL_BM', 1);
+        value = math.floor(value * decRatio)
+    
     if value < 0 then
     	value = 0;
     end
@@ -732,6 +741,9 @@ function SCR_Get_MON_MINPATK(self)
     
     value = value + byBuff + byRateBuff;
 
+    local decRatio = TryGetProp(self, 'PATK_RATE_MUL_BM', 1);
+        value = math.floor(value * decRatio)
+
     local infoCls = GetClass("Ancient_Info",self.ClassName)
     if infoCls ~= nil then
         local rarity= infoCls.Rarity
@@ -825,6 +837,9 @@ function SCR_Get_MON_MAXPATK(self)
     byRateBuff = value * byRateBuff;
     
     value = value + byBuff + byRateBuff;
+
+    local decRatio = TryGetProp(self, 'PATK_RATE_MUL_BM', 1);    
+        value = math.floor(value * decRatio)
 
     local infoCls = GetClass("Ancient_Info",self.ClassName)
     if infoCls ~= nil then
@@ -920,6 +935,9 @@ function SCR_Get_MON_MINMATK(self)
     
     value = value + byBuff + byRateBuff;
 
+    local decRatio = TryGetProp(self, 'MATK_RATE_MUL_BM', 1);
+        value = math.floor(value * decRatio)
+
     local infoCls = GetClass("Ancient_Info",self.ClassName)
     if infoCls ~= nil then
         local rarity= infoCls.Rarity
@@ -1013,6 +1031,9 @@ function SCR_Get_MON_MAXMATK(self)
     byRateBuff = value * byRateBuff;
     
     value = value + byBuff + byRateBuff;
+
+    local decRatio = TryGetProp(self, 'MATK_RATE_MUL_BM', 1);
+        value = math.floor(value * decRatio)
 
     local infoCls = GetClass("Ancient_Info",self.ClassName)
     if infoCls ~= nil then
