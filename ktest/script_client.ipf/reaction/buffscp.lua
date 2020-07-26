@@ -1,4 +1,4 @@
--- buffscp.lua
+﻿-- buffscp.lua
 
 function ShadowUmbrella_ENTER(actor, obj, buff)
 
@@ -865,17 +865,17 @@ end
 
 
 function OutrageScp_ENTER(actor, obj, buff)
-    ScpChangeMovingShotAnimationSet(actor, obj, buff);
+    --ScpChangeMovingShotAnimationSet(actor, obj, buff);
 end
 
 function OutrageScp_LEAVE(actor, obj, buff)
-    actor:GetAnimation():ResetSTDAnim();
-    actor:GetAnimation():ResetRUNAnim();
-    actor:GetAnimation():ResetWLKAnim();
-    actor:GetAnimation():ResetTURNAnim();
-    actor:SetAlwaysBattleState(false);
-    actor:GetAnimation():PlayFixAnim("ASTD", 1, 1);
-    ScpChangeMovingShotAnimationSet(actor, obj, buff);
+    -- actor:GetAnimation():ResetSTDAnim();
+    -- actor:GetAnimation():ResetRUNAnim();
+    -- actor:GetAnimation():ResetWLKAnim();
+    -- actor:GetAnimation():ResetTURNAnim();
+    -- actor:SetAlwaysBattleState(false);
+    -- actor:GetAnimation():PlayFixAnim("ASTD", 1, 1);
+    -- ScpChangeMovingShotAnimationSet(actor, obj, buff);
 end
 
 
@@ -1320,6 +1320,14 @@ end
 
 function WEEKLY_MIRTIS_EFFECT_LEAVE(actor, obj, buff)
     effect.DetachActorEffect(actor, "E_effectitem_mirtis", 0.0);
+end
+
+function WEEKLY_WARPULIS_EFFECT_ENTER(actor, obj, buff)
+    effect.AddActorEffectByOffset(actor, "E_effect_item_warpulis", 0.8, "BOT");
+end
+
+function WEEKLY_WARPULIS_EFFECT_LEAVE(actor, obj, buff)
+    effect.DetachActorEffect(actor, "E_effect_item_warpulis", 0.0);
 end
 
 function HiphopEffect_pre_ENTER(actor, obj, buff)

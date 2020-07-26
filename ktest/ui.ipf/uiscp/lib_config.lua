@@ -1,24 +1,19 @@
 ---- lib_config.lua
-
 function UPDATE_CONTROL_MODE()
-
 	SetLockKeyboardSelectMode(0);
 	local controlmodeType = tonumber(config.GetXMLConfig("ControlMode"));
-
 	SetChangeUIMode(controlmodeType);
 
-	if controlmodeType == 1 then
-		--조이패드
+	if controlmodeType == 1 then --조이패드
 		SetJoystickMode(1)
 		UI_MODE_CHANGE(1)
 		if housing.IsEditMode() == true then
 			ui.SysMsg(ClMsg("Housing_Restricted_To_Use_When_Using_Joypad"));
 		end
-	elseif controlmodeType == 2 then
-		--키보드
+	elseif controlmodeType == 2 then --키보드		
 		SetJoystickMode(0)
 		UI_MODE_CHANGE(2)
-	elseif controlmodeType == 3 then
+	elseif controlmodeType == 3 then -- 마우스
 		SetLockKeyboardSelectMode(1);
 		SetJoystickMode(0);
 		UI_MODE_CHANGE(2)
@@ -48,6 +43,11 @@ function UPDATE_CONTROL_MODE()
         if fluting_keyboard ~= nil and FLUTING_KEYBOARD_UPDATE_HOTKEYNAME ~= nil then
 		    FLUTING_KEYBOARD_UPDATE_HOTKEYNAME(fluting_keyboard);
 		    fluting_keyboard:Invalidate();
+		end
+		local monsterquickslot = ui.GetFrame('monsterquickslot');
+		if monsterquickslot ~= nil and MONSTERQUICKSLOT_UPDATE_HOTKEYNAME ~= nil then
+		    MONSTERQUICKSLOT_UPDATE_HOTKEYNAME(monsterquickslot);
+		    monsterquickslot:Invalidate();
         end
 	end
 end

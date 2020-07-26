@@ -84,7 +84,7 @@ function HOUSING_PROMOTE_BOARD_FEATURED_FILTER(parent, ctrl, argStr)
         HOUSING_PROMOTE_BOARD_RECOMMEND(frame);
     else
         ReserveScript("HOUSING_PROMOTE_BOARD_FILTER_UNFREEZE()", 3);
-        HOUSING_PROMOTE_BOARD_RECOMMEND_CREATE_FEATURED(argStr, ClMsg(argStr.."_house"), "asc", 0);
+        HOUSING_PROMOTE_BOARD_RECOMMEND_CREATE_FEATURED(argStr, ClMsg(argStr.."_house"), "desc", 0);
     end
 end
 

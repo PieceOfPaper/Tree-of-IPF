@@ -11,7 +11,7 @@
 	<script OpenScp="OPEN_HOUSING_SHOP" CloseScp="CLOSE_HOUSING_SHOP"/>
 	<controls>
 		<!-- common -->
-		<groupbox name="bg2" rect="0 0 500 875" margin="0 30 0 0" layout_gravity="left top" draw="true" hittestbox="false" resizebyparent="true" resizebyresolution="true" scrollbar="false" skin="test_frame_low"/>
+		<groupbox name="bg2" rect="0 0 500 875" margin="0 30 0 0" layout_gravity="left top" draw="true" hittestbox="false" resizebyparent="true" scrollbar="false" skin="test_frame_low"/>
 		<groupbox name="pip4" rect="0 0 500 126" margin="0 0 0 0" layout_gravity="center top" draw="true" hittestbox="false" resizebyparent="false" scrollbar="false" skin="test_frame_top"/>
 		<richtext name="title" rect="0 0 200 80" margin="0 17 0 0" layout_gravity="center top" caption="{@st43}하우징 상점" textalign="left top"/>
 		<button name="close" rect="10 0 44 44" margin="0 20 37 0" layout_gravity="right top" LBtnUpArgNum="" LBtnUpScp="CLOSE_UI" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" caption="" clicksound="button_click_big" image="testclose_button" oversound="button_over" texttooltip="{@st59}하우징 상점을 닫습니다{/}"/>
@@ -19,9 +19,9 @@
 		<tabitem name="landscape" parent="itembox" layout_gravity="left top" caption="{@st66b}조경" width="160"/>
 		<tabitem name="facilities" parent="itembox" layout_gravity="left top" caption="{@st66b}시설" width="160"/>
 		<tabitem name="contract" parent="itembox" layout_gravity="left top" caption="{@st66b}계약서" width="160"/>
-		<groupbox name="gbox_sell_list_landscape" rect="0 0 480 450" hittest="true" margin="0 110 0 0" layout_gravity="center top" draw="false" scrollbar="false" tabname="landscape" tabchangescp="SCP_HOUSING_SHOP_TAB_LANDSCAPE" resizebyparent="true" resizebyresolution="true"/>
-		<groupbox name="gbox_sell_list_facilities" rect="0 0 480 450" hittest="true" margin="0 110 0 0" layout_gravity="center top" draw="false" scrollbar="true" tabname="facilities" tabchangescp="SCP_HOUSING_SHOP_TAB_FACILITIES" resizebyparent="true" resizebyresolution="true"/>
-		<groupbox name="gbox_sell_list_contract" rect="0 0 480 450" hittest="true" margin="0 110 0 0" layout_gravity="center top" draw="false" scrollbar="true" tabname="contract" tabchangescp="SCP_HOUSING_SHOP_TAB_CONTRACT" resizebyparent="true" resizebyresolution="true"/>
+		<groupbox name="gbox_sell_list_landscape" rect="0 0 480 450" hittest="true" margin="0 110 0 0" layout_gravity="center top" draw="false" scrollbar="false" tabname="landscape" tabchangescp="SCP_HOUSING_SHOP_TAB_LANDSCAPE" resizebyparent="true"/>
+		<groupbox name="gbox_sell_list_facilities" rect="0 0 480 450" hittest="true" margin="0 110 0 0" layout_gravity="center top" draw="false" scrollbar="true" tabname="facilities" tabchangescp="SCP_HOUSING_SHOP_TAB_FACILITIES" resizebyparent="true"/>
+		<groupbox name="gbox_sell_list_contract" rect="0 0 480 450" hittest="true" margin="0 110 0 0" layout_gravity="center top" draw="false" scrollbar="true" tabname="contract" tabchangescp="SCP_HOUSING_SHOP_TAB_CONTRACT" resizebyparent="true"/>
 		<groupbox name="gbox_bottom" parent="bg2" rect="0 0 480 320" hittest="true" margin="0 0 0 12" layout_gravity="center bottom" draw="true" scrollbar="false" skin="test_frame_midle"/>
 		<groupbox name="gbox_sell_list_landscape_itemlist" parent="gbox_sell_list_landscape" rect="0 0 480 405" hittest="true" margin="0 0 0 0" layout_gravity="center bottom" draw="false" scrollbar="true"/>
 		<groupbox name="gbox_search" parent="gbox_sell_list_landscape" rect="0 0 480 45" hittest="true" margin="0 0 0 0" layout_gravity="center top" draw="true" scrollbar="false" skin="test_frame_low"/>

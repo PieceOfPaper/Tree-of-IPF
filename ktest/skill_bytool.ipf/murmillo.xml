@@ -348,7 +348,11 @@
                     <Str Str="Stun" />
                     <Num Num="1" />
                     <Num Num="0" />
-                    <Num Num="3000" />
+                    <Num Num="3000" UseFunc="1" FuncTxt="local value = 3000
+                    if IsBuffApplied(self, 'murmillo_helmet') == 'YES' then
+                    value = value + 1000
+                    end
+                    return value"/>
                     <Num Num="1" />
                     <Num Num="50" />
                     <Num Num="-1" />
@@ -429,7 +433,7 @@
     <Skill Name="Murmillo_FrenziedSlash">
         <MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
             <HitList>
-                <Frame Angle="0" AniTime="9999" Dist="0" ForceATK="0" HitCount="1" Length="150" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="9799" Type="FAN" Width="30" />
+                <Frame Angle="0" AniTime="9999" Dist="0" ForceATK="0" HitCount="1" Length="0" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="9799" Type="FAN" Width="30" />
             </HitList>
             <EtcList>
                 <Scp Scp="SKL_SET_TARGET_CLIENT_TARGETTING_NOCANCEL" Client="NO" UseSleep="NO" Time="0">
@@ -451,7 +455,7 @@
                     <Str Str="voice_atk_long_cast_f" />
                 </Scp>
                 <Scp Client="NO" Scp="SKL_JUMP_TO_TARGET" Time="350" UseSleep="YES">
-                    <Num Num="0"/>
+                    <Num Num="50"/>
                     <Num Num="120"/>
                     <Num Num="0"/>
                     <Num Num="1"/>
@@ -463,7 +467,7 @@
                 <Scp Client="NO" Scp="SKL_SET_TARGET_SQUARE_SR" Time="800" UseSleep="NO">
                     <Pos Angle="0" Dist="0" PosType="5"/>
                     <Num Num="0"/>
-                    <Num Num="90"/>
+                    <Num Num="120"/>
                     <Num Num="40"/>
                     <Num Num="2"/>
                     <Num Num="0"/>
@@ -530,6 +534,9 @@
                     <Num Num="100" />
                     <Num Num="0" />
                 </Scp>
+                <Scp Client="NO" Scp="SKL_RESET_COOLTIME" Time="0" UseSleep="NO">
+                    <Str Str="Murmillo_CassisCrista"/>
+                </Scp>                
             </EtcList>
         </MainSkl>
         <ByCondSkills>
@@ -548,10 +555,7 @@
                             <Str Str="SKL_MURMILLO_OFF" />
                             <Num Num="1" />
                             <Num Num="1" />
-                            <Num Num="0" />
-                        </Scp>
-                        <Scp Client="NO" Scp="SKL_RESET_COOLTIME" Time="0" UseSleep="NO">
-                            <Str Str="Murmillo_CassisCrista" />
+                            <Num Num="0"/>
                         </Scp>
                         <Scp Client="NO" Scp="SKL_BUFF_REMOVE" Time="80" UseSleep="NO">
                             <Str Str="murmillo_helmet" />

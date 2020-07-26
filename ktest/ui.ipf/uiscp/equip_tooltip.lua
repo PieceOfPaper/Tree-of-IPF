@@ -790,7 +790,7 @@ end
 function IS_NEED_TO_DRAW_TOOLTIP_PROPERTY(list, list2, invitem, basicTooltipPropList)
 	for i = 1, #list do
 		local propName = list[i];
-		local propValue = invitem[propName];		
+		local propValue = TryGetProp(invitem, propName, 0);		
 		if propValue ~= 0 then
             local checkPropName = propName;
             if propName == 'MINATK' or propName == 'MAXATK' then
@@ -920,8 +920,7 @@ function DRAW_EQUIP_PROPERTY(tooltipframe, invitem, yPos, mainframename, setItem
 
 	for i = 1 , #list do
 		local propName = list[i];
-		local propValue = class[propName];
-
+		local propValue = TryGetProp(class, propName, 0);
 		local needToShow = true;
 		for j = 1, #basicTooltipPropList do
 			if basicTooltipPropList[j] == propName then
@@ -976,9 +975,9 @@ function DRAW_EQUIP_PROPERTY(tooltipframe, invitem, yPos, mainframename, setItem
    
 	for i = 1 , #list2 do
 		local propName = list2[i];
-		local propValue = invitem[propName];
+		local propValue = TryGetProp(invitem, propName, 0);
 		if propValue ~= 0 then
-			local strInfo = ABILITY_DESC_PLUS(ScpArgMsg(propName), invitem[propName]);
+			local strInfo = ABILITY_DESC_PLUS(ScpArgMsg(propName), propValue);
 			inner_yPos = ADD_ITEM_PROPERTY_TEXT(property_gbox, strInfo, 0, inner_yPos);
 		end
 	end

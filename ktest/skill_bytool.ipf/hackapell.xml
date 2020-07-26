@@ -239,11 +239,20 @@
                     <Str Str="HakkaPalle_Buff"/>
                     <Num FuncTxt="return obj.Level;" Num="0" UseFunc="1"/>
                     <Num Num="0"/>
-                    <Num Num="15000"/>
+					<Num FuncTxt='local value = 15000
+
+if GetExProp(self, "ITEM_VIBORA_SWORD_Hackapell") > 0 then
+    value = value + GetExProp(self, "ITEM_VIBORA_SWORD_Hackapell")
+end
+
+return value' Num="15000" UseFunc="1"/>
                     <Num Num="1"/>
                     <Num Num="100"/>
                     <Num Num="0"/>
-                </Scp>                
+                </Scp>
+		<Scp Client="NO" Scp="SKL_RUN_SCRIPT" Time="0" UseSleep="NO">
+                    <Str Str="SCR_HAKKAPALLE_HIDDEN_ABIL"/>
+                </Scp>
                 <Scp Client="YES" Scp="C_VOICE_SOUND" Time="100" UseSleep="NO">
                     <Str Str="voice_archer_m_HakkaPalle_cast"/>
                     <Str Str="voice_archer_HakkaPalle_cast"/>
@@ -383,15 +392,6 @@
                 </Scp>
                 <Scp Client="YES" Scp="C_SOUND" Time="0" UseSleep="NO">
                     <Str Str="skl_fgt_ultimatedash_shot"/>
-                </Scp>
-                <Scp Client="NO" Scp="SKL_BUFF" Time="0" UseSleep="NO">
-                    <Str Str="CavalryCharge_Buff"/>
-                    <Num Num="1"/>
-                    <Num Num="0"/>
-                    <Num Num="10000"/>
-                    <Num Num="1"/>
-                    <Num Num="100"/>
-                    <Num Num="0"/>
                 </Scp>
                 <Scp Client="YES" Scp="C_SHOCKWAVE" Time="140" UseSleep="NO">
                     <Num Num="5"/>

@@ -19,7 +19,7 @@
 					<Num FuncTxt="return obj.Level" Num="0" UseFunc="1" />
 					<Num Num="0" />
 					<Num Num="0"/>
-					<Num Num="10"/>
+					<Num FuncTxt="local buff = GetBuffByName(self, 'Overheating_Buff') local over = GetOver(buff) local value = math.floor(over/2) if over >= 40 then value = 30 end return value " Num="0" UseFunc="1"/>
 					<Num Num="100" />
 					<Num Num="0" />
 				</Scp>

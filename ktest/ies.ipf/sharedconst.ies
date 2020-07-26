@@ -22,6 +22,7 @@ ClassID,Value,ClassName,Desc,UseInScript
 21,10000000,"MAX_DAMAGE","최대 대미지","YES"
 22,11000000,"OVER_MAX_DAMAGE","최대 대미지에서 오버될 수 있는 대미지","YES"
 23,0.250000,"SUMMON_FINAL_DAMAGE_RATE","소환수 최종 대미지 레이트","YES"
+24,2,"SUMMON_DAMAGE_RATE_AMPLIFY","소환수 대미지 레이트 증폭값","YES"
 100,60000,"PC_INIT_INVINCIBLE_TIME","PC최초 접속시 무적시간","NO"
 101,10000,"PC_WARP_INVINCIBLE_TIME","PC Warp (SetPos등) 무적시간","NO"
 102,450,"PC_MAX_LEVEL","플레이어의 최대 레벨","YES"

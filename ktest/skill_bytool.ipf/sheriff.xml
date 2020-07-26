@@ -382,14 +382,14 @@
 			<EtcList>
 				<Scp Client="YES" Scp="MONSKL_C_PLAY_ANIM" Time="0" UseSleep="NO">
 					<Str Str="SKL_QUICKSHOT" />
-					<Num Num="1.3" />
+					<Num Num="2.2"/>
 					<Num Num="1" />
 					<Num Num="0" />
 				</Scp>
 				<Scp Client="YES" Scp="C_SOUND" Time="0" UseSleep="NO">
 					<Str Str="skl_eff_sheriff_quckdraw" />
 				</Scp>
-				<Scp Client="YES" Scp="C_VOICE_SOUND" Time="100" UseSleep="NO">
+				<Scp Client="YES" Scp="C_VOICE_SOUND" Time="45" UseSleep="NO">
 					<Str Str="voice_war_atk_medium" />
 					<Str Str="voice_atk_medium_war_f" />
 				</Scp>

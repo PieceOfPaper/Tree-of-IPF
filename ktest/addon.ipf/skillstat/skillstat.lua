@@ -1,5 +1,5 @@
 function SKILLSTAT_ON_INIT(addon, frame)
-
+	addon:RegisterMsg("RESET_ABILITY_UP", "SKILLSTAT_CLOSE")
 end
 
 function BEFORE_APPLIED_SKILLSTAT_OPEN(invItem)
@@ -87,8 +87,17 @@ function REQ_SKILLSTAT_ITEM(frame, ctrl)
 	end
 end
 
+function SKILLSTAT_CLOSE(frame, msg, argStr, argNum)
+	SKILLSTAT_SELEC_CANCLE(frame, nil)
+end
 
 function SKILLSTAT_SELEC_CANCLE(frame, ctrl)
+	-- 아츠 초기화 포션쪽에서 마진 변경하기 때문에 닫을 때 초기화해준다
+	local detail = GET_CHILD_RECURSIVELY(frame, "detail");
+	local curMargin = detail:GetMargin();
+	local originTop = frame:GetUserConfig("DETAIL_TOP");
+	detail:SetMargin(curMargin.left, originTop, curMargin.right, curMargin.bottom);
+
 	frame:ShowWindow(0);
 end
 

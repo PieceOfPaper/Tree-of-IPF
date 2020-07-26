@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<Controller>
+	<JiggleBone Version="3">
+		<Info NumIteration="10" FixedTimeStep="0.033333302" Gravity="0.000000 -9.810000 0.000000"/>
+		<Group>
+			<Chain StartNode="Bone_feather01" EndNode="Bone_feather05" LimitAngle="40" Friction="0" GravityFactor="1" Damping="0.3" Stiffness="50" InvMass="1" Fixed="1" AllowStretch="0" ExternalForce="0.000000 0.000000 0.000000"/>
+		</Group>
+	</JiggleBone>
+</Controller>

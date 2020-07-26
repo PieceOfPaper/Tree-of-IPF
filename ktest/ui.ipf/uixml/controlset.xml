@@ -16,7 +16,7 @@
 		<controls>
 			<groupbox name="groupbox_1" margin="7 5 0 0" rect="0 0 380 27" hittestbox="false" layout_gravity="left top" image="test_com_namebg" skin=""/>
 			<checkbox name="excute" margin="0 -15  5 0" rect="0 0 24 24" LBtnUpArgStr="click" LBtnDownScp="ENCHANTARMOR_OPATION_SELECT" clicksound="button_click_big" oversound="button_over" layout_gravity="right center"/>
-			<richtext name="name" margin="12 12 0 0" rect="0 0 200 24" format="{@st66e}%s{/}" param1="value" param1_def="ZZZZZZZZZZZZZZZZZZZZ" textalign="left center" resizebytext="false" spacey="0" maxwidth="0" fixwidth="true" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top"/>
+			<richtext name="name" margin="12 9 0 0" rect="0 0 385 24" format="{@st66e}%s{/}" param1="value" param1_def="ZZZZZZZZZZZZZZZZZZZZ" textalign="left center" resizebytext="false" spacey="0" maxwidth="0" fixwidth="true" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top" omitbywidth="true"/>
 			<richtext name="des" margin="14 48 0 0" rect="0 0 120 24" format="%s" param1="value" param1_def="ZZZZZZZZZZZZZZZZZZZZ" textalign="left top" resizebytext="true" spacey="0" maxwidth="0" fontname="brown_16" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top"/>
 		</controls>
 	</controlset>
@@ -2249,6 +2249,14 @@
 			<richtext name="item" rect="0 0 200 60" margin="110 0 0 0" caption="제작서" layout_gravity="left top" textalign="left top" resizebytext="false" fixwidth="true" hittest="false" fontname="brown_18"/>
 			<slot name="slot" skin="invenslot2" layout_gravity="left top" margin="0 0 0 0" rect="40 0 64 64"/>
 			<button name="btn" caption="{@st41b}{/}" margin="40 0 0 0" rect="0 0 70 70" layout_gravity="left top" LBtnUpScp="CRAFT_ITEM_ALL" texttooltip="{@st59}재료 아이템을 슬롯에 추가합니다.{/}" image="itemcraft_btn" clicksound="button_click_big_2" oversound="button_cursor_over_3"/>
+			<richtext name="needcount" rect="0 0 64 20" margin="38 0 0 5" format="{@st41b}x%s{/}" layout_gravity="left bottom" textalign="right center" resizebytext="false" fixwidth="true" hittest="false" param1="count" param1_def="99" fontname="white_18_b" autofontsizebywidth="63"/>
+		</controls>
+	</controlset>
+	<controlset name="craftRecipe_detail_pvp_mine_item" hittest="true" width="500" height="68">
+		<controls>
+			<richtext name="item" rect="0 0 200 60" margin="110 0 0 0" caption="제작서" layout_gravity="left top" textalign="left top" resizebytext="false" fixwidth="true" hittest="false" fontname="brown_18"/>
+			<slot name="slot" skin="invenslot2" layout_gravity="left top" margin="0 0 0 0" rect="40 0 64 64"/>
+			<button name="btn" caption="{@st41b}{/}" margin="40 0 0 0" rect="0 0 70 70" layout_gravity="left top" LBtnUpScp="CRAFT_PVP_MINE_ITEM_ALL" texttooltip="{@st59}재료 아이템을 슬롯에 추가합니다.{/}" image="itemcraft_btn" clicksound="button_click_big_2" oversound="button_cursor_over_3"/>
 			<richtext name="needcount" rect="0 0 64 20" margin="38 0 0 5" format="{@st41b}x%s{/}" layout_gravity="left bottom" textalign="right center" resizebytext="false" fixwidth="true" hittest="false" param1="count" param1_def="99" fontname="white_18_b" autofontsizebywidth="63"/>
 		</controls>
 	</controlset>
@@ -5281,7 +5289,7 @@
 		<controls>
 			<button name="button" rect="0 0 350 60" margin="0 0 0 0" layout_gravity="left top" skin="base_btn" textalign="center center" hittest="true"/>
 			<richtext name="level" rect="0 0 50 100" margin="20 0 0 0" layout_gravity="left center" format="{#000000}Lv. %s" param1="value" param1_def="내용"/>
-			<richtext name="name" rect="0 0 500 100" margin="90 0 0 0" layout_gravity="left center" format="{#000000}%s" param1="value" param1_def="내용"/>
+			<richtext name="name" rect="0 0 500 100" hittest="false" margin="90 0 0 0" layout_gravity="left center" format="{#000000}%s" param1="value" param1_def="내용" autofontsizebywidth="257" fixwidth="true" />
 		</controls>
 	</controlset>
 	<controlset name="raid_ranking_info" width="690" height="90" hittest="true" hittestset="false" draw="true" skin="test_skin_01">
@@ -5330,6 +5338,27 @@
 		</controls>
 	</controlset>
 	<!-- 개인 하우징 홍보 게시판 끝 -->
+	<!-- 보루타 봉쇄전 -->
+	<controlset name="boruta_guild_attribute" toggle="false" hittest="true" hittestset="false" width="470" height="65" skin="">
+		<controls>
+			<groupbox name="rank_bg" rect="0 0 170 28" margin="0 0 0 0" layout_gravity="left top" stretch="true" skin="blackbox_op_50"/>
+			<richtext name="rank_text" rect="0 0 200 20" margin="15 5 0 0" layout_gravity="left top" resizebytext="false" textalign="left center" format="{@st43}{s15}{ol}{ds}%s" param1="value" param1_def="순위" fontname="white_14_ol"/>
+			<richtext name="rank_value_text" rect="0 0 200 20" margin="0 5 5 0" layout_gravity="right top" resizebytext="false" textalign="right center" format="{@st43}{s15}{ol}{ds}%s위" param1="rank" param1_def="0"/>
+			<groupbox name="time_bg" rect="0 0 170 28" margin="0 33 0 0" layout_gravity="left top" stretch="true" skin="blackbox_op_50"/>
+			<richtext name="time_text" rect="0 0 200 20" margin="15 37 0 0" layout_gravity="left top" resizebytext="false" textalign="left center" format="{@st43}{s15}{ol}{ds}%s" param1="value" param1_def="시간" fontname="white_14_ol"/>
+			<richtext name="time_value_text" rect="0 0 200 20" margin="0 37 5 0" layout_gravity="right top" resizebytext="false" textalign="right center" format="{@st43}{s15}{ol}{ds}%s" param1="value" param1_def="기록 없음" fontname="white_14_ol"/>
+		</controls>
+	</controlset>
+	<controlset name="boruta_ranking_attribute" toggle="false" hittest="false" hittestset="false" width="486" height="79" skin="">
+		<controls>
+			<groupbox name="attr_bg" rect="0 0 486 79" margin="0 0 0 0" layout_gravity="left center" stretch="true" skin="base_btn"/>
+			<picture name="attr_rank_pic" rect="0 0 75 62" margin="10 0 0 0" layout_gravity="left center" stretch="true" image="raid_week_rank_01" hittest="false"/>
+			<picture name="attr_emblem_pic" rect="0 0 40 40" margin="95 0 0 0" layout_gravity="left center" stretch="true" image="guildmark_slot" hittest="false"/>
+			<richtext name="attr_rank_text" rect="0 0 75 62" margin="12 1 0 0" layout_gravity="left center" resizebytext="false" textalign="center center" format="{@st43}{s18}{ol}{ds}%s위" param1="value" param1_def="0" fontname="white_14_ol"/>
+			<richtext name="attr_name_text" rect="0 0 130 20" margin="144 0 0 0" layout_gravity="left center" resizebytext="false" textalign="left center" format="%s" param1="value" param1_def="이름" fontname="black_16_b"/>
+			<richtext name="attr_value_text" rect="0 0 200 20" margin="0 0 20 0" layout_gravity="right center" resizebytext="true" fixwidth="true" fixheight="false" textalign="right center" format="%s" param1="time" param1_def="시간" fontname="black_16_b"/>
+		</controls>
+	</controlset>
 	<controlset name="decomposeItemSlotSet" toggle="false" hittest="false" width="530" height="144" skin="">
 		<userconfig GRADE_1="일반" GRADE_2="매직" GRADE_3="레어" GRADE_4="유니크"/>
 		<controls>

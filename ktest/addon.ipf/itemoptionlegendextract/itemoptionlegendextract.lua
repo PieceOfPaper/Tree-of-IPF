@@ -965,7 +965,7 @@ function OPTION_LEGEND_EXTRACT_REGISTER_EXTRACTION_OPTION_CAPTION(frame, invitem
 	for i = 1 , #list do
 
 		local propName = list[i];
-		local propValue = invitem[propName];
+		local propValue = TryGetProp(invitem, propName, 0);
 		
 		if propValue ~= 0 then
             local checkPropName = propName;
@@ -980,7 +980,7 @@ function OPTION_LEGEND_EXTRACT_REGISTER_EXTRACTION_OPTION_CAPTION(frame, invitem
 
 	for i = 1 , #list2 do
 		local propName = list2[i];
-		local propValue = invitem[propName];
+		local propValue = TryGetProp(invitem, propName, 0);
 		if propValue ~= 0 then
 
 			cnt = cnt +1
@@ -1005,7 +1005,7 @@ function OPTION_LEGEND_EXTRACT_REGISTER_EXTRACTION_OPTION_CAPTION(frame, invitem
 
 	for i = 1 , #list do
 		local propName = list[i];
-		local propValue = invitem[propName];
+		local propValue = TryGetProp(invitem, propName, 0);
 
 		local needToShow = true;
 		for j = 1, #basicTooltipPropList do
@@ -1014,32 +1014,33 @@ function OPTION_LEGEND_EXTRACT_REGISTER_EXTRACTION_OPTION_CAPTION(frame, invitem
 			end
 		end
 
-		if needToShow == true and itemCls[propName] ~= 0 and randomOptionProp[propName] == nil then -- 랜덤 옵션이랑 겹치는 프로퍼티는 여기서 출력하지 않음
+		local clsPropValue = TryGetProp(itemCls, propName, 0);
+		if needToShow == true and clsPropValue ~= 0 and randomOptionProp[propName] == nil then -- 랜덤 옵션이랑 겹치는 프로퍼티는 여기서 출력하지 않음
 
 			if  invitem.GroupName == 'Weapon' then
 				if propName ~= "MINATK" and propName ~= 'MAXATK' then
-					local strInfo = ABILITY_DESC_PLUS(ScpArgMsg(propName), itemCls[propName]);					
+					local strInfo = ABILITY_DESC_PLUS(ScpArgMsg(propName), clsPropValue);					
 					inner_yPos = ADD_ITEM_PROPERTY_TEXT(property_gbox, strInfo, 0, inner_yPos);
 				end
 			elseif  invitem.GroupName == 'Armor' then
 				if invitem.ClassType == 'Gloves' then
 					if propName ~= "HR" then
-						local strInfo = ABILITY_DESC_PLUS(ScpArgMsg(propName), itemCls[propName]);
+						local strInfo = ABILITY_DESC_PLUS(ScpArgMsg(propName), clsPropValue);
 						inner_yPos = ADD_ITEM_PROPERTY_TEXT(property_gbox, strInfo, 0, inner_yPos);
 					end
 				elseif invitem.ClassType == 'Boots' then
 					if propName ~= "DR" then
-						local strInfo = ABILITY_DESC_PLUS(ScpArgMsg(propName), itemCls[propName]);
+						local strInfo = ABILITY_DESC_PLUS(ScpArgMsg(propName), clsPropValue);
 						inner_yPos = ADD_ITEM_PROPERTY_TEXT(property_gbox, strInfo, 0, inner_yPos);
 					end
 				else
 					if propName ~= "DEF" then
-						local strInfo = ABILITY_DESC_PLUS(ScpArgMsg(propName), itemCls[propName]);
+						local strInfo = ABILITY_DESC_PLUS(ScpArgMsg(propName), clsPropValue);
 						inner_yPos = ADD_ITEM_PROPERTY_TEXT(property_gbox, strInfo, 0, inner_yPos);
 					end
 				end
 			else
-				local strInfo = ABILITY_DESC_PLUS(ScpArgMsg(propName), itemCls[propName]);
+				local strInfo = ABILITY_DESC_PLUS(ScpArgMsg(propName), clsPropValue);
 				inner_yPos = ADD_ITEM_PROPERTY_TEXT(property_gbox, strInfo, 0, inner_yPos);
 			end
 		end
@@ -1085,9 +1086,9 @@ function OPTION_LEGEND_EXTRACT_REGISTER_EXTRACTION_OPTION_CAPTION(frame, invitem
 
 	for i = 1 , #list2 do
 		local propName = list2[i];
-		local propValue = invitem[propName];
+		local propValue = TryGetProp(invitem, propName, 0);
 		if propValue ~= 0 then
-			local strInfo = ABILITY_DESC_PLUS(ScpArgMsg(propName), invitem[propName]);
+			local strInfo = ABILITY_DESC_PLUS(ScpArgMsg(propName), propValue);
 			inner_yPos = ADD_ITEM_PROPERTY_TEXT(property_gbox, strInfo, 0, inner_yPos);
 		end
 	end

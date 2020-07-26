@@ -61,7 +61,7 @@ function SKILLABILITY_COMMON_LEGENDITEMSKILL_UPDATE(frame, msg, skillID, argNum)
     if exist_trans_skill == nil then return; end
 
     -- check msg skillID
-    local skillInfo = session.GetSkill(skillID);
+    local skillInfo = session.GetSkill(tonumber(skillID));
     if skillInfo ~= nil then
         local sklObj = GetIES(skillInfo:GetObject());
         if sklObj == nil then return end

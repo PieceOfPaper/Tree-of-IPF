@@ -515,4 +515,21 @@ return value;" />
 			</KillList>
 		</MainSkl>
 	</Skill>
+	<Skill Name="Hoplite_ThrouwingSpear_Vibora">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<EtcList>
+				<Scp Client="YES" Scp="MONSKL_C_PLAY_ANIM" Time="0" UseSleep="NO">
+					<Str Str="SKL_DETHRONE_vibora"/>
+					<Num Num="2.5"/>
+					<Num Num="1"/>
+					<Num Num="0"/>
+				</Scp>
+				<Scp Client="YES" Scp="C_VOICE_SOUND" Time="0" UseSleep="NO">
+					<Str Str="voice_war_atk_short"/>
+					<Str Str="voice_atk_short_war_f"/>
+				</Scp>
+				<Scp Client="NO" Scp="SCR_ITEM_SKL_USE_VIBORA_SPEAR_THROW_SHOOT" Time="0" UseSleep="NO"/>
+			</EtcList>
+		</MainSkl>
+	</Skill>
 	</ToolSkill>

@@ -94,14 +94,14 @@ function GODPROTECTION_ITME_LIST_INIT(frame)
 		frame = ui.GetFrame("godprotection");
 	end
 
-	local allcnt = session.GodProtection.GetItemListCount();
-	local cnt = allcnt;
-	-- 맨 마지막 slot 부터 생성, 일반 아이템 슬롯만 설정
-	for i = allcnt - 1, 2, -1 do
-		cnt = cnt - 1;
-		slot = GET_CHILD_RECURSIVELY(frame, 'slot_'..i);
+	local slot_index = session.GodProtection.GetTotalItemCount() - 1
+	local item_index = session.GodProtection.GetItemListCount() - 1;	
+	-- 맨 마지막 slot 부터 생성, 일반 아이템 슬롯만 설정, 뒤에서부터 12개 그리면 됨
+	for i = item_index, item_index - 11, -1 do		
+		slot = GET_CHILD_RECURSIVELY(frame, 'slot_'.. slot_index);		
+		slot_index = slot_index - 1		
 		if slot ~= nil then
-			local itemid = session.GodProtection.GetItemIDbyIndex(cnt);	
+			local itemid = session.GodProtection.GetItemIDbyIndex(i);
 			local itemCls = GetClassByType('Item', itemid);
 			if itemCls ~= nil then
 				SET_SLOT_IMG(slot, itemCls.Icon);
@@ -122,7 +122,7 @@ function GODPROTECTION_ITME_LIST_UPDATE(frame)
 		frame = ui.GetFrame("godprotection");
 	end
 
-	local legendcnt = session.GodProtection.GetLegendItemListCount();
+	local legendcnt = session.GodProtection.GetLegendItemListCount();	
 	for i = 0, legendcnt - 1 do
 		slot = GET_CHILD_RECURSIVELY(frame, 'slot_'..i);
 		if slot ~= nil then
@@ -419,7 +419,7 @@ function GODPROTECTION_SLOT_CLEAR()
 	local frame = ui.GetFrame("godprotection");
 
 	-- slot들 아이콘 초기화
-	local allcnt = session.GodProtection.GetItemListCount();
+	local allcnt = session.GodProtection.GetTotalItemCount();
 	for i = 0, allcnt - 1 do
 		local slot = GET_CHILD_RECURSIVELY(frame, 'slot_'..i);
 		local slot_pic = GET_CHILD_RECURSIVELY(frame, 'slot_'..i..'_pic');
@@ -442,9 +442,9 @@ function GODPROTECTION_GET_SLOT(itemid)
 	if itemid == "None" then
 		return nil;
 	end
-
-	local allcnt = session.GodProtection.GetItemListCount();
-	for i = 0, allcnt - 1 do
+	
+	local allcnt = session.GodProtection.GetTotalItemCount() - 1;		
+	for i = allcnt, 0, -1 do
 		local slot = GET_CHILD_RECURSIVELY(frame, 'slot_'..i);
 		local slotitemid = slot:GetUserValue("ITEM_ID");
 		if tonumber(itemid) == tonumber(slotitemid) then

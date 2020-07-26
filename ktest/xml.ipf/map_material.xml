@@ -613,4 +613,22 @@
 			<Sound From="walk_left" To="step_soil"/>
 		</Anim>
 	</Material>
+	<Material ID="37" Name="Effect_catagnan" KorName="냥타냥 이펙트" MaterialItem="None">
+		<Anim Name="LAND">
+			<Particle From="F_pc_jump_smoke" To="F_pc_jump_smoke" Scale="1"/>
+			<Sound From="pc_war_jump_2" To="step_dry_land"/>
+		</Anim>
+		<Anim Name="JUMP">
+			<Particle From="F_pc_jump_smoke" To="F_pc_jump_smoke" Scale="0.6"/>
+			<Sound From="pc_war_jump" To="pc_war_jump_1"/>
+		</Anim>
+		<Anim Name="RUN">
+			<Particle From="F_pc_run_smoke" To="F_pc_effectitem_catagnan" Scale="1"/>
+			<Sound From="walk_left" To="step_soil"/>
+		</Anim>
+		<Anim Name="DASH">
+			<Particle From="F_pc_jump_smoke" To="F_pc_run_smoke" Scale="1"/>
+			<Sound From="walk_left" To="step_soil"/>
+		</Anim>
+	</Material>
 </Map_materials>

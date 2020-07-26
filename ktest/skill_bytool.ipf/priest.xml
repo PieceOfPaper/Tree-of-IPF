@@ -377,22 +377,15 @@
 					<Str Str="voice_cleric_m_revive_shot" />
 					<Str Str="voice_cleric_revive_shot" />
 				</Scp>
-				<Scp Client="NO" Scp="SKL_SET_TARGET_CIRCLE" Time="250" UseSleep="NO">
-					<Pos Angle="0" Dist="0" />
-					<Num Num="150" />
-					<Num Num="50" />
-					<Num Num="1" />
-					<Num Num="0" />
-					<Num Num="1" />
-				</Scp>
-				<Scp Client="NO" Scp="SKL_TGT_BUFF" Time="250" UseSleep="NO">
+				<Scp Client="NO" Scp="SKL_BUFF" Time="250" UseSleep="NO">
 					<Str Str="Cleric_Revival_Buff" />
-					<Num FuncTxt="return obj.Level" Num="1" UseFunc="1" />
+					<Num FuncTxt="return obj.Level;" Num="1" UseFunc="1" />
 					<Num Num="0" />
 					<Num FuncTxt="if IsPVPServer(self) == 1 then return 10000 else return 90000 + GET_ABIL_LEVEL(self, 'Priest21') * 7000 end" Num="5000" UseFunc="1" />
 					<Num Num="1" />
 					<Num Num="100" />
-				</Scp>
+				<Num Num="1" />
+                </Scp>
 			</EtcList>
 		</MainSkl>
 	</Skill>

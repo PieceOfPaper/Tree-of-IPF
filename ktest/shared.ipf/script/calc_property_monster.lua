@@ -576,11 +576,12 @@ function SCR_Get_MON_CRTHR(self)
 end
 
 function SCR_Get_MON_CRTDR(self)
+    local originCrtDR = GetExProp(self, "MON_ORIGIN_CRTDR")
     local lv = TryGetProp(self, "Lv", 1);
     local byLevel = lv * 1.0;
 
     if lv > 420 and TryGetProp(self, "MonRank", "None") ~= "Summon" then
-    byLevel = lv * 4
+        byLevel = lv * 4
     end
     
     local raceTypeRate = SCR_RACE_TYPE_RATE(self, "CRTDR");
@@ -600,6 +601,15 @@ function SCR_Get_MON_CRTDR(self)
     
     if value < 0 then
     	value = 0;
+    end
+    
+    if IsBuffApplied(self, "Tenacity_Buff") == "YES" then
+        local reduceCrtDrLimit = math.floor(originCrtDR * 0.9);
+        if originCrtDR == 0 then
+            SetExProp(self, "MON_ORIGIN_CRTDR", math.floor(value));
+        elseif value < reduceCrtDrLimit then
+            value = reduceCrtDrLimit;
+        end
     end
     
     return math.floor(value);
@@ -2285,4 +2295,154 @@ function SCR_ANCIENT_INFO_RATE_CALC(rarity, starrank, propName)
     local starrankCls = GetClassByNumProp('Ancient_Rarity','Rarity',rarity)
     local rarityCls = GetClassByNumProp('Ancient_Rank','Rank',starrank)
     return TryGetProp(starrankCls,propName,1) * TryGetProp(rarityCls,propName,1)
+end
+
+function SCR_GET_MON_ADD_Damage_ATK(self)
+    local value = 0
+
+    local byBuff = TryGetProp(self, 'ADD_Damage_Atk_BM', 0)
+
+    value = value + byBuff
+
+    return math.floor(byBuff)
+end
+
+function SCR_GET_MON_Widling_ATK(self)
+    local value = 0
+
+    local byBuff = TryGetProp(self, 'Widling_Atk_BM', 0)
+
+    value = value + byBuff
+
+    return math.floor(byBuff)
+end
+
+function SCR_GET_MON_Paramune_ATK(self)
+    local value = 0
+
+    local byBuff = TryGetProp(self, 'Paramune_Atk_BM', 0)
+
+    value = value + byBuff
+
+    return math.floor(byBuff)
+end
+
+function SCR_GET_MON_Forester_ATK(self)
+    local value = 0
+
+    local byBuff = TryGetProp(self, 'Forester_Atk_BM', 0)
+
+    value = value + byBuff
+
+    return math.floor(byBuff)
+end
+
+function SCR_GET_MON_Velnias_ATK(self)
+    local value = 0
+
+    local byBuff = TryGetProp(self, 'Velnias_Atk_BM', 0)
+
+    value = value + byBuff
+
+    return math.floor(byBuff)
+end
+
+function SCR_GET_MON_Klaida_ATK(self)
+    local value = 0
+
+    local byBuff = TryGetProp(self, 'Klaida_Atk_BM', 0)
+
+    value = value + byBuff
+
+    return math.floor(byBuff)
+end
+
+function SCR_GET_MON_Cloth_ATK(self)
+    local value = 0
+
+    local byBuff = TryGetProp(self, 'Cloth_Atk_BM', 0)
+
+    value = value + byBuff
+
+    return math.floor(byBuff)
+end
+
+function SCR_GET_MON_Leather_ATK(self)
+    local value = 0
+
+    local byBuff = TryGetProp(self, 'Leather_Atk_BM', 0)
+
+    value = value + byBuff
+
+    return math.floor(byBuff)
+end
+
+function SCR_GET_MON_Chain_ATK(self)
+    local value = 0
+
+    local byBuff = TryGetProp(self, 'Chain_Atk_BM', 0)
+
+    value = value + byBuff
+
+    return math.floor(byBuff)
+end
+
+function SCR_GET_MON_Iron_ATK(self)
+    local value = 0
+
+    local byBuff = TryGetProp(self, 'Iron_Atk_BM', 0)
+
+    value = value + byBuff
+
+    return math.floor(byBuff)
+end
+
+function SCR_GET_MON_Ghost_ATK(self)
+    local value = 0
+
+    local byBuff = TryGetProp(self, 'Ghost_Atk_BM', 0)
+
+    value = value + byBuff
+
+    return math.floor(byBuff)
+end
+
+function SCR_GET_MON_SmallSize_ATK(self)
+    local value = 0
+
+    local byBuff = TryGetProp(self, 'SmallSize_Atk_BM', 0)
+
+    value = value + byBuff
+
+    return math.floor(byBuff)
+end
+
+function SCR_GET_MON_MiddleSize_ATK(self)
+    local value = 0
+
+    local byBuff = TryGetProp(self, 'MiddleSize_Atk_BM', 0)
+
+    value = value + byBuff
+
+    return math.floor(byBuff)
+end
+
+function SCR_GET_MON_LargeSize_ATK(self)
+    local value = 0
+
+    local byBuff = TryGetProp(self, 'LargeSize_Atk_BM', 0)
+
+    value = value + byBuff
+
+    return math.floor(byBuff)
+end
+
+function SCR_GET_MON_BOSS_ATK(self)
+    local value = 0
+
+    local byBuff = TryGetProp(self, 'BOSS_ATK_BM', 0)
+
+    value = value + byBuff
+
+    return math.floor(byBuff)
 end

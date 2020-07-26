@@ -145,10 +145,19 @@ function GET_RECIPE_MATERIAL_INFO(recipeCls, index)
 	local itemName = recipeCls[clsName];
 	if itemName == "None" then
 		return nil;
-	end
-		
-	local dragRecipeItem = GetClass('Item', itemName);
-	local recipeItemCnt, recipeItemLv = GET_RECIPE_REQITEM_CNT(recipeCls, clsName);
+    end
+    
+    local recipeItemCnt, recipeItemLv = GET_RECIPE_REQITEM_CNT(recipeCls, clsName);
+    local dragRecipeItem = GetClass('Item', itemName);
+
+    if itemName == "misc_pvp_mine2" then
+        local aObj = GetMyAccountObj()
+        local propCount = TryGetProp(aObj, 'MISC_PVP_MINE2', '0')
+        if propCount == 'None' then
+            propCount = '0'
+        end
+        return recipeItemCnt, propCount,dragRecipeItem,nil,recipeItemLv,nil
+    end
 
 	local invItem = nil;
 	local invItemlist = nil;
@@ -171,7 +180,7 @@ function GET_RECIPE_MATERIAL_INFO(recipeCls, index)
     if ignoreType then
         invItemCnt = #invItemlist;
     end
-
+    
 	return recipeItemCnt, invItemCnt, dragRecipeItem, invItem, recipeItemLv, invItemlist;
 
 end

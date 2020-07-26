@@ -694,6 +694,35 @@ return 2500 + obj.Level * 200;"/>
 			</EtcList>
 		</MainSkl>
 	</Skill>
+	<Skill Name="Rogue_ViboraKnifeThrowing">
+		<MainSkl ScrLock="None" JumpFlee="NO" MSPDToUsePos="0">
+			<HitList>
+				<Frame Type="SQUARE" Time="100" HitCount="1" TermMin="0" TermMax="0" PosType="0" Dist="0" RandDist="0" RandomPerHit="0" Angle="0" Width="15" Length="120" SklAngle="0.17453292" AniTime="150" RotAngle="0" ForceATK="0"/>
+			</HitList>
+			<EtcList>
+				<Scp Scp="C_SOUND" Client="YES" UseSleep="NO" Time="0">
+					<Str Str="skl_eff_action_shot_1"/>
+				</Scp>
+				<Scp Scp="C_FORCE_EFT" Client="YES_Time" UseSleep="NO" Time="350">
+					<Str_Arg Str="I_knife001#Dummy_Force_knife" Arg="0.30000001"/>
+					<Str Str="arrow_skl_whoosh"/>
+					<Str_Arg Str="None" Arg="0.5"/>
+					<Str Str="arrow_blow"/>
+					<Str Str="FAST"/>
+					<Num Num="700"/>
+					<Num Num="1"/>
+					<Num Num="0"/>
+					<Angle_Abs Angle="0"/>
+					<Num Num="1"/>
+					<Num Num="5"/>
+					<Num Num="0"/>
+					<Num Num="0"/>
+					<Num Num="0"/>
+				</Scp>
+				<Scp Client="NO" Scp="SCR_VIBORA_KNIFETHROW_USE_OVER" Time="350" UseSleep="NO"/>
+			</EtcList>
+		</MainSkl>
+	</Skill>
 	<Skill Name="Rogue_Vendetta">
 		<EndScripts>
 			<ToolScp Client="NO" Scp="SKL_CANCEL_CANCEL" UseSleep="NO" />

@@ -102,7 +102,9 @@ function GET_COMMON_PROP_LIST()
         'Leather_Def',
         'Cloth_Def',
         'Iron_Def',
-	'ADD_BOSS_ATK'        
+        'ADD_BOSS_ATK',
+        'Magic_Ice_Atk',
+        'Magic_Earth_Atk',
     };
 end
 

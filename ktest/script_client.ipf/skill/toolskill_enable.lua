@@ -460,7 +460,7 @@ function SCR_BULLETMARKER_CHECK_BUFFOVER_C(actor, skl, buffName)
     local getbuff = actor:GetBuff():GetBuff("Overheating_Buff")
     if getbuff ~= nil then
         local over = getbuff.over
-        if over >= 20 then
+        if over >= 4 then
             return 1;
         end
     end

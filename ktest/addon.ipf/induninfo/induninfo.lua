@@ -2,6 +2,7 @@
 function INDUNINFO_ON_INIT(addon, frame)
     addon:RegisterMsg('CHAT_INDUN_UI_OPEN', 'INDUNINFO_CHAT_OPEN');
 	addon:RegisterMsg('WEEKLY_BOSS_UI_UPDATE', 'WEEKLY_BOSS_UI_UPDATE');
+    addon:RegisterMsg('BORUTA_RANKING_UI_UPDATE', 'BORUTA_RANKING_UI_UPDATE');
 
     g_selectedIndunTable = {};
 end
@@ -71,6 +72,12 @@ function INDUNINFO_UI_OPEN(frame)
         weekly_boss.RequestWeeklyBossNowWeekNum();                  -- 현재 week_num 요청
     end
 
+    local boruta_endtime = session.boruta_ranking.GetBorutaEndTime();
+    if session.boruta_ranking.GetNowWeekNum() == 0 then
+        boruta.RequestBorutaNowWeekNum();
+    elseif imcTime.IsLaterThan(now_time, boruta_endtime) ~= 0 then
+        boruta.RequestBorutaNowWeekNum();
+    end
     
     local tab = GET_CHILD_RECURSIVELY(frame, "tab");
 	if tab ~= nil then
@@ -95,6 +102,8 @@ function TOGGLE_WEEKLYBOSSINFO(frame, type)
     bottomBox:ShowWindow(1 - type);
     local raidrankingBox = GET_CHILD_RECURSIVELY(frame, 'raidrankingBox');
     raidrankingBox:ShowWindow(0);
+    local boruta_box = GET_CHILD_RECURSIVELY(frame, 'boruta_box')
+    boruta_box:ShowWindow(0)
 end
 
 function SET_WEEKLYBOSS_INDUN_COUNT(frame)
@@ -105,8 +114,25 @@ function SET_WEEKLYBOSS_INDUN_COUNT(frame)
     button:SetTextByKey('max', indunCls.PlayPerReset);
 end
 
+function TOGGLE_BORUTA_RANKING_INFO(frame, type)
+    local boruta_box = GET_CHILD_RECURSIVELY(frame, 'boruta_box')
+    boruta_box:ShowWindow(type)
+
+    local contentBox = GET_CHILD_RECURSIVELY(frame, 'contentBox')
+    contentBox:ShowWindow(1 - type)
+    local categoryBox = GET_CHILD_RECURSIVELY(frame, 'categoryBox')
+    categoryBox:ShowWindow(1 - type)
+    local bottomBox = GET_CHILD_RECURSIVELY(frame, 'bottomBox')
+    bottomBox:ShowWindow(1 - type)
+    local WeeklyBossbox = GET_CHILD_RECURSIVELY(frame, 'WeeklyBossbox')
+    WeeklyBossbox:ShowWindow(0)
+    local raidrankingBox = GET_CHILD_RECURSIVELY(frame, 'raidrankingBox')
+    raidrankingBox:ShowWindow(0)
+end
+
 function TOGGLE_INDUNINFO(frame,type)
     TOGGLE_WEEKLYBOSSINFO(frame, 0);
+    TOGGLE_BORUTA_RANKING_INFO(frame, 0)
 
     local indunbox = GET_CHILD_RECURSIVELY(frame,'indunbox')
     indunbox:ShowWindow(1 - type)
@@ -1489,6 +1515,8 @@ function INDUNINFO_TAB_CHANGE(parent, ctrl)
         WEEKLYBOSSINFO_UI_OPEN(frame);
     elseif index == 2 then
         RAID_RANKING_UI_OPEN(frame);
+	elseif index == 3 then
+        BORUTA_RANKING_UI_OPEN(frame);
 	end
 end
 
@@ -1858,6 +1886,8 @@ function TOGGLE_RAID_RANKING_UI(frame)
 
     local WeeklyBossbox = GET_CHILD(frame, 'WeeklyBossbox');
     WeeklyBossbox:ShowWindow(0);
+    local boruta_box = GET_CHILD(frame, 'boruta_box');
+    boruta_box:ShowWindow(0);
     local categoryBox = GET_CHILD(frame, 'categoryBox');
     categoryBox:ShowWindow(0);
     local contentBox = GET_CHILD(frame, 'contentBox');
@@ -1916,6 +1946,8 @@ function RAID_RANKING_CATEGORY_INIT(frame)
 
         levelctrl:SetTextByKey("value", cls.Level);
         namectrl:SetTextByKey("value", ClMsg(cls.ClassName));  -- 콘텐츠 이름
+        namectrl:SetUserValue('RAID_RANKING_CLASS_ID', cls.ClassID);
+        namectrl:SetEventScript(ui.LBUTTONUP, 'RAID_RANKING_CATEGORY_CLICK');
 
         y = y + ctrl:GetHeight() - 5;
     end
@@ -2151,3 +2183,332 @@ function RAID_RANKING_CATEGORY_UI_UNFREEZE()
 end
 
 --------------------------------- 레이드 랭킹 ---------------------------------
+--------------------------------- 봉쇄전 랭킹 ---------------------------------
+function BORUTA_RANKING_UI_OPEN(frame)
+    BORUTA_RANKING_DATA_REQUEST();
+
+    TOGGLE_BORUTA_RANKING_INFO(frame, 1);
+
+    local move_btn = GET_CHILD_RECURSIVELY(frame, 'boruta_move_btn')
+    if move_btn ~= nil then
+        local indunCls = GetClass('GuildEvent', 'GM_BorutosKapas_1')
+        if indunCls ~= nil then
+            move_btn:SetUserValue('MOVE_INDUN_CLASSID', TryGetProp(indunCls, 'ClassID', 0))
+        end
+    end
+
+    -- 보스 정보
+    local monClsName = 'Guild_boss_Boruta'
+    local monCls = GetClass("Monster", monClsName)
+    if monCls ~= nil then
+        local boss_icon_pic = GET_CHILD_RECURSIVELY(frame, 'boss_icon_pic')
+        boss_icon_pic:SetImage(monCls.Icon)
+        
+        local boss_attr1 = GET_CHILD_RECURSIVELY(frame, "boss_attr1", "ui::CControlSet")
+        local boss_attr2 = GET_CHILD_RECURSIVELY(frame, "boss_attr2", "ui::CControlSet")
+        local boss_attr3 = GET_CHILD_RECURSIVELY(frame, "boss_attr3", "ui::CControlSet")
+        local boss_attr4 = GET_CHILD_RECURSIVELY(frame, "boss_attr4", "ui::CControlSet")
+        local boss_attr5 = GET_CHILD_RECURSIVELY(frame, "boss_attr5", "ui::CControlSet")
+        local boss_attr6 = GET_CHILD_RECURSIVELY(frame, "boss_attr6", "ui::CControlSet")
+        
+        SET_TEXT(boss_attr1, "attr_name_text", "value", ScpArgMsg('Name'))
+        SET_TEXT(boss_attr2, "attr_name_text", "value", ScpArgMsg('RaceType'))
+        SET_TEXT(boss_attr3, "attr_name_text", "value", ScpArgMsg('Attribute'))
+        SET_TEXT(boss_attr4, "attr_name_text", "value", ScpArgMsg('MonInfo_ArmorMaterial'))
+        SET_TEXT(boss_attr5, "attr_name_text", "value", ScpArgMsg('Level'))
+        SET_TEXT(boss_attr6, "attr_name_text", "value", ScpArgMsg('Area'))
+
+        SET_TEXT(boss_attr1, "attr_value_text", "value", monCls.Name)
+        SET_TEXT(boss_attr2, "attr_value_text", "value", ScpArgMsg(monCls.RaceType))
+        SET_TEXT(boss_attr3, "attr_value_text", "value", ScpArgMsg("MonInfo_Attribute_"..monCls.Attribute))
+        SET_TEXT(boss_attr4, "attr_value_text", "value", ScpArgMsg(monCls.ArmorMaterial))
+        SET_TEXT(boss_attr5, "attr_value_text", "value", monCls.Level)
+        local attr5_value_text = GET_CHILD_RECURSIVELY(boss_attr6,"attr_value_text")
+        local mapCls = GetClass("Map", "d_limestonecave_70_1_guild")
+        if mapCls ~= nil then
+            SET_TEXT(boss_attr6, "attr_value_text", "value", mapCls.Name)
+        end
+    end
+end
+
+function BORUTA_RANKING_SEASON_SELECT(frame,ctrl)
+
+end
+
+function BORUTA_RANKING_DATA_REQUEST()
+    local frame = ui.GetFrame("induninfo")
+    local ranking_gb = GET_CHILD_RECURSIVELY(frame, "ranking_gb")
+    ranking_gb:EnableHitTest(0)
+    ReserveScript("HOLD_BORUTA_RANKING_UI_UNFREEZE()", 1)
+
+    local week_num = BORUTA_RANKING_WEEKNUM_NUMBER()
+    if week_num < 1 then
+        return
+    end
+    
+    -- 시간 정보
+    boruta.RequestBorutaStartTime(week_num) -- 시작 시간 정보 요청
+    boruta.RequestBorutaEndTime(week_num) -- 종료 시간 정보 요청
+
+    boruta.RequestBorutaRankList(week_num) -- 랭킹 정보 요청
+    boruta.RequestBorutaAcceptedRewardInfo(week_num) -- 랭킹 보상 수령 여부 요청
+    
+    local rankingBox = GET_CHILD_RECURSIVELY(frame, "ranking", "ui::CGroupBox")
+    rankingBox:RemoveAllChild()
+end
+
+function HOLD_BORUTA_RANKING_UI_UNFREEZE()
+    local frame = ui.GetFrame("induninfo")
+    local ranking_gb = GET_CHILD_RECURSIVELY(frame, "ranking_gb")
+    ranking_gb:EnableHitTest(1)
+end
+
+function BORUTA_RANKING_UI_UPDATE()
+    local frame = ui.GetFrame("induninfo")
+    local guild_info_attr = GET_CHILD_RECURSIVELY(frame, "guild_info_attr", "ui::CControlSet")
+
+    local week_num = BORUTA_RANKING_WEEKNUM_NUMBER()
+    local guild_id = 0
+    local guild_rank = 0
+    local guild_info = GET_MY_GUILD_INFO()
+    if guild_info ~= nil then
+        guild_id = guild_info.info:GetPartyID()   -- 길드 랭킹 정보
+        guild_rank = session.boruta_ranking.GetGuildRank(guild_id)    -- 순위
+    end
+
+    if guild_rank > 0 then
+        local clear_time_str = session.boruta_ranking.GetRankInfoClearTime(guild_rank - 1)
+        local clear_time_ms = tonumber(clear_time_str)
+        local clear_hour = math.floor(clear_time_ms / (60 * 60 * 1000))
+        local clear_min = math.floor(clear_time_ms / (60 * 1000)) - (clear_hour * 60)
+        local clear_sec = math.floor(clear_time_ms / 1000) - ((clear_hour * 60 + clear_min) * 60)
+        local clear_ms = math.fmod(clear_time_ms, 1000)
+        if clear_ms < 0 then
+            clear_ms = 0
+        end
+        local time_txt = "-"
+        if clear_hour > 0 then
+            time_txt = string.format("%d:%02d:%02d.%03d", clear_hour, clear_min, clear_sec, clear_ms)
+        else
+            time_txt = string.format("%02d:%02d.%03d", clear_min, clear_sec, clear_ms)
+        end
+        
+        SET_TEXT(guild_info_attr, "rank_value_text", "rank", guild_rank)
+        SET_TEXT(guild_info_attr, "time_value_text", "value", time_txt)
+    else
+        SET_TEXT(guild_info_attr, "rank_value_text", "rank", "0")
+        SET_TEXT(guild_info_attr, "time_value_text", "value", ClMsg("HaveNoClearInfo"))
+    end
+    
+    -- 제한 시간
+    local starttime = session.boruta_ranking.GetBorutaStartTime()
+    local endtime = session.boruta_ranking.GetBorutaEndTime()
+    local durtime = imcTime.GetDifSec(endtime, starttime)
+    local systime = geTime.GetServerSystemTime()
+    local difsec = imcTime.GetDifSec(endtime, systime)
+
+    local gauge = GET_CHILD_RECURSIVELY(frame, "time_gauge", "ui::CGauge")
+    local guild_info_time_text = GET_CHILD_RECURSIVELY(frame, "guild_info_time_text", "ui::CRichText")
+    
+    if 0 < difsec then
+        gauge:SetPoint(durtime - difsec, durtime)
+        
+        local textstr = GET_TIME_TXT(difsec) .. ClMsg("After_Exit")
+        guild_info_time_text:SetTextByKey("value", textstr)
+        
+        guild_info_time_text:SetUserValue("REMAINSEC", difsec)
+        guild_info_time_text:SetUserValue("STARTSEC", imcTime.GetAppTime())
+        guild_info_time_text:RunUpdateScript("BORUTA_RANKING_REMAIN_END_TIME")
+    elseif difsec < 0 then
+        gauge:SetPoint(1, 1)
+        
+        local textstr = ClMsg("Already_Exit_Raid")
+        guild_info_time_text:SetTextByKey("value", textstr)
+        guild_info_time_text:StopUpdateScript("BORUTA_RANKING_REMAIN_END_TIME")
+    end
+
+    local now_week_num = session.boruta_ranking.GetNowWeekNum()
+    local reward_btn = GET_CHILD_RECURSIVELY(frame, 'boruta_reward_btn')
+    if week_num < now_week_num and session.boruta_ranking.RewardAccepted(week_num) == 0 then
+        reward_btn:SetEnable(1)
+    else
+        reward_btn:SetEnable(0)
+    end
+
+    --시즌 갱신
+    BORUTA_RANKING_SEASON_UPDATE()
+    -- 랭킹 LIST 갱신
+    BORUTA_RANKING_UPDATE()
+end
+
+function BORUTA_RANKING_SEASON_UPDATE()
+    local weekNum = session.boruta_ranking.GetNowWeekNum()
+    local frame = ui.GetFrame("induninfo")
+    local tabControl = GET_CHILD_RECURSIVELY(frame, "boruta_season_tab", "ui::CTabControl")
+    local cnt = tabControl:GetItemCount()
+    for i = 0, cnt - 1 do
+        if weekNum - i > 0 then
+            tabControl:ChangeCaption(i,"{@st42b}{s16}"..tostring(weekNum - i), false)
+        else
+            tabControl:ChangeCaption(i,"{@st42b}{s16}-", false)
+        end
+    end
+end
+
+-- 봉쇄전 종료까지 남은시간 표시
+function BORUTA_RANKING_REMAIN_END_TIME(ctrl)
+	local elapsedSec = imcTime.GetAppTime() - ctrl:GetUserIValue("STARTSEC")
+	local startSec = ctrl:GetUserIValue("REMAINSEC")
+    startSec = startSec - elapsedSec
+	if 0 > startSec then
+		ctrl:SetFontName("red_18")
+        ctrl:StopUpdateScript("BORUTA_RANKING_REMAIN_END_TIME")
+        ctrl:ShowWindow(0)
+        return 0
+	end 
+    
+	local timeTxt = GET_TIME_TXT(startSec)
+    ctrl:SetTextByKey("value", timeTxt)
+    
+	return 1
+end
+
+-- rank list 
+function BORUTA_RANKING_UPDATE()
+    local frame = ui.GetFrame("induninfo")
+    local rankingBox = GET_CHILD_RECURSIVELY(frame, "ranking", "ui::CGroupBox")
+    rankingBox:RemoveAllChild()
+
+    local cnt = session.boruta_ranking.GetRankInfoListSize()
+    if cnt == 0 then
+        return
+    end
+
+    local Width = frame:GetUserConfig("SCROLL_BAR_FALSE_WIDTH")
+    
+    for i = 1, cnt do
+        local ctrlSet = rankingBox:CreateControlSet("boruta_ranking_attribute", "CTRLSET_" .. i, ui.LEFT, ui.TOP, 0, (i - 1) * 73 + 36, 0, 0)
+        ctrlSet:Resize(Width, ctrlSet:GetHeight())
+        local attr_bg = GET_CHILD(ctrlSet, "attr_bg")
+        attr_bg:Resize(Width, attr_bg:GetHeight())
+
+        local rankpic = GET_CHILD(ctrlSet, "attr_rank_pic")
+        local attr_rank_text = GET_CHILD(ctrlSet, "attr_rank_text")
+
+        if i <= 3 then
+            rankpic:SetImage('raid_week_rank_0'..i)
+            rankpic:ShowWindow(1)
+
+            attr_rank_text:ShowWindow(0)
+        else
+            rankpic:ShowWindow(0)
+
+            attr_rank_text:SetTextByKey("value", i)
+            attr_rank_text:ShowWindow(1)
+        end
+
+        local clear_time_str = session.boruta_ranking.GetRankInfoClearTime(i - 1)
+        local clear_time_ms = tonumber(clear_time_str)
+        local clear_hour = math.floor(clear_time_ms / (60 * 60 * 1000))
+        local clear_min = math.floor(clear_time_ms / (60 * 1000)) - (clear_hour * 60)
+        local clear_sec = math.floor(clear_time_ms / 1000) - ((clear_hour * 60 + clear_min) * 60)
+        local clear_ms = math.fmod(clear_time_ms, 1000)
+        if clear_ms < 0 then
+            clear_ms = 0
+        end
+        local time_txt = "-"
+        if clear_hour > 0 then
+            time_txt = string.format("%d:%02d:%02d.%03d", clear_hour, clear_min, clear_sec, clear_ms)
+        else
+            time_txt = string.format("%02d:%02d.%03d", clear_min, clear_sec, clear_ms)
+        end
+        local guild_name = session.boruta_ranking.GetRankInfoGuildName(i - 1)
+        local guildID = session.boruta_ranking.GetRankInfoGuildID(i - 1)
+        if guildID ~= "0" then
+            ctrlSet:SetUserValue("GUILD_IDX", guildID)
+            GetGuildEmblemImage("BORUTA_RANKING_EMBLEM_IMAGE_SET", guildID)
+        end
+
+        local name = GET_CHILD(ctrlSet, "attr_name_text", "ui::CRichText")
+        name:SetTextByKey("value", guild_name)
+
+        local value = GET_CHILD(ctrlSet, "attr_value_text", "ui::CRichText")
+        value:SetTextByKey("time", time_txt)
+    end
+end
+
+function BORUTA_RANKING_EMBLEM_IMAGE_SET(code, return_json)
+    if code ~= 200 then
+        if code == 400 or code == 404 then
+            return
+        else
+            SHOW_GUILD_HTTP_ERROR(code, return_json, "BORUTA_RANKING_EMBLEM_IMAGE_SET")
+            return
+        end
+    end
+    
+    local guild_idx = return_json
+    emblemFolderPath = filefind.GetBinPath("GuildEmblem"):c_str()
+    local emblemPath = emblemFolderPath .. "\\" .. guild_idx .. ".png"
+
+    local frame = ui.GetFrame('induninfo')
+    local rankListBox = GET_CHILD_RECURSIVELY(frame, "ranking", "ui::CGroupBox")
+    for i = 0,rankListBox:GetChildCount()-1 do
+        local controlset = rankListBox:GetChildByIndex(i)
+        if controlset:GetUserValue("GUILD_IDX") == guild_idx then
+            local picture = tolua.cast(controlset:GetChildRecursively("attr_emblem_pic"), "ui::CPicture")
+            ui.SetImageByPath(emblemPath, picture)
+        end
+    end
+end
+
+-- 페이지 컨트롤 page
+function BORUTA_RANKING_WEEKNUM_NUMBER()
+    local frame = ui.GetFrame('induninfo')
+    local tabcontrol = GET_CHILD_RECURSIVELY(frame, "boruta_season_tab", "ui::CTabControl")
+	if tabcontrol == nil then
+		return 0
+    end
+    
+    local tabidx = tabcontrol:GetSelectItemIndex()
+	return session.boruta_ranking.GetNowWeekNum() - tabidx
+end
+
+-- 보상 버튼 클릭
+function BORUTA_RANKING_REWARD_CLICK()
+    local week_num = BORUTA_RANKING_WEEKNUM_NUMBER()
+    boruta.RequestBorutaReward(week_num)
+end
+
+-- 이동하기 버튼 클릭
+function BORUTA_ZONE_MOVE_CLICK(parent, ctrl)
+    local indunClsID = ctrl:GetUserValue('MOVE_INDUN_CLASSID')
+    ui.MsgBox(ClMsg('Auto_JiyeogeuLo{nl}_iDongHaSiKessSeupNiKka?'), '_BORUTA_ZONE_MOVE_CLICK('.. indunClsID ..')', 'None')
+end
+
+function _BORUTA_ZONE_MOVE_CLICK(indunClsID)
+    local pc = GetMyPCObject()
+    
+    -- 매칭 던전중이거나 pvp존이면 이용 불가
+    if session.world.IsIntegrateServer() == true or IsPVPField(pc) == 1 or IsPVPServer(pc) == 1 then
+        ui.SysMsg(ScpArgMsg('ThisLocalUseNot'))
+        return
+    end
+
+    -- 퀘스트나 챌린지 모드로 인해 레이어 변경되면 이용 불가
+    if world.GetLayer() ~= 0 then
+        ui.SysMsg(ScpArgMsg('ThisLocalUseNot'))
+        return
+    end
+
+    -- 프리던전 맵에서 이용 불가
+    local curMap = GetClass('Map', session.GetMapName())
+    local mapType = TryGetProp(curMap, 'MapType')
+    if mapType == 'Dungeon' then
+        ui.SysMsg(ScpArgMsg('ThisLocalUseNot'))
+        return;
+    end
+    
+    control.CustomCommand('MOVE_TO_ENTER_NPC', indunClsID, 1, 0);
+end
+--------------------------------- 봉쇄전 랭킹 ---------------------------------

@@ -368,7 +368,7 @@
                     </HitList>
                     <EtcList>
                         <Scp Client="NO" Scp="SKL_SET_TARGET_CIRCLE" Time="400" UseSleep="NO">
-                            <Pos Angle="0" Dist="25" PosType="3" />
+                            <Pos Angle="0" Dist="25" PosType="0"/>
                             <Num Num="50" />
                             <Num FuncTxt="return obj.SkillSR" Num="5" UseFunc="1" />
                             <Str Str="ALL" />

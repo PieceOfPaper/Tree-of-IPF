@@ -6654,6 +6654,9 @@
 		<image name="test_companion_27" file="\icon\companion.tga" imgrect="404 615 100 122" CMM_Caption="스쿨도도_탭버튼"/>
 		<image name="test_companion_27_cursoron" file="\icon\companion.tga" imgrect="505 615 100 122"/>
 		<image name="test_companion_27_clicked" file="\icon\companion.tga" imgrect="505 615 100 122"/>
+		<image name="test_companion_28" file="\icon\companion.tga" imgrect="606 615 100 122" CMM_Caption="고슴도치_탭버튼"/>
+		<image name="test_companion_28_cursoron" file="\icon\companion.tga" imgrect="707 615 100 122"/>
+		<image name="test_companion_28_clicked" file="\icon\companion.tga" imgrect="707 615 100 122"/>
 		<image name="test_com_ability" file="\skin\pip_test.tga" imgrect="1832 851 54 35" CMM_Caption="컴패니언_특성플러스"/>
 		<image name="test_com_ability_cursoron" file="\skin\pip_test.tga" imgrect="1832 887 54 35"/>
 		<image name="test_com_ability_clicked" file="\skin\pip_test.tga" imgrect="1832 923 54 35"/>
@@ -7324,6 +7327,7 @@
 		<image name="emblemslot_green" file="\skin\PVP_skin.tga" imgrect="913 6 45 45" CMM_Caption="콜로니전 아군 앰블럼 슬롯"/>
 		<image name="emblemslot_red" file="\skin\PVP_skin.tga" imgrect="963 6 45 45" CMM_Caption="콜로니전 적군 앰블럼 슬롯"/>
 		<image name="colonymy_myframe" file="\skin\PVP_skin.tga" imgrect="580 226 133 22" CMM_Caption="콜로니 hsp 장식"/>
+		<image name="colonymy_myframe02" file="\skin\PVP_skin.tga" imgrect="1024 617 116 20" CMM_Caption="콜로니 hsp 장식 02"/>
 		<image name="colonymy_partyframe" file="\skin\PVP_skin.tga" imgrect="1701 127 133 22" CMM_Caption="콜로니 hsp 장식"/>
 		<image name="charinfo_markslot" file="\skin\pip_test.tga" imgrect="1797 263 25 25" CMM_Caption="hud 길드 마크 슬롯"/>
 		<image name="colonymap_unoccupation" file="\skin\colony.tga" imgrect="1795 1 74 74" CMM_Caption="콜로니전 맵 아이콘"/>
@@ -7604,14 +7608,19 @@
 		<image name="toketmon_compose_slot" file="\skin\tocket_monsters.tga" imgrect="479 506 163 218" CMM_Caption="트켓몬 합성 슬롯"/>
 		<image name="toketmon_evolution_slot" file="\skin\tocket_monsters.tga" imgrect="643 506 163 218" CMM_Caption="트켓몬 진화 슬롯"/>
 		<image name="toketmon_result" file="\skin\tocket_monsters.tga" imgrect="807 506 163 218" CMM_Caption="트켓몬 결과"/>
+		<image name="context_preface_block" file="\skin\pip_test_item.tga" imgrect="845 1025 18 18" CMM_Caption="컨텍스트_머리말 차단"/>
+		<image name="context_preface_remove" file="\skin\pip_test_item.tga" imgrect="864 1025 18 18" CMM_Caption="컨텍스트_머리말 차단 해제"/>
 	</imagelist>
 	<imagelist category="yiseul_image">
+		<image name="AbillityReset_skin" file="\skin\paid_skin_title.tga" imgrect="0 330 316 165" CMM_Caption="특성 초기화"/>
 		<image name="childrens_day_balloon_direction" file="\skin\say_balloon.tga" imgrect="1 533 82 75" CMM_Caption="트린이날 말풍선 꼬리"/>
 		<image name="childrens_day_balloon_decoration" file="\skin\say_balloon.tga" imgrect="263 597 72 52" CMM_Caption="트린이날 말풍선 장식"/>
 		<image name="gemston_randombg_new_low" file="\skin\pip_test_item.tga" imgrect="0 1025 200 169" CMM_Caption="젬 뽑기 배경_low"/>
 		<image name="gemston_randombg_new_mid" file="\skin\pip_test_item.tga" imgrect="201 1025 200 169" CMM_Caption="젬 뽑기 배경_mid"/>
 		<image name="gemston_randombg_new_high" file="\skin\pip_test_item.tga" imgrect="402 1025 200 169" CMM_Caption="젬 뽑기 배경_high"/>
 		<image name="bg_acc_craft" file="\skin\bg_acc_craft.tga" imgrect="0 0 700 570" CMM_Caption="악세 제작 배경"/>
+		<image name="ArtsReset_skin" file="\skin\paid_skin_title.tga" imgrect="0 495 316 165" CMM_Caption="아츠 초기화"/>
+		<image name="guildmark_slot_enemy" file="\skin\PVP_skin.tga" imgrect="1829 274 39 39" CMM_Caption="적대 길드 엠블럼"/>
 		<image name="gauge_Glacier_fascination_T" file="\skin\indun_skin.tga" imgrect="895 667 55 10" CMM_Caption="글레이시어게이지_위"/>
 		<image name="gauge_Glacier_fascination_B" file="\skin\indun_skin.tga" imgrect="895 712 55 10" CMM_Caption="글레이시어게이지_아래"/>
 	</imagelist>
@@ -8318,6 +8327,7 @@
 		<image name="companion_Dionys" file="\icon\companion_Velhider.tga" imgrect="480 240 80 80"/>
 		<image name="companion_sparrow" file="\icon\companion_Velhider.tga" imgrect="0 320 80 80"/>
 		<image name="companion_school_dodo" file="\icon\companion_Velhider.tga" imgrect="80 320 80 80"/>
+		<image name="companion_hedgehog" file="\icon\companion_Velhider.tga" imgrect="160 320 80 80"/>
 		<image name="bg_w" file="\skin\button.tga" imgrect="252 974 50 50"/>
 		<image name="barrack_signboard" file="\skin\barrack.tga" imgrect="356 0 257 192"/>
 		<image name="barrack_attack_icon" file="\skin\barrack.tga" imgrect="59 720 55 61"/>
@@ -10236,6 +10246,7 @@
 		<image name="Dlg_port_BLOSSOMBLADER_MASTER" file="\npcimg\BLOSSOMBLADER_MASTER.png" imgrect="0 0 650 800" CMM_Caption="매화검수 마스터"/>
 		<image name="Dlg_port_ARBALESTER_MASTER" file="\npcimg\ARBALESTER_MASTER.png" imgrect="0 0 750 950" CMM_Caption="아발리스터 마스터"/>
 		<image name="Dlg_port_CRUSADER_MASTER" file="\npcimg\CRUSADER_MASTER.png" imgrect="0 0 800 1000" CMM_Caption="크루세이더 마스터"/>
+		<image name="Dlg_port_Geraldasia" file="\npcimg\Geraldasia.png" imgrect="0 0 700 900" CMM_Caption="게랄다시아"/>
 	</imagelist>
 	<imagelist category="Dlg_boss">
 		<image name="balloon_Skiaclipse" file="\skin\monster_Dlg.tga" imgrect="0 0 220 260" CMM_Caption="스키아클립스"/>
@@ -10609,6 +10620,9 @@
 		<image name="icon_scout_Overheating" file="\icon\buff_icon3.tga" imgrect="768 1280 128 128" CMM_Caption="불릿마커: 과열"/>
 		<image name="icon_scout_Specialmove" file="\icon\buff_icon3.tga" imgrect="896 1280 128 128" CMM_Caption="슈바르츠라이터: 특수 기동"/>
 		<image name="icon_scout_Reload" file="\icon\buff_icon3.tga" imgrect="0 1408 128 128" CMM_Caption="셰리프: 리로드"/>
+		<image name="icon_bingsu_buff" file="\icon\buff_icon3.tga" imgrect="256 1408 128 128" CMM_Caption="2020_빙수 버프"/>
+		<image name="icon_softIce_buff" file="\icon\buff_icon3.tga" imgrect="384 1408 128 128" CMM_Caption="2020_아이스크림 버프"/>
+		<image name="icon_pet_hedgehog_buff" file="\icon\buff_icon3.tga" imgrect="768 1408 128 128" CMM_Caption="고슴도치 버프"/>
 	</imagelist>
 	<imagelist category="housing_bufficon">
 		<image name="icon_Weapon_Klaida" file="\icon\icon_hosing_buff.tga" imgrect="0 0 128 128"/>
@@ -10832,6 +10846,8 @@
 		<image name="013_npc_AbrehMelinn" file="\skin\npccard\013_npc_AbrehMelinn.tga" imgrect="0 0 330 440"/>
 		<image name="014_npc_Rashn" file="\skin\npccard\014_npc_Rashn.tga" imgrect="0 0 330 440"/>
 		<image name="015_npc_Lucia" file="\skin\npccard\015_npc_Lucia.tga" imgrect="0 0 330 440"/>
+		<image name="016_npc_EdmundasTiller" file="\skin\npccard\016_npc_EdmundasTiller.tga" imgrect="0 0 330 440"/>
+		<image name="017_npc_Rozaliia" file="\skin\npccard\017_npc_Rozaliia.tga" imgrect="0 0 330 440"/>
 	</imagelist>
 	<imagelist category="bosscard2">
 		<image name="001_boss_poata" file="\skin\bosscard\001_boss_poata.tga" imgrect="0 0 330 440"/>

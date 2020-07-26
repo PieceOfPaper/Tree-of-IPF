@@ -207,6 +207,11 @@
                         <Frame Angle="0" AniTime="9999" Dist="0" ForceATK="0" HitCount="1" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" TermMax="0" TermMin="0" Time="9799" Type="FAN"/>
                     </HitList>
                     <EtcList>
+                        <Scp Client="NO" Scp="MONSKL_CRE_PAD" Time="0" UseSleep="NO">
+                            <Pos Angle="0" Dist="0"/>
+                            <Angle Angle="0"/>
+                            <Str Str="Appraiser_Blindside_HiddenAbil"/>
+                        </Scp>
                         <Scp Client="NO" Scp="SKL_END_AT_TIME" Time="0" UseSleep="NO">
                             <Num Num="2000"/>
                         </Scp>
@@ -240,18 +245,9 @@
                             <Num Num="1"/>
                         </Scp>
                         <Scp Client="NO" LoopTime="500" Scp="SKL_CHECK_LOOPING_COUNT" Time="750" UseSleep="NO"/>
-                        <Scp Client="NO" Scp="SKL_TGT_BUFF" Time="2200" UseSleep="NO">
-                            <Str Str="Blindside_Debuff"/>
-                            <Num FuncTxt="return obj.Level" Num="2" UseFunc="1"/>
-                            <Num Num="0"/>
-                            <Num FuncTxt="return 10000 + obj.Level * 2000" Num="0" UseFunc="1"/>
-                            <Num Num="1"/>
-                            <Num Num="100"/>
-                            <Num Num="0"/>
-                        </Scp>
-                    </EtcList>
+                        </EtcList>
                 </Skill>
             </SubSkl>
         </ByCondSkills>
 	</Skill>
-	</ToolSkill>
+</ToolSkill>

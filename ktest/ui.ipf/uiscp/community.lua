@@ -125,9 +125,9 @@ function SHOW_PC_CONTEXT_MENU(handle)
 			strscp = string.format("ui.ToggleHeaderText(%d)", handle);
 			if pcObj:GetHeaderText() ~= nil and string.len(pcObj:GetHeaderText()) ~= 0 then
 				if pcObj:IsHeaderTextVisible() == true  then			
-					ui.AddContextMenuItem(context, ClMsg("BlockTitleText"), strscp);
+					ui.AddContextMenuItem(context, "{img context_preface_block 18 17} "..ClMsg("BlockTitleText"), strscp);
 				else
-					ui.AddContextMenuItem(context, ClMsg("UnblockTitleText"), strscp);
+					ui.AddContextMenuItem(context, "{img context_preface_remove 18 17} "..ClMsg("UnblockTitleText"), strscp);
 				end
 			end
 		end

@@ -133,12 +133,16 @@ function BEAUTYSHOP_SIMPLELIST_UPDATE_SMALLMODE(frame, list)
        slot:SetEventScript(ui.RBUTTONDOWN, 'BEAUTYSHOP_SIMPLELIST_SMALLMODE_REMOVE');
        slot:SetEventScriptArgString(ui.RBUTTONDOWN, list[i]['equipType']);
 
-        local colorName = list[i]['ColorName'];        
-        if colorName ~= nil and colorName ~= "None" and colorName ~= "default" then   
+        local colorName = list[i]['ColorName'];
+        if colorName ~= nil and colorName ~= "None" and colorName ~= "default" and list[i]['equipType'] == "hair" then
           BEAUTYSHOP_ADD_PALLETE_IMAGE(slot);
         end
-        local gender = list[i]['Gender']; 
-        local fullName = BEAUTYSHOP_GET_HAIR_FULLNAME(itemCls.Name, itemCls.ClassName, colorName,gender );
+        local gender = list[i]['Gender'];
+        local fullName = itemCls.Name;        
+        if list[i]['equipType'] == "hair" then
+          fullName = BEAUTYSHOP_GET_HAIR_FULLNAME(itemCls.Name, itemCls.ClassName, colorName,gender );
+        end
+
         icon:SetTextTooltip(fullName);
     end
 end
@@ -318,7 +322,8 @@ function BEAUTYSHOP_SIMPLELIST_DRAW_ITEM_DETAIL(ctrlset, itemCls, info)
     ColorClassName = info['ColorClassName'],
     ColorEngName = colorName,
   };
-  if priceInfo.ColorClassName ~= 'None' then
+
+  if priceInfo.IDSpace == "Hair_Dye_List" or priceInfo.IDSpace == "Beauty_Shop_Hair" then
     priceInfo.IDSpace = 'Beauty_Shop_Hair';
     priceInfo.ClassName = itemCls.ClassName;
   end
@@ -375,7 +380,7 @@ function BEAUTYSHOP_SIMPLELIST_DRAW_ITEM_DETAIL(ctrlset, itemCls, info)
   ctrlset:SetUserValue('HAIR_PRICE', hairPrice);
   ctrlset:SetUserValue('DYE_PRICE', dyePrice);
   ctrlset:SetUserValue('SKIN_PRICE', skinPrice);
-
+  
   -- 구매를 위한 정보 세팅
   local hairClassName = info['HairClassName'];
   if hairClassName ~= 'None' then

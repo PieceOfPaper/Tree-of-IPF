@@ -347,7 +347,7 @@
                     <Str Str="voice_archer_atk"/>
                     <Str Str="voice_archer_f_atk"/>
                 </Scp>
-                <Scp Scp="SKL_CONSUME_SP" Client="NO" UseSleep="NO" Time="330">
+                <Scp Scp="SKL_CONSUME_SP" Client="NO" UseSleep="NO" Time="0">
                     <Num Num="0" UseFunc="1" FuncTxt="    local baseSP = TryGetProp(obj, &quot;SpendSP&quot;, 0)
     local addValue = 0
     if IsBuffApplied(self, 'Gohei_Overload_Buff') == 'YES' then
@@ -356,15 +356,6 @@
         addValue = math.floor(addValue * over)
     end
     return addValue;"/>
-                </Scp>
-                <Scp Scp="SKL_BUFF" Client="NO" UseSleep="NO" Time="330">
-                    <Str Str="Gohei_Overload_Buff"/>
-                    <Num Num="1"/>
-                    <Num Num="0"/>
-                    <Num Num="25000"/>
-                    <Num Num="1"/>
-                    <Num Num="100"/>
-                    <Num Num="0"/>
                 </Scp>
                 <Scp Scp="SKL_SET_TARGET_SQUARE" Client="NO" UseSleep="NO" Time="330">
                     <Pos Angle="0" Dist="0"/>
@@ -417,6 +408,16 @@
                         <Scp Scp="C_VOICE_SOUND" Client="YES" UseSleep="NO" Time="0">
                             <Str Str="voice_archer_atk"/>
                             <Str Str="voice_archer_f_atk"/>
+                        </Scp>
+                        <Scp Scp="SKL_CONSUME_SP" Client="NO" UseSleep="NO" Time="0">
+                            <Num Num="0" UseFunc="1" FuncTxt="    local baseSP = TryGetProp(obj, &quot;SpendSP&quot;, 0)
+    local addValue = 0
+    if IsBuffApplied(self, 'Gohei_Overload_Buff') == 'YES' then
+        addValue = baseSP
+        local over = GetBuffOver(self, &quot;Gohei_Overload_Buff&quot;)
+        addValue = math.floor(addValue * over)
+    end
+    return addValue;"/>
                         </Scp>
                         <Scp Scp="SKL_SET_TARGET_SQUARE" Client="NO" UseSleep="NO" Time="330">
                             <Pos Angle="0" Dist="0"/>

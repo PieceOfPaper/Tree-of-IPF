@@ -214,7 +214,6 @@ function REST_SLOT_USE(frame, slotIndex)
 
 	local scp = _G[cls.Script];
 	if scp == nil then
-		print(cls.Script);
 		return;
 	end
 	scp();
@@ -262,22 +261,6 @@ function OPEN_ENCHENCT_CRAFT()
 end
 
 function OPEN_ARROW_CRAFT()
-    if GetCraftState() == 1 then
-        ui.SysMsg(ClMsg('CHATHEDRAL53_MQ03_ITEM02'));
-        return;
-    end
-
-	local abil = session.GetAbilityByName("Fletching")
-	if abil ~= nil then
-		local obj = GetIES(abil:GetObject());
-		local frame = ui.GetFrame("itemcraft_fletching");
-		local title = frame:GetChild("title");
-		title:SetTextByKey("value",  obj.Name);
-		SET_ITEM_CRAFT_UINAME("itemcraft_fletching");
-		SET_CRAFT_IDSPACE(frame, "Recipe_ItemCraft", obj.ClassName, obj.Level);
-		CREATE_CRAFT_ARTICLE(frame);
-		ui.ToggleFrame("itemcraft_fletching");
-	end
 
 end
 

@@ -1,19 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by IMC (IMCGames Co., Ltd) -->
 <uiframe name="itemdecompose" x="0" y="0" width="570" height="1360" create="open">
-	<frame title="" fullheight="true" fasthide="true" layout_gravity="right top" margin="0 0 -680 0" open="pip"/>
-	<skin frameskin="test_frame_low"/>
+	<frame title="" fullheight="true" fasthide="true" layout_gravity="right top" margin="0 0 -680 0" open="pip" keyboardselectframe="true"/>
+	<skin frameskin="None"/>
 	<draw drawtitlebar="false"/>
 	<layer layerlevel="80"/>
 	<input moveable="false" hittestframe="false"/>
 	<option closebutton="false"/>
 	<script OpenScp="ITEMDECOMPOSE_UI_OPEN" CloseScp="ITEMDECOMPOSE_UI_CLOSE"/>
 	<controls>
-		<picture name="pip_top_image" rect="0 0 453 70" margin="0 0 0 0" layout_gravity="center top" changecursor="false" image="test_socket_top" stretch="true"/>
-		<groupbox name="headerBox" rect="0 0 570 55" margin="0 47 0 0" layout_gravity="center top" skin="test_socket_topskin" hittest="false"/>
-		<button name="xBtn" rect="0 0 40 40" margin="30 62 0 0" layout_gravity="left top" image="testclose_button" LBtnDownScp="ITEMDECOMPOSE_UI_CLOSE"/>
+		<groupbox name="bgTop" rect="0 0 570 1035" margin="0 0 0 0" layout_gravity="center top" draw="true" resizebyparent="false" resizebyresolution="true" scrollbar="false" skin="test_frame_low"/>
+		<picture name="pip_top_image" rect="0 0 453 70" margin="0 0 0 0" parent="bgTop" layout_gravity="center top" changecursor="false" image="test_socket_top" stretch="true"/>
+		<groupbox name="headerBox" rect="0 0 570 55" margin="0 47 0 0" parent="bgTop" layout_gravity="center top" skin="test_socket_topskin" hittest="false"/>
+		<button name="xBtn" rect="0 0 40 40" margin="30 62 0 0" parent="bgTop" layout_gravity="left top" image="testclose_button" LBtnDownScp="ITEMDECOMPOSE_UI_CLOSE"/>
 		<richtext name="headerText" rect="0 0 570 50" parent="headerBox" margin="0 5 0 0" layout_gravity="center center" caption="{@st43}아이템 분해{/}" hittest="false"/>
-		<groupbox name="decompose_bg" rect="0 0 570 630" margin="0 120 0 0" layout_gravity="center top" draw="false" scrollbar="false"/>
+		<groupbox name="decompose_bg" rect="0 0 570 630" margin="0 120 0 0" parent="bgTop" layout_gravity="center top" draw="false" scrollbar="false"/>
 		<checkbox name="mechanical" rect="0 0 70 20" margin="25 605 0 0" parent="decompose_bg" layout_gravity="left top" caption="{@st47}{s18}가공된 장비 보기" fontname="black_16_b" LBtnUpScp="DECOMPOSE_ITEM_MECHANICAL_SET"/>
 		<richtext name="decomposecnt" rect="0 0 70 20" margin="0 605 25 0" parent="decompose_bg" layout_gravity="right top" format="{@st47}{s18}분해 장비 수: %s/%s" fontname="black_16_b" param1="cnt" param2="max"/>
 		<groupbox name="slotlist_bg" rect="0 0 570 570" margin="0 30 0 0" parent="decompose_bg" layout_gravity="center top" draw="false"/>
@@ -28,7 +29,7 @@
 		<checkbox name="check_grade4" rect="0 0 70 20" margin="330 2 0 0" layout_gravity="left top" parent="decompose_bg" caption="유니크" fontname="black_16_b"/>
 
 		<button name="selectAll" rect="0 0 110 38" margin="0 -5 3 0" parent="decompose_bg" layout_gravity="right top" LBtnDownScp="ITEM_DECOMPOSE_ALL_SELECT_BTN_DOWN" skin="test_normal_button" caption="{@st66}전체 선택" fontname="black_16_b"/>
-		<groupbox name="slotgb" rect="0 0 500 430" margin="0 740 0 0" layout_gravity="center top" draw="false" hittestbox="false"/>
+		<groupbox name="slotgb" rect="0 0 500 430" margin="0 740 0 0" parent="bgTop" layout_gravity="center top" draw="false" hittestbox="false"/>
 		<groupbox name="arrowBox" rect="0 0 500 40" margin="0 0 0 0" parent="slotgb" skin="test_arow" layout_gravity="center top" draw="true" hittestbox="false"/>
 		<picture name="decomposeSuccess" rect="0 0 500 104" margin="0 20 0 0" parent="slotgb" image="BnYellow_skin" layout_gravity="center top" draw="true" hittestbox="false"/>
 		<richtext name="decomposeSuccessText" rect="0 0 560 55" parent="decomposeSuccess" margin="0 0 0 0" layout_gravity="center center" caption="{@st43}{#ffcc33}분해 완료{/}" hittest="false"/>
@@ -43,16 +44,16 @@
 		<slotset name="slotlist" rect="0 0 300 100" margin="36 30 0 0" parent="result_gb" layout_gravity="left top" row="2" col="2" size="85 85" skin="invenslot2" spc="72 12" enabledrop="false" enablepop="false"/>
 		<slotset name="slotlist2" rect="0 0 300 100" margin="385 30 0 0" parent="result_gb" layout_gravity="left top" row="2" col="1" size="85 85" skin="invenslot2" spc="4 12" enabledrop="false" enablepop="false"/>
 		<button name="decomposeCompleteBtn" rect="0 0 170 60" margin="0 370 0 0" layout_gravity="center top" parent="slotgb" LBtnDownScp="ITEM_DECOMPOSE_RESULT_UI_OFF" skin="test_red_button" caption="{@st41b}확인{/}"/>
-		<groupbox name="materialGbox2" rect="0 0 540 100" margin="0 0 0 168" layout_gravity="center bottom" hittest="true" draw="false"/>
-		<groupbox name="materialGbox" rect="0 0 500 38" margin="0 0 0 205" layout_gravity="center bottom" hittest="true" draw="false"/>
-		<groupbox name="medalGbox2" rect="0 0 500 38" margin="0 0 0 140" layout_gravity="center bottom" draw="true" hittestbox="true" skin="test_weight_skin"/>
+		<groupbox name="materialGbox2" rect="0 0 540 100" margin="0 0 0 168" parent="bgTop" layout_gravity="center bottom" hittest="true" draw="false"/>
+		<groupbox name="materialGbox" rect="0 0 500 38" margin="0 0 0 205" parent="bgTop" layout_gravity="center bottom" hittest="true" draw="false"/>
+		<groupbox name="medalGbox2" rect="0 0 500 38" margin="0 0 0 140" parent="bgTop" layout_gravity="center bottom" draw="true" hittestbox="true" skin="test_weight_skin"/>
 		<picture name="medalPic2" rect="0 0 24 24" margin="10 0 0 0" layout_gravity="left center" parent="medalGbox2" image="icon_item_silver" stretch="true"/>
 		<richtext name="decomposeCostText" rect="0 0 120 24" parent="medalGbox2" margin="40 0 0 0" layout_gravity="left center" format="{@st41b}분해 비용{/}%s" param1="tax_rate"/>
 		<richtext name="decomposeCost" rect="0 0 120 24" parent="medalGbox2" margin="0 1 10 0" layout_gravity="right center" caption="0" fontname="white_16_ol" textalign="right center"/>
-		<groupbox name="medalGbox" rect="0 0 500 38" margin="0 0 0 100" layout_gravity="center bottom" draw="true" hittestbox="true" skin="test_weight_skin"/>
+		<groupbox name="medalGbox" rect="0 0 500 38" margin="0 0 0 100" parent="bgTop" layout_gravity="center bottom" draw="true" hittestbox="true" skin="test_weight_skin"/>
 		<picture name="medalPic" rect="0 0 24 24" margin="10 0 0 0" layout_gravity="left center" parent="medalGbox" image="icon_item_silver" stretch="true"/>
 		<richtext name="remainSilverText" rect="0 0 120 24" parent="medalGbox" margin="40 0 0 0" layout_gravity="left center" caption="{@st41b}예상 잔액{/}"/>
 		<richtext name="remainSilver" rect="0 0 120 24" parent="medalGbox" margin="0 1 10 0" layout_gravity="right center" caption="0" fontname="white_16_ol" textalign="right center"/>
-		<button name="decomposeBtn" rect="0 0 250 60" margin="0 0 0 20" layout_gravity="center bottom" LBtnDownScp="ITEM_DECOMPOSE_EXECUTE" skin="test_red_button" caption="{@st41b}분해 하기{/}"/>
+		<button name="decomposeBtn" rect="0 0 250 60" margin="0 0 0 20" parent="bgTop" layout_gravity="center bottom" LBtnDownScp="ITEM_DECOMPOSE_EXECUTE" skin="test_red_button" caption="{@st41b}분해 하기{/}"/>
 	</controls>
 </uiframe>

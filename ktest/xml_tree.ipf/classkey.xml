@@ -448,6 +448,9 @@
         <Key Name="ArkLevel" Value="104744"/>
         <Key Name="ADD_BOSS_ATK" Value="104929"/>
         <Key Name="ChangeBasicPropValue" Value="105151"/>
+        <Key Name="DesigncutColor" Value="105398"/>
+        <Key Name="Magic_Earth_Atk" Value="105401"/>
+        <Key Name="Magic_Ice_Atk" Value="105400"/>
     </KeyIDSpc>
     <KeyIDSpc Name="Party">
         <Key Name="P_PARTY_Q_040" Value="53"/>
@@ -2444,6 +2447,40 @@
         <Key Name="EVENT_2005_APPRAISER_SHOP12" Value="105361"/>
         <Key Name="EVENT_2005_APPRAISER_SHOP19" Value="105360"/>
         <Key Name="EVENT_2005_APPRAISER_SHOP3" Value="105359"/>
+        <Key Name="HadVisited_119" Value="105364"/>
+        <Key Name="EVENT_2006_SUMMER_BAIT_RECEIVED" Value="105393"/>
+        <Key Name="EVENT_2006_SUMMER_COIN_COUNT" Value="105388"/>
+        <Key Name="EVENT_2006_SUMMER_FISHING_COIN_COUNT" Value="105376"/>
+        <Key Name="EVENT_2006_SUMMER_FISHING_TRADE_COUNT" Value="105380"/>
+        <Key Name="EVENT_2006_SUMMER_PLAY_TIME" Value="105383"/>
+        <Key Name="EVENT_2006_SUMMER_SHOP1" Value="105386"/>
+        <Key Name="EVENT_2006_SUMMER_SHOP10" Value="105395"/>
+        <Key Name="EVENT_2006_SUMMER_SHOP11" Value="105368"/>
+        <Key Name="EVENT_2006_SUMMER_SHOP12" Value="105374"/>
+        <Key Name="EVENT_2006_SUMMER_SHOP13" Value="105378"/>
+        <Key Name="EVENT_2006_SUMMER_SHOP14" Value="105382"/>
+        <Key Name="EVENT_2006_SUMMER_SHOP15" Value="105387"/>
+        <Key Name="EVENT_2006_SUMMER_SHOP16" Value="105392"/>
+        <Key Name="EVENT_2006_SUMMER_SHOP17" Value="105397"/>
+        <Key Name="EVENT_2006_SUMMER_SHOP18" Value="105369"/>
+        <Key Name="EVENT_2006_SUMMER_SHOP19" Value="105372"/>
+        <Key Name="EVENT_2006_SUMMER_SHOP2" Value="105390"/>
+        <Key Name="EVENT_2006_SUMMER_SHOP20" Value="105375"/>
+        <Key Name="EVENT_2006_SUMMER_SHOP21" Value="105379"/>
+        <Key Name="EVENT_2006_SUMMER_SHOP22" Value="105384"/>
+        <Key Name="EVENT_2006_SUMMER_SHOP23" Value="105389"/>
+        <Key Name="EVENT_2006_SUMMER_SHOP24" Value="105394"/>
+        <Key Name="EVENT_2006_SUMMER_SHOP25" Value="105367"/>
+        <Key Name="EVENT_2006_SUMMER_SHOP26" Value="105371"/>
+        <Key Name="EVENT_2006_SUMMER_SHOP3" Value="105396"/>
+        <Key Name="EVENT_2006_SUMMER_SHOP4" Value="105370"/>
+        <Key Name="EVENT_2006_SUMMER_SHOP5" Value="105373"/>
+        <Key Name="EVENT_2006_SUMMER_SHOP6" Value="105377"/>
+        <Key Name="EVENT_2006_SUMMER_SHOP7" Value="105381"/>
+        <Key Name="EVENT_2006_SUMMER_SHOP8" Value="105385"/>
+        <Key Name="EVENT_2006_SUMMER_SHOP9" Value="105391"/>
+        <Key Name="MISC_PVP_MINE2" Value="105365"/>
+        <Key Name="TeamBattleLeague_Reward_Check_2" Value="105399"/>
     </KeyIDSpc>
     <KeyIDSpc Name="PCEtc">
         <Key Name="Kill_boss_Clymen_Q2" Value="7788"/>
@@ -10763,6 +10800,8 @@
         <Key Name="Kill_weekly_boss_froster_lord" Value="105332"/>
         <Key Name="Kill_weekly_boss_warpulis" Value="105334"/>
         <Key Name="Kill_weekly_boss_warpulis_summon" Value="105335"/>
+        <Key Name="HadVisited_119" Value="105363"/>
+        <Key Name="Kill_Guild_boss_Boruta_2" Value="105366"/>
     </KeyIDSpc>
     <KeyIDSpc Name="GuildMember">
         <Key Name="Name" Value="9011"/>
@@ -11547,6 +11586,7 @@
         <Key Name="Keyword" Value="102774"/>
         <Key Name="ReinforceAbility" Value="103196"/>
         <Key Name="SklUseOverOverHeat" Value="105016"/>
+        <Key Name="CastingCategory" Value="105402"/>
     </KeyIDSpc>
     <KeyIDSpc Name="Guild">
         <Key Name="AbilLevel_Farming" Value="8999"/>
