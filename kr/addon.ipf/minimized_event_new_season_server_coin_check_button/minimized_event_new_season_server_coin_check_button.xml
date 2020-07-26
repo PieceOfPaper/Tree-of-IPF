@@ -6,7 +6,7 @@
 	<draw drawtitlebar="false" drawframe="false"/>
 	<option visible="true" closebutton="false" useimageitem="true" piptype="right" autoopen="true" hideable="false"/>
 	<controls>
-		<button	name="openBtn" rect="0 0 100 60" margin="0 0 0 0" layout_gravity="center top" image="god_roulette_coin_entrance" clicksound="button_click_3" oversound="button_cursor_over_2" LBtnDownScp="MINIMIZED_EVENT_NEW_SEASON_SERVER_COIN_CHECK_BUTTON_CLICK"/>
-		<richtext name="title" rect="0 0 110 30" margin="0 0 0 0" layout_gravity="center center" caption="{@st66d_y}{s16}여신의 룰렛 코인" hittest="false" fixwidth="true" textalign="center center"/>
+		<button	name="openBtn" rect="0 0 100 60" margin="0 0 0 0" layout_gravity="center top" image="god_roulette_coin_entrance" clicksound="button_click_3" oversound="button_cursor_over_2"/>
+		<richtext name="title" rect="0 0 110 30" margin="0 0 0 0" layout_gravity="center center" caption="{@st66d_y}{s16}여신의 룰렛" hittest="false" fixwidth="true" textalign="center center"/>
 	</controls>
 </uiframe>

@@ -12,7 +12,7 @@
 	<controls>
 		<groupbox name="resultGbox" rect="0 0 1000 600" margin="0 0 0 0" hittest="false" layout_gravity="center center" skin="None"/>
 		<picture name="screenmask" rect="0 0 1920 1080" margin="0 0 0 0" hittest="false" image="fullblack" alpha="60" stretch="true"/>
-		<picture name="image" rect="0 0 942 570" margin="0 0 0 0" parent="resultGbox" hittest="false" image="LegendEquip_big_01" alpha="100" stretch="true" layout_gravity="center center"/>
-		<picture name="itemIcon" rect="0 0 200 200" margin="0 -20 0 0" parent="resultGBox" hittest="false" image="None" alpha="100" stretch="true" layout_gravity="center center"/>
+		<picture name="image" rect="0 0 942 570" margin="0 0 0 0" parent="resultGbox" hittest="false" image="LegendEquip_big_01" alpha="100" stretch="false" layout_gravity="center center" imagealign="center center"/>
+		<picture name="itemIcon" rect="0 0 200 200" margin="0 0 0 0" parent="resultGBox" hittest="false" image="None" alpha="100" stretch="true" layout_gravity="center center" imagealign="center center"/>
 	</controls>
 </uiframe>

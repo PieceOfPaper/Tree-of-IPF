@@ -15,7 +15,7 @@
 		<groupbox name="typename" rect="0 0 460 100" margin="0 53 0 0" layout_gravity="center top" skin="stamp_tour_title" scrollbar="false" stretch="true" draw="true" hittest="false"/>
 		<richtext name="typename_text" parent="typename" rect="0 0 150 45" margin="-5 17 0 0" layout_gravity="center top" format="{@st43}{s22}%s" param1="value" param1_def="분야"/>
 		<!-- label -->
-		<tab name="label_tab" rect="0 0 118 700" margin="0 130 0 0" layout_gravity="right top" draw="false" itemspc="15" vertical="true"/>
+		<tab name="label_tab" rect="0 0 118 730" margin="0 110 0 0" layout_gravity="right top" draw="false" itemspc="15" vertical="true"/>
 		<!-- misson -->
 		<groupbox name="misson_gb" rect="0 0 550 800" margin="-1 170 0 0" layout_gravity="center top" scrollbar="false" stretch="true" draw="false"/>
 	</controls>

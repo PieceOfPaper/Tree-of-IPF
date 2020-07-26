@@ -5,17 +5,16 @@ function PARTYINFO_ON_INIT(addon, frame)
 	addon:RegisterMsg("PARTY_INST_UPDATE", "ON_PARTYINFO_INST_UPDATE");
 	addon:RegisterMsg("PARTY_OUT", "ON_PARTYINFO_DESTROY");
 	addon:RegisterMsg("PARTY_INVITE_CANCEL", "ON_PARTY_INVITE_CANCEL");
-	
 	addon:RegisterMsg("GAME_START", "PARTYINFO_CONTROL_INIT");
 end
 
 function PARTYINFO_CONTROL_INIT()
-	-- need summonUI check
-	local frame = ui.GetFrame("partyinfo");
-	local summonsUI = ui.GetFrame("summonsinfo");
-	local button = GET_CHILD_RECURSIVELY(frame, "partyinfobutton");
+	local frame = ui.GetFrame("partyinfo"); -- party member info frame
+	local summonsUI = ui.GetFrame("summonsinfo"); -- summon monster info frame
+	local button = GET_CHILD_RECURSIVELY(frame, "partyinfobutton"); -- toggle button
 	local buttonText = GET_CHILD_RECURSIVELY(frame, "buttontitle");
 	local title_gbox = GET_CHILD_RECURSIVELY(frame, "titlegbox");
+
 	if IS_NEED_SUMMON_UI() == 0 then
 		if title_gbox ~= nil and button ~= nil and buttonText ~= nil then
 			title_gbox:EnableDrawFrame(0);
@@ -40,6 +39,24 @@ function PARTYINFO_CONTROL_INIT()
 	
 	if buttonText ~= nil then
 		buttonText:SetTextByKey("title", ClMsg("SummonsInfo_PartyInfo"));
+	end
+
+	PARTYINFO_SET_POS(frame);
+end
+
+function PARTYINFO_SET_POS(frame)
+	if frame ~= nil then
+		local pos = ui.GetCatchMovePos(frame:GetName());
+		if pos.x == 0 and pos.y == 0 then
+			return;
+		end
+
+		frame:MoveFrame(pos.x, pos.y);
+
+		local summonsInfoFrame = ui.GetFrame("summonsinfo");
+		if summonsInfoFrame ~= nil then
+			SUMMONSINFO_SET_POS(summonsInfoFrame, pos.x, pos.y);
+		end
 	end
 end
 
@@ -120,7 +137,7 @@ function ON_PARTYINFO_UPDATE(frame, msg, argStr, argNum)
 	local myAid = session.loginInfo.GetAID();	
     local partyID = pcparty.info:GetPartyID();
 
-	for i = 0 , count - 1 do
+	for i = 0, count - 1 do
 		local partyMemberInfo = list:Element(i);
 		if partyMemberInfo:GetAID() ~= myAid then
 			local ret = nil;		
@@ -141,7 +158,7 @@ function ON_PARTYINFO_UPDATE(frame, msg, argStr, argNum)
 		end
 	end	
 
-	for i = 0 , frame:GetChildCount() - 1 do
+	for i = 0, frame:GetChildCount() - 1 do
 		local ctrlSet = frame:GetChildByIndex(i);
 		if nil ~= ctrlSet then
 			local ctrlSetName = ctrlSet:GetName();
@@ -205,7 +222,7 @@ function ON_PARTYINFO_BUFFLIST_UPDATE(frame)
 
 	local myInfo = session.party.GetMyPartyObj();
 	-- 접속중 파티원 버프리스트
-	for i = 0 , count - 1 do
+	for i = 0, count - 1 do
 		local partyMemberInfo = list:Element(i);
 				if geMapTable.GetMapName(partyMemberInfo:GetMapID()) ~= 'None' then
 
@@ -216,7 +233,7 @@ function ON_PARTYINFO_BUFFLIST_UPDATE(frame)
 				local debuffListSlotSet = GET_CHILD(partyInfoCtrlSet, "debuffList", "ui::CSlotSet");
 
 				-- 초기화
-				for j=0, buffListSlotSet:GetSlotCount() - 1 do
+				for j = 0, buffListSlotSet:GetSlotCount() - 1 do
 					local slot = buffListSlotSet:GetSlotByIndex(j);
 					slot:SetKeyboardSelectable(false);
 					if slot == nil then
@@ -225,7 +242,7 @@ function ON_PARTYINFO_BUFFLIST_UPDATE(frame)
 					slot:ShowWindow(0);
 				end
 				
-				for j=0, debuffListSlotSet:GetSlotCount() - 1 do
+				for j = 0, debuffListSlotSet:GetSlotCount() - 1 do
 					local slot = debuffListSlotSet:GetSlotByIndex(j);
 					if slot == nil then
 						break;
@@ -242,7 +259,7 @@ function ON_PARTYINFO_BUFFLIST_UPDATE(frame)
 				if buffCount > 0 then
 					local buffIndex = 0;
 					local debuffIndex = 0;
-					for j=0, buffCount - 1 do	
+					for j = 0, buffCount - 1 do	
 						local buffID = partyMemberInfo:GetBuffIDByIndex(j);
 						local cls = GetClassByType("Buff", buffID);	
 							if cls ~= nil and IS_PARTY_INFO_SHOWICON(cls.ShowIcon) == true and cls.ClassName ~= "TeamLevel" then
@@ -344,15 +361,13 @@ function GIVE_PARTY_LEADER(name)
 end
 
 function OPEN_PARTY_MEMBER_INFO(handle)
-	
 	ui.PropertyCompare(handle, 1);
 end
+
 function CONTEXT_PARTY(frame, ctrl, aid)	
 	local myAid = session.loginInfo.GetAID();
-	
 	local pcparty = session.party.GetPartyInfo();
 	local iamLeader = false;
-
 	if pcparty.info:GetLeaderAID() == myAid then
 		iamLeader = true;
 	end
@@ -367,6 +382,7 @@ function CONTEXT_PARTY(frame, ctrl, aid)
 		ui.OpenContextMenu(context);
 		return;
 	end
+
 	if aid == myAid then
 		-- 1. 누구든 자기 자신.
 		ui.AddContextMenuItem(context, ScpArgMsg("WithdrawParty"), "OUT_PARTY()");			
@@ -409,7 +425,7 @@ function CONTEXT_PARTY(frame, ctrl, aid)
 end
 
 function UPDATE_PARTYINFO_HP(partyInfoCtrlSet, partyMemberInfo)
--- 파티원 hp / sp 표시 --
+	-- 파티원 hp / sp 표시 --
 	local hpGauge = GET_CHILD(partyInfoCtrlSet, "hp", "ui::CGauge");
 	local spGauge = GET_CHILD(partyInfoCtrlSet, "sp", "ui::CGauge");
 	
@@ -436,7 +452,6 @@ function PARTY_HP_UPDATE(actor, partyMemberInfo)
 	if ctrlSet ~= nil then
 		UPDATE_PARTYINFO_HP(ctrlSet, partyMemberInfo);
 	end
-
 end
 
 function UPDATE_PARTY_INST_SET(partyInfoCtrlSet, partyMemberInfo)
@@ -602,8 +617,6 @@ function SET_LOGOUT_PARTYINFO_ITEM(frame, msg, partyMemberInfo, count, makeLogou
 	
 	partyInfoCtrlSet:SetEventScript(ui.RBUTTONUP, "None");
 	AUTO_CAST(partyInfoCtrlSet);
-	-- able ban logout pc;
-	--partyInfoCtrlSet:EnableHitTestSet(0);
 		
 	-- 파티원 hp / sp 표시 --
 	local hpObject 				= partyInfoCtrlSet:GetChild('hp');
@@ -661,7 +674,6 @@ function SET_LOGOUT_PARTYINFO_ITEM(frame, msg, partyMemberInfo, count, makeLogou
 	spGauge:SetColorTone(color);
 
 	frame:Resize(frame:GetWidth(), (count+1) * 100);
-
 	return 1;
 end
 
@@ -695,7 +707,6 @@ function PARTYMEMBER_JOIN(ctrlset, ctrl)
 end
 
 function PARTYMEMBER_OUT(ctrlset, ctrl)
-	
 	if GetLayer(GetMyPCObject()) == 0 then
 		local name = ctrlset:GetUserValue("MEMBER_NAME");
 		party.ReqChangeRelation(name, PARTY_REQ_KICK);
@@ -703,19 +714,16 @@ function PARTYMEMBER_OUT(ctrlset, ctrl)
 end
 
 function PARTYMEMBER_EXP_SHARE(ctrlset, ctrl)
-
 	local name = ctrlset:GetUserValue("MEMBER_NAME");
 	party.ReqChangeRelation(name, PARTY_SHARE_EXP);
 end
 
 function PARTYMEMBER_QUEST_SHARE(ctrlset, ctrl)
-
 	local name = ctrlset:GetUserValue("MEMBER_NAME");
 	party.ReqChangeRelation(name, PARTY_SHARE_QUEST);
 end
 
 function PARTYMEMBER_LOCK(ctrlset, ctrl)
-
 	local name = ctrlset:GetUserValue("MEMBER_NAME");	
 	party.ReqChangeRelation(name, PARTY_DIST_LOCK);
 end
@@ -726,7 +734,6 @@ function PARTYMEMBER_VAN(ctrlset, ctrl)
 end
 
 function RECEIVE_PARTY_INVITE(partyType, inviterAid, familyName)
-
 	local msg = "";
 	if partyType == PARTY_NORMAL then
 		msg = "{Inviter}InviteYouToParty_DoYouAccept?";
@@ -779,19 +786,15 @@ function GET_INVITED_GUILD_INFO(code, ret_json)
 end
 
 function PARTY_AUTO_REFUSE_INVITE(familyName)
-
 	local noScp = string.format("PARTY_AUTO_REFUSE_INVITE_EXEC(\"%s\")", familyName);
 	ReserveScript(noScp, 5);
-
 end
 
 function PARTY_AUTO_REFUSE_INVITE_EXEC(familyName)
-
 	party.CancelInvite(0, familyName, 0);
 end
 
 function ON_PARTY_INVITE_CANCEL(frame, msg, familyName, arg2)
-
 	ui.SysMsg(familyName .. ClMsg("PartyInviteCancelMsg"));
 end
 
@@ -822,7 +825,7 @@ function PARTY_JOB_TOOLTIP_CTRLSET(frame, cid, info)
 	local ret = 0;
 	if frame == nil then
 		return ret;
-	end;
+	end
 	
 	local partyInfoCtrlSet = frame:GetChild('PTINFO_'.. info:GetAID());
 	if partyInfoCtrlSet ~= nil then	
@@ -832,11 +835,10 @@ function PARTY_JOB_TOOLTIP_CTRLSET(frame, cid, info)
 			local jobIcon = GET_CHILD(jobportraitImg, "jobportrait", "ui::CPicture");
 			local jobCls  = GetClassByType("Job", info:GetRepreJob())
 			ret = PARTY_JOB_TOOLTIP(frame, cid, jobIcon, jobCls);            
-		end;
-	end;
+		end
+	end
 	return ret;
-end;
-
+end
 
 function PARTY_JOB_TOOLTIP(frame, cid, uiChild, nowJobName, isChangeMainClass)   
 	if (nil == session.otherPC.GetByStrCID(cid)) or (nil == uiChild) then 
@@ -874,9 +876,9 @@ function PARTY_JOB_TOOLTIP(frame, cid, uiChild, nowJobName, isChangeMainClass)
 		end
 		jobtext = jobtext ..('{nl}');
 	end
+
 	uiChild:SetTextTooltip(jobtext);
 	uiChild:EnableHitTest(1);
-
 	return 1;
 end
 
@@ -947,7 +949,6 @@ function PARTY_JOB_TOOLTIP_BY_CID(cid, icon, nowJobName)
 	icon:EnableHitTest(1);
 	return 1;
 end
-
 
 function UPDATE_MY_JOB_TOOLTIP(jobClassID, icon, nowJobName, isChangeMainClass)
 	if nil == icon then 

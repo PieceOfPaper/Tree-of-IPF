@@ -1,5 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <uiframe name="ancient_solo_dungeon_info" x="0" y="0" width="232" height="238">
+    <draw drawtitlebar="false"/>
+    <frame layout_gravity="right top" margin="0 70 430 0"/>
+    <input moveable="false"/>
+    <layer layerlevel="85"/>
+    <skin frameskin="black_box_op20"/>
+    <option visible="true" closebutton="false" piptype="right" autoopen="true" hideable="false"/>
     <controls>
+        <groupbox name="stageBox" rect="0 0 223 29" margin="0 5 0 0" layout_gravity="center top" draw="true" hittestbox="false" skin="white_box_op10" resizebyparent="false"/>
+        <richtext name="stageText" rect="0 0 223 29" margin="0 0 0 0" layout_gravity="center top" parent="stageBox" format="{@st43}{s20}Stage %s{/}" param1="stage" />
+        <groupbox name="remaintimeBox" rect="0 0 223 65" margin="0 42 0 0" layout_gravity="left top" draw="false" hittestbox="false"/>
+        <slot name="clockIcon" rect="0 0 22 22" margin="10 0 0 0" layout_gravity="left top" parent="remaintimeBox" image="pcbang_clock_icon_s" hittest="false"/>
+        <richtext name="remaintimeText" rect="0 0 150 25" margin="32 0 0 0" layout_gravity="left top" parent="remaintimeBox" caption="{@st42b}{s16}남은 시간{/}" />
+        <richtext name="remaintimeValue" rect="0 0 150 25" margin="0 0 10 0" layout_gravity="right top" parent="remaintimeBox" format="{@st42b}{s16}%s:%s{/}" param1="min" param2="sec" param1_def="33" param2_def="44"/>
+        <gauge name="remaintimeGauge" parent="remaintimeBox" rect="0 0 201 8" margin="0 27 0 0" hittest="false" layout_gravity="center top" inverse="false" skin="gauge"/>
+        <richtext name="remaintimeMon" rect="0 0 150 25" margin="0 39 0 0" layout_gravity="center top" parent="remaintimeBox" format="{@st42b}{s16}남은 몬스터(%s/%s){/}" param1="now" param2="total"/>
+        <groupbox name="stageInfoBox" rect="0 0 219 86" margin="0 105 0 0" layout_gravity="center top" draw="true" skin="graybox_op_45" autoresizebychild="false"/>
+        <richtext name="stageFirstClearText" rect="0 0 150 30" margin="5 15 0 0" layout_gravity="left top" parent="stageInfoBox" caption="{@st42b}{s14}첫 클리어 보상{/}" />
+        <slot name="stageFirstClearIcon" rect="0 0 30 30" margin="0 10 5 0" layout_gravity="right top" parent="stageInfoBox" hittest="true" enabledrag="false"/>
+        <slot name="checkbox" rect="0 0 30 30" margin="0 10 5 0" layout_gravity="right top" parent="stageInfoBox" hittest="false" image="socket_slot_checkbox2"/>
+        <richtext name="stageZoneDebuffText" rect="0 0 150 30" margin="5 50 0 0" layout_gravity="left top" parent="stageInfoBox" caption="{@st42b}{s14}Stage 디버프{/}" />
+        <slot name="stageZoneDebuffIcon" rect="0 0 30 30" margin="0 45 5 0" layout_gravity="right top" parent="stageInfoBox" hittest="true" enabledrag="false"/>
+        <button name="stageGiveUp" rect="0 0 117 41" margin="0 193 0 0" caption="{@st42b}{s14}포기하기{/}" LBtnUpScp="EVENT_1909_ANCIENT_EXIT_MGAME_MSG" skin="test_red_button" layout_gravity="center top" clicksound="button_click_skill_up_OK" oversound="button_over"/>
     </controls>
 </uiframe>

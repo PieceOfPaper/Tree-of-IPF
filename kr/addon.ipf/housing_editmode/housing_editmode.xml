@@ -1,27 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by imc (imc) -->
-<uiframe name="housing_editmode" x="0" y="0" width="550" height="265" create="open">
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by Hey (IMCGames Co., Ltd) -->
+<uiframe name="housing_editmode" x="0" y="0" width="550" height="315" create="open">
 	<frame fullheight="false" fasthide="true" layout_gravity="center top" margin="140 25 0 0"/>
 	<option visible="false" hideable="false" closebutton="false" moveable="true" alwaysVisible="false"/>
 	<draw drawtitlebar="false" drawframe="false"/>
 	<layer layerlevel="100"/>
+	<input hittest="true" hittestframe="false"/>
 	<script OpenScp="SCR_OPEN_HOUSING_EDITMODE" CloseScp="CLOSE_HOUSING_EDITMODE"/>
 	<controls>
 		<groupbox name="gbox_editmode_info" rect="0 0 250 90" margin="0 0 0 0" layout_gravity="left top" draw="true" skin="blackbox_op_50" hittestbox="false" hittest="true"/>
 		<richtext name="txt_editmode_floor" parent="gbox_editmode_info" rect="0 0 180 30" margin="0 10 0 0" layout_gravity="center top" format="{@st43}%s층{/}" param1="value" param1_def="1" fontname="white_20_ol_ds" resizebytext="true"/>
-		<richtext name="txt_editmode_selected_furniture" parent="gbox_editmode_info" rect="0 0 180 30" margin="0 60 0 0" layout_gravity="center top" format="{@st41}%s{/}" param1="value" param1_def="" fontname="white_20_ol_ds" resizebytext="true"/>
-		<labelline name="labelline1" parent="gbox_editmode_info" rect="0 0 245 5" margin="0 50 0 0" layout_gravity="center top" skin="labelline_def_2"/>
-		<groupbox name="gbox_editmode" rect="0 0 280 260" margin="260 0 0 0" layout_gravity="left top" draw="true" skin="blackbox_op_50" hittestbox="false" hittest="true"/>
-		<richtext name="txt_editmode_hotkey" parent="gbox_editmode" rect="0 0 180 30" margin="10 10 0 0" layout_gravity="left top" caption="{@st43}기능{/}" fontname="white_20_ol_ds" resizebytext="true"/>
-		<picture name="pic_editmode_close" parent="gbox_editmode" rect="0 0 40 40" margin="10 45 0 0" layout_gravity="left top" image="Esc" stretch="true"/>
-		<richtext name="txt_editmode_close" parent="gbox_editmode" rect="0 0 180 30" margin="55 55 0 0" layout_gravity="left top" caption="{@st41}편집모드 취소{/}" fontname="white_20_ol_ds" resizebytext="true"/>
-		<picture name="pic_editmode_move_floor" parent="gbox_editmode" rect="0 0 40 40" margin="10 90 0 0" layout_gravity="left top" image="Ctrl" stretch="true"/>
-		<picture name="pic_editmode_plus_move_floor" parent="gbox_editmode" rect="0 0 30 30" margin="55 95 0 0" layout_gravity="left top" image="personal_housing_guide_plusmark" stretch="true"/>
-		<picture name="pic_editmode_key_move_floor" parent="gbox_editmode" rect="0 0 40 40" margin="90 90 0 0" layout_gravity="left top" image="key_wheel" stretch="true"/>
-		<richtext name="txt_editmode_move_floor" parent="gbox_editmode" rect="0 0 180 30" margin="130 98 0 0" layout_gravity="left top" caption="{@st41}위층, 아래층 이동{/}" fontname="white_20_ol_ds" resizebytext="true"/>
-		<button name="btn_page_save" parent="gbox_editmode" rect="0 0 120 50" margin="-67 140 0 0" layout_gravity="center top" MouseOnAnim="btn_mouseover" MouseOffAnim="btn_mouseoff" stretch="false" hittest="true" caption="{@st42b}모두 철거하기{/}" skin="test_red_button" oversound="button_over" LBtnUpScp="HOUSING_EDITMODE_REMOVE_ALL_FURNITURE"/>
-		<button name="btn_page_shop" parent="gbox_editmode" rect="0 0 120 50" margin="67 140 0 0" layout_gravity="center top" MouseOnAnim="btn_mouseover" MouseOffAnim="btn_mouseoff" stretch="false" hittest="true" caption="{@st42b}상점 열기" skin="test_gray_button" oversound="button_over" LBtnUpScp="SCR_OPEN_HOUSING_EDITMODE_PAGE_SHOP"/>
-		<button name="btn_change_background" parent="gbox_editmode" rect="0 0 120 50" margin="-67 195 7 0" layout_gravity="center top" MouseOnAnim="btn_mouseover" MouseOffAnim="btn_mouseoff" stretch="false" hittest="true" caption="{@st42b}배경 변경{/}" skin="test_gray_button" oversound="button_over" LBtnUpScp="SCR_OPEN_HOUSING_EDITMODE_CHANGE_BACKGROUND"/>
-		<button name="btn_page_load" parent="gbox_editmode" rect="0 0 120 50" margin="67 195 7 0" layout_gravity="center top" MouseOnAnim="btn_mouseover" MouseOffAnim="btn_mouseoff" stretch="false" hittest="true" caption="{@st42b}페이지 열기{/}" skin="test_gray_button" oversound="button_over" LBtnUpScp="SCR_OPEN_HOUSING_EDITMODE_PAGE"/>
+		<richtext name="txt_editmode_selected_furniture" parent="gbox_editmode_info" rect="0 0 180 30" margin="0 57 0 0" layout_gravity="center top" format="{@st41}%s{/}" param1="value" param1_def="" fontname="white_20_ol_ds" resizebytext="true"/>
+		<labelline name="labelline1" parent="gbox_editmode_info" rect="0 0 245 5" margin="0 45 0 0" layout_gravity="center top" skin="labelline_def_2"/>
+		<groupbox name="gbox_remove_list" rect="0 0 250 220" margin="0 95 0 0" layout_gravity="left top" draw="true" skin="blackbox_op_50" hittestbox="true" hittest="true"/>
+		<groupbox name="gbox_remove_list_detail" rect="0 0 240 160" parent="gbox_remove_list" margin="0 5 0 0" layout_gravity="center top" draw="false" hittestbox="true" hittest="true" scrollbar="true"/>
+		<button name="btn_remove_list_clear" parent="gbox_remove_list" rect="0 0 115 50" margin="-60 165 0 0" layout_gravity="center top" MouseOnAnim="btn_mouseover" MouseOffAnim="btn_mouseoff" stretch="false" hittest="true" caption="{@st42b}비우기{/}" skin="test_gray_button" oversound="button_over" LBtnUpScp="SCR_HOUSING_EDITMODE_CLEAR_REMOVE_LIST"/>
+		<button name="btn_remove_list_submit" parent="gbox_remove_list" rect="0 0 115 50" margin="60 165 0 0" layout_gravity="center top" MouseOnAnim="btn_mouseover" MouseOffAnim="btn_mouseoff" stretch="false" hittest="true" caption="{@st42b}제거{/}" skin="test_red_button" oversound="button_over" LBtnUpScp="SCR_HOUSING_EDITMODE_DO_REMOVE"/>
+		<groupbox name="gbox_editmode" rect="0 0 280 315" margin="260 0 0 0" layout_gravity="left top" draw="true" skin="blackbox_op_50" hittestbox="true" hittest="true"/>
+		<richtext name="txt_editmode_hotkey" parent="gbox_editmode" rect="0 0 180 30" margin="0 10 0 0" layout_gravity="center top" caption="{@st43}기능{/}" fontname="white_20_ol_ds" resizebytext="true"/>
+		<labelline name="labelline3" parent="gbox_editmode" rect="0 0 245 5" margin="0 45 0 0" layout_gravity="center top" skin="labelline_def_2"/>
+		<picture name="pic_editmode_close" parent="gbox_editmode" rect="0 0 40 40" margin="10 55 0 0" layout_gravity="left top" image="Esc" stretch="true"/>
+		<richtext name="txt_editmode_close" parent="gbox_editmode" rect="0 0 180 30" margin="55 65 0 0" layout_gravity="left top" caption="{@st41}편집모드 취소{/}" fontname="white_20_ol_ds" resizebytext="true"/>
+		<picture name="pic_editmode_move_floor" parent="gbox_editmode" rect="0 0 40 40" margin="10 100 0 0" layout_gravity="left top" image="Ctrl" stretch="true"/>
+		<picture name="pic_editmode_plus_move_floor" parent="gbox_editmode" rect="0 0 30 30" margin="55 105 0 0" layout_gravity="left top" image="personal_housing_guide_plusmark" stretch="true"/>
+		<picture name="pic_editmode_key_move_floor" parent="gbox_editmode" rect="0 0 40 40" margin="90 100 0 0" layout_gravity="left top" image="key_wheel" stretch="true"/>
+		<richtext name="txt_editmode_move_floor" parent="gbox_editmode" rect="0 0 180 30" margin="130 108 0 0" layout_gravity="left top" caption="{@st41}위층, 아래층 이동{/}" fontname="white_20_ol_ds" resizebytext="true"/>
+		<button name="btn_page_save" parent="gbox_editmode" rect="0 0 130 50" margin="-67 150 0 0" layout_gravity="center top" MouseOnAnim="btn_mouseover" MouseOffAnim="btn_mouseoff" stretch="false" hittest="true" caption="{@st42b}모두 철거하기{/}" skin="test_red_button" oversound="button_over" LBtnUpScp="HOUSING_EDITMODE_REMOVE_ALL_FURNITURE"/>
+		<button name="btn_shop" parent="gbox_editmode" rect="0 0 130 50" margin="67 150 0 0" layout_gravity="center top" MouseOnAnim="btn_mouseover" MouseOffAnim="btn_mouseoff" stretch="false" hittest="true" caption="{@st42b}가구 상점" skin="test_gray_button" oversound="button_over" LBtnUpScp="SCR_OPEN_HOUSING_EDITMODE_PAGE_SHOP"/>
+		<button name="btn_change_background" parent="gbox_editmode" rect="0 0 130 50" margin="-67 200 7 0" layout_gravity="center top" MouseOnAnim="btn_mouseover" MouseOffAnim="btn_mouseoff" stretch="false" hittest="true" caption="{@st42b}배경 변경{/}" skin="test_gray_button" oversound="button_over" LBtnUpScp="SCR_OPEN_HOUSING_EDITMODE_CHANGE_BACKGROUND"/>
+		<button name="btn_page_load" parent="gbox_editmode" rect="0 0 130 50" margin="67 200 7 0" layout_gravity="center top" MouseOnAnim="btn_mouseover" MouseOffAnim="btn_mouseoff" stretch="false" hittest="true" caption="{@st42b}페이지 변경{/}" skin="test_gray_button" oversound="button_over" LBtnUpScp="SCR_OPEN_HOUSING_EDITMODE_PAGE"/>
+		<button name="btn_promote" parent="gbox_editmode" rect="0 0 264 50" margin="0 260 7 0" layout_gravity="center top" MouseOnAnim="btn_mouseover" MouseOffAnim="btn_mouseoff" stretch="false" hittest="true" caption="{@st42b}개인 하우징 게시판{/}" skin="test_gray_button" oversound="button_over" LBtnUpScp="REQUEST_HOUSING_PROMOTE_BOARD_OPEN_EDITMODE"/>
 	</controls>
 </uiframe>

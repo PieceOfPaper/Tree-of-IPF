@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
 <ActionDesc>
-    <Sound frame="0.00" soundFile="mon_mirtis_atk02_cast"/>
-    <Sound frame="0.00" soundFile="mon_voice_succubus_atk_cast_2"/>
-    <Sound frame="0.00" soundFile="skl_eff_atk_move_l_18"/>
-    <Sound frame="26.00" soundFile="mon_mirtis_skl02_cast"/>
+	<Particle frame="4" attachNode="None" particleName="F_smoke006" useAttach="false" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Sound frame="0.00" soundFile="mon_mirtis_atk02_cast"/>
+	<Sound frame="0.00" soundFile="mon_voice_succubus_atk_cast_2"/>
+	<Sound frame="0.00" soundFile="skl_eff_atk_move_l_18"/>
+	<Sound frame="26.00" soundFile="mon_mirtis_skl02_cast"/>
 </ActionDesc>

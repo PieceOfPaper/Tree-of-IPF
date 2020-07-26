@@ -120,7 +120,7 @@ end
 
 function SET_PRIVIEW_ITEM(frame, ctrlSet, fileName, posY)
     local pngFullPath =  folderPath .. "\\" .. fileName
-    print(pngFullPath)
+    
     -- 아이콘을 설정한다
 	local gb_items = GET_CHILD(ctrlSet, "gb_items", "ui::CGroupBox") 
     local rich_fileName = GET_CHILD(gb_items, "file_name", "ui::CRichText")

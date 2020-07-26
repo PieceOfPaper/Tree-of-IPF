@@ -13,6 +13,8 @@ function JOYSTICKQUICKSLOT_ON_INIT(addon, frame)
 	addon:RegisterMsg('JUNGTAN_SLOT_UPDATE', 'JOYSTICK_JUNGTAN_SLOT_ON_MSG');
 	addon:RegisterMsg('EXP_ORB_ITEM_ON', 'JOYSTICK_EXP_ORB_SLOT_ON_MSG');
 	addon:RegisterMsg('EXP_ORB_ITEM_OFF', 'JOYSTICK_EXP_ORB_SLOT_ON_MSG');
+	addon:RegisterMsg('EXP_SUB_ORB_ITEM_ON', 'JOYSTICK_EXP_SUB_ORB_SLOT_ON_MSG');
+	addon:RegisterMsg('EXP_SUB_ORB_ITEM_OFF', 'JOYSTICK_EXP_SUB_ORB_SLOT_ON_MSG');
 	addon:RegisterMsg('TOGGLE_ITEM_SLOT_ON', 'JOYSTICK_TOGGLE_ITEM_SLOT_ON_MSG');
 	addon:RegisterMsg('TOGGLE_ITEM_SLOT_OFF', 'JOYSTICK_TOGGLE_ITEM_SLOT_ON_MSG');
 
@@ -555,6 +557,21 @@ function JOYSTICK_EXP_ORB_SLOT_ON_MSG(frame, msg, str, num)
 	DebounceScript("JOYSTICK_QUICKSLOT_UPDATE_ALL_SLOT", 0.1);
 end
 
+function JOYSTICK_EXP_SUB_ORB_SLOT_ON_MSG(frame, msg, str, num)
+	local timer = GET_CHILD_RECURSIVELY(frame, "expsuborbtimer", "ui::CAddOnTimer");
+	if msg == "EXP_SUB_ORB_ITEM_OFF" then
+		frame:SetUserValue("EXP_SUB_ORB_EFFECT", 0);
+		timer:Stop();
+		imcSound.PlaySoundEvent('sys_booster_off');
+	elseif msg == "EXP_SUB_ORB_ITEM_ON" then
+		frame:SetUserValue("EXP_SUB_ORB_EFFECT", str);
+		timer:SetUpdateScript("UPDATE_JOYSTICKQUICKSLOT_EXP_ORB");
+		timer:Start(1);
+		imcSound.PlaySoundEvent('sys_atk_booster_on');
+	end
+	DebounceScript("JOYSTICK_QUICKSLOT_UPDATE_ALL_SLOT", 0.1);
+end
+
 --토글
 function JOYSTICK_TOGGLE_ITEM_SLOT_ON_MSG(frame, msg, argstr, argnum)
 	if msg == "TOGGLE_ITEM_SLOT_ON" then
@@ -646,6 +663,17 @@ function UPDATE_JOYSTICKQUICKSLOT_EXP_ORB(frame, ctrl, num, str, time)
 	local expOrb = frame:GetUserValue("EXP_ORB_EFFECT");
 	if expOrb ~= nil and expOrb ~= "None" then
 		PLAY_JOYSTICKQUICKSLOT_UIEFFECT_BY_GUID(frame, expOrb);
+	end
+end
+
+function UPDATE_JOYSTICKQUICKSLOT_EXP_SUB_ORB(frame, ctrl, num, str, time)
+	if frame:IsVisible() == 0 then
+		return;
+	end
+
+	local expSubOrb = frame:GetUserValue("EXP_SUB_ORB_EFFECT");
+	if expSubOrb ~= nil and expSubOrb ~= "None" then
+		PLAY_JOYSTICKQUICKSLOT_UIEFFECT_BY_GUID(frame, expSubOrb);
 	end
 end
 

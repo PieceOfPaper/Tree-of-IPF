@@ -275,3 +275,13 @@ function GET_LH_SOUND_SKILL(sklID)
 
 	return 0;
 end
+
+function SCR_SET_EXPROP_C(name, value)
+	local pc = GetMyPCObject()
+	SetExProp(pc, name, tonumber(value))
+end
+
+function SCR_DEL_EXPROP_C(name)
+	local pc = GetMyPCObject()
+	DelExProp(pc, name)
+end

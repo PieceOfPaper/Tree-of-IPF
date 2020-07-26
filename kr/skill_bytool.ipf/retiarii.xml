@@ -23,7 +23,7 @@
 			<EtcList>
 				<Scp Client="YES" Scp="MONSKL_C_PLAY_ANIM" Time="0" UseSleep="NO">
                     <Str Str="SKL_BLANDIRCADENA" />
-                    <Num Num="1.5" />
+                    <Num Num="2" />
                     <Num Num="1" />
                     <Num Num="0" />
                 </Scp>
@@ -49,19 +49,19 @@
 					<Str Str="Skill_SuperArmor_Buff" />
 					<Num Num="100" />
 				</Scp>
-				<Scp Client="YES" Scp="C_SHOCKWAVE" Time="100" UseSleep="NO">
+				<Scp Client="YES" Scp="C_SHOCKWAVE" Time="0" UseSleep="NO">
 					<Num Num="5" />
 					<Num Num="0.1" />
 					<Num Num="45" />
 					<Num Num="999" />
 				</Scp>
-				<Scp Client="YES" Scp="C_SHOCKWAVE" Time="300" UseSleep="NO">
+				<Scp Client="YES" Scp="C_SHOCKWAVE" Time="0" UseSleep="NO">
 					<Num Num="5" />
 					<Num Num="0.1" />
 					<Num Num="45" />
 					<Num Num="999" />
 				</Scp>
-				<Scp Client="YES" Scp="C_COLORBLEND_ACTOR" Time="300" UseSleep="NO">
+				<Scp Client="YES" Scp="C_COLORBLEND_ACTOR" Time="0" UseSleep="NO">
 					<Num Num="1" />
 					<Num Num="1" />
 					<Num Num="0.1" />
@@ -70,24 +70,24 @@
 					<Num Num="0" />
 					<Num Num="1" />
 				</Scp>
-				<Scp Client="YES" Scp="C_SHOCKWAVE" Time="440" UseSleep="NO">
+				<Scp Client="YES" Scp="C_SHOCKWAVE" Time="140" UseSleep="NO">
 					<Num Num="5" />
 					<Num Num="0.1" />
 					<Num Num="45" />
 					<Num Num="999" />
 				</Scp>
-				<Scp Client="YES" Scp="C_EFFECT" Time="740" UseSleep="NO">
+				<Scp Client="YES" Scp="C_EFFECT" Time="440" UseSleep="NO">
 					<Str_Arg Arg="2" Str="F_warrior_blandircadena_ground" />
 					<Str Str="None" />
 					<Num Num="0" />
 				</Scp>
-				<Scp Client="YES" Scp="C_SHOCKWAVE" Time="740" UseSleep="NO">
+				<Scp Client="YES" Scp="C_SHOCKWAVE" Time="440" UseSleep="NO">
 					<Num Num="5" />
 					<Num Num="0.80000001" />
 					<Num Num="80" />
 					<Num Num="999" />
 				</Scp>
-				<Scp Client="YES" Scp="C_COLORBLEND_ACTOR" Time="800" UseSleep="NO">
+				<Scp Client="YES" Scp="C_COLORBLEND_ACTOR" Time="500" UseSleep="NO">
 					<Num Num="1" />
 					<Num Num="0" />
 					<Num Num="0.1" />
@@ -96,7 +96,7 @@
 					<Num Num="0" />
 					<Num Num="1" />
 					</Scp>
-                <Scp Client="NO" Scp="SKL_HIT_CIRCLE_ADJUSTMENT" Time="910" UseSleep="NO">
+                <Scp Client="NO" Scp="SKL_HIT_CIRCLE_ADJUSTMENT" Time="610" UseSleep="NO">
                     <Pos Angle="0" Dist="20" />
 					<Num Num="60" />
 					<Str Str="None" />
@@ -111,7 +111,7 @@
 					<Num Num="1" />
 					<Num Num="2" />
 				</Scp>
-				<Scp Client="NO" Scp="SKL_HIT_CIRCLE_ADJUSTMENT" Time="940" UseSleep="NO">
+				<Scp Client="NO" Scp="SKL_HIT_CIRCLE_ADJUSTMENT" Time="640" UseSleep="NO">
 					<Pos Angle="0" Dist="20" />
 					<Num Num="60" />
 					<Str Str="None" />
@@ -126,7 +126,7 @@
 					<Num Num="1" />
 					<Num Num="2" />
 				</Scp>
-				<Scp Client="NO" Scp="SKL_HIT_CIRCLE_ADJUSTMENT" Time="970" UseSleep="NO">
+				<Scp Client="NO" Scp="SKL_HIT_CIRCLE_ADJUSTMENT" Time="670" UseSleep="NO">
 					<Pos Angle="0" Dist="20" />
 					<Num Num="70" />
 					<Str Str="None" />
@@ -275,10 +275,16 @@
 	<Skill Name="Retiarii_EquipDesrption">
 		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
 			<HitList>
-				<Frame Angle="0" AniTime="600" Dist="0" ForceATK="0" HitCount="1" Length="80" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="400" Type="SQUARE" Width="50" />
+				<Frame Angle="0" AniTime="450" Dist="0" ForceATK="0" HitCount="1" Length="80" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="400" Type="SQUARE" Width="50" />
 			</HitList>
 			<EtcList>
-				<Scp Client="YES" Scp="C_VOICE_SOUND" Time="200" UseSleep="NO">
+				<Scp Client="YES" Scp="MONSKL_C_PLAY_ANIM" Time="0" UseSleep="NO">
+                    <Str Str="SKL_EQUIPDESRPTION" />
+                    <Num Num="2.2" />
+                    <Num Num="1" />
+                    <Num Num="0" />
+                </Scp>
+                <Scp Client="YES" Scp="C_VOICE_SOUND" Time="200" UseSleep="NO">
 					<Str Str="voice_war_m_equipdesrption_cast" />
 					<Str Str="voice_war_f_equipdesrption_cast" />
 				</Scp>

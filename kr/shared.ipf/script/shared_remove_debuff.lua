@@ -338,7 +338,7 @@ end
 
 -- 시노비 - 인법 분신술
 function get_remove_debuff_tooltip_Shinobi_Bunshin_no_jutsu(level)
-    local percent = 10 * tonumber(level)
+    local percent = 20 * tonumber(level)
     
     if percent > 100 then
         percent = 100

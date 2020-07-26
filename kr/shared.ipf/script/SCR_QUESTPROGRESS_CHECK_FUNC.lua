@@ -826,3 +826,67 @@ function SCR_GUILD_QUEST_WEEK1_START_CHECK(pc)
     
     return 'NO'
 end
+
+
+function SCR_AQ_TEAMCLEAR_CHECK(pc, questname, scriptInfo)
+    local aObj
+    
+    if IsServerSection(pc) == 1 then
+        aObj = GetAccountObj(pc);
+    else
+        aObj = GetMyAccountObj();
+    end
+        
+    if aObj == nil then
+        return
+    end
+    local aprop = TryGetProp(aObj, "ASSISTORQUEST_TEAMCLEAR_CHECK", 0)
+    if aprop == 0 then
+        return 'YES'
+    end
+    return 'NO'
+end
+
+function SCR_AQ_TEAMCLEAR(pc, questname, scriptInfo)
+    local aObj
+    
+    if IsServerSection(pc) == 1 then
+        aObj = GetAccountObj(pc);
+    else
+        aObj = GetMyAccountObj();
+    end
+    
+    if aObj == nil then
+        return
+    end
+        
+    if aObj.ASSISTORQUEST_TEAMCLEAR_CHECK == 0 then
+        local tx = TxBegin(pc)
+        TxSetIESProp(tx,  aObj, 'ASSISTORQUEST_TEAMCLEAR_CHECK', 1)
+        local ret = TxCommit(tx)
+    else
+        return
+    end
+    CustomMongoLog(pc, "AssistorQuestClearTeamCheck", "Qeust", questname, "Count", aObj.ASSISTORQUEST_TEAMCLEAR_CHECK);
+end
+
+function SCR_AQ_TEAMCLEAR_RE(pc, tx)
+    local aObj
+    
+    if IsServerSection(pc) == 1 then
+        aObj = GetAccountObj(pc);
+    else
+        aObj = GetMyAccountObj();
+    end
+    
+    if aObj == nil then
+        return
+    end
+    
+    local aprop = TryGetProp(aObj, "ASSISTORQUEST_TEAMCLEAR_CHECK", 0)
+    if aprop ~= 0 then
+        TxSetIESProp(tx,  aObj, 'ASSISTORQUEST_TEAMCLEAR_CHECK', 0)
+    else
+        return
+    end
+end

@@ -42,7 +42,7 @@
 		<groupbox name="jobSelectBox" rect="0 0 910 350" margin="0 0 0 0" layout_gravity="left bottom" draw="false"/>
 		<!-- Class Info -->
 		<groupbox name="mbg" parnet="rightBox" rect="0 0 1050 480" margin="0 0 10 100" layout_gravity="right bottom" hittestbox="false" resizebyparent="true" skin="marketlow" />
-		<button name="class_select" parent="mbg" rect="0 0 226 78" margin="0 0 230 0" layout_gravity="right bottom" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" caption="{@st43}전직하기" clicksound="button_click_skill_up" oversound="button_over" image="btn_lv3"/>
+		<button name="class_select" parent="mbg" rect="0 0 226 78" margin="0 0 230 20" layout_gravity="right bottom" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" caption="{@st43}전직하기" clicksound="button_click_skill_up" oversound="button_over" image="btn_lv3"/>
 		<groupbox name="charImgBox" parent="mbg" rect="0 0 300 470" margin="70 10 0 0" layout_gravity="left top" skin="blackbox_op_50"/>
 		<picture name="class_image" parent="charImgBox" rect="0 0 250 360" margin="-10 0 0 100" layout_gravity="center bottom" hittest="false" image="mainpc_crown" stretch="false"/>
 		<richtext name="className" parent="charImgBox" rect="0 0 220 30" margin="45 25 0 0" layout_gravity="center top" autofontsizebywidth="true" drawbackground="false" fixwidth="true" format="{@sti7}{s20}{ds}%s{/}" maxwidth="0" param1="param_name" param1_def="DefVal" resizebytext="false" slideshow="false" spacey="0" textalign="left center" updateparent="false"/>
@@ -70,5 +70,9 @@
 		<button name="rollbackCloseBtn" parent="rollbackInfoBox" rect="0 0 44 44" margin="0 15 10 0" layout_gravity="right top" LBtnUpArgNum="" LBtnUpScp="CHANGEJOB_CLOSE_ROLLBACK_MODE" oversound="button_over" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" clicksound="button_click_big" image="testclose_button" texttooltip="클래스 변경 모드를 종료합니다."/>
 		<richtext name="infoText" parent="rollbackInfoBox" rect="0 0 800 50" margin="0 0 0 0" layout_gravity="center center" caption="{@st43}변경 할 클래스를 선택한 후에 전직하기 버튼을 눌러주세요."/>
 		<picture name="arrowPic" parent="rollbackInfoBox" rect="0 0 50 50" margin="0 0 80 0" layout_gravity="right center" image="class_tree_arrow" stretch="true"/>
+		<!-- Class Info: Arts -->
+		<groupbox name="artsInfoBox" parent="rightBox" rect="0 0 665 90" margin="0 0 0 0" layout_gravity="right bottom" skin="none" hittestbox="false"/>
+		<richtext name="artsText" parent="artsInfoBox" rect="0 0 500 30" margin="10 0 0 0" layout_gravity="left top" drawbackground="false" fixwidth="true" format="{@st42}{#7AE4FF}보유중인 아츠{/}{/}" maxwidth="0" resizebytext="false" slideshow="false" spacey="0" textalign="left top" updateparent="false"/>
+		<groupbox name="groupbox_arts" parent="artsInfoBox" rect="0 0 645 60" margin="10 30 0 0" layout_gravity="left top" draw="false"/>
 	</controls>
 </uiframe>

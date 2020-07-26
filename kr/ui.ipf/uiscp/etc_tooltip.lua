@@ -68,19 +68,21 @@ function DRAW_ETC_COMMON_TOOLTIP(tooltipframe, invitem, mainframename, from)
 	local nameChild = GET_CHILD(CSet, "name", "ui::CRichText");
 	
 	--EVENT_1909_ANCIENT
-	if invitem.ClassName == 'EVENT_190919_ANCIENT_MONSTER_PIECE' then
-		local mon = GetClass('Ancient', invitem.KeyWord);
-		fullname = mon.Name .. '{/}['..'{img star_mark 20 20}'..']'
-		if mon.Rarity == 1 then
-			fullname =  "{#ffffff}"..fullname
-		elseif mon.Rarity == 2 then
-			fullname =  "{#0e7fe8}"..fullname
-		elseif mon.Rarity == 3 then
-			fullname =  "{#d92400}"..fullname
-		elseif mon.Rarity == 4 then
-			fullname =  "{#ffa800}"..fullname
+	if invitem.StringArg ~= 'None' then
+		local infoCls = GetClass('Ancient_Info', invitem.StringArg);
+		if infoCls ~= nil then
+			local color = ""
+			if infoCls.Rarity == 1 then
+				color = "{#ffffff}"
+			elseif infoCls.Rarity == 2 then
+				color = "{#0e7fe8}"
+			elseif infoCls.Rarity == 3 then
+				color = "{#d92400}"
+			elseif infoCls.Rarity == 4 then
+				color = "{#ffa800}"
+			end
+			fullname = string.gsub(fullname,"%[.*%]",function(w) return color..w.."{/}" end)
 		end
-		fullname = invitem.Name .. ' - ' .. fullname
 	end
 
 	nameChild:SetText(fullname);

@@ -66,6 +66,12 @@ function SUMMONSINFO_INIT()
 	end
 end
 
+function SUMMONSINFO_SET_POS(frame, x, y)
+	if frame ~= nil then
+		frame:MoveFrame(x, y);
+	end
+end
+
 -- button title change (only partyinfo & summonsinfo)
 function CHANGE_BUTTON_TITLE(frame, argstr)
     if frame ~= nil then

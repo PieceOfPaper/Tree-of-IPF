@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='utf-8'?>
 <ToolSkill>
-<Skill Name="Kabbalist_TheTreeOfSepiroth">
+    <Skill Name="Kabbalist_TheTreeOfSepiroth">
 		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
 			<EtcList>
 				<Scp Client="NO" Scp="MONSKL_CRE_PAD" Time="600" UseSleep="NO">
@@ -152,9 +152,9 @@
 		</MainSkl>
 	</Skill>
 	<Skill Name="Kabbalist_RevengedSevenfold">
-		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+        <MainSkl ScrLock="None" JumpFlee="NO" MSPDToUsePos="0">
 			<EtcList>
-				<Scp Client="NO" Scp="SKL_SET_TARGET_CIRCLE" Time="0" UseSleep="NO">
+                <Scp Scp="SKL_SET_TARGET_CIRCLE" Client="NO" UseSleep="NO" Time="0">
 					<Pos Angle="0" Dist="0" />
 					<Num Num="150" />
 					<Num Num="5" />
@@ -165,15 +165,15 @@
                     <Num Num="0"/>
                     <Num Num="1"/>
                 </Scp>
-				<Scp Client="YES" Scp="C_VOICE_SOUND" Time="100" UseSleep="NO">
+                <Scp Scp="C_VOICE_SOUND" Client="YES" UseSleep="NO" Time="100">
 					<Str Str="voice_cleric_m_revengedsevenfold_shot" />
 					<Str Str="voice_cleric_revengedsevenfold_shot" />
 				</Scp>
-				<Scp Client="NO" Scp="SKL_TGT_BUFF" Time="300" UseSleep="NO">
+                <Scp Scp="SKL_TGT_BUFF" Client="NO" UseSleep="NO" Time="300">
 					<Str Str="RevengedSevenfold_Buff" />
-					<Num FuncTxt="return obj.Level" Num="1" UseFunc="1" />
+                    <Num Num="1" UseFunc="1" FuncTxt="return obj.Level"/>
 					<Num Num="0" />
-					<Num FuncTxt="local value = 60000 if IsPVPServer(self) == 1 then value = 7000; end return value" Num="60000" UseFunc="1" />
+                    <Num Num="60000" UseFunc="1" FuncTxt="local value = 60000 if IsPVPServer(self) == 1 then value = 7000; end return value"/>
 					<Num Num="1" />
 					<Num Num="100" />
 				</Scp>

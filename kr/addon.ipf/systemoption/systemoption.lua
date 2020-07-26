@@ -191,6 +191,12 @@ function INIT_GRAPHIC_CONFIG(frame)
 	if textEffectUnVisible ~= nil then
 		textEffectUnVisible:SetCheck(config.GetUnVisibleTextEffect());
 	end
+	
+	local Check_Enable_Daylight = GET_CHILD_RECURSIVELY(frame, "Check_Enable_Daylight", "ui::CCheckBox");
+	if Check_Enable_Daylight ~= nil then
+		print(config.GetEnableDayLight());
+		Check_Enable_Daylight:SetCheck(config.GetEnableDayLight());
+	end
 end
 
 function INIT_GAMESYS_CONFIG(frame)

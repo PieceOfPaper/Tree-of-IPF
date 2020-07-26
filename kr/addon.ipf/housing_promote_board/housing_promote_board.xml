@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<uiframe name="housing_promote_board" x="0" y="0" width="1196" height="896" create="open">
+	<frame titlepos="0 0" margin="0 0 0 0" layout_gravity="center center" scale_align="center top"/>
+	<skin frameskin="test_frame_low"/>
+	<draw drawframe="true" drawtitlebar="false"/>
+	<layer layerlevel="101"/>
+	<input moveable="true" hittestframe="true" moveintitlebar="false"/>
+	<option closebutton="false" hideable="true" useimageitem="true"/>
+	<sound opensound="sys_popup_open_1" closesound="character_item_window_close"/>
+	<animation frameOpenAnim="popup_start" frameCloseAnim="popup_end"/>
+	<userconfig POST_MARGIN_X="6" POST_MARGIN_Y="42"/>
+	<controls>
+		<!-- TITLE -->
+		<groupbox name="title_gb" rect="0 0 1200 61" margin="0 0 0 0" layout_gravity="center top" skin="test_frame_top" hittest="false"/>
+		<button name="closeBtn" rect="0 0 50 50" margin="0 20 28 0" layout_gravity="right top" image="testclose_button" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" clicksound="button_click_big" oversound="button_over" LBtnUpScp="HOUSING_PROMOTE_BOARD_CLOSE"/>
+		<richtext name="title_text" parent="title_gb" rect="0 0 1090 60" margin="0 0 0 0" layout_gravity="center center" caption="{@st43b}{s26}개인 하우징 게시판"/>
+		<!-- MENU -->
+		<groupbox name="filter_gb" rect="0 0 1200 60" margin="5 65 0 0" layout_gravity="left top" hittest="true" draw="false" scrollbar="false"/>
+		<button name="filter_1" parent="filter_gb" rect="0 0 47 47" margin="20 0 0 0" layout_gravity="left top" image="housing_new_fix_tap" MouseOnAnim="btn_mouseover" LBtnUpScp="HOUSING_PROMOTE_BOARD_FEATURED_FILTER" LBtnUpArgStr="Refresh" texttooltip="새로고침" draw="true"/>
+		<button name="filter_2" parent="filter_gb" rect="0 0 47 47" margin="80 0 0 0" layout_gravity="left top" image="housing_recommend_tap" MouseOnAnim="btn_mouseover" LBtnUpScp="HOUSING_PROMOTE_BOARD_FEATURED_FILTER" LBtnUpArgStr="Recommend" texttooltip="추천 하우스" draw="true"/>
+		<button name="filter_3" parent="filter_gb" rect="0 0 47 47" margin="140 0 0 0" layout_gravity="left top" image="housing_friend_tap" MouseOnAnim="btn_mouseover" LBtnUpScp="HOUSING_PROMOTE_BOARD_FEATURED_FILTER" LBtnUpArgStr="Friend" texttooltip="친구의 하우스" draw="true"/>
+		<button name="filter_4" parent="filter_gb" rect="0 0 47 47" margin="200 0 0 0" layout_gravity="left top" image="housing_guild_tap" MouseOnAnim="btn_mouseover" LBtnUpScp="HOUSING_PROMOTE_BOARD_FEATURED_FILTER" LBtnUpArgStr="Guild" texttooltip="길드원의 하우스" draw="true"/>
+		<button name="filter_5" rect="0 0 47 47" margin="265 64 0 0" layout_gravity="left top" image="housing_my_tap" MouseOnAnim="btn_mouseover" LBtnUpScp="HOUSING_PROMOTE_POST_OPEN_MY_HOUSE" texttooltip="마이 하우스"/>
+		<!-- SEARCH -->
+		<groupbox name="search_gb" parent="filter_gb" rect="0 0 412 36" margin="0 5 30 0" layout_gravity="right top" hittest="true" draw="true" scrollbar="false" skin="graybox_op_45"/>
+		<edit name="search_edit" parent="search_gb" rect="0 0 340 38" margin="15 0 0 0" layout_gravity="left top" OffsetForDraw="0 0" drawbackground="false" fontname="white_18_ol" textalign="left center" LBtnDownScp="HOUSING_PROMOTE_BOARD_TEAMNANE_SEARCH_CLICK" EnterKeyScp="HOUSING_PROMOTE_BOARD_TEAMNANE_SEARCH"/>
+		<button name="search_btn" parent="search_gb" rect="0 0 59 33" margin="0 0 0 0" layout_gravity="right top" MouseOnAnim="btn_mouseover" image="inven_s" LBtnUpScp="HOUSING_PROMOTE_BOARD_TEAMNANE_SEARCH"/>
+		<richtext name="search_dif" parent="search_gb" rect="0 0 340 38" margin="10 10 0 0" layout_gravity="left top" caption="팀명으로 검색해 보세요" drawbackground="false" fixwidth="true" fontname="white_16_b_ol" resizebytext="true" textalign="left center" hittest="false"/>
+		<!-- LIST -->
+		<groupbox name="promote_gb" rect="0 0 1170 755" margin="0 120 0 0" layout_gravity="center top" hittest="true" scrollbar="true" draw="true" skin="test_frame_midle"/>
+	</controls>
+</uiframe>

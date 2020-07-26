@@ -127,6 +127,12 @@ function GET_MORE_EVENT_EXP(pc)
 	return sumExp; 
 end
 
+function GET_MORE_ANCIENT_EXP(pc)
+	local sumExp = 0.0;
+	sumExp = sumExp + IsBuffAppliedEXP(pc, 'Ancient_boostToken');
+	return sumExp;
+end
+
 function GET_MORE_EVENT_EXP_JAEDDURY(pc)
 	local sumExp = 0.0;
 	if "YES" == IsBuffApplied(pc, 'Event_CharExpRate') then

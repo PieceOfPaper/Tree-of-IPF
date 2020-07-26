@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by MintPC (Mi) -->
+<uiframe name="buff_separatedlist" x="0" y="0" width="450" height="60">
+	<frame layout_gravity="left top" margin="0 0 0 0" tooltipoverlap="true"/>
+	<skin frameskin="None"/>
+	<option visible="true" alwaysVisible="false" hideable="false" closebutton="false"/>
+	<layer layerlevel="60"/>
+	<input moveable="true" moveintitlebar="false" hittestframe="true" catchmovepos="true"/>
+	<draw drawtitlebar="false" drawnotitlebar="false"/>
+	<userconfig CHANGE_IMAGENAME="dark_icon" DEFAULT_SLOT_Y_OFFSET="63" DEFAULT_SLOT_X_OFFSET="9" DEFAULT_BUFF_LOCK_OFFSET="10" DEFAULT_GBOX_WIDTH="410" GBOX_ADD="55" COL_COUNT="10" BUFF_COL="0" BUFF_ROW="0"/>
+	<controls>
+		<groupbox name="gbox" rect="0 0 420 60" hittest="true" hittestbox="false" margin="0 0 0 0" layout_gravity="left top" draw="true" resizebyparent="true" resizebyresolution="true" scrollbar="false" fixheight="false" skin="chat_window"/>
+		<groupbox name="buffGBox" rect="0 0 410 55" hittest="true" hittestbox="false" margin="5 5 0 0" layout_gravity="left top" parent="gbox" draw="true" resizebyparent="true" resizebyresolution="true" scrollbar="false" fixheight="false" skin="None"/>
+		<timer name="addontimer" rect="0 0 10 10" margin="5 0 0 0" layout_gravity="center top"/>
+	</controls>
+</uiframe>

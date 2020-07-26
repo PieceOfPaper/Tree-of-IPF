@@ -6,10 +6,6 @@ function MONSTER_CONTEXT(handle, type)
 		POPUP_MONSTER_CONTEXT(handle, type);
 		return;
 	end
-
-	if session.IsFurniture(handle) == true then
-		POPUP_FURNITURE_CONTEXT(handle, type)
-	end
 end
 
 function POPUP_MONSTER_CONTEXT(handle, type)
@@ -56,37 +52,6 @@ function POPUP_MONSTER_CONTEXT(handle, type)
 
 		ui.OpenContextMenu(context);
 	end
-end
-
-function POPUP_FURNITURE_CONTEXT(handle, type)
-	if ui.IsCursorOnUI() == true then
-		return;
-	end
-
-	if housing.IsEditMode() == false or housing.IsVisibleContextMenu() == false then
-		return;
-	end
-
-	local monsterClass = GetClassByType("Monster", type);
-	if monsterClass == nil then
-		return;
-	end
-
-	local furnitureClass = GetClass("Housing_Furniture", monsterClass.ClassName);
-	if furnitureClass == nil then
-		return;
-	end
-	
-	local viewName = string.format("%s", furnitureClass.Name);
-	local context = ui.CreateContextMenu("Housing_Furniture_Context", viewName, 0, 0, 50, 50);
-
-	local strscp = string.format("ON_HOUSING_EDITMODE_FURNITURE_MOVE(%d)", handle);
-	ui.AddContextMenuItem(context, ScpArgMsg("Housing_Context_Furniture_Move"), strscp);
-	
-	local strscp = string.format("ON_HOUSING_EDITMODE_FURNITURE_REMOVE(%d)", handle);
-	ui.AddContextMenuItem(context, ScpArgMsg("Housing_Context_Furniture_Remove"), strscp);
-	
-	ui.OpenContextMenu(context);
 end
 
 function ETC_TEST(handle)

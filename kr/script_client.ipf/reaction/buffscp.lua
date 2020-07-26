@@ -1328,3 +1328,11 @@ end
 function HiphopEffect_pre_LEAVE(actor, obj, buff)
     effect.DetachActorEffect(actor, "E_pc_effectitem_hiphop", 0);
 end
+
+function ITEM_EFFECT_LITTLEPRINCE_ENTER(actor, obj, buff)
+    effect.AddActorEffectByOffset(actor, "E_effectitem_littleprince", 0.4, "MID")
+end
+
+function ITEM_EFFECT_LITTLEPRINCE_LEAVE(actor, obj, buff)
+    effect.DetachActorEffect(actor, "E_effectitem_littleprince", 0)
+end

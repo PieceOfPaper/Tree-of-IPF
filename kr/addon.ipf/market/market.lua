@@ -205,7 +205,7 @@ function ON_MARKET_ITEM_LIST(frame, msg, argStr, argNum)
 			else
 				MARKET_DRAW_CTRLSET_CARD(frame)
 			end			
-		elseif groupName == "ExpOrb" then
+		elseif groupName == "ExpOrb" or groupName == "SubExpOrb" then
 			MARKET_DRAW_CTRLSET_EXPORB(frame)
 		elseif groupName == 'OPTMisc' then
 			MARKET_DRAW_CTRLSET_OPTMISC(frame)
@@ -283,7 +283,7 @@ function MARKET_DRAW_CTRLSET_DEFAULT(frame, isShowLevel)
 
 		MARKET_CTRLSET_SET_ICON(ctrlSet, itemObj, marketItem);
 
-		if itemObj.GroupName == "ExpOrb" then
+		if itemObj.GroupName == "ExpOrb" or itemObj.GroupName == "SubExpOrb" then
 			local curExp, maxExp = GET_LEGENDEXPPOTION_EXP(itemObj)
 			local expPoint = 0
 			if maxExp ~= nil and maxExp ~= 0 then

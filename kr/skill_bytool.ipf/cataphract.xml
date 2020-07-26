@@ -109,7 +109,18 @@
 					<Num Num="60"/>
 					<Num Num="999"/>
 				</Scp>
-			</EtcList>
+                <Scp Scp="SCR_PAD_DESTORY_BUILDUP_BUFF" Client="NO" UseSleep="NO" Time="300">
+                    <Pos Angle="0" Dist="200"/>
+                    <Str Str="ENEMY"/>
+                    <Num Num="50"/>
+                    <Num Num="1"/>
+                    <Str Str="Padbreak_Buff"/>
+                    <Num Num="10"/>
+                    <Num Num="10"/>
+                    <Str Str="None"/>
+                    <Num Num="1000"/>
+                    <Str_Arg Str="None" Arg="1"/>
+                </Scp>			</EtcList>
 		</MainSkl>
 	</Skill>
 	<Skill Name="Cataphract_DoomSpike">

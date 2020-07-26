@@ -1,4 +1,4 @@
-function MINIMIZED_PERSONAL_HOUSING_ON_INIT(addon, frame)
+﻿function MINIMIZED_PERSONAL_HOUSING_ON_INIT(addon, frame)
 	addon:RegisterMsg('GAME_START', 'MINIMIZED_PERSONAL_HOUSING_OPEN_EDIT_MODE');
 	addon:RegisterMsg('ENTER_PERSONAL_HOUSE', 'MINIMIZED_PERSONAL_HOUSING_OPEN_EDIT_MODE');
 	addon:RegisterMsg('SET_PERSONAL_HOUSE_NAME', 'SCR_SET_PERSONAL_HOUSE_NAME');
@@ -45,24 +45,8 @@ function SCR_SET_PERSONAL_HOUSE_NAME(frame, msg, argStr, argNum)
 	end
 	
 	local house_name = GET_CHILD_RECURSIVELY(frame, "house_name");
-	
-	local aidString = argStr;
-	local myAID = session.loginInfo.GetAID();
-	if aidString == myAID then
-		local myHandle = session.GetMyHandle();
-		house_name:SetTextByKey("value", info.GetFamilyName(myHandle));
-	else
-		local partyMemberList = session.party.GetPartyMemberList(PARTY_NORMAL);
-		local memberCount = partyMemberList:Count();
-		for i = 0, memberCount - 1 do
-			local memberInfo = partyMemberList:Element(i);
-			if memberInfo ~= nil then
-				if memberInfo:GetAID() == aidString then
-					house_name:SetTextByKey("value", memberInfo:GetName());
-					break;
-				end
-			end
-		end
+	if house_name ~= nil then
+		house_name:SetTextByKey("value", argStr);
 	end
 end
 

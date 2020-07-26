@@ -14,7 +14,6 @@ function TARGETBUFF_ON_INIT(addon, frame)
 	addon:RegisterMsg('TARGET_BUFF_UPDATE', 'TARGETBUFF_ON_MSG');
 	addon:RegisterMsg('TARGET_SET', 'TARGETBUFF_ON_MSG');
 	addon:RegisterMsg('TARGET_CLEAR', 'TARGETBUFF_ON_MSG');
-	
 	INIT_BUFF_UI(frame, t_buff_ui, "TARGET_BUFF_UPDATE");
 end 
 
@@ -54,4 +53,16 @@ function TARGETBUFF_ON_MSG(frame, msg, argStr, argNum)
 	end
 	
 	TARGET_BUFF_UPDATE(frame);
+	TARGETBUFF_RESIZE(frame, t_buff_ui);
 end 
+
+function TARGETBUFF_RESIZE(frame, buff_ui)
+	local buffcount_slotsets = buff_ui["slotsets"][0];
+	local buff_slotsets = buff_ui["slotsets"][1];
+	local debuff_slotsets = buff_ui["slotsets"][2];
+	local buffcount_subslotsets = buff_ui["slotsets"][3];
+
+	local height = buffcount_slotsets:GetHeight() + buffcount_subslotsets:GetHeight() + buff_slotsets:GetHeight() + debuff_slotsets:GetHeight();
+
+	frame:Resize(frame:GetWidth(), height + 20);
+end

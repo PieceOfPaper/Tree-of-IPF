@@ -68,6 +68,19 @@ function IS_BEAUTYSHOP_MAP(mapCls)
 	return false;
 end
 
+function IS_TOWN_MAP(mapCls)
+	if mapCls == nil then
+		return false;
+	end
+
+	local mapName = mapCls.ClassName;	
+	if mapName == 'c_fedimian' or mapName == 'c_Klaipe' or mapName == 'c_orsha' then
+		return true;
+	end
+
+	return false;
+end
+
 function GET_TOTAL_TP(accountObj)
 	if accountObj == nil then
 		return 0;

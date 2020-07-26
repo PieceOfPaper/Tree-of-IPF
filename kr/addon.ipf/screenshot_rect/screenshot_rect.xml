@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uiframe name="screenshot_rect" x="0" y="0" width="600" height="600" create="open">
+	<frame fullheight="false" fasthide="true" layout_gravity="center center" margin="0 0 0 0" draw="false"/>
+	<draw drawframe="false" drawtitlebar="false"/>
+	<layer layerlevel="97"/>
+	<input hittestframe="false" realsize="true"/>
+	<option hideable="true" autoopen="false" closebutton="false"/>
+	<animation frameOpenAnim="chat_balloon_start" frameCloseAnim="chat_balloon_end2"/>
+	<script CloseScp="SCREENSHOT_RECT_UI_CLOSE"/>
+	<controls>
+		<picture name="line_pic" rect="0 0 344 302" margin="0 0 0 0" layout_gravity="center center" image="housing_capture_range" stretch="true" hittest="false"/>
+		<button name="closeBtn" rect="0 0 100 45" margin="-80 170 0 0" layout_gravity="center center" caption="{@st41b}{s16}취소" skin="test_gray_button" LBtnUpScp="SCREENSHOT_RECT_CLOSE_BTN_CLICK"/>
+		<button name="checkBtn" rect="0 0 100 45" margin="80 170 0 0" layout_gravity="center center" caption="{@st41b}{s16}캡처" skin="test_red_button" LBtnUpScp=""/>
+	</controls>
+</uiframe>

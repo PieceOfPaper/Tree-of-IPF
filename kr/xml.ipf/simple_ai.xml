@@ -964,7 +964,52 @@
             </ToolScp>
         </StartList>
     </AI>
-    <AI Name="ASIOMAGE_THBOW_RABBIT_SIMPLE_AI" ActiveMessageMapInBattle="1" UpdateMS="1000" >
+    <AI Name="ANCIENT_QUEST_DUNGEON_SELF_KILL" ActiveMessageMapInBattle="1">
+        <List>
+            <ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+                <Str Str="SCR_ANCIENT_QUEST_DUNGEON_SELF_KILL_SIMPLE_AI"/>
+            </ToolScp>
+        </List>
+    </AI>
+    <AI Name="ANCIENT_QUEST_OBJECT" UpdateMS="1000" ActiveMessageMapInBattle="1">
+        <List>
+            <ToolScp Scp="S_AI_EFFECT" Client="NO" UseSleep="NO">
+                <Num Num="0"/>
+                <Str_Arg Str="I_pc_question_arrow_mash" Arg="1"/>
+                <Str Str="TOP"/>
+            </ToolScp>
+        </List>
+    </AI>
+    <AI Name="ANCIENT_QUEST_OBJECT2" UpdateMS="1000" ActiveMessageMapInBattle="1">
+        <List>
+            <ToolScp Scp="S_AI_EFFECT" Client="NO" UseSleep="NO">
+                <Num Num="0"/>
+                <Str_Arg Str="I_pc_question_arrow_mash" Arg="1"/>
+                <Str Str="TOP"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_CUSTOM_SCRIPT" Client="NO" UseSleep="YES">
+                <Str Str="ANCIENT_QUEST3_DUNGEON_AI"/>
+                <Num Num="0"/>
+            </ToolScp>
+        </List>
+    </AI>
+    <AI Name="ANCIENT_QUEST_OBJECT3" UpdateMS="1000" ActiveMessageMapInBattle="1">
+        <List>
+            <ToolScp Scp="S_AI_EFFECT" Client="NO" UseSleep="NO">
+                <Num Num="0"/>
+                <Str_Arg Str="I_pc_question_arrow_mash" Arg="1"/>
+                <Str Str="TOP"/>
+            </ToolScp>
+        </List>
+    </AI>
+    <AI Name="ANCIENT_SOLO_DUNGEON_SELF_KILL" ActiveMessageMapInBattle="1">
+        <List>
+            <ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+                <Str Str="SCR_ANCIENT_SOLO_DUNGEON_SELF_KILL_SIMPLE_AI"/>
+            </ToolScp>
+        </List>
+    </AI>
+    <AI Name="ASIOMAGE_THBOW_RABBIT_SIMPLE_AI" UpdateMS="1000" ActiveMessageMapInBattle="1">
         <List>
             <ToolScp Scp="S_AI_CUSTOM_SCRIPT" Client="NO" UseSleep="YES">
                 <Str Str="SCR_ASIOMAGE_THBOW_RABBIT_SIMPLE_AI"/>
@@ -18031,6 +18076,13 @@ if self.HP == 0 then return 1; else return 0; end;">
             </ToolScp>
         </List>
     </AI>
+    <AI Name="ANCIENT_SOLO_DUNGEON_SELF_KILL" ActiveMessageMapInBattle="1">
+        <List>
+            <ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+                <Str Str="SCR_ANCIENT_SOLO_DUNGEON_SELF_KILL_SIMPLE_AI"/>
+            </ToolScp>
+        </List>
+    </AI>
     <AI Name="SOUT_LAST_POINT" UpdateMS="1000" ActiveMessageMapInBattle="1">
         <List>
             <ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
@@ -24450,6 +24502,13 @@ if self.HP == 0 then return 1; else return 0; end;">
             </ToolScp>
         </List>
     </AI>
+	<AI Name="companion_pet_school_dodo" ActiveMessageMapInBattle="1">
+		<List>
+			<ToolScp Scp="SAI_FUNC2_DIRECT_SLEEP" Client="NO" UseSleep="YES">
+				<Str Str="PET_LOOP_AI"/>
+			</ToolScp>
+		</List>
+	</AI>
     <AI Name="companion_pet_weddingbird" ActiveMessageMapInBattle="1">
         <List>
             <ToolScp Scp="SAI_FUNC2_DIRECT_SLEEP" Client="NO" UseSleep="YES">

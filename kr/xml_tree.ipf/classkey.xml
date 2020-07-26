@@ -447,6 +447,7 @@
         <Key Name="ArkExp" Value="104745"/>
         <Key Name="ArkLevel" Value="104744"/>
         <Key Name="ADD_BOSS_ATK" Value="104929"/>
+        <Key Name="ChangeBasicPropValue" Value="105151"/>
     </KeyIDSpc>
     <KeyIDSpc Name="Party">
         <Key Name="P_PARTY_Q_040" Value="53"/>
@@ -2360,6 +2361,21 @@
         <Key Name="EVENT_2004_UPHILL_PLAY_TIME_BOX" Value="105142"/>
         <Key Name="InDunCountType_1302" Value="105144"/>
         <Key Name="PVP_MINE_TradeCount10" Value="105139"/>
+        <Key Name="ASSISTORQUEST_01REWARD_CHECK" Value="105179"/>
+        <Key Name="ASSISTORQUEST_01REWARD_CLASSNAME" Value="105178"/>
+        <Key Name="ASSISTORQUEST_TEAMCLEAR_CHECK" Value="105177"/>
+        <Key Name="EVENT_ASSISTORQUEST_EMOTICON" Value="105184"/>
+        <Key Name="GODDESS_ROULETTE_COIN_ACQUIRE_COUNT" Value="105180"/>
+        <Key Name="GODDESS_ROULETTE_DAILY_CONTENTS_ACQUIRE_COUNT" Value="105182"/>
+        <Key Name="GODDESS_ROULETTE_DAILY_PLAY_TIME_MINUTE" Value="105181"/>
+        <Key Name="GODDESS_ROULETTE_USE_ROULETTE_COUNT" Value="105183"/>
+        <Key Name="ANCIENT_MAX_COST" Value="105190"/>
+        <Key Name="ANCIENT_SOLO_STAGE" Value="105191"/>
+        <Key Name="ANCIENT_SOLO_STAGE_DAY" Value="105193"/>
+        <Key Name="ANCIENT_SOLO_STAGE_WEEK" Value="105192"/>
+        <Key Name="ANCIENT_INSERT_SKILL" Value="105200"/>
+        <Key Name="ANCIENT_UNLOCK_UI" Value="105199"/>
+        <Key Name="PVP_MINE_TradeCount11" Value="105202"/>
     </KeyIDSpc>
     <KeyIDSpc Name="PCEtc">
         <Key Name="Kill_boss_Clymen_Q2" Value="7788"/>
@@ -10626,6 +10642,36 @@
         <Key Name="Kill_event_Beetle_Elite" Value="105134"/>
         <Key Name="Kill_event_Grummer_orange" Value="105136"/>
         <Key Name="Kill_weekly_boss_Marnoks" Value="105150"/>
+        <Key Name="ASSISTOR_TUTO_04_TRACK" Value="105176"/>
+        <Key Name="HaveEmoticon_100" Value="105175"/>
+        <Key Name="HaveEmoticon_77" Value="105152"/>
+        <Key Name="HaveEmoticon_78" Value="105153"/>
+        <Key Name="HaveEmoticon_79" Value="105154"/>
+        <Key Name="HaveEmoticon_80" Value="105155"/>
+        <Key Name="HaveEmoticon_81" Value="105156"/>
+        <Key Name="HaveEmoticon_82" Value="105157"/>
+        <Key Name="HaveEmoticon_83" Value="105158"/>
+        <Key Name="HaveEmoticon_84" Value="105159"/>
+        <Key Name="HaveEmoticon_85" Value="105160"/>
+        <Key Name="HaveEmoticon_86" Value="105161"/>
+        <Key Name="HaveEmoticon_87" Value="105162"/>
+        <Key Name="HaveEmoticon_88" Value="105163"/>
+        <Key Name="HaveEmoticon_89" Value="105164"/>
+        <Key Name="HaveEmoticon_90" Value="105165"/>
+        <Key Name="HaveEmoticon_91" Value="105166"/>
+        <Key Name="HaveEmoticon_92" Value="105167"/>
+        <Key Name="HaveEmoticon_93" Value="105168"/>
+        <Key Name="HaveEmoticon_94" Value="105169"/>
+        <Key Name="HaveEmoticon_95" Value="105170"/>
+        <Key Name="HaveEmoticon_96" Value="105171"/>
+        <Key Name="HaveEmoticon_97" Value="105172"/>
+        <Key Name="HaveEmoticon_98" Value="105173"/>
+        <Key Name="HaveEmoticon_99" Value="105174"/>
+        <Key Name="Kill_Baby_Hauberk" Value="105196"/>
+        <Key Name="Kill_Baby_Marnoks" Value="105195"/>
+        <Key Name="Kill_Baby_Marnoks_Q1" Value="105198"/>
+        <Key Name="Kill_Baby_Skiaclipse" Value="105194"/>
+        <Key Name="Kill_boss_molich_Q2" Value="105197"/>
     </KeyIDSpc>
     <KeyIDSpc Name="GuildMember">
         <Key Name="Name" Value="9011"/>
@@ -11193,6 +11239,30 @@
         <Key Name="PlayTimeRecord" Value="104770"/>
         <Key Name="BOSS_ATK" Value="104932"/>
         <Key Name="BOSS_ATK_BM" Value="104931"/>
+        <Key Name="Arrow_Atk" Value="105220"/>
+        <Key Name="Arrow_Atk_BM" Value="105206"/>
+        <Key Name="Cannon_Atk" Value="105221"/>
+        <Key Name="Cannon_Atk_BM" Value="105212"/>
+        <Key Name="Gun_Atk" Value="105222"/>
+        <Key Name="Gun_Atk_BM" Value="105216"/>
+        <Key Name="Magic_Dark_Atk" Value="105210"/>
+        <Key Name="Magic_Dark_Atk_BM" Value="105207"/>
+        <Key Name="Magic_Earth_Atk" Value="105205"/>
+        <Key Name="Magic_Earth_Atk_BM" Value="105217"/>
+        <Key Name="Magic_Fire_Atk" Value="105226"/>
+        <Key Name="Magic_Fire_Atk_BM" Value="105209"/>
+        <Key Name="Magic_Holy_Atk" Value="105211"/>
+        <Key Name="Magic_Holy_Atk_BM" Value="105219"/>
+        <Key Name="Magic_Ice_Atk" Value="105203"/>
+        <Key Name="Magic_Ice_Atk_BM" Value="105225"/>
+        <Key Name="Magic_Lightning_Atk" Value="105204"/>
+        <Key Name="Magic_Lightning_Atk_BM" Value="105223"/>
+        <Key Name="Magic_Melee_Atk" Value="105224"/>
+        <Key Name="Magic_Melee_Atk_BM" Value="105218"/>
+        <Key Name="Magic_Poison_Atk" Value="105208"/>
+        <Key Name="Magic_Poison_Atk_BM" Value="105214"/>
+        <Key Name="Magic_Soul_Atk" Value="105213"/>
+        <Key Name="Magic_Soul_Atk_BM" Value="105215"/>
     </KeyIDSpc>
     <KeyIDSpc Name="Skill">
         <Key Name="OnNeutral" Value="6715"/>
@@ -19054,6 +19124,12 @@
         <Key Name="EVENT_2004_UPHILL_AP_EXTRACT_COUPON" Value="105148"/>
         <Key Name="EVENT_2004_UPHILL_MISSION_FIRSTCLEAR" Value="105147"/>
         <Key Name="MG_Last_EVENT_2004_UPHILL_MISSION" Value="105149"/>
+        <Key Name="ASSISTOR_TUTO_01" Value="105185"/>
+        <Key Name="ASSISTOR_TUTO_02" Value="105186"/>
+        <Key Name="ASSISTOR_TUTO_03" Value="105187"/>
+        <Key Name="ASSISTOR_TUTO_04" Value="105188"/>
+        <Key Name="ASSISTOR_TUTO_05" Value="105189"/>
+        <Key Name="MG_Last_SOLO_DUNGEON_MINI_ANCIENT_QUEST" Value="105201"/>
     </KeyIDSpc>
     <KeyIDSpc Name="Monster">
         <Key Name="MaxHate" Value="6671"/>

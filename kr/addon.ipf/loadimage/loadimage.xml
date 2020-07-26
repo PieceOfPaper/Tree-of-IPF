@@ -5,7 +5,7 @@
 	<skin frameskin="test_frame_low"/>
 	<frame fullheight="false" hittest="false" fasthide="true" layout_gravity="center center"/>
 	<input moveable="true" hittestframe="true" moveintitlebar="false"/>
-	<layer layerlevel="93"/>
+	<layer layerlevel="104"/>
 	<option closebutton="false"/>
 	<sound opensound="inven_win_open" closesound="inven_win_close"/>
 	<opencheck scp="LOADIMAGE_INIT"/>
@@ -15,7 +15,7 @@
 		<!-- top -->
 		<groupbox name="gb_top" rect="0 0 370 110" margin="0 0 0 0" layout_gravity="left top" draw="true" hittestbox="false" resizebyparent="false" scrollbar="false" skin="test_frame_top"/>
 		<richtext name="title_text" parent="gb_top" rect="0 0 180 30" margin="0 16 0 0" layout_gravity="center top" format="{@st43}이미지 %s{/}" param1="register" param1_def="등록" fontname="white_20_ol_ds" resizebytext="true"/>
-		<picture name="helpPic" rect="0 0 50 50" margin="28 20 0 0" layout_gravity="left top" image="testquesten_button" texttooltip="{@st59b}이미지 등록{nl}{@st59s}-폴더 열기 버튼을 통해 폴더에 이미지를 등록{nl}-새로고침을 통해 리스트를 갱신, 선택 후 확인"/>
+		<picture name="helpPic" rect="0 0 50 50" margin="28 20 0 0" layout_gravity="left top" image="testquesten_button" texttooltip="{@st59b}이미지 등록{nl}{@st59s}-폴더 열기 버튼을 통해 폴더에 이미지를 등록{nl}-새로고침을 통해 리스트를 갱신, 선택 후 확인{nl}-최대 10개의 이미지만 표시됩니다."/>
 		<button name="browseBtn" parent="gb_top" rect="0 0 170 45" margin="10 60 0 0" layout_gravity="left top" skin="test_pvp_btn" caption="{@st66b}{s18}폴더 열기" fontname="white_16_b_ol" LBtnUpScp="LOAD_IMAGE_OPEN_SAVE_FOLDER" texttooltip="이미지 등록된 폴더를 열어줍니다."/>
 		<button name="reloadBtn" parent="gb_top" rect="0 0 45 45" margin="0 60 10 0" layout_gravity="right top" image="market_reset2_btn" texttooltip="리스트를 갱신합니다." LBtnDownScp="LOAD_IMAGE_RELOAD" stretch="false"/>
 		<!-- body -->

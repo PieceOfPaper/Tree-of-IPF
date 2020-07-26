@@ -1942,7 +1942,9 @@ function RAID_RANKING_INFO_UPDATE(code, ret_json)
     finishedLoading = true;
     
     if code ~= 200 then
-        SHOW_GUILD_HTTP_ERROR(code, ret_json, "ON_CLAIM_GET");
+        if code == 500 then
+            ui.SysMsg(ScpArgMsg('CantExecInThisArea'));
+        end
         
         local frame = ui.GetFrame("induninfo");
         RAID_RANKING_CATEGORY_INIT(frame);

@@ -961,7 +961,7 @@ function CREATE_QUEST_REWARE_CTRL(box, y, index, ItemName, itemCnt, callFunc, tr
 
 end
 
-function CREATE_ANCIENT_MON_CTRL(box, y, index, ItemName, itemCnt, targetItemName, targetName, targetCost)
+function CREATE_ANCIENT_CARD_CTRL(box, y, index, ItemName, itemCnt, targetItemName, targetName, targetCost)
 end
 
 

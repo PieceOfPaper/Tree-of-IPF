@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<Controller>
+	<JiggleBone Version="3">
+		<Info NumIteration="10" FixedTimeStep="0.033333302" Gravity="0.000000 -9.810000 0.000000"/>
+		<Group>
+			<Chain StartNode="C01_LongA_01" EndNode="C01_LongA_nub" LimitAngle="30" Friction="0" GravityFactor="1" Damping="0.150000 0.150000 0.150000" Stiffness="150" InvMass="1" Fixed="1" AllowStretch="0" ExternalForce="0.000000 0.000000 0.000000"/>
+		</Group>
+		<Group>
+			<Chain StartNode="C01_LongB_01" EndNode="C01_LongB_nub" LimitAngle="30" Friction="0" GravityFactor="1" Damping="0.150000 0.150000 0.150000" Stiffness="150" InvMass="1" Fixed="1" AllowStretch="0" ExternalForce="0.000000 0.000000 0.000000"/>
+		</Group>
+		<Group>
+			<Chain StartNode="C01_LongC_01" EndNode="C01_LongC_nub" LimitAngle="30" Friction="0" GravityFactor="1" Damping="0.150000 0.150000 0.150000" Stiffness="150" InvMass="1" Fixed="1" AllowStretch="0" ExternalForce="0.000000 0.000000 0.000000"/>
+		</Group>
+		<Group>
+			<Chain StartNode="C03_LongA_01" EndNode="C03_LongA_nub" LimitAngle="30" Friction="0" GravityFactor="1" Damping="0.150000 0.150000 0.150000" Stiffness="150" InvMass="1" Fixed="1" AllowStretch="0" ExternalForce="0.000000 0.000000 0.000000"/>
+		</Group>
+		<Group>
+			<Chain StartNode="C03_LongB_01" EndNode="C03_LongB_nub" LimitAngle="30" Friction="0" GravityFactor="1" Damping="0.150000 0.150000 0.150000" Stiffness="150" InvMass="1" Fixed="1" AllowStretch="0" ExternalForce="0.000000 0.000000 0.000000"/>
+		</Group>
+		<Group>
+			<Chain StartNode="C03_LongC_01" EndNode="C03_LongC_nub" LimitAngle="30" Friction="0" GravityFactor="1" Damping="0.150000 0.150000 0.150000" Stiffness="150" InvMass="1" Fixed="1" AllowStretch="0" ExternalForce="0.000000 0.000000 0.000000"/>
+		</Group>
+		<Group>
+			<Chain StartNode="C05_LongA_01" EndNode="C05_LongA_nub" LimitAngle="30" Friction="0" GravityFactor="1" Damping="0.150000 0.150000 0.150000" Stiffness="150" InvMass="1" Fixed="1" AllowStretch="0" ExternalForce="0.000000 0.000000 0.000000"/>
+		</Group>
+		<Group>
+			<Chain StartNode="C05_LongB_01" EndNode="C05_LongB_nub" LimitAngle="30" Friction="0" GravityFactor="1" Damping="0.150000 0.150000 0.150000" Stiffness="150" InvMass="1" Fixed="1" AllowStretch="0" ExternalForce="0.000000 0.000000 0.000000"/>
+		</Group>
+		<Group>
+			<Chain StartNode="C05_LongC_01" EndNode="C05_LongC_nub" LimitAngle="30" Friction="0" GravityFactor="1" Damping="0.150000 0.150000 0.150000" Stiffness="150" InvMass="1" Fixed="1" AllowStretch="0" ExternalForce="0.000000 0.000000 0.000000"/>
+		</Group>
+		<Group>
+			<Chain StartNode="C07_LongA_01" EndNode="C07_LongA_nub" LimitAngle="30" Friction="0" GravityFactor="1" Damping="0.150000 0.150000 0.150000" Stiffness="150" InvMass="1" Fixed="1" AllowStretch="0" ExternalForce="0.000000 0.000000 0.000000"/>
+		</Group>
+		<Group>
+			<Chain StartNode="C07_LongB_01" EndNode="C07_LongB_nub" LimitAngle="30" Friction="0" GravityFactor="1" Damping="0.150000 0.150000 0.150000" Stiffness="150" InvMass="1" Fixed="1" AllowStretch="0" ExternalForce="0.000000 0.000000 0.000000"/>
+		</Group>
+		<Group>
+			<Chain StartNode="C07_LongC_01" EndNode="C07_LongC_nub" LimitAngle="30" Friction="0" GravityFactor="1" Damping="0.150000 0.150000 0.150000" Stiffness="150" InvMass="1" Fixed="1" AllowStretch="0" ExternalForce="0.000000 0.000000 0.000000"/>
+		</Group>
+		<Group>
+			<Chain StartNode="C09_LongA_01" EndNode="C09_LongA_nub" LimitAngle="30" Friction="0" GravityFactor="1" Damping="0.150000 0.150000 0.150000" Stiffness="150" InvMass="1" Fixed="1" AllowStretch="0" ExternalForce="0.000000 0.000000 0.000000"/>
+		</Group>
+		<Group>
+			<Chain StartNode="C09_LongB_01" EndNode="C09_LongB_nub" LimitAngle="30" Friction="0" GravityFactor="1" Damping="0.150000 0.150000 0.150000" Stiffness="150" InvMass="1" Fixed="1" AllowStretch="0" ExternalForce="0.000000 0.000000 0.000000"/>
+		</Group>
+		<Group>
+			<Chain StartNode="C09_LongC_01" EndNode="C09_LongC_nub" LimitAngle="30" Friction="0" GravityFactor="1" Damping="0.150000 0.150000 0.150000" Stiffness="150" InvMass="1" Fixed="1" AllowStretch="0" ExternalForce="0.000000 0.000000 0.000000"/>
+		</Group>
+	</JiggleBone>
+</Controller>

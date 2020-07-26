@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by Hey (IMCGames Co., Ltd) -->
+<uiframe name="minimized_housing_promote_board" x="0" y="0" width="130" height="80">
+	<frame layout_gravity="right top" margin="0 407 400 0"/>
+	<layer layerlevel="32"/>
+	<draw drawtitlebar="false" drawframe="false"/>
+	<option visible="true" closebutton="false" useimageitem="true" piptype="right" autoopen="true" hideable="false"/>
+	<controls>
+		<button name="openBtn" rect="0 0 120 60" margin="0 0 0 0"  layout_gravity="center center" image="btn_housing_editmode" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" caption="" clicksound="button_click_3" oversound="button_cursor_over_2" LBtnDownScp="REQUEST_HOUSING_PROMOTE_BOARD_OPEN"/>
+		<richtext name="title" rect="0 0 120 30" margin="0 25 0 0" layout_gravity="center center" format="{@st66d_y}{s16}%s" param1="value" param1_def="개인 하우징" fontname="white_18_b" spacey="0" hittest="false"/>
+	</controls>
+</uiframe>
