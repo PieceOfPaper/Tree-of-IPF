@@ -379,6 +379,7 @@ end
 
 function ICORRELEASE_RANDOM_MULTIPLE_EXEC(frame)
 	frame = frame:GetTopParentFrame()
+	local invframe = ui.GetFrame("inventory")
 
 	local totalPrice = 0
 	local max_count = GET_ICOR_MULTIPLE_MAX_COUNT()
@@ -391,7 +392,7 @@ function ICORRELEASE_RANDOM_MULTIPLE_EXEC(frame)
 				ui.SysMsg(ClMsg("MaterialItemIsLock"))
 				return
 			end
-			
+
 			local invItemObj = GetIES(invItem:GetObject())
 			local eachPrice = GET_OPTION_RELEASE_COST(invItemObj, GET_COLONY_TAX_RATE_CURRENT_MAP())
 
