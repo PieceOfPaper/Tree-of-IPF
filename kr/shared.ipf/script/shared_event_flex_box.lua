@@ -2,10 +2,6 @@ function GET_EVENT_FLEX_BOX_CONSUME_CLASSNAME()
     return "EVENT_Flex_Gold_Moneybag";
 end
 
--- 획득 가능 최대 수량
-function GET_EVENT_FLEX_BOX_MAX_CONSUME_COUNT()
-    return 2000;
-end
 
 -- 일일 1시간 접속 보상 획득 가능 최대 수량
 function GET_EVENT_FLEX_BOX_DAILY_PLAY_TIME_MAX_CONSUME_COUNT()
@@ -58,14 +54,6 @@ end
 -- 주머니 획득 가능 여부 확인
 function ENABLE_ACQURE_EVENT_FLEX_BOX_CONSUME(accObj, count)
     local curCnt = TryGetProp(accObj, "EVENT_FLEX_BOX_ACQUIRE_CONSUME_COUNT")
-
-    if GET_EVENT_FLEX_BOX_MAX_CONSUME_COUNT() <= curCnt then
-        return false;
-    end
-
-    if GET_EVENT_FLEX_BOX_MAX_CONSUME_COUNT() <= curCnt + count then
-        count = GET_EVENT_FLEX_BOX_MAX_CONSUME_COUNT() - curCnt;
-    end
 
     if tonumber(count) <= 0 then
         return false;

@@ -153,18 +153,18 @@
             </HitList>
             <EtcList>
                 <Scp Scp="SKL_BUFF" Client="NO" UseSleep="NO" Time="0">
-                <Str Str="" UseFunc="1" FuncTxt="local self = GetSkillOwner(obj); if IsBuffApplied(self, 'SnipersSerenity_Buff') == 'YES' then RemoveBuff(self, 'SnipersSerenity_Buff'); return &quot;None&quot;; end if IsJumping(self) == 1 then return &quot;None&quot;; else return &quot;SnipersSerenity_Buff&quot;; end"/>
-                <Num Num="0" UseFunc="1" FuncTxt="return obj.Level;"/>
-                <Num Num="0"/>
-                <Num Num="30000"/>
-                <Num Num="1" UseFunc="1" FuncTxt="local value = 1
+                    <Str Str="" UseFunc="1" FuncTxt="local self = GetSkillOwner(obj); if IsBuffApplied(self, 'SnipersSerenity_Buff') == 'YES' then RemoveBuff(self, 'SnipersSerenity_Buff'); return &quot;None&quot;; end if IsJumping(self) == 1 then return &quot;None&quot;; else return &quot;SnipersSerenity_Buff&quot;; end"/>
+                    <Num Num="0" UseFunc="1" FuncTxt="return obj.Level;"/>
+                    <Num Num="0"/>
+                    <Num Num="30000"/>
+                    <Num Num="1" UseFunc="1" FuncTxt="local value = 1
                 local abil = GetAbility(self, 'Musketeer37');
                 if abil ~= nil and abil.ActiveState == 1 then
                 value = 6;
                 end
                 return value"/>
-                <Num Num="100"/>
-                <Num Num="0"/>
+                    <Num Num="100"/>
+                    <Num Num="0"/>
                 </Scp>
             </EtcList>
         </MainSkl>
@@ -823,19 +823,19 @@
         </MainSkl>
     </Skill>
     <Skill Name="Musketeer_HeadShot">
-        <MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+        <MainSkl ScrLock="None" JumpFlee="NO" MSPDToUsePos="0">
             <HitList>
-                <Frame Angle="0" AniTime="1100" Dist="0" ForceATK="1" HitCount="1" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="900" Type="FAN"/>
+                <Frame Type="FAN" Time="700" HitCount="1" TermMin="0" TermMax="0" PosType="0" Dist="0" RandDist="0" RandomPerHit="0" Angle="0" SklAngle="0.17453292" AniTime="900" RotAngle="0" ForceATK="1" ScriptIndex="0" ScriptName="" SkillType="0"/>
             </HitList>
             <EtcList>
-                <Scp Client="YES" Scp="C_VOICE_SOUND" Time="800" UseSleep="NO">
+                <Scp Scp="C_VOICE_SOUND" Client="YES" UseSleep="NO" Time="800">
                     <Str Str="voice_war_atk_medium"/>
                     <Str Str="voice_atk_medium_war_f"/>
                 </Scp>
-                <Scp Client="YES_Time" Scp="C_FORCE_EFT" Time="800" UseSleep="NO">
-                    <Str_Arg Arg="2" Str="I_archer_musket_HeadShot#Dummy_effect_mus_force"/>
+                <Scp Scp="C_FORCE_EFT" Client="YES_Time" UseSleep="NO" Time="800">
+                    <Str_Arg Str="I_archer_musket_HeadShot#Dummy_effect_mus_force" Arg="2"/>
                     <Str Str="arrow_cast"/>
-                    <Str_Arg Arg="1" Str="F_archer_pistol_hit"/>
+                    <Str_Arg Str="F_archer_pistol_hit" Arg="1"/>
                     <Str Str="arrow_blow"/>
                     <Str Str="SLOW"/>
                     <Num Num="500"/>
@@ -854,22 +854,22 @@
                 </Scp>
             </EtcList>
             <ResultList>
-                <ToolScp Client="NO" Scp="S_R_TGTBUFF" UseSleep="NO">
+                <ToolScp Scp="S_R_TGTBUFF" Client="NO" UseSleep="NO">
                     <Str Str="HeadShot_Debuff"/>
-                    <Num FuncTxt=" return skill.Level" Num="1" UseFunc="1"/>
+                    <Num Num="1" UseFunc="1" FuncTxt=" return skill.Level"/>
                     <Num Num="0"/>
                     <Num Num="10000"/>
                     <Num Num="1"/>
                     <Num Num="100"/>
                     <Num Num="-1"/>
                 </ToolScp>
-                <ToolScp Client="NO" Scp="S_R_TGT_Decrease_heal_debuff" UseSleep="NO">
-                    <Str FuncTxt="local func_name = 'get_decrease_heal_debuff_tooltip_' .. TryGetProp(skill, 'ClassName', 'None')
+                <ToolScp Scp="S_R_TGT_Decrease_heal_debuff" Client="NO" UseSleep="NO">
+                    <Str Str="0" UseFunc="1" FuncTxt="local func_name = 'get_decrease_heal_debuff_tooltip_' .. TryGetProp(skill, 'ClassName', 'None')
                local func = _G[func_name]
                if func == nil then return end
-               return func(skill.Level)" Str="0" UseFunc="1"/>
+               return func(skill.Level)"/>
                 </ToolScp>
-                <ToolScp Client="NO" Scp="S_R_SPIN_OBJECT" UseSleep="YES">
+                <ToolScp Scp="S_R_SPIN_OBJECT" Client="NO" UseSleep="YES">
                     <Num Num="0"/>
                     <Num Num="5"/>
                     <Num Num="0.2"/>
@@ -877,7 +877,7 @@
                     <Num Num="1500"/>
                     <Str Str="None"/>
                 </ToolScp>
-                <ToolScp Client="NO" Scp="S_R_TGTBUFF" UseSleep="NO">
+                <ToolScp Scp="S_R_TGTBUFF" Client="NO" UseSleep="NO">
                     <Str Str="Stun"/>
                     <Num Num="1"/>
                     <Num Num="0"/>
@@ -886,7 +886,7 @@
                     <Num Num="100"/>
                     <Num Num="-1"/>
                 </ToolScp>
-                <ToolScp Client="NO" Scp="S_R_TGTBUFF" UseSleep="NO">
+                <ToolScp Scp="S_R_TGTBUFF" Client="NO" UseSleep="NO">
                     <Str Str="CriticalWound"/>
                     <Num Num="1"/>
                     <Num Num="0"/>

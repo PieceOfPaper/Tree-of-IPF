@@ -124,7 +124,7 @@ function EVENT_PROGRESS_CHECK_ACQUIRE_STATE_OPEN(frame, type)
 		local curvalue = curlist[i];
 		local maxvalue = maxlist[i];
 
-		if maxvalue <= curvalue then
+		if maxvalue <= curvalue and maxvalue ~= 0 then
 			blackbg:ShowWindow(1);
 			blackbg:SetAlpha(90);
 
@@ -153,7 +153,10 @@ function EVENT_PROGRESS_CHECK_ACQUIRE_STATE_OPEN(frame, type)
 		end
 		
 		state:SetTextByKey('cur', curvalue);
-		state:SetTextByKey('max', maxvalue);
+		state:SetTextByKey('max', " / "..maxvalue);
+		if maxvalue == 0 then
+			state:SetTextByKey('max', "");
+		end
 
 		y = y + ctrlSet:GetHeight();
 	end
