@@ -13,36 +13,6 @@ function GET_NINJA_SKILLS()
 	retList[#retList + 1] = "Shinobi_Mijin_no_jutsu";
 	retList[#retList + 1] = "Shinobi_Katon_no_jutsu";
 	retList[#retList + 1] = "Shinobi_Raiton_no_Jutsu";
---	retList[#retList + 1] = "Swordman_Thrust";
---	retList[#retList + 1] = "Swordman_Bash";
---	retList[#retList + 1] = "Swordman_DoubleSlash";
---	retList[#retList + 1] = "Swordman_PommelBeat";
---	retList[#retList + 1] = "Peltasta_UmboBlow";
---	retList[#retList + 1] = "Peltasta_RimBlow";
---	retList[#retList + 1] = "Peltasta_ButterFly";
---	retList[#retList + 1] = "Peltasta_Langort";
---	retList[#retList + 1] = "Highlander_Crown";
---	retList[#retList + 1] = "Highlander_Moulinet";
---	retList[#retList + 1] = "Hoplite_SynchroThrusting";
---	retList[#retList + 1] = "Barbarian_Cleave";
---	retList[#retList + 1] = "Barbarian_Seism";
---	retList[#retList + 1] = "Rodelero_ShootingStar";
---	retList[#retList + 1] = "Rodelero_ShieldBash";
---	retList[#retList + 1] = "Rodelero_TargeSmash";
---	retList[#retList + 1] = "Corsair_DustDevil";
---	retList[#retList + 1] = "Corsair_HexenDropper";
---	retList[#retList + 1] = "Corsair_ImpaleDagger";
---	retList[#retList + 1] = "Doppelsoeldner_Mordschlag";
---	retList[#retList + 1] = "Doppelsoeldner_Zwerchhau";
---	retList[#retList + 1] = "Doppelsoeldner_Sturzhau";
---	retList[#retList + 1] = "Fencer_SeptEtoiles";
---	retList[#retList + 1] = "Fencer_AttaqueComposee";
---	retList[#retList + 1] = "Fencer_Fleche";
---	retList[#retList + 1] = "Dragoon_Dragontooth";
---	retList[#retList + 1] = "Dragoon_Dragon_Soar";
---	retList[#retList + 1] = "NakMuay_Attack";
---	retList[#retList + 1] = "Templer_MortalSlash";
---	retList[#retList + 1] = "Squire_DeadlyCombo";
 	return retList;
 
 end

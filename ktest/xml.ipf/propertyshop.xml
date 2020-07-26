@@ -67,7 +67,7 @@
 		<Item Script="None" Name="Ghaca_Guild_Contribution_Shop_MISC" Count="1" Price="20" DailyBuyLimit="0"/>
 	</Shop>
 	<Shop Name="GUILD_MILEAGE_SHOP" PointScript="GET_GUILD_MILEAGE_POINT">
-		<Item Script="None" Name="GuildQuestEnterCount_1add" Count="1" Price="1000" DailyBuyLimit="0"/>
+		<Item Script="None" Name="GuildQuestEnterCount_1add" Count="1" Price="5000" DailyBuyLimit="0"/>
 	</Shop>
 	<Shop Name="CONTENTS_TOTAL_SHOP" PointScript="GET_CONTENTS_TOTAL_POINT">
 		<Item Script="None" Name="egg_003_ContentsTotalShop" Count="1" Price="4000" DailyBuyLimit="0" AccountNeedProperty="ContentsTotalShop_2002_1"/>

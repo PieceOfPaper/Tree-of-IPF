@@ -571,7 +571,7 @@ function GET_ITEM_ICON_IMAGE(itemCls, gender)
 				iconImg = cls.Icon;
 			 end
 		end
-	elseif itemCls.GroupName == "ExpOrb" then
+	elseif itemCls.GroupName == "ExpOrb" or itemCls.GroupName == "SubExpOrb" then
 		local exp = TryGetProp(itemCls, "ItemExpString");
 		local maxExp = TryGetProp(itemCls, "NumberArg1");
 		if exp ~= nil and maxExp ~= nil then 

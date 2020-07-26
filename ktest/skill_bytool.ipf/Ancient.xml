@@ -107,6 +107,61 @@
             </EtcList>
         </MainSkl>
     </Skill>
+    <Skill Name="Ancient_Move_Hold">
+        <MainSkl ScrLock="None" JumpFlee="NO" MSPDToUsePos="0">
+            <HitList>
+                <Frame Type="FAN" Time="99799" HitCount="1" TermMin="0" TermMax="0" PosType="0" Dist="0" RandDist="0" RandomPerHit="0" Angle="0" Width="30" Length="30" SklAngle="0.17453292" AniTime="99999" RotAngle="0" ForceATK="0" ScriptIndex="0" ScriptName="" SkillType="0"/>
+            </HitList>
+            <EtcList>
+                <Scp Scp="SKL_TOGGLE_ON" Client="NO" UseSleep="NO" Time="0">
+                    <Num Num="1"/>
+                </Scp>
+                <Scp Scp="SKL_RESET_COOLTIME" Client="NO" UseSleep="NO" Time="0">
+                    <Str Str="Ancient_Move_Hold"/>
+                </Scp>
+                <Scp Scp="SKL_BUFF" Client="NO" UseSleep="NO" Time="0">
+                    <Str Str="Ancient_HoldState_Buff"/>
+                    <Num Num="1"/>
+                    <Num Num="0"/>
+                    <Num Num="0"/>
+                    <Num Num="1"/>
+                    <Num Num="100"/>
+                    <Num Num="0"/>
+                </Scp>
+                <Scp Scp="SKL_RUN_SCRIPT" Client="NO" UseSleep="NO" Time="100">
+                    <Str Str="SCR_ANCIENT_SUMMON_HOLD_ON"/>
+                </Scp>
+            </EtcList>
+        </MainSkl>
+        <ByCondSkills>
+            <SubSkl>
+                <Cond>
+                    <ToolScp Scp="SKL_SELECT_BUFF" Client="NO" UseSleep="NO">
+                        <Str Str="Ancient_HoldState_Buff"/>
+                    </ToolScp>
+                </Cond>
+                <Skill ScrLock="None" JumpFlee="NO" MSPDToUsePos="0">
+                    <HitList>
+                        <Frame Type="FAN" Time="99799" HitCount="1" TermMin="0" TermMax="0" PosType="0" Dist="0" RandDist="0" RandomPerHit="0" Angle="0" Width="30" Length="30" SklAngle="0.17453292" AniTime="99999" RotAngle="0" ForceATK="0" ScriptIndex="0" ScriptName="" SkillType="0"/>
+                    </HitList>
+                    <EtcList>
+                        <Scp Scp="SKL_TOGGLE_ON" Client="NO" UseSleep="NO" Time="0">
+                            <Num Num="1"/>
+                        </Scp>
+                        <Scp Scp="SKL_RESET_COOLTIME" Client="NO" UseSleep="NO" Time="0">
+                            <Str Str="Ancient_Move_Hold"/>
+                        </Scp>
+                        <Scp Scp="SKL_BUFF_REMOVE" Client="NO" UseSleep="NO" Time="0">
+                            <Str Str="Ancient_HoldState_Buff"/>
+                        </Scp>
+                        <Scp Scp="SKL_RUN_SCRIPT" Client="NO" UseSleep="NO" Time="100">
+                            <Str Str="SCR_ANCIENT_SUMMON_HOLD_OFF"/>
+                        </Scp>
+                    </EtcList>
+                </Skill>
+            </SubSkl>
+        </ByCondSkills>
+    </Skill>
     <Skill Name="Ancient_Move_Slot2">
         <KeyInput>
             <ToolScp Scp="SKL_KEY_GROUND_EVENT" Client="YES" UseSleep="NO">

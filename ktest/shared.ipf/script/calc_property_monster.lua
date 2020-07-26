@@ -225,6 +225,12 @@ function SCR_Get_MON_MHP(self)
         value = value + 5000;   -- PC Summon Monster MHP Add
     end
     
+    local infoCls = GetClass("Ancient_Info",self.ClassName)
+    if infoCls ~= nil then
+        local rarity = infoCls.Rarity
+        local starrank = GetExProp(self,'STARRANK',99)
+        value = value * SCR_ANCIENT_INFO_RATE_CALC(rarity,starrank,'HPRate')
+    end
 
     if value < 1 then
         value = 1;
@@ -362,6 +368,12 @@ function SCR_Get_MON_DEF(self)
     
     value = value + byBuff + byRateBuff;
 
+    local infoCls = GetClass("Ancient_Info",self.ClassName)
+    if infoCls ~= nil then
+        local rarity= infoCls.Rarity
+        local starrank = GetExProp(self,'STARRANK',99)
+        value = value * SCR_ANCIENT_INFO_RATE_CALC(rarity,starrank,"DefRate")
+    end
 
     if value < 0 then
         value = 0;
@@ -438,6 +450,12 @@ function SCR_Get_MON_MDEF(self)
     
     value = value + byBuff + byRateBuff;
     
+    local infoCls = GetClass("Ancient_Info",self.ClassName)
+    if infoCls ~= nil then
+        local rarity= infoCls.Rarity
+        local starrank = GetExProp(self,'STARRANK',99)
+        value = value * SCR_ANCIENT_INFO_RATE_CALC(rarity,starrank,"DefRate")
+    end
     
     if value < 0 then
         value = 0;
@@ -687,6 +705,13 @@ function SCR_Get_MON_MINPATK(self)
     
     value = value + byBuff + byRateBuff;
 
+    local infoCls = GetClass("Ancient_Info",self.ClassName)
+    if infoCls ~= nil then
+        local rarity= infoCls.Rarity
+        local starrank = GetExProp(self,'STARRANK',99)
+        value = value * SCR_ANCIENT_INFO_RATE_CALC(rarity,starrank,'AtkRate')
+    end
+
     if value < 1 then
         value = 1;
     end
@@ -754,6 +779,12 @@ function SCR_Get_MON_MAXPATK(self)
     
     value = value + byBuff + byRateBuff;
 
+    local infoCls = GetClass("Ancient_Info",self.ClassName)
+    if infoCls ~= nil then
+        local rarity= infoCls.Rarity
+        local starrank = GetExProp(self,'STARRANK',99)
+        value = value * SCR_ANCIENT_INFO_RATE_CALC(rarity,starrank,'AtkRate')
+    end
 
     if value < 1 then
         value = 1;
@@ -822,6 +853,13 @@ function SCR_Get_MON_MINMATK(self)
     
     value = value + byBuff + byRateBuff;
 
+    local infoCls = GetClass("Ancient_Info",self.ClassName)
+    if infoCls ~= nil then
+        local rarity= infoCls.Rarity
+        local starrank = GetExProp(self,'STARRANK',99)
+        value = value * SCR_ANCIENT_INFO_RATE_CALC(rarity,starrank,'AtkRate')
+    end
+
     if value < 1 then
         value = 1;
     end
@@ -889,6 +927,12 @@ function SCR_Get_MON_MAXMATK(self)
     
     value = value + byBuff + byRateBuff;
 
+    local infoCls = GetClass("Ancient_Info",self.ClassName)
+    if infoCls ~= nil then
+        local rarity= infoCls.Rarity
+        local starrank = GetExProp(self,'STARRANK',99)
+        value = value * SCR_ANCIENT_INFO_RATE_CALC(rarity,starrank,'AtkRate')
+    end
 
     if value < 1 then
         value = 1;
@@ -1709,7 +1753,170 @@ function SCR_Get_MON_Cannon_Res(self)
     return value;
 end
 
+function SCR_Get_MON_Aries_Atk(self)
+    local byBuff = TryGetProp(self, "Aries_Atk_BM");
+    if byBuff == nil then
+        byBuff = 0;
+    end
+    
+    local value = byBuff;
+	
+    return math.floor(value);
+end
 
+function SCR_Get_MON_Slash_Atk(self)
+    local byBuff = TryGetProp(self, "Slash_Atk_BM");
+    if byBuff == nil then
+        byBuff = 0;
+    end
+    
+    local value = byBuff;
+	
+    return math.floor(value);
+end
+
+function SCR_Get_MON_Strike_Atk(self)
+    local byBuff = TryGetProp(self, "Strike_Atk_BM");
+    if byBuff == nil then
+        byBuff = 0;
+    end
+    
+    local value = byBuff;
+	
+    return math.floor(value);
+end
+
+function SCR_Get_MON_Arrow_Atk(self)
+    local byBuff = TryGetProp(self, "Arrow_Atk_BM");
+    if byBuff == nil then
+        byBuff = 0;
+    end
+    
+    local value = byBuff;
+	
+    return math.floor(value);
+end
+
+function SCR_Get_MON_Cannon_Atk(self)
+    local byBuff = TryGetProp(self, "Cannon_Atk_BM");
+    if byBuff == nil then
+        byBuff = 0;
+    end
+    
+    local value = byBuff;
+	
+    return math.floor(value);
+end
+
+function SCR_Get_MON_Gun_Atk(self)
+    local byBuff = TryGetProp(self, "Gun_Atk_BM");
+    if byBuff == nil then
+        byBuff = 0;
+    end
+    
+    local value = byBuff;
+	
+    return math.floor(value);
+end
+
+function SCR_Get_MON_Magic_Melee_Atk(self)
+    local byBuff = TryGetProp(self, "Magic_Melee_Atk_BM");
+    if byBuff == nil then
+        byBuff = 0;
+    end
+    
+    local value = byBuff;
+	
+    return math.floor(value);
+end
+
+function SCR_Get_MON_Magic_Fire_Atk(self)
+    local byBuff = TryGetProp(self, "Magic_Fire_Atk_BM");
+    if byBuff == nil then
+        byBuff = 0;
+    end
+    
+    local value = byBuff;
+	
+    return math.floor(value);
+end
+
+function SCR_Get_MON_Magic_Ice_Atk(self)
+    local byBuff = TryGetProp(self, "Magic_Ice_Atk_BM");
+    if byBuff == nil then
+        byBuff = 0;
+    end
+    
+    local value = byBuff;
+	
+    return math.floor(value);
+end
+
+function SCR_Get_MON_Magic_Lightning_Atk(self)
+    local byBuff = TryGetProp(self, "Magic_Lightning_Atk_BM");
+    if byBuff == nil then
+        byBuff = 0;
+    end
+    
+    local value = byBuff;
+	
+    return math.floor(value);
+end
+
+function SCR_Get_MON_Magic_Earth_Atk(self)
+    local byBuff = TryGetProp(self, "Magic_Earth_Atk_BM");
+    if byBuff == nil then
+        byBuff = 0;
+    end
+    
+    local value = byBuff;
+	
+    return math.floor(value);
+end
+
+function SCR_Get_MON_Magic_Poison_Atk(self)
+    local byBuff = TryGetProp(self, "Magic_Poison_Atk_BM");
+    if byBuff == nil then
+        byBuff = 0;
+    end
+    
+    local value = byBuff;
+	
+    return math.floor(value);
+end
+
+function SCR_Get_MON_Magic_Dark_Atk(self)
+    local byBuff = TryGetProp(self, "Magic_Dark_Atk_BM");
+    if byBuff == nil then
+        byBuff = 0;
+    end
+    
+    local value = byBuff;
+	
+    return math.floor(value);
+end
+
+function SCR_Get_MON_Magic_Holy_Atk(self)
+    local byBuff = TryGetProp(self, "Magic_Holy_Atk_BM");
+    if byBuff == nil then
+        byBuff = 0;
+    end
+    
+    local value = byBuff;
+	
+    return math.floor(value);
+end
+
+function SCR_Get_MON_Magic_Soul_Atk(self)
+    local byBuff = TryGetProp(self, "Magic_Soul_Atk_BM");
+    if byBuff == nil then
+        byBuff = 0;
+    end
+    
+    local value = byBuff;
+	
+    return math.floor(value);
+end
 
 function SCR_RACE_TYPE_RATE(self, prop)
     -- RaceType --
@@ -2074,5 +2281,8 @@ function SCR_MON_STAT_RATE(self, prop)
     return statTypeRate;
 end
 
-function SCR_MON_ANCIENT_RATE_CALC(rarity, starrank, propName)
+function SCR_ANCIENT_INFO_RATE_CALC(rarity, starrank, propName)
+    local starrankCls = GetClassByNumProp('Ancient_Rarity','Rarity',rarity)
+    local rarityCls = GetClassByNumProp('Ancient_Rank','Rank',starrank)
+    return TryGetProp(starrankCls,propName,1) * TryGetProp(rarityCls,propName,1)
 end

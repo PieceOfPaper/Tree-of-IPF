@@ -12,8 +12,8 @@ function SKL_KEY_DYNAMIC_CASTING(actor, obj, dik, movable, rangeChargeTime, maxC
 	if abilName ~= nil and type(abilName) == 'string' and abilName ~= 'None' then
 		local abil = session.GetAbilityByName(abilName);
 		if abil ~= nil then
-			local obj = GetIES(abil:GetObject());
-			if obj.ActiveState == 1 then
+			local abilObj = GetIES(abil:GetObject());
+			if abilObj.ActiveState == 1 then
 				return 0, 1;
 			end
 		end
@@ -109,8 +109,8 @@ function SKL_KEY_GROUND_EVENT(actor, obj, dik, chargeTime, autoShot, shotCasting
 	if abilName ~= nil and type(abilName) == 'string' and abilName ~= 'None' then
 		local abil = session.GetAbilityByName(abilName);
 		if abil ~= nil then
-			local obj = GetIES(abil:GetObject());
-			if obj.ActiveState == 1 then
+			local abilObj = GetIES(abil:GetObject());
+			if abilObj.ActiveState == 1 then
 				return 0, 1;
 			end
 		end
@@ -264,8 +264,8 @@ function SKL_SELECT_BUFF_BY_KEY(actor, obj, dik, upName, leftName, downName, rig
 	if abilName ~= nil then
 		local abil = session.GetAbilityByName(abilName);
 		if abil ~= nil then
-			local obj = GetIES(abil:GetObject());
-			if obj.ActiveState == 1 then
+			local abilObj = GetIES(abil:GetObject());
+			if abilObj.ActiveState == 1 then
 				return 0, 1;
 			end
 		end
@@ -294,4 +294,25 @@ function SKL_SELECT_BUFF_BY_KEY(actor, obj, dik, upName, leftName, downName, rig
 	geSkillControl.SelectBuffFromList(actor, obj.type, upID, leftID, downID, rightID);
 
 	return 1, 0;
+end
+
+function SKL_KEY_CASTING_OR_PARTY_TARGET(actor, obj, dik, movable, rangeChargeTime, maxChargeTime, autoShot, rotateAble, loopingCharge, gotoSkillUse, execByKeyDown, upAbleSec, useDynamicLevel, isVisivle, isFullCharge, effectName, scale, nodeName, lifeTime, shockwave, intensity, time, frequency, angle, quickCast, hitCancel, abilName, showHPGauge)
+
+	local arg1, arg2 = 0, 0
+
+	if abilName ~= nil and type(abilName) == 'string' and abilName ~= 'None' then
+		local abil = session.GetAbilityByName(abilName)
+		if abil ~= nil then
+			local abilObj = GetIES(abil:GetObject())
+			if abilObj.ActiveState == 1 then
+				arg1, arg2 = SKL_PARTY_TARGET_BY_KEY(actor, obj, dik, showHPGauge)
+
+				return arg1, arg2
+			end
+		end
+	end
+
+	arg1, arg2 = SKL_KEY_DYNAMIC_CASTING(actor, obj, dik, movable, rangeChargeTime, maxChargeTime, autoShot, rotateAble, loopingCharge, gotoSkillUse, execByKeyDown, upAbleSec, useDynamicLevel, isVisivle, isFullCharge, effectName, scale, nodeName, lifeTime, shockwave, intensity, time, frequency, angle, quickCast, hitCancel)
+
+	return arg1, arg2
 end

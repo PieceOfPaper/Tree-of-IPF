@@ -1,20 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by youngt616 (IMCGames Co., Ltd) -->
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
 <ActionDesc>
-    <Shockwave frame="0" type="2" intensity="5" frequency="70" duration="0.3" range="1000"/>
-    <Particle frame="0" attachNode="Dummy_WLK_Effect001" particleName="F_smoke037" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.3" pause="true" use2DEffect="false" targetPos="false" soft2DValue="0" sound=""/>
-    <Particle frame="0" attachNode="R_Hook_Bone03" particleName="F_smoke046" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.3" pause="true" use2DEffect="false" targetPos="false" soft2DValue="0"/>
-    <Particle frame="0" attachNode="R_Hook_Bone06" particleName="F_smoke046" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.3" pause="true" use2DEffect="false" targetPos="false" soft2DValue="0"/>
-    <Particle frame="0" attachNode="L_Hook_Bone06" particleName="F_smoke046" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.3" pause="true" use2DEffect="false" targetPos="false" soft2DValue="0"/>
-    <Particle frame="0" attachNode="L_Hook_Bone03" particleName="F_smoke046" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.3" pause="true" use2DEffect="false" targetPos="false" soft2DValue="0"/>
-    <Shockwave frame="2" type="2" intensity="5" frequency="70" duration="0.3" range="1000"/>
-    <Sound frame="2.00" soundFile="mon_big_footstep_2"/>
-    <Sound frame="13.00" soundFile="mon_big_footstep_2"/>
-    <Shockwave frame="16" type="2" intensity="5" frequency="70" duration="0.3" range="1000"/>
-    <Particle frame="16" attachNode="Dummy_WLK_Effect002" particleName="F_smoke037" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.3" pause="true" use2DEffect="false" targetPos="false" soft2DValue="0" sound=""/>
-    <Particle frame="16" attachNode="R_Hook_Bone03" particleName="F_smoke046" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.3" pause="true" use2DEffect="false" targetPos="false" soft2DValue="0"/>
-    <Particle frame="16" attachNode="R_Hook_Bone06" particleName="F_smoke046" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.3" pause="true" use2DEffect="false" targetPos="false" soft2DValue="0"/>
-    <Particle frame="16" attachNode="L_Hook_Bone06" particleName="F_smoke046" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.3" pause="true" use2DEffect="false" targetPos="false" soft2DValue="0"/>
-    <Particle frame="16" attachNode="L_Hook_Bone03" particleName="F_smoke046" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.3" pause="true" use2DEffect="false" targetPos="false" soft2DValue="0"/>
-    <Shockwave frame="18" type="2" intensity="5" frequency="70" duration="0.3" range="1000"/>
+	<Particle frame="0" attachNode="Dummy_WLK_Effect001" particleName="F_smoke037" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.3" pause="true" use2DEffect="false" targetPos="false" soft2DValue="0" sound=""/>
+	<Particle frame="0" attachNode="R_Hook_Bone03" particleName="F_smoke046" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.3" pause="true" use2DEffect="false" targetPos="false" soft2DValue="0"/>
+	<Particle frame="0" attachNode="R_Hook_Bone06" particleName="F_smoke046" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.3" pause="true" use2DEffect="false" targetPos="false" soft2DValue="0"/>
+	<Particle frame="0" attachNode="L_Hook_Bone06" particleName="F_smoke046" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.3" pause="true" use2DEffect="false" targetPos="false" soft2DValue="0"/>
+	<Particle frame="0" attachNode="L_Hook_Bone03" particleName="F_smoke046" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.3" pause="true" use2DEffect="false" targetPos="false" soft2DValue="0"/>
+	<Sound frame="2.00" soundFile="mon_big_footstep_2"/>
+	<Sound frame="13.00" soundFile="mon_big_footstep_2"/>
+	<Particle frame="16" attachNode="Dummy_WLK_Effect002" particleName="F_smoke037" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.3" pause="true" use2DEffect="false" targetPos="false" soft2DValue="0" sound=""/>
+	<Particle frame="16" attachNode="R_Hook_Bone03" particleName="F_smoke046" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.3" pause="true" use2DEffect="false" targetPos="false" soft2DValue="0"/>
+	<Particle frame="16" attachNode="R_Hook_Bone06" particleName="F_smoke046" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.3" pause="true" use2DEffect="false" targetPos="false" soft2DValue="0"/>
+	<Particle frame="16" attachNode="L_Hook_Bone06" particleName="F_smoke046" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.3" pause="true" use2DEffect="false" targetPos="false" soft2DValue="0"/>
+	<Particle frame="16" attachNode="L_Hook_Bone03" particleName="F_smoke046" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.3" pause="true" use2DEffect="false" targetPos="false" soft2DValue="0"/>
 </ActionDesc>

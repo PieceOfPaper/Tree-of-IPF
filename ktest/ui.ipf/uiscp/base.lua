@@ -190,7 +190,7 @@ function ICON_USE(object, reAction)
 			else
 				local itemType = itemObj.ItemType;
 				local groupName = TryGetProp(itemObj, "GroupName");
-				if itemType == 'Consume' or itemType == "Quest" or groupName == "Cube" or groupName == "ExpOrb" then
+				if itemType == 'Consume' or itemType == "Quest" or groupName == "Cube" or groupName == "ExpOrb" or groupName == "SubExpOrb" then
 					local usable = itemObj.Usable;
 					if usable ~= 'ITEMTARGET' then						
 						local invenItemInfo = GET_ICON_ITEM(iconInfo);

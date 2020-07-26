@@ -121,9 +121,9 @@ function MCC_SCRIPT_NINJA_VIBORA(actor, mccIndex)
 		end
 	end
 
-	local forpos = actor:GetFormationPos(mccIndex, 25.0);			
+	local forpos = actor:GetFormationPos(mccIndex, 20.0);			
 	local distFromActor = imcMath.Vec3Dist(actor:GetPos(), myActor:GetPos());
-	if distFromActor >= 65 then
+	if distFromActor >= 20 then
 		geMCC.MoveTo(actor, forpos);		
 	end
 end

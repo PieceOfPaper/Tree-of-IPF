@@ -260,7 +260,7 @@ function EARTH_TOWER_INIT(frame, shopType)
 
     local title = GET_CHILD(frame, 'title', 'ui::CRichText')
     local close = GET_CHILD(frame, 'close');
-    if shopType == 'EarthTower' then
+    if shopType == 'EarthTower' or shopType == 'EarthTower2' then
         title:SetText('{@st43}'..ScpArgMsg("EarthTowerShop"));
         close:SetTextTooltip(ScpArgMsg('CloseUI{NAME}', 'NAME', ScpArgMsg("EarthTowerShop")));
     elseif shopType == 'EventShop' or shopType == 'EventShop2' or shopType == 'EventShop3' then
@@ -327,9 +327,6 @@ function EARTH_TOWER_INIT(frame, shopType)
     elseif shopType == 'FishingShop2002' then
         -- title:SetText('{@st43}'..ScpArgMsg("EVENT_2002_FISHING_SHOP"));
         -- close:SetTextTooltip(ScpArgMsg('CloseUI{NAME}', 'NAME', ScpArgMsg("EventShop")));
-    elseif shopType == "EarthTower2" then
-        title:SetText('{@st43}'..ScpArgMsg("EarthTowerShop"));
-        close:SetTextTooltip(ScpArgMsg('CloseUI{NAME}', 'NAME', ScpArgMsg("EventShop")));
     else
         title:SetText('{@st43}'..ScpArgMsg(shopType));
         close:SetTextTooltip(ScpArgMsg('CloseUI{NAME}', 'NAME', ScpArgMsg("EventShop")));

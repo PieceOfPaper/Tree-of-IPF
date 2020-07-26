@@ -98,7 +98,7 @@ function OPEN_TRADE_SELECT_ITEM(invItem)
 	frame:ShowWindow(1);
 end
 
-function OPEN_TRADE_ANCIENT_MON_ITEM(frame, msg, strArg, numArg)
+function OPEN_TRADE_ANCIENT_CARD_ITEM(frame, msg, strArg, numArg)
 end
 
 function OPEN_TRADE_SELECT_MUTIPLE_ITEM(targetItemNameList, targetItemCostList,targetItemName, rewareItemName)
@@ -112,14 +112,14 @@ function OPEN_TRADE_SELECT_MUTIPLE_ITEM(targetItemNameList, targetItemCostList,t
 	box:DeleteAllControl();
 
 	for i = 1, #targetItemNameList do
-		--y = CREATE_ANCIENT_MON_CTRL(box, y, i, rewareItemName, 1,targetItemName, targetItemNameList[i], targetItemCostList[i]);	
+		--y = CREATE_ANCIENT_CARD_CTRL(box, y, i, rewareItemName, 1,targetItemName, targetItemNameList[i], targetItemCostList[i]);	
 		--y = y + 5
 	end
 
 	local cancelBtn = frame:GetChild('CancelBtn');
 	cancelBtn:SetVisible(0)
 	local useBtn = frame:GetChild('UseBtn');
-	useBtn:SetEventScript(ui.LBUTTONUP,'REQUEST_TRADE_ANCIENT_MON')
+	useBtn:SetEventScript(ui.LBUTTONUP,'REQUEST_TRADE_ANCIENT_CARD')
 	local useBtnMargin = useBtn:GetMargin();
 	useBtn:SetMargin(0,0,0,useBtnMargin.bottom)
 	box:Resize(box:GetOriginalWidth(), y);
@@ -230,7 +230,7 @@ function REQUEST_TRADE_ITEM(frame, ctrl, argStr, argNum)
 	frame:ShowWindow(0);
 end
 
-function SCR_GET_ANCIENT_MON_TOTAL_COST(frame, ctrl, argStr, argNum)
+function SCR_GET_ANCIENT_CARD_TOTAL_COST(frame, ctrl, argStr, argNum)
 	frame = frame:GetTopParentFrame()
 	local box = frame:GetChild('box');
 	tolua.cast(box, "ui::CGroupBox");
@@ -253,13 +253,13 @@ function SCR_GET_ANCIENT_MON_TOTAL_COST(frame, ctrl, argStr, argNum)
 	NeedItemName:SetTextByKey('select', totalCost);
 end
 
-function REQUEST_TRADE_ANCIENT_MON(frame, ctrl, argStr, argNum)
+function REQUEST_TRADE_ANCIENT_CARD(frame, ctrl, argStr, argNum)
 	local box = frame:GetChild('box');
 	tolua.cast(box, "ui::CGroupBox");
 
 	local selectExist = 0;
 	local selected = "";
-	local monClassIDList = frame:GetUserValue("ANCIENT_MON_LIST")
+	local monClassIDList = frame:GetUserValue("ANCIENT_CARD_LIST")
 	monClassIDList = StringSplit(monClassIDList,';')
 	local cnt = box:GetChildCount();
 	for i = 0 , cnt - 1 do
@@ -296,7 +296,7 @@ function REQUEST_TRADE_ANCIENT_MON(frame, ctrl, argStr, argNum)
 		return;
 	end
 	if selectExist == 1 then
-		pc.ReqExecuteTx_Item("SCR_TRADE_SELECT_AMCIEMT_MON", iesID,selected);
+		pc.ReqExecuteTx_Item("SCR_TRADE_SELECT_ANCIENT_CARD", iesID,selected);
 	end
 
 	frame = frame:GetTopParentFrame();

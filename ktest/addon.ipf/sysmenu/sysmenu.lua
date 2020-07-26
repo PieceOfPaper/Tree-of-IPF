@@ -10,6 +10,7 @@ function SYSMENU_ON_INIT(addon, frame)
 	addon:RegisterMsg("REMOVE_FRIEND", "SYSMENU_ON_MSG");
 	addon:RegisterMsg("ADD_FRIEND", "SYSMENU_ON_MSG");
 	addon:RegisterMsg("GUILD_ENTER", "SYSMENU_MYPC_GUILD_JOIN");
+	addon:RegisterMsg("ANCIENT_UI_OPEN", "SYSMENU_CHECK_HIDE_VAR_ICONS");
 
 	addon:RegisterMsg('SERV_UI_EMPHASIZE', 'ON_UI_EMPHASIZE');
 	addon:RegisterMsg("UPDATE_READ_COLLECTION_COUNT", "SYSMENU_ON_MSG");
@@ -97,6 +98,7 @@ function SYSMENU_CHECK_HIDE_VAR_ICONS(frame)
 	and false == VARICON_VISIBLE_STATE_CHANTED(frame, "guild", "guild")
 	and false == VARICON_VISIBLE_STATE_CHANTED(frame, "poisonpot", "poisonpot")    
 	and false == VARICON_VISIBLE_STATE_CHANTED(frame, "pcbang_shop", "pcbang_shop")
+	and false == VARICON_VISIBLE_STATE_CHANTED(frame, "ancient_card_list", "ancient_card_list")
 	then
 		return;
 	end
@@ -110,6 +112,7 @@ function SYSMENU_CHECK_HIDE_VAR_ICONS(frame)
     local offsetX = extraBag:GetX() - guildRank:GetX()
 	local rightMargin = guildRank:GetMargin().right + offsetX;
 	rightMargin = SYSMENU_CREATE_VARICON(frame, extraBag, "guildinfo", "guildinfo", "sysmenu_guild", rightMargin, offsetX, "Guild");
+	rightMargin = SYSMENU_CREATE_VARICON(frame, extraBag, "ancient_card_list", "ancient_card_list", "Ancient_Menu", rightMargin, offsetX);	   
 	rightMargin = SYSMENU_CREATE_VARICON(frame, extraBag, "customdrag", "customdrag", "sysmenu_alchemist", rightMargin, offsetX);
 	rightMargin = SYSMENU_CREATE_VARICON(frame, extraBag, "necronomicon", "necronomicon", "sysmenu_card", rightMargin, offsetX);
 	rightMargin = SYSMENU_CREATE_VARICON(frame, extraBag, "grimoire", "grimoire", "sysmenu_neacro", rightMargin, offsetX);

@@ -157,7 +157,8 @@ function ITEM_BALLOON_COMMON(handle, itemObj, tooltipEnum, duration, delaySec, s
 end
 
 function REWARD_SET_ITEM_TEXT(skinName, itemCls)
-	if skinName == "junksilvergacha_itembox" then
+    local skinTitle = "junksilvergacha_itembox"
+	if skinName == skinTitle or skinName == skinTitle.."_high" or skinName == skinTitle.."_mid" or skinName == skinTitle.."_low" then
 		return GET_FULL_NAME(itemCls)
 	else
 		return GET_ITEM_GRADE_TXT(itemCls, 24);

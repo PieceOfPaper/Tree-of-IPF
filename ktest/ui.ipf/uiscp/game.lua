@@ -148,7 +148,7 @@ function MAKE_ALL_DEFAULT_HAIR()
 		end
 	end
 end
-	
+
 function TEST_AYASE()
 	debug.TestMannequin();
 end
@@ -3228,6 +3228,11 @@ function ON_RIDING_VEHICLE(onoff)
     if summonedCompanion ~= nil then
 		local companionObj = summonedCompanion:GetObject();
 		local companionIES = GetIES(companionObj);
+		local companionIsActivated = TryGetProp(companionIES, 'IsActivated');
+		if companionIsActivated == 0 and onoff == 1 then 
+			ui.SysMsg(ClMsg('CompanionIsNotActive'));
+			return
+		end
 		local companionClassName = TryGetProp(companionIES, 'ClassName');
 		if companionClassName ~= nil then
 			local companionClass = GetClass('Companion', companionClassName);

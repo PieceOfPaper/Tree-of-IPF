@@ -1,5 +1,18 @@
 ---- ui_effect.lua --
 
+-- 변경
+function change_client_size(frame)
+	frame:MoveFrame(0, 0);
+	local width = option.GetClientWidth()
+	if width < 1920 then 
+		width = 1920 
+	end
+    local ratio = option.GetClientHeight() / option.GetClientWidth()
+	local height = width * ratio
+	frame:Resize(width, height)    
+	frame:Invalidate();
+end
+
 function NICO_CHAT(msg)
 
 	local x = ui.GetClientInitialWidth();

@@ -167,11 +167,11 @@ function SHOW_PC_COMPARE(cid)
 	
 	local clsindex = 0
 	for jobid, grade in pairs(OTHERPCJOBS) do
-		local x = clsindex%3 * 150
+		local x = clsindex%3 * 160
 		local y = math.floor(clsindex/3) * 125
 
 		local cls = GetClassByTypeFromList(clslist, jobid);
-		local classCtrl = classGbox:CreateOrGetControlSet('classtreeIcon', 'classCtrl_'..cls.ClassName, x+20, y+5);
+		local classCtrl = classGbox:CreateOrGetControlSet('classtreeIcon', 'classCtrl_'..cls.ClassName, x, y+5);
 		
 		local classSlot = GET_CHILD(classCtrl, "slot", "ui::CSlot");
 		classSlot:EnableHitTest(0)

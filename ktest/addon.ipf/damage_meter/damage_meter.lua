@@ -104,6 +104,9 @@ function WEEKLY_BOSS_UPDATE_DPS(frame,totalTime,elapsedTime)
                 if table.find(keyword, "pcSummonSkill") > 0 then
                     sklID = 163915
                 end
+                if table.find(keyword, "Ancient") > 0 then
+                    sklID = 179999
+                end
                 --update gauge damage info
                 local function getIndex(table, val)
                     for i=1,#table do

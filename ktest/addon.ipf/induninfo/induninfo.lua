@@ -182,14 +182,14 @@ function INDUNINFO_CREATE_CATEGORY(frame)
 --                    if SCR_RAID_EVENT_20190102(nil, false) then
                         cyclePicImg:SetImage(GET_INDUN_ICON_NAME('event_s'))
                         local margin = cyclePicImg:GetOriginalMargin();
-                        cyclePicImg:SetMargin(margin.left, margin.top, margin.right + 20, margin.bottom);
+                        cyclePicImg:SetMargin(margin.left, margin.top, margin.right - 6, margin.bottom);
                         cyclePicImg:Resize(cyclePicImg:GetOriginalWidth() + 11, cyclePicImg:GetOriginalHeight());
                     elseif IsBuffApplied(pc, "Event_Unique_Raid_Bonus_Limit") == "YES" then
                         local accountObject = GetMyAccountObj(pc)
                         if TryGetProp(accountObject ,"EVENT_UNIQUE_RAID_BONUS_LIMIT") > 0 then
                             cyclePicImg:SetImage(GET_INDUN_ICON_NAME('event_s'))
                             local margin = cyclePicImg:GetOriginalMargin();
-                            cyclePicImg:SetMargin(margin.left, margin.top, margin.right + 20, margin.bottom);
+                            cyclePicImg:SetMargin(margin.left, margin.top, margin.right - 6, margin.bottom);
                             cyclePicImg:Resize(cyclePicImg:GetOriginalWidth() + 11, cyclePicImg:GetOriginalHeight());
                         else
                             cyclePicImg:ShowWindow(0);
@@ -1158,10 +1158,12 @@ function INDUNINFO_MAKE_DETAIL_INFO_BOX(frame, indunClassID)
         if indunCls.DungeonType == 'UniqueRaid' then
 --            if SCR_RAID_EVENT_20190102(nil, false) and admissionItemName == 'Dungeon_Key01' then -- 별의 탑 폐쇄 구역 제외 조건 걸어주기
             if IsBuffApplied(pc, "Event_Unique_Raid_Bonus") == "YES" and admissionItemName == "Dungeon_Key01" then
+                cycleCtrlPic:SetImage(GET_INDUN_ICON_NAME('event_l'))
                 cycleCtrlPic:ShowWindow(1);
             elseif IsBuffApplied(pc, "Event_Unique_Raid_Bonus_Limit") == "YES" and admissionItemName == "Dungeon_Key01" then
                 local accountObject = GetMyAccountObj(pc)
                 if TryGetProp(accountObject,"EVENT_UNIQUE_RAID_BONUS_LIMIT") > 0 then
+                    cycleCtrlPic:SetImage(GET_INDUN_ICON_NAME('event_l'))
                     cycleCtrlPic:ShowWindow(1);
                 end
             end
@@ -1940,7 +1942,9 @@ function RAID_RANKING_INFO_UPDATE(code, ret_json)
     finishedLoading = true;
     
     if code ~= 200 then
-        SHOW_GUILD_HTTP_ERROR(code, ret_json, "ON_CLAIM_GET");
+        if code == 500 then
+            ui.SysMsg(ScpArgMsg('CantExecInThisArea'));
+        end
         
         local frame = ui.GetFrame("induninfo");
         RAID_RANKING_CATEGORY_INIT(frame);

@@ -1242,7 +1242,6 @@ function SCR_SHOW_LOCAL_MAP(zoneClassName, useMapFog, showX, showZ)
 	rate:ShowWindow(0);
 	local mapPicture =  GET_CHILD_RECURSIVELY(newframe, 'map');
 	local monlv = GET_CHILD_RECURSIVELY(mapPicture, "monlv");
-	MAKE_MAP_NPC_ICONS(newframe, zoneClassName);
 	if monlv ~= nil then
 		monlv:ShowWindow(0);
 	end
@@ -1251,6 +1250,7 @@ function SCR_SHOW_LOCAL_MAP(zoneClassName, useMapFog, showX, showZ)
 	myctrl:ShowWindow(0);
 
 	world.PreloadMinimap(zoneClassName, 1024);
+	MAKE_MAP_NPC_ICONS(newframe, zoneClassName);
 	local mappicturetemp = GET_CHILD_RECURSIVELY(newframe,'map','ui::CPicture');
 
 	local width = 0;

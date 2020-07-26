@@ -141,6 +141,13 @@ function SHOW_PC_CONTEXT_MENU(handle)
 		end
 
 		ui.AddContextMenuItem(context, ScpArgMsg("RequestFriendlyFight"), string.format("REQUEST_FIGHT(\"%d\")", pcObj:GetHandleVal()));
+		-- ui.AddContextMenuItem(context, ScpArgMsg("RequestFriendlyAncientFight"), string.format("REQUEST_ANCIENT_FIGHT(\"%d\")", pcObj:GetHandleVal()));
+		
+		local mapprop = session.GetCurrentMapProp();
+    	local mapCls = GetClassByType("Map", mapprop.type);	
+		if IS_TOWN_MAP(mapCls) == true then
+			ui.AddContextMenuItem(context, ScpArgMsg("PH_SEL_DLG_2"), string.format("REQUEST_PERSONAL_HOUSING_WARP(\"%d\")", pcObj:GetPCApc():GetAID()));
+		end
 
 		local familyname = pcObj:GetPCApc():GetFamilyName()
 		local otherpcinfo = session.otherPC.GetByFamilyName(familyname);
@@ -226,6 +233,17 @@ function REQUEST_FIGHT(handle)
 
 end
 
+function REQUEST_ANCIENT_FIGHT(handle)
+
+	-- packet.RequestAncientFriendlyFight(handle, 0);
+
+end
+
+function REQUEST_PERSONAL_HOUSING_WARP(aidx)
+    local yesscp = string.format("HOUSING_PROMOTE_POST_REQUEST_POST_HOUST_WARP(%s)", aidx);
+    ui.MsgBox(ScpArgMsg("ANSWER_JOIN_PH_1"), yesscp, "None");
+end
+
 function ASKED_FRIENDLY_FIGHT(handle, familyName)
 
 	local msgBoxString = ScpArgMsg("DoYouAcceptFriendlyFightingWith{Name}?", "Name", familyName);
@@ -233,9 +251,22 @@ function ASKED_FRIENDLY_FIGHT(handle, familyName)
 
 end
 
+function ASKED_ANCIENT_FRIENDLY_FIGHT(handle, familyName)
+
+	local msgBoxString = ScpArgMsg("DoYouAcceptFriendlyFightingWith{Name}?", "Name", familyName);
+	ui.MsgBox(msgBoxString, string.format("ACK_ANCIENT_FRIENDLY_FIGHT(%d)", handle) ,"None");
+
+end
+
 function ACK_FRIENDLY_FIGHT(handle)
 
 	packet.RequestFriendlyFight(handle, 1);
+
+end
+
+function ACK_ANCIENT_FRIENDLY_FIGHT(handle)
+
+	packet.RequestAncientFriendlyFight(handle, 1);
 
 end
 

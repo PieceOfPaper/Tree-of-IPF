@@ -117,6 +117,53 @@
                 </Scp>
             </EtcList>
         </MainSkl>
+        <ByCondSkills>
+            <SubSkl>
+                <Cond>
+                    <ToolScp Client="NO" Scp="SKL_SELECT_ABIL" UseSleep="NO">
+                        <Str Str="Pardoner21" />
+                    </ToolScp>
+                </Cond>
+                <Skill JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+                    <HitList>
+                        <Frame Angle="0" AniTime="9999" Dist="0" ForceATK="0" HitCount="1" Length="30" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="9799" Type="FAN" Width="30" />
+                    </HitList>
+                    <EtcList>
+                        <Scp Scp="MONSKL_C_PLAY_ANIM" Client="YES" UseSleep="NO" Time="0">
+                            <Str Str="PUBLIC_BUFF"/>
+                            <Num Num="2"/>
+                            <Num Num="1"/>
+                            <Num Num="0"/>
+                        </Scp>                    
+                        <Scp Scp="SKL_SET_TARGET_CIRCLE" Client="NO" UseSleep="NO" Time="0">
+                            <Pos Angle="0" Dist="0"/>
+                            <Num Num="100"/>
+                            <Num Num="5"/>
+                            <Num Num="1"/>
+                            <Num Num="1"/>
+                            <Num Num="1"/>
+                            <Num Num="0"/>
+                            <Num Num="0"/>
+                        </Scp>
+                        <Scp Scp="C_EFFECT" Client="YES" UseSleep="NO" Time="450">
+                            <Str_Arg Str="I_wizard_OverReinforce_shot_ground" Arg="4"/>
+                            <Str Str="Dummy_emitter"/>
+                            <Num Num="0"/>
+                        </Scp>
+                        <Scp Scp="SKL_TGT_BUFF" Client="NO" UseSleep="NO" Time="450">
+                            <Str Str="Simony_Abil_Buff"/>
+                            <Num Num="1"/>
+                            <Num Num="0"/>
+                            <Num Num="1000"/>
+                            <Num Num="1"/>
+                            <Num Num="100"/>
+                            <Num Num="0"/>
+                            <Num Num="1"/>
+                        </Scp>
+                    </EtcList>
+                </Skill>
+            </SubSkl>
+        </ByCondSkills>        
     </Skill>
     <Skill Name="Pardoner_Indulgentia">
         <MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">

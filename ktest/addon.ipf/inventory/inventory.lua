@@ -187,6 +187,8 @@ function INVENTORY_ON_INIT(addon, frame)
 	addon:RegisterMsg('JUNGTAN_SLOT_UPDATE', 'JUNGTAN_SLOT_INVEN_ON_MSG');
 	addon:RegisterMsg('EXP_ORB_ITEM_ON', 'EXP_ORB_SLOT_INVEN_ON_MSG');
 	addon:RegisterMsg('EXP_ORB_ITEM_OFF', 'EXP_ORB_SLOT_INVEN_ON_MSG');
+	addon:RegisterMsg('EXP_SUB_ORB_ITEM_ON', 'EXP_SUB_ORB_SLOT_INVEN_ON_MSG');
+	addon:RegisterMsg('EXP_SUB_ORB_ITEM_OFF', 'EXP_SUB_ORB_SLOT_INVEN_ON_MSG');
 	addon:RegisterMsg('TOGGLE_ITEM_SLOT_ON', 'TOGGLE_ITEM_SLOT_INVEN_ON_MSG');
 	addon:RegisterMsg('TOGGLE_ITEM_SLOT_OFF', 'TOGGLE_ITEM_SLOT_INVEN_ON_MSG');
 	addon:RegisterOpenOnlyMsg('WEIGHT_UPDATE', 'INVENTORY_WEIGHT_UPDATE');
@@ -1809,7 +1811,7 @@ function INVENTORY_RBDC_ITEMUSE(frame, object, argStr, argNum)
 		end
 		local groupName = itemobj.GroupName;
 		local itemType = itemobj.ItemType;
-		if itemType == 'Consume' or itemType == 'Quest' or itemType == 'Cube' or groupName == 'ExpOrb' then
+		if itemType == 'Consume' or itemType == 'Quest' or itemType == 'Cube' or groupName == 'ExpOrb' or groupName == 'SubExpOrb' then
 			if itemobj.Usable == 'ITEMTARGET' then
 				local invFrame = ui.GetFrame('inventory');
 				USE_ITEMTARGET_ICON(invFrame, itemobj, argNum);
@@ -2940,6 +2942,21 @@ function EXP_ORB_SLOT_INVEN_ON_MSG(frame, msg, str, itemType)
 	end
 end
 
+function EXP_SUB_ORB_SLOT_INVEN_ON_MSG(frame, msg, str, itemType)
+	local timer = GET_CHILD_RECURSIVELY(frame, "expsuborbtimer", "ui::CAddOnTimer");
+	if msg == "EXP_SUB_ORB_ITEM_OFF" then
+		frame:SetUserValue("EXP_SUB_ORB_EFFECT", 0);
+		timer:Stop();
+		imcSound.PlaySoundEvent('sys_booster_off');
+		STOP_INVENTORY_EXP_SUB_ORB(frame);
+	elseif msg == "EXP_SUB_ORB_ITEM_ON" then
+		frame:SetUserValue("EXP_SUB_ORB_EFFECT", str);
+		timer:SetUpdateScript("UPDATE_INVENTORY_EXP_SUB_ORB");
+		timer:Start(1);
+		imcSound.PlaySoundEvent('sys_atk_booster_on');
+	end
+end
+
 --토글.
 function TOGGLE_ITEM_SLOT_INVEN_ON_MSG(frame, msg, argstr, argnum)
 	if msg == "TOGGLE_ITEM_SLOT_ON" then
@@ -2968,6 +2985,7 @@ function UPDATE_INVENTORY_TOGGLE_ITEM(frame)
 	if frame:IsVisible() == 0 then
 		return;
 	end
+
 	local invenTab = GET_CHILD_RECURSIVELY(frame, "inventype_Tab")
 	if invenTab == nil then
 		return;
@@ -3118,6 +3136,47 @@ function UPDATE_INVENTORY_EXP_ORB(frame, ctrl, num, str, time)
 	end
 end
 
+function UPDATE_INVENTORY_EXP_SUB_ORB(frame, ctrl, num, str, time)
+	if frame:IsVisible() == 0 then
+		return;
+	end
+
+	local itemGuid = frame:GetUserValue("EXP_SUB_ORB_EFFECT");
+	if itemGuid == "None" then
+		return;
+	end
+	
+	local invenTab = GET_CHILD_RECURSIVELY(frame, "inventype_Tab")
+	if invenTab == nil then
+		return
+	end
+
+	local tabIndex = invenTab:GetSelectItemIndex()
+	local slot = INV_GET_SLOT_BY_ITEMGUID(itemGuid);
+	if tabIndex == 0 then
+		slot = INV_GET_SLOT_BY_ITEMGUID(itemGuid, nil, 1)
+	end	
+
+	if slot == nil then
+		return;
+	end
+
+	local slotset = slot:GetParent();
+	if slotset:GetHeight() == 0 then
+		return;
+	end
+
+	local inventoryGbox = GET_CHILD_RECURSIVELY(frame, "inventoryGbox");
+	local offset = frame:GetUserConfig("EFFECT_DRAW_OFFSET");
+	if slot:GetDrawY() <= invenTab:GetDrawY() or invenTab:GetDrawY() + inventoryGbox:GetHeight() - offset <= slot:GetDrawY() then
+		return;
+	end
+	
+	if slot:IsVisibleRecursively() == true then
+		slot:PlayUIEffect("I_sys_item_slot", 2.2, "Inventory_Exp_Sub_ORB", true);	
+	end
+end
+
 function STOP_INVENTORY_EXP_ORB(frame)
 	if frame:IsVisible() == 0 then
 		return;
@@ -3142,9 +3201,39 @@ function STOP_INVENTORY_EXP_ORB(frame)
 	if slot == nil then
 		return;
 	end
-		
+	
 	if slot:IsVisibleRecursively() == true then
 		slot:StopUIEffect("Inventory_Exp_ORB", true, 0.0);
+	end
+end
+
+function STOP_INVENTORY_EXP_SUB_ORB(frame)
+	if frame:IsVisible() == 0 then
+		return;
+	end 
+
+	local itemGuid = frame:GetUserValue("EXP_SUB_ORB_EFFECT");
+	if itemGuid == "None" then
+		return;
+	end
+
+	local invenTab = GET_CHILD_RECURSIVELY(frame, "inventype_Tab")
+	if invenTab == nil then
+		return
+	end
+
+	local tabIndex = invenTab:GetSelectItemIndex()
+	local slot = INV_GET_SLOT_BY_ITEMGUID(itemGuid);
+	if tabIndex == 0 then
+		slot = INV_GET_SLOT_BY_ITEMGUID(itemGuid, nil, 1)
+	end	
+
+	if slot == nil then
+		return;
+	end
+	
+	if slot:IsVisibleRecursively() == true then
+		slot:StopUIEffect("Inventory_Exp_Sub_ORB", true, 0.0);
 	end
 end
 

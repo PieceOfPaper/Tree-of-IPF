@@ -3,15 +3,9 @@
 <!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by tachyon (EMBRACE) -->
 <ActionDesc>
 	<Sound frame="8.40" soundFile="mon_big_footstep_4"/>
-	<Shockwave frame="9" type="2" intensity="2" frequency="70" duration="0.3" range="1000"/>
 	<Particle frame="9" attachActor="None" attachNode="Bip001 R Toe0" particleName="F_smoke109" useAttach="false" hiddenObj="false" scale="3" pause="true" targetPos="false"/>
 	<Particle frame="9" attachActor="None" attachNode="Bip001 R Toe0" particleName="F_stone005" useAttach="false" hiddenObj="false" scale="1" pause="true" targetPos="false"/>
-	<Shockwave frame="10" type="2" intensity="2" frequency="70" duration="0.3" range="1000"/>
-	<Shockwave frame="11" type="2" intensity="2" frequency="70" duration="0.3" range="1000"/>
 	<Sound frame="33.30" soundFile="mon_big_footstep_4"/>
-	<Shockwave frame="34" type="2" intensity="2" frequency="70" duration="0.3" range="1000"/>
 	<Particle frame="34" attachActor="None" attachNode="Bip001 L Toe0" particleName="F_smoke109" useAttach="false" hiddenObj="false" scale="3" pause="true" targetPos="false"/>
 	<Particle frame="34" attachActor="None" attachNode="Bip001 L Toe0" particleName="F_stone005" useAttach="false" hiddenObj="false" scale="1" pause="true" targetPos="false"/>
-	<Shockwave frame="35" type="2" intensity="2" frequency="70" duration="0.3" range="1000"/>
-	<Shockwave frame="36" type="2" intensity="2" frequency="70" duration="0.3" range="1000"/>
 </ActionDesc>

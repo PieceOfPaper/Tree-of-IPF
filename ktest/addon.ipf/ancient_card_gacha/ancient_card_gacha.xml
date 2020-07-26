@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by asdasd (IMCGames Co., Ltd) -->
+<uiframe name="ancient_card_gacha" x="0" y="0" width="9999" height="9999">
+	<draw drawtitlebar="false"/>
+	<option closebutton="false" hideable="true"/>
+	<frame stretch="true" fullwidth="true" fullheight="true" fasthide="true" layout_gravity="center center"/>
+	<skin frameskin="none"/>	
+	<layer layerlevel="9999"/>
+	<sound opensound="None" closesound="None"/>
+	<script OpenScp="ANCIENT_CARD_GACHA_OPEN" CloseScp="ANCIENT_CARD_GACHA_CLOSE"/>
+	<userconfig PACK_OPEN_EFFECT="I_screen_card004_cardbook_drag" PACK_OPEN_EFFECT_SCALE="12.5" NORMAL_CARD_OPEN_EFFECT="I_screen_card001_open_normal_s" MAGIC_CARD_OPEN_EFFECT="I_screen_card001_open_rare_s" UNIQUE_CARD_OPEN_EFFECT="I_screen_card001_open_unique_s" LEGEND_CARD_OPEN_EFFECT="I_screen_card001_open_legend_s" CARD_OPEN_EFFECT_SCALE="12"/>
+	<controls>
+		<picture name="screenmask" rect="0 0 9999 9999" hittest="true" layout_gravity="center center" image="fullblack" stretch="true" alpha="70" LBtnDownScp="SCR_ANCIENT_CARD_GACHA_RESET"/>
+		<groupbox name="cardbg" rect="0 0 1800 600" margin="20 0 0 0" hittest="true" stretch="false" layout_gravity="left center" draw="false" LBtnDownScp="SCR_ANCIENT_CARD_GACHA_RESET"/>
+		<groupbox name="cardpack_bg" rect="0 0 400 520" margin="0 0 0 0" parent="cardbg" layout_gravity="left top" draw="true" hittestbox="false" scrollbar="true" skin="test_Item_tooltip_equip"/>
+		<button name="close" rect="0 0 34 34" margin="0 3 5 0" layout_gravity="right top" parent="cardpack_bg" LBtnUpScp="ANCIENT_CARD_GACHA_CLOSE" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" clicksound="button_click_big" image="testclose_button" oversound="button_over" texttooltip="{@st59}어시스터 UI를 닫습니다{/}"/>
+		<richtext name="richtext_1" rect="0 0 320 30" margin="0 10 0 0" parent="cardpack_bg" layout_gravity="center top" drawbackground="false" fixwidth="true" fontname="white_16_ol" maxwidth="0" resizebytext="false" slideshow="false" spacey="0" textalign="center top" updateparent="false" format="{@st41b}{s20}%s" param1="value" param1_def="어시스터 카드첩"  autofontsizebywidth="320"/>
+		<groupbox name="pic_bg" rect="0 0 400 312" margin="0 50 0 0" layout_gravity="center top" parent="cardpack_bg" draw="false" hittestbox="false" resizebyparent="false" changecursor="false" scrollbar="false" hittest="true" skin="test_socket_topskin"/>
+		<picture name="pic" parent="pic_bg" rect="0 0 312 312" margin="0 0 0 0" layout_gravity="center center" changecursor="false" hittest="true" image="ancient_random_spell_image" stretch="false"/>
+		<slot name="slot" margin="0 0 0 0" rect="0 0 140 140" parent="pic_bg" movepop="false" dropsound="icon_get_down" picksound="icon_pick_up" skin="invenslot2_nofocus" layout_gravity="center center" enabledrag="false" DropScp="SCR_ANCIENT_CARD_GACHA_OPEN">
+			<uieffect effect="I_screen_card003_cardbook_mouseover" scale="12.5" overlab="Yes" sound="None" offset="0 0" playtime="1" duration="0" conditon="active" event="MOUSEON" endEvent="MOUSEOFF" viewportByParent="true"/>
+		</slot>
+		<picture name="slot_bg_image" parent="slot" rect="0 0 140 140" margin="10 13 0 0" layout_gravity="center center" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" hittest="false" image="socket_slot_bg2" oversound="button_over"/>
+        <groupbox name="cardpacklist_bg" rect="0 0 390 140" margin="0 370 0 0" parent="cardpack_bg" layout_gravity="center top" draw="true" skin="test_frame_midle"/>
+	</controls>
+</uiframe>

@@ -1,20 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by youngt616 (IMCGames Co., Ltd) -->
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
 <ActionDesc>
-    <Sound frame="0.00" soundFile="mon_merge_atk"/>
-    <Particle frame="7" attachNode="L_Hook_Bone06" particleName="F_smoke046" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.3" pause="true" use2DEffect="false" targetPos="false" soft2DValue="0"/>
-    <Particle frame="7" attachNode="L_Hook_Bone03" particleName="F_smoke046" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.3" pause="true" use2DEffect="false" targetPos="false" soft2DValue="0"/>
-    <Sound frame="20.00" soundFile="mon_voice_bird_10"/>
-    <Sound frame="28.00" soundFile="skl_eff_stone_blow_m"/>
-    <Sound frame="28.00" soundFile="skl_eff_crash_ground_l_4"/>
-    <Shockwave frame="31" type="2" intensity="7" frequency="70" duration="0.5" range="1000"/>
-    <Particle frame="31" attachNode="Dummy_SKL1_effect001" particleName="F_ground058_smoke" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" targetPos="false" soft2DValue="0" sound=""/>
-    <Particle frame="31" attachNode="Dummy_SKL1_effect001" particleName="F_smoke061_TOP" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.8" pause="true" use2DEffect="false" targetPos="false" soft2DValue="0"/>
-    <Shockwave frame="33" type="2" intensity="7" frequency="70" duration="0.5" range="1000"/>
-    <Shockwave frame="35" type="2" intensity="6" frequency="70" duration="0.4" range="1000"/>
-    <Shockwave frame="37" type="2" intensity="6" frequency="70" duration="0.4" range="1000"/>
-    <Shockwave frame="39" type="2" intensity="5" frequency="70" duration="0.3" range="1000"/>
-    <Shockwave frame="41" type="2" intensity="5" frequency="70" duration="0.3" range="1000"/>
-    <Particle frame="42" attachNode="R_Hook_Bone03" particleName="F_smoke046" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.3" pause="true" use2DEffect="false" targetPos="false" soft2DValue="0" sound=""/>
-    <Particle frame="42" attachNode="R_Hook_Bone06" particleName="F_smoke046" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.3" pause="true" use2DEffect="false" targetPos="false" soft2DValue="0" sound=""/>
+	<Sound frame="0.00" soundFile="mon_merge_atk"/>
+	<Particle frame="7" attachNode="L_Hook_Bone06" particleName="F_smoke046" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.3" pause="true" use2DEffect="false" targetPos="false" soft2DValue="0"/>
+	<Particle frame="7" attachNode="L_Hook_Bone03" particleName="F_smoke046" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.3" pause="true" use2DEffect="false" targetPos="false" soft2DValue="0"/>
+	<Sound frame="20.00" soundFile="mon_voice_bird_10"/>
+	<Sound frame="28.00" soundFile="skl_eff_stone_blow_m"/>
+	<Sound frame="28.00" soundFile="skl_eff_crash_ground_l_4"/>
+	<Particle frame="31" attachNode="Dummy_SKL1_effect001" particleName="F_ground058_smoke" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" targetPos="false" soft2DValue="0" sound=""/>
+	<Particle frame="31" attachNode="Dummy_SKL1_effect001" particleName="F_smoke061_TOP" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.8" pause="true" use2DEffect="false" targetPos="false" soft2DValue="0"/>
+	<Particle frame="42" attachNode="R_Hook_Bone03" particleName="F_smoke046" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.3" pause="true" use2DEffect="false" targetPos="false" soft2DValue="0" sound=""/>
+	<Particle frame="42" attachNode="R_Hook_Bone06" particleName="F_smoke046" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.3" pause="true" use2DEffect="false" targetPos="false" soft2DValue="0" sound=""/>
 </ActionDesc>

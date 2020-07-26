@@ -2667,6 +2667,10 @@
         </EnableScripts>
 		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
 			<EtcList>
+                <Scp Client="NO" Scp="SKL_CHECK_OBB_BY_RANGE" Time="0" UseSleep="NO">
+                    <Pos Angle="0" Dist="22"/>
+                    <Num Num="10"/>
+                </Scp>
 				<Scp Client="YES" Scp="C_VOICE_SOUND" Time="0" UseSleep="NO">
 					<Str Str="voice_archer_m_pavise_shot" />
 					<Str Str="voice_archer_pavise_shot" />

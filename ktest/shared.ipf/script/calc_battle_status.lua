@@ -39,6 +39,16 @@ function get_hp_recovery_ratio(pc, value)
     ratio = math.min(max_hp_recovery_ratio, ratio)
     ratio = ratio * mhp
 
+    if IsServerSection() == 1 then
+        if IsPVPServer(pc) == 1 or IsPVPField(pc) == 1 then
+            ratio = ratio * 0.5
+        end
+    else
+        if IsPVPServer() == 1 or IsPVPField() == 1 then
+            ratio = ratio * 0.5
+        end
+    end
+
     return math.floor(ratio)
 end
 
@@ -266,4 +276,154 @@ function get_AttackType_value_Cannon(pc)
     end
 
     return value
+end
+
+function get_Aries_Atk_ratio_for_status(value)
+    local ret = 0
+
+    local pc = GetMyPCObject()
+    if pc ~= nil then        
+        ret = get_calc_atk_value_for_status(pc, value)
+    end
+    return value .. ' {#ff4040}(' .. ret .. '%)'
+end
+
+function get_Slash_Atk_ratio_for_status(value)
+    local ret = 0
+
+    local pc = GetMyPCObject()
+    if pc ~= nil then        
+        ret = get_calc_atk_value_for_status(pc, value)
+    end
+    return value .. ' {#ff4040}(' .. ret .. '%)'
+end
+
+function get_Strike_Atk_ratio_for_status(value)
+    local ret = 0
+
+    local pc = GetMyPCObject()
+    if pc ~= nil then        
+        ret = get_calc_atk_value_for_status(pc, value)
+    end
+    return value .. ' {#ff4040}(' .. ret .. '%)'
+end
+
+function get_Arrow_Atk_ratio_for_status(value)
+    local ret = 0
+
+    local pc = GetMyPCObject()
+    if pc ~= nil then        
+        ret = get_calc_atk_value_for_status(pc, value)
+    end
+    return value .. ' {#ff4040}(' .. ret .. '%)'
+end
+
+function get_Cannon_Atk_ratio_for_status(value)
+    local ret = 0
+
+    local pc = GetMyPCObject()
+    if pc ~= nil then        
+        ret = get_calc_atk_value_for_status(pc, value)
+    end
+    return value .. ' {#ff4040}(' .. ret .. '%)'
+end
+
+function get_Gun_Atk_ratio_for_status(value)
+    local ret = 0
+
+    local pc = GetMyPCObject()
+    if pc ~= nil then        
+        ret = get_calc_atk_value_for_status(pc, value)
+    end
+    return value .. ' {#ff4040}(' .. ret .. '%)'
+end
+
+function get_Magic_Melee_Atk_ratio_for_status(value)
+    local ret = 0
+
+    local pc = GetMyPCObject()
+    if pc ~= nil then        
+        ret = get_calc_atk_value_for_status(pc, value)
+    end
+    return value .. ' {#ff4040}(' .. ret .. '%)'
+end
+
+function get_Magic_Fire_Atk_ratio_for_status(value)
+    local ret = 0
+
+    local pc = GetMyPCObject()
+    if pc ~= nil then        
+        ret = get_calc_atk_value_for_status(pc, value)
+    end
+    return value .. ' {#ff4040}(' .. ret .. '%)'
+end
+
+function get_Magic_Ice_Atk_ratio_for_status(value)
+    local ret = 0
+
+    local pc = GetMyPCObject()
+    if pc ~= nil then        
+        ret = get_calc_atk_value_for_status(pc, value)
+    end
+    return value .. ' {#ff4040}(' .. ret .. '%)'
+end
+
+function get_Magic_Lightning_Atk_ratio_for_status(value)
+    local ret = 0
+
+    local pc = GetMyPCObject()
+    if pc ~= nil then        
+        ret = get_calc_atk_value_for_status(pc, value)
+    end
+    return value .. ' {#ff4040}(' .. ret .. '%)'
+end
+
+function get_Magic_Earth_Atk_ratio_for_status(value)
+    local ret = 0
+
+    local pc = GetMyPCObject()
+    if pc ~= nil then        
+        ret = get_calc_atk_value_for_status(pc, value)
+    end
+    return value .. ' {#ff4040}(' .. ret .. '%)'
+end
+
+function get_Magic_Poison_Atk_ratio_for_status(value)
+    local ret = 0
+
+    local pc = GetMyPCObject()
+    if pc ~= nil then        
+        ret = get_calc_atk_value_for_status(pc, value)
+    end
+    return value .. ' {#ff4040}(' .. ret .. '%)'
+end
+
+function get_Magic_Dark_Atk_ratio_for_status(value)
+    local ret = 0
+
+    local pc = GetMyPCObject()
+    if pc ~= nil then        
+        ret = get_calc_atk_value_for_status(pc, value)
+    end
+    return value .. ' {#ff4040}(' .. ret .. '%)'
+end
+
+function get_Magic_Holy_Atk_ratio_for_status(value)
+    local ret = 0
+
+    local pc = GetMyPCObject()
+    if pc ~= nil then        
+        ret = get_calc_atk_value_for_status(pc, value)
+    end
+    return value .. ' {#ff4040}(' .. ret .. '%)'
+end
+
+function get_Magic_Soul_Atk_ratio_for_status(value)
+    local ret = 0
+
+    local pc = GetMyPCObject()
+    if pc ~= nil then        
+        ret = get_calc_atk_value_for_status(pc, value)
+    end
+    return value .. ' {#ff4040}(' .. ret .. '%)'
 end

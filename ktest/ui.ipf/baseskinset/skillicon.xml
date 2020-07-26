@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by imc (imc) -->
 <!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by MintPC (Mi) -->
 <skinset name="Base">
 	<imagelist category="wizard_skillicon">
@@ -803,6 +803,7 @@
 		<image name="Icon_common_rangerRedF" file="\icon\skill\common\Icon_common_rangerRedF.png" imgrect="0 0 128 128" CMM_Caption="레드 여 버프"/>
 		<image name="Icon_common_rangerPink" file="\icon\skill\common\Icon_common_rangerPink.png" imgrect="0 0 128 128" CMM_Caption="핑크 버프"/>
 		<image name="Icon_common_rangerBlue" file="\icon\skill\common\Icon_common_rangerBlue.png" imgrect="0 0 128 128" CMM_Caption="블루 버프"/>
+		<image name="Icon_common_Acient_move_hold" file="\icon\skill\common\Icon_common_Acient_move_hold.png" imgrect="0 0 128 128" CMM_Caption="어시스터 홀드"/>
 	</imagelist>
 	<imagelist category="restquickslot_icon">
 		<image name="icon_rest_arrow" file="\icon\rest_mode_icon.tga" imgrect="0 0 128 128" CMM_Caption="화살제작"/>
@@ -1437,6 +1438,7 @@
 		<image name="ability_Warrior_blossomblader16" file="\icon\icon_ability_warrior09.tga" imgrect="128 384 128 128" CMM_Caption="기수식: 일섬"/>
 		<image name="ability_Warrior_blossomblader17" file="\icon\icon_ability_warrior09.tga" imgrect="256 384 128 128" CMM_Caption="기수식: 매화 베기"/>
 		<image name="ability_Warrior_blossomblader18" file="\icon\icon_ability_warrior09.tga" imgrect="384 384 128 128" CMM_Caption="[아츠] 어검술: 비천어검"/>
+		<image name="ability_Warrior_Hoplite39" file="\icon\icon_ability_warrior09.tga" imgrect="512 384 128 128" CMM_Caption="창 숙련: 마법진 파괴"/>
 	</imagelist>
 	<imagelist category="abilityicon_wizard">
 		<image name="ability_Wizard_Wizard1" file="\icon\icon_ability_wizard01.tga" imgrect="0 0 128 128" CMM_Caption="슬리프-단잠"/>
@@ -2868,6 +2870,20 @@
 		<image name="ability_cleric_crusader20" file="\icon\icon_ability_cleric07.tga" imgrect="896 896 128 128" CMM_Caption="링 오브 라이트: 아군 회복"/>
 		<image name="ability_cleric_Chaplain20" file="\icon\icon_ability_cleric08.tga" imgrect="0 0 128 128" CMM_Caption="카펠라 설치 : 회개"/>
 		<image name="ability_cleric_Inquisitor28" file="\icon\icon_ability_cleric08.tga" imgrect="128 0 128 128" CMM_Caption="인퀴지터 : 마력설치"/>
+		<image name="ability_cleric_Paladin33" file="\icon\icon_ability_cleric08.tga" imgrect="256 0 128 128" CMM_Caption="스톤 스킨: 아이언 스킨"/>
+		<image name="ability_cleric_Paladin34" file="\icon\icon_ability_cleric08.tga" imgrect="384 0 128 128" CMM_Caption="스톤 스킨: 매지컬 오라"/>
+		<image name="ability_cleric_Paladin35" file="\icon\icon_ability_cleric08.tga" imgrect="512 0 128 128" CMM_Caption="배리어: 마이트"/>
+		<image name="ability_cleric_Paladin36" file="\icon\icon_ability_cleric08.tga" imgrect="640 0 128 128" CMM_Caption="배리어: 릴리저스 비거"/>
+		<image name="ability_cleric_Paladin37" file="\icon\icon_ability_cleric08.tga" imgrect="768 0 128 128" CMM_Caption="레지스트 엘리멘츠: 인핸시드 엘리멘트"/>
+		<image name="ability_cleric_Paladin38" file="\icon\icon_ability_cleric08.tga" imgrect="896 0 128 128" CMM_Caption="리스토레이션: 스피릿"/>
+		<image name="ability_cleric_Paladin39" file="\icon\icon_ability_cleric08.tga" imgrect="0 128 128 128" CMM_Caption="데몰리션: 광란"/>
+		<image name="ability_cleric_Paladin40" file="\icon\icon_ability_cleric08.tga" imgrect="128 128 128 128" CMM_Caption="생츄어리: 릴리즈"/>
+		<image name="ability_cleric_Paladin41" file="\icon\icon_ability_cleric08.tga" imgrect="256 128 128 128" CMM_Caption="생츄어리: 리버티(물리)"/>
+		<image name="ability_cleric_Paladin42" file="\icon\icon_ability_cleric08.tga" imgrect="384 128 128 128" CMM_Caption="생츄어리: 리버티(마법)"/>
+		<image name="ability_cleric_PlagueDoctor22" file="\icon\icon_ability_cleric08.tga" imgrect="512 128 128 128" CMM_Caption="소독: 정화"/>
+		<image name="ability_cleric_PlagueDoctor23" file="\icon\icon_ability_cleric08.tga" imgrect="640 128 128 128" CMM_Caption="소독: 방역"/>
+		<image name="ability_cleric_Kabbalist31" file="\icon\icon_ability_cleric08.tga" imgrect="768 128 128 128" CMM_Caption="리벤지드 세븐폴드: 신의 권능"/>
+		<image name="ability_cleric_Pardoner21" file="\icon\icon_ability_cleric08.tga" imgrect="896 128 128 128" CMM_Caption="시모니: 리커버리"/>
 	</imagelist>
 	<imagelist category="abilityicon_common">
 		<image name="ability_common_DaggerMastery" file="\icon\icon_ability_common.tga" imgrect="0 0 128 128" CMM_Caption="단검 마스터리"/>
@@ -3035,6 +3051,9 @@
 		<image name="ability_scout_rangda12" file="\icon\icon_ability_scout03.tga" imgrect="896 256 128 128" CMM_Caption="라와: 중첩수 증가"/>
 		<image name="ability_scout_rangda13" file="\icon\icon_ability_scout03.tga" imgrect="0 384 128 128" CMM_Caption="페네라판: 강화"/>
 		<image name="ability_scout_rangda14" file="\icon\icon_ability_scout03.tga" imgrect="128 384 128 128" CMM_Caption="[아츠] 페네라판: 정기 흡수"/>
+		<image name="ability_scout_Shinobi16" file="\icon\icon_ability_scout03.tga" imgrect="256 384 128 128" CMM_Caption="인법 분신술: 인"/>
+		<image name="ability_scout_Shinobi17" file="\icon\icon_ability_scout03.tga" imgrect="384 384 128 128" CMM_Caption="인법 분신술: 체"/>
+		<image name="ability_scout_Shinobi18" file="\icon\icon_ability_scout03.tga" imgrect="512 384 128 128" CMM_Caption="인법 분신술: 환"/>
 	</imagelist>
 	<imagelist category="abilityicon">
 		<image name="icon_abil_1_1" file="\icon\ability_icon.tga" imgrect="0 0 64 64" CMM_Caption="절단"/>

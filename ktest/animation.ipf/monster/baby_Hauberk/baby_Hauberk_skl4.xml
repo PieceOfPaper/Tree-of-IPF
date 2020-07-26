@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="EUC-KR"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by IMCGames Co., Ltd (IMCGames Co., Ltd) -->
+<ActionDesc>
+	<BlendOn frame="0" R="0" G="0" B="0" A="50"/>
+	<BlendOn frame="10" R="150" G="150" B="120" A="100"/>
+	<BlendOn frame="11" R="60" G="60" B="30" A="100"/>
+	<BlendOn frame="12" R="0" G="0" B="0" A="50"/>
+	<BlendOn frame="19" R="150" G="150" B="120" A="100"/>
+	<BlendOn frame="20" R="60" G="60" B="30" A="100"/>
+	<BlendOn frame="21" R="0" G="0" B="0" A="50"/>
+	<BlendOn frame="25" R="150" G="150" B="120" A="100"/>
+	<BlendOn frame="26" R="60" G="60" B="30" A="100"/>
+	<BlendOn frame="27" R="0" G="0" B="0" A="50"/>
+	<BlendOn frame="30" R="150" G="150" B="120" A="100"/>
+	<BlendOn frame="31" R="60" G="60" B="30" A="100"/>
+	<BlendOn frame="32" R="0" G="0" B="0" A="50"/>
+	<BlendOff frame="40" R="0" G="0" B="0" A="0"/>
+	<Shockwave frame="10" type="2" intensity="1" frequency="70" duration="0.2" range="1000"/>
+	<Shockwave frame="19" type="2" intensity="1" frequency="70" duration="0.1" range="1000"/>
+	<Shockwave frame="31" type="2" intensity="1" frequency="70" duration="0.2" range="1000"/>
+	<Particle frame="5" attachNode="Dummy_emitter" particleName="F_dash013_white" useAttach="false" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="5" attachNode="Dummy_emitter" particleName="F_burstup007_smoke3" useAttach="false" hiddenObj="false" changeEffect="None" scale="0.6" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="5" attachNode="Dummy_emitter" particleName="F_stone005" useAttach="false" hiddenObj="false" changeEffect="None" scale="0.6" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="5" attachNode="Dummy_emitter001" particleName="F_smoke109" useAttach="false" hiddenObj="false" changeEffect="None" scale="5" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="5" attachNode="Dummy_emitter002" particleName="F_smoke109" useAttach="false" hiddenObj="false" changeEffect="None" scale="4" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="6" attachNode="Dummy_emitter003" particleName="F_smoke109" useAttach="false" hiddenObj="false" changeEffect="None" scale="3.5" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="6" attachNode="Dummy_emitter004" particleName="F_smoke109" useAttach="false" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="7" attachNode="Dummy_emitter" particleName="F_smoke109" useAttach="false" hiddenObj="false" changeEffect="None" scale="4" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="7" attachNode="Dummy_emitter" particleName="F_stone007" useAttach="false" hiddenObj="false" changeEffect="None" scale="4" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="7" attachNode="Dummy_emitter" particleName="F_dash013_white" useAttach="false" hiddenObj="false" changeEffect="None" scale="1.4" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="10" attachNode="Dummy_effect_skl4_head" particleName="F_pose_ouch_light2" useAttach="false" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="10" attachNode="Dummy_effect_skl4_head" particleName="I_cleric_kasiwade_light" useAttach="false" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="0" attachNode="Dummy_emitter" particleName="None" useAttach="false" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="17" attachNode="Dummy_emitter" particleName="F_ground079_smoke3" useAttach="false" hiddenObj="false" changeEffect="None" scale="1.4" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="19" attachNode="Dummy_effect_skl4_003_dash1" particleName="F_ground079_smoke3" useAttach="false" hiddenObj="false" changeEffect="None" scale="1.4" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="19" attachNode="Dummy_effect_skl4_002" particleName="F_explosion035_yellow2" useAttach="false" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="19" attachNode="Dummy_effect_skl4_002" particleName="I_light013_spark_orange3" useAttach="false" hiddenObj="false" changeEffect="None" scale="2.5" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="19" attachNode="Dummy_effect_skl4_002" particleName="F_fire044_7_Spark2" useAttach="false" hiddenObj="false" changeEffect="None" scale="5" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="0" attachNode="Dummy_emitter" particleName="None" useAttach="false" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="25" attachNode="Dummy_emitter" particleName="F_dash013_white" useAttach="false" hiddenObj="false" changeEffect="None" scale="1.4" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="25" attachNode="Dummy_emitter" particleName="F_burstup007_smoke3" useAttach="false" hiddenObj="false" changeEffect="None" scale="0.4" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="25" attachNode="Dummy_emitter" particleName="F_stone005" useAttach="false" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="31" attachNode="Dummy_effect_skl4_003_dash" particleName="I_warrior_dash021_twirl" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="32" attachNode="Dummy_effect_skl4_003_dash1" particleName="I_warrior_dash_run_line2_nosound" useAttach="true" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="32" attachNode="Dummy_effect_skl4_003" particleName="I_dash018_mash_blue" useAttach="false" hiddenObj="false" changeEffect="None" scale="0.7" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="31" attachNode="Dummy_effect_skl4_003" particleName="I_light013_spark_white_nosound" useAttach="false" hiddenObj="false" changeEffect="None" scale="5.5" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="30" attachNode="Dummy_effect_skl4_smoke" particleName="F_warrior_doomspike_shot_smoke" useAttach="false" hiddenObj="false" changeEffect="None" scale="1.2" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="31" attachNode="Dummy_effect_skl4_smoke" particleName="F_warrior_doomspike_shot_smoke" useAttach="false" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="25" attachNode="Dummy_emitter" particleName="F_ground079_smoke3" useAttach="false" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="false" soft2DValue="20"/>
+</ActionDesc>

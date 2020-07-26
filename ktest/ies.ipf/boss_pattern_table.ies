@@ -62,3 +62,8 @@ ClassID,EndTime,arg2,ClassName,Name,SkillClassName,Type,StartTime,ConditionScrip
 109,900000,0,"FieldRift_Meteo","메테오 생성","Mon_FieldRift_pattern_Skill_9","Type1","3000/60000","","0","Weekly_Thunderstroke","주기적으로 지면에 낙뢰가 떨어집니다.{nl}낙뢰에 피격된 대상은 일정 확률로 버프가 제거됩니다."
 110,900000,0,"FieldRift_Slow","슬로우","Mon_FieldRift_pattern_Skill_10","Type1","3000/60000","","0","Weekly_Thunderstroke","캐릭터 주변에 죽음의 고리가 생성됩니다. 해당 고리에 닿으면 스턴 상태가 됩니다."
 111,900000,0,"FieldRift_Freez","결빙","Mon_FieldRift_pattern_Skill_11","Type1","3000/60000","","0","Weekly_Thunderstroke","주기적으로 지면에 낙뢰가 떨어집니다.{nl}낙뢰에 피격된 대상은 일정 확률로 버프가 제거됩니다."
+201,900000,0,"Ancient_ElectricShock","전격","Mon_Ancient_dungeon_pattern_Skill_1","","3000","","Ancient_ElectricShock_Debuff","","아군 몬스터에게 전격 디버프를 부여합니다.{nl}디버프 보유  대상 간 근접하면 전격 대미지를 받습니다."
+202,900000,0,"Ancient_Silence","침묵","Mon_Ancient_dungeon_pattern_Skill_2","","0","","Ancient_Silence_Debuff","","기본 스킬외의 스킬은 사용이 불가합니다."
+203,900000,0,"Ancient_TheLight","안광","Mon_Ancient_dungeon_pattern_Skill_3","","10000","","Ancient_Meteor_Debuff","","덴옵틱을 소환합니다.{nl}덴옵틱은 안광을 1회 사용한 후 제거됩니다."
+204,900000,0,"Ancient_Meteo","대운석 낙하","Mon_Ancient_dungeon_pattern_Skill_4","","10000","","Ancient_Meteor_Debuff","","주기적으로 운석이 떨어집니다. 주기마다 운석 개수가 증가하며, 낙하한 지면에 장판이 생성되어 대미지를 줍니다."
+205,900000,0,"Ancient_Meteo_2","대운석 낙하","Mon_Ancient_dungeon_pattern_Skill_5","","10000","","Ancient_Combo_Debuff","","주기적으로 운석이 떨어집니다. 주기마다 운석 개수가 증가하며, 낙하한 지면에 장판이 생성되어 대미지를 줍니다."

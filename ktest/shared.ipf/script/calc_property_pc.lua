@@ -2103,11 +2103,7 @@ function SCR_Get_MSPD(self)
         return 10;
     end
     
-    if IsBuffApplied(self, 'SnipersSerenity_Buff') == 'YES' then
-        local value = GetExProp(self, 'SniperSPD')
 
-    	return value;
-    end
     
     if IsBuffApplied(self, 'HideShot_Buff') == 'YES' then
         return 25;
@@ -2271,6 +2267,12 @@ function SCR_Get_MSPD(self)
     if GetExProp(self, "IS_OOBE_DUMMYPC") == 1 then
         value = 55;
     end
+
+    if IsBuffApplied(self, 'SnipersSerenity_Buff') == 'YES' then
+        if value >= GetExProp(self, 'SniperSPD') then
+            return GetExProp(self, 'SniperSPD')
+        end
+    end    
     
     return math.floor(value);
 end
@@ -3544,7 +3546,185 @@ function SCR_GET_ATK_STRIKE(pc)
     return math.floor(value);
 end
 
+function SCR_GET_Arrow_Atk(pc)
+    -- 아이템에서는 사용하지 않아 아이템에 대한 추가치 로직은 없음
+    -- 만약 아이템에서 사용하게 되면 로직 추가해야함
+    local byItem = 0;
+    
+    local byBuff = TryGetProp(pc, "Arrow_Atk_BM");
+    if byBuff == nil then
+        byBuff = 0;
+    end
+    
+    local value = byItem + byBuff;
+	
+    return math.floor(value);
+end
 
+function SCR_GET_Cannon_Atk(pc)
+    -- 아이템에서는 사용하지 않아 아이템에 대한 추가치 로직은 없음
+    -- 만약 아이템에서 사용하게 되면 로직 추가해야함
+    local byItem = 0;
+    
+    local byBuff = TryGetProp(pc, "Cannon_Atk_BM");
+    if byBuff == nil then
+        byBuff = 0;
+    end
+    
+    local value = byItem + byBuff;
+	
+    return math.floor(value);
+end
+
+function SCR_GET_Gun_Atk(pc)
+    -- 아이템에서는 사용하지 않아 아이템에 대한 추가치 로직은 없음
+    -- 만약 아이템에서 사용하게 되면 로직 추가해야함
+    local byItem = 0;
+    
+    local byBuff = TryGetProp(pc, "Gun_Atk_BM");
+    if byBuff == nil then
+        byBuff = 0;
+    end
+    
+    local value = byItem + byBuff;
+	
+    return math.floor(value);
+end
+
+function SCR_GET_Magic_Melee_Atk(pc)
+    -- 아이템에서는 사용하지 않아 아이템에 대한 추가치 로직은 없음
+    -- 만약 아이템에서 사용하게 되면 로직 추가해야함
+    local byItem = 0;
+    
+    local byBuff = TryGetProp(pc, "Magic_Melee_Atk_BM");
+    if byBuff == nil then
+        byBuff = 0;
+    end
+    
+    local value = byItem + byBuff;
+	
+    return math.floor(value);
+end
+
+function SCR_GET_Magic_Fire_Atk(pc)
+    -- 아이템에서는 사용하지 않아 아이템에 대한 추가치 로직은 없음
+    -- 만약 아이템에서 사용하게 되면 로직 추가해야함
+    local byItem = 0;
+    
+    local byBuff = TryGetProp(pc, "Magic_Fire_Atk_BM");
+    if byBuff == nil then
+        byBuff = 0;
+    end
+    
+    local value = byItem + byBuff;
+	
+    return math.floor(value);
+end
+
+function SCR_GET_Magic_Ice_Atk(pc)
+    -- 아이템에서는 사용하지 않아 아이템에 대한 추가치 로직은 없음
+    -- 만약 아이템에서 사용하게 되면 로직 추가해야함
+    local byItem = 0;
+    
+    local byBuff = TryGetProp(pc, "Magic_Ice_Atk_BM");
+    if byBuff == nil then
+        byBuff = 0;
+    end
+    
+    local value = byItem + byBuff;
+	
+    return math.floor(value);
+end
+
+function SCR_GET_Magic_Lightning_Atk(pc)
+    -- 아이템에서는 사용하지 않아 아이템에 대한 추가치 로직은 없음
+    -- 만약 아이템에서 사용하게 되면 로직 추가해야함
+    local byItem = 0;
+    
+    local byBuff = TryGetProp(pc, "Magic_Lightning_Atk_BM");
+    if byBuff == nil then
+        byBuff = 0;
+    end
+    
+    local value = byItem + byBuff;
+	
+    return math.floor(value);
+end
+
+function SCR_GET_Magic_Earth_Atk(pc)
+    -- 아이템에서는 사용하지 않아 아이템에 대한 추가치 로직은 없음
+    -- 만약 아이템에서 사용하게 되면 로직 추가해야함
+    local byItem = 0;
+    
+    local byBuff = TryGetProp(pc, "Magic_Earth_Atk_BM");
+    if byBuff == nil then
+        byBuff = 0;
+    end
+    
+    local value = byItem + byBuff;
+	
+    return math.floor(value);
+end
+
+function SCR_GET_Magic_Poison_Atk(pc)
+    -- 아이템에서는 사용하지 않아 아이템에 대한 추가치 로직은 없음
+    -- 만약 아이템에서 사용하게 되면 로직 추가해야함
+    local byItem = 0;
+    
+    local byBuff = TryGetProp(pc, "Magic_Poison_Atk_BM");
+    if byBuff == nil then
+        byBuff = 0;
+    end
+    
+    local value = byItem + byBuff;
+	
+    return math.floor(value);
+end
+
+function SCR_GET_Magic_Dark_Atk(pc)
+    -- 아이템에서는 사용하지 않아 아이템에 대한 추가치 로직은 없음
+    -- 만약 아이템에서 사용하게 되면 로직 추가해야함
+    local byItem = 0;
+    
+    local byBuff = TryGetProp(pc, "Magic_Dark_Atk_BM");
+    if byBuff == nil then
+        byBuff = 0;
+    end
+    
+    local value = byItem + byBuff;
+	
+    return math.floor(value);
+end
+
+function SCR_GET_Magic_Holy_Atk(pc)
+    -- 아이템에서는 사용하지 않아 아이템에 대한 추가치 로직은 없음
+    -- 만약 아이템에서 사용하게 되면 로직 추가해야함
+    local byItem = 0;
+    
+    local byBuff = TryGetProp(pc, "Magic_Holy_Atk_BM");
+    if byBuff == nil then
+        byBuff = 0;
+    end
+    
+    local value = byItem + byBuff;
+	
+    return math.floor(value);
+end
+
+function SCR_GET_Magic_Soul_Atk(pc)
+    -- 아이템에서는 사용하지 않아 아이템에 대한 추가치 로직은 없음
+    -- 만약 아이템에서 사용하게 되면 로직 추가해야함
+    local byItem = 0;
+    
+    local byBuff = TryGetProp(pc, "Magic_Soul_Atk_BM");
+    if byBuff == nil then
+        byBuff = 0;
+    end
+    
+    local value = byItem + byBuff;
+	
+    return math.floor(value);
+end
 
 function SCR_GET_DEF_ARIES(pc)
     local byItem = GetSumOfEquipItem(pc, "AriesDEF");

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uiframe name="housing_promote_post" x="0" y="0" width="1083" height="741" create="open">
+	<frame titlepos="0 0" margin="0 0 0 0" layout_gravity="center center" scale_align="center top"/>
+	<skin frameskin="mainwindow3"/>
+	<draw drawframe="true" drawtitlebar="false"/>
+	<layer layerlevel="102"/>
+	<input moveable="true" hittestframe="true" moveintitlebar="false"/>
+	<option closebutton="false" hideable="true" useimageitem="true"/>
+	<sound opensound="sys_popup_open_1" closesound="character_item_window_close"/>
+	<animation frameOpenAnim="popup_start" frameCloseAnim="popup_end"/>
+	<controls>
+		<timer name="addontimer" rect="0 0 10 10" margin="0 0 0 0" layout_gravity="left top"/>
+		<!-- TITLE -->
+		<button name="closeBtn" rect="0 0 50 50" margin="0 36 40 0" layout_gravity="right top" image="testclose_button" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" clicksound="button_click_big" oversound="button_over" LBtnUpScp="HOUSING_PROMOTE_POST_CLOSE"/>
+		<richtext name="title" rect="0 0 1000 60" margin="0 36 0 0" layout_gravity="center top" format="{@st43b}{s26}%s" param1="value" param1_def="게시글 제목" textalign="center center" hittest="false"/>
+		<!-- HOUSING INFO -->
+		<groupbox name="housinginfo" rect="0 0 506 455" margin="35 85 0 0" layout_gravity="left top" draw="true" skin="test_skin_01_btn" scrollbar="false"/>
+		<richtext name="teamname" parent="housinginfo" rect="0 0 620 30" margin="0 22 0 0" layout_gravity="center top" format="{@st66b}{s18}%s" param1="value" param1_def="작성자 팀 이름" textalign="left center"/>
+		<labelline name="labelline1" parent="housinginfo" rect="0 0 472 2" margin="0 52 0 0" layout_gravity="center top" skin="labelline_def_3"/>
+		<picture name="thumbnail" parent="housinginfo" rect="0 0 326 280" margin="0 65 0 0" layout_gravity="center top" stretch="true" hittest="false" image="housingbanner"/>		
+		<labelline name="labelline2" parent="housinginfo" rect="0 0 472 2" margin="0 360 0 0" layout_gravity="center top" skin="labelline_def_3"/>
+		<button name="housing_warp_btn" parent="housinginfo" rect="0 0 354 64" margin="-40 370 0 0" layout_gravity="center top" MouseOnAnim="btn_mouseover" caption="{@st41b}{s16}하우징으로 이동" skin="test_brown_btn" LBtnUpScp="HOUSING_PROMOTE_POST_WARP_HOUSE"/>
+		<button name="edit_btn" parent="housinginfo" rect="0 0 64 64" margin="180 370 80 0" layout_gravity="center top" MouseOnAnim="btn_mouseover" image="btn_housing_editmode" LBtnUpScp="HOUSING_PROMOTE_POST_EDIT" texttooltip="게시글을 편집합니다"/>
+		<richtext name="edit_label" parent="housinginfo" rect="0 0 120 30" margin="180 414 98 0" layout_gravity="center top" format="{@st43}{s16}%s" param1="value" param1_def="편집" textalign="center center"/>
+		<!-- SOCIAL INFO -->
+		<groupbox name="socialinfo" rect="0 0 500 170" margin="38 544 0 0" layout_gravity="left top" draw="true" skin="test_frame_midle" scrollbar="false"/>
+		<richtext name="socialinfo_lable" parent="socialinfo" rect="0 0 200 30" margin="10 8 0 0" layout_gravity="left top" caption="{@st43b}{s20}소셜 정보" fontname="black_18_b"/>
+		<labelline name="labelline4" parent="socialinfo" rect="0 0 500 2" margin="0 39 0 0" layout_gravity="center top" skin="labelline_def_4"/>
+		<richtext name="socialinfo_1" parent="socialinfo" rect="0 0 200 30" margin="10 47 0 0" layout_gravity="left top" format="{@st42b}{s18}{ds}누적 방문자 : %s" param1="value" textalign="left center"/>
+		<richtext name="socialinfo_2" parent="socialinfo" rect="0 0 200 30" margin="10 74 0 0" layout_gravity="left top" format="{@st42b}{s18}{ds}금일 방문자 : %s" param1="value" textalign="left center"/>
+		<richtext name="socialinfo_3" parent="socialinfo" rect="0 0 200 30" margin="10 101 0 0" layout_gravity="left top" format="{@st42b}{s18}{ds}좋아요 : %s" param1="value" textalign="left center"/>
+		<richtext name="URL_lable" parent="socialinfo" rect="0 0 200 30" margin="10 136 0 0" layout_gravity="left top" format="{@st42b}{s18}{ds}스트리밍 채널 :" textalign="left center" resizebytext="false"/>
+		<richtext name="URL" parent="socialinfo" rect="0 0 350 30" margin="140 137 0 0" layout_gravity="left top" format="{@st42b}{s18}{ds}%s" param1="value" textalign="left center" hittest="true" resizebytext="false" fixwidth="false" omitbywidth="true" LBtnUpScp="HOUSING_PROMOTE_POST_URL_CLICK"/>
+		<!-- OPTION INFO -->
+		<groupbox name="info_bg" rect="0 0 498 625" margin="0 88 35 0" layout_gravity="right top" draw="true" skin="test_frame_midle" scrollbar="false"/>	
+		<groupbox name="optioninfo" rect="0 0 490 200" margin="0 98 35 0" layout_gravity="right top" draw="false" scrollbar="false"/>
+		<richtext name="optioninfo_lable" parent="optioninfo" rect="0 0 350 30" margin="5 0 0 0" layout_gravity="left top" caption="{@st43b}{s20}개인 하우징 공개 옵션" textalign="left center" resizebytext="false"/>
+		<labelline name="labelline5" parent="optioninfo" rect="0 0 488 2" margin="0 37 0 0" layout_gravity="center top" skin="labelline_def_4"/>
+		<groupbox name="optioninfo_list" parent="optioninfo" rect="0 0 470 150" margin="0 48 10 0" layout_gravity="right top" draw="false" scrollbar="true"/>
+		<!-- POINT INFO -->
+		<groupbox name="pointinfo" rect="0 0 490 200" margin="0 300 35 0" layout_gravity="right top" draw="false" scrollbar="false"/>
+		<richtext name="pointinfo_lable" parent="pointinfo" rect="0 0 350 30" margin="0 0 0 0" layout_gravity="left top" caption="{@st43b}{s20}포인트 정보" textalign="left center" resizebytext="false"/>
+		<labelline name="labelline6" parent="pointinfo" rect="0 0 488 2" margin="0 39 0 0" layout_gravity="left top" skin="labelline_def_4"/>
+		<groupbox name="pointinfo_bg" parent="pointinfo" rect="0 0 475 105" margin="5 50 0 0" layout_gravity="left top" draw="true" skin="brownbox_is" scrollbar="false"/>
+		<richtext name="pointinfo_1" parent="pointinfo" rect="0 0 200 30" margin="25 62 0 0" layout_gravity="left top" format="{@st42b}{s18}{ds}개인 하우징 : %s단계" param1="value" textalign="left center"/>
+		<richtext name="pointinfo_2" parent="pointinfo" rect="0 0 200 30" margin="25 92 0 0" layout_gravity="left top" format="{@st42b}{s18}{ds}배치 포인트 : %s" param1="value" textalign="left center"/>
+		<richtext name="pointinfo_3" parent="pointinfo" rect="0 0 200 30" margin="25 122 0 0" layout_gravity="left top" format="{@st42b}{s18}{ds}개인 하우징 포인트 : %s" param1="value" textalign="left center"/>
+	</controls>
+</uiframe>

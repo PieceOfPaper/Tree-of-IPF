@@ -1,4 +1,22 @@
 <uiframe name="ancient_frame_drag" x="0" y="0" width="163" height="218">
+	<draw drawtitlebar="false" drawframe="false"/>
+	<frame fasthide="true" layout_gravity="center center" margin="0 0 0 0" hittest="false"/>
+    <input resize="true" hittestframe="false"/>
+	<sound opensound="sys_card_battle_icon_drag" closesound="UI_card_move"/>
+    <skin frameskin="None"/>
+	<layer layerlevel="100"/>
     <controls>
+        <groupbox name="ancient_card_gbox" hittest="false" margin="0 0 0 0" rect="0 0 163 218" layout_gravity="left top" draw="false"/>
+        <picture name="ancient_card_background" parent="ancient_card_gbox" rect="0 0 163 218" margin="0 0 0 0" draw="false" layout_gravity="center center"/>
+        <richtext name="ancient_card_lv" parent="ancient_card_gbox" layout_gravity="center top" textalign="center top" rect="0 0 70 20" margin="0 8 0 0" resizebytext="true"/>
+        <slot name="ancient_card_slot" parent="ancient_card_gbox" margin="0 30 0 0" rect="0 0 75 75" layout_gravity="center top"/>
+        <richtext name="ancient_card_grade" parent="ancient_card_slot" layout_gravity="left top" textalign="left top" fontname="black_18" rect="0 0 70 20" margin="0 55 0 0" resizebytext="true"/>
+        <richtext name="ancient_card_name" parent="ancient_card_gbox" margin="0 110 0 0" rect="0 0 163 15" layout_gravity="center top"/>
+        <gauge name="ancient_card_gauge" parent="ancient_card_gbox" rect="0 0 110 8" margin="0 130 0 0" layout_gravity="center top" inverse="false" skin="mon_card_gauge"/>
+        <groupbox name="ancient_card_type_gbox" parent="ancient_card_gbox" margin="0 145 0 0" rect="0 0 163 67" draw="false"/>
+        <slot name="ancient_card_type1_pic" parent="ancient_card_type_gbox" margin="20 2 0 0" rect="0 0 25 25"/>
+        <richtext name="ancient_card_type1_text" parent="ancient_card_type_gbox" margin="0 7 20 0" rect="0 0 163 20" param1_def="1" layout_gravity="right top"/>
+        <slot name="ancient_card_type2_pic" parent="ancient_card_type_gbox" rect="0 0 25 25" margin="20 33 0 0"/>
+        <richtext name="ancient_card_type2_text" parent="ancient_card_type_gbox" margin="0 37 20 0" rect="0 0 20 20" param1_def="1" layout_gravity="right top"/>
     </controls>
 </uiframe>

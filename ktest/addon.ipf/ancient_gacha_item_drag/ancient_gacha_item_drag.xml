@@ -1,0 +1,12 @@
+<uiframe name="ancient_gacha_item_drag" x="0" y="0" width="128" height="128">
+	<draw drawtitlebar="false" drawframe="false"/>
+	<frame fasthide="true" layout_gravity="center center" margin="0 0 0 0" hittest="false"/>
+    <input resize="true" hittestframe="false"/>
+    <sound opensound="sys_card_battle_icon_drag" closesound="UI_card_move"/>
+    <skin frameskin="None"/>
+	<layer layerlevel="100"/>
+    <controls>
+        <groupbox name="ancient_card_gbox" hittest="false" margin="0 0 0 0" rect="0 0 128 128" layout_gravity="left top" draw="false"/>
+        <picture name="drag_pic" rect="0 0 128 128" margin="0 0 0 0" parent="ancient_card_gbox" layout_gravity="left top" image="inside_of_cover_big_card"/>
+    </controls>
+</uiframe>

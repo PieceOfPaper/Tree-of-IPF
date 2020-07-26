@@ -7618,7 +7618,7 @@ end"/>
 				<ExecList>
 					<ToolScp Scp="SPCI_EQUIP_ADD_EXPROP_NUM" Client="NO" UseSleep="NO">
 						<Str Str="ITEM_HOPLITE_FINESTRA_CRTHR_UP"/>
-						<Num Num="0.039999999"/>
+						<Num Num="0.01"/>
 					</ToolScp>
 				</ExecList>
 			</Trigger>
@@ -7628,7 +7628,7 @@ end"/>
 				<ExecList>
 					<ToolScp Scp="SPCI_EQUIP_ADD_EXPROP_NUM" Client="NO" UseSleep="NO">
 						<Str Str="ITEM_HOPLITE_FINESTRA_CRTHR_UP"/>
-						<Num Num="-0.039999999"/>
+						<Num Num="-0.01"/>
 					</ToolScp>
 				</ExecList>
 			</Trigger>
@@ -10925,6 +10925,32 @@ end"/>
 			</Trigger>
 		</TriggerList>
 	</SpcItem>
+	<SpcItem Name="Effect_littleprince">
+		<TriggerList Act="Equip">
+			<Trigger>
+				<ExecList>
+					<ToolScp Scp="SPCI_BUFF_EQUIPITEM" Client="NO" UseSleep="NO">
+						<Str Str="ITEM_EFFECT_LITTLEPRINCE"/>
+						<Num Num="1"/>
+						<Num Num="0"/>
+						<Num Num="0"/>
+						<Num Num="1"/>
+						<Num Num="100"/>
+						<Num Num="-1"/>
+					</ToolScp>
+				</ExecList>
+			</Trigger>
+		</TriggerList>
+		<TriggerList Act="UnEquip">
+			<Trigger>
+				<ExecList>
+					<ToolScp Scp="SPCI_REMOVE_BUFF_UNEQUIP" Client="NO" UseSleep="NO">
+						<Str Str="ITEM_EFFECT_LITTLEPRINCE"/>
+					</ToolScp>
+				</ExecList>
+			</Trigger>
+		</TriggerList>
+	</SpcItem>
 	<SpcItem Name="Effect_GabiaFire">
 		<TriggerList Act="Equip">
 			<Trigger>
@@ -11542,10 +11568,14 @@ end"/>
 			</Trigger>
 		</TriggerList>
 	</SpcItem>
-	<SpcItem Name="STF04_127_1">
+        <SpcItem Name="STF04_127_1">
 		<TriggerList Act="Equip">
 			<Trigger>
 				<ExecList>
+					<ToolScp Scp="SPCI_JOB_ALL_SKILLUP" Client="NO" UseSleep="NO">
+						<Str Str="Sorcerer"/>
+						<Num Num="1"/>
+					</ToolScp>
 					<ToolScp Scp="SPCI_BUFF_EQUIPITEM" Client="NO" UseSleep="NO">
 						<Str Str="VIBORA_STF_SORCERER"/>
 						<Num Num="1"/>
@@ -11561,6 +11591,10 @@ end"/>
 		<TriggerList Act="UnEquip">
 			<Trigger>
 				<ExecList>
+					<ToolScp Scp="SPCI_JOB_ALL_SKILLUP" Client="NO" UseSleep="NO">
+						<Str Str="Sorcerer"/>
+						<Num Num="-1"/>
+					</ToolScp>
 					<ToolScp Scp="SPCI_REMOVE_BUFF_UNEQUIP" Client="NO" UseSleep="NO">
 						<Str Str="VIBORA_STF_SORCERER"/>
 					</ToolScp>

@@ -362,15 +362,6 @@ return 2000 + AddTime"/>
 				<Scp Client="YES" Scp="C_VOICE_SOUND" Time="200" UseSleep="NO">
 					<Str Str="voice_war_atk_medium" />
 					<Str Str="voice_atk_medium_war_f" />
-				</Scp>
-                <Scp Client="NO" Scp="SKL_BUFF" Time="0" UseSleep="NO">
-                    <Str Str="Quintain_Buff" />
-                    <Num Num="1" />
-                    <Num Num="0" />
-                    <Num Num="4000" />
-                    <Num Num="1" />
-                    <Num Num="100" />
-                    <Num Num="0" />
                 </Scp>
 			</EtcList>
 		</MainSkl>

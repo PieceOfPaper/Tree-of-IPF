@@ -339,10 +339,10 @@
 			<richtext name="title" parent="titleBox" rect="0 0 340 30" margin="5 5 0 0" fixwidth="false" fixheight="false" updateparent="true" caption="{@st43}{s16}특정 종류의 스킬 사용을 일정 부분 제한합니다.{/}" resizebytext="true"/>
 		</controls>
 	</tooltip>
-	<tooltip name="ancient_monster" x="0" y="0" frameskin="None" marginy="10" fixwidth="true" width="280" height="470" moveable="false" blendtime="" UpdateScp="UPDATE_ANCIENT_MON_TOOLTIP">
+	<tooltip name="ancient_card" x="0" y="0" frameskin="None" marginy="10" fixwidth="true" width="280" height="650" moveable="false" blendtime="" UpdateScp="UPDATE_ANCIENT_CARD_TOOLTIP">
 		<userconfig NORMAL_GRADE_TEXT="{@st42b}{s14}{#ffffff}노말" MAGIC_GRADE_TEXT="{@st42b}{s14}{#0e7fe8}매직" UNIQUE_GRADE_TEXT="{@st42b}{s14}{#d92400}유니크" LEGEND_GRADE_TEXT="{@st42b}{s14}{#ffa800}레전드"/>
 		<controls>
-			<groupbox name="bg" rect="0 0 280 470" margin="0 0 0 0" layout_gravity="left top" skin="test_Item_tooltip_equip2"/>
+			<groupbox name="bg" rect="0 0 280 650" margin="0 0 0 0" layout_gravity="left top" skin="test_Item_tooltip_equip2"/>
 			<groupbox name="name_box" rect="0 0 280 60" margin="0 0 0 0" layout_gravity="left top" draw="false"/>
 			<richtext name="rarity" parent="name_box" rect="0 0 280 40" margin="0 10 0 0" layout_gravity="center top"/>
 			<richtext name="name" parent="name_box" rect="0 0 280 40" margin="0 30 0 0" layout_gravity="center top"/>
@@ -352,6 +352,31 @@
 			<gauge name="exp" parent="monster_info" rect="0 0 200 30" margin="0 110 0 0" layout_gravity="center top" inverse="false" skin="test_gauge_barrack_defence" text1="%.1p%" textoffset1="0 0" textalign1="center center"/>
 			<groupbox name="line" rect="0 0 260 3" margin="10 185 0 0" layout_gravity="left top" draw="true" skin="test_tooltip_line"/>
 			<groupbox name="monster_stat" rect="0 0 280 300" margin="0 200 0 0" layout_gravity="left top" draw="false"/>
+			<groupbox name="line2" rect="0 0 260 3" margin="10 456 0 0" layout_gravity="left top" draw="true" skin="test_tooltip_line"/>
+			<groupbox name="monster_cost" rect="0 0 280 30" margin="0 460 0 0" layout_gravity="left top" draw="false"/>
+			<richtext name="cost_name" parent="monster_cost" rect="0 0 100 30" margin="10 0 0 0" layout_gravity="left top" caption="{@st66b}{s16}코스트"/>
+			<richtext name="cost_val" parent="monster_cost" rect="0 0 100 30" margin="0 0 10 0" layout_gravity="right top"/>
+			<groupbox name="line3" rect="0 0 260 3" margin="10 486 0 0" layout_gravity="left top" draw="true" skin="test_tooltip_line"/>
+			<groupbox name="monster_passive" rect="0 0 280 50" margin="0 490 0 0" layout_gravity="left top" draw="false"/>
+			<richtext name="passive_name" parent="monster_passive" rect="0 0 100 30" margin="10 0 0 0" layout_gravity="left top" caption="{@st66b}{s16}고유 패시브{/}"/>
+			<richtext name="passive_val" parent="monster_passive" rect="0 0 100 30" margin="20 30 0 0" layout_gravity="left top" fontname="orange_16_b_ol"/>
+		</controls>
+	</tooltip>
+	<tooltip name="ancient_passive" x="0" y="0" fixwidth="true" width="461" height="100" moveable="true" frameskin="downbox" draw="false" UpdateScp="UPDATE_ANCIENT_CARD_PASSIVE_TOOLTIP">
+		<controls>
+			<groupbox name="bg" rect="0 0 461 100" margin="0 0 0 0" layout_gravity="left top" draw="false" updateparent="true" scrollbar="false"/>
+			<richtext name="passive_title" rect="0 0 461 20" margin="10 10 0 0" parent="bg" layout_gravity="left top" updateparent="true" caption="{@st43b}{s18}패시브 효과" resizebytext="true"/>
+			<richtext name="passive_help" rect="0 0 461 20" margin="30 35 0 0" parent="bg" layout_gravity="left top" updateparent="true" fontname="white_16_ol" resizebytext="true"/>
+			<groupbox name="monster_passive_gbox" rect="0 0 461 20" margin="0 5 0 0" parent="bg" layout_gravity="left top" draw="false" updateparent="true" scrollbar="false"/>
+			<richtext name="monster_passive" rect="0 0 461 20" margin="15 0 0 0" layout_gravity="left top" parent="monster_passive_gbox" updateparent="true" caption="{@st42b}{s14}{ds}◆고유 패시브" resizebytext="true"/>
+			<labelline name="monster_passive_line" rect="0 0 458 2" margin="0 25 0 0" parent="monster_passive_gbox" skin="labelline_def_4" layout_gravity="left top"/>
+			<richtext name="monster_passive_help" rect="0 0 461 20" margin="25 38 0 0" layout_gravity="left top" parent="monster_passive_gbox" updateparent="true" fontname="white_16_ol" caption="aaaaa" resizebytext="true"/>
+			<groupbox name="monster_passive_list_gbox" rect="0 0 461 20" margin="0 50 0 0" layout_gravity="left top" parent="monster_passive_gbox" draw="false" updateparent="true" scrollbar="false"/>
+			<groupbox name="combo_passive_gbox" rect="0 0 461 20" margin="0 0 0 0" parent="bg" layout_gravity="left top" draw="false" updateparent="true" scrollbar="false"/>
+			<labelline name="combo_passive_line" rect="0 0 458 2" margin="0 25 0 0" parent="combo_passive_gbox" skin="labelline_def_4" layout_gravity="left top"/>
+			<richtext name="combo_passive" rect="0 0 461 20" margin="15 0 0 0" parent="combo_passive_gbox" layout_gravity="left top" updateparent="true" fontname="white_20_ol_ds" caption="{@st42b}{s14}{ds}◆조합 패시브" resizebytext="true"/>
+			<richtext name="combo_passive_help" rect="0 0 461 20" margin="25 38 0 0" layout_gravity="left top" parent="combo_passive_gbox" updateparent="true" fontname="white_16_ol" caption="aaaaa" resizebytext="true"/>
+			<groupbox name="combo_passive_list_gbox" rect="0 0 461 20" margin="0 30 0 0" layout_gravity="left top" parent="combo_passive_gbox" draw="false" updateparent="true" scrollbar="false"/>
 		</controls>
 	</tooltip>
 <tooltip name="skill_pubcreatechar" x="0" y="0" frameskin="None" marginy="10" fixwidth="true" width="500" height="1000" moveable="false" blendtime="" UpdateScp="UPDATE_SKILL_PUB_CREATECHAR_TOOLTIP">

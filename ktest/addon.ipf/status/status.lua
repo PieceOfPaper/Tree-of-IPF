@@ -941,6 +941,30 @@ function STATUS_INFO()
     returnY = STATUS_ATTRIBUTE_VALUE_NEW(pc, opc, frame, gboxctrl, "Slash_Atk", y);
     if returnY ~= y then y = returnY + 3; end
     returnY = STATUS_ATTRIBUTE_VALUE_NEW(pc, opc, frame, gboxctrl, "Strike_Atk", y);
+    if returnY ~= y then y = returnY + 3; end
+    returnY = STATUS_ATTRIBUTE_VALUE_NEW(pc, opc, frame, gboxctrl, "Arrow_Atk", y);
+    if returnY ~= y then y = returnY + 3; end
+    returnY = STATUS_ATTRIBUTE_VALUE_NEW(pc, opc, frame, gboxctrl, "Cannon_Atk", y);
+    if returnY ~= y then y = returnY + 3; end
+    returnY = STATUS_ATTRIBUTE_VALUE_NEW(pc, opc, frame, gboxctrl, "Gun_Atk", y);
+    if returnY ~= y then y = returnY + 3; end
+    returnY = STATUS_ATTRIBUTE_VALUE_NEW(pc, opc, frame, gboxctrl, "Magic_Melee_Atk", y);
+    if returnY ~= y then y = returnY + 3; end
+    returnY = STATUS_ATTRIBUTE_VALUE_NEW(pc, opc, frame, gboxctrl, "Magic_Fire_Atk", y);
+    if returnY ~= y then y = returnY + 3; end
+    returnY = STATUS_ATTRIBUTE_VALUE_NEW(pc, opc, frame, gboxctrl, "Magic_Ice_Atk", y);
+    if returnY ~= y then y = returnY + 3; end
+    returnY = STATUS_ATTRIBUTE_VALUE_NEW(pc, opc, frame, gboxctrl, "Magic_Lightning_Atk", y);
+    if returnY ~= y then y = returnY + 3; end
+    returnY = STATUS_ATTRIBUTE_VALUE_NEW(pc, opc, frame, gboxctrl, "Magic_Earth_Atk", y);
+    if returnY ~= y then y = returnY + 3; end
+    returnY = STATUS_ATTRIBUTE_VALUE_NEW(pc, opc, frame, gboxctrl, "Magic_Poison_Atk", y);
+    if returnY ~= y then y = returnY + 3; end
+    returnY = STATUS_ATTRIBUTE_VALUE_NEW(pc, opc, frame, gboxctrl, "Magic_Dark_Atk", y);
+    if returnY ~= y then y = returnY + 3; end
+    returnY = STATUS_ATTRIBUTE_VALUE_NEW(pc, opc, frame, gboxctrl, "Magic_Holy_Atk", y);
+    if returnY ~= y then y = returnY + 3; end
+    returnY = STATUS_ATTRIBUTE_VALUE_NEW(pc, opc, frame, gboxctrl, "Magic_Soul_Atk", y);
     y = returnY + 10; -- 종류가 달라지면 10만큼 더 아래로
 
 

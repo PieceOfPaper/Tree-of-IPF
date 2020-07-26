@@ -31,6 +31,8 @@ function QUICKSLOTNEXPBAR_ON_INIT(addon, frame)
 	addon:RegisterMsg('JUNGTAN_SLOT_UPDATE', 'JUNGTAN_SLOT_ON_MSG');
 	addon:RegisterMsg('EXP_ORB_ITEM_ON', 'EXP_ORB_SLOT_ON_MSG');
 	addon:RegisterMsg('EXP_ORB_ITEM_OFF', 'EXP_ORB_SLOT_ON_MSG');
+	addon:RegisterMsg('EXP_SUB_ORB_ITEM_ON', 'EXP_SUB_ORB_SLOT_ON_MSG');
+	addon:RegisterMsg('EXP_SUB_ORB_ITEM_OFF', 'EXP_SUB_ORB_SLOT_ON_MSG');
 	
 	addon:RegisterMsg('TOGGLE_ITEM_SLOT_ON', 'TOGGLE_ITEM_SLOT_ON_MSG');
 	addon:RegisterMsg('TOGGLE_ITEM_SLOT_OFF', 'TOGGLE_ITEM_SLOT_ON_MSG');
@@ -117,6 +119,21 @@ function EXP_ORB_SLOT_ON_MSG(frame, msg, str, num)
 	elseif msg == "EXP_ORB_ITEM_ON" then
 		frame:SetUserValue("EXP_ORB_EFFECT", str);
 		timer:SetUpdateScript("UPDATE_QUICKSLOT_EXP_ORB");
+		timer:Start(1);
+		imcSound.PlaySoundEvent('sys_atk_booster_on');
+	end
+	DebounceScript("QUICKSLOTNEXTBAR_UPDATE_ALL_SLOT", 0.1);    
+end
+
+function EXP_SUB_ORB_SLOT_ON_MSG(frame, msg, str, num)
+	local timer  = GET_CHILD_RECURSIVELY(frame, "expsuborbtimer", "ui::CAddOnTimer");
+	if msg == "EXP_SUB_ORB_ITEM_OFF" then
+		frame:SetUserValue("EXP_SUB_ORB_EFFECT", 0);
+		timer:Stop();
+		imcSound.PlaySoundEvent('sys_booster_off');
+	elseif msg == "EXP_SUB_ORB_ITEM_ON" then
+		frame:SetUserValue("EXP_SUB_ORB_EFFECT", str);
+		timer:SetUpdateScript("UPDATE_QUICKSLOT_EXP_SUB_ORB");
 		timer:Start(1);
 		imcSound.PlaySoundEvent('sys_atk_booster_on');
 	end
@@ -257,6 +274,17 @@ function UPDATE_QUICKSLOT_EXP_ORB(frame, ctrl, num, str, time)
 	local expOrb = frame:GetUserValue("EXP_ORB_EFFECT");
 	if expOrb ~= "None" then
 		PLAY_QUICKSLOT_UIEFFECT_BY_GUID(frame, expOrb);
+	end
+end
+
+function UPDATE_QUICKSLOT_EXP_SUB_ORB(frame, ctrl, num, time)
+	if frame:IsVisible() == 0 then
+		return;
+	end
+
+	local expSubOrb = frame:GetUserValue("EXP_SUB_ORB_EFFECT");
+	if expSubOrb ~= nil and expSubOrb ~= "None" then
+		PLAY_QUICKSLOT_UIEFFECT_BY_GUID(frame, expSubOrb);
 	end
 end
 
@@ -1609,7 +1637,7 @@ end
 function IS_CLEAR_SLOT_ITEM(ItemInfo)
 	-- 퀵 슬롯 UI가 갱신될 때 해당 아이템을 인벤토리에서 가지고 있지 않을경우 slot을 초기화 해줄 아이템의 조건을 관리하는 함수
 
-	if ItemInfo.GroupName == "ExpOrb" and ItemInfo.MaxStack == 1 then
+	if (ItemInfo.GroupName == "ExpOrb" or ItemInfo.GroupName == "SubExpOrb") and ItemInfo.MaxStack == 1 then
 		return true;
 	end
 

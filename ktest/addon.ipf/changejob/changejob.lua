@@ -317,7 +317,43 @@ function CJ_UPDATE_RIGHT_INFOMATION(frame, jobid)
 		icon:Set(iconname, "Skill", skillClass.ClassID, 1);
 
 		skillslot:SetSkinName('slot');
-	end		
+	end
+
+	local artsInfoBox = GET_CHILD_RECURSIVELY(frame, "artsInfoBox");
+	local artsGBox = GET_CHILD_RECURSIVELY(artsInfoBox, "groupbox_arts");
+	artsGBox:RemoveAllChild();
+	artsInfoBox:ShowWindow(0);
+	local abilNameList = GetAbilityNamesByJob(GetMyPCObject(), jobinfo.ClassName);
+	local artsimage_width = 45
+	local artsimage_height = 45
+	local arts_index = 0
+	for i = 1, #abilNameList do
+		local abil = GetClass("Ability", abilNameList[i]);
+		if abil ~= nil and TryGetProp(abil, "Hidden", 0) == 1 then
+			if artsInfoBox:IsVisible() == 0 then
+				artsInfoBox:ShowWindow(1);
+			end
+
+			local x = margin_x + arts_index * (artsimage_width + margin_x_per_eachpic);
+			local artsSlot = artsGBox:CreateOrGetControl("slot", "ARTS_" .. arts_index, x, 0, artsimage_width, artsimage_height);
+			artsSlot = tolua.cast(artsSlot, "ui::CSlot");
+			artsSlot:ShowWindow(1);
+			artsSlot:SetOverSound('win_open');
+
+			local icon = CreateIcon(artsSlot);
+			icon:SetImage(abil.Icon);
+			icon:SetTooltipType('ability');
+			icon:SetTooltipStrArg(abil.Name);
+			icon:SetTooltipNumArg(abil.ClassID);
+			local abilIES = GetAbilityIESObject(GetMyPCObject(), abil.ClassName);
+			if abilIES ~= nil then
+				icon:SetTooltipIESID(GetIESGuid(abilIES));
+			end
+			icon:Set(abil.Icon, "Ability", abil.ClassID, 1);
+
+			arts_index = arts_index + 1
+		end
+	end
 		
 	local mbg = frame:GetChild("mbg");
 	local jobchangebutton = GET_CHILD(mbg, "class_select", "ui::CButton");

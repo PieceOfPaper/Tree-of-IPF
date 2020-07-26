@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uiframe name="housing_promote_write" x="0" y="0" width="563" height="825" create="open">
+	<frame titlepos="0 0" margin="0 0 0 0" layout_gravity="center center" scale_align="center top"/>
+	<skin frameskin="mainwindow3"/>
+	<draw drawframe="true" drawtitlebar="false"/>
+	<layer layerlevel="103"/>
+	<input moveable="true" hittestframe="true" moveintitlebar="false"/>
+	<option closebutton="false" hideable="true" useimageitem="true"/>
+	<sound opensound="sys_popup_open_1" closesound="character_item_window_close"/>
+	<animation frameOpenAnim="popup_start" frameCloseAnim="popup_end"/>
+	<controls>
+		<!-- TITLE -->
+		<button name="closeBtn" rect="0 0 50 50" margin="0 36 40 0" layout_gravity="right top" image="testclose_button" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" clicksound="button_click_big" oversound="button_over" LBtnUpScp="HOUSING_PROMOTE_WRITE_CLOSE"/>
+		<richtext name="title_text" rect="0 0 1090 60" margin="0 36 0 0" layout_gravity="center top" caption="{@st43b}{s26}게시글 편집"/>
+		<!-- 제목 -->
+		<richtext name="posttitle_label" rect="0 0 300 30" margin="-85 97 0 0" layout_gravity="center top" caption="{@st43b}{s22}제목" textalign="left center" resizebytext="false"/>
+		<labelline name="posttitle_line" rect="0 0 475 2" margin="0 132 0 0" layout_gravity="center top" skin="labelline_def_3"/>
+		<groupbox name="posttitle_bg" rect="0 0 460 37" margin="0 140 60 0" layout_gravity="center top" hittest="true" draw="true" scrollbar="false" skin="graybox_op_45"/>
+		<edit name="posttitle_text" rect="0 0 440 37" margin="0 140 60 0" layout_gravity="center top" fontname="white_16_ol" textalign="left center" drawbackground="false" LBtnDownScp="HOUSING_PROMOTE_WRITE_TITLE_CLICK" maxlen="60"/>
+		<richtext name="posttitle_def" rect="0 0 440 37" margin="0 140 60 0" layout_gravity="center top" caption="제목을 입력하세요" fontname="white_16_b_ol" textalign="left center" resizebytext="false" hittest="false"/>
+		<!-- 썸네일 -->
+		<richtext name="thumbnail_label" rect="0 0 300 30" margin="-85 190 0 0" layout_gravity="center top" caption="{@st43b}{s22}썸네일 미리보기{/}" textalign="left center" resizebytext="false"/>
+		<labelline name="thumbnail_line" rect="0 0 475 2" margin="0 226 0 0" layout_gravity="center top" skin="labelline_def_3"/>
+		<picture name="thumbnail_pic" rect="0 0 326 280" margin="0 237 0 0" layout_gravity="center top" stretch="true" hittest="false" image="housingbanner"/>
+		<richtext name="thumbnail_warntext" rect="0 0 475 30" margin="0 522 0 0" layout_gravity="center top" format="ⓘ %s 크기의 PNG(24bit/32bit)파일만 등록 가능합니다.{nl}ⓘ 파일 이름이 영문과 숫자로 이루어진 파일만 등록 가능합니다.{nl}ⓘ 문제 있는 이미지 사용 시 제재가 있을 수 있습니다.{nl}ⓘ 썸네일은 직접 파일을 등록하거나 촬영하기를 통해 등록 가능합니다." fontname="black_16_b" param1="size" param1_def="326*280" textalign="left center" resizebytext="true" fixwidth="true"/>
+		<button name="thumbnail_create" rect="0 0 132 44" margin="40 600 0 0" layout_gravity="center top" MouseOnAnim="btn_mouseover" caption="{@st41b}{s16}{ol}촬영하기" fontname="white_16_ol" skin="test_red_button" LBtnUpScp="HOUSING_PROMOTE_WRITE_THUMBNAIL_CREATE"/>
+		<button name="thumbnail_add" rect="0 0 132 44" margin="180 600 0 0" layout_gravity="center top" MouseOnAnim="btn_mouseover" caption="{@st41b}{s16}{ol}불러오기" fontname="white_16_ol" skin="test_red_button" LBtnUpScp="HOUSING_PROMOTE_WRITE_THUMBNAIL_ADD"/>
+		<!-- URL -->
+		<richtext name="url_label" rect="0 0 300 30" margin="-85 645 0 0" layout_gravity="center top" format="%s" param1="value" param1_def="{@st43b}{s22}스트리밍 채널 공유" textalign="left center" resizebytext="false"/>
+		<labelline name="url_line" rect="0 0 475 2" margin="0 680 0 0" layout_gravity="center top" skin="labelline_def_3"/>
+		<groupbox name="url_bg" rect="0 0 460 37" margin="0 690 60 0" layout_gravity="center top" hittest="true" draw="true" scrollbar="false" skin="graybox_op_45"/>
+		<edit name="url_text" rect="0 0 440 37" margin="0 690 60 0" layout_gravity="center top" fontname="white_16_ol" textalign="left center" drawbackground="false" LBtnDownScp="HOUSING_PROMOTE_WRITE_URL_CLICK"/>
+		<richtext name="url_def" rect="0 0 440 37" margin="0 690 60 0" layout_gravity="center top" caption="주소를 입력하세요" fontname="white_16_b_ol" textalign="left center" resizebytext="false" hittest="false"/>
+		<richtext name="url_warntext" rect="0 0 460 30" margin="0 730 0 0" layout_gravity="center top" format="ⓘ 유튜브, 트위치 URL만 등록 가능합니다." fontname="black_16_b" textalign="left center" resizebytext="true" fixwidth="true"/>
+		<!-- INFO -->
+		<button name="promote_regbtn" rect="0 0 132 44" margin="0 0 40 30" layout_gravity="right bottom" caption="{@st41b}{s16}{ol}작성하기" fontname="white_16_ol" skin="test_gray_button" LBtnUpScp="HOUSING_PROMOTE_WRITE_REG_POST"/>
+	</controls>
+</uiframe>

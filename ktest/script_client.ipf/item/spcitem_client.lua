@@ -17,6 +17,11 @@ function REGISTER_EXP_ORB_ITEM(invItem)
     item.RegExpOrbItem(itemobj);
 end
 
+function REGISTER_SUB_EXP_ORB_ITEM(invItem)
+    local itemobj = invItem:GetIESID();
+    item.RegSubExpOrbItem(itemobj);
+end
+
 function SCR_BARRACK_CREATE_FAIRY_GUILTY(handle)
 	SCR_CREATE_FAIRY(handle, "guilty");
 end
@@ -45,7 +50,7 @@ function EVENT_1909_ANCIENT_CHECK_REGISTER(invItem)
 end
 
 
-function EVENT_1909_ANCIENT_REGISTER_MON_C(itemGuid)
+function EVENT_1909_ANCIENT_REGISTER_CARD_C(itemGuid)
 end
 
 function ANCIENT_SCROLL_CHECK_MSG(invItem)
@@ -69,4 +74,42 @@ function SCR_USE_COMPANION_OFFSET(handle)
 	if obj ~= nil then
 		obj:GetAnimEvent():SetUseCompanionOffSet(true);
     end
+end
+
+function ANCIENT_CARD_CHECK_REGISTER(invItem)
+	local itemobj = GetIES(invItem:GetObject());
+	local monClassName = TryGetProp(itemobj,'StringArg')
+	local monCls = GetClass("Monster",monClassName)
+	local monName = monCls.Name
+
+	local color = ""
+	local info = GetClass('Ancient_Info', monClassName);
+	if info.Rarity == 1 then
+		color = "{#ffffff}"
+	elseif info.Rarity == 2 then
+		color = "{#0e7fe8}"
+	elseif info.Rarity == 3 then
+		color = "{#d92400}"
+	elseif info.Rarity == 4 then
+		color = "{#ffa800}"
+	end
+	local str = ScpArgMsg("AncientMonRegItemUse","monName",monName,"color",color)
+	local guid = invItem:GetIESID()
+	local yesScp = string.format("ANCIENT_CARD_REGISTER_C(\"%s\")", guid);
+	ui.MsgBox(str, yesScp, "None");
+end
+
+function ANCIENT_CARD_REGISTER_C(itemGuid)
+	local invItem = session.GetInvItemByGuid(itemGuid)
+	
+	if nil == invItem then
+		return;
+	end
+	
+	if true == invItem.isLockState then
+		ui.SysMsg(ClMsg("MaterialItemIsLock"));
+		return;
+	end
+	
+	item.UseByGUID(invItem:GetIESID());
 end

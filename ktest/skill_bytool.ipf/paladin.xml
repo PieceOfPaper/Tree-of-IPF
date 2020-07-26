@@ -2,54 +2,57 @@
 <ToolSkill>
     <Skill Name="Paladin_Sanctuary">
         <EndScripts>
-            <ToolScp Client="NO" Scp="MONSKL_REMOVE_PAD" UseSleep="NO">
+            <ToolScp Scp="MONSKL_REMOVE_PAD" Client="NO" UseSleep="NO">
                 <Str Str="Paladin_Sanctuary_Pad"/>
             </ToolScp>
         </EndScripts>
         <KeyInput>
-            <ToolScp Client="YES" Scp="SKL_KEY_DYNAMIC_CASTING" UseSleep="NO">
+            <ToolScp Scp="SKL_KEY_CASTING_OR_PARTY_TARGET" Client="YES" UseSleep="NO">
                 <Num Num="0"/>
                 <Num Num="0"/>
                 <Num Num="10"/>
-                <Num Num="1"/>
-                <Num Num="0"/>
-                <Num Num="0"/>
-                <Num Num="1"/>
                 <Num Num="0"/>
                 <Num Num="0"/>
                 <Num Num="0"/>
                 <Num Num="1"/>
                 <Num Num="0"/>
-                <Str_Arg Arg="1" Str="None"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+                <Num Num="1"/>
+                <Num Num="0"/>
+                <Str_Arg Str="None" Arg="1"/>
                 <Str Str="None"/>
                 <Num Num="0"/>
                 <Num Num="0"/>
-                <Num Num="0"/>
-                <Num Num="0"/>
-                <Num Num="0"/>
-                <Num Num="0"/>
+                <Num Num="5"/>
+                <Num Num="1"/>
+                <Num Num="45"/>
                 <Num Num="0"/>
                 <Num Num="1"/>
+                <Num Num="0"/>
+                <Str Str="Paladin41"/>
+                <Str Str="Paladin42"/>
+                <Num Num="0"/>
             </ToolScp>
         </KeyInput>
         <KeyInputStart>
-            <ToolScp Client="YES" Scp="MONSKL_C_PLAY_ANIM" UseSleep="NO">
+            <ToolScp Scp="MONSKL_C_PLAY_ANIM" Client="YES" UseSleep="NO">
                 <Str Str="WORSHIP"/>
                 <Num Num="1"/>
                 <Num Num="1"/>
                 <Num Num="0"/>
             </ToolScp>
-            <ToolScp Client="YES" Scp="C_SOUND" UseSleep="NO">
+            <ToolScp Scp="C_SOUND" Client="YES" UseSleep="NO">
                 <Str Str="skl_eff_sanctuary_ground_start"/>
             </ToolScp>
-            <ToolScp Client="YES" Scp="C_VOICE_SOUND" UseSleep="NO">
+            <ToolScp Scp="C_VOICE_SOUND" Client="YES" UseSleep="NO">
                 <Str Str="voice_archer_m_atk"/>
                 <Str Str="voice_archer_f_atk"/>
             </ToolScp>
         </KeyInputStart>
         <KeyInputEnd>
-            <ToolScp Client="NO" Scp="SKL_CANCEL_CANCEL" UseSleep="NO"/>
-            <ToolScp Client="YES" Scp="MONSKL_C_PLAY_ANIM" UseSleep="NO">
+            <ToolScp Scp="SKL_CANCEL_CANCEL" Client="NO" UseSleep="NO"/>
+            <ToolScp Scp="MONSKL_C_PLAY_ANIM" Client="YES" UseSleep="NO">
                 <Str Str="ASTD"/>
                 <Num Num="1"/>
                 <Num Num="1"/>
@@ -57,28 +60,86 @@
             </ToolScp>
         </KeyInputEnd>
         <KeyCancelScp>
-            <ToolScp Client="NO" Scp="SKL_CANCEL_CANCEL" UseSleep="NO"/>
-            <ToolScp Client="YES" Scp="MONSKL_C_PLAY_ANIM" UseSleep="NO">
+            <ToolScp Scp="SKL_CANCEL_CANCEL" Client="NO" UseSleep="NO"/>
+            <ToolScp Scp="MONSKL_C_PLAY_ANIM" Client="YES" UseSleep="NO">
                 <Str Str="ASTD"/>
                 <Num Num="1"/>
                 <Num Num="1"/>
             </ToolScp>
         </KeyCancelScp>
-        <MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+        <MainSkl ScrLock="None" JumpFlee="NO" MSPDToUsePos="0">
             <HitList>
-                <Frame Angle="0" AniTime="999999" Dist="0" ForceATK="0" HitCount="1" Length="30" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="999799" Type="FAN" Width="30"/>
+                <Frame Type="FAN" Time="999799" HitCount="1" TermMin="0" TermMax="0" PosType="0" Dist="0" RandDist="0" RandomPerHit="0" Angle="0" Width="30" Length="30" SklAngle="0.17453292" AniTime="999999" RotAngle="0" ForceATK="0" ScriptIndex="0" ScriptName="" SkillType="0"/>
             </HitList>
             <EtcList>
-                <Scp Client="NO" Scp="MONSKL_CRE_PAD" Time="0" UseSleep="NO">
+                <Scp Scp="MONSKL_CRE_PAD" Client="NO" UseSleep="NO" Time="0">
                     <Pos Angle="0" Dist="0"/>
                     <Angle Angle="1.5707964"/>
                     <Str Str="Paladin_Sanctuary_Pad"/>
                 </Scp>
-                <Scp Client="NO" LoopTime="1000" Scp="SKL_CONSUME_SP" Time="0" UseSleep="NO">
-                    <Num FuncTxt="local value = 30 local lv = self.Lv local bylvCorrect = lv - 300 if bylvCorrect &lt; 0 then     bylvCorrect = bylvCorrect * 2.75 / 1000 elseif bylvCorrect >= 0 then     bylvCorrect = bylvCorrect * 1.25 / 1000 end value = value * (1 + bylvCorrect) return math.floor(value)" Num="0" UseFunc="1"/>
+                <Scp Scp="SKL_CONSUME_SP" Client="NO" UseSleep="NO" Time="0" LoopTime="1000">
+                    <Num Num="0" UseFunc="1" FuncTxt="local value = 30 local lv = self.Lv local bylvCorrect = lv - 300 if bylvCorrect &lt; 0 then     bylvCorrect = bylvCorrect * 2.75 / 1000 elseif bylvCorrect >= 0 then     bylvCorrect = bylvCorrect * 1.25 / 1000 end value = value * (1 + bylvCorrect) return math.floor(value)"/>
                 </Scp>
             </EtcList>
         </MainSkl>
+        <ByCondSkills>
+            <SubSkl>
+                <Cond>
+                    <ToolScp Scp="SKL_SELECT_ABIL" Client="NO" UseSleep="NO">
+                        <Str Str="Paladin41"/>
+                    </ToolScp>
+                </Cond>
+                <Skill ScrLock="None" JumpFlee="NO" MSPDToUsePos="0">
+                    <EtcList>
+                        <Scp Scp="MONSKL_C_PLAY_ANIM" Client="YES" UseSleep="NO" Time="0">
+                            <Str Str="SKL_BUFF"/>
+                            <Num Num="1"/>
+                            <Num Num="1"/>
+                            <Num Num="0"/>
+                        </Scp>
+                        <Scp Scp="SKL_BUFF_IF_NOBUFF" Client="NO" UseSleep="NO" Time="300">
+                            <Str Str="Sanctuary_Paladin41_Buff"/>
+                            <Str Str="Sanctuary_Paladin41_Buff"/>
+                            <Num Num="0" UseFunc="1" FuncTxt="return obj.Level"/>
+                            <Num Num="0"/>
+                            <Num Num="15000"/>
+                            <Num Num="1"/>
+                            <Num Num="100"/>
+                            <Num Num="0"/>
+                            <Num Num="1"/>
+                        </Scp>
+                    </EtcList>
+                </Skill>
+            </SubSkl>
+            <SubSkl>
+                <Cond>
+                    <ToolScp Scp="SKL_SELECT_ABIL" Client="NO" UseSleep="NO">
+                        <Str Str="Paladin42"/>
+                    </ToolScp>
+                </Cond>
+                <Skill ScrLock="None" JumpFlee="NO" MSPDToUsePos="0">
+                    <EtcList>
+                        <Scp Scp="MONSKL_C_PLAY_ANIM" Client="YES" UseSleep="NO" Time="0">
+                            <Str Str="SKL_BUFF"/>
+                            <Num Num="1"/>
+                            <Num Num="1"/>
+                            <Num Num="0"/>
+                        </Scp>
+                        <Scp Scp="SKL_BUFF_IF_NOBUFF" Client="NO" UseSleep="NO" Time="300">
+                            <Str Str="Sanctuary_Paladin42_Buff"/>
+                            <Str Str="Sanctuary_Paladin42_Buff"/>
+                            <Num Num="0" UseFunc="1" FuncTxt="return obj.Level"/>
+                            <Num Num="0"/>
+                            <Num Num="15000"/>
+                            <Num Num="1"/>
+                            <Num Num="100"/>
+                            <Num Num="0"/>
+                            <Num Num="1"/>
+                        </Scp>
+                    </EtcList>
+                </Skill>
+            </SubSkl>
+        </ByCondSkills>
     </Skill>
     <Skill Name="Paladin_Demolition">
         <KeyInput>
@@ -158,8 +219,8 @@
                     <Pos Angle="0" Dist="40"/>
                     <Num Num="0"/>
                     <Str Str="None"/>
-                </Scp>                
-            </EtcList>            
+                </Scp>
+            </EtcList>
             <ResultList>
                 <ToolScp Client="NO" Scp="S_R_TGT_REMOVE_BUFF" UseSleep="NO">
                     <Str FuncTxt="local func_name = 'get_remove_buff_tooltip_' .. TryGetProp(skill, 'ClassName', 'None')
@@ -178,7 +239,7 @@
                     <Num Num="1"/>
                     <Num FuncTxt="local ratio = 0; local pc = GetSkillOwner(skill); local abil = GetAbility(pc, 'Paladin22'); if abil ~= nil and abil.ActiveState == 1 then ratio = ratio + abil.Level; end return ratio;" Num="100" UseFunc="1"/>
                     <Num Num="-1"/>
-                </ToolScp>                
+                </ToolScp>
             </ResultList>
         </MainSkl>
     </Skill>
@@ -203,6 +264,47 @@
                     <Num Num="1"/>
                     <Num Num="100"/>
                     <Num Num="0"/>
+                </Scp>
+            </EtcList>
+        </MainSkl>
+    </Skill>
+    <Skill Name="Paladin_Sanctuary_Abil">
+        <KeyInput>
+            <ToolScp Scp="SKL_PARTY_TARGET_BY_KEY" Client="YES" UseSleep="NO">
+                <Num Num="0"/>
+            </ToolScp>
+        </KeyInput>
+        <MainSkl ScrLock="None" JumpFlee="NO" MSPDToUsePos="0">
+            <EtcList>
+                <Scp Scp="SKL_SET_TARGET_CLIENT_TARGETTING" Client="NO" UseSleep="NO" Time="0"/>
+                <Scp Scp="MONSKL_C_PLAY_ANIM" Client="YES" UseSleep="NO" Time="0">
+                    <Str Str="SKL_BUFF"/>
+                    <Num Num="3"/>
+                    <Num Num="1"/>
+                    <Num Num="1"/>
+                </Scp>
+                <Scp Scp="SKL_BUFF_ABIL" Client="NO" UseSleep="NO" Time="200">
+                    <Str Str="Paladin41"/>
+                    <Str Str="Sanctuary_Paladin41_Buff"/>
+                    <Num Num="0" UseFunc="1" FuncTxt="return obj.Level;"/>
+                    <Num Num="0"/>
+                    <Num Num="15000"/>
+                    <Num Num="1"/>
+                    <Num Num="100"/>
+                    <Num Num="0"/>
+                </Scp>
+                <Scp Scp="SKL_BUFF_ABIL" Client="NO" UseSleep="NO" Time="200">
+                    <Str Str="Paladin42"/>
+                    <Str Str="Sanctuary_Paladin42_Buff"/>
+                    <Num Num="0" UseFunc="1" FuncTxt="return obj.Level;"/>
+                    <Num Num="0"/>
+                    <Num Num="15000"/>
+                    <Num Num="1"/>
+                    <Num Num="100"/>
+                    <Num Num="0"/>
+                </Scp>
+                <Scp Scp="C_SOUND" Client="YES" UseSleep="NO" Time="200">
+                    <Str Str="skl_cleric_heal_shot"/>
                 </Scp>
             </EtcList>
         </MainSkl>
@@ -319,11 +421,11 @@
                     <Num Num="1"/>
                 </Scp>
                 <Scp Client="NO" Scp="SKL_TGT_REMOVE_DEBUFF" Time="110" UseSleep="NO">
-                <Str FuncTxt="local func_name = 'get_remove_debuff_tooltip_' .. TryGetProp(obj, 'ClassName', 'None')
+                    <Str FuncTxt="local func_name = 'get_remove_debuff_tooltip_' .. TryGetProp(obj, 'ClassName', 'None')
                local func = _G[func_name]
                if func == nil then return end
                return func(obj.Level)" Str="0" UseFunc="1"/>
-               </Scp>
+                </Scp>
             </EtcList>
         </MainSkl>
     </Skill>

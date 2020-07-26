@@ -903,7 +903,7 @@
 			<richtext name="pts" layout_gravity="center bottom" rect="0 -34 100 24" fixwidth="true" hittest="false" fontname="white_16" textalign="center top" caption="{@st41}특성포인트"/>
 		</controls>
 	</controlset>
-	<controlset name="classtreeIcon" toggle="false" hittest="true" width="120" height="120">
+	<controlset name="classtreeIcon" toggle="false" hittest="true" width="160" height="120">
 		<controls>
 			<picture name="selectedarrow" layout_gravity="center bottom" stretch="true" rect="0 0 120 120" margin="0 0 0 0" image="class_glow"/>
 			<slot name="slot" layout_gravity="center top" stretch="true" rect="0 0 85 85" skin="slot_empty" enabledrop="false" enablepop="false" clicksound="button_click_big" oversound="button_over" MouseOnAnim="btn_mouseover" MouseOffAnim="btn_mouseoff"/>
@@ -1030,6 +1030,12 @@
 			<slotset name="debuffList" margin="200 42 0 0" rect="0 0 240 40" layout_gravity="left top" size="20 20" skin="slot_empty" enablepop="false" enabledrop="false" spc="2 2" image="slot" col="12" row="2"/>
 			<groupbox name="lvbox" margin="45 5 0 0" rect="0 0 46 30" hittestbox="false" skin="false" layout_gravity="left top" scrollbar="false"/>
 			<richtext name="level_text" rect="0 0 46 30" margin="0 0 0 0" resizebytext="false" updateparent="false" layout_gravity="center center" hittest="false" textalign="center center" format="{@st43b}{s14}%s" param1="lv" param1_def="1" scroll="false" parent="lvbox"/>
+		</controls>
+	</controlset>
+	<controlset name="bufficon_slot" toggle="false" hittest="true" width="40" height="55" skin="">
+		<controls>
+			<slot name="slot" margin="0 0 0 0" rect="0 0 40 40" layout_gravity="left top" enabledrop="false" enablepop="false" size="35 35" skin="slot_empty" spc="2 15"/>
+			<richtext name="caption" rect="0 0 40 10" margin="0 40 0 0" layout_gravity="center top" fontname="yellow_13"/>
 		</controls>
 	</controlset>
 	<controlset name="app" toggle="false" hittest="true" width="144" height="90">
@@ -1728,7 +1734,7 @@
 			<richtext name="ItemName" rect="80 0 400 42" layout_gravity="left center" fixwidth="true" resizebytext="true" hittest="false" fontname="white_14_b_ds"/>
 		</controls>
 	</controlset>
-	<controlset name="ancient_mon_reward_s" toggle="true" hittest="true" skin="reward_joo_btn" draw="true" updateparent="true" width="524" height="64">
+	<controlset name="ancient_card_reward_s" toggle="true" hittest="true" skin="reward_joo_btn" draw="true" updateparent="true" width="524" height="64">
 		<controls>
 			<slot name="slot" layout_gravity="left center" rect="0 0 48 48" margin="20 0 0 0" hittest="false"/>
 			<richtext name="MonName" rect="0 0 300 42" margin="80 0 0 0" layout_gravity="left center" fixwidth="true" resizebytext="true" hittest="false"/>
@@ -2104,6 +2110,27 @@
 	<controlset name="junksilvergacha_itembox" toggle="false" hittest="true" width="200" height="200" skin="no" scroll="false">
 		<controls>
 			<picture name="slot" rect="0 0 200 164" margin="0 0 0 0" movepop="false" oversound="button_cursor_over_3" dropsound="icon_get_down" picksound="icon_pick_up" image="gemston_randombg" DropScp="None" texttooltip="" layout_gravity="center top" hittest="false"/>
+			<slot name="itemslot" rect="0 0 85 85" margin="0 40 0 0" movepop="false" oversound="button_cursor_over_3" dropsound="icon_get_down" picksound="icon_pick_up" skin="slot_empty" DropScp="None" texttooltip="" layout_gravity="center top" hittest="false"/>
+			<richtext name="itemtext" rect="0 0 200 30" format="{@st43d}{/}" margin="0 0 0 31" layout_gravity="center bottom" textalign="center top" param1="txt" param1_def="ItemName" resizebytext="false" spacey="0" maxwidth="0" fontname="white_18_b_ds_ol" fixwidth="true" omitbywidth="true" updateparent="false" drawbackground="false" slideshow="false"/>
+		</controls>
+	</controlset>
+	<controlset name="junksilvergacha_itembox_low" toggle="false" hittest="true" width="200" height="200" skin="no" scroll="false">
+		<controls>
+			<picture name="slot" rect="0 0 200 164" margin="0 0 0 0" movepop="false" oversound="button_cursor_over_3" dropsound="icon_get_down" picksound="icon_pick_up" image="gemston_randombg_new_low" DropScp="None" texttooltip="" layout_gravity="center top" hittest="false"/>
+			<slot name="itemslot" rect="0 0 85 85" margin="0 40 0 0" movepop="false" oversound="button_cursor_over_3" dropsound="icon_get_down" picksound="icon_pick_up" skin="slot_empty" DropScp="None" texttooltip="" layout_gravity="center top" hittest="false"/>
+			<richtext name="itemtext" rect="0 0 200 30" format="{@st43d}{/}" margin="0 0 0 31" layout_gravity="center bottom" textalign="center top" param1="txt" param1_def="ItemName" resizebytext="false" spacey="0" maxwidth="0" fontname="white_18_b_ds_ol" fixwidth="true" omitbywidth="true" updateparent="false" drawbackground="false" slideshow="false"/>
+		</controls>
+	</controlset>
+	<controlset name="junksilvergacha_itembox_mid" toggle="false" hittest="true" width="200" height="200" skin="no" scroll="false">
+		<controls>
+			<picture name="slot" rect="0 0 200 164" margin="0 0 0 0" movepop="false" oversound="button_cursor_over_3" dropsound="icon_get_down" picksound="icon_pick_up" image="gemston_randombg_new_mid" DropScp="None" texttooltip="" layout_gravity="center top" hittest="false"/>
+			<slot name="itemslot" rect="0 0 85 85" margin="0 40 0 0" movepop="false" oversound="button_cursor_over_3" dropsound="icon_get_down" picksound="icon_pick_up" skin="slot_empty" DropScp="None" texttooltip="" layout_gravity="center top" hittest="false"/>
+			<richtext name="itemtext" rect="0 0 200 30" format="{@st43d}{/}" margin="0 0 0 31" layout_gravity="center bottom" textalign="center top" param1="txt" param1_def="ItemName" resizebytext="false" spacey="0" maxwidth="0" fontname="white_18_b_ds_ol" fixwidth="true" omitbywidth="true" updateparent="false" drawbackground="false" slideshow="false"/>
+		</controls>
+	</controlset>
+	<controlset name="junksilvergacha_itembox_high" toggle="false" hittest="true" width="200" height="200" skin="no" scroll="false">
+		<controls>
+			<picture name="slot" rect="0 0 200 164" margin="0 0 0 0" movepop="false" oversound="button_cursor_over_3" dropsound="icon_get_down" picksound="icon_pick_up" image="gemston_randombg_new_high" DropScp="None" texttooltip="" layout_gravity="center top" hittest="false"/>
 			<slot name="itemslot" rect="0 0 85 85" margin="0 40 0 0" movepop="false" oversound="button_cursor_over_3" dropsound="icon_get_down" picksound="icon_pick_up" skin="slot_empty" DropScp="None" texttooltip="" layout_gravity="center top" hittest="false"/>
 			<richtext name="itemtext" rect="0 0 200 30" format="{@st43d}{/}" margin="0 0 0 31" layout_gravity="center bottom" textalign="center top" param1="txt" param1_def="ItemName" resizebytext="false" spacey="0" maxwidth="0" fontname="white_18_b_ds_ol" fixwidth="true" omitbywidth="true" updateparent="false" drawbackground="false" slideshow="false"/>
 		</controls>
@@ -4938,6 +4965,13 @@
 			<richtext name="text_item" parent="gbox_remove_furniture_slot" rect="0 0 300 25" margin="45 0 0 0" layout_gravity="left center" resizebytext="false" textalign="left center" format="{@42b}{s17}%s : %s{/}{/}" param1="name" param1_def="None" param2="count" param2_def="0" fontname="white_14_ol"/>
 		</controls>
 	</controlset>
+  <controlset name="housing_remove_furniture_slot" hittest="true" width="235" height="40" hittestset="false" draw="false">
+    <controls>
+      <groupbox name="gbox_remove_furniture_slot" rect="0 0 215 40" margin="-10 0 0 0" layout_gravity="center center" skin="market_listbase" draw="true"/>
+      <picture name="item_image" parent="gbox_remove_furniture_slot" rect="0 0 30 30" margin="5 0 0 0" hittest="false" layout_gravity="left center" stretch="true"/>
+      <richtext name="text_item" parent="gbox_remove_furniture_slot" rect="0 0 175 25" margin="35 0 0 0" layout_gravity="left center" resizebytext="false" textalign="left center" format="{@42b}{s15}%s{/}{/}" param1="name" param1_def="None" fontname="white_14_ol"/>
+    </controls>
+  </controlset>
 	<controlset name="housing_background_change_slot" hittest="true" width="420" height="165" hittestset="false" draw="true">
 		<controls>
 			<groupbox name="gbox_background_change_slot" rect="0 0 400 165" margin="0 0 0 0" layout_gravity="left center" skin="market_listbase" draw="true" scrollbar="false"/>
@@ -4960,41 +4994,63 @@
 		</controls>
 	</controlset>
 	<!--Etc-->
-	<controlset name="ancient_mon_item_slot" hittest="true" width="163" height="218" skin="test_frame_midle_light" stateskin="false" enabledrag="true">
+	<controlset name="ancient_card_item_slot" hittest="true" width="163" height="218" skin="test_frame_midle_light" stateskin="false" enabledrag="true">
 		<controls>
 			<groupbox name="default_box" rect="0 0 161 214" margin="0 0 0 0" hittest="false" layout_gravity="center center" skin="mon_card_hollow"/>
 			<picture name="default_image" parent="default_box" rect="0 0 121 115" margin="0 0 0 0" hittest="false" layout_gravity="center center" image="socket_slot_bg"/>
-			<groupbox name="ancient_mon_gbox" margin="0 0 0 0" rect="0 0 163 218" hittestbox="false" hittest="false" layout_gravity="left top" draw="false"/>
-			<picture name="ancient_mon_background" parent="ancient_mon_gbox" rect="0 0 163 218" margin="0 0 0 0" layout_gravity="center center"/>
-			<richtext name="ancient_mon_lv" parent="ancient_mon_gbox" layout_gravity="center top" textalign="center top" rect="0 0 70 20" margin="0 8 0 0" resizebytext="true"/>
-			<slot name="ancient_mon_slot" parent="ancient_mon_gbox" margin="0 30 0 0" rect="0 0 75 75" layout_gravity="center top"/>
-			<richtext name="ancient_mon_grade" parent="ancient_mon_slot" layout_gravity="left top" textalign="left top" fontname="black_18" rect="0 0 70 20" margin="0 55 0 0" resizebytext="true"/>
-			<richtext name="ancient_mon_name" parent="ancient_mon_gbox" margin="0 110 0 0" rect="0 0 163 15" layout_gravity="center top"/>
-			<gauge name="ancient_mon_gauge" parent="ancient_mon_gbox" rect="0 0 100 8" margin="0 130 0 0" layout_gravity="center top" inverse="false" skin="mon_card_gauge"/>
-			<groupbox name="ancient_mon_type_gbox" parent="ancient_mon_gbox" margin="0 145 0 0" rect="0 0 163 67" draw="false"/>
-			<slot name="ancient_mon_type1_pic" parent="ancient_mon_type_gbox" margin="20 2 0 0" rect="0 0 25 25"/>
-			<richtext name="ancient_mon_type1_text" parent="ancient_mon_type_gbox" margin="0 7 20 0" rect="0 0 163 20" param1_def="1" layout_gravity="right top"/>
-			<slot name="ancient_mon_type2_pic" parent="ancient_mon_type_gbox" rect="0 0 25 25" margin="20 33 0 0"/>
-			<richtext name="ancient_mon_type2_text" parent="ancient_mon_type_gbox" margin="0 37 20 0" rect="0 0 20 20" param1_def="1" layout_gravity="right top"/>
+			<groupbox name="ancient_card_gbox" margin="0 0 0 0" rect="0 0 163 218" hittestbox="false" hittest="false" layout_gravity="left top" draw="false"/>
+			<picture name="ancient_card_background" parent="ancient_card_gbox" rect="0 0 163 218" margin="0 0 0 0" layout_gravity="center center"/>
+			<richtext name="ancient_card_lv" parent="ancient_card_gbox" layout_gravity="center top" textalign="center top" rect="0 0 70 20" margin="0 8 0 0" resizebytext="true"/>
+			<slot name="ancient_card_slot" parent="ancient_card_gbox" margin="0 30 0 0" rect="0 0 75 75" layout_gravity="center top"/>
+			<richtext name="ancient_card_grade" parent="ancient_card_slot" layout_gravity="left top" textalign="left top" fontname="black_18" rect="0 0 70 20" margin="0 55 0 0" resizebytext="true"/>
+			<richtext name="ancient_card_name" parent="ancient_card_gbox" margin="0 110 0 0" rect="0 0 163 15" layout_gravity="center top"/>
+			<gauge name="ancient_card_gauge" parent="ancient_card_gbox" rect="0 0 100 8" margin="0 130 0 0" layout_gravity="center top" inverse="false" skin="mon_card_gauge"/>
+			<groupbox name="ancient_card_type_gbox" parent="ancient_card_gbox" margin="0 145 0 0" rect="0 0 163 67" draw="false"/>
+			<slot name="ancient_card_type1_pic" parent="ancient_card_type_gbox" margin="20 2 0 0" rect="0 0 25 25"/>
+			<richtext name="ancient_card_type1_text" parent="ancient_card_type_gbox" margin="0 7 20 0" rect="0 0 163 20" param1_def="1" layout_gravity="right top"/>
+			<slot name="ancient_card_type2_pic" parent="ancient_card_type_gbox" rect="0 0 25 25" margin="20 33 0 0"/>
+			<richtext name="ancient_card_type2_text" parent="ancient_card_type_gbox" margin="0 37 20 0" rect="0 0 20 20" param1_def="1" layout_gravity="right top"/>
 			<picture name="gold_border" rect="0 0 163 216" margin="0 0 0 0" hittest="false" layout_gravity="center center"/>
-		<picture name="gold_border" rect="0 0 163 216" margin="0 0 0 0" hittest="false" layout_gravity="center center"/>
 		</controls>
 	</controlset>
-	<controlset name="ancient_mon_item_list" hittest="true" width="646" height="59" skin="monster_card_list" stateskin="false">
+	<controlset name="ancient_card_item_list" hittest="true" width="646" height="59" skin="monster_card_list" stateskin="false">
 		<userconfig NORMAL_GRADE_TEXT="{@st42b}{s16}" MAGIC_GRADE_TEXT="{@st42b}{s16}{#30b8d1}" UNIQUE_GRADE_TEXT="{@st42b}{s16}{#db6003}" LEGEND_GRADE_TEXT="{@st42b}{s16}{#ffe400}"/>
 		<controls>
-			<richtext name="ancient_mon_level" rect="0 0 100 50" margin="10 0 0 0" hittest="false" layout_gravity="left center"/>
-			<slot name="ancient_mon_slot" rect="0 0 40 40" margin="70 0 0 0" hittest="false" image="" layout_gravity="left center" stretch="true"/>
-			<richtext name="ancient_mon_name" rect="0 0 300 50" margin="117 0 0 0" hittest="false" layout_gravity="left center"/>
-			<slot name="ancient_mon_type1_pic" rect="0 0 30 30" margin="465 0 0 0" hittest="false" layout_gravity="left center"/>
-			<slot name="ancient_mon_type2_pic" rect="0 0 30 30" margin="500 0 0 0" hittest="false" layout_gravity="left center"/>
-			<button name="sell_btn" rect="0 0 103 46" margin="538 0 0 0" layout_gravity="left center" LBtnUpScp="SCR_ANCIENT_MON_SELL" skin="test_red_button" caption="{@st42b}{s16}판매{/}" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" oversound="button_cursor_over_2" clicksound="button_click_stats_OK"/>
+			<richtext name="ancient_card_level" rect="0 0 100 50" margin="10 0 0 0" hittest="false" layout_gravity="left center"/>
+			<slot name="ancient_card_slot" rect="0 0 40 40" margin="70 0 0 0" hittest="false" layout_gravity="left center" stretch="true"/>
+			<richtext name="ancient_card_name" rect="0 0 300 50" margin="117 0 0 0" hittest="false" layout_gravity="left center"/>
+			<slot name="ancient_card_type1_pic" rect="0 0 30 30" margin="465 0 0 0" hittest="false" layout_gravity="left center"/>
+			<slot name="ancient_card_type2_pic" rect="0 0 30 30" margin="500 0 0 0" hittest="false" layout_gravity="left center"/>
+			<button name="sell_btn" rect="0 0 103 46" margin="538 0 0 0" layout_gravity="left center" LBtnUpScp="SCR_ANCIENT_CARD_SELL" skin="test_red_button" caption="{@st42b}{s16}제거{/}" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" oversound="button_cursor_over_2" clicksound="button_click_stats_OK"/>
+		</controls>
+	</controlset>
+	<controlset name="ancient_card_gacha_slot" hittest="true" width="214" height="285" skin="test_frame_midle_light" stateskin="false" enabledrag="false" draw="false">
+		<controls>
+			<groupbox name="ancient_card_gbox" margin="0 0 0 0" rect="0 0 214 285" hittest="true" layout_gravity="left top" LBtnDownScp="ANCIENT_GACHA_EXECUTE" draw="false"/>
+			<picture name="ancient_card_background" parent="ancient_card_gbox" hittest="false" rect="0 0 214 285" margin="0 0 0 0" layout_gravity="center center"/>
+			<richtext name="ancient_card_lv" parent="ancient_card_gbox" hittest="false" layout_gravity="center top" textalign="center top" rect="0 0 70 20" margin="0 8 0 0" resizebytext="true"/>
+			<slot name="ancient_card_slot" parent="ancient_card_gbox" hittest="false" margin="-1 35 0 0" rect="0 0 97 97" layout_gravity="center top"/>
+			<richtext name="ancient_card_grade" parent="ancient_card_slot" hittest="false" layout_gravity="left top" textalign="left top" fontname="black_18" rect="0 0 70 25" margin="0 72 0 0" resizebytext="true"/>
+			<richtext name="ancient_card_name" parent="ancient_card_gbox" hittest="false" margin="0 137 0 0" rect="0 0 214 15" layout_gravity="center top"/>
+			<groupbox name="ancient_card_type_gbox" parent="ancient_card_gbox" hittest="false" margin="0 185 0 0" rect="0 0 214 80" draw="false"/>
+			<slot name="ancient_card_type1_pic" parent="ancient_card_type_gbox" hittest="false" margin="20 2 0 0" rect="0 0 33 33"/>
+			<richtext name="ancient_card_type1_text" parent="ancient_card_type_gbox" hittest="false" margin="0 7 20 0" rect="0 0 214 20" param1_def="1" layout_gravity="right top"/>
+			<slot name="ancient_card_type2_pic" parent="ancient_card_type_gbox" hittest="false" rect="0 0 33 33" margin="20 43 0 0"/>
+			<richtext name="ancient_card_type2_text" parent="ancient_card_type_gbox" hittest="false" margin="0 47 20 0" rect="0 0 20 20" param1_def="1" layout_gravity="right top"/>
+			<picture name="default_image" rect="0 0 214 285" margin="0 0 0 0" hittest="false" stretch="true" layout_gravity="center center" image="inside_of_cover_big_card"/>
+		</controls>
+	</controlset>
+	<controlset name="ancient_card_gacha_pack_list" hittest="true" width="390" height="59" skin="monster_card_list" stateskin="false" enabledrag="true">
+		<userconfig NORMAL_GRADE_TEXT="{@st42b}{s16}" MAGIC_GRADE_TEXT="{@st42b}{s16}{#30b8d1}" UNIQUE_GRADE_TEXT="{@st42b}{s16}{#db6003}" LEGEND_GRADE_TEXT="{@st42b}{s16}{#ffe400}"/>
+		<controls>
+			<slot name="ancient_card_slot" rect="0 0 40 40" margin="10 -3 0 0" hittest="false" layout_gravity="left center" stretch="true"/>
+			<richtext name="ancient_card_name" rect="0 0 300 50" margin="60 0 0 0" hittest="false" layout_gravity="left center" format="%s x%s" param1="name" param2="count"/>
 		</controls>
 	</controlset>
 	<controlset name="event_stamp_tour_mission_block" hittest="true" width="546" height="230" stateskin="false">
 		<controls>
 			<picture name="bg" rect="0 0 546 230" margin="0 0 0 0" layout_gravity="center center" image="stamp_tour_list" stretch="true" draw="true" hittest="false"/>
-			<groupbox name="title_gb" rect="0 0 550 40" margin="0 12 0 0" layout_gravity="center top" skin="stamp_tour_list_title" draw="true" scrollbar="false" hittest="false"/>
+			<groupbox name="title_gb" rect="0 0 550 40" margin="0 12 0 0" layout_gravity="center top" skin="stamp_tour_list_title" draw="true" scrollbar="false" hittest="true"/>
 			<richtext name="levet_text" parent="title_gb" rect="0 0 150 20" margin="-2 0 0 0" layout_gravity="center center" format="{@st42b}{s20}%s" param1="value" param1_def="난이도" hittest="false"/>
 			<richtext name="desc" rect="0 0 450 40" margin="0 60 0 0" layout_gravity="center top" format="{@st66b}{s18}%s" param1="value" param1_def="미션 내용" resizebytext="true" textalign="center center" hittest="false" fixwidth="true"/>
 			<gauge name="gauge" rect="0 0 400 20" margin="0 110 0 0" layout_gravity="center top" skin="test_gauge_barrack_defence" text1="{@st42b}{s14}%v/%m" textoffset1="0 -1" textfont1="white_14_ol" textalign1="center top" inverse="false" hittest="false"/>
@@ -5003,7 +5059,10 @@
 			<picture name="check_bg" rect="0 0 540 222" margin="0 0 0 0" layout_gravity="center center" image="stamp_tour_list_accomplish" stretch="true" draw="false" hittest="false"/>
 			<picture name="clear_bg" rect="0 0 540 222" margin="0 0 0 0" layout_gravity="center center" image="fullblack" stretch="true" draw="false" hittest="false"/>
 			<picture name="clear_Pic" rect="0 0 140 140" margin="0 0 15 15" layout_gravity="right bottom" image="very_nice_stamp" stretch="true" hittest="false"/>
-		</controls>
+			<picture name="comingsoon_Pic" rect="0 0 474 114" margin="0 0 0 0" layout_gravity="center center" image="coming_soon_notice" stretch="true" hittest="false"/>
+			<button name="go_btn" rect="0 0 100 40" margin="30 175 0 0" layout_gravity="left top" LBtnUpScp="ON_EVENT_STAMP_TOUR_GO_BUTTON_CLICK" skin="test_red_button" caption="{@st42b}{s16}바로가기{/}" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" oversound="button_cursor_over_2" clicksound="button_click_stats_OK"/>
+			<button name="question" parent="title_gb" rect="0 0 44 44" margin="0 2 8 0" layout_gravity="right top" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" hittest="true" image="testquesten_button" oversound="button_over" LBtnUpScp="ON_EVENT_STAMP_TOUR_HELP_CLICK" />
+			</controls>
 	</controlset>
 	<!-- content_status_board -->
 	<controlset name="content_status_board_battle_attribute" toggle="false" hittest="true" hittestset="false" width="470" height="130" skin="">
@@ -5100,7 +5159,8 @@
 	</controlset>
 	<controlset name="icon_with_current_state" hittest="true" width="518" height="99" hittestset="false" draw="true" skin="test_skill_skin3">
 		<controls>
-			<picture name="iconpic" rect="0 0 97 74" margin="20 1 0 0" layout_gravity="left center"/>
+			<groupbox name="gb" rect="0 0 500 80" margin="0 0 0 0" layout_gravity="center center" scrollbar="false" draw="false"/>
+			<picture name="iconpic" rect="0 0 97 74" margin="20 1 0 0" layout_gravity="left center" hittest="false"/>
 			<richtext name="text" rect="0 0 500 100" margin="0 -20 20 0" layout_gravity="right center" fontname="black_18_b" format="%s" param1="value" param1_def="내용" />
 			<labelline name="labelline" rect="0 0 212 2" margin="0 0 10 0" layout_gravity="right center" skin="labelline_def_2"/>
 			<richtext name="state" rect="0 0 500 100" margin="0 20 20 0" layout_gravity="right center" format="{@st42b}{ds}{s18}({#fff200}%s{/} / %s)" param1="cur" param1_def="0" param2="max" param2_def="0"/>
@@ -5112,10 +5172,17 @@
 		<controls>
 			<picture name="checkbox" rect="0 0 40 29" margin="10 0 0 0" layout_gravity="left center" image="misson_checkbox"/>
 			<picture name="completion" rect="0 0 40 29" margin="10 0 0 0" layout_gravity="left center" image="misson_completion"/>
-			<richtext name="rewardtext" rect="0 0 300 50" margin="50 0 0 0" layout_gravity="left center" hittest="true" fontname="black_16_b"  format="%s" param1="value" fixwidth="true"/>
+			<richtext name="rewardtext" rect="0 0 320 50" margin="50 0 0 0" layout_gravity="left center" hittest="true" fontname="black_16_b"  format="%s" param1="value" fixwidth="true"/>
 			<picture name="rewardicon" rect="0 0 39 39" margin="0 -1 65 0" layout_gravity="right center" image="icon_item_Event_Roulette_Coin" stretch="true"/>
 			<richtext name="rewardcnt" rect="0 0 50 40" margin="0 0 5 0" layout_gravity="right center" format="{@st42b}{ds}{s16}x %s" param1="value" fixwidth="true" hittest="false" />
 			<picture name="checkline" rect="0 0 430 22" margin="50 0 0 0" layout_gravity="left center" image="red_check_line" hittest="false"/>
+		</controls>
+	</controlset>
+	<controlset name="simple_to_do_list" hittest="true" width="501" height="64" draw="true" hittestset="false" skin="test_skill_skin3">
+		<controls>
+			<richtext name="rewardtext" rect="0 0 300 50" margin="20 0 0 0" layout_gravity="left center" hittest="true" fontname="black_16_b" format="%s" param1="value" fixwidth="true"/>
+			<picture name="rewardicon" rect="0 0 39 39" margin="0 -1 65 0" layout_gravity="right center" image="icon_item_Event_Roulette_Coin" stretch="true"/>
+			<richtext name="rewardcnt" rect="0 0 50 40" margin="0 0 5 0" layout_gravity="right center" format="{@st42b}{ds}{s16}x %s" param1="value" fixwidth="true" hittest="false"/>
 		</controls>
 	</controlset>
 	<controlset name="craft_recipe" hittest="true" width="525" height="250" skin="earth_T_shop_skin" hittestset="true" draw="true" stateskin="false">
@@ -5162,5 +5229,37 @@
 			<richtext name="guild" rect="0 0 170 20" margin="75 0 0 0" layout_gravity="left center" textalign="left center" fontname="black_18" caption="" resizebytext="false" omitbywidth="true" ellipsistexttooltip="true" hittest="true"/>
 			<richtext name="team" rect="0 0 170 20" margin="250 0 0 0" layout_gravity="left center" textalign="left center" fontname="black_18" caption="" resizebytext="false" omitbywidth="true" ellipsistexttooltip="true" hittest="true"/>
 		</controls>
+	</controlset>	
+	<!-- 개인 하우징 홍보 게시판 시작 -->
+	<controlset name="featured_group" width="1142" height="420" hittest="true" hittestset="false" draw="false">
+		<controls>
+			<groupbox name="title_gb" rect="0 0 1142 40" margin="2 2 0 0" layout_gravity="center top" stretch="true" draw="true" skin="droplist_normal3_re" hittest="false"/>
+			<richtext name="empty_text" rect="0 0 300 30" margin="0 160 0 0" layout_gravity="center top" textalign="center center" resizebytext="false" fontname="black_20" format="%s" param1="value" param1_def="표시할 목록이 없습니다." hittest="false"/>
+			<richtext name="title_text" rect="0 0 300 30" margin="20 8 0 0" layout_gravity="left top" textalign="left center" resizebytext="false" fontname="black_18_b" format="%s" param1="value" param1_def="카테고리 이름" hittest="false"/>
+		</controls>
 	</controlset>
+	<controlset name="promote_post_list" width="350" height="380" hittest="true" hittestset="false" draw="false">
+		<controls>
+			<button name="btn" rect="0 0 351 380" margin="0 0 0 0" layout_gravity="center center" skin="test_skin_01_btn" draw="true" LBtnDownScp="HOUSING_PROMOTE_BOARD_POST_CLICK"/>
+			<picture name="thumbnail" rect="0 0 326 280" margin="0 65 0 0" layout_gravity="center top" stretch="true" hittest="false" image="housingbanner" imagealign="center center"/>
+			<richtext name="title" rect="0 0 300 30" margin="20 9 0 0" layout_gravity="left top" textalign="left center" resizebytext="false" fontname="black_18_b" format="%s" param1="value" param1_def="내용" hittest="false"/>
+			<labelline name="labelline" rect="0 0 338 2" margin="0 39 0 0" layout_gravity="center top" skin="labelline_def_3"/>
+			<richtext name="teamname" rect="0 0 300 20" margin="0 43 20 0" layout_gravity="right top" textalign="right center" resizebytext="false" fontname="black_18" format="{@st66b}{s14}%s" param1="value" param1_def="팀 이름 블라 블라" hittest="false"/>
+			<picture name="pointinfo_pic" rect="0 0 22 19" margin="20 0 0 10" layout_gravity="left bottom" stretch="true" hittest="true" image="housing_like"/>
+			<richtext name="pointinfo" rect="0 0 100 20" margin="45 0 0 9" layout_gravity="left bottom" fontname="black_16_b" format="%s    {img housing_visitor 22 19} %s" param1="GoodPoint" param1_def="0" param2="visitor" param2_def="0" textalign="left center" hittest="false"/>
+		</controls>
+	</controlset>
+	<controlset name="featured_btn" width="1135" height="383" hittest="true" hittestset="false" draw="false">
+		<controls>
+			<button name="left_btn" rect="0 0 42 383" margin="0 0 0 0" layout_gravity="left center" draw="false" image="housing_left_side" stretch="true" LBtnUpScp="HOUSING_PROMOTE_BOARD_FEATURED_LEFT_BTN_CLICK"/>
+			<button name="right_btn" rect="0 0 42 383" margin="0 0 0 0" layout_gravity="right center" draw="false" image="housing_right_side" stretch="true" LBtnUpScp="HOUSING_PROMOTE_BOARD_FEATURED_RIGHT_BTN_CLICK"/>
+		</controls>
+	</controlset>
+	<controlset name="simple_check_list" hittest="true" width="470" height="30" draw="false" hittestset="false" skin="">
+		<controls>
+			<checkbox name="checkbox" rect="0 0 24 24" margin="0 1 0 0" layout_gravity="left center" clicksound="button_click_big" oversound="button_over"/>
+			<richtext name="text" rect="0 0 300 50" margin="30 0 0 0" layout_gravity="left center" hittest="true" fontname="black_16_b" format="{@st42b}{s18}{ds}%s" param1="value" fixwidth="true"/>
+		</controls>
+	</controlset>
+	<!-- 개인 하우징 홍보 게시판 끝 -->
 </controlsetlist>
