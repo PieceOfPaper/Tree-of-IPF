@@ -87,6 +87,20 @@ function get_remove_buff_tooltip_Rodelero_ShieldBash(level)
     return str
 end
 
+-- 로델레로 - 실드 푸시
+function get_remove_buff_tooltip_Rodelero_ShieldPush(level)
+    local percent = 0.6 * tonumber(level)    
+    if percent > 100 then
+        percent = 100
+    end
+
+    local remove_count = 1
+
+    -- buff_type, lv, count, percent, relation, boss_check
+    local str = string.format('Buff/3/%d/%.2f/ENEMY/0', remove_count, percent)    
+    return str
+end
+
 -- 무르밀로 - 실드 트레인
 function get_remove_buff_tooltip_Murmillo_ShieldTrain(level)
     local percent = 2.5 * tonumber(level)    

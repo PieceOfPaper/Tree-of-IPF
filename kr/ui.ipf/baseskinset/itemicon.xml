@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by imc (imc) -->
 <!-- edited with XMLSpy v2008 sp1 http://www.altova.com by MintPC Mi -->
 <skinset name="Base">
 	<imagelist category="item_tooltip_icon">
@@ -665,6 +665,11 @@
 		<image name="icon_item_Glacier_cotton_pants" file="\icon\equip\icon_item_Glacier_cotton_pants.png" imgrect="0 0 256 256"/>
 		<image name="icon_item_Glacier_cotton_glove" file="\icon\equip\icon_item_Glacier_cotton_glove.png" imgrect="0 0 256 256"/>
 		<image name="icon_item_Glacier_cotton_boots" file="\icon\equip\icon_item_Glacier_cotton_boots.png" imgrect="0 0 256 256"/>
+		<image name="item_icon_wing_ChiefGuard" file="\icon\equip\item_icon_wing_ChiefGuard.png" imgrect="0 0 256 256" CMM_Caption="네뷸라스 등 장식"/>
+		<image name="item_icon_wing_froster_lord" file="\icon\equip\item_icon_wing_froster_lord.png" imgrect="0 0 256 256" CMM_Caption="프로스터 로드 날개"/>
+		<image name="item_icon_helmet_bramble" file="\icon\equip\item_icon_helmet_bramble.png" imgrect="0 0 256 256" CMM_Caption="브람블 헬멧"/>
+		<image name="icon_item_bramble_m" file="\icon\equip\icon_item_bramble.png" imgrect="0 0 256 256" CMM_Caption="브람블 코스튬_남"/>
+		<image name="icon_item_bramble_f" file="\icon\equip\icon_item_bramble.png" imgrect="0 0 256 256" CMM_Caption="브람블 코스튬_여"/>
 	</imagelist>
 	<imagelist category="256_costume_icons">
 		<image name="icon_item_Alchemist_f" file="\icon\equip\Alchemist_f_icon.png" imgrect="0 0 256 256" CMM_Caption="알케미스트"/>
@@ -3338,6 +3343,7 @@
 		<image name="icon_item_bracelet_2020ArborDay" file="\icon\acc\icon_item_bracelet_2020ArborDay.png" imgrect="0 0 256 256" CMM_Caption="2020 식목일 팔찌"/>
 		<image name="icon_item_necklace_2020ArborDay" file="\icon\acc\icon_item_necklace_2020ArborDay.png" imgrect="0 0 256 256" CMM_Caption="2020 식목일 목걸이"/>
 		<image name="icon_item_trinket_glacier" file="\icon\acc\icon_item_trinket_glacier.png" imgrect="0 0 256 256" CMM_Caption="글레이시어 트링킷"/>
+		<image name="icon_item_armband_guild04_blue" file="\icon\acc\icon_item_armband_guild04_blue.png" imgrect="0 0 256 256" CMM_Caption="길드 사랑 암밴드_블루"/>
 	</imagelist>
 	<imagelist category="hair_accesory">
 		<image name="hairacc_1_egg" file="\icon\hairacc\hairacc_1_egg.png" imgrect="0 0 256 256"/>
@@ -5450,10 +5456,10 @@
 		<image name="icon_item_ability_down_potion3" file="\icon\item\icon_item_ability_down_potion3.png" imgrect="0 0 128 128" CMM_Caption="능력치 감소 포션 3"/>
 		<image name="icon_item_ability_down_potion4" file="\icon\item\icon_item_ability_down_potion4.png" imgrect="0 0 128 128" CMM_Caption="능력치 감소 포션 4"/>
 		<image name="icon_item_ability_down_potion5" file="\icon\item\icon_item_ability_down_potion5.png" imgrect="0 0 128 128" CMM_Caption="능력치 감소 포션 5"/>
-		<image name="icon_item_mastertraining_1" file="\icon\item\icon_item_mastertraining_1.png" imgrect="0 0 128 128" CMM_Caption="마스터 하급 훈련권"/>
-		<image name="icon_item_mastertraining_2" file="\icon\item\icon_item_mastertraining_2.png" imgrect="0 0 128 128" CMM_Caption="마스터 중급 훈련권"/>
-		<image name="icon_item_mastertraining_3" file="\icon\item\icon_item_mastertraining_3.png" imgrect="0 0 128 128" CMM_Caption="마스터 상급 훈련권"/>
-		<image name="icon_item_mastertraining_4" file="\icon\item\icon_item_mastertraining_4.png" imgrect="0 0 128 128" CMM_Caption="마스터 최상급 훈련권"/>
+		<image name="icon_item_mastertraining_1" file="\icon\item\icon_item_mastertraining_1.png" imgrect="0 0 128 128" CMM_Caption="개인 하우징 상품권 : 10만실버"/>
+		<image name="icon_item_mastertraining_2" file="\icon\item\icon_item_mastertraining_2.png" imgrect="0 0 128 128" CMM_Caption="개인 하우징 상품권 : 1만실버"/>
+		<image name="icon_item_mastertraining_3" file="\icon\item\icon_item_mastertraining_3.png" imgrect="0 0 128 128" CMM_Caption="개인 하우징 상품권 : 100만실버"/>
+		<image name="icon_item_mastertraining_4" file="\icon\item\icon_item_mastertraining_4.png" imgrect="0 0 128 128" CMM_Caption="개인 하우징 상품권 : 50만실버"/>
 		<image name="icon_item_transcendence_coupon" file="\icon\item\icon_item_transcendence_coupon.png" imgrect="0 0 128 128" CMM_Caption="초월 스크롤"/>
 		<image name="icon_item_velcoffer_misc01" file="\icon\item\icon_item_velcoffer_misc01.png" imgrect="0 0 256 256" CMM_Caption="벨코퍼 영혼 조각"/>
 		<image name="icon_item_velcoffer_misc02" file="\icon\item\icon_item_velcoffer_misc02.png" imgrect="0 0 256 256"/>
@@ -5769,11 +5775,25 @@
 		<image name="item_icon_event_2005_trade" file="\icon\item\item_icon_event_2005_trade.png" imgrect="0 0 128 128" CMM_Caption="2020_교환권"/>
 		<image name="icon_item_abilitypoint_Ancinet" file="\icon\item\icon_item_abilitypoint_Ancinet.png" imgrect="0 0 256 256" CMM_Caption="어시스터 경험의 서"/>
 		<image name="icon_item_pvpminependant" file="\icon\item\icon_item_pvpminependant.png" imgrect="0 0 256 256" CMM_Caption="상태이상 저항 팬던트"/>
+		<image name="icon_item_housing_giftcard_01" file="\icon\item\icon_item_housing_giftcard_01.png" imgrect="0 0 256 256" CMM_Caption="개인 하우징 상품권 : 10만실버"/>
+		<image name="icon_item_housing_giftcard_02" file="\icon\item\icon_item_housing_giftcard_02.png" imgrect="0 0 256 256" CMM_Caption="개인 하우징 상품권 : 1만실버"/>
+		<image name="icon_item_housing_giftcard_03" file="\icon\item\icon_item_housing_giftcard_03.png" imgrect="0 0 256 256" CMM_Caption="개인 하우징 상품권 : 100만실버"/>
+		<image name="icon_item_housing_giftcard_04" file="\icon\item\icon_item_housing_giftcard_04.png" imgrect="0 0 256 256" CMM_Caption="개인 하우징 상품권 : 50만실버"/>
 		<image name="icon_item_txbox_wonderers_armor" file="\icon\item\icon_item_txbox_wonderers_armor.png" imgrect="0 0 256 256" CMM_Caption="모닝포리아 방어구 상자"/>
 		<image name="icon_item_txbox_wonderers_armor_set" file="\icon\item\icon_item_txbox_wonderers_armor_set.png" imgrect="0 0 256 256" CMM_Caption="모닝포리아 방어구 상자_상급"/>
+		<image name="item_icon_Appraiser_Box" file="\icon\item\item_icon_Appraiser_Box.png" imgrect="0 0 256 256" CMM_Caption="산드라의 반짝이는 보석_산드라의 선물 상자"/>
+		<image name="icon_item_Random_stone" file="\icon\item\icon_item_Random_stone.png" imgrect="0 0 256 256" CMM_Caption="산드라의 반짝이는 보석_정체 불명의 원석"/>
 		<image name="icon_item_transcendstone_777box" file="\icon\item\icon_item_transcendstone_777box.png" imgrect="0 0 256 256" CMM_Caption="레티샤 상자_축복석10개"/>
+		<image name="icon_item_Normal_stone" file="\icon\item\icon_item_Normal_stone.png" imgrect="0 0 128 128" CMM_Caption="평범한 보석"/>
+		<image name="icon_item_Shining_stone" file="\icon\item\icon_item_Shining_stone.png" imgrect="0 0 128 128" CMM_Caption="반짝이는 보석"/>
+		<image name="icon_item_Piece_Legend_Misc" file="\icon\item\icon_item_Piece_Legend_Misc.png" imgrect="0 0 128 128" CMM_Caption="아키스톤 파편"/>
 		<image name="icon_item_Piece_Boruta_Seal" file="\icon\item\icon_item_Piece_Boruta_Seal.png" imgrect="0 0 256 256" CMM_Caption="보루타 인장 조각"/>
 		<image name="icon_item_Glacier_stone" file="\icon\item\icon_item_Glacier_stone.png" imgrect="0 0 256 256" CMM_Caption="글레이시어 영혼조각"/>
+		<image name="icon_item_new_world_card" file="\icon\item\icon_item_new_world_card.png" imgrect="0 0 128 128" CMM_Caption="[이벤트]신규 월드 증서"/>
+		<image name="icon_item_new_world_check" file="\icon\item\icon_item_new_world_check.png" imgrect="0 0 128 128" CMM_Caption="[이벤트]신규 월드 증서_체크"/>
+		<image name="icon_item_housing_monster_mini_figure01" file="\icon\item\icon_item_housing_monster_mini_figure01.png" imgrect="0 0 256 256" CMM_Caption="미니 피규어_금"/>
+		<image name="icon_item_housing_monster_mini_figure02" file="\icon\item\icon_item_housing_monster_mini_figure02.png" imgrect="0 0 256 256" CMM_Caption="미니 피규어_은"/>
+		<image name="icon_item_housing_monster_mini_figure03" file="\icon\item\icon_item_housing_monster_mini_figure03.png" imgrect="0 0 256 256" CMM_Caption="미니 피규어_동"/>
 	</imagelist>
 	<imagelist category="housing">
 		<image name="icon_item_h_bigplant_set_01_green" file="\icon\housing\icon_item_h_bigplant_set_01_green.png" imgrect="0 0 256 256" CMM_Caption="[길드 하우징] 화단_01(초록색)"/>
@@ -6028,6 +6048,32 @@
 		<image name="icon_item_p_h_barrack_09_swan" file="\icon\housing\icon_item_p_h_barrack_09_swan_1.png" imgrect="0 0 256 256" CMM_Caption="[개인 하우징]연회장 백조 장식"/>
 		<image name="icon_item_p_h_barrack_09_window" file="\icon\housing\icon_item_p_h_barrack_09_window_1.png" imgrect="0 0 256 256" CMM_Caption="[개인 하우징]연회장 고급 창문"/>
 		<image name="icon_item_p_h_barrack_04_sign" file="\icon\housing\icon_item_p_h_barrack_04_sign_1.png" imgrect="0 0 256 256" CMM_Caption="[개인 하우징]달콤 간판 중형"/>
+		<image name="icon_item_p_h_barrack_02_carpet_1" file="\icon\housing\icon_item_p_h_barrack_02_carpet_1.png" imgrect="0 0 256 256" CMM_Caption="[개인 하우징]임시"/>
+		<image name="icon_item_p_h_barrack_02_carpet_2" file="\icon\housing\icon_item_p_h_barrack_02_carpet_2.png" imgrect="0 0 256 256" CMM_Caption="[개인 하우징]임시"/>
+		<image name="icon_item_p_h_barrack_02_chair_2" file="\icon\housing\icon_item_p_h_barrack_02_chair_2.png" imgrect="0 0 256 256" CMM_Caption="[개인 하우징]임시"/>
+		<image name="icon_item_p_h_barrack_02_table_1_1" file="\icon\housing\icon_item_p_h_barrack_02_table_1_1.png" imgrect="0 0 256 256" CMM_Caption="[개인 하우징]임시"/>
+		<image name="icon_item_p_h_barrack_02_chair_3" file="\icon\housing\icon_item_p_h_barrack_02_chair_3.png" imgrect="0 0 256 256" CMM_Caption="[개인 하우징]임시"/>
+		<image name="icon_item_p_h_barrack_02_bookshelf_01_1_1" file="\icon\housing\icon_item_p_h_barrack_02_bookshelf_01_1_1.png" imgrect="0 0 256 256" CMM_Caption="[개인 하우징]임시"/>
+		<image name="icon_item_p_h_barrack_02_bookshelf_02_1_1" file="\icon\housing\icon_item_p_h_barrack_02_bookshelf_02_1_1.png" imgrect="0 0 256 256" CMM_Caption="[개인 하우징]임시"/>
+		<image name="icon_item_p_h_barrack_02_chair_1_1" file="\icon\housing\icon_item_p_h_barrack_02_chair_1_1.png" imgrect="0 0 256 256" CMM_Caption="[개인 하우징]임시"/>
+		<image name="icon_item_p_h_barrack_02_roundbook_1" file="\icon\housing\icon_item_p_h_barrack_02_roundbook_1.png" imgrect="0 0 256 256" CMM_Caption="[개인 하우징]임시"/>
+		<image name="icon_item_p_h_barrack_village_side_table_012_1_1" file="\icon\housing\icon_item_p_h_barrack_village_side_table_012_1_1.png" imgrect="0 0 256 256" CMM_Caption="[개인 하우징]임시"/>
+		<image name="icon_item_p_h_barrack_03_dressing_desk_1_1" file="\icon\housing\icon_item_p_h_barrack_03_dressing_desk_1_1.png" imgrect="0 0 256 256" CMM_Caption="[개인 하우징]임시"/>
+		<image name="icon_item_p_h_barrack_03_cushion_set_1_1" file="\icon\housing\icon_item_p_h_barrack_03_cushion_set_1_1.png" imgrect="0 0 256 256" CMM_Caption="[개인 하우징]임시"/>
+		<image name="icon_item_p_h_barrack_03_beartoyDesk_1" file="\icon\housing\icon_item_p_h_barrack_03_beartoyDesk_1.png" imgrect="0 0 256 256" CMM_Caption="[개인 하우징]임시"/>
+		<image name="icon_item_p_h_barrack_02_partition_1" file="\icon\housing\icon_item_p_h_barrack_02_partition_1.png" imgrect="0 0 256 256" CMM_Caption="[개인 하우징]임시"/>
+		<image name="icon_item_p_h_barrack_02_partition_2" file="\icon\housing\icon_item_p_h_barrack_02_partition_2.png" imgrect="0 0 256 256" CMM_Caption="[개인 하우징]임시"/>
+		<image name="icon_item_p_h_barrack_02_partition_3" file="\icon\housing\icon_item_p_h_barrack_02_partition_3.png" imgrect="0 0 256 256" CMM_Caption="[개인 하우징]임시"/>
+		<image name="icon_item_p_h_barrack_02_clock_1" file="\icon\housing\icon_item_p_h_barrack_02_clock_1.png" imgrect="0 0 256 256" CMM_Caption="[개인 하우징]임시"/>
+		<image name="icon_item_p_h_barrack_02_table_2" file="\icon\housing\icon_item_p_h_barrack_02_table_2.png" imgrect="0 0 256 256" CMM_Caption="[개인 하우징]임시"/>
+		<image name="icon_item_p_h_barrack_02_chair_4" file="\icon\housing\icon_item_p_h_barrack_02_chair_4.png" imgrect="0 0 256 256" CMM_Caption="[개인 하우징]임시"/>
+		<image name="icon_item_p_h_barrack_02_frame_1" file="\icon\housing\icon_item_p_h_barrack_02_frame_1.png" imgrect="0 0 256 256" CMM_Caption="[개인 하우징]임시"/>
+		<image name="icon_item_p_h_barrack_02_wallstatue_1" file="\icon\housing\icon_item_p_h_barrack_02_wallstatue_1.png" imgrect="0 0 256 256" CMM_Caption="[개인 하우징]임시"/>
+		<image name="icon_item_p_h_barrack_02_wallbook_1" file="\icon\housing\icon_item_p_h_barrack_02_wallbook_1.png" imgrect="0 0 256 256" CMM_Caption="[개인 하우징]임시"/>
+		<image name="icon_item_p_h_barrack_03_mirror_04_1_1" file="\icon\housing\icon_item_p_h_barrack_03_mirror_04_1_1.png" imgrect="0 0 256 256" CMM_Caption="[개인 하우징]임시"/>
+		<image name="icon_item_p_h_barrack_03_mirror_05_1_1" file="\icon\housing\icon_item_p_h_barrack_03_mirror_05_1_1.png" imgrect="0 0 256 256" CMM_Caption="[개인 하우징]임시"/>
+		<image name="icon_item_p_h_barrack_03_mirror_03_1_1" file="\icon\housing\icon_item_p_h_barrack_03_mirror_03_1_1.png" imgrect="0 0 256 256" CMM_Caption="[개인 하우징]임시"/>
+		<image name="icon_item_p_h_barrack_02_candlestick_1" file="\icon\housing\icon_item_p_h_barrack_02_candlestick_1.png" imgrect="0 0 256 256" CMM_Caption="[개인 하우징]임시"/>
 		<image name="icon_item_h_wild_grass_01" file="\icon\housing\icon_item_h_wild_grass_01.png" imgrect="0 0 256 256" CMM_Caption="[길드 하우징] 야생풀_1"/>
 		<image name="icon_item_h_tree_basic_03" file="\icon\housing\icon_item_h_tree_basic_03.png" imgrect="0 0 256 256" CMM_Caption="[길드 하우징] 장식용 나무_3"/>
 		<image name="icon_item_h_tree_basic_02" file="\icon\housing\icon_item_h_tree_basic_02.png" imgrect="0 0 256 256" CMM_Caption="[길드 하우징] 장식용 나무_2"/>
@@ -7270,6 +7316,8 @@
 		<image name="item_icon_selectbox_ep12wedding02" file="\icon\payment\item_icon_selectbox_ep12wedding02.png" imgrect="0 0 256 256"/>
 		<image name="item_icon_selectbox_ep12wedding03" file="\icon\payment\item_icon_selectbox_ep12wedding03.png" imgrect="0 0 256 256"/>
 		<image name="item_icon_allbox_ep12wedding" file="\icon\payment\item_icon_allbox_ep12wedding.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_effect_warpulis" file="\icon\payment\icon_item_effect_warpulis.png" imgrect="0 0 256 256" CMM_Caption="워퓰리스 이펙트"/>
+		<image name="icon_item_seal_leticia" file="\icon\payment\icon_item_seal_leticia.png" imgrect="0 0 256 256" CMM_Caption="보루타 인장 강화용 인장"/>
 	</imagelist>
 	<imagelist category="seal">
 		<image name="icon_seal_yellow_cc_A1" file="\icon\seal\seal_yellow_cc_A1.tga" imgrect="0 0 80 80"/>

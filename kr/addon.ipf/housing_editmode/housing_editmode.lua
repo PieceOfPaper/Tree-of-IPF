@@ -6,6 +6,16 @@
 	addon:RegisterMsg('PERSONAL_HOUSING_IS_REALLY_ENTER_PARTY', 'SCR_PERSONAL_HOUSING_IS_REALLY_ENTER_PARTY');
 end
 
+function IS_PERSONAL_HOUSING_PLACE()
+	local currentMapName = session.GetMapName();
+	local housingPlaceClass = GetClass("Housing_Place", currentMapName);
+	if housingPlaceClass == nil then
+		return;
+	end
+	
+	return TryGetProp(housingPlaceClass, "Type") == "Personal";
+end
+
 function SCR_PERSONAL_HOUSING_IS_REALLY_ENTER(frame, msg, argstr, argnum)
     local clmsg = ScpArgMsg("ANSWER_JOIN_PH_1");
 	local yesscp = string.format("ON_PERSONAL_HOUSING_IS_REALLY_ENTER(%d)", argnum);
@@ -131,14 +141,22 @@ function SCR_OPEN_HOUSING_EDITMODE(frame)
 	local btn_change_background = GET_CHILD_RECURSIVELY(frame, "btn_change_background");
 	local btn_page_load = GET_CHILD_RECURSIVELY(frame, "btn_page_load");
 	local btn_shop = GET_CHILD_RECURSIVELY(frame, "btn_shop");
+	local gbox_grouplist = GET_CHILD_RECURSIVELY(frame, "gbox_grouplist");
 
 	local type = TryGetProp(housingPlaceClass, "Type");
 	if type == "Personal" then
 		btn_change_background:SetEnable(1);
 		btn_shop:ShowWindow(1);
+
+		gbox_grouplist:ShowWindow(1);
+		SCR_PERSONAL_HOUSING_GROUP_LIST(0, {0}, {0});
+		housing.RequestPersonalHousingGroupList();
 	else
 		btn_change_background:SetEnable(0);
 		btn_shop:ShowWindow(0);
+
+		gbox_grouplist:RemoveAllChild();
+		gbox_grouplist:ShowWindow(0);
 	end
 	
 	local txt_editmode_floor = GET_CHILD_RECURSIVELY(frame, "txt_editmode_floor");
@@ -146,6 +164,10 @@ function SCR_OPEN_HOUSING_EDITMODE(frame)
 end
 
 function CLOSE_HOUSING_EDITMODE()
+	if IS_PERSONAL_HOUSING_PLACE() == true then
+		ui.CloseFrame("housing_shop");
+	end
+
 	ui.CloseFrame("housing_editmode");
 	ui.CloseFrame("housing_editmode_page");
 	ui.CloseFrame("housing_editmode_page_change");
@@ -252,22 +274,11 @@ function SCR_OPEN_HOUSING_EDITMODE_CHANGE_BACKGROUND(gbox, btn)
 end
 
 function SCR_OPEN_HOUSING_EDITMODE_PAGE_SHOP(gbox, btn)
-	local shopFrame = ui.GetFrame("shop");
+	local shopFrame = ui.GetFrame("housing_shop");
 	if shopFrame:IsVisible() == 0 then
 		control.CustomCommand('REQ_PERSONAL_HOUSING_PAGE_SHOP', 0);
 	else
-		local shopFrame = ui.GetFrame("shop");
-		SHOP_ON_MSG(shopFrame, "DIALOG_CLOSE", "Personal_Housing", 0)
-	end
-end
-
-function SCR_OPEN_HOUSING_EDITMODE_TILE(gbox, btn)
-	local shopFrame = ui.GetFrame("shop");
-	if shopFrame:IsVisible() == 0 then
-		control.CustomCommand('REQ_PERSONAL_HOUSING_PAGE_SHOP', 0);
-	else
-		local shopFrame = ui.GetFrame("shop");
-		SHOP_ON_MSG(shopFrame, "DIALOG_CLOSE", "Personal_Housing", 0)
+		shopFrame:ShowWindow(0);
 	end
 end
 
@@ -409,6 +420,90 @@ function SCR_HOUSING_EDITMODE_DO_REMOVE()
 
 		HOUSING_EDITMODE_REMOVE_OPEN_GUILD(totalDemolitionPrice, removeFurnitureCount);
 	end
+end
+
+function GET_PERSONAL_HOUSING_GROUP_VALUE(name)
+	local class = GetClass("Housing_Furniture_Group", name);
+	if class == nil then
+		return 0, false;
+	end
+
+	return TryGet(class, "Value"), true;
+end
+
+function GET_PERSONAL_HOUSING_GROUP_VALUE_STR(name)
+	local class = GetClass("Housing_Furniture_Group", name);
+	if class == nil then
+		return 0, false;
+	end
+
+	return TryGet_Str(class, "Value_Str"), true;
+end
+
+function SCR_PERSONAL_HOUSING_GROUP_LIST(groupCount, groupClassIDs, countPerGroups)
+	local frame = ui.GetFrame("housing_editmode");
+	local gbox_grouplist_detail = GET_CHILD_RECURSIVELY(frame, "gbox_grouplist_detail");
+	gbox_grouplist_detail:RemoveAllChild();
+
+	local categoryCount, isValid = GET_PERSONAL_HOUSING_GROUP_VALUE("CategoryCount");
+	if isValid == false then
+		return;
+	end
+
+	for i = 1, categoryCount do
+		local categoryClassName = "Category_" .. tostring(i);
+		local categoryName, isValid = GET_PERSONAL_HOUSING_GROUP_VALUE_STR(categoryClassName);
+		if isValid == true then
+			local groupCountInCategory, isValid2 = GET_PERSONAL_HOUSING_GROUP_VALUE(categoryClassName);
+			if isValid2 == true then
+				local groupCategory = gbox_grouplist_detail:CreateControlSet("personal_housing_group_category", "HOUSING_GROUP_CATEGORY_" .. categoryClassName, ui.CENTER_HORZ, ui.TOP, 0, 0, 0, 0);
+				if groupCategory ~= nil then
+					groupCategory:Resize(groupCategory:GetOriginalWidth(), 25 + 20 * groupCountInCategory);
+					local txt_category_name = GET_CHILD_RECURSIVELY(groupCategory, "txt_category_name");
+					txt_category_name:SetTextByKey("name", categoryName);
+
+					local gbox_personal_housing_group_category = GET_CHILD_RECURSIVELY(groupCategory, "gbox_personal_housing_group_category");
+					if gbox_personal_housing_group_category ~= nil then
+						gbox_personal_housing_group_category:Resize(gbox_personal_housing_group_category:GetOriginalWidth(), 25 + 20 * groupCountInCategory);
+						for j = 1, groupCountInCategory do
+							local groupID = i * 1000 + j;
+							local groupClass = GetClassByType("Housing_Furniture_Group", groupID);
+							if groupClass ~= nil then
+								local group = gbox_personal_housing_group_category:CreateControlSet("personal_housing_group", "HOUSING_GROUP_" .. tostring(groupID), ui.CENTER_HORZ, ui.TOP, 0, 0, 0, 0);
+								
+								local txt_group_name = GET_CHILD_RECURSIVELY(group, "txt_group_name");
+								if txt_group_name ~= nil then
+									txt_group_name:SetTextByKey("name", TryGetProp(groupClass, "Name"));
+								end
+
+								local txt_group_count = GET_CHILD_RECURSIVELY(group, "txt_group_count");
+								if txt_group_count ~= nil then
+									txt_group_count:SetTextByKey("max", tostring(TryGetProp(groupClass, "LimitCount")));
+								end
+							end
+						end
+						
+						GBOX_AUTO_ALIGN(gbox_personal_housing_group_category, 0, 0, 0, true, false);
+					end
+				end
+			end
+		end
+	end
+
+	for i = 1, groupCount do
+		local groupClass = GetClassByType("Housing_Furniture_Group", groupClassIDs[i]);
+		if groupClass ~= nil then
+			local group = GET_CHILD_RECURSIVELY(gbox_grouplist_detail, "HOUSING_GROUP_" .. tostring(groupClassIDs[i]));
+			if group ~= nil then
+				local txt_group_count = GET_CHILD_RECURSIVELY(group, "txt_group_count");
+				if txt_group_count ~= nil then
+					txt_group_count:SetTextByKey("count", tostring(countPerGroups[i]));
+				end
+			end
+		end
+	end
+
+	GBOX_AUTO_ALIGN(gbox_grouplist_detail, 0, 5, 0, true, false);
 end
 
 function REQUEST_HOUSING_PROMOTE_BOARD_OPEN_EDITMODE(frame)

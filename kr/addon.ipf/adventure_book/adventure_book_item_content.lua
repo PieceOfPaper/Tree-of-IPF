@@ -65,13 +65,13 @@ function ADVENTURE_BOOK_ITEM_CONTENT.HISTORY_ITEM_LIST()
 	local hash_table = {};
 	for i = 1, #itemlist_c do
 	    local cls = GetClassByNumProp("Item", "ClassID", itemlist_c[i]);
-	    if cls.Journal == "TRUE" or cls.Journal == "true" then
+	    if cls ~= nil and (cls.Journal == "TRUE" or cls.Journal == "true") then
 		    retTable[#retTable + 1] = itemlist_c[i]
 		end
 	end
 	for i = 1, #itemlist_p do
-	    local cls = GetClassByNumProp("Item", "ClassID", itemlist_p[i]);
-	    if cls.Journal == "TRUE" or cls.Journal == "true" then
+		local cls = GetClassByNumProp("Item", "ClassID", itemlist_p[i]);
+	    if cls ~= nil and (cls.Journal == "TRUE" or cls.Journal == "true") then
     		local exist_c = GetAdventureBookInstByClassID(ABT_ITEM_COUNTABLE, itemlist_p[i])
     		if exist_c == nil or exist_c == 0 then
     			retTable[#retTable + 1] = itemlist_p[i]

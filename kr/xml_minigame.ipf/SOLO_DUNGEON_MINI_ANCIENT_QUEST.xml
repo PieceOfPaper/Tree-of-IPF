@@ -403,5 +403,11 @@
                 </StageEvents>
             </Stage>
         </StageList>
+        <EnterList>
+            <ToolScp Scp="MGAME_ZONEENTER_SCRIPT" Client="NO" UseSleep="NO">
+                <Num Num="2"/>
+                <Str Str="SCR_ANCIENT_QUEST_DUNGEON_PC_SETTING"/>
+            </ToolScp>
+        </EnterList>
     </Game>
 </GameList>

@@ -81,9 +81,9 @@ function REINFORCE_131014_UPDATE_MORU_COUNT(frame)
 	end
 	
 	--steam_new_world
-	if IsBuffApplied(pc, "Event_Steam_New_World_Buff") == "YES" then
-		msg = msg..ScpArgMsg('EVENT_REINFORCE_DISCOUNT_MSG1')
-	end
+	-- if IsBuffApplied(pc, "Event_Steam_New_World_Buff") == "YES" then
+	-- 	msg = msg..ScpArgMsg('EVENT_REINFORCE_DISCOUNT_MSG1')
+	-- end
   
     if toItemObj.StringArg =='Reinforce_Discount_50' then
         msg = msg..ScpArgMsg('EVENT_REINFORCE_DISCOUNT_MSG1')

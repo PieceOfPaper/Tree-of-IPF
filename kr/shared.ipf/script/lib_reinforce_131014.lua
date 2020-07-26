@@ -198,9 +198,9 @@ function GET_REINFORCE_PRICE(fromItem, moruItem, pc)
     end
 
     --steam_new_world
-    if IsBuffApplied(pc, "Event_Steam_New_World_Buff") == "YES" then
-        value = value/2
-    end
+    -- if IsBuffApplied(pc, "Event_Steam_New_World_Buff") == "YES" then
+    --     value = value/2
+    -- end
     
     return SyncFloor(value);
 

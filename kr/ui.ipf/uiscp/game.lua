@@ -1683,6 +1683,11 @@ function ITEM_EQUIP_MSG(item, slotName)
 	end
 	
 	local itemCls = GetIES(item:GetObject());
+
+	if itemCls.StringArg == "Seal_Material" then
+		return;
+	end
+
     local eqp_type = TryGetProp(itemCls, 'EqpType')    
 	if eqp_type == "HELMET" and slotName == "HAIR" then
 		slotName = "HELMET";

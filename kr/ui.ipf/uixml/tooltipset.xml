@@ -75,7 +75,7 @@
 		</controls>
 	</tooltip>
 	<tooltip name="wholeitem" x="0" y="0" fixwidth="false" width="1640" height="0" moveable="false" frameskin="None" draw="false" blendtime="" UpdateScp="UPDATE_ITEM_TOOLTIP" CustomUpdate="UPDATE_NEW_TIP">
-		<userconfig BOTTOM_MARGIN="10"/>
+		<userconfig BOTTOM_MARGIN="15"/>
 		<controls>
 			<groupbox name="changevalue" margin="665 0 0 0" rect="0 0 300 0" skin="" hittest="false" draw="true" updateparent="false" scrollbar="false" layout_gravity="left top"/>
 			<groupbox name="etc" margin="820 0 0 0" rect="0 0 410 0" skin="bg" hittest="false" draw="true" updateparent="true" scrollbar="false" layout_gravity="left top"/>

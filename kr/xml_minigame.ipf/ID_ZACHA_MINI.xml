@@ -1236,6 +1236,11 @@
                 </StageEvents>
             </Stage>
         </StageList>
+        <EnterList>
+            <ToolScp Scp="MGAME_CHECK_INDUN" Client="NO" UseSleep="YES">
+                <Str Str="Indun_zacha1"/>
+            </ToolScp>
+        </EnterList>
         <WorldInitList>
             <ToolScp Scp="MGAME_RECALL" Client="NO" UseSleep="NO">
                 <AbsPos X="33.057667" Y="60.094898" Z="1011.8454" Random="30"/>

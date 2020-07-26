@@ -70,19 +70,10 @@
 					<Str Str="ShieldShoving_Debuff" />
 					<Num FuncTxt=" return skill.Level" Num="1" UseFunc="1" />
 					<Num Num="0" />
-					<Num FuncTxt=" if IsPVPServer(self) == 1 then return 3000 else return 1500 end" Num="1500" UseFunc="1" />
-					<Num Num="1" />
-					<Num Num="100" />
-					<Num Num="-1" />
-				</ToolScp>
-				<ToolScp Client="NO" Scp="S_R_TGTBUFF" UseSleep="NO">
-					<Str Str="HighKick_Debuff" />
-					<Num FuncTxt="return skill.Level;" Num="1" UseFunc="1" />
-					<Num Num="0" />
-					<Num Num="10000" />
-					<Num Num="1" />
-					<Num Num="100" />
-					<Num Num="-1" />
+					<Num Num="2000"/>
+					<Num Num="1"/>
+					<Num Num="100"/>
+					<Num Num="-1"/>
 				</ToolScp>
 			</ResultList>
 		</MainSkl>
@@ -136,11 +127,17 @@
 					<Str Str="ShieldPush_Debuff" />
 					<Num FuncTxt="return skill.Level;" Num="1" UseFunc="1" />
 					<Num Num="0" />
-					<Num Num="5000" />
+					<Num Num="3000" />
 					<Num Num="1" />
 					<Num Num="100" />
 					<Num Num="-1" />
 				</ToolScp>
+				<ToolScp Client="NO" Scp="S_R_TGT_REMOVE_BUFF" UseSleep="NO">
+					<Str FuncTxt="local func_name = 'get_remove_buff_tooltip_' .. TryGetProp(skill, 'ClassName', 'None')
+            		local func = _G[func_name]
+            		if func == nil then return end
+            		return func(skill.Level)" Str="0" UseFunc="1"/>
+				</ToolScp>				
 			</ResultList>
 		</MainSkl>
 	</Skill>
@@ -299,7 +296,7 @@
 		</KeyInputEnd>
 		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
 			<HitList>
-				<Frame Angle="0" AniTime="350" Dist="0" ForceATK="0" HitCount="1" Length="50" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.78539819" TermMax="0" TermMin="0" Time="150" Type="FAN" Width="50" />
+				<Frame Angle="0" AniTime="350" Dist="0" ForceATK="0" HitCount="1" Length="100" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.78539819" TermMax="0" TermMin="0" Time="150" Type="FAN" Width="50" />
 			</HitList>
 			<EtcList>
 				<Scp Client="YES" Scp="C_VOICE_SOUND" Time="200" UseSleep="NO">
@@ -307,30 +304,7 @@
 					<Str Str="voice_atk_long_war_f" />
 				</Scp>
 			</EtcList>
-			<ResultList>
-				<ToolScp Client="NO" Scp="S_R_COND_ABILITY" UseSleep="NO">
-					<Str Str="Rodelero29" />
-				</ToolScp>
-				<ToolScp Client="NO" Scp="S_R_KNOCK_TARGET" TooltipScp="TOOLTIP_MONSKL_R_KNOCKDOWN" UseSleep="NO">
-					<Num Num="4" />
-					<Num Num="2" />
-					<Num Num="10" />
-					<Num Num="80" />
-					<Num Num="5" />
-					<Num Num="1" />
-					<Num Num="2" />
-				</ToolScp>
-				<ToolScp Client="NO" Scp="S_R_TGTBUFF" UseSleep="NO">
-					<Str Str="Slithering_Debuff" />
-					<Num FuncTxt="return GET_ABIL_LEVEL(self, &quot;Rodelero29&quot;)" Num="1" UseFunc="1" />
-					<Num Num="0" />
-					<Num Num="10000" />
-					<Num Num="1" />
-					<Num Num="100" />
-					<Num Num="-1" />
-				</ToolScp>
-			</ResultList>
-		</MainSkl>
+			</MainSkl>
 	</Skill>
 	<Skill Name="Rodelero_Montano">
 		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">

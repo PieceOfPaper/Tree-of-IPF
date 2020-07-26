@@ -114,6 +114,7 @@ function ENCHANTAROMOROPEN_UPDATE_OPTION(frame, groupName)
 		local msg = ScpArgMsg(optionList[i]);
 		local name = ctrlSet:GetChild('name');
 		name:SetTextByKey('value', msg .. ' '.. itemName)
+		name:SetTextTooltip(msg .. ' '.. itemName);
 
 		local des = ctrlSet:GetChild('des');
 		des:SetTextByKey('value', ScpArgMsg(optionList[i]..'_DESC'))

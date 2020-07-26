@@ -143,10 +143,15 @@ return value"/>
                     <Str Str="ATK"/>
                 </Scp>
                 <Scp Client="NO" Scp="SKL_BUFF" Time="0" UseSleep="NO">
-                    <Str Str="HighGuard_Buff"/>
+                    <Str Str="HighGuard_Buff" UseFunc="1" FuncTxt="local value = 'HighGuard_Buff';
+                    local abil = GetAbility(self, 'Peltasta43')
+                    if abil ~= nil and TryGetProp(abil, 'ActiveState', 0) == 1 then
+                    value = 'HighGuard_Abil_Buff';
+                    end
+                    return value;"/>
                     <Num FuncTxt="return obj.Level;" Num="1" UseFunc="1"/>
                     <Num Num="0"/>
-                    <Num Num="1800000"/>
+                    <Num Num="0"/>
                     <Num Num="1"/>
                     <Num Num="100"/>
                     <Num Num="0"/>
@@ -160,9 +165,7 @@ return value"/>
         <ByCondSkills>
             <SubSkl>
                 <Cond>
-                    <ToolScp Client="NO" Scp="SKL_SELECT_BUFF" UseSleep="NO">
-                        <Str Str="HighGuard_Buff"/>
-                    </ToolScp>
+                    <ToolScp Client="NO" Scp="SKL_HIGHGUARD_BUFF" UseSleep="NO"/>
                 </Cond>
                 <Skill JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
                     <EtcList>
@@ -174,6 +177,9 @@ return value"/>
                         </Scp>
                         <Scp Client="NO" Scp="SKL_BUFF_REMOVE" Time="0" UseSleep="NO">
                             <Str Str="HighGuard_Buff"/>
+                        </Scp>
+                        <Scp Client="NO" Scp="SKL_BUFF_REMOVE" Time="0" UseSleep="NO">
+                            <Str Str="HighGuard_Abil_Buff"/>
                         </Scp>
                         <Scp Client="NO" Scp="SKL_CHANGE_SKLSUBANIM" Time="0" UseSleep="NO">
                             <Str Str="Normal_Attack"/>
@@ -263,9 +269,13 @@ return value"/>
                     <Num Num="0"/>
                 </Scp>
                 <Scp Client="NO" Scp="SKL_SET_TARGET_CIRCLE" Time="0" UseSleep="NO">
-                    <Pos Angle="0" Dist="3.8255448e-43"/>
+                    <Pos Angle="0" Dist="0"/>
                     <Num Num="400"/>
-                    <Num FuncTxt="return 9 + obj.Level;" Num="5" UseFunc="1"/>
+                    <Num FuncTxt="local value = 4 * obj.Level;
+                    if IsPVPField(self) == 1 then
+                    value = obj.Level
+                    end
+                    return value" Num="5" UseFunc="1"/>
                     <Num Num="2"/>
                     <Num Num="0"/>
                     <Num Num="0"/>
@@ -276,16 +286,24 @@ return value"/>
                     <Str Str="SwashBuckling_Debuff"/>
                     <Num Num="1"/>
                     <Num Num="0"/>
-                    <Num FuncTxt="local buffTime = 10000; local abil = GetAbility(self, &quot;Peltasta32&quot;)     if abil ~= nil and abil.ActiveState == 1 then         buffTime = buffTime + (abil.Level * 1000)     end local target = GetHardSkillTargetList(self);     for i = 1, #target do         local targetList = target[i]         if targetList.MonRank == &quot;Boss&quot; then             buffTime = buffTime * 0.5         end     end return buffTime" Num="5000" UseFunc="1"/>
+                    <Num FuncTxt="local buffTime = 5000 + obj.Level * 2000
+                    if IsPVPField(self) == 1 then
+                    buffTime = buffTime * 0.5
+                    end
+                    local abilPeltasta32 = GetAbility(self, 'Peltasta32');
+                    if abilPeltasta32 ~= nil and TryGetProp(abilPeltasta32, 'ActiveState') == 1 then
+                    buffTime = buffTime + TryGetProp(abilPeltasta32, 'Level') * 1000;
+                    end
+                    return buffTime;" Num="1" UseFunc="1"/>
                     <Num Num="1"/>
                     <Num Num="100"/>
                     <Num Num="0"/>
                 </Scp>
                 <Scp Client="NO" Scp="SKL_BUFF" Time="100" UseSleep="NO">
                     <Str Str="SwashBuckling_Buff"/>
-                    <Num FuncTxt=" return obj.Level" Num="1" UseFunc="1"/>
+                    <Num FuncTxt="return obj.Level" Num="1" UseFunc="1"/>
                     <Num Num="0"/>
-                    <Num Num="35000"/>
+                    <Num FuncTxt="return 5000 + obj.Level * 2000" Num="1" UseFunc="1"/>
                     <Num Num="1"/>
                     <Num Num="100"/>
                     <Num Num="0"/>

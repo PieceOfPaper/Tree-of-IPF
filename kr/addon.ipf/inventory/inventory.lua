@@ -4256,6 +4256,24 @@ function BEFORE_APPLIED_YESSCP_OPEN(invItem)
 	return;
 end
 
+function BEFORE_APPLIED_YESSCP_OPEN_BASIC_MSG(invItem)
+	if invItem == nil then
+		return;
+	end
+	
+	local invFrame = ui.GetFrame("inventory");	
+	local itemobj = GetIES(invItem:GetObject());
+	if itemobj == nil then
+		return;
+	end
+	invFrame:SetUserValue("REQ_USE_ITEM_GUID", invItem:GetIESID());
+
+	local textmsg = string.format("[ %s ]{nl}%s", itemobj.Name, ScpArgMsg("YESSCP_OPEN_BASIC_MSG"));
+	ui.MsgBox_NonNested(textmsg, itemobj.Name, 'REQUEST_SUMMON_BOSS_TX', "None");
+	
+	return;
+end
+
 function REQUEST_USE_ITEM_TX()
 	local invFrame = ui.GetFrame("inventory");
 	local itemGuid = invFrame:GetUserValue("REQ_USE_ITEM_GUID");

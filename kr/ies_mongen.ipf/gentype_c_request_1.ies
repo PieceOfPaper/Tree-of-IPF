@@ -1,3 +1,5 @@
-ClassID,GenType,Lv,Range,GenRange,RespawnTime,MaxPop,Minimap,Hide,UseAIOufOfPC,AnchorCount,ClassType,Name,UniqueName,QuestName,Tag,Tactics,BTree,SimpleAI,Dialog,Enter,Leave,Save,OnlyPCCheck,SmartGen,Faction,ArgStr1,ArgStr2,ArgStr3,Tendency
-1,1,1,30,1,1,1,2,0,0,0,"Warp_arrow","페디미안","","","","MON_DUMMY","","","","REQUEST1_FEDIMIAN","","NO","YES","NO","Neutral","","","",""
-10,10,1,1,1,1,1,0,0,0,0,"npc_oldman_1","노인","","","","MON_DUMMY","","","FEDIMIAN_BOARD_01","","","NO","YES","NO","Neutral","","","",""
+ClassID,GenType,Lv,Range,GenRange,RespawnTime,MaxPop,Minimap,Hide,UseAIOufOfPC,AnchorCount,UP_ReturnRange,P_MaxDialog,ClassType,Name,UniqueName,QuestName,Tag,Tactics,BTree,SimpleAI,Dialog,Enter,Leave,Save,OnlyPCCheck,SmartGen,Faction,ArgStr1,ArgStr2,ArgStr3,Tendency
+1,1,1,30,1,1,1,2,0,0,0,0,0,"Warp_arrow","페디미안","","","","MON_DUMMY","","","","REQUEST1_FEDIMIAN","","NO","YES","NO","Neutral","","","",""
+10,10,1,1,1,1,1,0,0,0,0,0,0,"npc_oldman_1","[페디미안 주점]{nl}주인","","","","MON_DUMMY","","","FEDIMIAN_BOARD_01","","","NO","YES","NO","Neutral","","","",""
+11,11,1,1,1,1,1,0,0,0,0,0,0,"pub_waiter","[페디미안 주점]{nl}웨이터","","","","","","C_REQUEST_1_NPC_01_AI","C_REQUEST_1_NPC_01","","","NO","YES","NO","Neutral","Anim/idle","","",""
+12,12,1,1,1,1,1,0,0,0,0,0,0,"npc_village_matron","[페디미안 주점]{nl}웨이트리스","","","","","","","C_REQUEST_1_NPC_02","","","NO","YES","NO","Neutral","","","",""

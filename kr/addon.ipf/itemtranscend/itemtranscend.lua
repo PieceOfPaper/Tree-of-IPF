@@ -155,9 +155,9 @@ function ITEM_TRANSCEND_REG_TARGETITEM(frame, itemID)
 		end
 	end
 	--steam_new_world
-	if IsBuffApplied(pc, "Event_Steam_New_World_Buff") == "YES" then
-		msg = msg..ScpArgMsg('EVENT_REINFORCE_DISCOUNT_MSG1')
-	end
+	-- if IsBuffApplied(pc, "Event_Steam_New_World_Buff") == "YES" then
+	-- 	msg = msg..ScpArgMsg('EVENT_REINFORCE_DISCOUNT_MSG1')
+	-- end
 	SCR_EVENT_TRANSCEND_DISCOUNT_TEXT(frame, msg)
 end
 
@@ -516,9 +516,9 @@ elseif keyboard.IsKeyPressed("LALT") == 1 or isMax == true then
 		end
     end
 
-	if IsBuffApplied(pc, "Event_Steam_New_World_Buff") == "YES" then
-		msg = msg..ScpArgMsg('EVENT_REINFORCE_DISCOUNT_MSG1')
-    end
+	-- if IsBuffApplied(pc, "Event_Steam_New_World_Buff") == "YES" then
+	-- 	msg = msg..ScpArgMsg('EVENT_REINFORCE_DISCOUNT_MSG1')
+    -- end
 	SCR_EVENT_TRANSCEND_DISCOUNT_TEXT(frame, msg)
 end
 

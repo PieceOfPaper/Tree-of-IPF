@@ -556,12 +556,13 @@ function MAP_MAKE_NPC_LIST(frame, mapprop, npclist, statelist, questIESlist, que
                     end
 				end
 				
-				if MonProp:GetClassName() == "NPC_goddess_Roulette" and IS_EVENT_NEW_SEASON_SERVER() == false and GetServerNation() ~= "KOR" then
-						PictureC:ShowWindow(0);
-					end
+				-- EVNET_GODDESS_ROULETTE
+				if MonProp:GetClassName() == "NPC_goddess_Roulette"  then
+					PictureC:ShowWindow(0);
 				end
 			end
 		end
+	end
 
 	-- questprogress의 Location 정보
 	local quemon = mapprop.questmonster;

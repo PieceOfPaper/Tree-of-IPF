@@ -663,7 +663,18 @@ return 2500 + obj.Level * 200;"/>
 					<Num Num="100"/>
 				<Num Num="0"/>
 					<Num Num="1"/>
-					</Scp>
+					</Scp> 
+				<Scp Scp="SKL_TGT_BUFF" Client="NO" UseSleep="NO" Time="330">
+					<Str Str="Feints_Debuff"/>
+					<Num Num="1"/>
+					<Num Num="0"/>
+					<Num Num="5000" UseFunc="1" FuncTxt="
+return 2500 + obj.Level * 200;"/>
+					<Num Num="1"/>
+					<Num Num="100"/>
+					<Num Num="0"/>
+					<Num Num="0"/>
+				</Scp>
 					<Scp Scp="MONSKL_C_PLAY_ANIM" Client="YES" UseSleep="NO" Time="340">
 					<Str Str="SKL_BEHEAD1"/>
 					<Num Num="2"/>
