@@ -389,7 +389,6 @@
 		<Class ClassID="2338" ClassName="AllArtsAbility" Data="{nl}해당 직업의 {@st66d_y}{s15}아츠 {/}{/}전체"/>
 		<Class ClassID="2339" ClassName="ReinforceBroke{BEFORE}{ITEM}" Data="[{BEFORE}{ITEM}] 강화에 실패하여 장비가 파괴되었습니다."/>
 		<Class ClassID="2340" ClassName="MustAddIcorToSlot" Data="장착할 아이커를 등록해야 합니다."/>
-		<Class ClassID="2342" ClassName="NoEnoguhtItem" Data="아이템 부족"/>
 	</Category>
 	<Category Name="ClassContents">
 		<Class ClassID="2500" ClassName="FullWeeklyGainClassResetExp" Data="주간 획득 가능한 클래스 변경 포인트를 모두 달성하였습니다."/>
@@ -1755,7 +1754,7 @@
 		<Class ClassID="21376" ClassName="GoddessRouletteTexttooltip_1" Data="일일 1시간 접속, 스탬프 투어, 콘텐츠 이용을 통해 획득한 모든 주화 입니다.{nl}최대 1,000개 획득 가능합니다."/>
 		<Class ClassID="21377" ClassName="GoddessRouletteTexttooltip_2" Data="하루 1시간 누적 접속 시 코인을 획득할 수 있습니다.{nl}오전 05시 01분에 접속하신 경우, 코인을 획득할 수 없습니다.{nl}{#FF0000}매일 오전 6시 초기화 됩니다.{/}"/>
 		<Class ClassID="21378" ClassName="GoddessRouletteTexttooltip_3" Data="여신의 룰렛 코인을 획득할 수 있는 미션의 진행률 입니다."/>
-		<Class ClassID="21379" ClassName="GoddessRouletteTexttooltip_4" Data="콘텐츠 플레이로 획득한 일일 주화 개수 입니다.{nl} 매일 오전 6시 초기화 됩니다."/>
+		<Class ClassID="21379" ClassName="GoddessRouletteTexttooltip_4" Data="콘텐츠 플레이로 획득한 일일 주화 개수 입니다.{nl}{#FF0000}매일 오전 6시 초기화 됩니다.{/}"/>
 		<Class ClassID="21380" ClassName="GoddessRouletteTexttooltip_5" Data="현재 룰렛을 돌린 횟수 입니다."/>
 		<Class ClassID="21381" ClassName="GoddessRouletteUseCointipText{count}" Data="코인 10개를 소모하여 룰렛을 돌립니다.{nl}현재 보유 코인 : {count}"/>
 		<Class ClassID="21382" ClassName="GoddessRouletteNpcTextTooltip" Data="오르샤에 방문하지 않은 경우, NPC 아이콘이 표기되지 않을 수 있습니다."/>
@@ -10616,6 +10615,7 @@
 		<Class ClassID="124057" ClassName="DoNotMarketTarde" Data="마켓 거래가 가능한 거래 등급이 아닙니다."/>
 		<Class ClassID="124058" ClassName="MaxSlotCountMsg" Data="슬롯이 가득 차, 더 이상 아이템과 실버를 획득하실 수 없습니다.{nl}본 메시지 출력 이후 획득하지 못한 아이템과 실버는 복구의 대상이 되지 않습니다."/>
 		<Class ClassID="124059" ClassName="MaxSlotCountMsgCompare" Data="아이템과 실버를 획득할 수 없습니다"/>
+		<Class ClassID="124062" ClassName="CannotBecauseLowLevel{LEVEL}" Data="캐릭터 레벨이 {LEVEL}레벨 이상인 경우만 사용 가능합니다."/>
 	</Category>
 	<Category Name="Quest">
 		<Class ClassID="125001" ClassName="QuestAlignFilter_All" Data="모든 퀘스트"/>
@@ -13968,7 +13968,7 @@
 		<Class ClassID="302081" ClassName="REGULAR_BURNING_EVENT_SUPPORTER" Data="주말 앤 버닝 도우미"/>
 		<Class ClassID="302082" ClassName="npc_Xmas_Evt_NPC" Data="[유료 상품 교환 NPC]{nl}가비야의 전령"/>
 		<Class ClassID="302084" ClassName="EVENT_NEW_SEASON_SERVER_COIN_CHECK_STATE_1" Data="전체 코인 획득량"/>
-		<Class ClassID="302085" ClassName="EVENT_NEW_SEASON_SERVER_COIN_CHECK_STATE_2" Data="1시간 접속 시 코인 10개 획득"/>
+		<Class ClassID="302085" ClassName="EVENT_NEW_SEASON_SERVER_COIN_CHECK_STATE_2" Data="1시간 접속 시 코인 5개 획득"/>
 		<Class ClassID="302086" ClassName="EVENT_NEW_SEASON_SERVER_COIN_CHECK_STATE_3" Data="스탬프 투어 목표 진행률"/>
 		<Class ClassID="302087" ClassName="EVENT_NEW_SEASON_SERVER_COIN_CHECK_STATE_4" Data="콘텐츠 목표 진행률"/>
 		<Class ClassID="302088" ClassName="EVENT_NEW_SEASON_SERVER_COIN_CHECK_STATE_5" Data="룰렛 사용 횟수"/>
@@ -14744,6 +14744,7 @@
 		<Class ClassID="1000027" ClassName="ChallengeModePortalMark_HardMode" Data="분열 특이점 포탈"/>
 		<Class ClassID="1000028" ClassName="ChallengeMode_HardMode_Count" Data="{#000000}({Count}회 가능){/}"/>
 		<Class ClassID="1000029" ClassName="CantRejoinRewardMode" Data="보상 지급 단계에서는 입장하실 수 없습니다."/>
+		<Class ClassID="1000030" ClassName="CantRejoinCuzPlayingNormalMode" Data="챌린지 일반 모드를 진행하시는 동안은 분열 특이점에 입장하실 수 없습니다."/>
 	</Category>
 	<Category Name="RankReset">
 		<Class ClassID="1001000" ClassName="CannotChangeJobBecauseJobLevel" Data="클래스 레벨이 최대 레벨일 때에만 가능합니다."/>

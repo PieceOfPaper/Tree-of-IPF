@@ -433,6 +433,7 @@ function INVENTORY_CLOSE()
 	minimapFrame:ShowWindow(1);
 
 	item.RemoveTargetItem();
+	INVENTORY_SET_CUSTOM_RBTNDOWN("None");
 	ui.CloseFrame("inventory");
 
 	ui.CloseFrame("inventoryoption")

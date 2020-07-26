@@ -88,9 +88,11 @@ function OPEN_TRANSFER_SEAL(frame)
 end
 
 function CLOSE_TRANSFER_SEAL(frame)
+	if ui.CheckHoldedUI() == true then
+		return;
+	end
+	
 	INVENTORY_SET_CUSTOM_RBTNDOWN("None");
-	control.DialogOk();
-
     frame:ShowWindow(0);
 end
 
