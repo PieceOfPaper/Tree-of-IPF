@@ -78,6 +78,7 @@
 		<Class ClassID="326" ClassName="GroupMsg{TYPE}{MSG}" Data="[{TYPE}]{MSG}"/>
 		<Class ClassID="327" ClassName="DPSMsg{DPS}{Damage}{Time}" Data="{ol}{#00ff00}DPS:{DPS} {#ff0000}TotalDamage:{Damage} {#ffff00}Sec:{Time}"/>
 		<Class ClassID="328" ClassName="IndunMultipleItemError" Data="비정상적인 배수 토큰을 소유중입니다. 공지사항 ★ 2/28(목) 정기점검 후 발생한 문제 ★ 을 확인 부탁드립니다."/>
+    <Class ClassID="329" ClassName="NotValidMsg" Data="올바르지 않은 메시지입니다."/>
 	</Category>
 	<Category Name="Skill">
 		<Class ClassID="500" ClassName="CannotGetSkill{NAME}" Data="[{NAME}] 스킬을 습득할 수 없습니다."/>
