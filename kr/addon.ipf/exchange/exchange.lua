@@ -409,7 +409,11 @@ function EXCHANGE_UPDATE_SLOT(slotset,listindex)
 			if class.ItemType == 'Unused' and listindex == 1 then
 				moneyText:SetTextByKey('money', GetCommaedText(itemData.count));
 			elseif class.ItemType ~= 'Unused' then
-				local icon = SET_SLOT_ITEM_INFO(slot, itemObj, itemData.count);
+				local font = '{s20}{ol}{b}';
+				if 100000 <= itemData.count then	-- 6자리 수 폰트 크기 조정
+					font = '{s14}{ol}{b}';
+				end
+				local icon = SET_SLOT_ITEM_INFO(slot, itemObj, itemData.count, font);
 				SET_ITEM_TOOLTIP_ALL_TYPE(icon, itemData, class.ClassName, 'exchange', itemData.type, i * 10 + listindex);
 				SET_SLOT_STYLESET(slot, itemObj)
 				--[[

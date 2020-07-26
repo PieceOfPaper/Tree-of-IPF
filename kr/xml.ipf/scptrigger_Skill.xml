@@ -22,6 +22,33 @@
 			</Trigger>
 		</TriggerList>
 	</SpcItem>
+    <SpcItem Name="Cleric_PatronSaint">
+        <TriggerList Act="SkillUsed">
+            <Trigger>
+                <CondList>
+					<ToolScp Scp="SPCI_CHECK_SKILL" Client="NO" UseSleep="NO">
+						<Str Str="Cleric_PatronSaint"/>
+					</ToolScp>
+                    <ToolScp Scp="SPCI_COND_ATTACKER_GET_EXPROP_NUM" Client="NO" UseSleep="NO">
+                        <Str Str="KaralieneTriukas_Set"/>
+                        <Num Num="1"/>
+                        <Str Str="EQ"/>
+                    </ToolScp>
+                </CondList>
+                <ExecList>
+                    <ToolScp Scp="SPCI_BUFF" Client="NO" UseSleep="NO">
+                        <Str Str="KaralieneTriukas"/>
+                        <Num Num="99"/>
+                        <Num Num="0"/>
+                        <Num Num="30000"/>
+                        <Num Num="1"/>
+                        <Num Num="100"/>
+                        <Num Num="-1"/>
+                    </ToolScp>
+                </ExecList>
+            </Trigger>
+        </TriggerList>
+    </SpcItem>
 	<SpcItem Name="Appraiser_Blindside">
 		<TriggerList Act="BeforeAttack">
 			<Trigger>
@@ -286,4 +313,31 @@
 			</Trigger>
 		</TriggerList>
 	</SpcItem>
+    <SpcItem Name="Wizard_ReflectShield">
+        <TriggerList Act="SkillUsed">
+            <Trigger>
+                <CondList>
+					<ToolScp Scp="SPCI_CHECK_SKILL" Client="NO" UseSleep="NO">
+						<Str Str="Wizard_ReflectShield"/>
+					</ToolScp>
+                    <ToolScp Scp="SPCI_COND_ATTACKER_GET_EXPROP_NUM" Client="NO" UseSleep="NO">
+                        <Str Str="KaralieneTriukas_Set"/>
+                        <Num Num="1"/>
+                        <Str Str="EQ"/>
+                    </ToolScp>
+                </CondList>
+                <ExecList>
+                    <ToolScp Scp="SPCI_BUFF" Client="NO" UseSleep="NO">
+                        <Str Str="KaralieneTriukas"/>
+                        <Num Num="99"/>
+                        <Num Num="0"/>
+                        <Num Num="30000"/>
+                        <Num Num="1"/>
+                        <Num Num="100"/>
+                        <Num Num="-1"/>
+                    </ToolScp>
+                </ExecList>
+            </Trigger>
+        </TriggerList>
+    </SpcItem>
 </SpcItemList>

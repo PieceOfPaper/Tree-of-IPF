@@ -161,6 +161,8 @@ function ATTENDANCE_INIT_REWARD(frame, attendanceID)
 	local rewardBox = GET_CHILD_RECURSIVELY(frame, 'rewardBox');
 	rewardBox:Resize(rewardBox:GetOriginalWidth(), rewardBox:GetOriginalHeight() + (offsetY * HeightCnt));	
 
+	local bgBoxMargin = bgBox:GetMargin();
+	frame:Resize(frame:GetOriginalWidth(), bgBox:GetHeight() + bgBoxMargin.top);
 end
 
 function ATTENDANCE_TOGGLE_VAKARINE_UI()

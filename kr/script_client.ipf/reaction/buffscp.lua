@@ -67,12 +67,21 @@ end
 
 function ShieldChargeClientScp_LEAVE(actor, obj, buff)
 
-    actor:GetAnimation():ResetSTDAnim();
-    actor:GetAnimation():ResetRUNAnim();
-    actor:GetAnimation():ResetWLKAnim();
-    actor:GetAnimation():ResetTURNAnim();
-    actor:SetAlwaysBattleState(false);
+    local buffRamMuay = actor:GetBuff():GetBuff('RamMuay_Buff');
 
+    if buffRamMuay ~= nil then
+        actor:GetAnimation():SetSTDAnim("SKL_NAKMUAY_ASTD");
+        actor:GetAnimation():SetRUNAnim("SKL_NAKMUAY_ARUN");actor:GetAnimation():SetRAISEAnim("SKL_NAKMUAY_RAISE");
+        actor:GetAnimation():SetOnAIRAnim("SKL_NAKMUAY_ONAIR");
+        actor:GetAnimation():SetFALLAnim("SKL_NAKMUAY_FALL");   
+    else
+        actor:GetAnimation():ResetSTDAnim();
+        actor:GetAnimation():ResetRUNAnim();
+        actor:GetAnimation():ResetWLKAnim();
+        actor:GetAnimation():ResetTURNAnim();
+    end
+
+    actor:SetAlwaysBattleState(false);
 end
 
 
@@ -88,10 +97,19 @@ end
 
 function SlitheringClientScp_LEAVE(actor, obj, buff)
 
-    actor:GetAnimation():ResetSTDAnim();
-    actor:GetAnimation():ResetRUNAnim();
-    actor:GetAnimation():ResetWLKAnim();
-    actor:GetAnimation():ResetTURNAnim();
+    local buffRamMuay = actor:GetBuff():GetBuff('RamMuay_Buff');
+
+    if buffRamMuay ~= nil then
+        actor:GetAnimation():SetSTDAnim("SKL_NAKMUAY_ASTD");
+        actor:GetAnimation():SetRUNAnim("SKL_NAKMUAY_ARUN");actor:GetAnimation():SetRAISEAnim("SKL_NAKMUAY_RAISE");
+        actor:GetAnimation():SetOnAIRAnim("SKL_NAKMUAY_ONAIR");
+        actor:GetAnimation():SetFALLAnim("SKL_NAKMUAY_FALL");   
+    else
+        actor:GetAnimation():ResetSTDAnim();
+        actor:GetAnimation():ResetRUNAnim();
+        actor:GetAnimation():ResetWLKAnim();
+        actor:GetAnimation():ResetTURNAnim();
+    end
     
     actor:SetAlwaysBattleState(false);
 
@@ -113,10 +131,20 @@ function PouncingClientScp_ENTER(actor, obj, buff)
 end
 
 function PouncingClientScp_LEAVE(actor, obj, buff)
-    actor:GetAnimation():ResetSTDAnim();
-    actor:GetAnimation():ResetRUNAnim();
-    actor:GetAnimation():ResetWLKAnim();
-    actor:GetAnimation():ResetTURNAnim();
+
+    local buffRamMuay = actor:GetBuff():GetBuff('RamMuay_Buff');
+
+    if buffRamMuay ~= nil then
+        actor:GetAnimation():SetSTDAnim("SKL_NAKMUAY_ASTD");
+        actor:GetAnimation():SetRUNAnim("SKL_NAKMUAY_ARUN");actor:GetAnimation():SetRAISEAnim("SKL_NAKMUAY_RAISE");
+        actor:GetAnimation():SetOnAIRAnim("SKL_NAKMUAY_ONAIR");
+        actor:GetAnimation():SetFALLAnim("SKL_NAKMUAY_FALL");   
+    else
+        actor:GetAnimation():ResetSTDAnim();
+        actor:GetAnimation():ResetRUNAnim();
+        actor:GetAnimation():ResetWLKAnim();
+        actor:GetAnimation():ResetTURNAnim();
+    end
 
     actor:SetAlwaysBattleState(false);
 end
@@ -1109,8 +1137,6 @@ function RamMuay_UPDATE(actor, obj, buff)
     if lhObj.ClassType == "Artefact" then
         actor:ShowModelByPart("LH", 0, 0);
     end
-    
-    actor:GetAnimation():SetSTDAnim("SKL_NAKMUAY_ASTD");
 end
 
 function RamMuay_LEAVE(actor, obj, buff)

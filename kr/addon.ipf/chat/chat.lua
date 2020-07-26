@@ -54,7 +54,11 @@ function CHAT_SET_TO_TITLENAME(chatType, targetName)
 	local btn_ChatType = GET_CHILD(frame,'button_type');
 
 	-- 귓속말 ctrl의 시작위치는 type btn 뒤쪽에.
-	titleCtrl:SetOffset(btn_ChatType:GetOriginalWidth(), titleCtrl:GetOriginalY());
+	if config.GetServiceNation() == "GLOBAL" then
+		titleCtrl:SetOffset(btn_ChatType:GetOriginalWidth() + 20, titleCtrl:GetOriginalY());
+	else
+		titleCtrl:SetOffset(btn_ChatType:GetOriginalWidth(), titleCtrl:GetOriginalY());
+	end
 	local offsetX = btn_ChatType:GetOriginalWidth(); -- 시작 offset은 type btn 넓이 다음으로.
 	local titleText = '';
 	local isVisible = 0;

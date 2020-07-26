@@ -57,8 +57,14 @@ function CHATMACRO_UPDATE_TOKEN_STATE(frame)
 
 end
 
-function MACRO_POSE_VIEW(poseGbox)	
+function IS_MACRO_UNVISIBLE_WEAPON_POSE(className)
+	if className == "KICK" or className == "POPCORN" or className == "DABDANCE" or className == "CHEERUP" or className == "UNBELIEVABLE" then
+		return true;
+	end
+	return false;
+end
 
+function MACRO_POSE_VIEW(poseGbox)	
 	local csetwidth =  ui.GetControlSetAttribute("pose_icon", 'width');
 	local csetheight =  ui.GetControlSetAttribute("pose_icon", 'height');
 	
@@ -97,7 +103,10 @@ function MACRO_POSE_VIEW(poseGbox)
     	    local eachcontrol = poseGbox:CreateOrGetControlSet('pose_icon','pose_icon'..cls.ClassName, x, y)
             local each_pose_name = GET_CHILD(eachcontrol, 'pose_name','ui::CRichText');
     		local each_pose_slot = GET_CHILD(eachcontrol, 'pose_slot','ui::CSlot');
-    		each_pose_slot:SetEventScript(ui.LBUTTONDOWN, 'SOCIAL_POSE')
+			each_pose_slot:SetEventScript(ui.LBUTTONDOWN, 'SOCIAL_POSE');
+			if IS_MACRO_UNVISIBLE_WEAPON_POSE(cls.ClassName) == true then
+				each_pose_slot:SetEventScriptArgString(ui.LBUTTONDOWN, "UnVisibleWeapon");
+			end
     		each_pose_slot:SetEventScriptArgNumber(ui.LBUTTONDOWN, cls.ClassID);
     		SET_SLOT_IMG(each_pose_slot, cls.Icon);
     		each_pose_name:SetTextByKey('posename',cls.Name);
@@ -117,7 +126,10 @@ function MACRO_POSE_VIEW(poseGbox)
         	    local eachcontrol = poseGbox:CreateOrGetControlSet('pose_icon','pose_icon'..cls.ClassName, x, y)
                 local each_pose_name = GET_CHILD(eachcontrol, 'pose_name','ui::CRichText');
         		local each_pose_slot = GET_CHILD(eachcontrol, 'pose_slot','ui::CSlot');
-        		each_pose_slot:SetEventScript(ui.LBUTTONDOWN, 'SOCIAL_POSE')
+				each_pose_slot:SetEventScript(ui.LBUTTONDOWN, 'SOCIAL_POSE');
+				if IS_MACRO_UNVISIBLE_WEAPON_POSE(cls.ClassName) == true then
+					each_pose_slot:SetEventScriptArgString(ui.LBUTTONDOWN, "UnVisibleWeapon");
+				end
         		each_pose_slot:SetEventScriptArgNumber(ui.LBUTTONDOWN, cls.ClassID);
         		SET_SLOT_IMG(each_pose_slot, cls.Icon);
         		each_pose_name:SetTextByKey('posename',cls.Name);
@@ -341,10 +353,18 @@ function SCR_GESTURE_DROP(frame, icon, argStr, argNum)
 end
 
 function SOCIAL_POSE(frame, ctrl, strarg, poseClsID)
+	if strarg == nil then
+		strarg = "None";
+	end
+
+	local visible = 1;
+	if strarg ~= "None" then
+		visible = 0;
+	end
 
 	local poseCls = GetClassByType('Pose', poseClsID);
 	if poseCls ~= nil then
-		control.Pose(poseCls.ClassName);
+		control.Pose(poseCls.ClassName, 0, 0, visible);
 	end
 end
 

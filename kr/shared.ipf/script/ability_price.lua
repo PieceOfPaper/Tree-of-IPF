@@ -746,7 +746,7 @@ function ABIL_CLERIC9_PRICE(pc, abilName, abilLevel, maxLevel)
 end
 
 function HIDDENABIL_PRICE_COND_REINFORCE(pc, abilName, abilLevel, maxLevel)
-    local price = 30575 / maxLevel;        -- REINFORCE_65LEVEL_PRICE : 6425, EXPECT_TOTAL_PRICE : 37000
+    local price = 3057;        -- REINFORCE_65LEVEL_PRICE : 6425, EXPECT_TOTAL_PRICE : 37000
     local time = 0;
     
     return math.floor(price), time;

@@ -104,8 +104,12 @@ function ON_MARKET_SELL_LIST(frame, msg, argStr, argNum)
 		SET_SLOT_ITEM_CLS(pic, itemObj)
 		icon:SetImage(imgName);
         SET_SLOT_STYLESET(pic, itemObj)
-        if itemObj.MaxStack > 1 then        	
-			SET_SLOT_COUNT_TEXT(pic, marketItem.count, '{s16}{ol}{b}');
+		if itemObj.MaxStack > 1 then
+			local font = '{s16}{ol}{b}';
+			if 100000 <= marketItem.count then	-- 6자리 수 폰트 크기 조정
+				font = '{s14}{ol}{b}';
+			end
+			SET_SLOT_COUNT_TEXT(pic, marketItem.count, font);
 		end
 
 		local nameCtrl = ctrlSet:GetChild("name");

@@ -1751,7 +1751,8 @@ function SCR_SKILLSCROLL(invItem)
 		if mGameName ~= nil and mGameName ~= 'None' then
 			local indunCls = GetClassByStrProp('Indun', 'MGame', mGameName)
 			local dungeonType = TryGetProp(indunCls, 'DungeonType', 'None')
-			if dungeonType == 'Raid' or dungeonType == 'GTower' or dungeonType == 'WeeklyRaid' then
+			local stringArg = TryGetProp(obj, 'StringArg', 'None')
+			if (dungeonType == 'Raid' or dungeonType == 'GTower' or dungeonType == 'WeeklyRaid') and stringArg ~= 'RaidConsume' then
 				ui.SysMsg(ClMsg("NotAvailableInThisContents"))
 				return
 			end
@@ -2087,7 +2088,11 @@ function EXEC_CHATMACRO(index)
 	
 	local poseCls = GetClassByType('Pose', macro.poseID);	
 	if poseCls ~= nil then
-		control.Pose(poseCls.ClassName);
+		local visible = 1;
+		if IS_MACRO_UNVISIBLE_WEAPON_POSE(poseCls.ClassName) == true then
+			visible = 0;
+		end
+		control.Pose(poseCls.ClassName, 0, 0, visible);
 	end
 
 	if macro.macro == "" then

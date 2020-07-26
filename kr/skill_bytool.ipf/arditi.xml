@@ -7,6 +7,7 @@
 				<Frame Type="FAN" Time="9799" HitCount="1" TermMin="0" TermMax="0" PosType="0" Dist="0" RandDist="0" RandomPerHit="0" Angle="0" SklAngle="0.17453292" AniTime="9999" RotAngle="0" ForceATK="0"/>
 			</HitList>
 			<EtcList>
+				<Scp Scp="TEST_CHECK_SERVER_APPTIME" Client="NO" UseSleep="NO" Time="0"/>
 				<Scp Scp="MONSKL_C_PLAY_ANIM" Client="YES" UseSleep="NO" Time="0">
 					<Str Str="SKL_GRANATA"/>
 					<Num Num="1.5"/>

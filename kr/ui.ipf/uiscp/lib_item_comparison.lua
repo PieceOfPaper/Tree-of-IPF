@@ -145,6 +145,7 @@ function GET_ATK_PROP_CHANGEVALUETOOLTIP_LIST()
     list[#list+1] = "ADD_EARTH";
     list[#list+1] = "ADD_HOLY";
     list[#list+1] = "ADD_DARK";
+    list[#list+1] = "Add_Damage_Atk";
     list[#list+1] = "Aries";
     list[#list+1] = "Slash";
     list[#list+1] = "Strike";
@@ -224,6 +225,7 @@ function GET_DEF_PROP_LIST()
     list[#list+1] = "ADD_EARTH";
     list[#list+1] = "ADD_HOLY";
     list[#list+1] = "ADD_DARK";
+    list[#list+1] = "Add_Damage_Atk";
     list[#list+1] = "Aries";
     list[#list+1] = "Slash";
     list[#list+1] = "Strike";

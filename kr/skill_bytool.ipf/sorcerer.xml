@@ -1,5 +1,6 @@
 <?xml version='1.0' encoding='utf-8'?>
-<ToolSkill><Skill Name="Sorcerer_Desmodus">
+<ToolSkill>
+<Skill Name="Sorcerer_Desmodus">
 		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
 			<HitList>
 				<Frame Angle="0" AniTime="10199" Dist="0" ForceATK="0" HitCount="1" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" TermMax="0" TermMin="0" Time="9999" Type="FAN" />
@@ -311,6 +312,9 @@ return value" />
 					<Str Str="summoncontrol" />
 					<Str Str="SORCERER_SPEND_SP" />
 				</Scp>
+				<Scp Scp="SKL_RUN_SCRIPT" Client="NO" UseSleep="NO" Time="500">
+					<Str Str="SCR_Karaliene_Isgariti_BUFF"/>
+				</Scp>
 			</EtcList>
 		</MainSkl>
 	</Skill>
@@ -582,4 +586,4 @@ return value" />
 			</EtcList>
 		</MainSkl>
 	</Skill>
-	</ToolSkill>
+    </ToolSkill>

@@ -20,5 +20,6 @@
 		<grid name="category" parent="Recipe" rect="0 0 0 200" margin="0 0 0 0" layout_gravity="left top" slotsize="100 70" slotspc="10 0"/>		
 		<button name="close" rect="0 0 44 44" margin="0 20 28 0" layout_gravity="right top" LBtnUpArgNum="" LBtnUpScp="ui.CloseFrame(&apos;earthtowershop&apos;)" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" caption="" clicksound="button_click_big" image="testclose_button" oversound="button_over"/>
 		<checkbox name="showonlyhavemat" parent="" rect="0 0 150 30" margin="30 0 0 70" layout_gravity="left bottom" ConfigName="CraftMaterial" LBtnUpScp="EARTH_TOWER_SHOP_OPTION" caption="{@st42b}재료가 있는 것만 보기{/}" clicksound="button_click_big" oversound="button_over"/>
+		<checkbox name="showExchangeEnable" parent="" rect="0 0 150 30" margin="250 0 0 70" layout_gravity="left bottom" LBtnUpScp="EARTH_TOWER_SHOP_OPTION" caption="{@st42b}교환 횟수가 남은 것만 보기{/}" clicksound="button_click_big" oversound="button_over"/>
 	</controls>
 </uiframe>

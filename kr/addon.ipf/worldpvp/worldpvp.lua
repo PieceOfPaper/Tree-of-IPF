@@ -267,6 +267,13 @@ end
 
 function JOIN_WORLDPVP(parent, ctrl)
 
+	local accObj = GetMyAccountObj();
+
+	if IsBuffApplied(GetMyPCObject(), "TeamBattleLeague_Penalty_Lv1") == "YES" or IsBuffApplied(GetMyPCObject(), "TeamBattleLeague_Penalty_Lv2") == "YES" then
+		ui.SysMsg(ClMsg("HasTeamBattleLeaguePenalty"));
+		return;
+	end
+
 	local frame = parent:GetTopParentFrame();
 	local bg = frame:GetChild("bg");
 	local charinfo = bg:GetChild("charinfo");

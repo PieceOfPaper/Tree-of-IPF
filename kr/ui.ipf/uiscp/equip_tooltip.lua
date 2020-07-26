@@ -1056,6 +1056,66 @@ function DRAW_EQUIP_DESC(tooltipframe, invitem, yPos, mainframename)
 	gBox:RemoveChild('tooltip_equip_desc');
 
 	local desc = GET_ITEM_TOOLTIP_DESC(invitem);
+	
+	if desc == "" then -- 일단 그릴 설명이 있는지 검사. 없으면 컨트롤 셋 자체를 안만듬
+		return yPos
+	end
+
+    local value = IS_TOGGLE_EQUIP_ITEM_TOOLTIP_DESC();
+    if value == 1 then
+        return yPos
+    end
+	
+	local tooltip_equip_property_CSet = gBox:CreateOrGetControlSet('tooltip_equip_desc', 'tooltip_equip_desc', 0, yPos);
+	local property_gbox = GET_CHILD(tooltip_equip_property_CSet,'property_gbox','ui::CGroupBox')
+		
+	local inner_yPos = 0;
+	inner_yPos = ADD_ITEM_PROPERTY_TEXT(property_gbox, desc, 0, inner_yPos);
+
+	local BOTTOM_MARGIN = tooltipframe:GetUserConfig("BOTTOM_MARGIN"); -- 맨 아랫쪽 여백
+	tooltip_equip_property_CSet:Resize(tooltip_equip_property_CSet:GetWidth(),tooltip_equip_property_CSet:GetHeight() + property_gbox:GetHeight() + property_gbox:GetY() + BOTTOM_MARGIN);
+
+	gBox:Resize(gBox:GetWidth(),gBox:GetHeight() + tooltip_equip_property_CSet:GetHeight())
+	return tooltip_equip_property_CSet:GetHeight() + tooltip_equip_property_CSet:GetY();
+end
+
+function DRAW_EQUIP_ARK_DESC(tooltipframe, invitem, yPos, mainframename)
+	local class_name = TryGetProp(invitem, 'ClassName', 'None')
+	local tooltip_type = 1
+
+	local desc = ""
+
+	local func_str = string.format('get_tooltip_%s_arg%d', class_name, 2)
+	local tooltip_func = _G[func_str]  -- get_tooltip_Ark_str_arg1 시리즈
+	if tooltip_func ~= nil then
+		local tooltiptype, option, level, value, base_value = tooltip_func()
+		tooltip_type = tooltiptype		
+	end	
+
+	if tooltip_type == 3 then
+		local msg = class_name .. '_desc{base1}{base2}'		
+		local base1 = ''
+		local base2 = ''
+		local func_str = string.format('get_tooltip_%s_arg%d', class_name, 2)
+		local tooltip_func = _G[func_str]  -- get_tooltip_Ark_str_arg1 시리즈
+		if tooltip_func ~= nil then
+			local tooltiptype, option, level, value, base_value = tooltip_func()			
+			base1 = base_value
+		end	
+		local func_str = string.format('get_tooltip_%s_arg%d', class_name, 3)
+		local tooltip_func = _G[func_str]  -- get_tooltip_Ark_str_arg1 시리즈
+		if tooltip_func ~= nil then
+			local tooltiptype, option, level, value, base_value = tooltip_func()			
+			base2 = base_value
+		end	
+		desc = ScpArgMsg(msg, 'base1', base1, 'base2', base2)
+	else
+		desc = GET_ITEM_TOOLTIP_DESC(invitem);
+	end
+
+	local gBox = GET_CHILD(tooltipframe, mainframename,'ui::CGroupBox')
+	gBox:RemoveChild('tooltip_equip_desc');
+
 	if desc == "" then -- 일단 그릴 설명이 있는지 검사. 없으면 컨트롤 셋 자체를 안만듬
 		return yPos
 	end
@@ -1683,8 +1743,13 @@ function DRAW_CANNOT_REINFORCE(tooltipframe, invitem, yPos, mainframename)
 	if IS_ENABLE_GIVE_HIDDEN_PROP_ITEM(invitem) == false then
 		awaken_flag = 1;
 	end
+	
+	local enchant_flag = 0
+	if IS_ENABLE_APPLY_JEWELL_TOOLTIPTEXT(invitem) == false then
+	    enchant_flag = 1
+	end
 
-	if reinforce_flag == 0 and transcend_flag == 0 and extract_flag == 0 and socket_flag == 0 and briquet_flag == 0 and exchange_flag == 0 and awaken_flag == 0 and decomposeAble_flag == 0 then
+	if reinforce_flag == 0 and transcend_flag == 0 and extract_flag == 0 and socket_flag == 0 and briquet_flag == 0 and exchange_flag == 0 and awaken_flag == 0 and decomposeAble_flag == 0 and enchant_flag == 0 then
 		return yPos
 	end
 
@@ -1717,6 +1782,7 @@ function DRAW_CANNOT_REINFORCE(tooltipframe, invitem, yPos, mainframename)
 	text = _APPEND_LIMITATION_TEXT(briquet_flag, text, CSet:GetUserConfig("BRIQUET_TEXT"));
 	text = _APPEND_LIMITATION_TEXT(exchange_flag, text, CSet:GetUserConfig("EXCHANGE_TEXT"));
 	text = _APPEND_LIMITATION_TEXT(awaken_flag, text, CSet:GetUserConfig("AWAKEN_TEXT"));
+	text = _APPEND_LIMITATION_TEXT(enchant_flag, text, CSet:GetUserConfig("ENCHANT_TEXT"))
 
 	if text:sub(-#',') == ',' then
 		text = text:sub(0, text:len() - 1);
@@ -1923,21 +1989,26 @@ local function _CREATE_ARK_LV(gBox, ypos, step, class_name, curlv)
 	local func_str = string.format('get_tooltip_%s_arg%d', class_name, step)
     local tooltip_func = _G[func_str]  -- get_tooltip_Ark_str_arg1 시리즈
 	if tooltip_func ~= nil then
-		local status, interval, add_value, summon_atk = tooltip_func();
-
-		local option = status
-        
+		local tooltip_type, status, interval, add_value, summon_atk = tooltip_func();		
+		local option = status        
 		local grade_count = math.floor(curlv / interval);
-		add_value = math.floor(add_value * grade_count);
-
+		if tooltip_type == 3 then
+			add_value = add_value * grade_count
+		else
+			add_value = math.floor(add_value * grade_count);		
+		end
+		
 		if add_value <= 0 then
 			return ypos;
 		end
 		
 		local strInfo = ABILITY_DESC_PLUS(ScpArgMsg(option), add_value)
-		if summon_atk ~= nil then
+
+		if tooltip_type == 2 then			
 			local add_msg =  string.format(", %s "..ScpArgMsg("PropUp").."%.1f", ScpArgMsg('SUMMON_ATK'), math.abs(add_value / 200)) .. '%'
 			strInfo = strInfo .. ' ' .. add_msg
+		elseif tooltip_type == 3 then						
+			strInfo = string.format(" - %s "..ScpArgMsg("PropUp").."%d", ScpArgMsg(option), add_value + summon_atk) .. '%'
 		end
 		
 		local infoText = gBox:CreateControl('richtext', 'infoText'..step, 15, ypos, gBox:GetWidth(), 30);
@@ -1956,15 +2027,18 @@ local function _CREATE_ARK_OPTION(gBox, ypos, step, class_name)
 	local func_str = string.format('get_tooltip_%s_arg%d', class_name, step)
     local tooltip_func = _G[func_str]  -- get_tooltip_Ark_str_arg1 시리즈
 	if tooltip_func ~= nil then
-		local status, interval, add_value, summon_atk = tooltip_func();
+		local tooltip_type, status, interval, add_value, summon_atk = tooltip_func();
 		local option = status
 		local infoText = gBox:CreateControl('richtext', 'infoText'..step, 15, ypos, gBox:GetWidth(), 30);
 		local text = ''
-		if summon_atk == nil then
+		if tooltip_type == 1 then
 			text = ScpArgMsg("ArkOptionText{Option}{interval}{addvalue}", "Option", ClMsg(option), "interval", interval, "addvalue", add_value)
-		else			
+		elseif tooltip_type == 2 then
 			text = ScpArgMsg("ArkOptionText{Option}{interval}{addvalue}{option2}{addvalue2}", "Option", ClMsg(option), "interval", interval, "addvalue", add_value, 'option2', ClMsg(summon_atk), 'addvalue2', string.format('%.1f', add_value / 200))
-			
+		elseif tooltip_type == 3 then
+			text = ScpArgMsg("ArkOptionText3{Option}{interval}{addvalue}", "Option", ClMsg(option), "interval", interval, "addvalue", add_value)
+		elseif tooltip_type == 4 then
+			text = ScpArgMsg("ArkOptionText4{Option}{interval}{addvalue}", "Option", ClMsg(option), "interval", interval, "addvalue", add_value)
 		end
 		
 		infoText:SetText(text);
@@ -1990,7 +2064,8 @@ function ITEM_TOOLTIP_ARK(tooltipframe, invitem, strarg, usesubframe)
 	ypos = DRAW_ARK_EXP(tooltipframe, invitem, ypos, mainframename)				-- 아크 경험치
 
 	ypos = DRAW_EQUIP_MEMO(tooltipframe, invitem, ypos, mainframename); 		-- 아이템 제작 시 들어간 메모
-	ypos = DRAW_EQUIP_DESC(tooltipframe, invitem, ypos, mainframename); 		-- 각종 설명문
+	ypos = DRAW_EQUIP_ARK_DESC(tooltipframe, invitem, ypos, mainframename); 		-- 각종 설명문
+
 	ypos = DRAW_EQUIP_TRADABILITY(tooltipframe, invitem, ypos, mainframename); 	-- 거래 제한
 	ypos = DRAW_CANNOT_REINFORCE(tooltipframe, invitem, ypos, mainframename); 	-- 초월 및 강화불가
 
