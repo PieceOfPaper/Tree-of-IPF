@@ -599,7 +599,7 @@
                     </Event>
                     <Event execCount="1" eventName="end_check" execWithStart="0" isEnabled="0">
                         <condList>
-                            <ToolScp Scp="MGAME_EVT_COND_MONHP" Client="NO" UseSleep="NO">
+                            <ToolScp Scp="MGAME_EVT_COND_MONHP_ACCURATE" Client="NO" UseSleep="NO">
                                 <MGameObj List="Stage_03(Moringponia)/4"/>
                                 <Num Num="1"/>
                                 <Str Str="UNDER"/>
@@ -717,14 +717,14 @@
                 <StageEvents>
                     <Event eventName="SUMMON_MUSHROOM_1">
                         <condList>
-                            <ToolScp Scp="MGAME_EVT_COND_MONHP" Client="NO" UseSleep="NO">
+                            <ToolScp Scp="MGAME_EVT_COND_MONHP_ACCURATE" Client="NO" UseSleep="NO">
                                 <MGameObj List="Stage_03(Moringponia)/4"/>
                                 <Num Num="95"/>
                                 <Str Str="UNDER"/>
                                 <Num Num="1"/>
                                 <Str Str="OVER"/>
                             </ToolScp>
-                            <ToolScp Scp="MGAME_EVT_COND_MONHP" Client="NO" UseSleep="NO">
+                            <ToolScp Scp="MGAME_EVT_COND_MONHP_ACCURATE" Client="NO" UseSleep="NO">
                                 <MGameObj List="Stage_03(Moringponia)/4"/>
                                 <Num Num="80"/>
                                 <Str Str="OVER"/>
@@ -744,14 +744,14 @@
                     </Event>
                     <Event eventName="SUMMON_MUSHROOM_2">
                         <condList>
-                            <ToolScp Scp="MGAME_EVT_COND_MONHP" Client="NO" UseSleep="NO">
+                            <ToolScp Scp="MGAME_EVT_COND_MONHP_ACCURATE" Client="NO" UseSleep="NO">
                                 <MGameObj List="Stage_03(Moringponia)/4"/>
                                 <Num Num="50"/>
                                 <Str Str="UNDER"/>
                                 <Num Num="1"/>
                                 <Str Str="OVER"/>
                             </ToolScp>
-                            <ToolScp Scp="MGAME_EVT_COND_MONHP" Client="NO" UseSleep="NO">
+                            <ToolScp Scp="MGAME_EVT_COND_MONHP_ACCURATE" Client="NO" UseSleep="NO">
                                 <MGameObj List="Stage_03(Moringponia)/4"/>
                                 <Num Num="2"/>
                                 <Str Str="OVER"/>
@@ -776,9 +776,9 @@
                 <StageEvents>
                     <Event execCount="1" eventName="CURSE_PATTERN_1(83%)">
                         <condList>
-                            <ToolScp Scp="MGAME_EVT_COND_MONHP" Client="NO" UseSleep="NO">
+                            <ToolScp Scp="MGAME_EVT_COND_MONHP_ACCURATE" Client="NO" UseSleep="NO">
                                 <MGameObj List="Stage_03(Moringponia)/4"/>
-                                <Num Num="83"/>
+                                <Num Num="85"/>
                                 <Str Str="UNDER"/>
                                 <Num Num="1"/>
                                 <Str Str="OVER"/>
@@ -793,7 +793,7 @@
                     </Event>
                     <Event execCount="1" eventName="CURSE_PATTERN_2(53%)">
                         <condList>
-                            <ToolScp Scp="MGAME_EVT_COND_MONHP" Client="NO" UseSleep="NO">
+                            <ToolScp Scp="MGAME_EVT_COND_MONHP_ACCURATE" Client="NO" UseSleep="NO">
                                 <MGameObj List="Stage_03(Moringponia)/4"/>
                                 <Num Num="53"/>
                                 <Str Str="UNDER"/>
@@ -808,9 +808,9 @@
                             </ToolScp>
                         </execList>
                     </Event>
-                    <Event execCount="1" eventName="CURSE_PATTERN_3(35%)">
+                    <Event execCount="1" eventName="CURSE_PATTERN_3(20%)">
                         <condList>
-                            <ToolScp Scp="MGAME_EVT_COND_MONHP" Client="NO" UseSleep="NO">
+                            <ToolScp Scp="MGAME_EVT_COND_MONHP_ACCURATE" Client="NO" UseSleep="NO">
                                 <MGameObj List="Stage_03(Moringponia)/4"/>
                                 <Num Num="20"/>
                                 <Str Str="UNDER"/>
@@ -849,7 +849,7 @@
                 <StageEvents>
                     <Event execCount="1" eventName="DARK_PATTERN(93%)">
                         <condList>
-                            <ToolScp Scp="MGAME_EVT_COND_MONHP" Client="NO" UseSleep="NO">
+                            <ToolScp Scp="MGAME_EVT_COND_MONHP_ACCURATE" Client="NO" UseSleep="NO">
                                 <MGameObj List="Stage_03(Moringponia)/4"/>
                                 <Num Num="93"/>
                                 <Str Str="UNDER"/>
@@ -866,7 +866,7 @@
                     </Event>
                     <Event execCount="1" eventName="DARK_PATTERN(68%)">
                         <condList>
-                            <ToolScp Scp="MGAME_EVT_COND_MONHP" Client="NO" UseSleep="NO">
+                            <ToolScp Scp="MGAME_EVT_COND_MONHP_ACCURATE" Client="NO" UseSleep="NO">
                                 <MGameObj List="Stage_03(Moringponia)/4"/>
                                 <Num Num="68"/>
                                 <Str Str="UNDER"/>
@@ -883,7 +883,7 @@
                     </Event>
                     <Event execCount="1" eventName="DARK_PATTERN(10%)">
                         <condList>
-                            <ToolScp Scp="MGAME_EVT_COND_MONHP" Client="NO" UseSleep="NO">
+                            <ToolScp Scp="MGAME_EVT_COND_MONHP_ACCURATE" Client="NO" UseSleep="NO">
                                 <MGameObj List="Stage_03(Moringponia)/4"/>
                                 <Num Num="10"/>
                                 <Str Str="UNDER"/>
@@ -949,7 +949,7 @@
                 <StageEvents>
                     <Event execCount="1" eventName="1st">
                         <condList>
-                            <ToolScp Scp="MGAME_EVT_COND_MONHP" Client="NO" UseSleep="NO">
+                            <ToolScp Scp="MGAME_EVT_COND_MONHP_ACCURATE" Client="NO" UseSleep="NO">
                                 <MGameObj List="Stage_03(Moringponia)/4"/>
                                 <Num Num="80"/>
                                 <Str Str="UNDER"/>
@@ -1057,12 +1057,6 @@
                         </execList>
                     </Event>
                     <Event execCount="1" eventName="leave[70%]" execWithStart="0" isEnabled="0">
-                        <hookList>
-                            <ToolScp Scp="MGAME_EVT_SCP_TO_MON" Client="NO" UseSleep="NO">
-                                <MGameObj List="Stage_03(Moringponia)/4"/>
-                                <Str Str="SCR_TANTALISER_LEAVE"/>
-                            </ToolScp>
-                        </hookList>
                         <condList>
                             <ToolScp Scp="MGAME_EVT_COND_SCRIPT_MON" Client="NO" UseSleep="NO">
                                 <MGameObj List="Stage_03(Moringponia)/4"/>
@@ -1072,6 +1066,10 @@
                             </ToolScp>
                         </condList>
                         <execList>
+                            <ToolScp Scp="MGAME_EVT_SCP_TO_MON" Client="NO" UseSleep="NO">
+                                <MGameObj List="Stage_03(Moringponia)/4"/>
+                                <Str Str="SCR_MORINGPONIA_HARD_FLY_COOLDOWN"/>
+                            </ToolScp>
                             <ToolScp Scp="MGAME_EXEC_ACTORSCP" Client="NO" UseSleep="NO">
                                 <Str Str="SCR_TANTALISER_HARD_LEAVE_MSG01"/>
                             </ToolScp>
@@ -1101,6 +1099,10 @@
                             </ToolScp>
                         </condList>
                         <execList>
+                            <ToolScp Scp="MGAME_EVT_SCP_TO_MON" Client="NO" UseSleep="NO">
+                                <MGameObj List="Stage_03(Moringponia)/4"/>
+                                <Str Str="SCR_MORINGPONIA_HARD_FLY_COOLDOWN"/>
+                            </ToolScp>
                             <ToolScp Scp="MGAME_EXEC_ACTORSCP" Client="NO" UseSleep="NO">
                                 <Str Str="SCR_TANTALISER_HARD_LEAVE_MSG02"/>
                             </ToolScp>
@@ -1154,7 +1156,7 @@
                                 <Str Str="=="/>
                                 <Num Num="1"/>
                             </ToolScp>
-                            <ToolScp Scp="MGAME_EVT_COND_MONHP" Client="NO" UseSleep="NO">
+                            <ToolScp Scp="MGAME_EVT_COND_MONHP_ACCURATE" Client="NO" UseSleep="NO">
                                 <MGameObj List="Stage_03(Moringponia)/4"/>
                                 <Num Num="65"/>
                                 <Str Str="UNDER"/>
@@ -1163,6 +1165,10 @@
                             </ToolScp>
                         </condList>
                         <execList>
+                            <ToolScp Scp="MGAME_EVT_SCP_TO_MON" Client="NO" UseSleep="NO">
+                                <MGameObj List="Stage_03(Moringponia)/4"/>
+                                <Str Str="SCR_MORINGPONIA_HARD_FLY_RESET"/>
+                            </ToolScp>
                             <ToolScp Scp="MGAME_EXEC_ACTORSCP" Client="NO" UseSleep="NO">
                                 <Str Str="SCR_TANTALISER_HARD_APPEAR_MSG02"/>
                             </ToolScp>
@@ -1193,7 +1199,7 @@
                                 <Str Str="=="/>
                                 <Num Num="2"/>
                             </ToolScp>
-                            <ToolScp Scp="MGAME_EVT_COND_MONHP" Client="NO" UseSleep="NO">
+                            <ToolScp Scp="MGAME_EVT_COND_MONHP_ACCURATE" Client="NO" UseSleep="NO">
                                 <MGameObj List="Stage_03(Moringponia)/4"/>
                                 <Num Num="50"/>
                                 <Str Str="UNDER"/>
@@ -1202,6 +1208,10 @@
                             </ToolScp>
                         </condList>
                         <execList>
+                            <ToolScp Scp="MGAME_EVT_SCP_TO_MON" Client="NO" UseSleep="NO">
+                                <MGameObj List="Stage_03(Moringponia)/4"/>
+                                <Str Str="SCR_MORINGPONIA_HARD_FLY_RESET"/>
+                            </ToolScp>
                             <ToolScp Scp="MGAME_EXEC_ACTORSCP" Client="NO" UseSleep="NO">
                                 <Str Str="SCR_TANTALISER_HARD_APPEAR_MSG03"/>
                             </ToolScp>
@@ -1221,7 +1231,7 @@
                     </Event>
                     <Event execCount="1" eventName="fly_Pattern_1st" execWithStart="0" isEnabled="0">
                         <condList>
-                            <ToolScp Scp="MGAME_EVT_COND_MONHP" Client="NO" UseSleep="NO">
+                            <ToolScp Scp="MGAME_EVT_COND_MONHP_ACCURATE" Client="NO" UseSleep="NO">
                                 <MGameObj List="Stage_03(Moringponia)/4"/>
                                 <Num Num="70"/>
                                 <Str Str="UNDER"/>
@@ -1239,7 +1249,7 @@
                     </Event>
                     <Event execCount="1" eventName="fly_Pattern_2nd" execWithStart="0" isEnabled="0">
                         <condList>
-                            <ToolScp Scp="MGAME_EVT_COND_MONHP" Client="NO" UseSleep="NO">
+                            <ToolScp Scp="MGAME_EVT_COND_MONHP_ACCURATE" Client="NO" UseSleep="NO">
                                 <MGameObj List="Stage_03(Moringponia)/4"/>
                                 <Num Num="55"/>
                                 <Str Str="UNDER"/>
@@ -1262,14 +1272,14 @@
                 <StageEvents>
                     <Event eventName="80%">
                         <condList>
-                            <ToolScp Scp="MGAME_EVT_COND_MONHP" Client="NO" UseSleep="NO">
+                            <ToolScp Scp="MGAME_EVT_COND_MONHP_ACCURATE" Client="NO" UseSleep="NO">
                                 <MGameObj List="Stage_03(Moringponia)/4"/>
                                 <Num Num="80"/>
                                 <Str Str="UNDER"/>
                                 <Num Num="1"/>
                                 <Str Str="OVER"/>
                             </ToolScp>
-                            <ToolScp Scp="MGAME_EVT_COND_MONHP" Client="NO" UseSleep="NO">
+                            <ToolScp Scp="MGAME_EVT_COND_MONHP_ACCURATE" Client="NO" UseSleep="NO">
                                 <MGameObj List="Stage_03(Moringponia)/4"/>
                                 <Num Num="50"/>
                                 <Str Str="OVER"/>
@@ -1289,7 +1299,7 @@
                     </Event>
                     <Event eventName="30%">
                         <condList>
-                            <ToolScp Scp="MGAME_EVT_COND_MONHP" Client="NO" UseSleep="NO">
+                            <ToolScp Scp="MGAME_EVT_COND_MONHP_ACCURATE" Client="NO" UseSleep="NO">
                                 <MGameObj List="Stage_03(Moringponia)/4"/>
                                 <Num Num="30"/>
                                 <Str Str="UNDER"/>
@@ -1314,7 +1324,7 @@
                 <StageEvents>
                     <Event execCount="1" eventName="20%">
                         <condList>
-                            <ToolScp Scp="MGAME_EVT_COND_MONHP" Client="NO" UseSleep="NO">
+                            <ToolScp Scp="MGAME_EVT_COND_MONHP_ACCURATE" Client="NO" UseSleep="NO">
                                 <MGameObj List="Stage_03(Moringponia)/4"/>
                                 <Num Num="20"/>
                                 <Str Str="UNDER"/>
@@ -1330,6 +1340,31 @@
                             <ToolScp Scp="GAME_ST_EVT_EXEC_VALUE" Client="NO" UseSleep="NO">
                                 <Str Str="MORINGPONIA_HARD_FRENZY"/>
                                 <Num Num="1"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_EXEC_GIVE_BUFF" Client="NO" UseSleep="NO">
+                                <Str Str="MORINGPONIA_HARD_TOXICOSIS_DEBUFF"/>
+                                <Num Num="1"/>
+                                <Num Num="0"/>
+                                <Num Num="0"/>
+                                <Num Num="1"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="30%">
+                        <condList>
+                            <ToolScp Scp="MGAME_EVT_COND_MONHP_ACCURATE" Client="NO" UseSleep="NO">
+                                <MGameObj List="Stage_03(Moringponia)/4"/>
+                                <Num Num="30"/>
+                                <Str Str="UNDER"/>
+                                <Num Num="1"/>
+                                <Str Str="OVER"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_EVT_SCP_TO_MON" Client="NO" UseSleep="NO">
+                                <MGameObj List="Stage_03(Moringponia)/4"/>
+                                <Str Str="SCR_MORINGPONIA_FRENZY_BUFF"/>
                             </ToolScp>
                         </execList>
                     </Event>
@@ -1355,7 +1390,7 @@
                     </Event>
                     <Event eventName="run" execWithStart="0" isEnabled="0">
                         <condList>
-                            <ToolScp Scp="MGAME_EVT_COND_MONHP" Client="NO" UseSleep="NO">
+                            <ToolScp Scp="MGAME_EVT_COND_MONHP_ACCURATE" Client="NO" UseSleep="NO">
                                 <MGameObj List="Stage_03(Moringponia)/4"/>
                                 <Num Num="2"/>
                                 <Str Str="OVER"/>

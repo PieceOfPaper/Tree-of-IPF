@@ -101,7 +101,7 @@ function DIALOG_TEXTVIEW(frame, msg, argStr)
 			npcDialog = GetClass( 'DialogText', npcName);
 
 			local dd = string.find(argStr, "\\");
-			argStr = string.sub(argStr, dd + 1, string.len(argStr));
+			argStr = string.sub(argStr, dd + 1);
 		end
 
 		dd = string.find(argStr, "*@*");

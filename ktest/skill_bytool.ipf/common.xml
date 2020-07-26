@@ -175,6 +175,9 @@
 					<Str Str="voice_war_atk_short" />
 					<Str Str="voice_atk_short_war_f" />
 				</Scp>
+				<Scp Scp="SKL_RUN_SCRIPT" Client="NO" UseSleep="NO" Time="500">
+					<Str Str="SCR_Karaliene_Isgariti_BUFF"/>
+				</Scp>
 			</EtcList>
 		</MainSkl>
 	</Skill>

@@ -15896,7 +15896,7 @@ return value;"/>
 	<PadSkill Name="Tantaliser_Hard_Debuff_Pad" CheckerType="0" Dist="1597.9393" Angle="-0.11581345" Range="80" ApplyFlyMon="1" AllowOverlap="1" EnableSearch="0" IsMagicType="0" IsMineType="0">
 		<createEvent>
 			<ToolScp Scp="PAD_ADD_LIFE" Client="NO" UseSleep="NO">
-				<Num Num="3600000"/>
+                <Num Num="600000"/>
 				<Num Num="1"/>
 			</ToolScp>
 			<ToolScp Scp="C_PAD_EFFECT_POS" Client="YES" UseSleep="NO">

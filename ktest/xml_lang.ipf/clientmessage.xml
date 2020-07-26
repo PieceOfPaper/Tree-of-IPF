@@ -5877,6 +5877,9 @@
 		<Class ClassID="41210" ClassName="EVENT1912_4TH_COIN_MSG1" Data="하루 획득가능한 {#ff6d00}[이벤트] 4주년 기념 주화{/} 5,000개를 모두 모았습니다."/>
 		<Class ClassID="41211" ClassName="EVENT1912_4TH_COIN_REMAIN_MSG1" Data="오늘 4주년 기념 주화를 총 {@st66d_y}{s18}{GET}{/}{/}개 획득했습니다.{nl}{@st66d_y}{s18}{REMAIN}{/}{/}개의 4주년 기념 주화를 더 획득할 수 있습니다.{nl}4주년 기념 주화는 팀 단위로 획득할 수 있으며{nl}다음날 오전 06시에 초기화 됩니다"/>
 		<Class ClassID="41212" ClassName="EVENT1912_4TH_COIN_MSG2" Data="곧 {@st66d_y}{s20}[이벤트] 4주년 기념 주화{/}{/}가 지급됩니다. {@st66d_y}{s20}[이벤트] 4주년 기념 주화{/}{/} 지급 전 종료시 정상적으로 아이템이 지급되지 않을 수 있습니다."/>
+		<Class ClassID="41213" ClassName="EVENT_SEASON_NewWorld_Rewards_evt2_1" Data="{#003399}[이벤트] 매일 지원 상자{/}을 수령한다"/>
+		<Class ClassID="41214" ClassName="EVENT_SEASON_NewWorld_Rewards_evt2_2" Data="{#003399}[이벤트] 매주 지원 상자{/}을 수령한다"/>
+		<Class ClassID="41215" ClassName="EVENT_SEASON_NewWorld_Rewards_evt2_3" Data="{#003399}[이벤트] 매월 지원 상자{/}을 수령한다"/>
 		<Class ClassID="50001" ClassName="UNDER30_2_CHECK_MSG2" Data="유독가스에 중독되어 비석을 확인하는데 힘듭니다"/>
 		<Class ClassID="50002" ClassName="UNDER301_MONSTER_PAIR_ERROR_1" Data="오늘 진행가능한 {DAYMAXCOUNT}회 중 {DAYPLAYCOUNT} 회를 모두 진행하셨습니다."/>
 		<Class ClassID="50003" ClassName="BRACKEN431_SUB_NPC_NAME" Data="사제 개러티"/>
