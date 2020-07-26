@@ -44,14 +44,13 @@
                     </Event>
                     <Event execCount="1" eventName="CustomLog">
                         <execList>
-                            <ToolScp Scp="MGAME_EVT_SCRIPT_ARG" Client="NO" UseSleep="NO">
-                                <Str Str="SCR_LEGEND_GLACIER_CUSTOM_LOG"/>
-                                <Str Str="Legend_Raid_Glacier_Start"/>
-                                <Num Num="0"/>
-                            </ToolScp>
                             <ToolScp Scp="GAME_ST_EVT_EXEC_SOUL_CRISTAL_LIMIT" Client="NO" UseSleep="NO">
                                 <Num Num="1"/>
                                 <Num Num="5"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_STAGE_CHECK_LOG_STAGEPROGRESS" Client="NO" UseSleep="NO">
+                                <Str Str="LEGEND_RAID_GLACIER_HARD"/>
+                                <Str Str="StageStart"/>
                             </ToolScp>
                         </execList>
                     </Event>
@@ -90,10 +89,9 @@
                                 <Str Str="Glacier_Start"/>
                                 <Num Num="0"/>
                             </ToolScp>
-                            <ToolScp Scp="MGAME_EVT_SCRIPT_ARG" Client="NO" UseSleep="NO">
-                                <Str Str="SCR_LEGEND_GLACIER_CUSTOM_LOG"/>
-                                <Str Str="Legend_Raid_Glacier_Success"/>
-                                <Num Num="0"/>
+                            <ToolScp Scp="MGAME_STAGE_CHECK_LOG_STAGEPROGRESS" Client="NO" UseSleep="NO" CondFunc="">
+                                <Str Str="LEGEND_RAID_GLACIER_HARD"/>
+                                <Str Str="MinigameSuccess"/>
                             </ToolScp>
                             <ToolScp Scp="MGAME_END" Client="NO" UseSleep="NO">
                                 <Num Num="1"/>
@@ -145,6 +143,9 @@
                     </Event>
                     <Event execCount="1" eventName="Reward_Cube">
                         <execList>
+                            <ToolScp Scp="MGAME_EXEC_ACTORSCP" Client="NO" UseSleep="NO">
+                                <Str Str="SCR_LEGEND_RAID_GLACIER_CUBE_MOVE_PC"/>
+                            </ToolScp>
                             <ToolScp Scp="EXEC_DUNGEON_GIVE_TAKE_SOBJ_ACHIEVE_TX" Client="NO" UseSleep="NO">
                                 <Str Str="Legend_Raid_Glacier_Hard"/>
                                 <Str Str="None"/>
@@ -298,7 +299,7 @@
                                 <Num Num="5"/>
                             </ToolScp>
                             <ToolScp Scp="MGAME_FAIL_CHECK_LOG" Client="NO" UseSleep="NO">
-                                <Str Str="LEGEND_RAID_GLACIER_NORMAL"/>
+                                <Str Str="LEGEND_RAID_GLACIER_HARD"/>
                                 <Str Str="TimeOut"/>
                             </ToolScp>
                         </execList>
@@ -319,7 +320,7 @@
                                 <Num Num="5"/>
                             </ToolScp>
                             <ToolScp Scp="MGAME_FAIL_CHECK_LOG" Client="NO" UseSleep="NO">
-                                <Str Str="LEGEND_RAID_GLACIER_NORMAL"/>
+                                <Str Str="LEGEND_RAID_GLACIER_HARD"/>
                                 <Str Str="AllPCDead"/>
                             </ToolScp>
                         </execList>
@@ -376,6 +377,18 @@
                                 <Str Str="Stage1_Clear"/>
                                 <Num Num="1"/>
                             </ToolScp>
+                            <ToolScp Scp="MGAME_STAGE_CHECK_LOG_STAGEPROGRESS" Client="NO" UseSleep="NO">
+                                <Str Str="LEGEND_RAID_GLACIER_HARD"/>
+                                <Str Str="StageClear"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="MongoLog">
+                        <execList>
+                            <ToolScp Scp="MGAME_STAGE_CHECK_LOG_STAGEPROGRESS" Client="NO" UseSleep="NO">
+                                <Str Str="LEGEND_RAID_GLACIER_HARD"/>
+                                <Str Str="StageStart"/>
+                            </ToolScp>
                         </execList>
                     </Event>
                 </StageEvents>
@@ -429,14 +442,17 @@
                                 <Str Str="Stage2_Clear"/>
                                 <Num Num="1"/>
                             </ToolScp>
+                            <ToolScp Scp="MGAME_STAGE_CHECK_LOG_STAGEPROGRESS" Client="NO" UseSleep="NO">
+                                <Str Str="LEGEND_RAID_GLACIER_HARD"/>
+                                <Str Str="StageClear"/>
+                            </ToolScp>
                         </execList>
                     </Event>
-                    <Event execCount="1" eventName="CustomLog">
+                    <Event execCount="1" eventName="MongoLog">
                         <execList>
-                            <ToolScp Scp="MGAME_EVT_SCRIPT_ARG" Client="NO" UseSleep="NO">
-                                <Str Str="SCR_LEGEND_GLACIER_CUSTOM_LOG"/>
-                                <Str Str="Stage2_Start"/>
-                                <Num Num="0"/>
+                            <ToolScp Scp="MGAME_STAGE_CHECK_LOG_STAGEPROGRESS" Client="NO" UseSleep="NO">
+                                <Str Str="LEGEND_RAID_GLACIER_HARD"/>
+                                <Str Str="StageStart"/>
                             </ToolScp>
                         </execList>
                     </Event>
@@ -493,10 +509,17 @@
                             <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
                                 <Str Str="Stage1_1"/>
                             </ToolScp>
-                            <ToolScp Scp="MGAME_EVT_SCRIPT_ARG" Client="NO" UseSleep="NO">
-                                <Str Str="SCR_LEGEND_GLACIER_CUSTOM_LOG"/>
-                                <Str Str="Stage1_1_Clear"/>
-                                <Num Num="0"/>
+                            <ToolScp Scp="MGAME_STAGE_CHECK_LOG_STAGEPROGRESS" Client="NO" UseSleep="NO">
+                                <Str Str="LEGEND_RAID_GLACIER_HARD"/>
+                                <Str Str="StageClear"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="MongoLog">
+                        <execList>
+                            <ToolScp Scp="MGAME_STAGE_CHECK_LOG_STAGEPROGRESS" Client="NO" UseSleep="NO">
+                                <Str Str="LEGEND_RAID_GLACIER_HARD"/>
+                                <Str Str="StageStart"/>
                             </ToolScp>
                         </execList>
                     </Event>
@@ -560,10 +583,9 @@
                             <ToolScp Scp="MGAME_EXEC_ACTORSCP" Client="NO" UseSleep="NO">
                                 <Str Str="SCR_PBETA_START_MSG"/>
                             </ToolScp>
-                            <ToolScp Scp="MGAME_EVT_SCRIPT_ARG" Client="NO" UseSleep="NO">
-                                <Str Str="SCR_LEGEND_GLACIER_CUSTOM_LOG"/>
-                                <Str Str="Stage2_1_Clear"/>
-                                <Num Num="0"/>
+                            <ToolScp Scp="MGAME_STAGE_CHECK_LOG_STAGEPROGRESS" Client="NO" UseSleep="NO">
+                                <Str Str="LEGEND_RAID_GLACIER_HARD"/>
+                                <Str Str="StageClear"/>
                             </ToolScp>
                         </execList>
                     </Event>
@@ -592,11 +614,19 @@
                             </ToolScp>
                         </execList>
                     </Event>
+                    <Event execCount="1" eventName="MongoLog">
+                        <execList>
+                            <ToolScp Scp="MGAME_STAGE_CHECK_LOG_STAGEPROGRESS" Client="NO" UseSleep="NO">
+                                <Str Str="LEGEND_RAID_GLACIER_HARD"/>
+                                <Str Str="StageStart"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
                 </StageEvents>
             </Stage>
             <Stage Name="Boss_Pbeta" AutoStart="0">
                 <ObjList>
-                    <Obj Type="Monster" MonType="59479" Pos="1318.48#535.51#164.89" angle="-57" genCount="1" genTime="20000" autoGen="0" objectKey="0" propList="&apos;DeadScript&apos; &apos;SCR_LEGEND_PBETA_ALLCLEAR_BUFF_AND_PAD&apos; "/>
+                    <Obj Type="Monster" MonType="59479" Pos="1318.48#535.51#164.89" angle="-57" genCount="1" genTime="20000" autoGen="0" objectKey="0" propList="&apos;DeadScript&apos; &apos;SCR_LEGEND_PBETA_ALLCLEAR_BUFF_AND_PAD&apos; &apos;ClassName&apos; &apos;Legend_boss_Pbeta_Hard&apos; "/>
                     <Obj Type="Monster" MonType="157101" Pos="1522.44#535.51#273.01" angle="-129" genCount="1" genTime="20000" objectKey="1"/>
                     <Obj Type="Monster" MonType="157101" Pos="1108.58#535.51#113.83" angle="52" genCount="1" genTime="20000" objectKey="2"/>
                     <Obj Type="Monster" MonType="157101" Pos="1438.63#535.51#-112.61" angle="-124" genCount="1" genTime="20000" objectKey="3"/>
@@ -616,6 +646,10 @@
                             </ToolScp>
                         </condList>
                         <execList>
+                            <ToolScp Scp="MGAME_EVT_SCP_TO_MON_CMD" Client="NO" UseSleep="NO">
+                                <MGameObj List="Boss_Pbeta/1/Boss_Pbeta/2/Boss_Pbeta/3"/>
+                                <Str Str="SCR_LEGEND_PBETA_KRUVINA_SPIRIT_BLACK_CRYSTAL_REMOVE_PAD"/>
+                            </ToolScp>
                             <ToolScp Scp="MGAME_MSG_ICON" Client="YES" UseSleep="NO">
                                 <Str Str="마기에 오염된 프베타를 처치하였습니다."/>
                                 <Str Str="Clear"/>
@@ -632,6 +666,10 @@
                             <ToolScp Scp="GAME_ST_EVT_ADD_VALUE" Client="NO" UseSleep="NO">
                                 <Str Str="Pbeta_Clear"/>
                                 <Num Num="1"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_STAGE_CHECK_LOG_STAGEPROGRESS" Client="NO" UseSleep="NO">
+                                <Str Str="LEGEND_RAID_GLACIER_HARD"/>
+                                <Str Str="StageClear"/>
                             </ToolScp>
                         </execList>
                     </Event>
@@ -696,6 +734,27 @@
                             </ToolScp>
                         </execList>
                     </Event>
+                    <Event execCount="1" eventName="MongoLog">
+                        <execList>
+                            <ToolScp Scp="MGAME_STAGE_CHECK_LOG_STAGEPROGRESS" Client="NO" UseSleep="NO">
+                                <Str Str="LEGEND_RAID_GLACIER_HARD"/>
+                                <Str Str="StageStart"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event eventName="TopHaterCheck">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="10"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_EVT_SCP_TO_MON_CMD" Client="NO" UseSleep="NO">
+                                <MGameObj List="Boss_Pbeta/0"/>
+                                <Str Str="SCR_LEGEND_TOP_HATER_CHECK"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
                 </StageEvents>
             </Stage>
             <Stage Name="Boss_Glacier" AutoStart="0">
@@ -703,9 +762,18 @@
                     <Obj Type="Monster" MonType="59494" Pos="1269.11#602.46#1503.88" angle="-53" genCount="1" genTime="20000" objectKey="0" propList="&apos;DeadScript&apos; &apos;SCR_LEGEND_GLACIER_ALLCLEAR_BUFF_AND_PAD&apos; &apos;BornScript&apos; &apos;SCR_LEGEND_GLACIER_BORN_SCRIPT&apos; "/>
                     <Obj Type="Monster" MonType="157103" Pos="1119.74#602.46#1677.24" angle="-58" genCount="1" genTime="20000" objectKey="1" propList="&apos;Dialog&apos; &apos;LEGEND_GLACIER_USE_TORCH&apos; "/>
                     <Obj Type="Monster" MonType="157103" Pos="1406.59#602.46#1279.94" angle="-38" genCount="1" genTime="20000" objectKey="2" propList="&apos;Dialog&apos; &apos;LEGEND_GLACIER_USE_TORCH&apos; "/>
-                    <Obj Type="Monster" MonType="147455" Pos="1221.70#595.00#938.74" genCount="1" genTime="20000" objectKey="3"/>
-                    <Obj Type="Monster" MonType="147455" Pos="1183.00#558.34#739.45" genCount="1" genTime="20000" objectKey="4"/>
+                    <Obj Type="Monster" MonType="147455" Pos="1233.51#593.24#921.83" genCount="1" genTime="20000" objectKey="3"/>
+                    <Obj Type="Monster" MonType="147455" Pos="1211.92#551.27#708.33" angle="-88" genCount="1" genTime="20000" objectKey="4"/>
                     <Obj Type="Monster" MonType="160029" Pos="1229.14#609.07#1041.52" genCount="1" genTime="20000" objectKey="5" propList="&apos;Range&apos; &apos;4000&apos; &apos;Enter&apos; &apos;GLACIER_SOUND&apos; "/>
+                    <Obj Type="Monster" MonType="147455" Pos="-438.25#416.17#197.87" angle="167" genCount="1" genTime="20000" objectKey="6"/>
+                    <Obj Type="Monster" MonType="147455" Pos="-267.38#428.47#145.27" angle="-17" genCount="1" genTime="20000" objectKey="7"/>
+                    <Obj Type="Monster" MonType="147455" Pos="-134.24#441.11#81.40" angle="167" genCount="1" genTime="20000" objectKey="8"/>
+                    <Obj Type="Monster" MonType="147455" Pos="-356.62#424.96#170.21" angle="-17" genCount="1" genTime="20000" objectKey="9"/>
+                    <Obj Type="Monster" MonType="147455" Pos="-505.23#414.61#212.44" angle="-17" genCount="1" genTime="20000" objectKey="10"/>
+                    <Obj Type="Monster" MonType="147455" Pos="-191.68#435.98#105.53" angle="-17" genCount="1" genTime="20000" objectKey="11"/>
+                    <Obj Type="Monster" MonType="147455" Pos="1218.47#534.56#609.39" angle="-85" genCount="1" genTime="20000" objectKey="12"/>
+                    <Obj Type="Monster" MonType="147455" Pos="1232.22#582.06#808.50" angle="-85" genCount="1" genTime="20000" objectKey="13"/>
+                    <Obj Type="Monster" MonType="147455" Pos="1228.56#544.30#519.39" angle="-85" genCount="1" genTime="20000" objectKey="14"/>
                 </ObjList>
                 <StageEvents>
                     <Event execCount="1" eventName="Clear_Check">
@@ -748,6 +816,10 @@
                             </ToolScp>
                         </condList>
                         <execList>
+                            <ToolScp Scp="MGAME_EVT_SCP_TO_MON_CMD" Client="NO" UseSleep="NO">
+                                <MGameObj List="Boss_Pbeta/1/Boss_Pbeta/2/Boss_Pbeta/3"/>
+                                <Str Str="SCR_LEGEND_PBETA_KRUVINA_SPIRIT_BLACK_CRYSTAL_REMOVE_PAD"/>
+                            </ToolScp>
                             <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
                                 <Str Str="GLACIER_ESSENCE_WARMTH"/>
                             </ToolScp>
@@ -762,11 +834,6 @@
                             </ToolScp>
                             <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
                                 <Str Str="GLACIER_SNOW_CLOUD"/>
-                            </ToolScp>
-                            <ToolScp Scp="MGAME_EVT_SCRIPT_ARG" Client="NO" UseSleep="NO">
-                                <Str Str="SCR_LEGEND_GLACIER_CUSTOM_LOG"/>
-                                <Str Str="Stage_Glacier_Start"/>
-                                <Num Num="0"/>
                             </ToolScp>
                             <ToolScp Scp="GAME_ST_EVT_EXEC_VALUE" Client="NO" UseSleep="NO">
                                 <Str Str="Glacier_Start"/>
@@ -794,6 +861,27 @@
                             </ToolScp>
                         </execList>
                     </Event>
+                    <Event execCount="1" eventName="MongoLog">
+                        <execList>
+                            <ToolScp Scp="MGAME_STAGE_CHECK_LOG_STAGEPROGRESS" Client="NO" UseSleep="NO">
+                                <Str Str="LEGEND_RAID_GLACIER_HARD"/>
+                                <Str Str="StageStart"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event eventName="TopHaterCheck">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="10"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_EVT_SCP_TO_MON_CMD" Client="NO" UseSleep="NO">
+                                <MGameObj List="Boss_Glacier/0"/>
+                                <Str Str="SCR_LEGEND_TOP_HATER_CHECK"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
                 </StageEvents>
             </Stage>
             <Stage Name="RankResetPoint">
@@ -802,7 +890,7 @@
                     <Event execCount="1" eventName="PointSetting">
                         <execList>
                             <ToolScp Scp="MGAME_SET_RANK_RESET_POINT_AND_LOG" Client="NO" UseSleep="NO">
-                                <Num Num="20"/>
+                                <Num Num="35"/>
                                 <Str Str="LegendRaid: Legend_Raid_Glacier_Easy"/>
                             </ToolScp>
                         </execList>
@@ -827,11 +915,7 @@
                             <ToolScp Scp="MGAME_EVT_EXEC_DELMON" Client="NO" UseSleep="NO">
                                 <MGameObjPtr List="Start/2/Start/3"/>
                             </ToolScp>
-                            <ToolScp Scp="MGAME_EVT_SCRIPT_ARG" Client="NO" UseSleep="NO">
-                                <Str Str="SCR_LEGEND_GLACIER_CUSTOM_LOG"/>
-                                <Str Str="Stage1_Start"/>
-                                <Num Num="0"/>
-                            </ToolScp>
+                            <ToolScp Scp="SCR_RAID_CLEAR_TIME_START_SETTING" Client="NO" UseSleep="NO"/>
                         </execList>
                     </Event>
                     <Event execCount="1" eventName="Stage_1_Claer">
@@ -851,11 +935,6 @@
                             </ToolScp>
                             <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
                                 <Str Str="Stage2"/>
-                            </ToolScp>
-                            <ToolScp Scp="MGAME_EVT_SCRIPT_ARG" Client="NO" UseSleep="NO">
-                                <Str Str="SCR_LEGEND_GLACIER_CUSTOM_LOG"/>
-                                <Str Str="Stage1_Clear"/>
-                                <Num Num="0"/>
                             </ToolScp>
                         </execList>
                     </Event>
@@ -889,11 +968,6 @@
                                 <Num Num="1"/>
                                 <Num Num="0"/>
                             </ToolScp>
-                            <ToolScp Scp="MGAME_EVT_SCRIPT_ARG" Client="NO" UseSleep="NO">
-                                <Str Str="SCR_LEGEND_GLACIER_CUSTOM_LOG"/>
-                                <Str Str="Stage_Pbeta_Start"/>
-                                <Num Num="0"/>
-                            </ToolScp>
                             <ToolScp Scp="GAME_ST_EVT_EXEC_VALUE" Client="NO" UseSleep="NO">
                                 <Str Str="Pbeta_Start"/>
                                 <Num Num="1"/>
@@ -917,11 +991,6 @@
                             <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
                                 <Str Str="Stage2"/>
                             </ToolScp>
-                            <ToolScp Scp="MGAME_EVT_SCRIPT_ARG" Client="NO" UseSleep="NO">
-                                <Str Str="SCR_LEGEND_GLACIER_CUSTOM_LOG"/>
-                                <Str Str="Stage2_Clear"/>
-                                <Num Num="0"/>
-                            </ToolScp>
                         </execList>
                     </Event>
                     <Event execCount="1" eventName="Pbeta_Claer">
@@ -939,11 +1008,6 @@
                             <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
                                 <Str Str="Boss_Pbeta"/>
                             </ToolScp>
-                            <ToolScp Scp="MGAME_EVT_SCRIPT_ARG" Client="NO" UseSleep="NO">
-                                <Str Str="SCR_LEGEND_GLACIER_CUSTOM_LOG"/>
-                                <Str Str="Stage_Pbeta_Clear"/>
-                                <Num Num="0"/>
-                            </ToolScp>
                         </execList>
                     </Event>
                     <Event execCount="1" eventName="Glacier_Claer">
@@ -960,11 +1024,6 @@
                             </ToolScp>
                             <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
                                 <Str Str="Success"/>
-                            </ToolScp>
-                            <ToolScp Scp="MGAME_EVT_SCRIPT_ARG" Client="NO" UseSleep="NO">
-                                <Str Str="SCR_LEGEND_GLACIER_CUSTOM_LOG"/>
-                                <Str Str="Stage_Glacier_Clear"/>
-                                <Num Num="0"/>
                             </ToolScp>
                             <ToolScp Scp="MGAME_EXEC_REVIVE" Client="NO" UseSleep="NO"/>
                         </execList>
@@ -994,11 +1053,6 @@
                             <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
                                 <Str Str="Stage1_1"/>
                             </ToolScp>
-                            <ToolScp Scp="MGAME_EVT_SCRIPT_ARG" Client="NO" UseSleep="NO">
-                                <Str Str="SCR_LEGEND_GLACIER_CUSTOM_LOG"/>
-                                <Str Str="Stage1_1_Start"/>
-                                <Num Num="0"/>
-                            </ToolScp>
                         </execList>
                     </Event>
                     <Event execCount="1" eventName="Stage2_1_Start">
@@ -1027,11 +1081,6 @@
                             </ToolScp>
                             <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
                                 <Str Str="Stage2_1"/>
-                            </ToolScp>
-                            <ToolScp Scp="MGAME_EVT_SCRIPT_ARG" Client="NO" UseSleep="NO">
-                                <Str Str="SCR_LEGEND_GLACIER_CUSTOM_LOG"/>
-                                <Str Str="Stage2_1_Start"/>
-                                <Num Num="0"/>
                             </ToolScp>
                         </execList>
                     </Event>
@@ -1446,15 +1495,90 @@
                 </StageEvents>
             </Stage>
             <Stage Name="GLACIER_WITCH_MADNESS" AutoStart="0">
-                <ObjList/>
+                <ObjList>
+                    <Obj Type="Monster" MonType="59459" Pos="1234.05#602.46#1311.47" genCount="1" genTime="20000" autoGen="0" objectKey="0" propList="&apos;BTree&apos; &apos;BT_TimeBomb_Legend_Glacier&apos; "/>
+                    <Obj Type="Monster" MonType="59459" Pos="1185.62#602.46#1313.92" genCount="1" genTime="20000" autoGen="0" objectKey="1" propList="&apos;BTree&apos; &apos;BT_TimeBomb_Legend_Glacier&apos; "/>
+                </ObjList>
                 <StageEvents>
                     <Event eventName="HP_30_BELOW">
                         <condList>
+                            <ToolScp Scp="MGAME_EVT_COND_MONHP" Client="NO" UseSleep="NO">
+                                <MGameObj List="Boss_Glacier/0"/>
+                                <Num Num="30"/>
+                                <Str Str="UNDER"/>
+                                <Num Num="1"/>
+                                <Str Str="OVER"/>
+                            </ToolScp>
                             <ToolScp Scp="GAME_ST_EVT_COND_VALUE" Client="NO" UseSleep="NO">
                                 <Str Str="WitchMadnessStart"/>
                                 <Str Str="=="/>
                                 <Num Num="0"/>
                             </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_EVT_SCP_TO_MON_CMD" Client="NO" UseSleep="NO">
+                                <MGameObj List="Boss_Glacier/0"/>
+                                <Str Str="SCR_LEGEND_GALCIER_WITCH_MADNESS_CEHCK"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="Nervosity_buff">
+                        <execList>
+                            <ToolScp Scp="MGAME_EVT_SCP_TO_MON_CMD" Client="NO" UseSleep="NO">
+                                <MGameObj List="Boss_Glacier/0"/>
+                                <Str Str="SCR_LEGEND_GLACIER_WITCH_NERVOSITY_BUFF_APPLY"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event eventName="BombMonsterCreate">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="60"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_EVT_COND_MONHP" Client="NO" UseSleep="NO">
+                                <MGameObj List="Boss_Glacier/0"/>
+                                <Num Num="30"/>
+                                <Str Str="UNDER"/>
+                                <Num Num="1"/>
+                                <Str Str="OVER"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_COND_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="Glacier_BombMonster_Summon_Start"/>
+                                <Str Str="=="/>
+                                <Num Num="1"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
+                                <MGameObjIndex List="GLACIER_WITCH_MADNESS/0/GLACIER_WITCH_MADNESS/1"/>
+                                <Num Num="1"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_EVT_SCP_TO_MON_CMD" Client="NO" UseSleep="NO">
+                                <MGameObj List="GLACIER_WITCH_MADNESS/0/GLACIER_WITCH_MADNESS/1"/>
+                                <Str Str="SCR_LEGEND_GLACIER_SUMMON_BOMB_MONSTER"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event eventName="BombmonsterSummonCheck">
+                        <condList>
+                            <ToolScp Scp="MGAME_EVT_COND_MONHP" Client="NO" UseSleep="NO">
+                                <MGameObj List="Boss_Glacier/0"/>
+                                <Num Num="30"/>
+                                <Str Str="UNDER"/>
+                                <Num Num="1"/>
+                                <Str Str="OVER"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="Glacier_BombMonster_Summon_Start"/>
+                                <Num Num="1"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="BombMosnterSummonMsg">
+                        <condList>
                             <ToolScp Scp="MGAME_EVT_COND_MONHP" Client="NO" UseSleep="NO">
                                 <MGameObj List="Boss_Glacier/0"/>
                                 <Num Num="30"/>
@@ -1466,33 +1590,7 @@
                         <execList>
                             <ToolScp Scp="MGAME_EVT_SCP_TO_MON_CMD" Client="NO" UseSleep="NO">
                                 <MGameObj List="Boss_Glacier/0"/>
-                                <Str Str="SCR_LEGEND_GLACIER_WITCH_NERVOSITY_BUFF_APPLY"/>
-                            </ToolScp>
-                            <ToolScp Scp="MGAME_EVT_SCP_TO_MON_CMD" Client="NO" UseSleep="NO">
-                                <MGameObj List="Boss_Glacier/0"/>
-                                <Str Str="SCR_LEGEND_GALCIER_WITCH_MADNESS_CEHCK"/>
-                            </ToolScp>
-                        </execList>
-                    </Event>
-                    <Event execCount="1" eventName="HP_20_BELOW">
-                        <condList>
-                            <ToolScp Scp="GAME_ST_EVT_COND_VALUE" Client="NO" UseSleep="NO">
-                                <Str Str="WitchMadnessStart"/>
-                                <Str Str="=="/>
-                                <Num Num="1"/>
-                            </ToolScp>
-                            <ToolScp Scp="MGAME_EVT_COND_MONHP" Client="NO" UseSleep="NO">
-                                <MGameObj List="Boss_Glacier/0"/>
-                                <Num Num="20"/>
-                                <Str Str="UNDER"/>
-                                <Num Num="1"/>
-                                <Str Str="OVER"/>
-                            </ToolScp>
-                        </condList>
-                        <execList>
-                            <ToolScp Scp="MGAME_EVT_SCP_TO_MON_CMD" Client="NO" UseSleep="NO">
-                                <MGameObj List="Boss_Glacier/0"/>
-                                <Str Str="SCR_LEGEND_GALCIER_WITCH_MADNESS"/>
+                                <Str Str="SCR_GALCIER_LEGEND_SEND_NOTICE_MSG"/>
                             </ToolScp>
                         </execList>
                     </Event>
@@ -1569,37 +1667,23 @@
                             </ToolScp>
                         </execList>
                     </Event>
-                    <Event execCount="1" eventName="HP_15_BELOW">
+                    <Event eventName="HP_30_BELOW">
                         <condList>
                             <ToolScp Scp="MGAME_EVT_COND_MONHP" Client="NO" UseSleep="NO">
                                 <MGameObj List="Boss_Glacier/0"/>
-                                <Num Num="15"/>
+                                <Num Num="30"/>
                                 <Str Str="UNDER"/>
                                 <Num Num="1"/>
                                 <Str Str="OVER"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="150"/>
                             </ToolScp>
                         </condList>
                         <execList>
                             <ToolScp Scp="MGAME_EVT_SCP_TO_MON_CMD" Client="NO" UseSleep="NO">
                                 <MGameObj List="Boss_Glacier/0"/>
-                                <Str Str="SCR_LEGEND_GALCIER_SNOW_CLOUD"/>
-                            </ToolScp>
-                        </execList>
-                    </Event>
-                    <Event execCount="1" eventName="HP_5_BELOW">
-                        <condList>
-                            <ToolScp Scp="MGAME_EVT_COND_MONHP" Client="NO" UseSleep="NO">
-                                <MGameObj List="Boss_Glacier/0"/>
-                                <Num Num="5"/>
-                                <Str Str="UNDER"/>
-                                <Num Num="1"/>
-                                <Str Str="OVER"/>
-                            </ToolScp>
-                        </condList>
-                        <execList>
-                            <ToolScp Scp="MGAME_EVT_SCP_TO_MON_CMD" Client="NO" UseSleep="NO">
-                                <MGameObj List="Boss_Glacier/0"/>
-                                <Str Str="SCR_LEGEND_GALCIER_SNOW_CLOUD"/>
+                                <Str Str="SCR_LEGEND_GALCIER_HARD_MODE_SNOW_CLOUD"/>
                             </ToolScp>
                         </execList>
                     </Event>

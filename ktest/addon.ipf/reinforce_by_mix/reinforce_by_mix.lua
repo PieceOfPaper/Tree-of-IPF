@@ -710,7 +710,8 @@ function REMAIN_SELECTED_ITEM_COUNT(slot_index, nowselectedcount, count, inven_i
 end
 
 function REINFORCE_MIX_INV_RBTN(itemObj, slot, selectall)    
-	local invitem = session.GetInvItemByGuid(GetIESID(itemObj))    
+	local guid = GetIESID(itemObj);
+	local invitem = session.GetInvItemByGuid(guid);
 	if nil == invitem then        
 		return;
 	end
@@ -763,14 +764,18 @@ function REINFORCE_MIX_INV_RBTN(itemObj, slot, selectall)
         if nowselectedcount + 1 == count then
             if count <= invitem.count then                
 		        local reinfFrame = ui.GetFrame("reinforce_by_mix");
-			    local icon = slot:GetIcon();			
 			    if 1 == REINFORCE_BY_MIX_ADD_MATERIAL(reinfFrame, itemObj, count)  then            
-				    imcSound.PlaySoundEvent("icon_get_down");
-				    slot:SetUserValue("REINF_MIX_SELECTED", count);
-				    local count = slot:GetUserIValue("REINF_MIX_SELECTED")						
-				    if icon ~= nil and count == invitem.count then                    
-					    icon:SetColorTone("AA000000");
-				    end
+					imcSound.PlaySoundEvent("icon_get_down");
+					for i = 0, 1 do
+						slot = INV_GET_SLOT_BY_ITEMGUID(guid, nil, i);
+						local icon = slot:GetIcon();
+						slot:SetUserValue("REINF_MIX_SELECTED", nowselectedcount + 1);
+						local nowselectedcount = slot:GetUserIValue("REINF_MIX_SELECTED")
+								
+						if icon ~= nil and count == invitem.count then
+							icon:SetColorTone("AA000000");
+						end
+					end
 			    end
 		    end 
         else
@@ -835,11 +840,14 @@ function REINFORCE_BY_MIX_SLOT_RBTN(parent, slot)
     end
 	local guid = invItem:GetIESID();
 
-	local invSlot = GET_PC_SLOT_BY_ITEMID(guid);
-	local icon = invSlot:GetIcon();
-	icon:SetColorTone("FFFFFFFF");
+	for i = 0, 1 do
+		local invSlot = INV_GET_SLOT_BY_ITEMGUID(guid, nil, i);
+		local icon = invSlot:GetIcon();
+		icon:SetColorTone("FFFFFFFF");
+		invSlot:SetUserValue("REINF_MIX_SELECTED", 0);
+	end
+
 	slot:ClearIcon();
-	invSlot:SetUserValue("REINF_MIX_SELECTED", 0);
 	ui.UpdateVisibleToolTips();
 
 	REINFORCE_MIX_UPDATE_EXP(frame);

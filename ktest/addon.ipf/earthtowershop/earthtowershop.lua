@@ -859,7 +859,6 @@ function EARTH_TOWER_SHOP_TRADE_ENTER()
     end
 
 	local resultlist = session.GetItemIDList();
-	local cntText = string.format("%s %s", recipeCls.ClassID, 1);
 	
     local edit_itemcount = GET_CHILD_RECURSIVELY(parentcset, "itemcount");
     if edit_itemcount == nil then 
@@ -870,8 +869,20 @@ function EARTH_TOWER_SHOP_TRADE_ENTER()
     local resultCount = tonumber(edit_itemcount:GetText());
     if itemCountGBox:IsVisible() == 0 then
         resultCount = 1;
-    end
-    cntText = string.format("%s %s", recipeCls.ClassID, resultCount);
+	end
+	local itemCls = GetClass("Item",recipeCls.TargetItem)
+	if itemCls.MaxStack ~= 1 then
+		local maxStackCount = resultCount * recipeCls.TargetItemCnt
+        local invItem = session.GetInvItemByName(recipeCls.TargetItem);
+		if invItem ~= nil then
+			maxStackCount = maxStackCount + invItem.count
+		end
+		if maxStackCount > itemCls.MaxStack then
+			addon.BroadMsg('NOTICE_Dm_!',ClMsg("ExceedItemGetLimit"),3)
+			return
+		end
+	end
+    local cntText = string.format("%s %s", recipeCls.ClassID, resultCount);
     local shopType = frame:GetUserValue("SHOP_TYPE");
 	if shopType == 'EarthTower' then
 		item.DialogTransaction("EARTH_TOWER_SHOP_TREAD", resultlist, cntText);
@@ -923,9 +934,9 @@ function EARTH_TOWER_SHOP_TRADE_ENTER()
         item.DialogTransaction("EVENT_2001_NEWYEAR_SHOP_1_THREAD1", resultlist, cntText);
     elseif shopType == 'FishingShop2002' then
         -- item.DialogTransaction("EVENT_2002_FISHING_SHOP_1_THREAD1", resultlist, cntText);
-    else
+	else
         local strArgList = NewStringList();
-        strArgList:Add(shopType);
+		strArgList:Add(shopType);
         item.DialogTransaction("EVENT_SHOP_1_THREAD1", resultlist, cntText,strArgList);
 	end
 end

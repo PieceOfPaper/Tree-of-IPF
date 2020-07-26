@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<uiframe name="transferseal" x="0" y="0" width="500" height="1280" create="open">
+	<frame fullheight="true" fasthide="true" layout_gravity="left top" open="pip"/>
+	<sound opensound="win_open" closesound="win_close"/>
+	<draw drawframe="false" drawnotitlebar="false" drawtitlebar="false"/>
+	<layer layerlevel="80"/>
+	<script OpenScp="OPEN_TRANSFER_SEAL" CloseScp="CLOSE_TRANSFER_SEAL"/>
+	<userconfig APPLY_OPTION_CTRLSET_WIDTH="460" APPLY_OPTION_CTRLSET_HEIGHT="32" APPLY_OPTIOIN_CTRLSET_INTERVAL_MARGIN_Y="4" FAR_FUTURE_OPTION_SKIN="listbox_op_20" LOCK_IMG_SIZE="28" LOCK_IMG_NAME="icon_lock_tooltip_1" SUCCESS_EFFECT="UI_item_parts2_success"/>
+	<controls>
+		<groupbox name="bgBox" rect="0 0 500 1080" margin="0 0 0 0" layout_gravity="left top" skin="test_frame_low" resizebyresolution="true" resizebyparent="true"/>
+		<groupbox name="headerBox" rect="0 0 500 60" margin="0 0 0 0" layout_gravity="left top" skin="test_frame_top"/>
+		<richtext name="headerText" parent="headerBox" rect="0 0 300 30" margin="0 0 0 0" layout_gravity="center center" caption="{@st43}인장 교환"/>
+		<button name="close" rect="0 0 44 44" margin="0 15 28 0" layout_gravity="right top" LBtnUpArgNum="" LBtnUpScp="CLOSE_TRANSFER_SEAL" oversound="button_over" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" clicksound="button_click_big" image="testclose_button"/>
+		<groupbox name="mainsgb" rect="0 0 450 250" margin="0 80 0 0" layout_gravity="center top" draw="false" stretch="true"/>
+		<richtext name="targetText" parent="mainsgb" rect="0 0 300 30" margin="-110 0 0 0" layout_gravity="center top" caption="{@st66d_y}{b}교환 인장"/>
+		<richtext name="materialText" parent="mainsgb" rect="0 0 300 30" margin="110 15 0 0" layout_gravity="center top" caption="{@st43b}{s18}{b}재료 인장" fontname="white_16_b_ol"/>
+		<picture name="arrowPic" parent="mainsgb" rect="0 0 30 86" stretch="true" margin="5 -15 0 0" layout_gravity="center center" image="icon_arrow_left"/>
+		<groupbox name="desc_gb" parent="mainsgb" rect="0 0 180 180" margin="-110 25 0 0" layout_gravity="center top" skin="slotbox_light" draw="true" stretch="true"/>
+		<slot name="desc_slot" parent="desc_gb" rect="0 0 150 150" margin="0 0 0 0" layout_gravity="center center" draw="true" skin="invenslot2" hittest="false"/>
+		<richtext name="desc_item_text" parent="mainsgb" rect="0 0 400 30" margin="0 0 0 10" layout_gravity="center bottom" format="{@st43}{s20}%s" param1="value" param1_def="교환 인장 아이템의 이름" fontname="white_16_b_ol"/>
+		<slot name="src_slot" parent="mainsgb" rect="0 0 110 110" margin="110 55 0 0" layout_gravity="center top" draw="true" skin="invenslot2" dropsound="icon_get_down" picksound="icon_pick_up" DropScp="TRANSFER_SEAL_SRC_DROP" RBtnUpScp="TRANSFER_SEAL_SRC_POP"/>
+		<picture name="src_slot_img" parent="src_slot" rect="0 0 88 88" margin="0 0 0 0" layout_gravity="center center" image="socket_slot_bg" stretch="true" hittest="false"/>
+		<!-- option -->
+		<groupbox name="applyOptionBox" rect="0 0 470 230" margin="15 345 0 0" layout_gravity="left top" skin="test_bgreentitle_skin"/>
+		<richtext name="applyOptionText" parent="applyOptionBox" rect="0 0 300 30" margin="10 5 0 0" layout_gravity="left top" fontname="white_16_ol" caption="{@st43b}{s18}적용 옵션"/>
+		<!-- matrial -->
+		<groupbox name="costBox" rect="0 0 470 185" margin="0 865 0 0" layout_gravity="center top" skin="test_frame_midle"/>
+		<richtext name="matrial_text" parent="costBox" rect="0 0 300 30" margin="10 10 0 0" layout_gravity="left top" caption="{@st42}재료"/>
+		<richtext name="matrial_name" parent="costBox" rect="0 0 300 30" margin="90 50 0 0" layout_gravity="left top" format="{@st42}{s20}%s" param1="value"/>
+		<slot name="matrial_slot" parent="costBox" rect="0 0 70 70" margin="10 50 0 0" layout_gravity="left top" skin="invenslot2" DropScp="TRANSFER_SEAL_DROP_ADDITIONAL_ITEM" enabledrop="false" enablepop="false" enabledrag="false"/>
+		<richtext name="matrial_count" parent="costBox" rect="0 0 300 30" margin="0 50 20 0" layout_gravity="right top" format="{@st42}{s20}%s%s/%s" param1="style" param2="cur" param3="need"/>
+		<labelline name="line1" parent="costBox" rect="0 0 460 4" margin="0 35 0 0" layout_gravity="center top" skin="labelline_def2"/>
+		<!-- result -->
+		<groupbox name="reinfResultBox" rect="0 0 500 600" margin="0 0 0 0" layout_gravity="center top" draw="false" resizebyresolution="true" resizebyparent="true"/>
+		<picture name="successBgBox" parent="reinfResultBox" rect="0 0 507 400" margin="0 60 0 0" layout_gravity="center top" hittest="true" image="SUCCESS_gold_bg"/>
+		<picture name="successPic" parent="successBgBox" rect="0 0 401 150" hittest="false" image="BnYellow_skin" margin="0 240 0 0" stretch="true" layout_gravity="center top"/>
+		<slot name="successItem" parent="successBgBox" rect="0 0 140 140" margin="0 120 0 0" layout_gravity="center top" hittest="true"/>
+		<picture name="successTextPic" parent="successBgBox" rect="0 0 330 133" hittest="false" image="card_reinforce_SUCCESS" margin="0 240 0 0" stretch="true" layout_gravity="center top"/>
+		<button name="reinfBtn" rect="0 0 200 55" margin="0 0 0 30" layout_gravity="center bottom" skin="test_red_button" caption="{@st42}교환" LBtnUpScp="TRANSFER_SEAL_BTN_CLICK"/>
+		<button name="resetBtn" rect="0 0 200 55" margin="0 0 0 30" layout_gravity="center bottom" skin="test_red_button" caption="{@st42}확인" LBtnUpScp="TRANSFER_SEAL_UI_RESET"/>
+	</controls>
+</uiframe>

@@ -141,8 +141,8 @@ function IS_ENABLE_APPLY_JEWELL(jewell, targetItem)
 	end
 
 	local number_arg1 = TryGetProp(jewell, 'NumberArg1', 0)
-
-	if jewell.Level < targetItem.UseLv and number_arg1 < targetItem.UseLv then
+	
+	if TryGetProp(jewell, 'Level', 1) < targetItem.UseLv and number_arg1 < targetItem.UseLv then
 		return false, 'LEVEL';
 	end
 
@@ -271,7 +271,7 @@ revertrandomitemlist = {'itemrandomreset', 'itemrevertrandom', 'itemunrevertrand
 function IS_ENABLE_4LINE_REVERT_RANDOM_ITEM(itemObj)
 	local icor = TryGetProp(itemObj, 'GroupName', 'None')
     local Lv = TryGetProp(itemObj, 'UseLv', 1)
-
+    
 	if icor == 'Icor' then
 		local item_name = TryGetProp(itemObj, 'InheritanceRandomItemName', 'None')
 		if item_name ~= 'None' then
@@ -279,7 +279,8 @@ function IS_ENABLE_4LINE_REVERT_RANDOM_ITEM(itemObj)
 			if cls == nil then 
 				return false, 'None'
 			end
-
+            
+            Lv = TryGetProp(cls, "UseLv", 1)
 		    if Lv < 430 then
 				return false, 'Level';
 			end
@@ -307,7 +308,7 @@ end
 function IS_ENABLE_6LINE_REVERT_RANDOM_ITEM(itemObj)
 	local icor = TryGetProp(itemObj, 'GroupName', 'None')
     local Lv = TryGetProp(itemObj, 'UseLv', 1)
-    
+
 	if icor == 'Icor' then
 		local item_name = TryGetProp(itemObj, 'InheritanceRandomItemName', 'None')
 		if item_name ~= 'None' then
@@ -316,6 +317,7 @@ function IS_ENABLE_6LINE_REVERT_RANDOM_ITEM(itemObj)
 				return false, 'None'
 			end
             
+            Lv = TryGetProp(cls, "UseLv", 1)
 			if Lv < 430 then				
 				return false, 'Level';
 			end

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<uiframe name="composition_vibora" x="0" y="0" width="500" height="1160" create="open">
+	<draw drawtitlebar="false"/>
+	<skin frameskin="None"/>
+	<frame fullheight="true" fasthide="true" layout_gravity="left top" open="pip" margin="-470 0 0 0"/>
+	<layer layerlevel="80"/>
+	<option closebutton="false"/>
+	<sound opensound="window_open" closesound="window_close"/>
+	<script OpenScp="COMPOSITION_VIBORA_OPEN" CloseScp="COMPOSITION_VIBORA_CLOSE"/>
+	<userconfig COMPOSITON_SLOT_EFFECT="UI_item_parts1" RESULT_EFFECT="UI_item_parts2_success"/>
+	<controls>
+		<groupbox name="bg" rect="0 0 500 1030" margin="0 0 0 0" layout_gravity="center top" draw="true" hittestbox="false" resizebyparent="false" resizebyresolution="true" scrollbar="true" skin="test_frame_low"/>
+		<groupbox name="pipwin_top" rect="0 0 500 60" margin="0 0 0 0" layout_gravity="center top" draw="true" hittestbox="false" resizebyparent="false" scrollbar="false" skin="test_frame_top"/>
+		<richtext name="title" rect="0 0 120 24" margin="0 17 0 0" layout_gravity="center top" drawbackground="false" fixwidth="false" fontname="white_16_ol" maxwidth="0" resizebytext="true" slideshow="false" spacey="0" textalign="left top" updateparent="false" format="{@st43}%s" param1="value" param1_def="바이보라 합성"/>
+		<button name="close" rect="0 0 44 44" margin="0 20 28 0" layout_gravity="right top" oversound="button_over" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" clicksound="button_click_big" image="testclose_button" LBtnUpScp="COMPOSITION_VIBORA_CLOSE"/>
+		<slot name="slot_1" rect="0 0 120 120" margin="-140 140 0 0" layout_gravity="center top" movepop="false" dropsound="icon_get_down" picksound="icon_pick_up" skin="invenslot2" RBtnUpArgNum='1' RBtnUpScp="COMPOSITION_VIBORA_ITEM_POP" DropArgNum='1' DropScp="COMPOSITION_VIBORA_ITEM_DROP"/>
+		<picture name="slot_img_1" parent="slot_1" rect="0 0 100 100" margin="0 0 0 0" layout_gravity="center center" image="socket_slot_bg" stretch="true" hittest="false"/>
+		<slot name="slot_2" rect="0 0 120 120" margin="0 140 0 0" layout_gravity="center top" movepop="false" dropsound="icon_get_down" picksound="icon_pick_up" skin="invenslot2" RBtnUpArgNum='2' RBtnUpScp="COMPOSITION_VIBORA_ITEM_POP" DropArgNum='2' DropScp="COMPOSITION_VIBORA_ITEM_DROP"/>
+		<picture name="slot_img_2" parent="slot_2" rect="0 0 100 100" margin="0 0 0 0" layout_gravity="center center" image="socket_slot_bg" stretch="true" hittest="false"/>
+		<slot name="slot_3" rect="0 0 120 120" margin="140 140 0 0" layout_gravity="center top" movepop="false" dropsound="icon_get_down" picksound="icon_pick_up" skin="invenslot2" RBtnUpArgNum='3' RBtnUpScp="COMPOSITION_VIBORA_ITEM_POP" DropArgNum='3' DropScp="COMPOSITION_VIBORA_ITEM_DROP"/>
+		<picture name="slot_img_3" parent="slot_3" rect="0 0 100 100" margin="0 0 0 0" layout_gravity="center center" image="socket_slot_bg" stretch="true" hittest="false"/>
+		<richtext name="text_input" rect="0 0 400 30" margin="0 280 0 0" layout_gravity="center top" format="{@st43}{s20}%s" param1="value" param1_def="합성할 아이템을 올려주세요" fontname="white_16_b_ol"/>
+		<!-- result -->
+		<groupbox name="reinfResultBox" rect="0 0 500 700" margin="0 320 0 0" layout_gravity="center top" draw="false" resizebyresolution="true" resizebyparent="true"/>
+		<picture name="successBgBox" parent="reinfResultBox" rect="0 0 507 500" margin="0 60 0 0" layout_gravity="center top" hittest="true" image="SUCCESS_gold_bg"/>
+		<picture name="successPic" parent="successBgBox" rect="0 0 401 150" hittest="false" image="BnYellow_skin" margin="0 240 0 0" stretch="true" layout_gravity="center top"/>
+		<slot name="successItem" parent="successBgBox" rect="0 0 140 140" margin="0 120 0 0" layout_gravity="center top" hittest="true"/>
+		<picture name="successTextPic" parent="successBgBox" rect="0 0 330 133" hittest="false" image="card_reinforce_SUCCESS" margin="0 240 0 0" stretch="true" layout_gravity="center top"/>
+		<button name="do_composition" rect="0 0 180 50" margin="0 0 0 70" layout_gravity="center bottom" skin="test_red_button" format="{@st41b}{s18}%s" oversound="button_cursor_over_3" param1="value" param1_def="합성" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" clicksound="button_click_big" LBtnUpScp="COMPOSITION_VIBORA_BTN_CLICK"/>
+		<button name="resetBtn" rect="0 0 180 50" margin="0 0 0 70" layout_gravity="center bottom" skin="test_red_button" caption="{@st42}확인" LBtnUpScp="COMPOSITION_VIBORA_UI_RESET"/>
+		<richtext name="tip_text" rect="0 0 430 150" margin="0 0 0 100" layout_gravity="center bottom" hittest="false" resizebytext="false" fixwidth="true" caption="{@st66b}{s16}- 3개의 바이보라 무기를 합성하여 무작위 바이보라 무기를 획득합니다. {nl} - 장착 레벨이 430인 바이보라만 합성이 가능 합니다. {nl} - 연성된 바이보라 장비는 합성이 불가능 합니다."/>
+	</controls>
+</uiframe>

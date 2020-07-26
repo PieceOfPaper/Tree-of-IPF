@@ -181,3 +181,6 @@ ClassID,ConditionArg4,ClassName,UseType,ValueType,PropertyType,ConditionScp,Cond
 180,0,"card_Glacier","Always","StarCount","","","","","","SCR_CARDEFFECT_STATUS_ALL_PLUS","CON_ITEM_BM/MNA_ITEM_BM","CON_ITEM_BM/MNA_ITEM_BM","1/1","정신, 체력 + {@st66d_y}{s16}[%d]{/}{/}","1"
 181,0,"Master_card_EdmundasTiller","Always","StarCount","","","","100","","SCR_CARDEFFECT_STATUS_PLUS","DEX_ITEM_BM","","4","민첩 스탯 +{@st66d_y}{s16}[%d]{/}{/}","4"
 182,0,"Master_card_Rozaliia","Always","StarCount","","","","100","","SCR_CARDEFFECT_STATUS_PLUS","MNA_ITEM_BM","","4","정신 스탯 +{@st66d_y}{s16}[%d]{/}{/}","4"
+183,0,"Master_card_Vilius","Always","StarCount","","","","100","","SCR_CARDEFFECT_STATUS_PLUS","HR_BM","HR","10","명중 +{@st66d_y}{s16}[%d]{/}{/}","10"
+184,0,"Master_card_JenaHavindar","Always","StarCount","","","","","","SCR_CARDEFFECT_STATUS_ALL_PLUS","Add_Damage_Atk_BM","Add_Damage_Atk","40","추가 대미지 + {@st66d_y}{s16}[%d]{/}{/}","40"
+185,0,"Legendcard_Glacier","Always","StarCount","","","","100","","SCR_CARDEFFECT_STATUS_PLUS","Paramune_Atk_BM","Paramune_Atk_BM","750","변이형 대상 공격력+{@st66d_y}{s16}[%d]{/}{/}","750"

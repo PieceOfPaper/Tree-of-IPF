@@ -468,6 +468,9 @@ end"/>
 				<Num Num="0" />
 				<Str Str="voice_wiz_m_kurdaitcha_cast" />
 			</ToolScp>
+			<ToolScp Client="NO" Scp="SKL_RUN_SCRIPT" UseSleep="NO">
+				<Str Str="SCR_ITEM_GLACIER_STAFF_Kurdaitcha"/>
+			</ToolScp>
 		</KeyInputStart>
 		<KeyInputEnd>
 			<ToolScp Client="NO" Scp="SKL_RUN_SCRIPT" UseSleep="NO">

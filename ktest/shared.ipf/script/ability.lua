@@ -1846,6 +1846,12 @@ function SCR_ABIL_Arbalester10_INACTIVE(self, ability)
 end
 
 function SCR_ABIL_SPEARMASTERY_Dagger_ACTIVE(self, ability)
+    SCR_ABIL_SPEARMASTERY_Dagger_CALC(self, ability)
+end
+
+function SCR_ABIL_SPEARMASTERY_Dagger_CALC(self, ability)
+    local prev_addATK = GetExProp(ability, "ABIL_ADD_ATK");
+
     local addATK = 0;
 
     local rItem  = GetEquipItem(self, 'RH');
@@ -1854,8 +1860,23 @@ function SCR_ABIL_SPEARMASTERY_Dagger_ACTIVE(self, ability)
         local akt = (lItem.MINATK + lItem.MAXATK) / 2
         addATK = math.floor(akt * 0.25);
     end
+
+    local add_rate = 1;
+    if IsBuffApplied(self, 'SwellHands_Buff') == 'YES' then
+        local swellhands_buff = GetBuffByName(self, 'SwellHands_Buff');
+        local max_ratio = GetExProp(swellhands_buff, 'MAX_RATIO');
+		add_rate = add_rate + (max_ratio / 100);
+    end
+
+    if IsBuffApplied(self, 'Honor_Buff') == 'YES' then
+        local honor_buff = GetBuffByName(self, 'Honor_Buff');
+        local add_patk = GetExProp(honor_buff, 'ADD_PATK');
+		add_rate = add_rate + add_patk;
+    end
+
+    addATK = addATK * add_rate;
     
-    self.PATK_MAIN_BM = self.PATK_MAIN_BM + addATK;
+    self.PATK_MAIN_BM = self.PATK_MAIN_BM - prev_addATK + addATK;
     
     SetExProp(ability, "ABIL_ADD_ATK", addATK);
 end

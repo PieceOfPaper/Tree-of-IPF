@@ -503,8 +503,7 @@ function SCR_GET_SKL_READY_RF(skill)
 
 end
 
-function SCR_GET_SKL_COOLDOWN(skill)
-    
+function SCR_GET_SKL_COOLDOWN(skill)    
     local pc = GetSkillOwner(skill);
     local basicCoolDown = skill.BasicCoolDown;
     local abilAddCoolDown = GetAbilityAddSpendValue(pc, skill.ClassName, "CoolDown");
@@ -836,7 +835,7 @@ function SCR_GET_SKL_COOLDOWN_Chronomancer_Stop(skill)
     return math.floor(ret);
 end
 
-function SCR_GET_SKL_COOLDOWN_WIZARD(skill)
+function SCR_GET_SKL_COOLDOWN_WIZARD(skill)    
     local cls = GetClassList("SkillRestrict");
     local pc = GetSkillOwner(skill);
     
@@ -865,7 +864,6 @@ function SCR_GET_SKL_COOLDOWN_WIZARD(skill)
     local abilAddCoolDown = GetAbilityAddSpendValue(pc, skill.ClassName, "CoolDown");
     
     basicCoolDown = basicCoolDown + abilAddCoolDown;
-    
     basicCoolDown = SCR_COMMON_COOLDOWN_DECREASE(pc, skill, basicCoolDown)
 
     if IsPVPServer(pc) == 1 then
@@ -4359,7 +4357,7 @@ end
 
 -- 데스모두스 흡혈 디버프와 네크로맨서 시독 디버프 대미지 증가 통합 적용
 function SCR_GET_SummonDamage_Ratio(skill)
-    local value = skill.Level * 84
+    local value = 210 + (skill.Level-1) * 10
 
     return value
 end
@@ -10992,8 +10990,17 @@ function SCR_GET_Devaluation_BuffTime(skill)
 end
 
 function SCR_GET_Blindside_Ratio2(skill)
+    local pc = GetSkillOwner(skill);
     local value = 5 + skill.Level
-    value = math.floor(value * SCR_REINFORCEABILITY_TOOLTIP(skill))
+
+    local abilRateAdd = 1
+    local abilAppraiser3 = GetAbility(pc, "Appraiser3")
+    if abilAppraiser3 ~= nil and TryGetProp(abilAppraiser3, "ActiveState") == 1 then
+        local abillevel = TryGetProp(abilAppraiser3, "Level", 0)
+        abilRateAdd = abilRateAdd + (abillevel * 0.005 + 0.1)
+    end
+
+    value = math.floor(value * abilRateAdd)
     
     return value
 end
@@ -13180,7 +13187,26 @@ function SCR_COMMON_COOLDOWN_DECREASE(pc, skill, basicCoolDown)
     --         basicCoolDown = basicCoolDown * 0.5;
     --     end
     -- end
+    
+-- 바카리네 방어구
+    if IsBuffApplied(pc, 'ITEM_BUFF_vakarine_armor') == 'YES' and IsShieldSkill(TryGetProp(skill, 'ClassName', 'None')) == 1 and TryGetProp(skill, 'ValueType', 'None') == 'Attack' then 
+        basicCoolDown = basicCoolDown * (1 - 0.2) -- 감소율 20%
+    end
 
+    -- 달리아 방어구
+    if IsBuffApplied(pc, 'ITEM_BUFF_dalia_fury') == 'YES' and TryGetProp(skill, 'CastingCategory', 'None') == 'channeling' and TryGetProp(skill, 'ValueType', 'None') == 'Attack' then
+        basicCoolDown = basicCoolDown * (1 - 0.2) -- 감소율 20%
+    end
+
+    -- 가비야의 선물    
+    if IsBuffApplied(pc, 'ITEM_BUFF_gabija_present') == 'YES' then
+        if TryGetProp(skill, 'CastingCategory', 'None') == 'cast' and TryGetProp(skill, 'ValueType', 'None') == 'Attack' then
+            basicCoolDown = basicCoolDown * (1 - 0.2) -- 감소율 20%
+        elseif TryGetProp(skill, 'CastingCategory', 'None') == 'dynamic_casting' and TryGetProp(skill, 'ValueType', 'None') == 'Attack' then
+            basicCoolDown = basicCoolDown * (1 - 0.1) -- 감소율 1%
+        end
+    end
+    
     return basicCoolDown
 end
 
@@ -13562,4 +13588,56 @@ function SCR_Get_SkillFactor_Vibora_Katadikazo(skill)
     value = (value * 3) * 2
     
     return value
+end
+
+-- done, 해당 함수 내용은 cpp로 이전되었습니다. 변경 사항이 있다면 반드시 프로그램팀에 알려주시기 바랍니다.
+function SCR_GET_Sauk_Ratio(skill)
+    local value = 5
+    local pc = GetSkillOwner(skill)
+    if pc ~= nil then        
+        if HAS_DRAGON_POWER(pc) == true then
+            value = value + 3
+        end  
+    end
+
+    return value;
+end
+
+-- done, 해당 함수 내용은 cpp로 이전되었습니다. 변경 사항이 있다면 반드시 프로그램팀에 알려주시기 바랍니다.
+function SCR_GET_Ezera_Ratio(skill)
+    local value = 25
+    local pc = GetSkillOwner(skill)
+    if pc ~= nil then        
+        if HAS_DRAGON_POWER(pc) == true then
+            value = value + 10
+        end  
+    end
+
+    return value;
+end
+
+-- done, 해당 함수 내용은 cpp로 이전되었습니다. 변경 사항이 있다면 반드시 프로그램팀에 알려주시기 바랍니다.
+function SCR_GET_Balinta_Ratio(skill)
+    local value = 175
+    local pc = GetSkillOwner(skill)
+    if pc ~= nil then        
+        if HAS_DRAGON_POWER(pc) == true then
+            value = 250
+        end  
+    end
+
+    return value;
+end
+
+-- done, 해당 함수 내용은 cpp로 이전되었습니다. 변경 사항이 있다면 반드시 프로그램팀에 알려주시기 바랍니다.
+function SCR_GET_Karys_Ratio(skill)
+    local value = 100
+    local pc = GetSkillOwner(skill)
+    if pc ~= nil then        
+        if HAS_DRAGON_POWER(pc) == true then
+            value = 150
+        end  
+    end
+
+    return value;
 end

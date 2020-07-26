@@ -262,55 +262,55 @@ function GODDESS_ROULETTE_COIN_STAMP_TOUR_STATE_OPEN(frame)
 end
 
 function CREATE_GODDESS_ROULETTE_COIN_STAMP_TOUR_LIST(starty, listgb, isClear)	
-	local accObj = GetMyAccountObj();
-	if accObj == nil then return; end
+	-- local accObj = GetMyAccountObj();
+	-- if accObj == nil then return; end
 
-	local y = starty;
-	local clsList, clsCnt = GetClassList("note_eventlist");
-	for i = 0, clsCnt - 3 do	-- 주간(1), 주간(2)는 룰렛코인 주지 않아 clsCnt - 3
-		local missionCls = GetClassByIndexFromList(clsList, i);
-		for j = 1, 3 do
-			local clearprop = TryGetProp(missionCls, "ClearProp"..j, 'None');
-			local clear = TryGetProp(accObj, clearprop, 'false');
+	-- local y = starty;
+	-- local clsList, clsCnt = GetClassList("note_eventlist");
+	-- for i = 0, clsCnt - 3 do	-- 주간(1), 주간(2)는 룰렛코인 주지 않아 clsCnt - 3
+	-- 	local missionCls = GetClassByIndexFromList(clsList, i);
+	-- 	for j = 1, 3 do
+	-- 		local clearprop = TryGetProp(missionCls, "ClearProp"..j, 'None');
+	-- 		local clear = TryGetProp(accObj, clearprop, 'false');
 
-			if (clear == 'true' and isClear == true) or (clear == 'false' and isClear == false) then
-				local missiontext = TryGetProp(missionCls, "Desc"..j, "");
-				local missionlist = StringSplit(missiontext, ":");
+	-- 		if (clear == 'true' and isClear == true) or (clear == 'false' and isClear == false) then
+	-- 			local missiontext = TryGetProp(missionCls, "Desc"..j, "");
+	-- 			local missionlist = StringSplit(missiontext, ":");
 
-				if missiontext ~= "None" then
-					local ctrlSet = listgb:CreateControlSet('check_to_do_list', "CTRLSET_" ..i.."_"..j,  ui.CENTER_HORZ, ui.TOP, -10, y, 0, 0);
-					local rewardtext = GET_CHILD(ctrlSet, "rewardtext");
-					rewardtext:SetTextByKey('value', missionlist[1]);
-					if #missionlist > 1 then
-						local tooltipText = string.format( "%s", missionlist[2]);
-						rewardtext:SetTextTooltip(tooltipText);
-						rewardtext:EnableHitTest(1);
-					else
-						rewardtext:SetTextTooltip("");
-						rewardtext:EnableHitTest(0);
-					end
+	-- 			if missiontext ~= "None" then
+	-- 				local ctrlSet = listgb:CreateControlSet('check_to_do_list', "CTRLSET_" ..i.."_"..j,  ui.CENTER_HORZ, ui.TOP, -10, y, 0, 0);
+	-- 				local rewardtext = GET_CHILD(ctrlSet, "rewardtext");
+	-- 				rewardtext:SetTextByKey('value', missionlist[1]);
+	-- 				if #missionlist > 1 then
+	-- 					local tooltipText = string.format( "%s", missionlist[2]);
+	-- 					rewardtext:SetTextTooltip(tooltipText);
+	-- 					rewardtext:EnableHitTest(1);
+	-- 				else
+	-- 					rewardtext:SetTextTooltip("");
+	-- 					rewardtext:EnableHitTest(0);
+	-- 				end
 		
-					local rewardcnt = GET_CHILD(ctrlSet, "rewardcnt");
-					rewardcnt:SetTextByKey('value', GODDESS_ROULETTE_STAMP_TOUR_CLEAR_COIN_COUNT);
+	-- 				local rewardcnt = GET_CHILD(ctrlSet, "rewardcnt");
+	-- 				rewardcnt:SetTextByKey('value', GODDESS_ROULETTE_STAMP_TOUR_CLEAR_COIN_COUNT);
 		
-					local checkbox = GET_CHILD(ctrlSet, "checkbox");
-					local completion = GET_CHILD(ctrlSet, "completion");
-					local checkline = GET_CHILD(ctrlSet, "checkline");
+	-- 				local checkbox = GET_CHILD(ctrlSet, "checkbox");
+	-- 				local completion = GET_CHILD(ctrlSet, "completion");
+	-- 				local checkline = GET_CHILD(ctrlSet, "checkline");
 	
-					if clear == 'true' then
-						completion:ShowWindow(1);
-						checkline:ShowWindow(1);
-					else
-						completion:ShowWindow(0);
-						checkline:ShowWindow(0);
-					end
-					y = y + ctrlSet:GetHeight();					
-				end			
-			end
-		end
-	end
+	-- 				if clear == 'true' then
+	-- 					completion:ShowWindow(1);
+	-- 					checkline:ShowWindow(1);
+	-- 				else
+	-- 					completion:ShowWindow(0);
+	-- 					checkline:ShowWindow(0);
+	-- 				end
+	-- 				y = y + ctrlSet:GetHeight();					
+	-- 			end			
+	-- 		end
+	-- 	end
+	-- end
 
-	return y;
+	-- return y;
 end
 
 ------------------------- 콘텐츠 -------------------------

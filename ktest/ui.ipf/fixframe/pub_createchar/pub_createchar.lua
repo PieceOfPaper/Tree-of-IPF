@@ -277,18 +277,52 @@ function IS_FULL_SLOT_CURRENT_LAYER()
     return false
 end
 
-function PUB_EXEC_CREATECHAR(parent, ctrl)    
+function PUB_CREATECHAR_NAME_CHECK()
+	local frame = ui.GetFrame("pub_createchar");
+	local input_name = GET_CHILD_RECURSIVELY(frame, "input_name");
+	local text = input_name:GetText();
+	if text ~= nil and text == "" then
+		local textMsg = ScpArgMsg("pubcreate_need_to_enter_name");
+		ui.MsgBox(textMsg);
+		return;
+	end
+
 	local accountInfo = session.barrack.GetMyAccount();
-	if accountInfo:GetPCCount() > 0 then
-		local frame = ui.GetFrame("pub_createchar");
-		local input_name = GET_CHILD_RECURSIVELY(frame, "input_name");
-		local text = input_name:GetText();
-		if text ~= nil and text == "" then
-			local textMsg = ScpArgMsg("pubcreate_need_to_enter_name");
-			ui.MsgBox(textMsg);
+	local cnt = accountInfo:GetPCCount();
+	-- 팀내 같은 이름의 캐릭터가 있는지 확인	
+	for i = 0 , cnt - 1 do
+		local pcInfo = accountInfo:GetPCByIndex(i);
+		local pcApc = pcInfo:GetApc();
+		if pcApc:GetName() == text then
+			ui.SysMsg(ClMsg("NameAlreadyExist"));
 			return;
 		end
+	end
+	
+	if ui.IsValidCharacterName(text) == false then
+		return;
+	end
 
+	local input_name = GET_CHILD(frame, "input_name");
+	input_name:SetEnable(0);
+
+	local createcharBtn = GET_CHILD(frame, "createcharBtn");
+	createcharBtn:SetEnable(0);
+
+	local msg = ScpArgMsg("PossibleChangeName_2{Name}", "Name", text).." {nl}"..ScpArgMsg("ReallCreate?");
+	local msgBox = ui.MsgBox(msg, "PUB_EXEC_CREATECHAR()", "PUB_CREATECHAR_BTN_UNFREEZE()");
+end
+
+function PUB_EXEC_CREATECHAR()
+	local frame = ui.GetFrame("pub_createchar");
+	local input_name = GET_CHILD_RECURSIVELY(frame, "input_name");
+	local text = input_name:GetText();
+	if text ~= nil and text == "" then
+		return;
+	end
+
+	local accountInfo = session.barrack.GetMyAccount();
+	if accountInfo:GetPCCount() > 0 then
 		local msg = ScpArgMsg("WillYouSeeOpeningAgain?");
 		ui.MsgBox(msg, "_PUB_EXEC_CREATECHAR(1)", "_PUB_EXEC_CREATECHAR(0)");
 	else
@@ -309,6 +343,17 @@ function _PUB_EXEC_CREATECHAR(viewOpening)
 	local actor = GetBarrackPub():GetSelectedActor();
 	barrack.RequestCreateCharacter(text, actor, make_layer);
 	GetBarrackPub():EnablePlayOpening(viewOpening);
+end
+
+function PUB_CREATECHAR_BTN_UNFREEZE()
+	local frame = ui.GetFrame("pub_createchar");
+
+
+	local input_name = GET_CHILD(frame, "input_name");
+	input_name:SetEnable(1);
+
+	local createcharBtn = GET_CHILD(frame, "createcharBtn");
+	createcharBtn:SetEnable(1);
 end
 
 -------------- custom face 

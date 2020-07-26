@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<uiframe name="icorrelease_multiple" x="0" y="0" width="704" height="609" create="open">
+	<draw drawtitlebar="false"/>
+	<skin frameskin=" "/>
+	<frame title="" fullheight="true" fasthide="true" layout_gravity="left top" open="pip" margin="-470 0 0 0"/>
+	<input maxwidth="1280" moveable="false"/>
+	<layer layerlevel="92"/>
+	<option closebutton="false"/>
+	<sound opensound="window_open" closesound="window_close"/>
+	<script OpenScp="ICORRELEASE_MULTIPLE_OPEN" CloseScp="ICORRELEASE_MULTIPLE_CLOSE"/>
+	<userconfig RELEASE_RESULT_SOUND="sys_transcend_success" RELEASE_SUCCESS_SOUND="sys_transcend_success" ICOR_IMAGE_WEAPON="item_icon_weapon_linksoul1" ICOR_IMAGE_ARMOR="item_icon_weapon_linksoul2" SLOT_MARGIN_LEFT="10"/>
+	<controls>
+		<groupbox name="bg" rect="0 0 704 1027" margin="0 0 0 0" layout_gravity="center top" draw="true" hittestbox="false" resizebyparent="false" resizebyresolution="true" scrollbar="true" skin="test_frame_low"/>
+		<groupbox name="pipwin_top" rect="0 0 704 61" margin="0 0 0 0" layout_gravity="center top" draw="true" hittestbox="false" resizebyparent="false" scrollbar="false" skin="test_frame_top"/>
+		<richtext name="richtext_1" rect="0 0 120 24" margin="0 18 0 0" layout_gravity="center top" drawbackground="false" fixwidth="false" fontname="white_16_ol" maxwidth="0" resizebytext="true" slideshow="false" spacey="0" textalign="left top" updateparent="false" format="{@st43}%s" param1="value" param1_def="아이커 일괄 장착 해제(고정옵션)"/>
+		<button name="do_release" rect="0 0 178 48" margin="0 0 0 70" layout_gravity="center bottom" LBtnUpScp="ICORRELEASE_MULTIPLE_EXEC" skin="test_red_button" format="{@st41b}{s18}%s" oversound="button_cursor_over_3" param1="value" param1_def="장착 해제" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" clicksound="button_click_big"/>
+		<button name="send_ok" rect="0 0 178 48" margin="0 0 0 70" layout_gravity="center bottom" LBtnUpScp="CLEAR_ICORRELEASE_MULTIPLE" skin="test_red_button" format="{@st41b}{s18}%s" oversound="button_cursor_over_3" param1="value" param1_def="확인" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" clicksound="button_click_big"/>
+		<button name="close" rect="0 0 44 44" margin="0 15 28 0" layout_gravity="right top" LBtnUpArgNum="" LBtnUpScp="ICORRELEASE_MULTIPLE_CLOSE" oversound="button_over" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" clicksound="button_click_big" image="testclose_button"/>
+		<groupbox name="costBox" parent="bg" rect="0 0 682 40" margin="0 0 0 80" layout_gravity="center bottom" skin="test_frame_midle"/>
+		<richtext name="costStaticText" parent="costBox" rect="0 0 300 30" margin="10 0 0 7" layout_gravity="left bottom" format="{img silver_pic 24 24} 가격 {img white_right_arrow 16 16} %s" param1="tax_rate" fontname="white_16_b_ol"/>
+		<richtext name="priceText" parent="costBox" rect="0 0 300 30" margin="0 0 10 10" layout_gravity="right bottom" format="{@st66d_y}%s" param1="price" param1_def="0"/>
+		<groupbox name="bgBox" rect="0 0 682 823" margin="0 60 0 0" layout_gravity="center top" draw="false" hittestbox="false" resizebyparent="false" resizebyresolution="true" scrollbar="true"/>
+		<controlset name="ctrlset_1" parent="bgBox" rect="0 0 657 222" margin="0 0 0 0" type="icorrelease_multiple_set" layout_gravity="left top" hittestbox="false" scrollbar="false"/>
+		<controlset name="ctrlset_2" parent="bgBox" rect="0 0 657 222" margin="0 224 0 0" type="icorrelease_multiple_set" layout_gravity="left top" hittestbox="false" scrollbar="false"/>
+		<controlset name="ctrlset_3" parent="bgBox" rect="0 0 657 222" margin="0 448 0 0" type="icorrelease_multiple_set" layout_gravity="left top" hittestbox="false" scrollbar="false"/>
+		<controlset name="ctrlset_4" parent="bgBox" rect="0 0 657 222" margin="0 672 0 0" type="icorrelease_multiple_set" layout_gravity="left top" hittestbox="false" scrollbar="false"/>
+		<controlset name="ctrlset_5" parent="bgBox" rect="0 0 657 222" margin="0 896 0 0" type="icorrelease_multiple_set" layout_gravity="left top" hittestbox="false" scrollbar="false"/>
+		<controlset name="ctrlset_6" parent="bgBox" rect="0 0 657 222" margin="0 1120 0 0" type="icorrelease_multiple_set" layout_gravity="left top" hittestbox="false" scrollbar="false"/>
+	</controls>
+</uiframe>

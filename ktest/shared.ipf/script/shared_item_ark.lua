@@ -1,5 +1,19 @@
 -- 아이템 아크 shared_item_ark.lua
 
+function replace(text, to_be_replaced, replace_with)
+	local retText = text
+	local strFindStart, strFindEnd = string.find(text, to_be_replaced)	
+    if strFindStart ~= nil then
+		local nStringCnt = string.len(text)		
+		retText = string.sub(text, 1, strFindStart-1) .. replace_with ..  string.sub(text, strFindEnd+1, nStringCnt)		
+    else
+        retText = text
+	end
+	
+    return retText
+end
+
+
 shared_item_ark = {}
 max_ark_option_count = 10 -- 옵션이 최대 10개 있다고 가정함
 item_ark_grow_ratio = 0.2  -- 아이템 렙업을 위한 재료 요구량 증가 계수
@@ -35,9 +49,9 @@ end
 -- 축석 개수, 신비한 서 낱장, 시에라 스톤 순으로 반환
 shared_item_ark.get_require_count_for_next_lv = function(goal_lv, max_lv)    
     if max_lv == nil or max_lv == 0 then
-        max_lv = 7
+        max_lv = 5
     else
-        max_lv = 7
+        max_lv = 5
     end
 
     local multiple = tonumber(string.format('%.2f',math.floor(goal_lv * (goal_lv * item_ark_grow_ratio))))    
@@ -91,8 +105,15 @@ shared_item_ark.get_require_count_for_exp_up = function(goal_lv, max_lv)
 end
 
 shared_item_ark.is_valid_condition_for_copy = function(item_dest, item_src)
+    local src_max_lv = TryGetProp(item_src, 'MaxArkLv')
+    local dest_max_lv = TryGetProp(item_dest, 'MaxArkLv')
+
     local src_lv = TryGetProp(item_src, 'ArkLevel', 1)
     local dest_lv = TryGetProp(item_dest, 'ArkLevel', 1) 
+
+    if dest_max_lv < src_lv then
+        return false
+    end
 
     if dest_lv > src_lv then
         return false
@@ -111,14 +132,14 @@ shared_item_ark.is_valid_condition_for_copy = function(item_dest, item_src)
 end
 
 -- 최대렙 확인
-shared_item_ark.is_max_lv = function(item)
+shared_item_ark.is_max_lv = function(item)    
     if item == nil then
         return "YES"
     end
 
     local max = TryGetProp(item, 'MaxArkLv', 10)    
     local lv = TryGetProp(item, 'ArkLevel', 1)
-
+    
     if lv >= max then
         return "YES"
     else
@@ -128,7 +149,7 @@ end
 
 -- 다음 레벨에 필요한 경험치
 shared_item_ark.get_next_lv_exp = function(item)    
-    local is_max_lv = shared_item_ark.is_max_lv(item)
+    local is_max_lv = shared_item_ark.is_max_lv(item)    
     if is_max_lv == "YES" then        
         return false, nil
     end
@@ -268,9 +289,9 @@ function get_tooltip_Ark_storm_arg2()
     return 3, 'ARK_STORM_RATIO', 3, 2, 15
 end
 
--- 세번째 옵션 폭풍 계수는 5레벨당 x씩 오른다. 총 16회, 1200 + (10 * 250) = 3700%
+-- 세번째 옵션 폭풍 계수는 5레벨당 x씩 오른다. 총 16회, 2400 + (10 * 490) = 7300%
 function get_tooltip_Ark_storm_arg3()
-    return 3, 'ARK_STORM_ATTACK', 5, 250, 1200
+    return 3, 'ARK_STORM_ATTACK', 5, 490, 2400
 end
 
 -------------- 아크 - 분산 ----------------

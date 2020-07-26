@@ -135,9 +135,6 @@
 					<Str Str="voice_archer_m_atk" />
 					<Str Str="voice_archer_f_atk" />
 				</Scp>
-				<Scp Client="NO" Scp="SKL_TOGGLE_ON" Time="0" UseSleep="NO">
-					<Num Num="1" />
-				</Scp>
 				<Anim Anim="SKL_KNEELINGSHOT_SIT" Speed="1" Time="0" />
 				<Scp Client="NO" Scp="SKL_BUFF" Time="0" UseSleep="NO">
 					<Str Str="Archer_Kneelingshot" />
@@ -175,9 +172,6 @@
 						<Scp Client="YES" Scp="C_VOICE_SOUND" Time="0" UseSleep="NO">
 							<Str Str="voice_archer_m_atk" />
 							<Str Str="voice_archer_f_atk" />
-						</Scp>
-						<Scp Client="NO" Scp="SKL_TOGGLE_ON" Time="0" UseSleep="NO">
-							<Num Num="0" />
 						</Scp>
 						<Scp Client="NO" Scp="SKL_BUFF_REMOVE" Time="0" UseSleep="NO">
 							<Str Str="Archer_Kneelingshot" />

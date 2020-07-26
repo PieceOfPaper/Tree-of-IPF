@@ -34,6 +34,7 @@
 		<picture name="cycleCtrlPic" parent="countBox" rect="0 0 51 27" margin="0 3 75 0" layout_gravity="right center" image="indun_icon_event_l_eng"/>
 		<richtext name="countText" parent="countBox" rect="0 0 190 30" margin="30 0 0 0" layout_gravity="left center" fontname="brown_18_b" caption="입장 횟수"/>
 		<richtext name="countData" parent="countBox" rect="0 0 190 30" margin="0 0 0 0" layout_gravity="right center" textalign="right center" fontname="brown_18_b" format="%s/%s회" param1="now" param1_def="0" param2="max" param2_def="3"/>
+		<richtext name="countData2" parent="countBox" rect="0 0 190 30" margin="0 0 0 0" layout_gravity="right center" textalign="right center" fontname="brown_18_b" format="%s회 가능" param1="now" param1_def="0"/>
 		<richtext name="countItemData" parent="countBox" rect="0 0 190 30" margin="0 0 0 0" layout_gravity="right center" textalign="right center" fontname="brown_18_b" format="%s개" param1="admissionitem" param1_def="0"/>
 		<picture name="tokenStatePic" parent="countBox" rect="0 0 30 30" margin="0 -200 0 0" layout_gravity="right center" image="token_on" stretch="true" texttooltip="토큰 혜택으로 1회 추가 입장 가능합니다."/>
 		<!-- Level -->

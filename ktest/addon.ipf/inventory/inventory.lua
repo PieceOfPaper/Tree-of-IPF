@@ -1647,6 +1647,11 @@ function CHECK_INV_LBTN(frame, object, argStr, argNum)
 		return;
 	end
 	
+	local invitem = session.GetInvItem(argNum);
+	if invitem ~= nil and INVENTORY_LBTN_MARKET_SELL(invitem) == true then
+		return;
+	end
+
 	local havetg = item.HaveTargetItem();
 	if havetg == 0 then
 		return;
@@ -1758,10 +1763,6 @@ function INVENTORY_RBDC_ITEMUSE(frame, object, argStr, argNum)
 	if INVENTORY_RBTN_LEGENDDECOMPOSE(invitem) == true then
 		return;
 	end
-
-    if INVENTORY_RBTN_MARKET_SELL(invitem) == true then
-    	return;
-    end
 	
 	local invFrame = ui.GetFrame("inventory");	
 	invFrame:SetUserValue("INVITEM_GUID", invitem:GetIESID());
@@ -2413,7 +2414,7 @@ function INVENTORY_OP_POP(frame, slot, str, num)
 	--INVENTORY_TOTAL_LIST_GET(frame);
 end
 
-function INV_ICON_SETINFO(frame, slot, invItem, customFunc, scriptArg, count)
+function INV_ICON_SETINFO(frame, slot, invItem, customFunc, scriptArg, count)	
 	local icon = CreateIcon(slot);
 	local class = GetClassByType('Item', invItem.type);
 	if class == nil then		
@@ -2491,7 +2492,7 @@ function INV_ICON_SETINFO(frame, slot, invItem, customFunc, scriptArg, count)
 		DESTROY_CHILD_BYNAME(slot, "itemlock")
 	end
 
-    if invItem.hasLifeTime == true  then
+    if invItem.hasLifeTime == true or TryGetProp(itemobj, 'ExpireDateTime', 'None') ~= 'None' then
         ICON_SET_ITEM_REMAIN_LIFETIME(icon)
         slot:SetFrontImage('clock_inven');
     end
@@ -3856,12 +3857,17 @@ end
 function IS_LIFETIME_OVER(itemobj)
 	if itemobj.LifeTime == nil then
 		return 0;
-	elseif 0 ~= tonumber(itemobj.LifeTime) then		
+	elseif 0 ~= tonumber(itemobj.LifeTime) or TryGetProp(itemobj, 'ExpireDateTime', 'None') ~= 'None' then					
+		local endTime = imcTime.GetSysTimeByStr(itemobj.ItemLifeTime);		
+		if TryGetProp(itemobj, 'ExpireDateTime', 'None') ~= 'None' then
+			local exprie_str = TryGetProp(itemobj, 'ExpireDateTime', 'None')
+			endTime = imcTime.GetSysTimeByYYMMDDHHMMSS(exprie_str);
+		end
+
 		-- 기간에 따라 정하기
-		local sysTime = geTime.GetServerSystemTime();
-		local endTime = imcTime.GetSysTimeByStr(itemobj.ItemLifeTime);
+		local sysTime = geTime.GetServerSystemTime();		
 		local difSec = imcTime.GetDifSec(endTime, sysTime);		
-		
+
 		-- 기간만료 일 경우에
 		if 0 > difSec then
 			return 1;
@@ -3870,8 +3876,8 @@ function IS_LIFETIME_OVER(itemobj)
 		-- ItemLifeTimeOver으로 검사하는 함수		
 		if 0 ~= itemobj.ItemLifeTimeOver then
 			return 1;
-		end;
-	end;
+		end
+	end	
 	return 0;
 end
 
@@ -4055,12 +4061,12 @@ function INVENTORY_RBTN_LEGENDPREFIX(invItem)
 	return true;
 end
 
-function INVENTORY_RBTN_MARKET_SELL(invitem)
+function INVENTORY_LBTN_MARKET_SELL(invitem)
 	local market_sell = ui.GetFrame('market_sell');
 	if market_sell ~= nil and market_sell:IsVisible() == 0  then
 		return false;		
 	end
-	MARKET_SELL_RBUTTON_ITEM_CLICK(market_sell, invitem);
+	MARKET_SELL_LBUTTON_ITEM_CLICK(market_sell, invitem);
 	return true;
 end
 

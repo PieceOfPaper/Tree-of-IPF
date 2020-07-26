@@ -937,9 +937,6 @@
 	<Skill Name="Cannoneer_Bazooka">
 		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
 			<EtcList>
-				<Scp Client="NO" Scp="SKL_TOGGLE_ON" Time="0" UseSleep="NO">
-					<Num Num="1" />
-				</Scp>
 				<Anim Anim="SKL_BAZOOCA_SIT" Speed="1.5" Time="0" />
 				<Scp Client="NO" Scp="SKL_BUFF" Time="0" UseSleep="NO">
 					<Str Str="Bazooka_Buff" />
@@ -968,9 +965,6 @@
 						<Scp Client="YES" Scp="C_VOICE_SOUND" Time="0" UseSleep="NO">
 							<Str Str="voice_archer_m_atk" />
 							<Str Str="voice_archer_f_atk" />
-						</Scp>
-						<Scp Client="NO" Scp="SKL_TOGGLE_ON" Time="0" UseSleep="NO">
-							<Num Num="0" />
 						</Scp>
 						<Scp Client="NO" Scp="SKL_BUFF_REMOVE" Time="0" UseSleep="NO">
 							<Str Str="Bazooka_Buff" />

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<uiframe name="arkdecompose" x="0" y="0" width="520" height="609" create="open">
+	<draw drawtitlebar="false"/>
+	<skin frameskin=" "/>
+	<frame title="" fullheight="true" fasthide="true" layout_gravity="left top" open="pip" margin="-470 0 0 0"/>
+	<input maxwidth="1280" moveable="false"/>
+	<layer layerlevel="80"/>
+	<option closebutton="false"/>
+	<sound opensound="window_open" closesound="window_close"/>
+	<script OpenScp="ARKDECOMPOSE_OPEN" CloseScp="ARKDECOMPOSE_CLOSE"/>
+	<controls>
+		<groupbox name="bg" rect="0 0 520 1030" draw="true" hittestbox="false" margin="0 0 0 0" layout_gravity="center top" resizebyparent="false" resizebyresolution="true" scrollbar="true" skin="test_frame_low"/>
+		<picture name="pip_top_image" rect="0 0 453 70" margin="0 0 0 0" layout_gravity="center top" changecursor="false" hittest="true" image="test_socket_top" stretch="true"/>
+		<groupbox name="pipwin_top" rect="0 0 500 60" margin="0 45 0 0" layout_gravity="center top" draw="true" hittestbox="false" resizebyparent="false" scrollbar="false" skin="test_socket_topskin"/>
+		<richtext name="richtext_1" rect="0 0 120 24" margin="0 63 0 0" layout_gravity="center top" drawbackground="false" fixwidth="false" fontname="white_16_ol" maxwidth="0" resizebytext="true" slideshow="false" spacey="0" textalign="left top" updateparent="false" format="{@st43}%s" param1="value" param1_def="아크 분해"/>
+		<button name="close" rect="0 0 44 44" margin="0 60 40 0" layout_gravity="right top" LBtnUpArgNum="" LBtnUpScp="ui.CloseFrame('arkdecompose')" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" clicksound="button_click_big" image="testclose_button" oversound="button_over"/>
+		<groupbox name="gbox" rect="0 0 520 1014" margin="0 60 0 0" layout_gravity="center top" resizebyparent="false" draw="false" hittestbox="false" resizebyresolution="true" scrollbar="false" skin="gem_socket_bg"/>
+		<groupbox name="slotbox" parent="gbox" rect="0 0 520 320" margin="0 45 0 0" layout_gravity="center top" resizebyparent="false" draw="false" hittestbox="false" resizebyresolution="false" scrollbar="false" skin="gem_socket_bg"/>
+		<slot name="slot" parent="slotbox" margin="0 65 0 0" rect="0 0 150 150" movepop="false" oversound="button_cursor_over_3" dropsound="icon_get_down" picksound="icon_pick_up" skin="invenslot2" DropScp="ARKDECOMPOSE_DROP_TARGET" RBtnUpScp="CLEAR_ARKDECOMPOSE" layout_gravity="center top"/>
+		<picture name="slot_bg_image" parent="slot" rect="0 0 122 115" margin="0 0 0 0" layout_gravity="center center" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" hittest="false" image="socket_slot_bg" oversound="button_over"/>
+		<groupbox name="namebox" rect="0 0 493 57" margin="0 0 0 25" parent="slotbox" layout_gravity="center bottom" draw="true" hittestbox="true" resizebyparent="false" resizebyresolution="false" skin="monster_skill_bg"/>
+		<richtext name="text_itemname" margin="0 -3 0 0" rect="0 0 300 50" parent="namebox" hittestbox="false" textalign="center center" resizebytext="true" spacey="0" maxwidth="0" fontname="white_20_ol" fixwidth="true" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="center center"/>
+		<richtext name="text_putonitem" margin="0 -3 0 0" rect="0 0 400 50" parent="namebox" format="{@st43b}{s18}분해할 아이템을 올려주세요" hittestbox="false" textalign="center center" resizebytext="true" spacey="0" maxwidth="0" fontname="white_20_ol" fixwidth="true" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="center center"/>
+		<richtext name="text_complete" margin="0 -3 0 0" rect="0 0 400 50" parent="namebox" format="{@st43b}{s18}분해가 완료되었습니다" hittestbox="false" textalign="center center" resizebytext="true" spacey="0" maxwidth="0" fontname="white_20_ol" fixwidth="true" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="center center"/>
+		<groupbox name="resultbox" parent="gbox" rect="0 0 466 383" margin="0 395 0 0" layout_gravity="center top" resizebyparent="false" draw="true" hittestbox="false" resizebyresolution="false" scrollbar="false" skin="test_frame_midle"/>
+		<slot name="result1" parent="resultbox" margin="20 31 0 0" rect="0 0 140 140" movepop="false" hittest="false" dropsound="icon_get_down" picksound="icon_pick_up" skin="invenslot2" layout_gravity="left top"/>
+		<richtext name="text_result1" margin="170 31 0 0" rect="0 0 200 50" parent="resultbox" hittestbox="false" textalign="left center" resizebytext="true" spacey="0" maxwidth="0" fontname="white_18_ol" fixwidth="true" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top"/>
+		<slot name="result2" parent="resultbox" margin="20 212 0 0" rect="0 0 140 140" movepop="false" hittest="false" dropsound="icon_get_down" picksound="icon_pick_up" skin="invenslot2" layout_gravity="left top"/>
+		<richtext name="text_result2" margin="170 212 0 0" rect="0 0 200 50" parent="resultbox" hittestbox="false" textalign="left center" resizebytext="true" spacey="0" maxwidth="0" fontname="white_18_ol" fixwidth="true" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top"/>
+		<groupbox name="gbox2" parent="gbox" rect="0 0 520 400" draw="false" hittestbox="false" margin="0 0 0 -110" layout_gravity="center bottom" resizebyparent="false" resizebyresolution="false"/>
+		<button name="execbutton" parent="gbox2" rect="0 0 180 50" margin="0 110 0 0" layout_gravity="center top" LBtnUpScp="ARKDECOMPOSE_EXECUTE" skin="test_red_button" format="{@st41b}{s20}%s" oversound="button_cursor_over_3" param1="value" param1_def="분해" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" clicksound="button_click_big"/>
+		<button name="okbutton" parent="gbox2" rect="0 0 180 50" margin="0 110 0 0" layout_gravity="center top" LBtnUpScp="CLEAR_ARKDECOMPOSE" skin="test_red_button" format="{@st41b}{s20}%s" oversound="button_cursor_over_3" param1="value" param1_def="확인" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" clicksound="button_click_big"/>
+	</controls>
+</uiframe>

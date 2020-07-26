@@ -58,10 +58,15 @@ function TRY_COMPANION_HIRE(byShop)
 	if byShop == true then
 		frame = ui.GetFrame('companionshop');
 	end
-	local eggGuid = frame:GetUserValue("EGG_GUID");
 
+	local eggGuid = frame:GetUserValue("EGG_GUID");
 	if "None" ~= eggGuid  then
-		pc.ReqExecuteTx_Item("SCR_USE_EGG_COMPANION", eggGuid);
+		local newframe = ui.GetFrame("inputstring");
+		newframe:SetUserValue("InputType", "PetName");
+		newframe:SetUserValue("ItemIES", eggGuid);
+		newframe:SetUserValue("ItemType", "Companionhire");
+		INPUT_STRING_BOX(ClMsg("InputCompanionName"), "EXEC_CHANGE_NAME_BY_ITEM", "", 0, 16);
+	
 		frame:SetUserValue("EGG_GUID", 'None');
 		return;
 	end
@@ -113,7 +118,8 @@ function TRY_COMPANION_HIRE(byShop)
 		ui.SysMsg(ClMsg('NotEnoughMoney'));
 	else
 		local scpString = string.format("EXEC_BUY_COMPANION(\"%s\", \"%s\")", clsName, nameText);
-		ui.MsgBox(ScpArgMsg("ReallyBuyCompanion?"), scpString, "None");
+		local nameMsg = ScpArgMsg("PossibleChangeName_2{Name}", "Name", nameText);
+		ui.MsgBox(nameMsg.." {nl}"..ScpArgMsg("ReallyBuyCompanion?"), scpString, "None");
 	end
 end
 

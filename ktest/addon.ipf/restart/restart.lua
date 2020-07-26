@@ -59,9 +59,7 @@ function RESTART_ON_RESSURECT_HERE_MYSTIC(frame)
 end
 
 function RESTART_ON_RESSURECT_MAINLAYER(frame)
-
 	restart.SendRestartMainLayerMsg();
-
 end
 
 function RESTART_ON_RESSURECT_BORUTA_RVRRAID(frame)
@@ -69,17 +67,13 @@ function RESTART_ON_RESSURECT_BORUTA_RVRRAID(frame)
 end
 
 function RESTART_ON_RESSURECT_ABANDON(frame)
-
 	restart.SendRestartRetry();
 	frame:ShowWindow(0);
-
 end
 
 function RESTART_ON_RESSURECT_RETRY(frame)
-
 	restart.Send(5);
 	frame:ShowWindow(0);
-
 end
 
 function RESTART_ON_COLONY_WAR_RETURN_CITY(frame)
@@ -87,6 +81,10 @@ function RESTART_ON_COLONY_WAR_RETURN_CITY(frame)
 	frame:ShowWindow(0);
 end
 
+function RESTART_ON_RAID_RETURN(frame)
+	restart.ReqReturn();
+	frame:ShowWindow(0);
+end
 
 function MOVE_TO_CAMP_WHEN_DED(frame, control, aid)
 	local fsmActor = GetMyActor();
@@ -290,19 +288,34 @@ function RESTART_ON_MSG(frame, msg, argStr, argNum)
 			end
 		end
 
+		-- 레이드 부활
+		if IsRaidField() == 1 or IsRaidMap() == 1 then
+			if argNum == 6 then
+				local restart1btn = GET_CHILD(frame, "restart1btn", "ui::CButton");
+				if restart1btn ~= nil then
+					restart1btn:ShowWindow(0);
+				end
+
+				local restart10btn = GET_CHILD(frame, "restart10btn", "ui::CButton");
+				if restart10btn ~= nil then
+					restart10btn:ShowWindow(1);
+				end
+			end
+		else
+			local restart10btn = GET_CHILD(frame, "restart10btn", "ui::CButton");
+			if restart10btn ~= nil then
+				restart10btn:ShowWindow(0);
+			end
+		end
+
 		AUTORESIZE_RESTART(frame);
 		frame:ShowWindow(1);
-
 	elseif msg == 'RESTARTSELECT_UP' then
-
 		RESTART_MOVE_INDEX(frame, -1);
 		RESTARTSELECT_ITEM_SELECT(frame)
-
 	elseif msg == 'RESTARTSELECT_DOWN' then
-
 		RESTART_MOVE_INDEX(frame, 1);
 		RESTARTSELECT_ITEM_SELECT(frame)
-
 	elseif msg == 'RESTARTSELECT_SELECT' then
 		local list = RESTART_GET_COMMAND_LIST(frame)
 		local restartSelect_index = frame:GetValue();

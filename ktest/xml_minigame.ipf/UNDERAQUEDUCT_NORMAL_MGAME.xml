@@ -103,7 +103,7 @@
             </Stage>
             <Stage Name="Boss" AutoStart="0">
                 <ObjList>
-                    <Obj Type="Monster" MonType="59293" Pos="7.76#176.26#1364.44" angle="164" genTime="1" autoGen="0" objectKey="1" propList="&apos;Enter&apos; &apos;SOLO_RAID_UNDERAQUEDUCT_BOSS&apos; &apos;Range&apos; &apos;300&apos; " tendency="1"/>
+                    <Obj Type="Monster" MonType="59293" Pos="7.76#176.26#1364.44" angle="164" genTime="1" autoGen="0" objectKey="1" propList="&apos;Enter&apos; &apos;0&apos; " tendency="1"/>
                 </ObjList>
                 <StageEvents>
                     <Event execCount="1" eventName="BossMsg">
@@ -129,6 +129,10 @@
                             </ToolScp>
                             <ToolScp Scp="MGAME_EXEC_ACTORSCP" Client="NO" UseSleep="NO">
                                 <Str Str="UNDERAQUEDUCT_MONGO_BOSSMONSTATE_BORN"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_EVT_SCP_TO_MON" Client="NO" UseSleep="NO">
+                                <MGameObj List="Boss/1"/>
+                                <Str Str="SCR_SOLO_RAID_UNDERAQUEDUCT_BOSS_ENTER"/>
                             </ToolScp>
                         </execList>
                     </Event>
@@ -195,6 +199,10 @@
                             </ToolScp>
                             <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
                                 <Str Str="Fail"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_EVT_SCP_TO_MON" Client="NO" UseSleep="NO">
+                                <MGameObj List="Boss/1"/>
+                                <Str Str="SCR_SOLO_RAID_UNDERAQUEDUCT_BOSS_ENTER"/>
                             </ToolScp>
                         </execList>
                     </Event>

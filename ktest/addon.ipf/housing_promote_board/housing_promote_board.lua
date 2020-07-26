@@ -34,6 +34,8 @@ function HOUSING_PROMOTE_BOARD_OPEN()
     search_edit:SetText("");
 
     frame:ShowWindow(1);
+
+    session.housing.board.OpenBoard();
 end
 
 function HOUSING_PROMOTE_BOARD_CLOSE(frame)

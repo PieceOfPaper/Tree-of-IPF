@@ -670,6 +670,9 @@ function SCR_Get_MON_CRTMATK(self)
 end
 
 function SCR_Get_MON_MINPATK(self)
+    
+    local originMinPatk = GetExProp(self, "MON_ORIGIN_MINPATK");
+
     local lv = TryGetProp(self, "Lv");
     if lv == nil then
         lv = 1;
@@ -739,11 +742,31 @@ function SCR_Get_MON_MINPATK(self)
     if value < 1 then
         value = 1;
     end
-    
+
+    local debuffRank = TryGetProp(self, "DebuffRank");
+    if IsBuffApplied(self, "Tenacity_Buff") == "YES" then
+        local reduceAtkLimit = math.floor(originMinPatk * 0.85);
+        if originMinPatk == 0 then
+            SetExProp(self, "MON_ORIGIN_MINPATK", math.floor(value));
+        elseif value < reduceAtkLimit then
+            value = reduceAtkLimit;
+        end
+    elseif debuffRank == "LegendRaidBoss" or debuffRank == "WorldRaid" or debuffRank == "FieldBoss" or debuffRank == "WeeklyBoss" then
+        local reduceAtkLimit = math.floor(originMinPatk * 0.75);
+        if originMinPatk == 0 then
+            SetExProp(self, "MON_ORIGIN_MINPATK", math.floor(value));
+        elseif value < reduceAtkLimit then
+            value = reduceAtkLimit;
+        end
+    end
+
     return math.floor(value);
 end
 
 function SCR_Get_MON_MAXPATK(self)
+
+    local originMaxPatk = GetExProp(self, "MON_ORIGIN_MAXPATK");
+
     local lv = TryGetProp(self, "Lv");
     if lv == nil then
         lv = 1;
@@ -813,11 +836,31 @@ function SCR_Get_MON_MAXPATK(self)
     if value < 1 then
         value = 1;
     end
-    
+
+    local debuffRank = TryGetProp(self, "DebuffRank");
+    if IsBuffApplied(self, "Tenacity_Buff") == "YES" then
+        local reduceAtkLimit = math.floor(originMaxPatk * 0.85);
+        if originMaxPatk == 0 then
+            SetExProp(self, "MON_ORIGIN_MAXPATK", math.floor(value));
+        elseif value < reduceAtkLimit then
+            value = reduceAtkLimit;
+        end
+    elseif debuffRank == "LegendRaidBoss" or debuffRank == "WorldRaid" or debuffRank == "FieldBoss" or debuffRank == "WeeklyBoss" then
+        local reduceAtkLimit = math.floor(originMaxPatk * 0.75);
+        if originMaxPatk == 0 then
+            SetExProp(self, "MON_ORIGIN_MAXPATK", math.floor(value));
+        elseif value < reduceAtkLimit then
+            value = reduceAtkLimit;
+        end
+    end
+
     return math.floor(value);
 end
 
 function SCR_Get_MON_MINMATK(self)
+    
+    local originMinMatk = GetExProp(self, "MON_ORIGIN_MINMATK"); 
+
     local lv = TryGetProp(self, "Lv");
     if lv == nil then
         lv = 1;
@@ -888,10 +931,30 @@ function SCR_Get_MON_MINMATK(self)
         value = 1;
     end
 
+    local debuffRank = TryGetProp(self, "DebuffRank");
+    if IsBuffApplied(self, "Tenacity_Buff") == "YES" then
+        local reduceAtkLimit = math.floor(originMinMatk * 0.85);
+        if originMinMatk == 0 then
+            SetExProp(self, "MON_ORIGIN_MINMATK", math.floor(value));
+        elseif value < reduceAtkLimit then
+            value = reduceAtkLimit;
+        end
+    elseif debuffRank == "LegendRaidBoss" or debuffRank == "WorldRaid" or debuffRank == "FieldBoss" or debuffRank == "WeeklyBoss" then
+        local reduceAtkLimit = math.floor(originMinMatk * 0.75);
+        if originMinMatk == 0 then
+            SetExProp(self, "MON_ORIGIN_MINMATK", math.floor(value));
+        elseif value < reduceAtkLimit then
+            value = reduceAtkLimit;
+        end
+    end
+
     return math.floor(value);
 end
 
 function SCR_Get_MON_MAXMATK(self)
+
+    local originMaxMatk = GetExProp(self, "MON_ORIGIN_MAXMATK"); 
+
     local lv = TryGetProp(self, "Lv");
     if lv == nil then
         lv = 1;
@@ -961,7 +1024,24 @@ function SCR_Get_MON_MAXMATK(self)
     if value < 1 then
         value = 1;
     end
-    
+
+    local debuffRank = TryGetProp(self, "DebuffRank");
+    if IsBuffApplied(self, "Tenacity_Buff") == "YES" then
+        local reduceAtkLimit = math.floor(originMaxMatk * 0.85);
+        if originMaxMatk == 0 then
+            SetExProp(self, "MON_ORIGIN_MAXMATK", math.floor(value));
+        elseif value < reduceAtkLimit then
+            value = reduceAtkLimit;
+        end
+    elseif debuffRank == "LegendRaidBoss" or debuffRank == "WorldRaid" or debuffRank == "FieldBoss" or debuffRank == "WeeklyBoss" then
+        local reduceAtkLimit = math.floor(originMaxMatk * 0.75);
+        if originMaxMatk == 0 then
+            SetExProp(self, "MON_ORIGIN_MAXMATK", math.floor(value));
+        elseif value < reduceAtkLimit then
+            value = reduceAtkLimit;
+        end
+    end
+
     return math.floor(value);
 end
 
@@ -2291,9 +2371,9 @@ function SCR_MON_STAT_RATE(self, prop)
         local statTypeClass = GetClass("Stat_Monster_Type", statType);
         if statTypeClass ~= nil then
             statTypeRate = TryGetProp(statTypeClass, prop, statTypeRate);
-            --주간 보스 레이드 3주차 임시 처리--
-            if prop == "ATK" and statType == "Weekly_Boss" and GetExProp(self, "Weekly_Num") <= 3 then
-                statTypeRate = 112;
+            --주간 보스 레이드 25주차 임시 처리--
+            if (prop == "DEF" or prop == "MDEF") and statType == "Weekly_Boss" and GetExProp(self, "Weekly_Num") <= 25 then
+                statTypeRate = 148;
             end
         end
     end

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
-<uiframe name="changeName_item" x="0" y="0" width="480" height="260">
+<uiframe name="changeName_item" x="0" y="0" width="480" height="290">
 	<frame fullheight="false" fasthide="true" layout_gravity="center top" open="" margin="0 180 0 0"/>
 	<skin frameskin="test_win_system"/>
 	<draw drawtitlebar="false"/>
@@ -12,11 +12,15 @@
 		<groupbox name="bg2" rect="0 0 480 240" margin="-1 0 0 0" layout_gravity="left top" draw="false" hittestbox="false" resizebyparent="false" resizebyresolution="true" scrollbar="false" skin="none"/>
 		<button name="button_1" margin="50 0 0 30" rect="10 10 160 50" skin="test_red_button" layout_gravity="left bottom" caption="{@st41}확인" LBtnUpScp="CHANGE_NAME_BY_ITEM"/>
 		<button name="button_1_1" margin="245 0 0 30" rect="10 10 160 50" skin="test_gray_button" layout_gravity="left bottom" caption="{@st41}취소" LBtnUpScp="CHANGE_NAME_BY_ITEM_CLOSE"/>
-		<richtext name="prop" margin="0 -70 0 0" rect="0 0 120 24" format="{@st44}%s{/}" param1="value" param1_def="ZZZZZZZZZZZZZZZZZZZZ" textalign="left top" resizebytext="true" spacey="0" maxwidth="0" fontname="white_16_ol" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="center center"/>
+		<richtext name="prop" margin="0 -80 0 0" rect="0 0 120 24" format="{@st44}%s{/}" param1="value" param1_def="ZZZZZZZZZZZZZZZZZZZZ" textalign="left top" resizebytext="true" spacey="0" maxwidth="0" fontname="white_16_ol" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="center center"/>
 		<groupbox name="groupbox_1" margin="22 90 0 0" rect="0 0 430 55" hittestbox="false" skin="test_weight_skin" layout_gravity="left top"/>
-		<richtext name="richtext_2" margin="77 158 0 0" rect="0 0 120 24" caption="{@st66b18}※이름을 변경하면 아이템이 소모됩니다.{/}" textalign="left top" resizebytext="true" spacey="0" maxwidth="0" fontname="white_16_ol" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top"/>
-		<richtext name="myName" margin="31 107 0 0" rect="0 0 120 24" format="{@st42}%s{/}" param1="value" param1_def="ZZZZZZZZZZZZZZZZZZZZ" textalign="center center" resizebytext="true" spacey="0" maxwidth="0" fontname="white_16_ol" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top"/>
-		<richtext name="ChangeName" margin="253 105 0 0" rect="0 0 200 24" format="{@st42}%s{/}" param1="value" param1_def="ZZZZZZZZZZZZZZZZZZZZ" textalign="center center" resizebytext="false" spacey="0" maxwidth="0" fontname="white_16_ol" fixwidth="true" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top"/>
-		<picture name="picture_2" margin="230 108 0 0" rect="5 5 20 20" hittest="false" image="white_right_arrow" stretch="true" changecursor="false" layout_gravity="left top"/>
+		<groupbox name="changename_gb" rect="0 0 430 200" margin="0 90 0 0" hittestbox="false" layout_gravity="center top" draw="false"/>
+		<richtext name="myName" parent="changename_gb" rect="0 0 200 24" margin="-120 19 0 0" layout_gravity="center top" format="{@st42}%s{/}" param1="value" param1_def="ZZZZZZZZZZZZZZZZZZZZ" textalign="center center" resizebytext="true" spacey="0" maxwidth="0" fontname="white_16_ol" fixwidth="true" updateparent="false" drawbackground="false" slideshow="false"/>
+		<richtext name="ChangeName" parent="changename_gb" rect="0 0 200 24" margin="120 17 0 0" layout_gravity="center top" format="{@st66d_y}%s{/}" param1="value" param1_def="ZZZZZZZZZZZZZZZZZZZZ" textalign="center center" resizebytext="false" spacey="0" maxwidth="0" fontname="white_16_ol" fixwidth="true" updateparent="false" drawbackground="false" slideshow="false"/>
+		<picture name="picture_2" parent="changename_gb" rect="0 0 20 20" margin="0 20 0 0" layout_gravity="center top" hittest="false" image="white_right_arrow" stretch="true" changecursor="false"/>
+		<richtext name="richtext_2" parent="changename_gb" rect="0 0 400 24" margin="0 70 0 0" caption="{@st66b18}사용 가능한 이름입니다.{nl}※이름을 변경하면 아이템이 소모됩니다.{/}" param1="value" textalign="center center" fontname="white_16_ol" fixwidth="false" layout_gravity="center top"/>		
+		<groupbox name="usename_gb" rect="0 0 430 200" margin="0 90 0 0" hittestbox="false" layout_gravity="center top" draw="false"/>
+		<richtext name="usename" parent="usename_gb" rect="0 0 200 24" margin="0 16 0 0" layout_gravity="center top" format="{@st66d_y}%s{/}" param1="value" textalign="center center" fontname="white_16_ol" fixwidth="true"/>
+		<richtext name="richtext_3" parent="usename_gb" rect="0 0 400 24" margin="0 70 0 0" caption="{@st66b18}사용 가능한 이름입니다.{nl}생성하시겠습니까?{/}" param1="value" textalign="center center" fontname="white_16_ol" fixwidth="false" layout_gravity="center top"/>
 	</controls>
 </uiframe>

@@ -27,7 +27,7 @@ local function _RAREOPTION_SET_JEWELL_ITEM(frame, jewellItem)
 		end
 		for i = 1, #itemList do
 			local itemObj = GetIES(itemList[i]:GetObject());
-			local itemObjLevel = itemObj.Level
+			local itemObjLevel = TryGetProp(itemObj, 'Level', 1)
 			
 			if itemObjLevel == 1 then
 				itemObjLevel = itemObj.NumberArg1

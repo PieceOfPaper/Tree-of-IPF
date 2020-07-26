@@ -91,18 +91,6 @@ local function quickslot_item_amount_refresh(ies_id, class_id)
 	end
 end
 
-function QUICKSLOT_MAKE_GAUGE(slot)
-
-	local x = 2;
-	local y = slot:GetHeight() - 11;
-	local width  = 45;
-	local height = 10;
-	local gauge = slot:MakeSlotGauge(x, y, width, height);
-	gauge:SetDrawStyle(ui.GAUGE_DRAW_CELL);
-	gauge:SetSkinName("dot_skillslot");
-	
-end
-
 function QUICKSLOT_SET_GAUGE_VISIBLE(slot, isVisible)
 	local gauge = slot:GetSlotGauge();
 	gauge:ShowWindow(isVisible);
@@ -469,14 +457,16 @@ function SET_SLOT_LIFETIME_IMAGE(invItem, icon, slot, force_off)
 	end
 
 	local itemIES = GetIES(invItem:GetObject());
-	if force_off ~= false and invItem.hasLifeTime == true and invItem.count > 0 then
+	local expire_datetime = TryGetProp(itemIES, 'ExpireDateTime', 'None')
+
+	if  expire_datetime ~= 'None' or (force_off ~= false and invItem.hasLifeTime == true and invItem.count > 0) then
 		ICON_SET_ITEM_REMAIN_LIFETIME(icon);
 		slot:SetFrontImage('clock_inven');
 		local resultLifeTimeOver = IS_LIFETIME_OVER(itemIES);
 		if resultLifeTimeOver == 1 then
 			icon:SetColorTone("FFFF0000");	
 		end
-	elseif force_off == false or invItem.hasLifeTime == false or invItem.count == 0 then
+	elseif expire_datetime ~= 'None' or force_off == false or invItem.hasLifeTime == false or invItem.count == 0 then
 		icon:SetDrawLifeTimeText(0);
 		slot:SetFrontImage('None');
 		if invItem.count == 0 then
@@ -617,7 +607,15 @@ function SET_QUICK_SLOT(frame, slot, category, type, iesID, makeLog, sendSavePac
 
 				if itemIES.MaxStack > 0 or itemIES.GroupName == "Material" then
 					if itemIES.MaxStack > 1 then -- 개수는 스택형 아이템만 표시해주자
-						icon:SetText(invenItemInfo.count, 'quickiconfont', ui.RIGHT, ui.BOTTOM, -2, 1);
+						if TryGetProp(itemIES, 'ExpireDateTime', 'None') ~= 'None' then
+							local font = '{s14}{ol}{b}'	
+							if invenItemInfo.count >= 1000 then
+								font = '{s12}{ol}{b}'	
+							end
+							icon:SetText(font..invenItemInfo.count, 'quickiconfont', ui.RIGHT, ui.TOP, -2, 1);
+						else
+							icon:SetText(invenItemInfo.count, 'quickiconfont', ui.RIGHT, ui.BOTTOM, -2, 1);
+						end
 					else
 					  	icon:SetText(nil, 'quickiconfont', ui.RIGHT, ui.BOTTOM, -2, 1);
 					end

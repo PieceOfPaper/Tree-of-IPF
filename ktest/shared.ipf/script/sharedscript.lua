@@ -1850,7 +1850,9 @@ function StringSplit(str, delimStr)
         _tempStr = dic.getTranslatedStr(str);
     end
 
-    while true do
+    local try_count = 1
+
+    for try_count = 1, 1000 do 
         if _tempStr == nil then
             break
         end
@@ -1870,6 +1872,17 @@ function StringSplit(str, delimStr)
             break;
         end
     end
+
+    if try_count >= 1000 then
+        local ret = {}
+        if str == nil then
+            ret[1] = ''
+        else
+            ret[1] = str
+        end
+        return ret
+    end 
+
     return _result;
 end
 

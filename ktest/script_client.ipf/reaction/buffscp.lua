@@ -1,4 +1,4 @@
-﻿-- buffscp.lua
+-- buffscp.lua
 
 function ShadowUmbrella_ENTER(actor, obj, buff)
 
@@ -1376,4 +1376,14 @@ end
 
 function Bunsin_Mijinhide_Buff_CLIENT_LEAVE(actor, obj, buff)
 
+end
+
+function EP12TACTICAL_EFFECT02_PRE_ENTER(actor, obj, buff)
+    effect.AddActorEffectByOffset(actor, "I_policeline001_mesh", 1, "Middle", true);
+    actor:SetEquipItemFlagProp("EFFECTCOSTUME", 1);
+end
+
+function EP12TACTICAL_EFFECT02_PRE_LEAVE(actor, obj, buff)
+    effect.DetachActorEffect(actor, "I_policeline001_mesh", 0);
+    actor:SetEquipItemFlagProp("EFFECTCOSTUME", 0);
 end

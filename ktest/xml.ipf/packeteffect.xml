@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by asd (IMCGames Co., Ltd) -->
+<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by imc (imc) -->
 <packeteffects>
     <Category ID="163">
         <Effect Name="F_archer_bodkinpoint_hit_explosion#Dummy001"/>
@@ -41,7 +41,20 @@
         <Effect Name="F_cleric_Revival_light2"/>
         <Effect Name="F_pattern002_wind_white_loop"/>
         <Effect Name="F_pattern002_wind_white"/>
-    </Category>
+        <Effect Name="skl_shieldtrain_abil"/>
+        <Effect Name="F_smoke174_gather"/>
+        <Effect Name="SKL_SHIELDTRAIN_ABIL"/>
+        <Effect Name="I_emo_size_normal"/>
+        <Effect Name="I_emo_owlon"/>
+        <Effect Name="I_emo_owloff"/>
+        <Effect Name="I_emo_event_dungeon_Halloween4"/>
+        <Effect Name="I_emo_damagerank9"/>
+        <Effect Name="Dummy_Shield1"/>
+        <Effect Name="SLITHERING_Abil"/>
+        <Effect Name="Dummy_Shield"/>
+        <Effect Name="Finestra_Abil"/>
+    <Effect Name="F_rize024_violet"/>
+</Category>
     <Category ID="70">
         <Effect Name="EVENT_2001_NEWYEAR_INIT_PAD"/>
         <Effect Name="Update"/>
@@ -77,7 +90,6 @@
         <Effect Name="guild_agit_extension"/>
         <Effect Name="F_buff_basic050_circle"/>
         <Effect Name="skl_eff_finger_flick"/>
-        <Effect Name="F_cleric_Retaliation_ground_line_violet_blue"/>        
     </Category>
     <Category ID="14">
         <Effect Name="GUILD_COLONY_F_REMAINS_37_1"/>
@@ -633,7 +645,7 @@
         <Effect Name="I_archer_FocusFire_arrow_trail#Bip01 Spine2"/>
         <Effect Name="SKL_KATADIKAZO_CAST"/>
         <Effect Name="SKL_KATADIKAZO_LOOP"/>
-	<Effect Name="E_cleric_katadikazo"/>
+        <Effect Name="E_cleric_katadikazo"/>
         <Effect Name="SKL_KATADIKAZO_SHOT"/>
         <Effect Name="SKL_RUBRIC_CAST"/>
         <Effect Name="SKL_RUBRIC_SHOT"/>
@@ -748,8 +760,8 @@
         <Effect Name="I_arrow020_ignas_mon_mesh2#Bip001 Spine1"/>
         <Effect Name="I_spiral003_mesh#Bip001 Spine1"/>
         <Effect Name="I_cleric_katadikazo_mesh#Bip001 Spine1"/>
-	<Effect Name="I_cleric_katadikazo_mesh"/>
-	<Effect Name="F_cleric_ground_katadikazo"/>
+        <Effect Name="I_cleric_katadikazo_mesh"/>
+        <Effect Name="F_cleric_ground_katadikazo"/>
         <Effect Name="I_wizard_DemonScratch_mesh2#Bip001 Spine1"/>
         <Effect Name="F_spread_out026_dark_low"/>
         <Effect Name="I_wizard_DemonScratch_mesh2"/>
@@ -2364,7 +2376,7 @@
         <Effect Name="F_explosion033_blue"/>
         <Effect Name="F_explosion033_darkblue"/>
         <Effect Name="I_force018_trail_ice2_800"/>
-    <Effect Name="Cataphract_SteedCharge"/>
+        <Effect Name="Cataphract_SteedCharge"/>
         <Effect Name="F_explosion134_ice"/>
     </Category>
     <Category ID="197">
@@ -2718,8 +2730,10 @@
         <Effect Name="F_scout_annihiation_bottom"/>
         <Effect Name="F_hit021_thin"/>
         <Effect Name="F_wizard_Empowering_buff"/>
-        <Effect Name="F_spread_out028_blue"/>
+        <Effect Name="Matross_CanisterShot_Abil"/>
+        <Effect Name="F_archer_Matross_CanisterShot_finish"/>
         <Effect Name="Appraiser_Blindside_HiddenAbil"/>
+        <Effect Name="Exorcist_Entity_Abil"/>
     </Category>
     <Category ID="84">
         <Effect Name="M_PAST_FLIBRARY_1"/>
@@ -3515,6 +3529,10 @@
         <Effect Name="Shadowmancer_ShadowCondensationBuffPad"/>
         <Effect Name="F_cleric_stormcalling_shot"/>
         <Effect Name="Daoshi_StormCalling_Daoshi28"/>
+        <Effect Name="Cleric_Samdiveve_Bokor30_Pad"/>
+        <Effect Name="StormDust_Abil_Pad"/>
+        <Effect Name="TerraMancer_SandWall_Terramancer19"/>
+        <Effect Name="lachrymator_pad_Rogue26"/>
     </Category>
     <Category ID="60">
         <Effect Name="SETPOS"/>
@@ -5382,6 +5400,9 @@
         <Effect Name="Unique_Pbeta_Breath_IceRink"/>
         <Effect Name="F_ground190_circle_crack_ice_blue"/>
         <Effect Name="LEGEND_RAID_GLACIER"/>
+        <Effect Name="ISA_CAST"/>
+        <Effect Name="ISA_SHOT"/>
+        <Effect Name="TIWAZ_SHOT"/>
         <Effect Name="F_explosion007_blue2"/>
         <Effect Name="LEGEND_RAID_GLACIER_NORMAL"/>
         <Effect Name="LEGEND_RAID_GLACIER_HARD"/>
@@ -5394,6 +5415,17 @@
         <Effect Name="I_smoke013_dark_blue##0.5"/>
         <Effect Name="I_smoke013_blue_smoke"/>
         <Effect Name="Legend_Pbeta_shot"/>
+    <Effect Name="SKL_MODAFINIL"/>
+        <Effect Name="ALGIZ_CAST"/>
+        <Effect Name="ALGIZ_SHOT"/>
+        <Effect Name="TIWAZ_LOOP"/>
+        <Effect Name="SKL_PLAGUEVAPOURS"/>
+        <Effect Name="SKL_BREASTRIPPER_READY"/>
+        <Effect Name="SKL_BREASTRIPPER_LOOP"/>
+        <Effect Name="Legend_Pbeta_Storm"/>
+        <Effect Name="Legend_Pbeta_Storm_2"/>
+        <Effect Name="F_circle035_loop_blue2"/>
+        <Effect Name="F_spin005_blue_loop"/>
     </Category>
     <Category ID="45">
         <Effect Name="Cleric_Barrier"/>
@@ -5482,6 +5514,7 @@
         <Effect Name="I_cleric_TriDisaster_force#Dummy_effect_darksight"/>
         <Effect Name="Druid_HengeStone"/>
         <Effect Name="deadparts_Force"/>
+        <Effect Name="MAKE"/>
     </Category>
     <Category ID="28">
         <Effect Name="F_explosion006_green#Dummy_skl2_shot"/>
@@ -6618,7 +6651,7 @@
         <Effect Name="F_ground113_ice3##2.5"/>
         <Effect Name="I_ground012_ice5_loop2"/>
         <Effect Name="I_shield005_ice_mesh##1"/>
-    <Effect Name="LEGEND_RAID_GLACIER_EASY"/>
+        <Effect Name="LEGEND_RAID_GLACIER_EASY"/>
         <Effect Name="LEGEND_RAID_GLACIER_HARD"/>
         <Effect Name="LEGEND_RAID_GLACIER_NORMAL"/>
         <Effect Name="F_ground207_crack_explosion_blue"/>
@@ -7283,8 +7316,8 @@
         <Effect Name="RootCrystal"/>
         <Effect Name="RUN_INTE_WARP"/>
         <Effect Name="LEGEND_RAID_MORINGPONIA_HARD"/>
-		<Effect Name="Disnai_Svirti_PAD_ENEMY"/>
-		<Effect Name="Disnai_Svirti_PAD_PARTY"/>
+        <Effect Name="Disnai_Svirti_PAD_ENEMY"/>
+        <Effect Name="Disnai_Svirti_PAD_PARTY"/>
     </Category>
     <Category ID="177">
         <Effect Name="KATYN10_SECTOR2_OWL01_MINI"/>
@@ -8511,6 +8544,7 @@
         <Effect Name="Three_WINPOINT"/>
         <Effect Name="mon_voice_glacier_skl15_script"/>
         <Effect Name="mon_voice_glacier_dead_script"/>
+        <Effect Name="Legend_Glacier_SnowCloud_HardMode"/>
     </Category>
     <Category ID="19">
         <Effect Name="I_fallen_statue_atk002_mash"/>
@@ -23212,5 +23246,43 @@
         <Effect Name="I_force018_trail_greeb_energy"/>
         <Effect Name="I_force018_trail_greeb_energy#None"/>
         <Effect Name="I_force018_trail_greeb_energy#None"/>
+        <Effect Name="IRREDIAN1131_SRAID_C"/>
+        <Effect Name="TelHarsha_Wormwhole"/>
+        <Effect Name="TelHarsha_Wormwhole"/>
+        <Effect Name="TelHarsha_Candle"/>
+        <Effect Name="TelHarsha_Candle"/>
+        <Effect Name="I_sphere009_fire"/>
+        <Effect Name="F_cleric_DoublePunch_shot_spread_in"/>
+        <Effect Name="F_sys_target_boss##0l.5"/>
+        <Effect Name="F_cleric_DoublePunch_shot_spread_in_orange"/>
+        <Effect Name="F_cleric_DoublePunch_shot_spread_in_orange"/>
+        <Effect Name="F_spread_out004_dark_drop"/>
+        <Effect Name="TelHarsha_Fallow"/>
+        <Effect Name="TelHarsha_Fallow"/>
+        <Effect Name="I_force019_violet#Bone007"/>
+        <Effect Name="I_force019_violet#effect_dum"/>
+        <Effect Name="TelHarsha_Baseball_0"/>
+        <Effect Name="TelHarsha_Baseball_1"/>
+        <Effect Name="TelHarsha_Baseball_2"/>
+        <Effect Name="TelHarsha_Baseball_3"/>
+        <Effect Name="F_wizard_cutlink_cast_lineup"/>
+        <Effect Name="F_wizard_SpiritualChain_cast_lineup"/>
+        <Effect Name="F_lineup022_blue2"/>
+        <Effect Name="F_warrior_pommelbeat_hit"/>
+        <Effect Name="I_wizard_psyckicpressure_cast_white"/>
+        <Effect Name="Weekly_Summon_Silence"/>
+        <Effect Name="TelHarsha_Baseball_Pad"/>
+        <Effect Name="TelHarsha_Remove_Pad"/>
+        <Effect Name="TelHarsha_DeleteMon_Pad"/>
+        <Effect Name="TelHarsha_DeleteMon_Pad"/>
+        <Effect Name="F_explosion027_green1"/>
+        <Effect Name="I_skillrange_donut0##0.3"/>
+        <Effect Name="[mon]Wormwhole"/>
+        <Effect Name="[mon]CandleSpider"/>
+        <Effect Name="[mon]Confuse Debuff"/>
+        <Effect Name="TelHarsha_Cardinal_Pad"/>
+        <Effect Name="Exorcist_Katadikazo_Vibora"/>
+        <Effect Name="F_circle035_loop_blue"/>
+        <Effect Name="F_bg_firetower_teleport1"/>
     </Category>
 </packeteffects>

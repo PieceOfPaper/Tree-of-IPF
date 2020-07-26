@@ -43,7 +43,7 @@
     if IsBuffApplied(owner, "PVP_MINE_Authority") == "YES" then
         local pvpLv = 400;
         local pvpGrade = 5;
-        local pvpReinforceValue = 21;
+        local pvpReinforceValue = 40;
         local pvpReinforceRatio = reinforceRatio;
         
         if pvpLv ~= nil then
@@ -63,8 +63,8 @@
         end
     elseif IsBuffApplied(owner, "PVP_MINE_Divine_Protection") == "YES" then
         local pvpLv = 400;
-        local pvpGrade = 4;
-        local pvpReinforceValue = 11;
+        local pvpGrade = 5;
+        local pvpReinforceValue = 16;
         local pvpReinforceRatio = reinforceRatio;
         
         if pvpLv ~= nil then

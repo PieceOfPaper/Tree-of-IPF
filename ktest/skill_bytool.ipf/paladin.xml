@@ -409,6 +409,16 @@
                     <Angle Angle="0"/>
                     <Str Str="Cleric_Barrier_PC"/>
                 </Scp>
+                <Scp Scp="SKL_BUFF_ABIL" Client="NO" UseSleep="NO" Time="500">
+                    <Str Str="Paladin20"/>
+                    <Str Str="Skill_Durability_Buff"/>
+                    <Num Num="99"/>
+                    <Num Num="0"/>
+                    <Num FuncTxt="return obj.Level * 4000" UseFunc="1" Num="4000"/>
+                    <Num Num="1"/>
+                    <Num Num="100"/>
+                    <Num Num="0"/>
+                </Scp>
             </EtcList>
         </MainSkl>
     </Skill>

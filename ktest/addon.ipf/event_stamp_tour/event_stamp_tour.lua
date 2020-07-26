@@ -6,7 +6,7 @@ end
 
 function OPEN_EVENT_STAMP_TOUR(frame)
 	EVENT_STAMP_TOUR_CREATE_PAGE(frame);
-	EVENT_STAMP_TOUR_SET_PAGE();
+	EVENT_STAMP_TOUR_SET_PAGE(frame);
 end
 
 function CLOSE_EVENT_STAMP_TOUR(frame)
@@ -14,11 +14,14 @@ function CLOSE_EVENT_STAMP_TOUR(frame)
 end
 
 function ON_EVENT_STAMP_TOUR_UI_OPEN_COMMAND()
-	ui.OpenFrame("event_stamp_tour");
+	local frame = ui.GetFrame("event_stamp_tour")
+	frame:SetUserValue("GROUP_NAME","REGULAR_EVENT_STAMP_TOUR")
+	frame:ShowWindow(1)
 end
 
 -- controlset 초기화
 function EVENT_STAMP_TOUR_CREATE_PAGE(frame)
+	local groupName = frame:GetUserValue("GROUP_NAME")
 	local clsList, allmissionCnt = GetClassList('note_eventlist');
 
 	-- 띠지 control 생성
@@ -29,8 +32,10 @@ function EVENT_STAMP_TOUR_CREATE_PAGE(frame)
 	
 	for i = 0, allmissionCnt - 1 do
 		local cls = GetClassByIndexFromList(clsList, i);
-		local image = cls.TypeIcon;
-		label_tab:AddItem("", true, "EVENT_STAMP_TOUR_SET_PAGE", image, image.."_cursoron", image.."_clicked", cls.TypeName, false);
+		if cls.Group == groupName then
+			local image = cls.TypeIcon;
+			label_tab:AddItem("", true, "EVENT_STAMP_TOUR_SET_PAGE", image, image.."_cursoron", image.."_clicked", cls.TypeName, false);
+		end
 	end
 	
 	-- 미션 내용 control 생성
@@ -40,7 +45,11 @@ function EVENT_STAMP_TOUR_CREATE_PAGE(frame)
 	local misson_gb_y = 0;
 
 	for i = 1, 3 do
-		local ctrlSet = misson_gb:CreateOrGetControlSet('event_stamp_tour_mission_block', 'MISSIONBLOCK_'..i, 0, misson_gb_y);
+		local controlsetName = 'event_stamp_tour_mission_block'
+		if groupName == "EVENT_STAMP_TOUR_SUMMER" then
+			controlsetName = 'event_stamp_tour_mission_block_summer'
+		end
+		local ctrlSet = misson_gb:CreateOrGetControlSet(controlsetName, 'MISSIONBLOCK_'..i, 0, misson_gb_y);
 		ctrlSet = tolua.cast(ctrlSet, 'ui::CControlSet');	
 		ctrlSet:ShowWindow(1);
 		ctrlSet:SetGravity(ui.CENTER_HORZ, ui.TOP);
@@ -53,8 +62,7 @@ function EVENT_STAMP_TOUR_CREATE_PAGE(frame)
 
 end
 
-function EVENT_STAMP_TOUR_SET_PAGE(argnum)
-	local frame = ui.GetFrame('event_stamp_tour');
+function EVENT_STAMP_TOUR_SET_PAGE(frame)
 
 	local REWARD_TEXT_FONT = frame:GetUserConfig('REWARD_TEXT_FONT');
 	local REWARD_CLEAR_BG_ALPHA = frame:GetUserConfig('REWARD_CLEAR_BG_ALPHA');
@@ -63,11 +71,11 @@ function EVENT_STAMP_TOUR_SET_PAGE(argnum)
 
 	local misson_gb = GET_CHILD_RECURSIVELY(frame, 'misson_gb');
 	local label_tab = GET_CHILD_RECURSIVELY(frame, 'label_tab');
-	local clsList, allmissionCnt = GetClassList('note_eventlist');
 
 	local currentpage = label_tab:GetSelectItemIndex();
-	local missionCls = GetClassByIndexFromList(clsList, currentpage);
-
+	local groupName = frame:GetUserValue("GROUP_NAME")
+	local missionCls = EVENT_STAMP_GET_CURRENT_MISSION(groupName,currentpage)
+	
 	local typename_text = GET_CHILD_RECURSIVELY(frame, 'typename_text');
 	typename_text:SetTextByKey('value', missionCls.TypeName);
 
@@ -89,7 +97,9 @@ function EVENT_STAMP_TOUR_SET_PAGE(argnum)
 		-- 난이도
 		local levet_text = GET_CHILD_RECURSIVELY(ctrlSet, 'levet_text');
 		levet_text:SetTextByKey('value', ClMsg("EventStampTourLevel_"..i));
-		
+		if groupName == "EVENT_STAMP_TOUR_SUMMER" then
+			levet_text:SetTextByKey('value', ScpArgMsg("EventStampTourSummerLevel","Level",i));
+		end
 		-- 미션 내용
 		local desc = GET_CHILD_RECURSIVELY(ctrlSet, 'desc');
 		local missiontext = dic.getTranslatedStr(TryGetProp(missionCls, "Desc"..i, ""));
@@ -126,6 +136,8 @@ function EVENT_STAMP_TOUR_SET_PAGE(argnum)
 
 		local reward_bg = GET_CHILD_RECURSIVELY(ctrlSet, 'reward_bg');
 		reward_bg:RemoveAllChild();
+		local gravity_horz = reward_bg:GetHorzGravity()
+		local gravity_vert = reward_bg:GetVertGravity()
 
 		local reward = GET_CHILD_RECURSIVELY(ctrlSet, 'reward');			
 		reward:ShowWindow(0);
@@ -141,7 +153,7 @@ function EVENT_STAMP_TOUR_SET_PAGE(argnum)
 			local rewardtext = reward_bg:CreateOrGetControl('richtext', 'REWARD_TEXT_'..(math.floor(j/2)), 0, reward_Y, 100, 10);
 			rewardtext:SetText(itemname.." "..rewardliststr[j+1]..ClMsg("Piece"));
 			rewardtext:SetFontName(REWARD_TEXT_FONT)
-			rewardtext:SetGravity(ui.RIGHT, ui.TOP);
+			rewardtext:SetGravity(gravity_horz, gravity_vert);
 
 			reward_Y = reward_Y + REWARD_DESC_OFFSET_Y;
 		end
@@ -152,11 +164,10 @@ function EVENT_STAMP_TOUR_SET_PAGE(argnum)
 		check_bg:EnableHitTest(0);
 		if clear ~= 'true' and tonumber(goalcnt) <= tonumber(curcnt) then
 			check_bg:ShowWindow(1);
-            check_bg:SetAlpha(REWARD_CHECK_BG_ALPHA);
+			check_bg:SetAlpha(REWARD_CHECK_BG_ALPHA);
 			check_bg:EnableHitTest(1);
 
 			check_bg:SetEventScript(ui.LBUTTONUP, 'EVENT_STAMP_TOUR_MISSION_CLEAR_CHECK')
-			check_bg:SetEventScriptArgString(ui.LBUTTONUP, missionCls.TypeName);
 			check_bg:SetEventScriptArgNumber(ui.LBUTTONUP, i);
 		end
 		
@@ -183,7 +194,7 @@ function EVENT_STAMP_TOUR_SET_PAGE(argnum)
 		end
 		if clear == 'true' then
 			clear_bg:ShowWindow(1);
-            clear_bg:SetAlpha(REWARD_CLEAR_BG_ALPHA);
+			clear_bg:SetAlpha(REWARD_CLEAR_BG_ALPHA);
 			clear_Pic:ShowWindow(1);
 
 			if config.GetServiceNation() ~= 'KOR' then
@@ -197,26 +208,51 @@ function EVENT_STAMP_TOUR_SET_PAGE(argnum)
 		local comingsoon_Pic = GET_CHILD_RECURSIVELY(ctrlSet, 'comingsoon_Pic');
 		comingsoon_Pic:ShowWindow(0);
 		if weekNum ~= 0 then
-			if EVENT_STAMP_IS_COMING_SOON(weekNum) == true then
+			local isHidden = true
+			if groupName == "REGULAR_EVENT_STAMP_TOUR" then
+				isHidden = EVENT_STAMP_IS_VALID_WEEK(weekNum) == false
+			elseif groupName == "EVENT_STAMP_TOUR_SUMMER" then
+				local time = frame:GetUserValue("OPEN_TIME")
+				time = imcTime.GetSysTimeByStr(time)
+				isHidden = EVENT_STAMP_IS_VALID_WEEK_SUMMER(weekNum,time) == false or EVENT_STAMP_IS_HIDDEN_SUMMER(accObj,(3 * currentpage) + i) == true
+			end
+			
+			if isHidden == true then
 				clear_bg:ShowWindow(1);
 				clear_bg:SetAlpha(REWARD_CLEAR_BG_ALPHA);
 				comingsoon_Pic:ShowWindow(1);
 				go_btn:SetEnable(0)
 				helpBtn:SetEnable(0)
 				desc:SetTextByKey('value', ScpArgMsg("STAMP_TOUR_WEEK_MSG","week",weekNum));
+				desc:EnableHitTest(0);
 			end
 		end
 	end
 end
 
-function EVENT_STAMP_TOUR_MISSION_CLEAR_CHECK(frame, ctrl, argStr, argNum)
+function EVENT_STAMP_TOUR_MISSION_CLEAR_CHECK(frame, ctrl, nameSpace, argNum)
 	if ui.CheckHoldedUI() == true then
 		return;
 	end
-	frame = ui.GetFrame('event_stamp_tour');
+	local zoneName = GetZoneName()
+	local mapCls = GetClass("Map",zoneName)
+	if mapCls == nil or TryGetProp(mapCls,"MapType","None") ~= "City" then
+		ui.SysMsg(ClMsg("AllowedInTown1"))
+		return
+	end
+	for i = 0, AUTO_SELL_COUNT-1 do
+		-- 뭐하나라도 true면 
+		if session.autoSeller.GetMyAutoSellerShopState(i) == true then
+			ui.SysMsg(ClMsg("StateOpenAutoSeller"))
+			return
+		end
+	end
+	frame = frame:GetTopParentFrame();
 	local label_tab = GET_CHILD_RECURSIVELY(frame, 'label_tab');
 	local currentpage = label_tab:GetSelectItemIndex();
-	local missionCls = GetClassByNumProp("note_eventlist","ClassID",currentpage+1)
+
+	local groupName = frame:GetUserValue("GROUP_NAME")
+	local missionCls = EVENT_STAMP_GET_CURRENT_MISSION(groupName,currentpage)
 	local reward = TryGetProp(missionCls, "Reward"..argNum, "None")
 	local rewardliststr = StringSplit(reward, '/');
 	local checkProp = {'ShopTrade','TeamTrade','UserTrade','MarketTrade'}
@@ -238,26 +274,26 @@ function EVENT_STAMP_TOUR_MISSION_CLEAR_CHECK(frame, ctrl, argStr, argNum)
 	end
 	local numvalue = ((3 * currentpage) + argNum);
 	if isTradable == true then
-		EVENT_STAMP_TOUR_MISSION_CLEAR(numvalue)
+		EVENT_STAMP_TOUR_MISSION_CLEAR(groupName,numvalue)
 	else
-		local yesScp = string.format("EVENT_STAMP_TOUR_MISSION_CLEAR(\"%s\")", numvalue);
+		local yesScp = string.format("EVENT_STAMP_TOUR_MISSION_CLEAR(\"%s\",\"%d\")", groupName, numvalue);
 		local msgBox = ui.MsgBox(ScpArgMsg("STAMP_TOUR_TRADE_WARNING","item",itemName), yesScp, "None");
 		local yesBtn = GET_CHILD_RECURSIVELY(msgBox,"YES")
 	end
 end
 
-function EVENT_STAMP_TOUR_MISSION_CLEAR(numvalue)
+function EVENT_STAMP_TOUR_MISSION_CLEAR(groupName,numvalue)
 	ui.SetHoldUI(true);
-	ReserveScript("HOLDUI_UNFREEZE()", 3);
-	pc.ReqExecuteTx_NumArgs("SCR_EVENT_STAMP_TOUR_CHECK", numvalue);
-end
-
-function HOLDUI_UNFREEZE()
-   ui.SetHoldUI(false);
+	ReserveScript("ui.SetHoldUI(false)", 3);
+	numvalue = string.format("%s %d",groupName,numvalue)
+	pc.ReqExecuteTx("SCR_EVENT_STAMP_TOUR_CHECK", numvalue);
 end
 
 -- 보상 획득한 level 미션 블럭 UI 변경
 function ON_EVENT_STAMP_TOUR_REWARD_GET(frame, msg, argstr, argnum)
+	if frame:IsVisible() ~= 1 then
+		return
+	end
 	local misson_gb = GET_CHILD_RECURSIVELY(frame, 'misson_gb');
 	local label_tab = GET_CHILD_RECURSIVELY(frame, 'label_tab');
 	local currentpage = label_tab:GetSelectItemIndex();
@@ -299,16 +335,31 @@ function ON_EVENT_STAMP_TOUR_REWARD_GET(frame, msg, argstr, argnum)
 	go_btn:SetEnable(0)
 
 	label_tab:EnableHitTest(0);
-	ReserveScript("HOLDTABUI_UNFREEZE()", 2.5);
+	local funcName = string.format("HOLDTABUI_UNFREEZE('%s')",frame:GetName())
+	ReserveScript(funcName, 2.5);
 end
 
-function HOLDTABUI_UNFREEZE()
-   local frame = ui.GetFrame('event_stamp_tour');
-   local label_tab = GET_CHILD_RECURSIVELY(frame, 'label_tab');
-   label_tab:EnableHitTest(1);
+function HOLDTABUI_UNFREEZE(frameName)
+	local frame = ui.GetFrame(frameName);
+	local label_tab = GET_CHILD_RECURSIVELY(frame, 'label_tab');
+	label_tab:EnableHitTest(1);
 end
 
 function ON_EVENT_STAMP_TOUR_GO_BUTTON_CLICK(parent,ctrl,argStr,argNum)
+	local zoneName = GetZoneName()
+	local mapCls = GetClass("Map",zoneName)
+	if mapCls == nil or TryGetProp(mapCls,"MapType","None") ~= "City" then
+		ui.SysMsg(ClMsg("AllowedInTown1"))
+		return
+	end
+	for i = 0, AUTO_SELL_COUNT-1 do
+		-- 뭐하나라도 true면 
+		if session.autoSeller.GetMyAutoSellerShopState(i) == true then
+			ui.SysMsg(ClMsg("StateOpenAutoSeller"))
+			return
+		end
+	end
+
 	if argStr == nil or argStr == "None" then
 		return
 	end
@@ -318,7 +369,10 @@ function ON_EVENT_STAMP_TOUR_GO_BUTTON_CLICK(parent,ctrl,argStr,argNum)
 		local frameName = argList[2]
 		ui.OpenFrame(frameName)
 	elseif type == 'warp' then
-		pc.ReqExecuteTx_NumArgs("SCR_EVENT_STAMP_TOUR_SHORTCUT", argNum);
+		local frame = parent:GetTopParentFrame()
+		local groupName = frame:GetUserValue("GROUP_NAME")
+		local argList = string.format("%s %d",groupName,argNum)
+		pc.ReqExecuteTx("SCR_EVENT_STAMP_TOUR_SHORTCUT", argList);
 	elseif type == 'scp' then
 		local Script = _G[argList[2]]
 		Script()
@@ -346,14 +400,4 @@ function SCR_EVENT_STAMP_OPEN_ADVENTURE_BOOK_MAP()
 	frame:ShowWindow(1)
 	local tab = GET_CHILD_RECURSIVELY(frame, "bookmark");
 	tab:SelectTab(7);
-end
-
-function EVENT_STAMP_IS_COMING_SOON(week)
-	local startTime = imcTime.GetSysTime(2020,4,16,6)
-	local week_startTime = imcTime.AddSec(startTime,(week-1)*7*24*60*60)
-	local currentDate = geTime.GetServerSystemTime()
-	if imcTime.GetDifSec(week_startTime,currentDate) > 0 then
-		return true
-	end
-	return false
 end
