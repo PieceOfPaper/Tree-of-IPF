@@ -272,6 +272,7 @@ function SCR_Get_SpendSP_Magic(skill)
         (GetZoneName(pc) == "guild_agit_1" or GetZoneName(pc) == "guild_agit_extension") then
         return 0
     end
+
     return math.floor(value);
 end
 
@@ -1822,7 +1823,7 @@ function SCR_GET_Slithering_Ratio2(skill)
 end
 
 function SCR_GET_Slithering_Ratio3(skill)
-    local value = skill.Level
+    local value = math.floor(skill.Level * 1.5)
     
     return value
 end
@@ -2219,9 +2220,9 @@ function SCR_GET_SummonGuildMember_Ratio(skill)
 end
 
 function SCR_GET_BattleOrders_Ratio(skill)
-    local value = skill.Level * 1.5
-    local addValue = skill.Level * 1.5
-    value = value + addValue
+    local value = SCR_GET_BattleOrders_Ratio2(skill)
+    local addvalue = skill.Level * 1.5
+    value = value + addvalue
     
     return value
 end
@@ -2930,7 +2931,7 @@ function SCR_GET_BackSlide_Bufftime(skill)
 end
 
 function SCR_GET_Sprint_Ratio(skill)
-    local value = 5 + skill.Level * 0.5
+    local value = skill.Level * 4
     
     return value
 end
@@ -3374,8 +3375,8 @@ function SCR_GET_JincanGu_Ratio(skill)
 
     local pc = GetSkillOwner(skill);
     local value = skill.Level
-    if value > 10 then
-        value = 10
+    if value > 5 then
+        value = 5
     end
 
     return value;
@@ -5683,7 +5684,7 @@ function SCR_GET_MagnusExorcismus_Ratio(skill)
 end
 
 function SCR_GET_PlagueVapours_Ratio(skill)
-    local value = skill.Level * 2
+    local value = skill.Level * 4
 
     return value
 end
@@ -6000,6 +6001,12 @@ function SCR_GET_DoubleGunStance_Ratio(skill)
     return value
 end
 
+function SCR_GET_DoubleGunStance_Ratio2(skill)
+    local value = 20 + skill.Level * 4
+    
+    return value
+end
+
 function SCR_GET_EmperorsBane_Time(skill)
     local value = 4
     return value;
@@ -6173,6 +6180,27 @@ function SCR_GET_SR_LV_Stabbing(skill)
     return 1
 
 end
+
+function SCR_GET_SR_LV_Murmillo(skill)
+    local pc = GetSkillOwner(skill);
+    if pc == nil and ui.GetFrame("pub_createchar"):IsVisible() == 1 then
+        return skill.SklSR;
+    end
+
+    local value = pc.SR + skill.SklSR;
+    
+    local abil = GetAbility(pc, "Murmillo29")
+    if abil ~= nil and TryGetProp(abil, "ActiveState", 0) == 1 and IsBuffApplied(pc, "Sprint_Buff") == "YES" then
+        value = value * 2
+    end
+
+    if value < 1 then
+        value = 1
+    end
+    
+    return value
+end
+
 
 function SCR_Get_BodkinPoint_Ratio(skill)
 
@@ -8463,7 +8491,7 @@ function SCR_Get_Zhendu_Bufftime(skill)
 
 end
 
--- 속성 추가 타격
+-- 속성 추가 타격 --
 function SCR_Get_Zhendu_Ratio(skill)
     local value = 0 
     local pc = GetSkillOwner(skill)
@@ -8476,18 +8504,11 @@ function SCR_Get_Zhendu_Ratio(skill)
     return math.floor(value)
 end
 
--- 추가 대미지
+-- 대미지 증가 --
 function SCR_Get_Zhendu_Ratio2(skill)
-    local pc = GetSkillOwner(skill);
-    local skillLv = skill.Level;
-    local value = 100 + (skillLv -1) * 50;
-    if pc ~= nil then
-        local str = TryGetProp(pc, "STR", 0)
-        local dex = TryGetProp(pc, "DEX", 0)
-        value = value + (str + dex)
-    end
+    local value = 20 + (10 * skill.Level);
     
-    return math.floor(value)
+    return value
 end
 
 function SCR_GET_JollyRoger_Bufftime(skill)
@@ -8703,8 +8724,14 @@ end
 
 
 function SCR_GET_SwashBuckling_Ratio(skill)
-    return 9 + skill.Level;
+    local pc = GetSkillOwner(skill);
+    local value = 4 * skill.Level;
+    
+    if IsPVPField(pc) == 1 then
+        value = skill.Level;
+    end
 
+    return value
 end
 
 function SCR_GET_SwashBuckling_Ratio2(skill)
@@ -8714,8 +8741,13 @@ function SCR_GET_SwashBuckling_Ratio2(skill)
 end
 
 function SCR_GET_SwashBuckling_Bufftime(skill)
-    local buffTime = 10;
+    local buffTime = 5 + skill.Level * 2
     local pc = GetSkillOwner(skill);
+
+    if IsPVPField(pc) == 1 then
+        buffTime = buffTime * 0.5
+    end
+
     if pc ~= nil then
         local abilPeltasta32 = GetAbility(pc, "Peltasta32");
         if abilPeltasta32 ~= nil and TryGetProp(abilPeltasta32, "ActiveState") == 1 then
@@ -9319,20 +9351,27 @@ function SCR_GET_SharpSpear_Ratio(skill)
 end
 
 function SCR_GET_HighGuard_Ratio(skill)
-    local pc = GetSkillOwner(skill);
-    local value = skill.Level * 5
+    local value = 50
     value = math.floor(value * SCR_REINFORCEABILITY_TOOLTIP(skill));
-    
-    if IsPVPField(pc) == 1 then
-        value = value / 2
-    end
     
     return value
 end
 
 function SCR_GET_HighGuard_Ratio2(skill)
-    local value = 50 - (skill.Level * 2)
-    return math.floor(value)
+    local value = 25
+    value = math.floor(value * SCR_REINFORCEABILITY_TOOLTIP(skill));
+
+    return value
+end
+
+function SCR_GET_HighGuard_Ratio3(skill)
+    local value = 50 - (skill.Level - 1) * 10
+    return value
+end
+
+function SCR_GET_HighGuard_Ratio4(skill)
+    local value = 25 - (skill.Level - 1) * 5
+    return value
 end
 
 function SCR_GET_HighGuard_Time(skill)
@@ -9925,7 +9964,7 @@ end
 function SCR_GET_SneakHit_Bufftime(skill)
 
     local pc = GetSkillOwner(skill)
-    local value = 30 + skill.Level * 4;
+    local value = 35 + skill.Level * 7;
     
     local Rogue1_abil = GetAbility(pc, 'Rogue1');
     if Rogue1_abil ~= nil and 1 == Rogue1_abil.ActiveState then
@@ -9936,7 +9975,7 @@ function SCR_GET_SneakHit_Bufftime(skill)
 end
 
 function SCR_GET_Feint_Ratio(skill)
-    return 50 + skill.Level * 8;
+    return 30 + skill.Level * 10;
 end
 
 function SCR_GET_Feint_Ratio2(skill)
@@ -9944,7 +9983,7 @@ function SCR_GET_Feint_Ratio2(skill)
 end
 
 function SCR_GET_Feint_Bufftime(skill)
-    return 10 + skill.Level * 2
+    return 2.5 + skill.Level * 0.2
 end
 
 function SCR_GET_Spoliation_Ratio(skill)
@@ -11178,7 +11217,7 @@ function SCR_GET_TracerBullet_Ratio(skill)
 end
 
 function SCR_GET_TracerBullet_BuffTime(skill)
-    local value = 15
+    local value = 15 + skill.Level * 3
     
     return value;
 end
@@ -11605,8 +11644,7 @@ end
 
 
 function SCR_GET_LatentVenom_Ratio2(skill)
-
-    local value = 100
+    local value = 25 + (5 * skill.Level)
 
     return value;
 end
@@ -12202,14 +12240,14 @@ end
 
 function SCR_GET_SKL_COOLDOWN_KnifeThrowing(skill)
     local pc = GetSkillOwner(skill);
-    local basicCoolDown = TryGetProp(skill, "BasicCoolDown", 0) - TryGetProp(skill, "Level", 0) * 1000;
+    local skllv = TryGetProp(skill, "Level", 0)
+    local basicCoolDown = TryGetProp(skill, "BasicCoolDown", 0)
     local abilAddCoolDown = GetAbilityAddSpendValue(pc, skill.ClassName, "CoolDown");
-    
+    if skllv >= 6 then
+        basicCoolDown = basicCoolDown - (skllv-5) * 1000;
+    end
     basicCoolDown = basicCoolDown + abilAddCoolDown;
-        
     basicCoolDown = SCR_COMMON_COOLDOWN_DECREASE(pc, skill, basicCoolDown)
-    
-
     return math.floor(basicCoolDown);
 end
 
@@ -12443,7 +12481,14 @@ end
 
 function SCR_GET_Fanning_Ratio(skill)
     local pc = GetSkillOwner(skill)
-    local value = math.floor(TryGetProp(pc, 'SR', 0) / 7) + 4
+    local value = math.floor(TryGetProp(pc, 'SR', 0) / 2) + 4
+    value = math.min(value, 10)
+    return value
+end
+
+function SCR_GET_Fanning_Ratio2(skill)
+    local pc = GetSkillOwner(skill)
+    local value = math.floor(TryGetProp(pc, 'SR', 0) / 3) + 4
     value = math.min(value, 10)
     return value
 end
@@ -12455,7 +12500,7 @@ function SCR_GET_Westraid_Time(skill)
 end
 
 function SCR_GET_Westraid_Ratio(skill)
-    local value = math.floor(3 + skill.Level * 0.4)
+    local value = math.floor(4 + skill.Level * 1)
     return value
 end
 
@@ -13043,7 +13088,10 @@ end
 function SCR_GET_Crusader_Chants_Heal_Ratio(skill)
     local pc = GetSkillOwner(skill);
     local skills = GetSkill(pc, 'Crusader_Chants')
-    value = 100 + skills.Level * 80
+    local value = 100
+    if skills ~= nil then
+        value = 100 + skills.Level * 80
+    end
     return math.floor(value)
 end
 
@@ -13202,5 +13250,11 @@ function SCR_GET_BreakingWheel_Ratio(skill)
         end
     end
 
+    return value
+end
+
+function SCR_GET_Outrage_Ratio(skill)
+    local arg1 = TryGetProp(skill, 'Level', '1')
+    local value = 100 + arg1 * 10
     return value
 end

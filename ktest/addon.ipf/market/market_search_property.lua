@@ -71,8 +71,26 @@ local MARKET_OPTION_GROUP_PROP_LIST = {
     ETC = {
 		"SR",
 		"MSPD",
-		"SDR",
+		"SDR",		
 	},
+	MARKET_ENCHANT ={
+		"RareOption_SR",
+		"RareOption_MSPD",
+		"RareOption_BlockRate",
+		"RareOption_BlockBreakRate",
+		"RareOption_DodgeRate",
+		"RareOption_HitRate",
+		"RareOption_CriticalDodgeRate",
+		"RareOption_CriticalHitRate",
+		"RareOption_PVPReducedRate",
+		"RareOption_MeleeReducedRate",
+		"RareOption_MagicReducedRate",
+		"RareOption_CriticalDamage_Rate",
+		"RareOption_PVPDamageRate",
+		"RareOption_BossDamageRate",
+		"RareOption_SubWeaponDamageRate",
+		"RareOption_MainWeaponDamageRate"
+	}
 };
 
 local MARKET_DETAIL_SETTING_LIST = {

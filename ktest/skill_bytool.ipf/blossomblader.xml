@@ -489,7 +489,10 @@ return buff"/>
             <ToolScp Scp="SKL_KEY_DYNAMIC_CASTING" Client="YES" UseSleep="NO">
                 <Num Num="0"/>
                 <Num Num="0"/>
-                <Num Num="2"/>
+                <Num FuncTxt="local value = 2
+                local self = GetMyPCObject()
+                local rHand = GetEquipItem(self, 'RH');
+                if rHand ~= nil and TryGetProp(rHand, 'ClassType') == 'Sword' then value = 1 end return value" Num="1" UseFunc="1"/>
                 <Num Num="1"/>
                 <Num Num="1"/>
                 <Num Num="0"/>

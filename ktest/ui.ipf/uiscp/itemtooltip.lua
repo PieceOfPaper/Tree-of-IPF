@@ -532,7 +532,7 @@ function SET_ITEM_TOOLTIP_ALL_TYPE(icon, invitem, className, strType, itemType, 
 	end
 end
 
-function SET_ITEM_TOOLTIP_TYPE(prop, itemID, itemCls, tooltipType)	
+function SET_ITEM_TOOLTIP_TYPE(prop, itemID, itemCls, tooltipType)
 	local customTooltipScp = TryGetProp(itemCls, "CustomToolTip");
 	if customTooltipScp ~= nil and customTooltipScp ~= "None" then
 		customTooltipScp = _G[customTooltipScp];
@@ -540,7 +540,6 @@ function SET_ITEM_TOOLTIP_TYPE(prop, itemID, itemCls, tooltipType)
 	else
 		prop:SetTooltipType('wholeitem');
 	end	
-	
 end
 
 function SET_TOOLTIP_SKILLSCROLL(icon, obj, itemCls, strType)

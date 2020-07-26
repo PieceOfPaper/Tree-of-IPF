@@ -412,6 +412,7 @@ end
                     <Num Num="1"/>
                     <Num Num="100"/>
                     <Num Num="0"/>
+                    <Str Str="GoddessProtection_Buff/GoddessPunishment_Buff"/>
                 </Scp>
                 <Scp Scp="C_VOICE_SOUND" Client="YES" UseSleep="NO" Time="600">
                     <Str Str="None" UseFunc="1" FuncTxt="local abilBuff1 = info.GetBuffByName(self:GetHandleVal(), &quot;GoddessProtection_Buff&quot;)

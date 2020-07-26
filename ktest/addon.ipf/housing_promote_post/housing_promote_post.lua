@@ -161,10 +161,10 @@ function HOUSING_PROMOTE_POST_POINT_INFO(frame, table)
     pointinfo_1:SetTextByKey("value", table["personalHousing_PlaceLV"]);
 
     local pointinfo_2 = GET_CHILD(frame, "pointinfo_2");
-    pointinfo_2:SetTextByKey("value", table["personalHousing_Point1"]);
+    pointinfo_2:SetTextByKey("value", table["personalHousing_PlacePoint"]);
 
     local pointinfo_3 = GET_CHILD(frame, "pointinfo_3");
-    pointinfo_3:SetTextByKey("value", table["personalHousing_PlacePoint"]);
+    pointinfo_3:SetTextByKey("value", table["personalHousing_Point1"]);
 end
 
 function HOUSING_PROMOTE_POST_MY_OPTION_TOGGLE(frame, value)

@@ -455,3 +455,14 @@ function SKL_CHECK_USE_RAMPAGE_SKILL_C(actor, skl, abilName)
     
     return 1;
 end
+
+function SCR_BULLETMARKER_CHECK_BUFFOVER_C(actor, skl, buffName)
+    local getbuff = actor:GetBuff():GetBuff("Overheating_Buff")
+    if getbuff ~= nil then
+        local over = getbuff.over
+        if over >= 20 then
+            return 1;
+        end
+    end
+    return 0;
+end

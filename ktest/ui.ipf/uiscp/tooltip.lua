@@ -1357,8 +1357,6 @@ function UPDATE_MON_SIMPLE_TOOLTIP(frame, monName)
 end
 
 local legend_raid_item_restrict = {
-    'Dispeller_1',
-    'Bujeok_1',
     'Scroll_SkillItem',
 }
 

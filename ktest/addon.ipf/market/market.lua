@@ -366,6 +366,10 @@ local function _CREATE_SEAL_OPTION(ctrlSet, itemObj)
 		return;
 	end
 
+	if TryGetProp(itemObj, "StringArg") == "Seal_Material" then
+		return;
+	end
+
 	for i = 1, itemObj.MaxReinforceCount do
 		local option = TryGetProp(itemObj, 'SealOption_'..i, 'None');
 		if option == 'None' then

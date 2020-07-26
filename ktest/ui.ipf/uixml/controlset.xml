@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by My (IMCGames Co., Ltd) -->
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by Hey (IMCGames Co., Ltd) -->
 <controlsetlist>
 	<controlset name="barrack_pet_mini" toggle="false" hittestbox="false" hittest="true" width="350" height="60" skin="">
 		<controls>
@@ -376,7 +376,7 @@
 			<richtext name="forgeryequip_text" format="{@st66d}모조품" layout_gravity="center center" fontname="white_16_ol" rect="0 0 100 30" margin="0 0 0 0" fixwidth="false" hittest="false" resizebytext="true" updateparent="true" parent="forgeryequip"/>
 		</controls>
 	</controlset>
-	<controlset name="tooltip_equip_small_img" hittest="true" width="405" height="165">
+	<controlset name="tooltip_equip_small_img" hittest="true" width="405" height="167">
 		<userconfig GRADE_TEXT_FONT="{#ffffff}" NORMAL_GRADE_TEXT="{@st41b}{s14}{#ffffff}노말" MAGIC_GRADE_TEXT="{@st41b}{s14}{#0e7fe8}매직" RARE_GRADE_TEXT="{@st41b}{s14}{#a124d0}레어" UNIQUE_GRADE_TEXT="{@st41b}{s14}{#d92400}유니크" LEGEND_GRADE_TEXT="{@st41b}{s14}{#ffa800}레전드" CANNOT_EQUIP_LEVEL_FONT="{#62100c}"/>
 		<controls>
 			<groupbox name="equipInfoGbox" rect="0 0 295 100" layout_gravity="right top" margin="0 60 2 0" hittest="false" draw="false" updateparent="false" scrollbar="false"/>
@@ -443,7 +443,7 @@
 	</controlset>
 	<controlset name="tooltip_equip_desc" hittest="true" width="410" height="0">
 		<controls>
-			<labelline name="labelline" margin="0 0 0 0" rect="0 0 390 3" skin="labelline_def_2" layout_gravity="center top"/>
+			<labelline name="labelline" margin="-3 0 0 0" rect="0 0 390 3" skin="labelline_def_2" layout_gravity="center top"/>
 			<groupbox name="property_gbox" rect="0 0 410 0" layout_gravity="left top" margin="0 15 0 0" skin="bg" hittest="false" draw="false" updateparent="true" scrollbar="false"/>
 		</controls>
 	</controlset>
@@ -459,11 +459,11 @@
 			<richtext name="text" rect="0 0 370 25" margin="17 0 0 0" fixwidth="true" hittest="false" fontname="brown_16"/>
 		</controls>
 	</controlset>
-	<controlset name="tooltip_equip_cannot_reinforce" hittest="true" width="410" height="45">
+	<controlset name="tooltip_equip_cannot_reinforce" hittest="true" width="410" height="50">
 		<userconfig BOTTOM_MARGIN="10" TEXT_FONT="{#62100c}" REINFORCE_TEXT="강화 불가" TRANSCEND_TEXT="초월 불가" EXTRACT_TEXT="추출 불가" SOCKET_TEXT="소켓 추출 불가" BRIQUET_TEXT="외형 변경 불가" EXCHANGE_TEXT="{#00fec5}{ol}계열 변경 가능(1월 24일까지){/}" AWAKEN_TEXT="각성 불가" DECOMPOSEABLE_TEXT="분해 불가"ENCHANT_TEXT="인챈트 불가"/>
 		<controls>
-			<labelline name="labelline" margin="0 0 0 0" rect="0 0 390 3" skin="labelline_def_2" layout_gravity="center top"/>
-			<richtext name="socket_text" layout_gravity="left top" rect="0 0 390 45" margin="17 5 0 0" fixwidth="true" format="" hittest="false" textalign="left center" fontname="brown_16"/>
+			<labelline name="labelline" margin="-2 0 0 0" rect="0 0 390 3" skin="labelline_def_2" layout_gravity="center top"/>
+			<richtext name="socket_text" layout_gravity="left top" rect="0 0 390 45" margin="17 7 0 0" fixwidth="true" format="" hittest="false" textalign="left center" fontname="brown_16"/>
 		</controls>
 	</controlset>
 	<controlset name="tooltip_equip_socket" hittest="true" width="405" height="30">
@@ -538,16 +538,16 @@
 	<controlset name="tooltip_equip_tradability" hittest="true" width="410" height="50">
 		<userconfig STYLE_TRADE_ON="{s14}" STYLE_TRADE_OFF="{@st99gr16}" BOTTOM_MARGIN="7"/>
 		<controls>
-			<labelline name="labelline" margin="0 0 0 0" rect="0 0 390 3" skin="labelline_def_2" layout_gravity="center top"/>
-			<richtext name="label_text" caption="거래 옵션" rect="0 0 100 24" margin="17 7 0 0" fixwidth="true" hittest="false" fontname="brown_16" layout_gravity="left top"/>
-			<picture name="option_npc" layout_gravity="left top" rect="0 0 125 20" margin="146 7 0 0" stretch="true" image="tradecondition_off"/>
-			<picture name="option_market" layout_gravity="left top" rect="0 0 125 20" margin="269 7 0 0" stretch="true" image="tradecondition_off"/>
-			<picture name="option_teamware" layout_gravity="left top" rect="0 0 125 20" margin="146 26 0 0" stretch="true" image="tradecondition_off"/>
-			<picture name="option_trade" layout_gravity="left top" rect="0 0 125 20" margin="269 26 0 0" stretch="true" image="tradecondition_off"/>
-			<richtext name="option_npc_text" layout_gravity="left top" textalign="center center" rect="0 0 120 24" margin="150 8 0 0" format="%s%s" param1="style" param1_def="{s14}" param2="text" param2_def="상점" fixwidth="true" fontname="brown_16"/>
-			<richtext name="option_market_text" layout_gravity="left top" textalign="center center" rect="0 0 120 24" margin="269 8 0 0" format="%s%s" param1="style" param1_def="{s14}" param2="text" param2_def="마켓" fixwidth="true" fontname="brown_16"/>
-			<richtext name="option_teamware_text" layout_gravity="left top" textalign="center center" rect="0 0 120 24" margin="150 27 0 0" format="%s%s" param1="style" param1_def="{s14}" param2="text" param2_def="팀 창고" fixwidth="true" fontname="brown_16"/>
-			<richtext name="option_trade_text" layout_gravity="left top" textalign="center center" rect="0 0 120 24" margin="269 27 0 0" format="%s%s" param1="style" param1_def="{s14}" param2="text" param2_def="개인" fixwidth="true" fontname="brown_16"/>
+			<labelline name="labelline" margin="-3 0 0 0" rect="0 0 390 3" skin="labelline_def_2" layout_gravity="center top"/>
+			<richtext name="label_text" caption="거래 옵션" rect="0 0 100 24" margin="17 10 0 0" fixwidth="true" hittest="false" fontname="brown_16" layout_gravity="left top"/>
+			<picture name="option_npc" layout_gravity="left top" rect="0 0 125 20" margin="146 10 0 0" stretch="true" image="tradecondition_off"/>
+			<picture name="option_market" layout_gravity="left top" rect="0 0 125 20" margin="269 10 0 0" stretch="true" image="tradecondition_off"/>
+			<picture name="option_teamware" layout_gravity="left top" rect="0 0 125 20" margin="146 29 0 0" stretch="true" image="tradecondition_off"/>
+			<picture name="option_trade" layout_gravity="left top" rect="0 0 125 20" margin="269 29 0 0" stretch="true" image="tradecondition_off"/>
+			<richtext name="option_npc_text" layout_gravity="left top" textalign="center center" rect="0 0 120 24" margin="150 11 0 0" format="%s%s" param1="style" param1_def="{s14}" param2="text" param2_def="상점" fixwidth="true" fontname="brown_16"/>
+			<richtext name="option_market_text" layout_gravity="left top" textalign="center center" rect="0 0 120 24" margin="269 11 0 0" format="%s%s" param1="style" param1_def="{s14}" param2="text" param2_def="마켓" fixwidth="true" fontname="brown_16"/>
+			<richtext name="option_teamware_text" layout_gravity="left top" textalign="center center" rect="0 0 120 24" margin="150 30 0 0" format="%s%s" param1="style" param1_def="{s14}" param2="text" param2_def="팀 창고" fixwidth="true" fontname="brown_16"/>
+			<richtext name="option_trade_text" layout_gravity="left top" textalign="center center" rect="0 0 120 24" margin="269 30 0 0" format="%s%s" param1="style" param1_def="{s14}" param2="text" param2_def="개인" fixwidth="true" fontname="brown_16"/>
 		</controls>
 	</controlset>
 	<controlset name="tooltip_pr_n_dur" hittest="true" width="410" height="49">
@@ -593,9 +593,9 @@
 	</controlset>
 	<controlset name="tooltip_sellinfo" hittest="true" width="410" height="25">
 		<controls>
-			<labelline name="labelline" margin="0 0 0 0" rect="0 0 390 3" skin="labelline_def_2" layout_gravity="center top"/>
+			<labelline name="labelline" margin="-2 0 0 0" rect="0 0 390 3" skin="labelline_def_2" layout_gravity="center top"/>
 			<picture name="silver" layout_gravity="right center" stretch="true" image="silver" rect="0 0 24 24" margin="0 0 15 0"/>
-			<richtext name="sellpricetext" format="상점 판매 가격" rect="0 0 340 24" margin="17 8 0 0" fixwidth="true" hittest="false" fontname="brown_16"/>
+			<richtext name="sellpricetext" format="상점 판매 가격" rect="0 0 340 24" margin="17 10 0 0" fixwidth="true" hittest="false" fontname="brown_16"/>
 			<richtext name="sellprice" layout_gravity="right center" format="%s" param1="silver" param1_def="얼마" rect="0 0 50 24" margin="0 0 40 0" fixwidth="false" hittest="false" fontname="brown_16"/>
 		</controls>
 	</controlset>
@@ -4953,6 +4953,38 @@
 			<picture name="pic_rotation_rightup_open" image="open_rightup" parent="gbox_rotation" layout_gravity="right center" stretch="true" rect="0 0 23 23" margin="0 0 0 0" updateparent="true"/>
 		</controls>
 	</controlset>
+	<controlset name="tooltip_personal_housing" hittest="false" width="405" height="428">
+		<controls>
+			<richtext name="name" format="{s22}{#FFFFFF}{b}%s{/}" param1="itemname" param1_def="기본 아이템 이름" layout_gravity="center top" rect="0 0 385 30" margin="0 13 0 0" fixwidth="false" hittest="false" resizebytext="false" updateparent="true" fontname="white_20_ol"/>
+			<picture name="item_bg" image="nomalitem_tooltip_bg" layout_gravity="left top" stretch="true" rect="0 0 395 250" margin="8 43 0 0"/>
+			<picture name="itempic" layout_gravity="center top" stretch="true" rect="0 0 230 230" margin="0 55 0 0"/>
+			<picture name="headerLine_1" rect="0 0 390 2" margin="3 297 0 0" layout_gravity="center top" image="make_line" stretch="true"/>
+			<groupbox name="gbox_housing_info" rect="0 0 395 125" layout_gravity="left top" margin="10 302 0 0" hittest="false" draw="false" updateparent="false" scrollbar="false"/>
+			<picture name="bg_list" image="collection_magic" parent="gbox_housing_info" layout_gravity="left top" stretch="true" rect="0 0 112 23" margin="0 0 0 0" updateparent="true"/>
+			<picture name="bg_size" image="collection_magic" parent="gbox_housing_info" layout_gravity="left top" stretch="true" rect="0 0 112 23" margin="0 25 0 0" updateparent="true"/>
+			<picture name="bg_group" image="collection_magic" parent="gbox_housing_info" layout_gravity="left top" stretch="true" rect="0 0 112 23" margin="0 50 0 0 " updateparent="true"/>
+			<picture name="bg_rotation" image="collection_magic" parent="gbox_housing_info" layout_gravity="left top" stretch="true" rect="0 0 112 23" margin="0 75 0 0 " updateparent="true"/>
+			<picture name="bg_weight" image="collection_magic" parent="gbox_housing_info" layout_gravity="left top" stretch="true" rect="0 0 112 23" margin="0 100 0 0 " updateparent="true"/>
+			<richtext name="text_list" layout_gravity="center center" parent="bg_list" textalign="center center" fontname="white_16_ol" rect="0 0 60 30" margin="0 0 0 0" fixwidth="false" hittest="false" resizebytext="true" updateparent="true" format="목록"/>
+			<richtext name="text_size" layout_gravity="center center" parent="bg_size" textalign="center center" fontname="white_16_ol" rect="0 0 60 30" margin="0 0 0 0" fixwidth="false" hittest="false" resizebytext="true" updateparent="true" format="크기"/>
+			<richtext name="text_group" layout_gravity="center center" parent="bg_group" textalign="center center" fontname="white_16_ol" rect="0 0 60 30" margin="0 0 0 0" fixwidth="false" hittest="false" resizebytext="true" updateparent="true" format="그룹"/>
+			<richtext name="text_rotation" layout_gravity="center center" parent="bg_rotation" textalign="center center" fontname="white_16_ol" rect="0 0 60 30" margin="0 0 0 0" fixwidth="false" hittest="false" resizebytext="true" updateparent="true" format="회전"/>
+			<richtext name="text_weight" layout_gravity="center center" parent="bg_weight" textalign="center center" fontname="white_16_ol" rect="0 0 60 30" margin="0 0 0 0" fixwidth="false" hittest="false" resizebytext="true" updateparent="true" format="무게"/>
+			<richtext name="value_list" layout_gravity="right top" parent="gbox_housing_info" textalign="right center" fontname="brown_16" rect="0 0 100 30" margin="0 0 3 0" fixwidth="false" hittest="false" resizebytext="true" updateparent="true" format="%s" param1="list"/>
+			<richtext name="value_size" layout_gravity="right top" parent="gbox_housing_info" textalign="right center" fontname="brown_16" rect="0 0 100 30" margin="0 25 3 0" fixwidth="false" hittest="false" resizebytext="true" updateparent="true" format="%s" param1="size"/>
+			<richtext name="value_group" layout_gravity="right top" parent="gbox_housing_info" textalign="right center" fontname="brown_16" rect="0 0 100 30" margin="0 50 3 0" fixwidth="false" hittest="false" resizebytext="true" updateparent="true" format="%s" param1="group"/>
+			<richtext name="value_weight" layout_gravity="right top" parent="gbox_housing_info" textalign="right center" fontname="brown_16" rect="0 0 100 30" margin="0 100 3 0" fixwidth="false" hittest="false" resizebytext="true" updateparent="true" caption="0"/>
+			<groupbox name="gbox_rotation" parent="gbox_housing_info" rect="0 0 200 27" layout_gravity="right top" margin="0 75 7 0" hittest="false" draw="false" updateparent="false" scrollbar="false"/>
+			<picture name="pic_rotation_leftdown_close" image="close_leftdown" parent="gbox_rotation" layout_gravity="right center" stretch="true" rect="0 0 23 23" margin="0 0 72 0" updateparent="true"/>
+			<picture name="pic_rotation_leftdown_open" image="open_leftdown" parent="gbox_rotation" layout_gravity="right center" stretch="true" rect="0 0 23 23" margin="0 0 72 0" updateparent="true"/>
+			<picture name="pic_rotation_rightdown_close" image="close_rightdown" parent="gbox_rotation" layout_gravity="right center" stretch="true" rect="0 0 23 23" margin="0 0 48 0" updateparent="true"/>
+			<picture name="pic_rotation_rightdown_open" image="open_rightdown" parent="gbox_rotation" layout_gravity="right center" stretch="true" rect="0 0 23 23" margin="0 0 48 0" updateparent="true"/>
+			<picture name="pic_rotation_leftup_close" image="close_leftup" parent="gbox_rotation" layout_gravity="right center" stretch="true" rect="0 0 23 23" margin="0 0 24 0" updateparent="true"/>
+			<picture name="pic_rotation_leftup_open" image="open_leftup" parent="gbox_rotation" layout_gravity="right center" stretch="true" rect="0 0 23 23" margin="0 0 24 0" updateparent="true"/>
+			<picture name="pic_rotation_rightup_close" image="close_rightup" parent="gbox_rotation" layout_gravity="right center" stretch="true" rect="0 0 23 23" margin="0 0 0 0" updateparent="true"/>
+			<picture name="pic_rotation_rightup_open" image="open_rightup" parent="gbox_rotation" layout_gravity="right center" stretch="true" rect="0 0 23 23" margin="0 0 0 0" updateparent="true"/>
+		</controls>
+	</controlset>
 	<controlset name="housing_page_slot" hittest="true" width="420" height="120" skin="market_listbase" hittestset="false" draw="true">
 		<controls>
 			<groupbox name="gbox_page_slot" rect="0 0 415 115" margin="0 0 0 0" layout_gravity="center center" draw="false"/>
@@ -4992,14 +5024,35 @@
 			<button name="btn_apply" parent="gbox_background_change_slot" rect="0 0 120 40" margin="0 0 5 5" layout_gravity="right bottom" MouseOnAnim="btn_mouseover" MouseOffAnim="btn_mouseoff" stretch="false" hittest="true" format="{@st42b}%s{/}" param1="value" param1_def="구매" skin="test_red_button" oversound="button_over" LBtnUpScp="BTN_HOUSING_EDITMODE_BACKGROUND_CHANGE"/>
 		</controls>
 	</controlset>
-	<controlset name="housing_shop_itemset" toggle="false" hittest="true" width="460" height="55" skin="test_skin_01_btn">
+	<controlset name="housing_shop_itemset" hittest="true" width="460" height="55" toggle="false" skin="test_skin_01_btn">
 		<controls>
 			<slot name="slot" layout_gravity="left top" skin="slot_empty" rect="8 4 42 42"/>
 			<richtext name="ItemName_Count" rect="55 7 400 42" layout_gravity="left top" fixwidth="true" hittest="false" fontname="white_14_b_ds"/>
 			<richtext name="Item_Price" rect="50 -7 400 42" layout_gravity="left bottom" fixwidth="true" hittest="false" fontname="white_14_b_ds"/>
 			<picture name="pic_new" rect="0 0 40 25" margin="0 5 5 0" hittest="false" layout_gravity="right top" stretch="false" image="new_inventory_icon"/>
+			<button name="btn_furniture_preview" rect="0 0 35 35" margin="0 0 10 0" layout_gravity="right center" MouseOnAnim="btn_mouseover" MouseOffAnim="btn_mouseoff" stretch="false" hittest="true" image="housing_magnifier" oversound="button_over" LBtnUpScp="BTN_HOUSING_SHOP_PREVIEW_FURNITURE" texttooltip="{@st59}미리보기"/>
 		</controls>
 	</controlset>
+	<controlset name="personal_housing_group_category" hittest="true" width="270" height="100" toggle="false">
+		<controls>
+			<groupbox name="gbox_personal_housing_group_category" rect="0 0 270 100" margin="0 0 0 0" layout_gravity="left top" draw="false" scrollbar="false"/>
+			<richtext name="txt_category_name" parent="gbox_personal_housing_group_category" rect="0 0 265 25" margin="5 0 0 0" layout_gravity="left top" resizebytext="false" textalign="left center" format="{@st41}%s{/}" param1="name" param1_def="None" fontname="white_20_ol_ds"/>
+		</controls>
+	</controlset>
+	<controlset name="personal_housing_group" hittest="true" width="270" height="20" toggle="false">
+		<controls>
+			<richtext name="txt_group_name" rect="0 0 205 20" margin="25 0 0 0" layout_gravity="left top" resizebytext="false" textalign="left center" format="{@42b}{s15}%s{/}{/}" param1="name" param1_def="None" fontname="white_14_ol"/>
+			<richtext name="txt_group_count" rect="0 0 60 20" margin="0 0 0 0" layout_gravity="right top" resizebytext="false" textalign="left center" format="{@42b}{s15}%s / %s{/}{/}" param1="count" param1_def="0" param2="max" param2_def="0" fontname="white_12_ol"/>
+		</controls>
+	</controlset>
+  <controlset name="personal_housing_shop_coupon" hittest="true" width="380" height="40">
+    <controls>
+      <slot name="slot" rect="0 0 40 40" margin="10 0 0 0" skin="invenslot2" layout_gravity="left center"/>
+      <edit name="itemCount" rect="0 0 50 30" margin="60 0 0 0" layout_gravity="left center" textalign="center center" fontname="white_18_ol" numbermode="true" skin="test_weight_skin" typingscp="HOUSING_SHOP_PAYMENT_COUPON_COUNT_CHANGE" EnterKeyScp="None" param1="count" param1_def="0"/>
+      <richtext name="hasCount" rect="0 0 60 20" margin="115 0 0 0" layout_gravity="left center" resizebytext="false" textalign="left center" format="{@st41} / %s{/}{/}" param1="count" param1_def="0" fontname="white_12_ol"/>
+      <richtext name="discount" rect="0 0 90 20" margin="0 0 0 0" layout_gravity="right center" format="{@st42}- %s{/}" param1="price" param1_def="0" spacey="0" textalign="right center" fontname="black_20_b"/>
+    </controls>
+  </controlset>
 	<!--Etc-->
 	<controlset name="ancient_card_item_slot" hittest="true" width="163" height="218" skin="test_frame_midle_light" stateskin="false" enabledrag="true">
 		<controls>
@@ -5277,4 +5330,11 @@
 		</controls>
 	</controlset>
 	<!-- 개인 하우징 홍보 게시판 끝 -->
+	<controlset name="decomposeItemSlotSet" toggle="false" hittest="false" width="530" height="144" skin="">
+		<userconfig GRADE_1="일반" GRADE_2="매직" GRADE_3="레어" GRADE_4="유니크"/>
+		<controls>
+			<richtext name="itemSlotsetText" rect="0 0 70 20" margin="10 3 0 0" layout_gravity="left top" caption="일반" fontname="black_16_b"/>
+			<slotset name="itemSlotset" rect="0 0 480 100" margin="0 30 0 0" layout_gravity="center top" LBtnDownScp="ITEM_DECOMPOSE_SLOT_LBTDOWN" enabledrag="false" enableselect="true" hideindrag="true" row="2" col="10" maxselect="60" size="50 50" skin="invenslot2" spc="2 2" enabledrop="false" enablepop="false"/>
+		</controls>
+	</controlset>
 </controlsetlist>

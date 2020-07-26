@@ -346,3 +346,16 @@ function SCR_REINFORCEABILITY_FOR_BUFFSKILL(self, skill)
 	
     return addRate
 end
+
+function CHECK_SKILL_REQSTANCE(skill, checkReqStance)
+	local skillReqStance = TryGetProp(skill, 'ReqStance');
+	if skillReqStance ~= nil then
+		local skillReqStanceList = SCR_STRING_CUT(skillReqStance, ';')
+		local index = table.find(skillReqStanceList, checkReqStance);
+		if index ~= 0 then
+			return 1;
+		end
+	end
+	
+	return 0;
+end

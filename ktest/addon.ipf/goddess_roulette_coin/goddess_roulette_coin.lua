@@ -70,11 +70,13 @@ function GODDESS_ROULETTE_COIN_ACQUIRE_STATE_OPEN(frame)
 		local curvalue = 0;
 		local maxvalue = 9999999;
 		if i == 1 then
+			-- 전체 코인 획득량
 			text:SetTextByKey('value', ClMsg('EVENT_NEW_SEASON_SERVER_COIN_CHECK_STATE_'..i));
 
 			curvalue = TryGetProp(accObj, "GODDESS_ROULETTE_COIN_ACQUIRE_COUNT", 0);
 			maxvalue = GODDESS_ROULETTE_COIN_MAX_COUNT;
 		elseif i == 2 then
+			-- 한 시간 접속
 			text:SetTextByKey('value', ClMsg('EVENT_NEW_SEASON_SERVER_COIN_CHECK_STATE_'..i));
 
 			curvalue = TryGetProp(accObj, "GODDESS_ROULETTE_DAILY_PLAY_TIME_MINUTE", 0);
@@ -90,6 +92,7 @@ function GODDESS_ROULETTE_COIN_ACQUIRE_STATE_OPEN(frame)
 				clear_text:SetTextAlign("center", "top");
 			end			
 		elseif i == 3 then
+			-- 스탬프 투어
 			text:SetTextByKey('value', ClMsg('EVENT_NEW_SEASON_SERVER_COIN_CHECK_STATE_'..i));
 
 			curvalue = GET_GODDESS_ROULETTE_STAMP_TOUR_CLEAR_COUNT();
@@ -98,7 +101,18 @@ function GODDESS_ROULETTE_COIN_ACQUIRE_STATE_OPEN(frame)
 			npc_pos_btn:ShowWindow(1);
 			npc_pos_btn:SetEventScript(ui.LBUTTONUP, "NPC_POS_BTN_CLICK");
 			npc_pos_btn:SetTextTooltip(ClMsg("GoddessRouletteNpcTextTooltip"));
+			
+			--------- 스탬프 투어 이벤트 종료 ---------
+			blackbg:ShowWindow(1);
+			blackbg:SetAlpha(90);
+			
+			local clear_text = blackbg:CreateOrGetControl("richtext", "clear_text", 0, 0, 500, 80);
+			clear_text:SetText("{@st42b}{s20}"..ClMsg("EndEventMessage"));
+			clear_text:SetGravity(ui.CENTER_HORZ, ui.CENTER_VERT);
+			clear_text:SetTextAlign("center", "top");
+			--------- 스탬프 투어 이벤트 종료 ---------
 		elseif i == 4 then
+			-- 콘텐츠 
 			text:SetTextByKey('value', ClMsg("DailyContentMissionAcquireCount"));
 
 			curvalue = TryGetProp(accObj, "GODDESS_ROULETTE_DAILY_CONTENTS_ACQUIRE_COUNT", 0);
@@ -121,6 +135,7 @@ function GODDESS_ROULETTE_COIN_ACQUIRE_STATE_OPEN(frame)
 				clear_text:SetTextAlign("center", "top");
 			end			
 		elseif i == 5 then
+			-- 룰렛
 			text:SetTextByKey('value', ClMsg('EVENT_NEW_SEASON_SERVER_COIN_CHECK_STATE_'..i));
 
 			curvalue = GET_USE_ROULETTE_COUNT(accObj);
@@ -229,13 +244,20 @@ function GODDESS_ROULETTE_COIN_STAMP_TOUR_STATE_OPEN(frame)
 		local y = 0;
 		y = CREATE_GODDESS_ROULETTE_COIN_STAMP_TOUR_LIST(y, listgb, false);	-- 완료 되지 않은 목표 우선 표시
 		y = CREATE_GODDESS_ROULETTE_COIN_STAMP_TOUR_LIST(y, listgb, true);
-	else
+	else		
 		-- 스탬프 투어 시작 전
+		-- local ctrl = listgb:CreateControl("richtext", "stamp_tour_tip_text", 500, 100, ui.CENTER_HORZ, ui.CENTER_VERT, 0, 0, 0, 0);
+		-- ctrl:SetTextFixWidth(1);
+		-- ctrl:SetTextAlign("center", "top");
+		-- ctrl:SetFontName("black_24");
+		-- ctrl:SetText(ClMsg("EVENT_NEW_SEASON_SERVER_stamp_tour_tip_text2"));		
+
+		-- 스탬프 투어 종료
 		local ctrl = listgb:CreateControl("richtext", "stamp_tour_tip_text", 500, 100, ui.CENTER_HORZ, ui.CENTER_VERT, 0, 0, 0, 0);
 		ctrl:SetTextFixWidth(1);
 		ctrl:SetTextAlign("center", "top");
 		ctrl:SetFontName("black_24");
-		ctrl:SetText(ClMsg("EVENT_NEW_SEASON_SERVER_stamp_tour_tip_text2"));		
+		ctrl:SetText(ClMsg("EndEventMessage"));		
 	end
 end
 

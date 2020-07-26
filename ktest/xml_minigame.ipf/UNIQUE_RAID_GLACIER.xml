@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by IMC (IMCGames Co., Ltd) -->
 <GameList>
 	<Game Name="UNIQUE_RAID_GLACIER" minLv="0" maxLv="0" mapName="snow_raid_glacier" playerCountCheckDestroy="1" startWaitSec="-1">
 		<StageList>
@@ -13,6 +13,7 @@
 					<Obj Type="Monster" MonType="157101" Pos="-852.19#409.72#156.79" angle="-134" genCount="1" genTime="20000" objectKey="5" propList="&apos;OBB&apos; &apos;NO&apos; &apos;OBBSize&apos; &apos;0;0;0&apos; &apos;Dialog&apos; &apos;GLACIER_KRUVINA_STAGE1&apos; "/>
 					<Obj Type="Monster" MonType="157101" Pos="579.16#436.17#-798.55" angle="4" genCount="1" genTime="20000" objectKey="6" propList="&apos;OBB&apos; &apos;NO&apos; &apos;OBBSize&apos; &apos;0;0;0&apos; &apos;Dialog&apos; &apos;GLACIER_KRUVINA_STAGE2&apos; "/>
 					<Obj Type="Monster" MonType="160029" Pos="1248.10#597.88#981.66" genCount="1" genTime="20000" objectKey="7" propList="&apos;NumArg1&apos; &apos;1&apos; "/>
+                    <Obj Type="Monster" MonType="40070" Pos="-797.80#285.51#-708.93" angle="-69" genCount="1" genTime="20000" objectKey="8" propList="&apos;Dialog&apos; &apos;GLACIER_NPC_NOTICE_BOARD&apos; "/>
 				</ObjList>
 				<StageEvents>
 					<Event eventName="Glacier_Enter_Check">
@@ -77,6 +78,14 @@
 							</ToolScp>
 						</condList>
 						<execList>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="Pbeta_Start"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="Glacier_Start"/>
+                                <Num Num="0"/>
+                            </ToolScp>
 							<ToolScp Scp="MGAME_EVT_SCRIPT_ARG" Client="NO" UseSleep="NO">
 								<Str Str="SCR_UNIQUE_GLACIER_CUSTOM_LOG"/>
 								<Str Str="Unique_Raid_Glacier_Success"/>
@@ -142,6 +151,14 @@
 				<StageEvents>
 					<Event execCount="1" eventName="Raid_Stop">
 						<execList>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="Pbeta_Start"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="Glacier_Start"/>
+                                <Num Num="0"/>
+                            </ToolScp>
 							<ToolScp Scp="MGAME_EVT_SCRIPT_ARG" Client="NO" UseSleep="NO">
 								<Str Str="SCR_UNIQUE_GLACIER_CUSTOM_LOG"/>
 								<Str Str="Unique_Raid_Glacier_Fail"/>
@@ -447,7 +464,7 @@
 						</condList>
 						<execList>
 							<ToolScp Scp="MGAME_MSG_ICON" Client="YES" UseSleep="NO">
-								<Str Str="크루비나 장치로 인하여, 몰려들던 몬스터를{nl}모두 처치하였습니다."/>
+								<Str Str="크루비나 기운에 몰려들던 몬스터를 모두 처치하였습니다."/>
 								<Str Str="Clear"/>
 								<Num Num="5"/>
 							</ToolScp>
@@ -517,7 +534,7 @@
 						</condList>
 						<execList>
 							<ToolScp Scp="MGAME_MSG_ICON" Client="YES" UseSleep="NO">
-								<Str Str="크루비나 장치로 인하여, 몰려들던 몬스터를{nl}모두 처치하였습니다."/>
+								<Str Str="크루비나 기운에 몰려들던 몬스터를 모두 처치하였습니다."/>
 								<Str Str="Clear"/>
 								<Num Num="2"/>
 							</ToolScp>
@@ -635,6 +652,19 @@
 							</ToolScp>
 						</execList>
 					</Event>
+					<Event execCount="1" eventName="Kruvinas_Ani">
+						<condList>
+							<ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+								<Num Num="1"/>
+							</ToolScp>
+						</condList>
+						<execList>
+							<ToolScp Scp="MGAME_EVT_SCP_TO_MON" Client="NO" UseSleep="NO">
+								<MGameObj List="Boss_Pbeta/2/Boss_Pbeta/3/Boss_Pbeta/1"/>
+								<Str Str="BLACK_CRYSTAL_ANI"/>
+							</ToolScp>
+						</execList>
+					</Event>
 				</StageEvents>
 			</Stage>
 			<Stage Name="Boss_Glacier" AutoStart="0">
@@ -686,6 +716,14 @@
 								<Str Str="Stage_Glacier_Start"/>
 								<Num Num="0"/>
 							</ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="Glacier_Start"/>
+                                <Num Num="1"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="Pbeta_Start"/>
+                                <Num Num="0"/>
+                            </ToolScp>
 						</execList>
 					</Event>
 				</StageEvents>
@@ -788,6 +826,10 @@
 								<Str Str="Stage_Pbeta_Start"/>
 								<Num Num="0"/>
 							</ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="Pbeta_Start"/>
+                                <Num Num="1"/>
+                            </ToolScp>
 						</execList>
 					</Event>
 					<Event execCount="1" eventName="Stage_2_Clear">
@@ -856,6 +898,7 @@
 								<Str Str="Stage_Glacier_Clear"/>
 								<Num Num="0"/>
 							</ToolScp>
+                            <ToolScp Scp="MGAME_EXEC_REVIVE" Client="NO" UseSleep="NO"/>
 						</execList>
 					</Event>
 					<Event execCount="1" eventName="Stage1_1_Start">
@@ -873,7 +916,7 @@
 						</condList>
 						<execList>
 							<ToolScp Scp="MGAME_MSG_ICON" Client="YES" UseSleep="NO">
-								<Str Str="크루비나의 장치가 작동하여, 주변의 몬스터들이 몰려 옵니다."/>
+								<Str Str="크루비나 장치가 작동하여, 주변의 몬스터들이 몰려 옵니다."/>
 								<Str Str="!"/>
 								<Num Num="5"/>
 							</ToolScp>
@@ -910,7 +953,7 @@
 						</condList>
 						<execList>
 							<ToolScp Scp="MGAME_MSG_ICON" Client="YES" UseSleep="NO">
-								<Str Str="크루비나의 장치가 작동하여, 주변의 몬스터들이 몰려 옵니다."/>
+								<Str Str="크루비나 장치가 작동하여, 주변의 몬스터들이 몰려 옵니다."/>
 								<Str Str="!"/>
 								<Num Num="5"/>
 							</ToolScp>

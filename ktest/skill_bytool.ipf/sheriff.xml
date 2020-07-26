@@ -276,7 +276,7 @@
 					<Num FuncTxt="return obj.Level;" Num="1" UseFunc="1" />
 					<Num Num="0" />
                     <Num Num="30000"/>
-                    <Num FuncTxt="local abilSheriff8 = GetAbility(self, 'Sheriff8'); if abilSheriff8 ~= nil and abilSheriff8.ActiveState == 1 then return 1 end local value = math.floor(3 + obj.Level * 0.4); if IsBuffApplied(self, 'Westraid_Buff') == 'YES' then local curOver = GetBuffOver(self, 'Westraid_Buff'); if value >= curOver then value = value - curOver end end return value" Num="6" UseFunc="1"/>
+                    <Num FuncTxt="local abilSheriff8 = GetAbility(self, 'Sheriff8'); if abilSheriff8 ~= nil and abilSheriff8.ActiveState == 1 then return 1 end local value = math.floor(4 + obj.Level * 1); if IsBuffApplied(self, 'Westraid_Buff') == 'YES' then local curOver = GetBuffOver(self, 'Westraid_Buff'); if value >= curOver then value = value - curOver end end return value" Num="6" UseFunc="1"/>
 					<Num Num="100" />
 					<Num Num="0" />
 				</Scp>
@@ -300,7 +300,7 @@
             <ToolScp Scp="SKL_KEY_DYNAMIC_CASTING" Client="YES" UseSleep="NO">
 				<Num Num="0" />
 				<Num Num="0" />
-                <Num Num="3" UseFunc="0"/>
+                <Num Num="1.5" UseFunc="0"/>
 				<Num Num="1" />
 				<Num Num="0" />
 				<Num Num="0" />
@@ -325,7 +325,7 @@
 		<KeyInputStart>
             <ToolScp Scp="MONSKL_C_PLAY_ANIM" Client="YES" UseSleep="NO">
 				<Str Str="SKL_FANNING" />
-                <Num Num="1" UseFunc="0"/>
+                <Num Num="2" UseFunc="0"/>
 				<Num Num="1" />
 				<Num Num="0" />
 			</ToolScp>
@@ -355,17 +355,18 @@
                 <Frame Type="FAN" Time="9799" HitCount="1" TermMin="0" TermMax="0" PosType="0" Dist="0" RandDist="0" RandomPerHit="0" Angle="0" AniTime="9999" RotAngle="0" ForceATK="0"/>
 			</HitList>
 			<EtcList>
-                <Scp Scp="SKL_SET_TARGET_FAN_EXCEPT_DEAD" Client="NO" UseSleep="NO" Time="0" LoopTime="125">
+                <Scp Scp="SKL_SET_TARGET_FAN_EXCEPT_DEAD" Client="NO" UseSleep="NO" Time="0" LoopTime="67">
                     <Pos Angle="0" Dist="0"/>
                     <Num Num="45"/>
                     <Num Num="130"/>
-                    <Num Num="1" UseFunc="1" FuncTxt="local cnt = math.floor(TryGetProp(self, 'SR', 0) / 7);
-                    return math.min(10, IMCRandom(2, 4 + cnt))"/>
+                    <Num Num="1" UseFunc="1" FuncTxt="local cnt1 = math.floor(TryGetProp(self, 'SR', 0) / 3);
+                    local cnt2 = math.floor(TryGetProp(self, 'SR', 0) / 2);
+                    return math.min(10, IMCRandom(4 + cnt1, 4 + cnt2))"/>
                     <Str Str="ENEMY"/>
                     <Num Num="1"/>
                     <Num Num="0"/>
                     </Scp>
-                <Scp Scp="SKL_TGT_DMG" Client="NO" UseSleep="NO" Time="50" LoopTime="125">
+                <Scp Scp="SKL_TGT_DMG" Client="NO" UseSleep="NO" Time="50" LoopTime="67">
                     <Num Num="1"/>
                     <Num Num="0"/>
                     <Num Num="0"/>

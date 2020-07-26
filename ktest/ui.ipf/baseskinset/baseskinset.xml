@@ -8074,6 +8074,12 @@
 		<image name="housing_right_side" file="\skin\housing.tga" imgrect="86 100 42 369" CMM_Caption="오른쪽페이지_넘기기"/>
 		<image name="housing_right_side_cursoron" file="\skin\housing.tga" imgrect="129 100 42 369"/>
 		<image name="housing_right_side_clicked" file="\skin\housing.tga" imgrect="129 100 42 369"/>
+		<image name="targetbuff_maximize" file="\skin\chat_skin.tga" imgrect="156 81 26 26" CMM_Caption="타겟버프표시_최대화"/>
+		<image name="targetbuff_maximize_cursoron" file="\skin\chat_skin.tga" imgrect="183 81 26 26"/>
+		<image name="targetbuff_maximize_clicked" file="\skin\chat_skin.tga" imgrect="210 81 26 26"/>
+		<image name="targetbuff_mimimize" file="\skin\chat_skin.tga" imgrect="252 81 26 26" CMM_Caption="타겟버프표시_최대화"/>
+		<image name="targetbuff_mimimize_cursoron" file="\skin\chat_skin.tga" imgrect="279 81 26 26"/>
+		<image name="targetbuff_mimimize_clicked" file="\skin\chat_skin.tga" imgrect="306 81 26 26"/>
 	</imagelist>
 	<imagelist category="yiseul_button">
 		<image name="pvpmine_shop_btn" file="\skin\pip_test.tga" imgrect="2049 61 66 59" CMM_Caption="용병단 증표 ui 버튼"/>
@@ -8378,6 +8384,7 @@
 		<image name="icon_house_p_girlsroom_1" file="\icon\housing\icon_house_p_girlsroom_1.png" imgrect="0 0 400 400"/>
 		<image name="icon_House_P_Hall_1" file="\icon\housing\icon_House_P_Hall_1.png" imgrect="0 0 400 400"/>
 		<image name="icon_House_P_HunterRoom_1" file="\icon\housing\icon_House_P_HunterRoom_1.png" imgrect="0 0 400 400"/>
+		<image name="icon_House_p_Library_1" file="\icon\housing\icon_House_p_Library_1.png" imgrect="0 0 400 400"/>
 	</imagelist>
 	<imagelist category="monster_info_icon">
 		<image name="mon_info_fire" file="\skin\HUD.tga" imgrect="1941 0 35 34"/>
@@ -10599,6 +10606,9 @@
 		<image name="icon_scout_Arditibleed" file="\icon\buff_icon3.tga" imgrect="384 1280 128 128" CMM_Caption="선혈"/>
 		<image name="icon_Glacier_fascination_emptied" file="\icon\buff_icon3.tga" imgrect="512 1280 128 128" CMM_Caption="글레이시어_매혹_emptied"/>
 		<image name="icon_Glacier_fascination_filled" file="\icon\buff_icon3.tga" imgrect="640 1280 128 128" CMM_Caption="글레이시어_매혹_filled"/>
+		<image name="icon_scout_Overheating" file="\icon\buff_icon3.tga" imgrect="768 1280 128 128" CMM_Caption="불릿마커: 과열"/>
+		<image name="icon_scout_Specialmove" file="\icon\buff_icon3.tga" imgrect="896 1280 128 128" CMM_Caption="슈바르츠라이터: 특수 기동"/>
+		<image name="icon_scout_Reload" file="\icon\buff_icon3.tga" imgrect="0 1408 128 128" CMM_Caption="셰리프: 리로드"/>
 	</imagelist>
 	<imagelist category="housing_bufficon">
 		<image name="icon_Weapon_Klaida" file="\icon\icon_hosing_buff.tga" imgrect="0 0 128 128"/>
@@ -11139,6 +11149,10 @@
 		<image name="plate_achieve_weeklyrank_6" file="\skin\user_title_skin.tga" imgrect="430 176 214 34" CMM_Caption="주간보스_렉시퍼"/>
 		<image name="plate_achieve_weeklyrank_7" file="\skin\user_title_skin.tga" imgrect="430 211 214 34" CMM_Caption="주간보스_하우벅"/>
 		<image name="plate_achieve_weeklyrank_8" file="\skin\user_title_skin.tga" imgrect="649 0 214 34" CMM_Caption="주간보스_마르녹스"/>
+		<image name="plate_achieve_weeklyrank_9" file="\skin\user_title_skin.tga" imgrect="645 36 214 34" CMM_Caption="주간보스_네뷸라스"/>
+		<image name="plate_achieve_weeklyrank_10" file="\skin\user_title_skin.tga" imgrect="645 71 214 34" CMM_Caption="주간보스_프로스터 로드"/>
+		<image name="plate_achieve_weeklyrank_11" file="\skin\user_title_skin.tga" imgrect="645 106 214 34" CMM_Caption="주간보스_브람블"/>
+		<image name="plate_achieve_weeklyrank_12" file="\skin\user_title_skin.tga" imgrect="645 141 214 34" CMM_Caption="주간보스_워퓰리스"/>
 	</imagelist>
 	<imagelist category="skin_hair">
 		<image name="icon_skintone_01_m01" file="\skin\skinhair\icon_skintone_01_m01.png" imgrect="0 0 80 80" CMM_Caption="남성 01"/>

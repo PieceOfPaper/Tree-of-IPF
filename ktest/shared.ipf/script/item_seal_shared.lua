@@ -11,8 +11,25 @@ function IS_SEAL_ITEM(item)
     return false;
 end
 
+-- 재료 인장 아이템
+function IS_SEAL_MATERIAL_ITEM(item)
+    if item == nil then
+        return false;
+    end
+
+    if TryGetProp(item, 'StringArg', 'None') == 'Seal_Material' then
+        return true;
+    end
+
+    return false;
+end
+
 -- 인장 강화 재료 아이템
-function IS_VALID_SEAL_MATERIAL_ITEM(targetSeal, materialSeal)    
+function IS_VALID_SEAL_MATERIAL_ITEM(targetSeal, materialSeal)
+    if IS_SEAL_MATERIAL_ITEM(targetSeal) == true and IS_SEAL_MATERIAL_ITEM(materialSeal) ~= true then
+        return false, "SealMaterialTargetItemWarning";
+    end
+
     if IS_SEAL_ITEM(targetSeal) == false or IS_SEAL_ITEM(materialSeal) == false then        
         return false;
     end

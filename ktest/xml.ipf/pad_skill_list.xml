@@ -6455,7 +6455,7 @@ return FreezeRating;
 				<Str_Arg Str="None" Arg="1"/>
 			</ToolScp>
 			<ToolScp Scp="PAD_ADD_LIFE" Client="NO" UseSleep="NO">
-				<Num Num="15000"/>
+                <Num Num="15000" UseFunc="1" FuncTxt="local value = 15000 if IsRaidField(self) == 1 then local cmd = GetMGameCmd(self) if cmd ~= nil and cmd:GetMGameName() == &quot;UNIQUE_RAID_GLACIER&quot; then value = value / 2 end end return value"/>
 				<Num Num="1"/>
 			</ToolScp>
 		</createEvent>
@@ -13413,7 +13413,7 @@ return lv;"/>
 			</ToolScp>
 		</leaveEvent>
 	</PadSkill>
-    <PadSkill Name="Pbeta_KruvinaMist" CheckerType="0" Range="150" UpdateTerm="3000" ApplyFlyMon="1" AllowOverlap="1">
+    <PadSkill Name="Pbeta_KruvinaMist" CheckerType="0" Range="150" UpdateTerm="2000" ApplyFlyMon="1" AllowOverlap="1" EnableSearch="0" IsMagicType="0">
         <createEvent>
             <ToolScp Scp="C_PAD_EFFECT_POS" Client="YES" UseSleep="NO">
                 <Str_Arg Str="F_smoke027_dark_loop3" Arg="3"/>
@@ -13437,7 +13437,7 @@ return lv;"/>
             </ToolScp>
         </updateEvent>
     </PadSkill>
-    <PadSkill Name="Pbeta_Obj_Dmg_Pad" CheckerType="0" Range="150" UpdateTerm="1000" AutoPos="1" ApplyFlyMon="1" AllowOverlap="1">
+    <PadSkill Name="Pbeta_Obj_Dmg_Pad" CheckerType="0" Range="150" UpdateTerm="1000" AutoPos="1" ApplyFlyMon="1" AllowOverlap="1" EnableSearch="0" IsMagicType="0">
         <createEvent>
             <ToolScp Scp="C_PAD_EFFECT_POS" Client="YES" UseSleep="NO">
                 <Str_Arg Str="F_pattern013_ground_red" Arg="2.5"/>
@@ -13467,7 +13467,7 @@ return lv;"/>
             </ToolScp>
         </updateEvent>
     </PadSkill>
-    <PadSkill Name="Pbeta_Obj_Pad" CheckerType="0" Range="70" UpdateTerm="1000" AutoPos="1" ApplyFlyMon="1" AllowOverlap="1">
+    <PadSkill Name="Pbeta_Obj_Pad" CheckerType="0" Range="70" UpdateTerm="1000" AutoPos="1" ApplyFlyMon="1" AllowOverlap="1" EnableSearch="0" IsMagicType="0" IsMineType="0">
         <createEvent>
             <ToolScp Scp="C_PAD_EFFECT_POS" Client="YES" UseSleep="NO">
                 <Str_Arg Str="F_pattern013_ground_violet" Arg="1.1"/>
@@ -18184,7 +18184,7 @@ return 3 + obj.Level * 0.5"/>
             </ToolScp>
         </enterEvent>
     </PadSkill>
-    <PadSkill Name="Unique_Glacier_ColdBlast" CheckerType="0" Range="150" UpdateTerm="1000" AutoPos="1" ApplyFlyMon="1" AllowOverlap="1" IsMineType="0">
+    <PadSkill Name="Unique_Glacier_ColdBlast" CheckerType="0" Range="150" UpdateTerm="1000" AutoPos="1" ApplyFlyMon="1" AllowOverlap="1" EnableSearch="0" IsMineType="0">
         <createEvent>
             <ToolScp Scp="C_PAD_EFFECT_POS" Client="YES" UseSleep="NO">
                 <Str_Arg Str="F_circle033_spread_ou_blue" Arg="1.7"/>
@@ -18199,7 +18199,7 @@ return 3 + obj.Level * 0.5"/>
             </ToolScp>
         </createEvent>
         <destroyEvent>
-            <ToolScp Scp="PAD_SELECT_PADKILL" Client="NO" UseSleep="NO">
+            <ToolScp Scp="PAD_SELECT_SPECIFIC_PADKILL" Client="NO" UseSleep="NO">
                 <Str Str="Unique_Glacier_SnowStorm"/>
                 <Num Num="150"/>
             </ToolScp>
@@ -18214,14 +18214,8 @@ return 3 + obj.Level * 0.5"/>
                 <Str Str="SCR_UNIQUE_GLACIER_COLD_BLAST_EXEC"/>
             </ToolScp>
         </destroyEvent>
-        <updateEvent>
-            <ToolScp Scp="PAD_ADD_LIFE" Client="NO" UseSleep="NO">
-                <Num Num="-1000"/>
-                <Num Num="1"/>
-            </ToolScp>
-        </updateEvent>
     </PadSkill>
-    <PadSkill Name="Unique_Glacier_IceSpear" CheckerType="0" Range="15" AllowOverlap="1">
+    <PadSkill Name="Unique_Glacier_IceSpear" CheckerType="0" Range="15" AutoPos="1" AutoDir="1" ApplyFlyMon="1" AllowOverlap="1" EnableSearch="0" IsMineType="0">
         <createEvent>
             <ToolScp Scp="PAD_ADD_LIFE" Client="NO" UseSleep="NO">
                 <Num Num="999999"/>
@@ -18285,20 +18279,21 @@ return 3 + obj.Level * 0.5"/>
                 <Num Num="99999"/>
             </ToolScp>
             <ToolScp Scp="C_PAD_EFFECT_POS" Client="YES" UseSleep="NO">
-                <Str_Arg Str="F_ground180_snow_loop" Arg="12"/>
-                <Pos Angle="0" Dist="1.3683719e-36"/>
-                <Num Num="0"/>
-                <Str_Arg Str="None" Arg="1"/>
-                <Num Num="1"/>
-            </ToolScp>
-            <ToolScp Scp="C_PAD_EFFECT_POS" Client="YES" UseSleep="NO">
-                <Str_Arg Str="F_cleric_zemina_buff_blue" Arg="5.5999999"/>
+                <Str_Arg Str="F_ground205_rotate_ice_loop" Arg="1.2"/>
                 <Pos Angle="0" Dist="0"/>
                 <Num Num="0"/>
                 <Str_Arg Str="None" Arg="1"/>
                 <Num Num="1"/>
             </ToolScp>
+            <ToolScp Scp="PAD_SET_SPECIFIC_OPTION" Client="NO" UseSleep="NO">
+                <Num Num="1"/>
+            </ToolScp>
         </createEvent>
+        <destroyEvent>
+            <ToolScp Scp="PAD_FUNC_UPDATE_DIRECT" Client="NO" UseSleep="NO">
+                <Str Str="SCR_UNIQUE_GLACIER_SNOW_STORM_DESTROY"/>
+            </ToolScp>
+        </destroyEvent>
         <updateEvent>
             <ToolScp Scp="PAD_FUNC_UPDATE_RUNSCRIPT" Client="NO" UseSleep="NO">
                 <Str Str="SCR_UNIQUE_GLACIER_SNOW_STORM_UPDATE"/>
@@ -18317,7 +18312,7 @@ return 3 + obj.Level * 0.5"/>
             </ToolScp>
         </updateEvent>
     </PadSkill>
-    <PadSkill Name="Unique_Glacier_SnowWhirlwind" CheckerType="0" Range="50" UpdateTerm="1000" AllowOverlap="1">
+    <PadSkill Name="Unique_Glacier_SnowWhirlwind" CheckerType="0" Range="50" UpdateTerm="1000" AllowOverlap="1" EnableSearch="0" IsMagicType="0" IsMineType="0">
         <createEvent>
             <ToolScp Scp="PAD_ADD_LIFE" Client="NO" UseSleep="NO">
                 <Num Num="30000"/>
@@ -18351,7 +18346,7 @@ return 3 + obj.Level * 0.5"/>
             </ToolScp>
         </updateEvent>
     </PadSkill>
-    <PadSkill Name="Unique_Glacier_SnowWhirlwind_Coalescence" CheckerType="0" Range="100" UpdateTerm="1000" AllowOverlap="1">
+    <PadSkill Name="Unique_Glacier_SnowWhirlwind_Coalescence" CheckerType="0" Range="100" UpdateTerm="1000" AllowOverlap="1" EnableSearch="0" IsMagicType="0" IsMineType="0">
         <createEvent>
             <ToolScp Scp="PAD_ADD_LIFE" Client="NO" UseSleep="NO">
                 <Num Num="30000"/>
@@ -18383,10 +18378,10 @@ return 3 + obj.Level * 0.5"/>
             </ToolScp>
         </updateEvent>
     </PadSkill>
-    <PadSkill Name="Unique_Pbeta_AntiMagic" CheckerType="0" Range="40" UpdateTerm="1000" ApplyFlyMon="1" AllowOverlap="1">
+    <PadSkill Name="Unique_Pbeta_AntiMagic" CheckerType="0" Range="40" UpdateTerm="1000" ApplyFlyMon="1" AllowOverlap="1" EnableSearch="0" IsMagicType="0">
         <createEvent>
             <ToolScp Scp="C_PAD_EFFECT_POS" Client="YES" UseSleep="NO">
-                <Str_Arg Str="F_ground113_ice3" Arg="1.5"/>
+                <Str_Arg Str="F_spread_in032_dark_loop3_violet" Arg="0.80000001"/>
                 <Pos Angle="0" Dist="1.4012985e-45"/>
                 <Num Num="0"/>
                 <Str_Arg Str="None" Arg="1"/>
@@ -18409,10 +18404,10 @@ return 3 + obj.Level * 0.5"/>
             </ToolScp>
         </updateEvent>
     </PadSkill>
-    <PadSkill Name="Unique_Pbeta_BattleField" CheckerType="0" Range="150" UpdateTerm="1000" AutoPos="1" ApplyFlyMon="1" AllowOverlap="1" IsMineType="0">
+    <PadSkill Name="Unique_Pbeta_BattleField" CheckerType="0" Range="150" UpdateTerm="1000" AutoPos="1" ApplyFlyMon="1" AllowOverlap="1" EnableSearch="0" IsMineType="0">
         <createEvent>
             <ToolScp Scp="C_PAD_EFFECT_POS" Client="YES" UseSleep="NO">
-                <Str_Arg Str="F_levitation050_blue" Arg="7"/>
+                <Str_Arg Str="F_ground203_red#Pbeta" Arg="1.7"/>
                 <Pos Angle="0" Dist="0"/>
                 <Num Num="0"/>
                 <Str_Arg Str="None" Arg="1"/>
@@ -18433,11 +18428,11 @@ return 3 + obj.Level * 0.5"/>
             </ToolScp>
         </updateEvent>
     </PadSkill>
-    <PadSkill Name="Unique_Pbeta_Battle_Second_Victory_Pad" CheckerType="0" Range="150" UpdateTerm="1000" AutoPos="1" ApplyFlyMon="1" AllowOverlap="1" IsMineType="0">
+    <PadSkill Name="Unique_Pbeta_Battle_Second_Victory_Pad" CheckerType="0" Range="150" UpdateTerm="1000" AutoPos="1" AutoDir="1" ApplyFlyMon="1" AllowOverlap="1" EnableSearch="0" IsMineType="0">
         <createEvent>
             <ToolScp Scp="C_PAD_EFFECT_POS" Client="YES" UseSleep="NO">
                 <Str_Arg Str="F_ground194_lightning_red" Arg="2.8"/>
-                <Pos Angle="0" Dist="1.4012985e-45"/>
+                <Pos Angle="0" Dist="0"/>
                 <Num Num="0"/>
                 <Str_Arg Str="None" Arg="1"/>
                 <Num Num="1"/>
@@ -18457,7 +18452,7 @@ return 3 + obj.Level * 0.5"/>
             </ToolScp>
         </updateEvent>
     </PadSkill>
-    <PadSkill Name="Unique_Pbeta_Breath_IceRink" CheckerType="0" Range="85" UpdateTerm="2000" AutoPos="1" ApplyFlyMon="1" AllowOverlap="1" IsMineType="0">
+    <PadSkill Name="Unique_Pbeta_Breath_IceRink" CheckerType="0" Range="85" UpdateTerm="2000" ApplyFlyMon="1" AllowOverlap="1" EnableSearch="0" IsMagicType="0" IsMineType="0">
         <createEvent>
             <ToolScp Scp="C_PAD_EFFECT_POS" Client="YES" UseSleep="NO">
                 <Str_Arg Str="F_ground143_violet_ice" Arg="1.5"/>
@@ -18492,7 +18487,7 @@ return 3 + obj.Level * 0.5"/>
             </ToolScp>
         </updateEvent>
     </PadSkill>
-    <PadSkill Name="Unique_Pbeta_Storm" CheckerType="0" Range="40" ApplyFlyMon="1" AllowOverlap="1" IsMineType="0">
+    <PadSkill Name="Unique_Pbeta_Storm" CheckerType="0" Range="40" ApplyFlyMon="1" AllowOverlap="1" EnableSearch="0" IsMineType="0">
         <createEvent>
             <ToolScp Scp="C_PAD_EFFECT_POS" Client="YES" UseSleep="NO">
                 <Str_Arg Str="F_circle035_loop_blue2" Arg="0.80000001"/>
@@ -18530,7 +18525,7 @@ return 3 + obj.Level * 0.5"/>
             </ToolScp>
         </updateEvent>
     </PadSkill>
-    <PadSkill Name="Unique_Pbeta_Storm_2" CheckerType="0" Range="10" ApplyFlyMon="1" AllowOverlap="1" IsMineType="0">
+    <PadSkill Name="Unique_Pbeta_Storm_2" CheckerType="0" Range="10" ApplyFlyMon="1" AllowOverlap="1" EnableSearch="0" IsMineType="0">
         <createEvent>
             <ToolScp Scp="C_PAD_EFFECT_POS" Client="YES" UseSleep="NO">
                 <Str_Arg Str="F_spin005_blue_loop" Arg="5"/>
@@ -18581,10 +18576,10 @@ return 3 + obj.Level * 0.5"/>
             </ToolScp>
         </updateEvent>
     </PadSkill>
-    <PadSkill Name="Unique_Pbeta_circle" CheckerType="0" Dist="160.46782" Angle="0.36067772" Range="30" AutoPos="1" ApplyFlyMon="1" SpinRate="0.30000001" AllowOverlap="1" IsMineType="0">
+    <PadSkill Name="Unique_Pbeta_circle" CheckerType="0" Dist="160.46782" Angle="0.36067772" Range="30" AutoPos="1" ApplyFlyMon="1" SpinRate="0.30000001" AllowOverlap="1" EnableSearch="0" IsMineType="0">
         <createEvent>
             <ToolScp Scp="C_PAD_EFFECT_POS" Client="YES" UseSleep="NO">
-                <Str_Arg Str="F_circle035_loop_blue" Arg="0.5"/>
+                <Str_Arg Str="F_circle035_loop_blue2" Arg="0.5"/>
                 <Pos Angle="0" Dist="0"/>
                 <Num Num="0"/>
                 <Str_Arg Str="None" Arg="1"/>
@@ -18624,7 +18619,7 @@ return 3 + obj.Level * 0.5"/>
             </ToolScp>
         </updateEvent>
     </PadSkill>
-    <PadSkill Name="Unique_Pbeta_contaminate" CheckerType="0" Range="80" ApplyFlyMon="1" AllowOverlap="1" IsMineType="0">
+    <PadSkill Name="Unique_Pbeta_contaminate" CheckerType="0" Range="80" ApplyFlyMon="1" AllowOverlap="1" EnableSearch="0" IsMineType="0">
         <createEvent>
             <ToolScp Scp="PAD_ADD_LIFE" Client="NO" UseSleep="NO">
                 <Num Num="15000"/>

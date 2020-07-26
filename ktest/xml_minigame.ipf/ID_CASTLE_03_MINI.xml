@@ -544,6 +544,9 @@
                 <Num Num="2"/>
                 <Str Str="SSN_MISSION_CASTLE_01_PC"/>
             </ToolScp>
+            <ToolScp Scp="MGAME_CHECK_INDUN" Client="NO" UseSleep="YES">
+                <Str Str="Indun_castle1"/>
+            </ToolScp>
         </EnterList>
     </Game>
 </GameList>

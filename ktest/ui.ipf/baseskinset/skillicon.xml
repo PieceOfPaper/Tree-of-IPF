@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by imc (imc) -->
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
 <!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by MintPC (Mi) -->
 <skinset name="Base">
 	<imagelist category="wizard_skillicon">
@@ -1439,6 +1439,8 @@
 		<image name="ability_Warrior_blossomblader17" file="\icon\icon_ability_warrior09.tga" imgrect="256 384 128 128" CMM_Caption="기수식: 매화 베기"/>
 		<image name="ability_Warrior_blossomblader18" file="\icon\icon_ability_warrior09.tga" imgrect="384 384 128 128" CMM_Caption="[아츠] 어검술: 비천어검"/>
 		<image name="ability_Warrior_Hoplite39" file="\icon\icon_ability_warrior09.tga" imgrect="512 384 128 128" CMM_Caption="창 숙련: 마법진 파괴"/>
+		<image name="ability_Warrior_Murmillo29" file="\icon\icon_ability_warrior09.tga" imgrect="640 384 128 128" CMM_Caption="스프린트: 밀리"/>
+		<image name="ability_Warrior_Peltasta43" file="\icon\icon_ability_warrior09.tga" imgrect="768 384 128 128" CMM_Caption="하이 가드: 철벽 방어"/>
 	</imagelist>
 	<imagelist category="abilityicon_wizard">
 		<image name="ability_Wizard_Wizard1" file="\icon\icon_ability_wizard01.tga" imgrect="0 0 128 128" CMM_Caption="슬리프-단잠"/>
@@ -3055,6 +3057,9 @@
 		<image name="ability_scout_Shinobi17" file="\icon\icon_ability_scout03.tga" imgrect="384 384 128 128" CMM_Caption="인법 분신술: 체"/>
 		<image name="ability_scout_Shinobi18" file="\icon\icon_ability_scout03.tga" imgrect="512 384 128 128" CMM_Caption="인법 분신술: 환"/>
 		<image name="ability_scout_Arditi17" file="\icon\icon_ability_scout03.tga" imgrect="640 384 128 128" CMM_Caption="아드디티: 특공"/>
+		<image name="ability_scout_Schwarzereiter26" file="\icon\icon_ability_scout03.tga" imgrect="768 384 128 128" CMM_Caption="특수기동"/>
+		<image name="ability_scout_Bulletmarker24" file="\icon\icon_ability_scout03.tga" imgrect="896 384 128 128" CMM_Caption="프리즈 불릿: 은탄"/>
+		<image name="ability_scout_Sheriff14" file="\icon\icon_ability_scout03.tga" imgrect="0 512 128 128" CMM_Caption="셰리프: 리로드"/>
 	</imagelist>
 	<imagelist category="abilityicon">
 		<image name="icon_abil_1_1" file="\icon\ability_icon.tga" imgrect="0 0 64 64" CMM_Caption="절단"/>

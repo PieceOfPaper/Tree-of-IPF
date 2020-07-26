@@ -79,11 +79,11 @@ end
 local function _DRAW_SEAL_OPTION(tooltipframe, invitem, ypos, mainframename)
 	local gBox = GET_CHILD(tooltipframe, mainframename);
 	gBox:RemoveChild('tooltip_equipitem_tooltip_seal_type_n_weight');
-	if invitem.ClassType ~= 'Seal' then
+	if invitem.ClassType ~= 'Seal' or invitem.StringArg == "Seal_Material" then
 		return ypos;
 	end
 
-	local item_tooltip_seal = gBox:CreateOrGetControlSet('item_tooltip_seal', 'item_tooltip_seal', 0, ypos);	
+	local item_tooltip_seal = gBox:CreateOrGetControlSet('item_tooltip_seal', 'item_tooltip_seal', 0, ypos + 2);	
 	local _ypos = 0;
 	for i = 1, invitem.MaxReinforceCount do
 		local optionName = TryGetProp(invitem, 'SealOption_'..i, 'None');		
@@ -93,7 +93,7 @@ local function _DRAW_SEAL_OPTION(tooltipframe, invitem, ypos, mainframename)
 			_ypos = _CREATE_SEAL_OPTION_HIDE(item_tooltip_seal, _ypos, i, i ~= 1, invitem);			
 		end		
 	end
-	item_tooltip_seal:Resize(item_tooltip_seal:GetWidth(), _ypos);
+	item_tooltip_seal:Resize(item_tooltip_seal:GetWidth(), _ypos + 7);
 
 	ypos = ypos + item_tooltip_seal:GetHeight();
 	return ypos;
@@ -1066,7 +1066,7 @@ function DRAW_EQUIP_DESC(tooltipframe, invitem, yPos, mainframename)
         return yPos
     end
 	
-	local tooltip_equip_property_CSet = gBox:CreateOrGetControlSet('tooltip_equip_desc', 'tooltip_equip_desc', 0, yPos);
+	local tooltip_equip_property_CSet = gBox:CreateOrGetControlSet('tooltip_equip_desc', 'tooltip_equip_desc', 0, yPos - 2);
 	local property_gbox = GET_CHILD(tooltip_equip_property_CSet,'property_gbox','ui::CGroupBox')
 		
 	local inner_yPos = 0;
@@ -1682,7 +1682,7 @@ function DRAW_EQUIP_TRADABILITY(tooltipframe, invitem, yPos, mainframename)
 	local gBox = GET_CHILD(tooltipframe, mainframename,'ui::CGroupBox')
 	gBox:RemoveChild('tooltip_equip_tradability');
 	
-	local CSet = gBox:CreateControlSet('tooltip_equip_tradability', 'tooltip_equip_tradability', 0, yPos + 5);
+	local CSet = gBox:CreateControlSet('tooltip_equip_tradability', 'tooltip_equip_tradability', 0, yPos - 2);
 	tolua.cast(CSet, "ui::CControlSet");
 
 	TOGGLE_TRADE_OPTION(CSet, invitem, 'option_npc', 'option_npc_text', 'ShopTrade')
@@ -1791,6 +1791,10 @@ function DRAW_CANNOT_REINFORCE(tooltipframe, invitem, yPos, mainframename)
 	socket_text:SetText(text);
 
 	local bottomMargin = CSet:GetUserConfig("BOTTOM_MARGIN");
+
+	local DEFAULT_HEIGHT = 50
+	local height = math.max(DEFAULT_HEIGHT,socket_text:GetHeight()+12)
+	CSet:Resize(CSet:GetWidth(),height)
 	return yPos + CSet:GetHeight();
 end
 

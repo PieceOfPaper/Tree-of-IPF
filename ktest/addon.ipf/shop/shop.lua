@@ -392,7 +392,7 @@ function SHOP_SELL(invitem, sellCount, frame, setTotalCount)
 		return;
 	end
 
-	if itemobj.MarketCategory == "Housing_Furniture" then
+	if itemobj.MarketCategory == "Housing_Furniture" or itemobj.MarketCategory == "PHousing_Furniture" or itemobj.MarketCategory == "PHousing_Wall" or itemobj.MarketCategory == "PHousing_Carpet" then
 		ui.SysMsg(ClMsg("Housing_Cant_Sell_This_Item"));
 		return;
 	end

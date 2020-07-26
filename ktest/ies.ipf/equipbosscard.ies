@@ -88,7 +88,7 @@ ClassID,ConditionArg4,ClassName,UseType,ValueType,PropertyType,ConditionScp,Cond
 87,0,"card_Golem_gray","Always","StarCount","","","","100","","SCR_CARDEFFECT_STATUS_PLUS","DEF_BM","DEF","10","물리 방어력 +{@st66d_y}{s16}[%d]{/}{/}","10"
 88,0,"card_Naktis","Always","StarCount","","","","100","","SCR_CARDEFFECT_STATUS_PLUS","HR_BM","HR","1.5","명중 +{@st66d_y}{s16}[%d]{/}{/}","1.5"
 89,0,"card_RingCrawler","Always","StarCount","","","","100","","SCR_CARDEFFECT_STATUS_PLUS","MNA_ITEM_BM","","1","정신 스탯 +{@st66d_y}{s16}[%d]{/}{/}","1"
-90,0,"card_Durahan","Dead","StarCount","","SCR_CARDCHECK_DEAD","","","","SCR_CARDEFFECT_REVIVAL","","","","전투 불능 시 {@st66d_y}{s16}[%d]{/}{/}%% 확률로 10%%의 HP가 회복된 상태로 부활 ","1"
+90,0,"card_Durahan","Dead","StarCount","","SCR_CARDCHECK_DEAD","","","","SCR_CARDEFFECT_REVIVAL","","","","전투 불능 시 {@st66d_y}{s16}[%d]{/}{/}%% 확률로 10%%의 HP가 회복된 상태로 부활","1"
 91,0,"card_Riteris","Always","StarCount","","","","100","","SCR_CARDEFFECT_STATUS_IMMUNE","Res_Blind_Debuff_BM","","2","암흑 상태이상 저항 +{@st66d_y}{s16}[%d]{/}{/}","2"
 92,0,"card_Nuaele","Always","StarCount","","","","100","","SCR_CARDEFFECT_STATUS_RATE","MDEF_RATE_BM","MDEF","1","마법 방어력 +{@st66d_y}{s16}[%d]{/}{/}%%","1"
 93,0,"card_Neop","Always","StarCount","","","","100","","SCR_CARDEFFECT_ITEM_EFFECTIVE","HPPOTION","","1","HP 포션 종류 효과 +{@st66d_y}{s16}[%d]{/}{/}%%","1"

@@ -88,6 +88,11 @@ function SQIORE_SLOT_DROP(parent, ctrl)
 		return;
 	end
 
+	if nil == session.GetInvItemByType(invItem.type) then
+		ui.SysMsg(ClMsg("CannotDropItem"));
+		return;
+	end
+
 	local pc = GetMyPCObject();
 	local obj = GetIES(invItem:GetObject());
 

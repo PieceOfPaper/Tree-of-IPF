@@ -1111,9 +1111,9 @@ function INDUNINFO_MAKE_DETAIL_INFO_BOX(frame, indunClassID)
 
 --        if SCR_RAID_EVENT_20190102(nil, false) == true and admissionItemName == 'Dungeon_Key01' then
         local pc = GetMyPCObject()
-        if IsBuffApplied(pc,"Event_Steam_New_World_Buff") == "YES" and admissionItemName == "Dungeon_Key01" then
-            nowAdmissionItemCount = 1
-        elseif IsBuffApplied(pc, "Event_Unique_Raid_Bonus") == "YES" and admissionItemName == "Dungeon_Key01" then
+        -- if IsBuffApplied(pc,"Event_Steam_New_World_Buff") == "YES" and admissionItemName == "Dungeon_Key01" then
+        --     nowAdmissionItemCount = 1
+        if IsBuffApplied(pc, "Event_Unique_Raid_Bonus") == "YES" and admissionItemName == "Dungeon_Key01" then
             nowAdmissionItemCount  = admissionItemCount
         elseif IsBuffApplied(pc, "Event_Unique_Raid_Bonus_Limit") == "YES" and admissionItemName == "Dungeon_Key01" then
             local accountObject = GetMyAccountObj(pc)
@@ -1817,7 +1817,7 @@ end
 
 -- 입장하기 버튼 클릭
 function WEEKLY_BOSS_JOIN_ENTER_CLICK(parent,ctrl)
-    ui.MsgBox(ClMsg('EnterRightNow'), 'WEEKLY_BOSS_JOIN_ENTER_CLICK_MSG(0)', 'None');
+    ui.MsgBox(ClMsg('EnterRightNow2'), 'WEEKLY_BOSS_JOIN_ENTER_CLICK_MSG(0)', 'None');
 end     
 
 -- 연습모드 버튼 클릭

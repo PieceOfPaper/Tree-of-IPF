@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by ÀÌÁ¤¿ë (IMCGames Co., Ltd) -->
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
 <Controller>
 	<JiggleBone Version="3">
 		<Info NumIteration="10" FixedTimeStep="0.033333302" Gravity="0.000000 -9.810000 0.000000"/>
@@ -34,7 +34,7 @@
 			<Chain StartNode="C03_attachA_01" EndNode="C03_attachA_nub" LimitAngle="30" Friction="0" GravityFactor="1" Damping="0.150000 0.150000 0.150000" Stiffness="150" InvMass="1" Fixed="1" AllowStretch="0" ExternalForce="0.000000 0.000000 0.000000"/>
 		</Group>
 		<Group>
-			<Chain StartNode="C03_attachtB_01" EndNode="C03_attachB_nub" LimitAngle="30" Friction="0" GravityFactor="1" Damping="0.150000 0.150000 0.150000" Stiffness="150" InvMass="1" Fixed="1" AllowStretch="0" ExternalForce="0.000000 0.000000 0.000000"/>
+			<Chain StartNode="C03_attachB_01" EndNode="C03_attachB_nub" LimitAngle="30" Friction="0" GravityFactor="1" Damping="0.150000 0.150000 0.150000" Stiffness="150" InvMass="1" Fixed="1" AllowStretch="0" ExternalForce="0.000000 0.000000 0.000000"/>
 		</Group>
 		<Group>
 			<Chain StartNode="C03_attachC_01" EndNode="C03_attachC_nub" LimitAngle="30" Friction="0" GravityFactor="1" Damping="0.150000 0.150000 0.150000" Stiffness="150" InvMass="1" Fixed="1" AllowStretch="0" ExternalForce="0.000000 0.000000 0.000000"/>

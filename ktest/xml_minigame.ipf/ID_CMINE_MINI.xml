@@ -801,5 +801,10 @@
                 </StageEvents>
             </Stage>
         </StageList>
+        <EnterList>
+            <ToolScp Scp="MGAME_CHECK_INDUN" Client="NO" UseSleep="YES">
+                <Str Str="Indun_cmine1"/>
+            </ToolScp>
+        </EnterList>
     </Game>
 </GameList>

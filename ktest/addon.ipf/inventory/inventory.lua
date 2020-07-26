@@ -178,6 +178,7 @@ function INVENTORY_ON_INIT(addon, frame)
     addon:RegisterOpenOnlyMsg('INV_ITEM_LIST_GET', 'INVENTORY_ON_MSG');
 	addon:RegisterMsg('INV_ITEM_ADD', 'INVENTORY_ON_MSG');
 	addon:RegisterMsg('INV_ITEM_REMOVE', 'INVENTORY_ON_MSG');
+	addon:RegisterMsg('INV_ITEM_POST_REMOVE', 'INVENTORY_ON_MSG');
 	addon:RegisterMsg('INV_DRAW_MONEY_TEXT', 'INVENTORY_ON_MSG');
 	addon:RegisterOpenOnlyMsg('INV_ITEM_CHANGE_COUNT', 'INVENTORY_ON_MSG', 1);
 	addon:RegisterOpenOnlyMsg('LEVEL_UPDATE', 'INVENTORY_ON_MSG');
@@ -192,6 +193,7 @@ function INVENTORY_ON_INIT(addon, frame)
 	addon:RegisterMsg('TOGGLE_ITEM_SLOT_ON', 'TOGGLE_ITEM_SLOT_INVEN_ON_MSG');
 	addon:RegisterMsg('TOGGLE_ITEM_SLOT_OFF', 'TOGGLE_ITEM_SLOT_INVEN_ON_MSG');
 	addon:RegisterOpenOnlyMsg('WEIGHT_UPDATE', 'INVENTORY_WEIGHT_UPDATE');
+	addon:RegisterOpenOnlyMsg('SLOTCOUNT_UPDATE', 'INVENTORY_SLOTCOUNT_UPDATE');
 	
 	addon:RegisterMsg('UPDATE_ITEM_REPAIR', 'INVENTORY_ON_MSG');
 	addon:RegisterMsg('UPDATE_ITEM_APPRAISAL', 'INVENTORY_ON_MSG');
@@ -491,55 +493,53 @@ end
 
 function INVENTORY_WEIGHT_UPDATE(frame)
 	local bottomgroup = GET_CHILD_RECURSIVELY(frame, 'bottomGbox', 'ui::CGroupBox')
-	local weightPicture = GET_CHILD_RECURSIVELY(bottomgroup, 'inventory_weight','ui::CPicture')
-	local pc = GetMyPCObject();
-	local newwidth = 0;			
-	local rate = 0;				
+	local pc = GetMyPCObject()
+	local rate = 0
 	if pc.MaxWeight ~= 0 then
-		newwidth =  math.floor( pc.NowWeight * weightPicture:GetOriginalWidth() / pc.MaxWeight )
 		rate = math.floor(pc.NowWeight * 100 / pc.MaxWeight)
 	end
-	weightPicture:Resize(weightPicture:GetOriginalWidth(), weightPicture:GetOriginalHeight())
 		
 	local weightscptext = ScpArgMsg("Weight{All}{Max}", "All", string.format("%.1f", pc.NowWeight), "Max", string.format("%.1f", pc.MaxWeight))
 	local weightratetext = ScpArgMsg("Weight{Rate}", "Rate", tostring(rate))
-
-	if newwidth > weightPicture:GetOriginalWidth() then
-		newwidth = weightPicture:GetOriginalWidth();
-	end
 
 	local weightGbox = GET_CHILD_RECURSIVELY(bottomgroup, 'weightGbox','ui::CGroupBox')
 	weightGbox:SetTextTooltip(weightscptext)
 
 	local weighttext = GET_CHILD_RECURSIVELY(bottomgroup, 'invenweight','ui::CRichText')
-	weighttext:SetText(weightratetext)	
-
-	--Ruler Resize
-	local arrowPicture = GET_CHILD_RECURSIVELY(bottomgroup, 'inventory_arrow','ui::CPicture')
-	
-	local rulerTextureWidth = frame:GetUserConfig("WEIGHT_PIC_WIDTH");	--Texture Widht
-	local rulerWidth = arrowPicture:GetOriginalWidth();					--Origin Width
-	local rulerRate = rulerTextureWidth / rulerWidth;					--rate
-	local arrowPictureWidth = rulerTextureWidth - 124;		
-	local arrowPictureRate = arrowPictureWidth / rulerWidth;
-
-	arrowPicture:Resize(arrowPicture:GetOriginalWidth() * rulerRate, arrowPicture:GetOriginalHeight())
+	weighttext:SetText(weightratetext)
 
 	if rate >= 100 then
-		SYSMENU_INVENTORY_WEIGHT_NOTICE();
+		SYSMENU_INVENTORY_WEIGHT_NOTICE()
 	else
-		SYSMENU_INVENTORY_WEIGHT_NOTICE_CLOSE();
+		SYSMENU_INVENTORY_WEIGHT_NOTICE_CLOSE()
 	end
+end
 
-	if rate > 100 then	
-		arrowPicture:SetOffset(-489, arrowPicture:GetOriginalY())
-		return;
+function INVENTORY_SLOTCOUNT_UPDATE(frame)
+	local bottomgroup = GET_CHILD_RECURSIVELY(frame, 'bottomGbox', 'ui::CGroupBox')
+	local pc = GetMyPCObject()
+	local invItemList = GetInvItemList(pc)
+	local curCount = #invItemList
+	if tonumber(GET_TOTAL_MONEY_STR()) > 0 then
+		curCount = curCount - 1
 	end
+	local maxCount = 2000
+	local rate = math.floor(curCount * 100 / maxCount)
 
-	--SetOffset : rate에 맞춘 offset 움직임 값
-	local arrowPictureOffSetX = rate * arrowPicture:GetOriginalWidth() * 3.65 * 0.01;	
-	arrowPicture:SetOffset((arrowPictureOffSetX) * -1, arrowPicture:GetOriginalY())
+	local slotscptext = ScpArgMsg("slotcount{All}{Max}", "All", curCount, "Max", maxCount)
+	local slotratetext = ScpArgMsg("slotcount{Rate}", "Rate", tostring(rate))
 
+	local slotGbox = GET_CHILD_RECURSIVELY(bottomgroup, 'slotcountGbox','ui::CGroupBox')
+	slotGbox:SetTextTooltip(slotscptext)
+
+	local slotttext = GET_CHILD_RECURSIVELY(bottomgroup, 'invenslotcount','ui::CRichText')
+	slotttext:SetText(slotratetext)
+
+	if curCount >= maxCount then
+		SYSMENU_INVENTORY_SLOTCOUNT_NOTICE()
+	else
+		SYSMENU_INVENTORY_SLOTCOUNT_NOTICE_CLOSE()
+	end
 end
 
 function INVITEM_INVINDEX_CHANGE(itemGuid)
@@ -656,6 +656,7 @@ function INVENTORY_ON_MSG(frame, msg, argStr, argNum)
 	
 	if msg == 'INV_ITEM_ADD' then
 		TEMP_INV_ADD(frame, argNum);
+		INVENTORY_SLOTCOUNT_UPDATE(frame);
 	end
 	
 	if  msg == 'EQUIP_ITEM_LIST_GET' then
@@ -674,6 +675,7 @@ function INVENTORY_ON_MSG(frame, msg, argStr, argNum)
 		STATUS_EQUIP_SLOT_SET(frame);
 		DRAW_MEDAL_COUNT(frame)
 		INVENTORY_WEIGHT_UPDATE(frame);
+		INVENTORY_SLOTCOUNT_UPDATE(frame);
     end
 
 	if msg == 'INV_ITEM_CHANGE_COUNT' then
@@ -682,6 +684,10 @@ function INVENTORY_ON_MSG(frame, msg, argStr, argNum)
 
 	if msg == 'INV_ITEM_REMOVE' then
 		TEMP_INV_REMOVE(frame, argStr);
+	end
+
+	if msg == 'INV_ITEM_POST_REMOVE' then
+		INVENTORY_SLOTCOUNT_UPDATE(frame);
 	end
 
 	if msg == 'ACCOUNT_UPDATE' then
@@ -4247,6 +4253,24 @@ function BEFORE_APPLIED_YESSCP_OPEN(invItem)
     	local textmsg = string.format("[ %s ]{nl}%s", itemobj.Name, ScpArgMsg(strLang));
     	ui.MsgBox_NonNested(textmsg, itemobj.Name, 'REQUEST_SUMMON_BOSS_TX', "None");
     end
+	return;
+end
+
+function BEFORE_APPLIED_YESSCP_OPEN_BASIC_MSG(invItem)
+	if invItem == nil then
+		return;
+	end
+	
+	local invFrame = ui.GetFrame("inventory");	
+	local itemobj = GetIES(invItem:GetObject());
+	if itemobj == nil then
+		return;
+	end
+	invFrame:SetUserValue("REQ_USE_ITEM_GUID", invItem:GetIESID());
+
+	local textmsg = string.format("[ %s ]{nl}%s", itemobj.Name, ScpArgMsg("YESSCP_OPEN_BASIC_MSG"));
+	ui.MsgBox_NonNested(textmsg, itemobj.Name, 'REQUEST_SUMMON_BOSS_TX', "None");
+	
 	return;
 end
 

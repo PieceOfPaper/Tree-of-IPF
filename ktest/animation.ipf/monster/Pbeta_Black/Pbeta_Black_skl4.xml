@@ -1,25 +1,66 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by IMCGames Co., Ltd (IMCGames Co., Ltd) -->
 <ActionDesc>
-    <Sound frame="0.00" soundFile="mon_voice_lapene_skl2_cast"/>
-    <Particle frame="0" attachNode="Bip001 Spine1" particleName="I_smoke013_lightDark" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
-    <Particle frame="0" attachNode="Bip001 Spine1" particleName="F_spread_in039_2" useAttach="true" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
-    <Particle frame="0" attachNode="Bip001 Spine1" particleName="F_spread_in030_air" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.4" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
-    <Particle frame="0" attachNode="Dummy_emitter" particleName="None" useAttach="false" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
-    <BlendOn frame="0" R="0" G="0" B="0" A="50"/>
-    <Sound frame="2.00" soundFile="mon_voice_lapene_skl1_shot"/>
-    <Sound frame="4.30" soundFile="skl_eff_darksight_ground_loop"/>
-    <Sound frame="10.00" soundFile="skl_eff_spread_7"/>
-    <Particle frame="20" attachNode="Bip001 Spine1" particleName="F_spread_in039_2" useAttach="true" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
-    <Sound frame="20.71" soundFile="skl_eff_spread_10"/>
-    <Sound frame="48.00" soundFile="boss_skl_eff_force_whoosh_1"/>
-    <Sound frame="48.00" soundFile="skl_eff_whoosh_2"/>
-    <Particle frame="50" attachNode="Bip001 Spine1" particleName="I_smoke013_lightDark" useAttach="true" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
-    <Particle frame="60" attachNode="Bip001 Spine1" particleName="F_spread_in030_ice4" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.8" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
-    <Particle frame="65" attachNode="Dummy_emitter" particleName="F_ground161_ice" useAttach="true" hiddenObj="false" changeEffect="None" scale="6" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
-    <Sound frame="67.00" soundFile="skl_eff_unknocker_coin_hit"/>
-    <Sound frame="68.01" soundFile="mon_move_swordballista_skl2_shot"/>
-    <Sound frame="68.79" soundFile="skl_wiz_frostnova"/>
-    <BlendOn frame="69" R="50" G="80" B="110" A="100"/>
-    <BlendOff frame="80" R="0" G="0" B="0" A="0"/>
+	<Sound frame="0.00" soundFile="mon_voice_lapene_skl2_cast"/>
+	<Sound frame="2.00" soundFile="mon_voice_lapene_skl1_shot"/>
+	<Sound frame="4.30" soundFile="skl_eff_darksight_ground_loop"/>
+	<Sound frame="10.00" soundFile="skl_eff_spread_7"/>
+	<Sound frame="20.71" soundFile="skl_eff_spread_10"/>
+	<Sound frame="48.00" soundFile="boss_skl_eff_force_whoosh_1"/>
+	<Sound frame="48.00" soundFile="skl_eff_whoosh_2"/>
+	<Sound frame="67.00" soundFile="skl_eff_unknocker_coin_hit"/>
+	<Sound frame="68.01" soundFile="mon_move_swordballista_skl2_shot"/>
+	<Sound frame="68.79" soundFile="skl_wiz_frostnova"/>
+	<Particle frame="0" attachNode="Bip001 Spine1" particleName="I_smoke013_lightDark" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+	<Particle frame="0" attachNode="Bip001 Spine1" particleName="F_spread_in039_2_blue" useAttach="true" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+	<Particle frame="0" attachNode="Bip001 Spine1" particleName="F_spread_in030_air" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.4" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+	<Particle frame="0" attachNode="Dummy_emitter" particleName="None" useAttach="false" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+	<Particle frame="20" attachNode="Bip001 Spine1" particleName="F_spread_in039_2_blue" useAttach="true" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+	<Particle frame="50" attachNode="Bip001 Spine1" particleName="I_smoke013_lightDark" useAttach="true" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+	<Particle frame="60" attachNode="Bip001 Spine1" particleName="F_spread_in030_ice1_blue" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.8" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+	<Particle frame="65" attachNode="Dummy_emitter" particleName="F_ground161_ice_blue" useAttach="true" hiddenObj="false" changeEffect="None" scale="6" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+	<Shockwave frame="25" type="2" intensity="1" frequency="70" duration="1.2" range="1000"/>
+	<Shockwave frame="70" type="2" intensity="15" frequency="60" duration="1" range="1000"/>
+	<BlendOn frame="0" R="0" G="0" B="0" A="50"/>
+	<BlendOn frame="23" R="30" G="50" B="80" A="100"/>
+	<BlendOn frame="24" R="0" G="0" B="0" A="50"/>
+	<BlendOn frame="25" R="40" G="60" B="90" A="100"/>
+	<BlendOn frame="26" R="0" G="0" B="0" A="50"/>
+	<BlendOn frame="27" R="45" G="70" B="110" A="100"/>
+	<BlendOn frame="28" R="0" G="0" B="0" A="50"/>
+	<BlendOn frame="29" R="50" G="80" B="115" A="100"/>
+	<BlendOn frame="30" R="0" G="0" B="0" A="50"/>
+	<BlendOn frame="31" R="55" G="85" B="125" A="100"/>
+	<BlendOn frame="32" R="0" G="0" B="0" A="50"/>
+	<BlendOn frame="33" R="60" G="90" B="135" A="100"/>
+	<BlendOn frame="34" R="0" G="0" B="0" A="50"/>
+	<BlendOn frame="35" R="65" G="100" B="140" A="100"/>
+	<BlendOn frame="37" R="0" G="0" B="0" A="50"/>
+	<BlendOn frame="39" R="75" G="120" B="160" A="100"/>
+	<BlendOn frame="41" R="0" G="0" B="0" A="50"/>
+	<BlendOn frame="42" R="80" G="140" B="170" A="100"/>
+	<BlendOn frame="44" R="0" G="0" B="0" A="50"/>
+	<BlendOn frame="46" R="90" G="145" B="180" A="100"/>
+	<BlendOn frame="48" R="0" G="0" B="0" A="50"/>
+	<BlendOn frame="50" R="110" G="175" B="195" A="100"/>
+	<BlendOn frame="52" R="0" G="0" B="0" A="50"/>
+	<BlendOn frame="54" R="130" G="180" B="215" A="100"/>
+	<BlendOn frame="56" R="0" G="0" B="0" A="50"/>
+	<BlendOn frame="58" R="150" G="185" B="220" A="100"/>
+	<BlendOn frame="60" R="0" G="0" B="0" A="50"/>
+	<BlendOn frame="62" R="165" G="195" B="230" A="100"/>
+	<BlendOn frame="64" R="0" G="0" B="0" A="50"/>
+	<BlendOn frame="66" R="190" G="230" B="255" A="100"/>
+	<BlendOn frame="68" R="0" G="0" B="0" A="50"/>
+	<BlendOn frame="69" R="0" G="0" B="0" A="50"/>
+	<BlendOn frame="70" R="255" G="255" B="255" A="200"/>
+	<BlendOn frame="71" R="240" G="250" B="255" A="200"/>
+	<BlendOn frame="72" R="190" G="230" B="255" A="100"/>
+	<BlendOn frame="73" R="185" G="200" B="230" A="100"/>
+	<BlendOn frame="74" R="180" G="180" B="200" A="100"/>
+	<BlendOn frame="75" R="130" G="150" B="180" A="100"/>
+	<BlendOn frame="77" R="90" G="110" B="140" A="100"/>
+	<BlendOn frame="78" R="50" G="80" B="110" A="100"/>
+	<BlendOn frame="79" R="30" G="50" B="80" A="100"/>
+	<BlendOff frame="79" R="0" G="0" B="0" A="0"/>
 </ActionDesc>

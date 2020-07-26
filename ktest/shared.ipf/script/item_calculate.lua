@@ -191,13 +191,14 @@ function GET_REINFORCE_ADD_VALUE_ATK(item, ignoreReinf, reinfBonusValue, basicTo
     reinforceValue = reinforceValue + reinfBonusValue
     
     value = math.floor((reinforceValue + (lv * (reinforceValue * (0.08 + (math.floor((math.min(21,reinforceValue)-1)/5) * 0.015 ))))));
+    value = value * (reinforceRatio / 100) * gradeRatio
 
-    value = value * (reinforceRatio / 100) * gradeRatio + buffValue;
-    
     local classType = TryGetProp(item,"ClassType")
     if classType == 'Trinket' then
         value = value * 0.5
     end
+
+    value = value + buffValue
           
     value = SyncFloor(value);
     return math.floor(value);

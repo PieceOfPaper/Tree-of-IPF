@@ -75,7 +75,7 @@
 		</controls>
 	</tooltip>
 	<tooltip name="wholeitem" x="0" y="0" fixwidth="false" width="1640" height="0" moveable="false" frameskin="None" draw="false" blendtime="" UpdateScp="UPDATE_ITEM_TOOLTIP" CustomUpdate="UPDATE_NEW_TIP">
-		<userconfig BOTTOM_MARGIN="10"/>
+		<userconfig BOTTOM_MARGIN="15"/>
 		<controls>
 			<groupbox name="changevalue" margin="665 0 0 0" rect="0 0 300 0" skin="" hittest="false" draw="true" updateparent="false" scrollbar="false" layout_gravity="left top"/>
 			<groupbox name="etc" margin="820 0 0 0" rect="0 0 410 0" skin="bg" hittest="false" draw="true" updateparent="true" scrollbar="false" layout_gravity="left top"/>
@@ -400,6 +400,11 @@
 			<picture name="item_bg" rect="0 0 392 200" margin="0 45 0 0" layout_gravity="center top" image="one_two_star_item_bg" stretch="true" updateparent="true"/>
 			<picture name="previewPic" rect="0 0 200 200" margin="0 45 0 0" layout_gravity="center top" hittest="false" draw="false" updateparent="true" scrollbar="false" stretch="true"/>
 			<groupbox name="lifetimegb" rect="0 0 410 0" margin="0 245 0 0" layout_gravity="center top" hittest="false" draw="false" scrollbar="false"/>
+		</controls>
+	</tooltip>
+	<tooltip name="targetbuffbutton_texthelp" x="0" y="0" width="100" height="30" moveable="true" lifetime="90000" blendtime="1500" UpdateScp="UPDATE_TXT_TOOLTIP">
+		<controls>
+			<richtext name="caption" rect="0 0 256 20" margin="10 1 0 0" layout_gravity="left center" fixwidth="false" updateparent="true"/>
 		</controls>
 	</tooltip>
 </tooltipset>

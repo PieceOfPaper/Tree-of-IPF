@@ -74,7 +74,9 @@
     <Skill Name="Hackapell_GrindCutter">
         <MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
             <HitList>
-                <Frame Angle="0" AniTime="100" Dist="0" ForceATK="0" HitCount="5" Length="60" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="0" Type="SQUARE" Width="35"/>
+                <Frame Angle="0" AniTime="50" Dist="0" ForceATK="0" HitCount="1" Length="60" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="0" Type="SQUARE" Width="35"/>
+                <Frame Angle="0" AniTime="250" Dist="0" ForceATK="0" HitCount="1" Length="60" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="50" Type="SQUARE" Width="35"/>
+                <Frame Angle="0" AniTime="450" Dist="0" ForceATK="0" HitCount="1" Length="60" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="250" Type="SQUARE" Width="35"/>
             </HitList>
             <EtcList>
                 <Scp Client="YES" Scp="C_VOICE_SOUND" Time="100" UseSleep="NO">
@@ -233,9 +235,15 @@
     <Skill Name="Hackapell_HakkaPalle">
         <MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
             <EtcList>
-                <Scp Client="NO" Scp="SKL_RUN_SCRIPT" Time="0" UseSleep="NO">
-                    <Str Str="SCR_HAKKAPALLE_COOLDOWN_SET"/>
-                </Scp>
+                <Scp Client="NO" Scp="SKL_BUFF" Time="0" UseSleep="NO">
+                    <Str Str="HakkaPalle_Buff"/>
+                    <Num FuncTxt="return obj.Level;" Num="0" UseFunc="1"/>
+                    <Num Num="0"/>
+                    <Num Num="15000"/>
+                    <Num Num="1"/>
+                    <Num Num="100"/>
+                    <Num Num="0"/>
+                </Scp>                
                 <Scp Client="YES" Scp="C_VOICE_SOUND" Time="100" UseSleep="NO">
                     <Str Str="voice_archer_m_HakkaPalle_cast"/>
                     <Str Str="voice_archer_HakkaPalle_cast"/>
@@ -429,7 +437,9 @@
     <Skill Name="Hackapell_Skarphuggning">
         <MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
             <HitList>
-                <Frame Angle="0" AniTime="100" Dist="0" ForceATK="0" HitCount="4" Length="86" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" TermMax="0" TermMin="0" Time="0" Type="SQUARE" Width="40"/>
+                <Frame Angle="0" AniTime="100" Dist="0" ForceATK="0" HitCount="1" Length="86" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" TermMax="0" TermMin="0" Time="0" Type="SQUARE" Width="40"/>
+                <Frame Angle="0" AniTime="250" Dist="0" ForceATK="0" HitCount="1" Length="86" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" TermMax="0" TermMin="0" Time="50" Type="SQUARE" Width="40"/>
+                <Frame Angle="0" AniTime="400" Dist="0" ForceATK="0" HitCount="1" Length="86" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" TermMax="0" TermMin="0" Time="200" Type="SQUARE" Width="40"/>
             </HitList>
             <EtcList>
                 <Scp Client="YES" Scp="C_VOICE_SOUND" Time="100" UseSleep="NO">

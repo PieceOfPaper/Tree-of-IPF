@@ -596,18 +596,18 @@ function SUCCESS_ITEM_OPTION_ADD(frame)
 		return;
 	end
 
-	pic_bg:PlayUIEffect(ADD_RESULT_EFFECT_NAME, EFFECT_SCALE, 'ADD_RESULT_EFFECT');
+	--pic_bg:PlayUIEffect(ADD_RESULT_EFFECT_NAME, EFFECT_SCALE, 'ADD_RESULT_EFFECT');
 
 	local do_add = GET_CHILD_RECURSIVELY(frame, "do_add")
 	do_add : ShowWindow(0)
 
 	ui.SetHoldUI(true);
 
-	ReserveScript("_SUCCESS_ITEM_OPTION_ADD()", EFFECT_DURATION)
+	ReserveScript("_SUCCESS_ITEM_OPTION_ADD()", 0.01)
 end
 
 function _SUCCESS_ITEM_OPTION_ADD()
-ui.SetHoldUI(false);
+	ui.SetHoldUI(false);
 	local frame = ui.GetFrame("itemoptionadd");
 	if frame:IsVisible() == 0 then
 		return;
@@ -626,7 +626,7 @@ ui.SetHoldUI(false);
 	if pic_bg == nil then
 		return;
 	end
-	pic_bg:StopUIEffect('ADD_RESULT_EFFECT', true, 0.5);
+	--pic_bg:StopUIEffect('ADD_RESULT_EFFECT', true, 0.5);
 
 
 	local item = GetIES(invItem:GetObject());
@@ -718,9 +718,9 @@ function ADD_SUCCESS_EFFECT(frame)
 	local pic_bg = GET_CHILD_RECURSIVELY(frame, "pic_bg")
 	pic_bg:ShowWindow(0)
 
-	result_effect_bg:PlayUIEffect(ADD_SUCCESS_EFFECT_NAME, SUCCESS_EFFECT_SCALE, 'ADD_SUCCESS_EFFECT');
+	--result_effect_bg:PlayUIEffect(ADD_SUCCESS_EFFECT_NAME, SUCCESS_EFFECT_SCALE, 'ADD_SUCCESS_EFFECT');
 
-	ReserveScript("_ADD_SUCCESS_EFFECT()", SUCCESS_EFFECT_DURATION)
+	ReserveScript("_ADD_SUCCESS_EFFECT()", 0.01)
 end
 
 function  _ADD_SUCCESS_EFFECT()
@@ -733,7 +733,7 @@ function  _ADD_SUCCESS_EFFECT()
 	if result_effect_bg == nil then
 		return;
 	end
-	result_effect_bg:StopUIEffect('ADD_SUCCESS_EFFECT', true, 0.5);
+	--result_effect_bg:StopUIEffect('ADD_SUCCESS_EFFECT', true, 0.5);
 	
 end
 

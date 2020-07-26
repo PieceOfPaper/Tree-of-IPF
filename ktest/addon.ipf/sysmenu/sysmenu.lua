@@ -332,6 +332,44 @@ function SYSMENU_INVENTORY_WEIGHT_NOTICE_CLOSE()
 	end
 end
 
+function SYSMENU_INVENTORY_SLOTCOUNT_NOTICE()
+	local frame = ui.GetFrame("sysmenu");
+	if frame == nil then
+		return;
+	end
+
+	local parentCtrl = GET_CHILD_RECURSIVELY(frame, "inven");
+	if parentCtrl == nil then
+		return;
+	end
+
+	local noticeBallon = MAKE_BALLOON_FRAME(ScpArgMsg("NoticeInventoryOverSlotCount"), 0, 0, nil, "invenSlotCountNoticeBalloon");
+	noticeBallon:ShowWindow(1);
+
+	local margin = parentCtrl:GetMargin();
+	local x = margin.right;
+	local y = margin.bottom;
+
+	x = x + (parentCtrl:GetWidth() / 2);
+	local weightBalloon = ui.GetFrame("invenWeightNoticeBallon");
+	if weightBalloon ~= nil then
+		y = y + parentCtrl:GetHeight() + weightBalloon:GetHeight() - 5;
+	else
+		y = y + parentCtrl:GetHeight() - 5;
+	end
+
+	noticeBallon:SetGravity(ui.RIGHT, ui.BOTTOM);
+	noticeBallon:SetMargin(0, 0, x, y);
+	noticeBallon:SetLayerLevel(106);
+end
+
+function SYSMENU_INVENTORY_SLOTCOUNT_NOTICE_CLOSE()
+	local noticeBallon = ui.GetFrame("invenSlotCountNoticeBalloon");
+	if noticeBallon ~= nil then
+		noticeBallon:ShowWindow(0);
+	end
+end
+
 function SYSMENU_GUILD_NOTICE(frame, isChecked)
 	local parentCtrl = frame:GetChild('guildinfo');
 	if parentCtrl == nil then

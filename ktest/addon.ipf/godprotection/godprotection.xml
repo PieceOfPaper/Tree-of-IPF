@@ -8,7 +8,7 @@
 	<option closebutton="false"/>
 	<sound opensound="skill_window_open" closesound="skill_window_close"/>
 	<layer layerlevel="92"/>
-	<userconfig TIME_FONT_NOMAL="{@st41b}{s16}" TIME_FONT_ONEMINUTE="{@st41b}{s16}{#ff5c5c}" SILVER_TEXT_FONT="{@st41b}{s16}" ALL_ITEM_COUTN="13" LEGEND_ITEM_COUTN="2" SPINE="medeina" RESULT_EFFECT="I_screen_bosscard_frame06" RESULT_EFFECT_SCALE="5" RESULT_EFFECT_DURATION="0.5" DEDICATION_BUTTON_EFFECT="UI_screen_CircleButton" DEDICATION_BUTTON_EFFECT_SCALE="7" DEDICATION_BUTTON_EFFECT_DURATION="2" GET_ITEM_SOUND="sys_quest_item_get"/>
+	<userconfig TIME_FONT_NOMAL="{@st41b}{s16}" TIME_FONT_ONEMINUTE="{@st41b}{s16}{#ff5c5c}" SILVER_TEXT_FONT="{@st41b}{s16}" SPINE="medeina" RESULT_EFFECT="I_screen_bosscard_frame06" RESULT_EFFECT_SCALE="5" RESULT_EFFECT_DURATION="0.5" DEDICATION_BUTTON_EFFECT="UI_screen_CircleButton" DEDICATION_BUTTON_EFFECT_SCALE="7" DEDICATION_BUTTON_EFFECT_DURATION="2" GET_ITEM_SOUND="sys_quest_item_get"/>
 	<!-- RESULT_EFFECT : 획득 가능한 아이템 SLOT들 중 획득한 아이템 이펙트,  DEDICATION_BUTTON_EFFECT : 봉헌 버튼 이펙트-->
 	<script OpenScp="GODPROTECTION_OPEN" CloseScp="GODPROTECTION_CLOSE"/>
 	<controls>
@@ -23,47 +23,57 @@
 		<richtext name="time" parent="time_gb" rect="0 0 290 42" margin="0 0 0 0" layout_gravity="center center" format="{@st41b}{s16}남은 시간 %s분 %s초" param1="min" param1_def="0" param2="sec" param2_def="0"/>
 		<!-- dedication -->
 		<spinepic name="spinepic" rect="0 0 661 800" margin="299 140 0 0" layout_gravity="center top" updateparent="true" animation="animation" scale="0.9" stretch="true" offsetX="0" offsetY="0"/>
-		<picture name="dedication_slot_pic" rect="0 0 120 120" margin="280 640 0 0" image="protection_prize" layout_gravity="center top" stretch="true" draw="true"/>
+		<picture name="dedication_slot_pic" rect="0 0 120 120" margin="180 640 0 0" image="protection_prize" layout_gravity="center top" stretch="true" draw="true"/>
 		<slot name="dedication_slot" parent="dedication_slot_pic" rect="0 0 71 71" margin="0 3 0 0" layout_gravity="center center" enabledrop="false" enablepop="false" enabledrag="false" draw="true"/>
-		<groupbox name="dedication_gb" rect="0 0 195 41" margin="280 770 0 0" skin="protection_lottery_notice" layout_gravity="center top" hittest="false" scroll="false"/>
+		<groupbox name="dedication_gb" rect="0 0 195 41" margin="180 770 0 0" skin="protection_lottery_notice" layout_gravity="center top" hittest="false" scroll="false"/>
 		<richtext name="dedication_text" parent="dedication_gb" rect="0 0 40 41" margin="15 0 0 0" layout_gravity="left center" caption="{@st41b}{s16}1회"/>
 		<picture name="dedication_pic" parent="dedication_gb" rect="0 0 21 21" margin="-30 0 0 0" layout_gravity="center center" image="silver_pic" hittest="false" stretch="true"/>
 		<richtext name="dedication_silver" parent="dedication_gb" rect="0 0 100 41" margin="0 0 15 0" layout_gravity="right center" caption="{@st41b}{s16} 돈"/>
-		<groupbox name="dedication_btn_gb" rect="0 0 300 100" margin="280 820 0 0" layout_gravity="center top" scroll="false" draw="false"/>
-		<button name="dedication_btn" parent="dedication_btn_gb" rect="0 0 160 60" margin="0 0 0 0" image="login_test_button" layout_gravity="center top" caption="{@st43}{s24}봉헌" LBtnUpScp="GODPROTECTION_DEDICATION_CLICK" oversound="button_cursor_over_3" clicksound="button_click_big"/>
-		<button name="dedication_okbtn" parent="dedication_btn_gb" rect="0 0 160 60" margin="0 0 0 0" image="login_test_button" layout_gravity="center top" caption="{@st43}{s24}확인" LBtnUpScp="GODPROTECTION_DEDICATION_INIT" oversound="button_cursor_over_3" clicksound="button_click_big"/>
+		<groupbox name="dedication_btn_gb" rect="0 0 300 100" margin="180 820 0 0" layout_gravity="center top" scroll="false" draw="false"/>
+		<button name="dedication_btn" parent="dedication_btn_gb" rect="0 0 160 60" margin="0 10 0 0" image="login_test_button" layout_gravity="center top" stretch="false" caption="{@st43}{s24}봉헌" LBtnUpScp="GODPROTECTION_DEDICATION_CLICK" oversound="button_cursor_over_3" clicksound="button_click_big"/>
+		<button name="dedication_okbtn" parent="dedication_btn_gb" rect="0 0 160 60" margin="0 10 0 0" image="login_test_button" layout_gravity="center top" stretch="false" caption="{@st43}{s24}확인" LBtnUpScp="GODPROTECTION_DEDICATION_INIT" oversound="button_cursor_over_3" clicksound="button_click_big"/>
+		<!-- 연속 봉헌 -->
+		<groupbox name="auto_gb" rect="0 0 300 300" margin="450 640 0 0" layout_gravity="center top" hittest="true" scroll="false" draw="false"/>
+		<edit name="auto_edit" parent="auto_gb" rect="0 0 300 45" margin="0 70 0 0" layout_gravity="center top" fontname="white_18_ol" textalign="center center" OffsetForDraw="0 -1" numbermode="true" typingsound="chat_typing" maxnumber="99999999" LBtnDownScp="GODPROTECTION_AUTO_EDIT_CLICK"/>
+		<richtext name="auto_text" parent="auto_gb" rect="0 0 300 40" margin="0 82 0 0" layout_gravity="center top" caption="{@st41b}{s16}봉헌할 횟수를 입력해 주세요" hittest="false"/>
+		<button name="auto_btn" parent="auto_gb" rect="0 0 160 60" margin="0 130 0 0" image="login_test_button" layout_gravity="center top" stretch="false" caption="{@st43}{s24}연속 봉헌" oversound="button_cursor_over_3" clicksound="button_click_big" LBtnUpScp="GODPROTECTION_AUTO_START_BTN_CLICK"/>
+		<button name="auto_okbtn" parent="auto_gb" rect="0 0 160 60" margin="0 190 0 0" image="login_test_button" layout_gravity="center top" stretch="false" caption="{@st43}{s24}중단" oversound="button_cursor_over_3" clicksound="button_click_big" LBtnUpScp="GODPROTECTION_AUTO_STOP_BTN_CLICK"/>
 		<!-- protection_in -->
 		<groupbox name="protection_gb" rect="0 0 575 730" margin="-320 195 0 0" layout_gravity="center top" skin="protection_in_background" scroll="false"/>
 		<picture name="protection_gb_pic" parent="protection_gb" rect="0 0 572 720" margin="0 5 0 0" layout_gravity="center center" image="protection_pattern" hittest="false"/>
 		<!-- legend -->
-		<picture name="slot_0_pic" parent="protection_gb" rect="0 0 190 146" margin="-100 30 0 0" image="protection_legend" layout_gravity="center top"/>
-		<picture name="slot_1_pic" parent="protection_gb" rect="0 0 190 146" margin=" 100 30 0 0" image="protection_legend" layout_gravity="center top"/>
+		<picture name="slot_0_pic" parent="protection_gb" rect="0 0 190 146" margin="-190 30 0 0" image="protection_legend" layout_gravity="center top"/>
+		<picture name="slot_1_pic" parent="protection_gb" rect="0 0 190 146" margin=" 0 30 0 0" image="protection_legend" layout_gravity="center top"/>
+		<picture name="slot_2_pic" parent="protection_gb" rect="0 0 190 146" margin=" 190 30 0 0" image="protection_legend" layout_gravity="center top"/>
 		<slot name="slot_0" parent="slot_0_pic" rect="0 0 111 111" margin="0 8 0 0" layout_gravity="center top" enabledrop="false" enablepop="false" enabledrag="false"/>
 		<slot name="slot_1" parent="slot_1_pic" rect="0 0 111 111" margin="0 8 0 0" layout_gravity="center top" enabledrop="false" enablepop="false" enabledrag="false"/>
-		<!-- unique -->
-		<picture name="slot_2_pic" parent="protection_gb" rect="0 0 130 146" margin="-190 200 0 0" image="protection_unique" layout_gravity="center top"/>
-		<picture name="slot_3_pic" parent="protection_gb" rect="0 0 130 146" margin="   0 200 0 0" image="protection_unique" layout_gravity="center top"/>
-		<picture name="slot_4_pic" parent="protection_gb" rect="0 0 130 146" margin=" 190 200 0 0" image="protection_unique" layout_gravity="center top"/>
 		<slot name="slot_2" parent="slot_2_pic" rect="0 0 111 111" margin="0 8 0 0" layout_gravity="center top" enabledrop="false" enablepop="false" enabledrag="false"/>
+		<!-- unique -->
+		<picture name="slot_3_pic" parent="protection_gb" rect="0 0 130 146" margin="-210 200 0 0" image="protection_unique" layout_gravity="center top"/>
+		<picture name="slot_4_pic" parent="protection_gb" rect="0 0 130 146" margin=" -70 200 0 0" image="protection_unique" layout_gravity="center top"/>
+		<picture name="slot_5_pic" parent="protection_gb" rect="0 0 130 146" margin="  70 200 0 0" image="protection_unique" layout_gravity="center top"/>
+		<picture name="slot_6_pic" parent="protection_gb" rect="0 0 130 146" margin=" 210 200 0 0" image="protection_unique" layout_gravity="center top"/>
 		<slot name="slot_3" parent="slot_3_pic" rect="0 0 111 111" margin="0 8 0 0" layout_gravity="center top" enabledrop="false" enablepop="false" enabledrag="false"/>
 		<slot name="slot_4" parent="slot_4_pic" rect="0 0 111 111" margin="0 8 0 0" layout_gravity="center top" enabledrop="false" enablepop="false" enabledrag="false"/>
-		<!-- magic -->
-		<picture name="slot_5_pic" parent="protection_gb" rect="0 0 130 142" margin="-210 380 0 0" image="protection_magic" layout_gravity="center top"/>
-		<picture name="slot_6_pic" parent="protection_gb" rect="0 0 130 142" margin=" -70 380 0 0" image="protection_magic" layout_gravity="center top"/>
-		<picture name="slot_7_pic" parent="protection_gb" rect="0 0 130 142" margin="  70 380 0 0" image="protection_magic" layout_gravity="center top"/>
-		<picture name="slot_8_pic" parent="protection_gb" rect="0 0 130 142" margin=" 210 380 0 0" image="protection_magic" layout_gravity="center top"/>
 		<slot name="slot_5" parent="slot_5_pic" rect="0 0 111 111" margin="0 8 0 0" layout_gravity="center top" enabledrop="false" enablepop="false" enabledrag="false"/>
 		<slot name="slot_6" parent="slot_6_pic" rect="0 0 111 111" margin="0 8 0 0" layout_gravity="center top" enabledrop="false" enablepop="false" enabledrag="false"/>
+		<!-- magic -->
+		<picture name="slot_7_pic" parent="protection_gb" rect="0 0 130 142" margin="-210 380 0 0" image="protection_magic" layout_gravity="center top"/>
+		<picture name="slot_8_pic" parent="protection_gb" rect="0 0 130 142" margin=" -70 380 0 0" image="protection_magic" layout_gravity="center top"/>
+		<picture name="slot_9_pic" parent="protection_gb" rect="0 0 130 142" margin="  70 380 0 0" image="protection_magic" layout_gravity="center top"/>
+		<picture name="slot_10_pic" parent="protection_gb" rect="0 0 130 142" margin=" 210 380 0 0" image="protection_magic" layout_gravity="center top"/>
 		<slot name="slot_7" parent="slot_7_pic" rect="0 0 111 111" margin="0 8 0 0" layout_gravity="center top" enabledrop="false" enablepop="false" enabledrag="false"/>
 		<slot name="slot_8" parent="slot_8_pic" rect="0 0 111 111" margin="0 8 0 0" layout_gravity="center top" enabledrop="false" enablepop="false" enabledrag="false"/>
-		<!-- normal -->
-		<picture name="slot_9_pic" parent="protection_gb" rect="0 0 130 142" margin="-210 555 0 0" image="protection_normal" layout_gravity="center top"/>
-		<picture name="slot_10_pic" parent="protection_gb" rect="0 0 130 142" margin=" -70 555 0 0" image="protection_normal" layout_gravity="center top"/>
-		<picture name="slot_11_pic" parent="protection_gb" rect="0 0 130 142" margin="  70 555 0 0" image="protection_normal" layout_gravity="center top"/>
-		<picture name="slot_12_pic" parent="protection_gb" rect="0 0 130 142" margin=" 210 555 0 0" image="protection_normal" layout_gravity="center top"/>
 		<slot name="slot_9" parent="slot_9_pic" rect="0 0 111 111" margin="0 8 0 0" layout_gravity="center top" enabledrop="false" enablepop="false" enabledrag="false"/>
 		<slot name="slot_10" parent="slot_10_pic" rect="0 0 111 111" margin="0 8 0 0" layout_gravity="center top" enabledrop="false" enablepop="false" enabledrag="false"/>
+		<!-- normal -->
+		<picture name="slot_11_pic" parent="protection_gb" rect="0 0 130 142" margin="-210 555 0 0" image="protection_normal" layout_gravity="center top"/>
+		<picture name="slot_12_pic" parent="protection_gb" rect="0 0 130 142" margin=" -70 555 0 0" image="protection_normal" layout_gravity="center top"/>
+		<picture name="slot_13_pic" parent="protection_gb" rect="0 0 130 142" margin="  70 555 0 0" image="protection_normal" layout_gravity="center top"/>
+		<picture name="slot_14_pic" parent="protection_gb" rect="0 0 130 142" margin=" 210 555 0 0" image="protection_normal" layout_gravity="center top"/>
 		<slot name="slot_11" parent="slot_11_pic" rect="0 0 111 111" margin="0 8 0 0" layout_gravity="center top" enabledrop="false" enablepop="false" enabledrag="false"/>
 		<slot name="slot_12" parent="slot_12_pic" rect="0 0 111 111" margin="0 8 0 0" layout_gravity="center top" enabledrop="false" enablepop="false" enabledrag="false"/>
+		<slot name="slot_13" parent="slot_13_pic" rect="0 0 111 111" margin="0 8 0 0" layout_gravity="center top" enabledrop="false" enablepop="false" enabledrag="false"/>
+		<slot name="slot_14" parent="slot_14_pic" rect="0 0 111 111" margin="0 8 0 0" layout_gravity="center top" enabledrop="false" enablepop="false" enabledrag="false"/>
 	</controls>
 </uiframe>

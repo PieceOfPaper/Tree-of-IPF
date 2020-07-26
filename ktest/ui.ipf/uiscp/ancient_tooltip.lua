@@ -206,6 +206,7 @@ function UPDATE_ANCIENT_CARD_PASSIVE_TOOLTIP(frame, handle, numarg1, numarg2)
 end
 
 function TRY_PARSE_ANCIENT_PROPERTY(obj, caption, extraArg)
+    caption = TranslateDicID(caption)
     local tagStart = string.find(caption, "#{");
     if tagStart ~= nil then
         local nextStr = string.sub(caption, tagStart + 2, string.len(caption));

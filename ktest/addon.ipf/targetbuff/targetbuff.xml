@@ -1,17 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- edited with XMLSpy v2006 U (http://www.altova.com) by 박선우 (EMBRACE) -->
 <!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
-<uiframe name="targetbuff" x="0" y="0" width="300" height="180">
+<uiframe name="targetbuff" x="0" y="0" width="320" height="180">
 	<frame title="타겟버프창" layout_gravity="center top" margin="0 130 0 0"/>
 	<option visible="true" hideable="false" closebutton="false"/>
-	<input hittestframe="false" moveable="false"/>
+	<input hittestframe="true" moveable="true" catchmovepos="true"/>
 	<draw drawtitlebar="false" drawframe="false"/>
-	<userconfig DEFAULT_SLOT_Y_OFFSET="40" DEFAULT_SUB_SLOT_Y_OFFSET="34"/>
+	<userconfig DEFAULT_SLOT_Y_OFFSET="40" DEFAULT_SUB_SLOT_Y_OFFSET="30" DEFAULT_BUFF_LOCK_OFFSET="8" DEBUFF_MAX_BTN_IMAGE_NAME="targetbuff_maximize" DEBUFF_MIN_BTN_IMAGE_NAME="targetbuff_mimimize"/>
+	<layer layerlevel="1"/>
 	<controls>
-		<slotset name="buffcountslot" margin="0 0 0 0" rect="0 0 30 30" col="10" drawslot="true" enableDrop="false" enablePop="false" hittest="true" row="1" size="26 26" spc="2 13"/>
-		<slotset name="buffcountslot_sub" margin="0 40 0 0" rect="0 0 24 24" col="12" drawslot="true" enableDrop="false" enablePop="false" hittest="true" row="1" size="20 20" spc="2 13"/>
-		<slotset name="buffslot" margin="0 80 0 0" rect="0 0 30 30" col="10" drawslot="true" enableDrop="false" enablePop="false" hittest="true" row="1" size="26 26" spc="2 11"/>
-		<slotset name="debuffslot" margin="0 126 0 0" rect="0 0 30 30" col="10" drawslot="true" enableDrop="false" enablePop="false" hittest="true" row="1" size="26 26" spc="2 13"/>
-		<timer name="addontimer" rect="0 0 10 10"/>
+		<slotset name="buffcountslot" rect="0 0 30 30" margin="30 0 0 0" col="10" drawslot="true" enableDrop="false" enablePop="false" hittest="true" row="1" size="25 25" spc="2 15"/>
+		<slotset name="buffcountslot_sub" rect="0 0 20 20" margin="30 40 0 0" col="16" drawslot="true" enableDrop="false" enablePop="false" hittest="true" row="1" size="15 15" spc="2 10"/>
+		<slotset name="buffslot" rect="0 0 30 30" margin="30 80 0 0" col="10" drawslot="true" enableDrop="false" enablePop="false" hittest="true" row="1" size="25 25" spc="2 15"/>
+		<slotset name="debuffslot" rect="0 0 30 30" margin="30 120 0 0" col="10" drawslot="true" enableDrop="false" enablePop="false" hittest="true" row="1" size="25 25" spc="2 15"/>
+		<timer name="addontimer" rect="0 0 10 10" margin="5 0 0 0" layout_gravity="center top"/>
+		<button name="debuffminimizebutton" margin="0 115 0 0" rect="0 0 26 26" layout_gravity="left top" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" clicksound="button_click_big" oversound="button_over" image="targetbuff_mimimize" hittest="true" LBtnUpScp="TARGETBUFF_DEBUFF_TOGGLE" texttooltip=""/>
 	</controls>
 </uiframe>

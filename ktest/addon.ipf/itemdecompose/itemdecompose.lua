@@ -2,208 +2,236 @@ function ITEMDECOMPOSE_ON_INIT(addon, frame)
 	addon:RegisterOpenOnlyMsg('UPDATE_COLONY_TAX_RATE_SET', 'ON_ITEMDECOMPOSE_UPDATE_COLONY_TAX_RATE_SET');
 end
 
-local function _ITEM_DECOMPOSE_ITEM_LIST(frame, itemGradeList)
-    if itemGradeList == nil then
-        local itemTypeBoxFrame = GET_CHILD_RECURSIVELY(frame, "itemTypeBox", "ui::CGroupBox")
-		itemGradeList = DECOMPOSE_ITEM_GRADE_SET(itemTypeBoxFrame, 0)		
-	end
-
-    --슬롯 셋 및 전체 슬롯 초기화 해야됨
-	local itemSlotSet = GET_CHILD_RECURSIVELY(frame, "itemSlotset", "ui::CSlotSet")
-	local miscSlotSet = GET_CHILD_RECURSIVELY(frame, "slotlist", "ui::CSlotSet")
-	local miscSlotSet2 = GET_CHILD_RECURSIVELY(frame, "slotlist2", "ui::CSlotSet")
-    
-	itemSlotSet:ClearIconAll();
-	miscSlotSet:ClearIconAll();
-	miscSlotSet2:ClearIconAll();
-
-	local itemSlotSetCnt = itemSlotSet:GetSlotCount();
-	itemSlotSet:SetSkinName("invenslot2")
-	for i = 0, itemSlotSetCnt - 1 do
-		local tempSlot = itemSlotSet:GetSlotByIndex(i)
-		DESTROY_CHILD_BYNAME(tempSlot, "styleset_")		
-	end
-	
-	local invItemList = session.GetInvItemList();
-	FOR_EACH_INVENTORY(invItemList, function(invItemList, invItem, itemGradeList, itemSlotSet)	
-		if invItem ~= nil then
-    		local itemobj = GetIES(invItem:GetObject());
-    		local itemGrade = TryGetProp(itemobj, 'ItemGrade');
-            if itemGrade == nil then
-                itemGrade = 0;
-            end
-
-            local needToShow = true;
-			for j = 1, #itemGradeList do
-				if itemGradeList[j] == 0 and itemGrade == j then
-            		needToShow = false;
-            		break;
-				end
-				
-				--가공된 장비 체크 추가 --
-				if itemGradeList[5] == 0 and itemGrade == j and IS_MECHANICAL_ITEM(itemobj) == true then					
-        	        needToShow = false;
-        	        break;
-            	end
-			end
-
-            if needToShow == true then
-				if itemobj.ItemType == 'Equip' and itemobj.DecomposeAble ~= nil and itemobj.DecomposeAble == "YES" and IS_EQUIPPED_WEAPON_SWAP_SLOT(invItem) == false and itemobj.ItemType == 'Equip' and itemobj.UseLv >= 75 and invItem.isLockState == false and itemGrade <= 4 then
-					local itemSlotCnt = imcSlot:GetEmptySlotIndex(itemSlotSet);
-	    			local itemSlot = itemSlotSet:GetSlotByIndex(itemSlotCnt)
-	    			if itemSlot == nil then
-	    				return 'break';
-					end
-					
-	    			local icon = CreateIcon(itemSlot);
-	    			icon:Set(itemobj.Icon, 'Item', invItem.type, itemSlotCnt, invItem:GetIESID());
-	    			local class = GetClassByType('Item', invItem.type);
-	    			SET_SLOT_STYLESET(itemSlot, itemobj)
-	    			ICON_SET_INVENTORY_TOOLTIP(icon, invItem, nil, class);	                
-	            end
-        	end
-    	end
-	end, false, itemGradeList, itemSlotSet);
-	RESET_SUCCESS(frame)
-end
-
-function ON_ITEMDECOMPOSE_UPDATE_COLONY_TAX_RATE_SET(frame)
-	local decomposeCostText = GET_CHILD_RECURSIVELY(frame, "decomposeCostText")
-	SET_COLONY_TAX_RATE_TEXT(decomposeCostText, "tax_rate")
-
-    _ITEM_DECOMPOSE_ITEM_LIST(frame)
-end
-
-function ITEMDECOMPOSE_UI_OPEN(frame, msg, arg1, arg2)
-    ui.EnableSlotMultiSelect(1);
-    RESET_SUCCESS(frame)
-    ITEMDECOMPOSE_CHECKBOX(frame)
-    _ITEM_DECOMPOSE_ITEM_LIST(frame)
-	local decomposeCostText = GET_CHILD_RECURSIVELY(frame, "decomposeCostText")
-	SET_COLONY_TAX_RATE_TEXT(decomposeCostText, "tax_rate")
-end
+local MAX_SELECT = 60
 
 function ITEMDECOMPOSE_UI_CLOSE(frame, ctrl)
 	ui.EnableSlotMultiSelect(0);
 	frame:ShowWindow(0)
 end
-
-function RESET_SUCCESS(frame)
-    local frame = frame:GetTopParentFrame();
-    local arrowBox = GET_CHILD_RECURSIVELY(frame, "arrowBox", "ui::CGroupBox");
-    arrowBox:ShowWindow(0)
-    local decomposeSuccess = GET_CHILD_RECURSIVELY(frame, "decomposeSuccess", "ui::CPicture");
-    decomposeSuccess:ShowWindow(0)
-    local slotlist = GET_CHILD_RECURSIVELY(frame, "slotlist", "ui::CSlotSet");
-    slotlist:ShowWindow(0)
-    local slotlist2 = GET_CHILD_RECURSIVELY(frame, "slotlist2", "ui::CSlotSet");
-    slotlist2:ShowWindow(0);
-    local slotgb = GET_CHILD_RECURSIVELY(frame, "slotgb", "ui::CGroupBox");
-    slotgb:ShowWindow(0);
+--open
+function ITEMDECOMPOSE_UI_OPEN(frame, msg, arg1, arg2)
+    ui.EnableSlotMultiSelect(1);
+	local decomposeCostText = GET_CHILD_RECURSIVELY(frame, "decomposeCostText")
+	SET_COLONY_TAX_RATE_TEXT(decomposeCostText, "tax_rate")
+	LOAD_ITEM_DECOMPOSE_ITEM_LIST(frame)
+	TOGGLE_DECOMPOSE_RESULT(frame,0)
+	ITEMDECOMPOSE_UI_RESIZE(frame)
 end
 
-function ITEMDECOMPOSE_CHECKBOX(frame)
-    local normalCheckbox = GET_CHILD_RECURSIVELY(frame, 'normal');
-    local magicCheckbox = GET_CHILD_RECURSIVELY(frame, 'magic');
-    local rareCheckbox = GET_CHILD_RECURSIVELY(frame, 'rare');
-    local uniqueCheckbox = GET_CHILD_RECURSIVELY(frame, 'unique');
-    local mechanicalCheckbox = GET_CHILD_RECURSIVELY(frame, 'mechanical');
-    
-    normalCheckbox:SetCheck(1);
-    magicCheckbox:SetCheck(1);
-    rareCheckbox:SetCheck(1);
-    uniqueCheckbox:SetCheck(0);
-    mechanicalCheckbox:SetCheck(0);
-end
-
-function DECOMPOSE_ITEM_GRADE_SET(frame, isOpen)
-    ITEM_DECOMPOSE_ALL_UNSELECT(frame);
-    
-    local normalCheckbox = GET_CHILD_RECURSIVELY(frame, "normal", "ui::CCheckBox");
-    local magicCheckbox = GET_CHILD_RECURSIVELY(frame, "magic", "ui::CCheckBox");
-    local rareCheckbox = GET_CHILD_RECURSIVELY(frame, "rare", "ui::CCheckBox");
-    local uniqueCheckbox = GET_CHILD_RECURSIVELY(frame, "unique", "ui::CCheckBox");
-    local mechanicalCheckbox = GET_CHILD_RECURSIVELY(frame, 'mechanical', "ui::CCheckBox");
-    
-    local itemGradeList = {};
-    
-    itemGradeList[#itemGradeList + 1] = normalCheckbox:IsChecked();
-    itemGradeList[#itemGradeList + 1] = magicCheckbox:IsChecked();
-    itemGradeList[#itemGradeList + 1] = rareCheckbox:IsChecked();
-    itemGradeList[#itemGradeList + 1] = uniqueCheckbox:IsChecked();
-    itemGradeList[#itemGradeList + 1] = mechanicalCheckbox:IsChecked();
-    
-    ITEM_DECOMPOSE_UPDATE_MONEY(frame);
-
-    if isOpen ~= 1 then
-        local itemdecomposeFrame = ui.GetFrame("itemdecompose");
-        _ITEM_DECOMPOSE_ITEM_LIST(itemdecomposeFrame, itemGradeList);
-    end
-    return itemGradeList;
-end
-
-function DECOMPOSE_ITEM_MECHANICAL_SET(frame, isOpen)
-    ITEM_DECOMPOSE_ALL_UNSELECT(frame);
-    
-    local normalCheckbox = GET_CHILD_RECURSIVELY(frame, "normal", "ui::CCheckBox");
-    local magicCheckbox = GET_CHILD_RECURSIVELY(frame, "magic", "ui::CCheckBox");
-    local rareCheckbox = GET_CHILD_RECURSIVELY(frame, "rare", "ui::CCheckBox");
-    local uniqueCheckbox = GET_CHILD_RECURSIVELY(frame, "unique", "ui::CCheckBox");
-    local mechanicalCheckbox = GET_CHILD_RECURSIVELY(frame, 'mechanical', "ui::CCheckBox");
-    
-    local itemGradeList = {};
-    
-    itemGradeList[#itemGradeList + 1] = normalCheckbox:IsChecked();
-    itemGradeList[#itemGradeList + 1] = magicCheckbox:IsChecked();
-    itemGradeList[#itemGradeList + 1] = rareCheckbox:IsChecked();
-    itemGradeList[#itemGradeList + 1] = uniqueCheckbox:IsChecked();
-    itemGradeList[#itemGradeList + 1] = mechanicalCheckbox:IsChecked();
-    
-    ITEM_DECOMPOSE_UPDATE_MONEY(frame);
-
-    if itemGradeList[5] == 1 then
-        ui.MsgBox(ScpArgMsg("IS_MechanicalItem_Decompose"));
-    end
-
-    if isOpen ~= 1 then
-        local itemdecomposeFrame = ui.GetFrame("itemdecompose");
-        _ITEM_DECOMPOSE_ITEM_LIST(itemdecomposeFrame, itemGradeList);
+function ITEMDECOMPOSE_UI_RESIZE(frame)
+	if frame:GetHeight() < 1360 then
+		local slotgb = GET_CHILD_RECURSIVELY(frame,"slotgb")
+		local margin = slotgb:GetMargin()
+		slotgb:SetMargin(margin.left,150,margin.right,margin.bottom)
+		local decomposeCompleteBtn = GET_CHILD_RECURSIVELY(slotgb,"decomposeCompleteBtn")
+		decomposeCompleteBtn:ShowWindow(1)
+	else
+		local slotgb = GET_CHILD_RECURSIVELY(frame,"slotgb")
+		local margin = slotgb:GetMargin()
+		slotgb:SetMargin(margin.left,740,margin.right,margin.bottom)
+		local decomposeCompleteBtn = GET_CHILD_RECURSIVELY(slotgb,"decomposeCompleteBtn")
+		decomposeCompleteBtn:ShowWindow(0)
 	end
-    return itemGradeList;
 end
 
-function ITEM_DECOMPOSE_SLOT_LBTDOWN(frame, ctrl)
-	ui.EnableSlotMultiSelect(1);
-    RESET_SUCCESS(frame)
---	local slotSet = GET_CHILD_RECURSIVELY_AT_TOP(ctrl, "itemSlotset", "ui::CSlotSet")
-    ITEM_DECOMPOSE_UPDATE_MONEY(frame)
+function ON_ITEMDECOMPOSE_UPDATE_COLONY_TAX_RATE_SET(frame)
+	local decomposeCostText = GET_CHILD_RECURSIVELY(frame, "decomposeCostText")
+	SET_COLONY_TAX_RATE_TEXT(decomposeCostText, "tax_rate")
+	LOAD_ITEM_DECOMPOSE_ITEM_LIST(frame)
+	TOGGLE_DECOMPOSE_RESULT(frame,0)
+end
 
+function LOAD_ITEM_DECOMPOSE_ITEM_LIST(frame)
+	frame:SetUserValue("ENABLE_SLOT","1")
+	--슬롯 셋 및 전체 슬롯 초기화 해야됨
+	local slotlist_bg = GET_CHILD_RECURSIVELY(frame, "slotlist_bg", "ui::CGroupBox")
+	local miscSlotSet = GET_CHILD_RECURSIVELY(frame, "slotlist", "ui::CSlotSet")
+	local miscSlotSet2 = GET_CHILD_RECURSIVELY(frame, "slotlist2", "ui::CSlotSet")
+    
+	miscSlotSet:ClearIconAll();
+	miscSlotSet2:ClearIconAll();
+	for i = 1,4 do
+		local ctrlSet = GET_CHILD_RECURSIVELY(slotlist_bg, "itemSlotset"..i, "ui::CControlSet")
+		local itemSlotSet = GET_CHILD_RECURSIVELY(ctrlSet,'itemSlotset',"ui::CSlotSet")
+		itemSlotSet:ClearIconAll();
+		local itemSlotSetCnt = itemSlotSet:GetSlotCount();
+		itemSlotSet:SetSkinName("invenslot2")
+		for i = 0, itemSlotSetCnt - 1 do
+			local tempSlot = itemSlotSet:GetSlotByIndex(i)
+			tempSlot:RemoveAllChild()
+			tempSlot:SetEnable(1)
+		end
+
+		local text = ctrlSet:GetUserConfig("GRADE_"..i)
+		local itemSlotSetText = GET_CHILD_RECURSIVELY(ctrlSet,'itemSlotsetText')
+		itemSlotSetText:SetText(text)
+	end
+	
+	local mechanical = GET_CHILD_RECURSIVELY(frame,"mechanical","ui::CCheckBox")
+	local showAll = mechanical:IsChecked()
+	local invItemList = session.GetInvItemList();
+	local decomposibleList = {{},{},{},{}}
+	FOR_EACH_INVENTORY(invItemList, function(invItemList, invItem, showAll)
+		if invItem ~= nil then
+    		local itemobj = GetIES(invItem:GetObject());
+			local decomposible = TryGetProp(itemobj,'DecomposeAble','None')
+			if itemobj.ItemType == 'Equip' and decomposible == "YES" and  IS_EQUIPPED_WEAPON_SWAP_SLOT(invItem) == false and
+				itemobj.UseLv >= 75 and invItem.isLockState == false then
+				if showAll == 1 or IS_MECHANICAL_ITEM(itemobj) == false then
+					local itemGrade = TryGetProp(itemobj, 'ItemGrade',0)
+					if itemGrade <= 4 then
+						table.insert(decomposibleList[itemGrade],invItem)
+					end
+				end
+			end
+    	end
+	end, false, showAll);
+
+	local heightMargin = 0;
+	for i = 1,4 do
+		local ctrlSet = GET_CHILD_RECURSIVELY(slotlist_bg, "itemSlotset"..i, "ui::CControlSet")
+		local itemSlotSet = GET_CHILD_RECURSIVELY(ctrlSet, "itemSlotset", "ui::CSlotSet")
+		
+		local col = itemSlotSet:GetCol()
+		local row = itemSlotSet:GetRow()
+		
+		local new_row = math.max(2,math.floor((#decomposibleList[i])/col)+BoolToNumber(#decomposibleList[i]%10~=0))
+		itemSlotSet:SetSlotCount(col*new_row)
+		itemSlotSet:AutoAdjustRow()
+		itemSlotSet:SetSlotCount(MAX_SELECT)
+		local margin = ctrlSet:GetMargin()
+		ctrlSet:Resize(margin.left,margin.top+heightMargin, ctrlSet:GetWidth(),ctrlSet:GetHeight()+(itemSlotSet:GetRow()-row)*52)
+		heightMargin = heightMargin + (itemSlotSet:GetRow()-row)*52;
+
+		for j = 1,#decomposibleList[i] do
+			local invItem = decomposibleList[i][j]
+			local itemobj = GetIES(invItem:GetObject());
+			local itemGrade = TryGetProp(itemobj, 'ItemGrade',0);
+			if itemGrade > 0 and itemGrade < 5 then
+				local itemSlotCnt = j-1;
+				local itemSlot = itemSlotSet:GetSlotByIndex(itemSlotCnt)
+				if itemSlot ~= nil then
+					local icon = CreateIcon(itemSlot);
+					icon:Set(itemobj.Icon, 'Item', invItem.type, itemSlotCnt, invItem:GetIESID());
+					local class = GetClassByType('Item', invItem.type);
+					SET_SLOT_STYLESET(itemSlot, itemobj)
+					ICON_SET_INVENTORY_TOOLTIP(icon, invItem, nil, class);
+				end
+			end
+		end
+	end
+	local selectAllBox = GET_CHILD_RECURSIVELY(frame,"selectAll")
+	ITEM_DECOMPOSE_ALL_SELECT_BTN_DOWN(frame,selectAllBox,"",0)
+end
+
+function TOGGLE_DECOMPOSE_RESULT(frame,isShow)
+    local frame = frame:GetTopParentFrame();
+    local slotgb = GET_CHILD_RECURSIVELY(frame, "slotgb", "ui::CGroupBox");
+	slotgb:ShowWindow(isShow);
+	
+	if frame:GetHeight() < 1360 then
+		local decompose_bg = GET_CHILD_RECURSIVELY(frame, "decompose_bg", "ui::CGroupBox")
+		decompose_bg:ShowWindow(1-isShow);
+	end
+end
+
+--select
+function ITEM_DECOMPOSE_SLOT_LBTDOWN(frame, ctrl)
+	frame = frame:GetTopParentFrame()
+	TOGGLE_DECOMPOSE_RESULT(frame,0)
+	ITEM_DECOMPOSE_UPDATE(frame)
+end
+
+function ITEM_DECOMPOSE_ALL_SELECT_BTN_DOWN(frame, ctrl, argStr,isselected)
+	if isselected == 1 then
+		ITEM_DECOMPOSE_SELECT_ALL(frame, ctrl)
+	else
+		ITEM_DECOMPOSE_DESELECT_ALL(frame, ctrl)
+	end
+	ITEM_DECOMPOSE_UPDATE(frame)
+	ITEM_DECOMPOSE_SET_ALL_SELECT_STATE(ctrl,isselected)
+end
+
+function ITEM_DECOMPOSE_SET_ALL_SELECT_STATE(ctrl,isselected)
+	isselected = 1 - isselected
+	ctrl:SetEventScriptArgNumber(ui.LBUTTONDOWN,isselected)
+	local font = "{@st66}"
+	if isselected == 1 then
+		ctrl:SetText(font..ScpArgMsg("SelectAll"))
+	else
+		ctrl:SetText(font..ScpArgMsg("UnselectAll"))
+	end
+end
+
+function ITEM_DECOMPOSE_SELECT_ALL(frame,ctrl)
+	local cnt = ITEM_DECOMPOSE_GET_SELECT_COUNT(frame);
+	if cnt > MAX_SELECT then
+		return
+	end
+	for i = 1,4 do
+		local checkBox = GET_CHILD_RECURSIVELY(frame, "check_grade"..i, "ui::CCheckBox") 
+		if checkBox:IsChecked() == 1 then
+			local ctrlSet = GET_CHILD_RECURSIVELY_AT_TOP(ctrl, "itemSlotset"..i, "ui::CControlSet")
+			local slotSet = GET_CHILD_RECURSIVELY(ctrlSet, "itemSlotset", "ui::CSlotSet")
+			local slotCount = slotSet:GetSlotCount();
+			for j = 0, slotCount - 1 do 
+				if cnt >= MAX_SELECT then
+					break
+				end
+				local slot = slotSet:GetSlotByIndex(j);
+				if slot:GetIcon() ~= nil and slot:IsSelected() == 0 then
+					cnt = cnt + 1
+					slot:Select(1)
+				end
+			end
+			slotSet:MakeSelectionList()
+		end
+	end
+end
+
+function ITEM_DECOMPOSE_DESELECT_ALL(frame,ctrl)
+	for i = 1,4 do
+		local checkBox = GET_CHILD_RECURSIVELY(frame, "check_grade"..i, "ui::CCheckBox") 
+		local ctrlSet = GET_CHILD_RECURSIVELY_AT_TOP(ctrl, "itemSlotset"..i, "ui::CControlSet")
+		local slotSet = GET_CHILD_RECURSIVELY(ctrlSet, "itemSlotset", "ui::CSlotSet")
+		local slotCount = slotSet:GetSlotCount();
+		for j = 0, slotCount - 1 do 
+			local slot = slotSet:GetSlotByIndex(j);
+			if slot:GetIcon() ~= nil then
+				slot:Select(0)
+			end
+		end
+		slotSet:MakeSelectionList()
+	end
 end
 
 function ITEM_DECOMPOSE_UPDATE_MONEY(frame)
 	local frame = frame:GetTopParentFrame();
-	local slotSet = GET_CHILD_RECURSIVELY(frame, "itemSlotset", "ui::CSlotSet")
 	local totalprice = 0;
     
 	local groupName = frame:GetUserValue("GroupName");
 	local groupInfo = session.autoSeller.GetByIndex(groupName, 0);
-	local handle = frame:GetUserIValue('HANDLE');
-    
-	for i = 0, slotSet:GetSelectedSlotCount() -1 do
-		local slot = slotSet:GetSelectedSlot(i)
-		local Icon = slot:GetIcon();
-		local iconInfo = Icon:GetInfo();
-        
-		local invitem = GET_ITEM_BY_GUID(iconInfo:GetIESID());
-		local itemobj = GetIES(invitem:GetObject());
-        
-		if groupInfo == nil then -- npc 상점의 경우
-		    totalprice = totalprice + GET_DECOMPOSE_PRICE(itemobj, GET_COLONY_TAX_RATE_CURRENT_MAP());
+	
+	local slotlist_bg = GET_CHILD_RECURSIVELY(frame, "slotlist_bg", "ui::CGroupBox")
+	for i = 1,4 do
+		local ctrlSet = GET_CHILD_RECURSIVELY(slotlist_bg, "itemSlotset"..i, "ui::CControlSet")
+		local slotSet = GET_CHILD_RECURSIVELY(ctrlSet, "itemSlotset", "ui::CSlotSet")
+		for i = 0, slotSet:GetSelectedSlotCount() -1 do
+			local slot = slotSet:GetSelectedSlot(i)
+			local Icon = slot:GetIcon();
+			local iconInfo = Icon:GetInfo();
+			
+			local invitem = GET_ITEM_BY_GUID(iconInfo:GetIESID());
+			local itemobj = GetIES(invitem:GetObject());
+			
+			if groupInfo == nil then -- npc 상점의 경우
+				totalprice = totalprice + GET_DECOMPOSE_PRICE(itemobj, GET_COLONY_TAX_RATE_CURRENT_MAP());
+			end
 		end
 	end
     
-	local repairprice = GET_CHILD_RECURSIVELY_AT_TOP(frame, "decomposeCost", "ui::CRichText")
-	repairprice:SetText(GET_COMMAED_STRING(totalprice))
+	local decomposeCost = GET_CHILD_RECURSIVELY_AT_TOP(frame, "decomposeCost", "ui::CRichText")
+	decomposeCost:SetText(GET_COMMAED_STRING(totalprice))
     
 	local calcprice = GET_CHILD_RECURSIVELY_AT_TOP(frame, "remainSilver", "ui::CRichText")
 	if totalprice <= 0 then
@@ -217,73 +245,72 @@ function ITEM_DECOMPOSE_UPDATE_MONEY(frame)
 	frame:SetUserValue('TOTAL_MONEY', totalprice);
 end
 
-function ITEM_DECOMPOSE_ALL_SELECT(frame, ctrl)
-	local isselected =  ctrl:GetUserValue("SELECTED");
+function DECOMPOSE_ITEM_MECHANICAL_SET(frame,ctrl)
+	frame = frame:GetTopParentFrame()
+	LOAD_ITEM_DECOMPOSE_ITEM_LIST(frame)
+end
 
-	local slotSet = GET_CHILD_RECURSIVELY_AT_TOP(ctrl, "itemSlotset", "ui::CSlotSet")
-	
-	local slotCount = slotSet:GetSlotCount();
+function ITEM_DECOMPOSE_GET_SELECT_COUNT(frame)
+	local cnt = 0
+	for i = 1,4 do
+		local ctrlSet = GET_CHILD_RECURSIVELY_AT_TOP(frame, "itemSlotset"..i, "ui::CControlSet")
+		local slotSet = GET_CHILD_RECURSIVELY(ctrlSet, "itemSlotset", "ui::CSlotSet")
+		cnt = cnt + slotSet:GetSelectedSlotCount();
+	end
+	return cnt
+end
 
-	for i = 0, slotCount - 1 do
-		local slot = slotSet:GetSlotByIndex(i);
-		if slot:GetIcon() ~= nil then
-			if isselected == "selected" then
-				slot:Select(0)
-			else
-				slot:Select(1)
+function ITEM_DECOMPOSE_UPDATE(frame)
+	ITEM_DECOMPOSE_UPDATE_MONEY(frame)
+	local total = ITEM_DECOMPOSE_GET_SELECT_COUNT(frame)
+	ITEM_DECOMPOSE_UPDATE_COUNT_TEXT(frame,total)
+	if frame:GetUserValue("ENABLE_SLOT") == tostring(enable) then
+		return
+	end
+	local enable = BoolToNumber(total < MAX_SELECT)
+	for i = 1,4 do
+		local ctrlSet = GET_CHILD_RECURSIVELY(frame, "itemSlotset"..i, "ui::CControlSet")
+		local slotSet = GET_CHILD_RECURSIVELY(ctrlSet, "itemSlotset", "ui::CSlotSet")
+		local slotCount = slotSet:GetSlotCount();
+		for j = 0, slotCount - 1 do
+			local slot = slotSet:GetSlotByIndex(j);
+			if slot:IsSelected() == 0 or enable == 1 then
+				slot:SetEnable(enable)
 			end
 		end
 	end
-	slotSet:MakeSelectionList()
-
-	if isselected == "selected" then
-		ctrl:SetUserValue("SELECTED", "notselected");
-	else
-		ctrl:SetUserValue("SELECTED", "selected");
-	end
-	
-	ITEM_DECOMPOSE_UPDATE_MONEY(frame)
---전체 선택시 비용 산정해야겠지..?
+	frame:SetUserValue("ENABLE_SLOT",tostring(enable))
 end
 
-function ITEM_DECOMPOSE_ALL_UNSELECT(frame)
-    
-	local slotSet = GET_CHILD_RECURSIVELY_AT_TOP(frame, "itemSlotset", "ui::CSlotSet")
-	local slotCount = slotSet:GetSlotCount();
-	for i = 0, slotCount - 1 do
-		local slot = slotSet:GetSlotByIndex(i);
---		if slot:GetIcon() ~= nil then
-			slot:Select(0)
---		end
-	end
-	
-	slotSet:MakeSelectionList()
-    
-    local selectAllBtn = GET_CHILD_RECURSIVELY_AT_TOP(frame, "selectAll", "ui::CButton")
-	selectAllBtn:SetUserValue("SELECTED", "notselected");
+function ITEM_DECOMPOSE_UPDATE_COUNT_TEXT(frame,total)
+	local decomposecnt = GET_CHILD_RECURSIVELY(frame,'decomposecnt')
+	decomposecnt:SetTextByKey('cnt',total)
+	decomposecnt:SetTextByKey('max',MAX_SELECT)
 end
 
-
-
+--execute
 function ITEM_DECOMPOSE_EXECUTE(frame)
 	session.ResetItemList();
 
 	local totalprice = 0;
+	local totalCount = ITEM_DECOMPOSE_GET_SELECT_COUNT(frame);
 
-	local slotSet = GET_CHILD_RECURSIVELY(frame, "itemSlotset", "ui::CSlotSet")
-	
-	if slotSet:GetSelectedSlotCount() < 1 then
+	if totalCount < 1 then
 		ui.MsgBox(ScpArgMsg("DON_T_HAVE_ITEM_TO_DECOMPOSE"))
 		return;
+	elseif totalCount > MAX_SELECT then
+		ui.MsgBox(ScpArgMsg("EXCEED_SELECT_COUNT"))
+		return
 	end
 	
+	
 	local itemCheckProp = { }
-	itemCheckProp['Reinforce'] = 0;
-	itemCheckProp['Transcend'] = 0;
-	itemCheckProp['Awaken'] = 0;
-	itemCheckProp['Socket_Equip'] = 0;
-	itemCheckProp['Socket_Add'] = 0;
-	itemCheckProp['EnchantOption'] = 0;
+	itemCheckProp['Reinforce'] = false;
+	itemCheckProp['Transcend'] = false;
+	itemCheckProp['Awaken'] = false;
+	itemCheckProp['EnchantOption'] = false;
+	itemCheckProp['Socket_Equip'] = false;
+	itemCheckProp['Socket_Add'] = false;
 	
 	local groupName = frame:GetUserValue("GroupName");
 	local groupInfo = session.autoSeller.GetByIndex(groupName, 0);
@@ -291,52 +318,50 @@ function ITEM_DECOMPOSE_EXECUTE(frame)
 	if groupInfo == nil then -- if not pc shop
 		taxRate = GET_COLONY_TAX_RATE_CURRENT_MAP()
 	end
+	for slotsetidx = 1,4 do
+		local ctrlSet = GET_CHILD_RECURSIVELY(frame, "itemSlotset"..slotsetidx, "ui::CControlSet")
+		local slotSet = GET_CHILD_RECURSIVELY(ctrlSet, "itemSlotset", "ui::CSlotSet")
+		for i = 0, slotSet:GetSelectedSlotCount() -1 do
+			local slot = slotSet:GetSelectedSlot(i)
+			local Icon = slot:GetIcon();
+			local iconInfo = Icon:GetInfo();
 
-	for i = 0, slotSet:GetSelectedSlotCount() -1 do
-		local slot = slotSet:GetSelectedSlot(i)
-		local Icon = slot:GetIcon();
-		local iconInfo = Icon:GetInfo();
-        
-		session.AddItemID(iconInfo:GetIESID());
+			session.AddItemID(iconInfo:GetIESID());
 
-		local invitem = GET_ITEM_BY_GUID(iconInfo:GetIESID());
-		local itemobj = GetIES(invitem:GetObject());
-		totalprice = totalprice + GET_DECOMPOSE_PRICE(itemobj, taxRate);
-		
-		local itemReinforce = TryGetProp(itemobj, 'Reinforce_2');
-		if itemReinforce ~= nil and itemReinforce > 0 then
-			itemCheckProp['Reinforce'] = itemCheckProp['Reinforce'] + 1;
+			local invitem = GET_ITEM_BY_GUID(iconInfo:GetIESID());
+			local itemobj = GetIES(invitem:GetObject());
+			totalprice = totalprice + GET_DECOMPOSE_PRICE(itemobj, taxRate);
+			
+			do
+				local itemReinforce = TryGetProp(itemobj, 'Reinforce_2',0);
+				itemCheckProp['Reinforce'] = itemCheckProp['Reinforce'] or (itemReinforce > 0)
+				
+				local itemTranscend = TryGetProp(itemobj, 'Transcend',0);
+				itemCheckProp['Transcend'] = itemCheckProp['Transcend'] or (itemTranscend > 0)
+				
+				local itemAwaken = TryGetProp(itemobj, 'IsAwaken',0);
+				itemCheckProp['Awaken'] = itemCheckProp['Awaken'] or (itemAwaken > 0)
+				
+				local itemRareOption = TryGetProp(itemobj, 'RandomOptionRare','None');
+				local itemRareOptionValue = TryGetProp(itemobj, 'RandomOptionRareValue');
+				if itemRareOption ~= 'None' and itemRareOptionValue > 0 then
+					itemCheckProp['EnchantOption'] = true
+				end
+				
+				for j = 0, 4 do
+					if invitem:GetEquipGemID(j) > 0 then
+						itemCheckProp['Socket_Equip'] = true
+						break;
+					end
+								
+					if invitem:IsAvailableSocket(j) == true then
+						itemCheckProp['Socket_Add'] = true
+						break;
+					end
+				end
+			end
 		end
-		
-		local itemTranscend = TryGetProp(itemobj, 'Transcend');
-		if itemTranscend ~= nil and itemTranscend > 0 then
-			itemCheckProp['Transcend'] = itemCheckProp['Transcend'] + 1;
-		end
-		
-		local itemAwaken = TryGetProp(itemobj, 'IsAwaken');
-		if itemAwaken ~= nil and itemAwaken > 0 then
-			itemCheckProp['Awaken'] = itemCheckProp['Awaken'] + 1;
-		end
-		
-		local itemRareOption = TryGetProp(itemobj, 'RandomOptionRare');
-		local itemRareOptionValue = TryGetProp(itemobj, 'RandomOptionRareValue');
-		if itemRareOption ~= nil and itemRareOption ~= 'None' and itemRareOptionValue > 0 then
-		    itemCheckProp['EnchantOption'] = itemCheckProp['EnchantOption'] + 1
-		end
-		
-		for j = 0, 4 do
-    		if invitem:GetEquipGemID(j) > 0 then
-    			itemCheckProp['Socket_Equip'] = itemCheckProp['Socket_Equip'] + 1;
-    			break;
-    		end
-    		    		
-    		if invitem:IsAvailableSocket(j) == true then
-    			itemCheckProp['Socket_Add'] = itemCheckProp['Socket_Add'] + 1;
-    			break;
-    		end
-    	end
 	end
-
 	if totalprice == 0 then
 		ui.MsgBox(ScpArgMsg("DON_T_HAVE_ITEM_TO_DECOMPOSE"));
 		return;
@@ -350,12 +375,10 @@ function ITEM_DECOMPOSE_EXECUTE(frame)
 	local txtPrice = GET_COMMAED_STRING(totalprice)
 	local msg = ScpArgMsg('ItemDecomposePrice',"Price", txtPrice)
 	
-	local checkPropList = { 'Reinforce', 'Transcend', 'Awaken', 'Socket_Equip', 'Socket_Add', 'EnchantOption' };
 	local warningPropList = { };
-	for j = 1, #checkPropList do
-		local checkProp = checkPropList[j];
-		if itemCheckProp[checkProp] > 0 then
-			warningPropList[#warningPropList + 1] = ScpArgMsg('ItemDecomposeWarningProp_' .. checkProp);
+	for key,val in pairs(itemCheckProp) do
+		if val == true then
+			warningPropList[#warningPropList + 1] = ScpArgMsg('ItemDecomposeWarningProp_' .. key);
 		end
 	end
 	
@@ -379,25 +402,16 @@ function ITEM_DECOMPOSE_EXECUTE_COMMIT()
 	item.DialogTransaction("ITEM_DECOMPOSE_TX", resultlist);
 end
 
+--complete
 function ITEM_DECOMPOSE_COMPLETE(...)
     local frame = ui.GetFrame("itemdecompose");
     if frame:IsVisible() == 1 then
-        _ITEM_DECOMPOSE_ITEM_LIST(frame)
-        
-        local arrowBox = GET_CHILD_RECURSIVELY(frame, "arrowBox", "ui::CGroupBox");
-        arrowBox:ShowWindow(1);
-        local decomposeSuccess = GET_CHILD_RECURSIVELY(frame, "decomposeSuccess", "ui::CPicture");
-        decomposeSuccess:ShowWindow(1);
-        local slotlist = GET_CHILD_RECURSIVELY(frame, "slotlist", "ui::CSlotSet");
-		slotlist:ShowWindow(1);
-		local slotlist2 = GET_CHILD_RECURSIVELY(frame, "slotlist2", "ui::CSlotSet");
-		slotlist2:ShowWindow(1);
-		local slotgb = GET_CHILD_RECURSIVELY(frame, "slotgb", "ui::CGroupBox");
-		slotgb:ShowWindow(1);
+        LOAD_ITEM_DECOMPOSE_ITEM_LIST(frame)
+		TOGGLE_DECOMPOSE_RESULT(frame,1)
     end
     
     local itemList = {...};
-    if itemList ~= nil and #itemList > 0 then        
+    if itemList ~= nil and #itemList > 0 then
     	local miscSlotSet = GET_CHILD_RECURSIVELY(frame, "slotlist", "ui::CSlotSet")
     	local miscSlotSet2 = GET_CHILD_RECURSIVELY(frame, "slotlist2", "ui::CSlotSet")
         
@@ -452,7 +466,6 @@ end
 function ITEMDECOMPOSE_STRING_CUT(string)
 	local temp_table = { };	
 	local strlist = StringSplit(string, "/");
-
 	for k, v in pairs(strlist) do
 		if tonumber(v) ~= nil then
 			temp_table[k] = tonumber(v);
@@ -462,4 +475,8 @@ function ITEMDECOMPOSE_STRING_CUT(string)
 	end
 
 	return temp_table
+end
+
+function ITEM_DECOMPOSE_RESULT_UI_OFF(ctrl,parent)
+	TOGGLE_DECOMPOSE_RESULT(ctrl:GetTopParentFrame(),0)
 end

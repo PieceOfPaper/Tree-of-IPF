@@ -392,9 +392,6 @@
 		</MainSkl>
 	</Skill>
 	<Skill Name="Sapper_Claymore" ToggleEft="1">
-		<EnableScripts>
-			<ToolScp Client="YES" Scp="SKL_CHK_CLAYMORE" UseSleep="NO" />
-		</EnableScripts>
 		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
 			<HitList>
 				<Frame Angle="0" AniTime="10299" Dist="0" ForceATK="0" HitCount="1" Length="30" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="10099" Type="FAN" Width="30" />
@@ -463,8 +460,8 @@
 							<Num Num="1" />
 							<Num Num="1" />
 						</Scp>
-						<Scp Client="NO" Scp="TGT_SKL_KILL" Time="650" UseSleep="NO" />
-						<Scp Client="NO" Scp="SKL_SET_TARGET_SQUARE" Time="650" UseSleep="NO">
+						<Scp Client="NO" Scp="TGT_SKL_KILL" Time="450" UseSleep="NO"/>
+						<Scp Client="NO" Scp="SKL_SET_TARGET_SQUARE" Time="450" UseSleep="NO">
 							<Pos Angle="0" Dist="0" PosType="9" />
 							<Num FuncTxt="return GET_SCP_TARGET_ANGLE(self);" Num="0" UseFunc="1" />
 							<Num Num="85" />
@@ -473,10 +470,10 @@
 							<Num Num="2" />
 							<Num Num="0" />
 						</Scp>
-						<Scp Client="NO" Scp="SKL_RUN_SCRIPT" Time="650" UseSleep="NO">
+						<Scp Client="NO" Scp="SKL_RUN_SCRIPT" Time="450" UseSleep="NO">
 							<Str Str="SCR_SKL_TGT_DMG_Claymore" />
 						</Scp>
-						<Scp Client="NO" Scp="SKL_TGT_KNOCKDOWN" Time="650" UseSleep="NO">
+						<Scp Client="NO" Scp="SKL_TGT_KNOCKDOWN" Time="450" UseSleep="NO">
 							<Num Num="4" />
 							<Num Num="0" />
 							<Num Num="150" />

@@ -20,12 +20,12 @@ function MINIMIZED_EVENT_NEW_SEASON_SERVER_COIN_CHECK_BUTTON_CLICK()
 end
 
 function GODDESS_ROULETTE_COIN_BUTTON_OPEN_CHECK(frame)
-	local accObj = GetMyAccountObj();
+	-- local accObj = GetMyAccountObj();
 	
-	local ctrl = GET_CHILD(frame, "openBtn");
-	ctrl:SetEventScript(ui.LBUTTONUP, "GODDESS_ROULETTE_COIN_BUTTON_OPEN_CHECK_CLICK");
+	-- local ctrl = GET_CHILD(frame, "openBtn");
+	-- ctrl:SetEventScript(ui.LBUTTONUP, "GODDESS_ROULETTE_COIN_BUTTON_OPEN_CHECK_CLICK");
 
-	frame:ShowWindow(1);
+	-- frame:ShowWindow(1);
 end
 
 function GODDESS_ROULETTE_COIN_BUTTON_OPEN_CHECK_CLICK()

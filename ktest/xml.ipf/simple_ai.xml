@@ -4130,6 +4130,13 @@
             </ToolScp>
         </List>
     </AI>
+    <AI Name="C_REQUEST_1_NPC_01_AI" UpdateMS="3000" ActiveMessageMapInBattle="1">
+        <List>
+            <ToolScp Scp="S_AI_PLAYANI" Client="NO" UseSleep="NO">
+                <Str Str="idle"/>
+            </ToolScp>
+        </List>
+    </AI>
     <AI Name="Cappella" ActiveMessageMapInBattle="1"/>
     <AI Name="Chaplain_Cappella" ActiveMessageMapInBattle="1">
         <DeadList>
@@ -10576,7 +10583,7 @@
             </ToolScp>
         </StartList>
     </AI>
-    <AI Name="GLACIER_MAGICTRAP_CORE" UpdateMS="100" ActiveMessageMapInBattle="0">
+    <AI Name="GLACIER_MAGICTRAP_CORE" UpdateMS="100" ActiveMessageMapInBattle="1">
         <List>
             <ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
                 <Str Str="SCR_UNIQUE_GLACIER_WITCHCRAFT_FIELD_OBJECT_AI"/>
@@ -15595,6 +15602,13 @@ if self.HP == 0 then return 1; else return 0; end;">
                 <Num Num="0"/>
                 <Str_Arg Str="I_smoke061_dark_violet_levitation_loop" Arg="1"/>
                 <Str Str="BOT"/>
+            </ToolScp>
+        </StartList>
+    </AI>
+    <AI Name="PERSONAL_HOUSING_CREATE_SET_AI_2" ActiveMessageMapInBattle="1">
+        <StartList>
+            <ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+                <Str Str="SCR_PERSONAL_HOUSING_CREATE_FIGURE"/>
             </ToolScp>
         </StartList>
     </AI>

@@ -650,19 +650,31 @@ return func(skill.Level)" Str="0" UseFunc="1"/>
 					<Str_Arg Str="None" Arg="1"/>
 					<Num Num="135"/>
 					<Num Num="20"/>
-					<Num Num="0" UseFunc="1" FuncTxt="return 50 + obj.Level * 8"/>
+					<Num Num="0" UseFunc="1" FuncTxt="return 30 + obj.Level * 10"/>
 					</Scp>
 					<Scp Scp="SKL_LOOK_TGT" Client="NO" UseSleep="NO" Time="325"/>
 				<Scp Scp="SKL_TGT_BUFF" Client="NO" UseSleep="NO" Time="330">
 					<Str Str="Feint_HoldRotate_Debuff"/>
 					<Num Num="1" />
 					<Num Num="0" />
-					<Num Num="3000"/>
+					<Num Num="5000" UseFunc="1" FuncTxt="
+return 2500 + obj.Level * 200;"/>
 					<Num Num="1"/>
 					<Num Num="100"/>
 				<Num Num="0"/>
 					<Num Num="1"/>
-					</Scp>
+					</Scp> 
+				<Scp Scp="SKL_TGT_BUFF" Client="NO" UseSleep="NO" Time="330">
+					<Str Str="Feints_Debuff"/>
+					<Num Num="1"/>
+					<Num Num="0"/>
+					<Num Num="5000" UseFunc="1" FuncTxt="
+return 2500 + obj.Level * 200;"/>
+					<Num Num="1"/>
+					<Num Num="100"/>
+					<Num Num="0"/>
+					<Num Num="0"/>
+				</Scp>
 					<Scp Scp="MONSKL_C_PLAY_ANIM" Client="YES" UseSleep="NO" Time="340">
 					<Str Str="SKL_BEHEAD1"/>
 					<Num Num="2"/>

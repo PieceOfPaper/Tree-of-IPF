@@ -1077,26 +1077,14 @@ end
 
 
 function SCR_ABIL_PELTASTA5_ACTIVE(self, ability)
-    
     local lItem  = GetEquipItem(self, 'LH');
-    local addValue = 0;
-    
-    if lItem.ClassType == "Shield" then
-        addValue = ability.Level;
+    if TryGetProp(lItem, "ClassType") == "Shield" then
+        AddBuff(self, self, "Peltasta5_Shield_Buff", TryGetProp(ability, "Level", 0));
     end
-    
-    self.MaxHateCount_BM = self.MaxHateCount_BM + addValue;
-    SetExProp(ability, "ADD_MaxHateCount", addValue);
-    
-    Invalidate(self, "MaxHateCount");
 end
 
 function SCR_ABIL_PELTASTA5_INACTIVE(self, ability)
-    
-    local addValue = GetExProp(ability, "ADD_MaxHateCount");
-    self.MaxHateCount_BM = self.MaxHateCount_BM - addValue;
-	
-    Invalidate(self, "MaxHateCount");
+    RemoveBuff(self, "Peltasta5_Shield_Buff");
 end
 
 function SCR_ABIL_DOPPELSOELDNER24_ACTIVE(self, ability)
@@ -1982,4 +1970,26 @@ function SCR_ABIL_Paladin42_INACTIVE(self, ability)
         InvalidateSkill(self, skill.ClassName);
         SendSkillProperty(self, skill);
     end
+end
+
+function SCR_ABIL_Schwarzereiter26_ACTIVE(self, ability)
+    if IsBuffApplied(self, 'Schwarzereiter26_Buff') ~= 'YES' then
+        AddBuff(self, self, 'Schwarzereiter26_Buff', 1, 0, 0, 1)
+    end
+end
+
+function SCR_ABIL_Schwarzereiter26_INACTIVE(self, ability)
+    RemoveBuff(self, 'Schwarzereiter26_Buff')
+    RemoveBuff(self, 'Specialmove_Buff')
+end
+
+function SCR_ABIL_Sheriff14_ACTIVE(self, ability)
+    if IsBuffApplied(self, 'Sheriff14_Buff') ~= 'YES' then
+        AddBuff(self, self, 'Sheriff14_Buff', 99, 0, 0, 1)
+    end
+end
+
+function SCR_ABIL_Sheriff14_INACTIVE(self, ability)
+    RemoveBuff(self, 'Sheriff14_Buff')
+    RemoveBuff(self, 'Reload_Buff')
 end
