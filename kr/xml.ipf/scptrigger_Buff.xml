@@ -87,13 +87,4 @@
             </Trigger>
         </TriggerList>
     </SpcItem>
-    <SpcItem Name="ITEM_RES_TS_ATK_BUFF">
-        <TriggerList Act="Buffed">
-            <Trigger>
-                <ExecList>
-                    <ToolScp Scp="SPCI_RES_TS_ATK_UPDATE" Client="NO" UseSleep="NO"/>
-                </ExecList>
-            </Trigger>
-        </TriggerList>
-    </SpcItem>
 </SpcItemList>
