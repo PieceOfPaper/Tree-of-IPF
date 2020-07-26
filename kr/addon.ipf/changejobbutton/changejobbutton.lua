@@ -8,9 +8,8 @@ function CHANGEJOBBUTTON_ON_INIT(addon, frame)
 
 end
 
-function ON_CHANGE_JOB_BUTTON(frame, msg, name, range)
-
-	--·©Å©Á¦ÇÑÀÌ °É·ÁÀÖÀ¸¸é ÇØ´ç ·©Å©ÀÏ ‹š, ÀüÁø ¹öÆ° ¾È³ª¿È
+function ON_CHANGE_JOB_BUTTON(frame, msg, name, range)	
+	--ëž­í¬ì œí•œì´ ê±¸ë ¤ìžˆìœ¼ë©´ í•´ë‹¹ ëž­í¬ì¼ ë–„, ì „ì§„ ë²„íŠ¼ ì•ˆë‚˜ì˜´
 	if session.GetPcTotalJobGrade() >=  JOB_CHANGE_MAX_RANK then
 		frame:ShowWindow(0);
 		return;
@@ -33,8 +32,7 @@ function ON_CHANGE_JOB_BUTTON(frame, msg, name, range)
 
 end
 
-function CJ_CLICK_CHANGEJOBBUI(frame, slot, argStr, argNum)
-
+function CJ_CLICK_CHANGEJOBBUI(frame, slot, argStr, argNum)		
+	ui.CloseFrame('inventory')
 	ui.OpenFrame('changejob')
-
 end

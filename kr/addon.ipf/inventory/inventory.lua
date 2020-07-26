@@ -384,6 +384,8 @@ end
 
 
 function INVENTORY_OPEN(frame)
+	ui.CloseFrame('changejob')
+
 	frame:SetUserValue("MONCARDLIST_OPENED", 0);
 
 	ui.Chat("/requpdateequip"); -- 내구도 회복 유료템 때문에 정확한 값을 지금 알아야 함.
