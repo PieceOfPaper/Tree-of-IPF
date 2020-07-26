@@ -58,12 +58,12 @@ function COMPOSITION_VIBORA_UI_RESET()
 	end
 end
 
-function COMPOSITION_VIBORA_SAME_ITEM_CHECK(classname)
+function COMPOSITION_VIBORA_SAME_ITEM_CHECK(guid)
 	local frame = ui.GetFrame("composition_vibora");
     local need_count = GET_COMPOSITION_VIROBA_SOURCE_COUNT()
 	for i = 1, need_count do 
 		local slot = GET_CHILD(frame, "slot_"..i);
-		if slot:GetIcon() ~= nil and classname == slot:GetUserValue("CLASS_NAME") then
+		if slot:GetIcon() ~= nil and guid == slot:GetUserValue("GUID") then
 			return false;
 		end
 	end
@@ -96,7 +96,7 @@ function COMPOSITION_VIBORA_ITEM_REG(guid, ctrl, slotIndex)
         return;
 	end
 	
-	if COMPOSITION_VIBORA_SAME_ITEM_CHECK(ret_classname) == false then
+	if COMPOSITION_VIBORA_SAME_ITEM_CHECK(guid) == false then
 		return;
 	end
 

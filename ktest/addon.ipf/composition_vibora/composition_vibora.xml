@@ -29,6 +29,6 @@
 		<picture name="successTextPic" parent="successBgBox" rect="0 0 330 133" hittest="false" image="card_reinforce_SUCCESS" margin="0 240 0 0" stretch="true" layout_gravity="center top"/>
 		<button name="do_composition" rect="0 0 180 50" margin="0 0 0 70" layout_gravity="center bottom" skin="test_red_button" format="{@st41b}{s18}%s" oversound="button_cursor_over_3" param1="value" param1_def="합성" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" clicksound="button_click_big" LBtnUpScp="COMPOSITION_VIBORA_BTN_CLICK"/>
 		<button name="resetBtn" rect="0 0 180 50" margin="0 0 0 70" layout_gravity="center bottom" skin="test_red_button" caption="{@st42}확인" LBtnUpScp="COMPOSITION_VIBORA_UI_RESET"/>
-		<richtext name="tip_text" rect="0 0 430 150" margin="0 0 0 100" layout_gravity="center bottom" hittest="false" resizebytext="false" fixwidth="true" caption="{@st66b}{s16}- 3개의 바이보라 무기를 합성하여 무작위 바이보라 무기를 획득합니다. {nl} - 장착 레벨이 430인 바이보라만 합성이 가능 합니다. {nl} - 연성된 바이보라 장비는 합성이 불가능 합니다."/>
+		<richtext name="tip_text" rect="0 0 430 150" margin="0 0 0 100" layout_gravity="center bottom" hittest="false" resizebytext="false" fixwidth="true" caption="{@st66b}{s16}- 3개의 바이보라 무기를 합성하여 무작위 바이보라 무기를 획득합니다. {nl} - 연성된 바이보라 장비는 합성이 불가능 합니다."/>
 	</controls>
 </uiframe>
