@@ -890,3 +890,46 @@ function SCR_AQ_TEAMCLEAR_RE(pc, tx)
         return
     end
 end
+
+function SCR_CQ_01_ITEM_RE(pc, tx)
+    local aObj
+    
+    if IsServerSection(pc) == 1 then
+        aObj = GetAccountObj(pc);
+    else
+        aObj = GetMyAccountObj();
+    end
+    
+    if aObj == nil then
+        return
+    end
+    
+    local itemcnt = GetInvItemCount(pc, 'F_TABLELAND_28_2_RAID_02_ITEM')
+    if itemcnt ~= 0 then
+        TxTakeItem(tx, 'F_TABLELAND_28_2_RAID_02_ITEM', itemcnt,  'F_TABLELAND_28_2_RAID_02')
+    else
+        return
+    end
+end
+
+function SCR_CQ_06_ITEM_RE(pc, tx)
+    local aObj
+    
+    if IsServerSection(pc) == 1 then
+        aObj = GetAccountObj(pc);
+    else
+        aObj = GetMyAccountObj();
+    end
+    
+    
+    if aObj == nil then
+        return
+    end
+    
+    local itemcnt = GetInvItemCount(pc, 'SNOW_RAID_BOOK_01')
+    if itemcnt ~= 0 then
+        TxTakeItem(tx, 'SNOW_RAID_BOOK_01', itemcnt,  'F_TABLELAND_28_2_RAID_07')
+    else
+        return
+    end
+end

@@ -1235,7 +1235,7 @@
                     <Num Num="1"/>
                 </Scp>
                 <Scp Scp="C_EFFECT" Client="YES" UseSleep="NO" Time="1500">
-                    <Str_Arg Str="I_breath002_fire_blue3" Arg="3.3"/>
+                    <Str_Arg Str="I_breath002_fire_red" Arg="3.3"/>
                     <Str Str="Dummy_effect_skl6_breath"/>
                     <Num Num="0"/>
                 </Scp>
@@ -1258,7 +1258,7 @@
                     <Num Num="1"/>
                 </Scp>
                 <Scp Scp="C_EFFECT_DETACH" Client="YES" UseSleep="NO" Time="2400">
-                    <Str_Arg Str="I_breath002_fire_blue3" Arg="1"/>
+                    <Str_Arg Str="I_breath002_fire_red" Arg="1"/>
                     <Num Num="0.5"/>
                 </Scp>
             </EtcList>
@@ -1564,7 +1564,7 @@
                     <Num Num="150"/>
                     <Num Num="150"/>
                     <Num Num="3"/>
-                    <Str_Arg Str="I_force018_trail_rize_blue" Arg="1"/>
+                    <Str_Arg Str="I_ground012_ice5_loop2" Arg="2"/>
                     <Num Num="1"/>
                     <Num Num="0"/>
                     <Num Num="1"/>
@@ -1586,7 +1586,7 @@
                     <Num Num="150"/>
                     <Num Num="150"/>
                     <Num Num="3"/>
-                    <Str_Arg Str="I_force018_trail_rize_blue" Arg="1"/>
+                    <Str_Arg Str="I_ground012_ice5_loop2" Arg="2"/>
                     <Num Num="1"/>
                     <Num Num="0"/>
                     <Num Num="1"/>
@@ -1608,7 +1608,7 @@
                     <Num Num="150"/>
                     <Num Num="150"/>
                     <Num Num="3"/>
-                    <Str_Arg Str="I_force018_trail_rize_blue" Arg="1"/>
+                    <Str_Arg Str="I_ground012_ice5_loop2" Arg="2"/>
                     <Num Num="1"/>
                     <Num Num="0"/>
                     <Num Num="1"/>
@@ -1630,7 +1630,7 @@
                     <Num Num="150"/>
                     <Num Num="150"/>
                     <Num Num="3"/>
-                    <Str_Arg Str="I_force018_trail_rize_blue" Arg="1"/>
+                    <Str_Arg Str="I_ground012_ice5_loop2" Arg="2"/>
                     <Num Num="1"/>
                     <Num Num="0"/>
                     <Num Num="1"/>
@@ -1799,7 +1799,7 @@
                     <Num Num="150"/>
                     <Num Num="60"/>
                     <Num Num="1.1"/>
-                    <Str_Arg Str="I_light006_blue##1" Arg="5"/>
+                    <Str_Arg Str="I_shield005_ice_mesh##1" Arg="1"/>
                     <Num Num="1"/>
                     <Num Num="0"/>
                     <Num Num="1"/>
@@ -1821,7 +1821,7 @@
                     <Num Num="150"/>
                     <Num Num="60"/>
                     <Num Num="1.1"/>
-                    <Str_Arg Str="I_light006_blue##1" Arg="5"/>
+                    <Str_Arg Str="I_shield005_ice_mesh##1" Arg="1"/>
                     <Num Num="0"/>
                     <Num Num="0"/>
                     <Num Num="1"/>
@@ -1843,7 +1843,7 @@
                     <Num Num="150"/>
                     <Num Num="60"/>
                     <Num Num="1.1"/>
-                    <Str_Arg Str="I_light006_blue##1" Arg="5"/>
+                    <Str_Arg Str="I_shield005_ice_mesh##1" Arg="1"/>
                     <Num Num="0"/>
                     <Num Num="0"/>
                     <Num Num="1"/>
@@ -1865,7 +1865,7 @@
                     <Num Num="150"/>
                     <Num Num="60"/>
                     <Num Num="1.1"/>
-                    <Str_Arg Str="I_light006_blue##1" Arg="5"/>
+                    <Str_Arg Str="I_shield005_ice_mesh##1" Arg="1"/>
                     <Num Num="0"/>
                     <Num Num="0"/>
                     <Num Num="1"/>
@@ -1874,11 +1874,11 @@
                     <Num Num="1"/>
                     <Num Num="0"/>
                 </Scp>
-                <Scp Scp="EFT_AND_HIT" Client="NO" UseSleep="YES" TooltipScp="TOOLTIP_EFT_AND_HIT" Time="1600">
+                <Scp Scp="EFT_AND_HIT" Client="NO" UseSleep="YES" TooltipScp="TOOLTIP_EFT_AND_HIT" Time="1100">
                     <Pos Angle="0" Dist="200"/>
                     <Str_Arg Str="None" Arg="1"/>
                     <Num Num="1000"/>
-                    <Str_Arg Str="F_explosion020_water_blue" Arg="1"/>
+                    <Str_Arg Str="F_spark017_ice2" Arg="1"/>
                     <Num Num="50"/>
                     <Num Num="100"/>
                     <Num Num="0"/>
@@ -1890,11 +1890,11 @@
                     <Num Num="0"/>
                     <Num Num="0"/>
                 </Scp>
-                <Scp Scp="EFT_AND_HIT" Client="NO" UseSleep="YES" TooltipScp="TOOLTIP_EFT_AND_HIT" Time="1600">
+                <Scp Scp="EFT_AND_HIT" Client="NO" UseSleep="YES" TooltipScp="TOOLTIP_EFT_AND_HIT" Time="1100">
                     <Pos Angle="1.5707964" Dist="200"/>
                     <Str_Arg Str="None" Arg="1"/>
                     <Num Num="1000"/>
-                    <Str_Arg Str="F_explosion020_water_blue" Arg="1"/>
+                    <Str_Arg Str="F_spark017_ice2" Arg="1"/>
                     <Num Num="50"/>
                     <Num Num="100"/>
                     <Num Num="0"/>
@@ -1906,11 +1906,11 @@
                     <Num Num="0"/>
                     <Num Num="0"/>
                 </Scp>
-                <Scp Scp="EFT_AND_HIT" Client="NO" UseSleep="YES" TooltipScp="TOOLTIP_EFT_AND_HIT" Time="1600">
+                <Scp Scp="EFT_AND_HIT" Client="NO" UseSleep="YES" TooltipScp="TOOLTIP_EFT_AND_HIT" Time="1100">
                     <Pos Angle="-1.5707964" Dist="200"/>
                     <Str_Arg Str="None" Arg="1"/>
                     <Num Num="1000"/>
-                    <Str_Arg Str="F_explosion020_water_blue" Arg="1"/>
+                    <Str_Arg Str="F_spark017_ice2" Arg="1"/>
                     <Num Num="50"/>
                     <Num Num="100"/>
                     <Num Num="0"/>
@@ -1922,11 +1922,11 @@
                     <Num Num="0"/>
                     <Num Num="0"/>
                 </Scp>
-                <Scp Scp="EFT_AND_HIT" Client="NO" UseSleep="YES" TooltipScp="TOOLTIP_EFT_AND_HIT" Time="1600">
+                <Scp Scp="EFT_AND_HIT" Client="NO" UseSleep="YES" TooltipScp="TOOLTIP_EFT_AND_HIT" Time="1100">
                     <Pos Angle="-3.1415927" Dist="200"/>
                     <Str_Arg Str="None" Arg="1"/>
                     <Num Num="1000"/>
-                    <Str_Arg Str="F_explosion020_water_blue" Arg="1"/>
+                    <Str_Arg Str="F_spark017_ice2" Arg="1"/>
                     <Num Num="50"/>
                     <Num Num="100"/>
                     <Num Num="0"/>

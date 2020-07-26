@@ -413,13 +413,13 @@ function SUCCESS_ITEM_OPTION_RELEASE(frame)
 	end;
 	
 	pic_bg:ShowWindow(1);
-	pic_bg:PlayUIEffect(RELEASE_RESULT_EFFECT_NAME, EFFECT_SCALE, 'RELEASE_RESULT_EFFECT');
+	--pic_bg:PlayUIEffect(RELEASE_RESULT_EFFECT_NAME, EFFECT_SCALE, 'RELEASE_RESULT_EFFECT');
 
 	local do_release = GET_CHILD_RECURSIVELY(frame, "do_release");
 	do_release:ShowWindow(0);
 	ui.SetHoldUI(true);
 
-	ReserveScript("_SUCCESS_ITEM_OPTION_RELEASE()", EFFECT_DURATION);
+	ReserveScript("_SUCCESS_ITEM_OPTION_RELEASE()", 0.01);
 end;
 
 function _SUCCESS_ITEM_OPTION_RELEASE()
@@ -435,7 +435,7 @@ function _SUCCESS_ITEM_OPTION_RELEASE()
 	if pic_bg == nil then
 		return;
 	end;
-	pic_bg:StopUIEffect('RELEASE_RESULT_EFFECT', true, 0.5);
+	--pic_bg:StopUIEffect('RELEASE_RESULT_EFFECT', true, 0.5);
 	pic_bg:ShowWindow(0);
 
 	local slot = GET_CHILD_RECURSIVELY(frame, "slot_result");
@@ -484,9 +484,9 @@ function RELEASE_SUCCESS_EFFECT(frame)
 	end;
 	pic_bg:ShowWindow(0);
 
-	result_effect_bg:PlayUIEffect(RELEASE_SUCCESS_EFFECT_NAME, SUCCESS_EFFECT_SCALE, 'RELEASE_SUCCESS_EFFECT');
+	--result_effect_bg:PlayUIEffect(RELEASE_SUCCESS_EFFECT_NAME, SUCCESS_EFFECT_SCALE, 'RELEASE_SUCCESS_EFFECT');
 
-	ReserveScript("_RELEASE_SUCCESS_EFFECT()", SUCCESS_EFFECT_DURATION);
+	ReserveScript("_RELEASE_SUCCESS_EFFECT()", 0.01);
 end
 
 function _RELEASE_SUCCESS_EFFECT()
@@ -499,7 +499,7 @@ function _RELEASE_SUCCESS_EFFECT()
 	if result_effect_bg == nil then
 		return;
 	end
-	result_effect_bg:StopUIEffect('RELEASE_SUCCESS_EFFECT', true, 0.5);
+	--result_effect_bg:StopUIEffect('RELEASE_SUCCESS_EFFECT', true, 0.5);
 	ui.SetHoldUI(false);
 end
 

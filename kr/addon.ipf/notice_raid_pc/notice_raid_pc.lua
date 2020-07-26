@@ -27,7 +27,7 @@ end
 function NOTICE_RAID_GLACIER_COLD_BLAST_TARGET(uiName, msg, iconName, handle)
     local frame = ui.GetFrame(uiName);
     if frame == nil then 
-        ui.CreateNewFrame("notice_raid_pc", tostring(uiName));
+        frame = ui.CreateNewFrame("notice_raid_pc", tostring(uiName));
     end
 
     local picture = GET_CHILD_RECURSIVELY(frame, "icon");
@@ -75,9 +75,9 @@ end
 function NOTICE_RAID_GLACIER_ENCHANTMENT_TARGET(uiName, msg, handle, curTime)
     local frame = ui.GetFrame(uiName);
     if frame == nil then 
-        ui.CreateNewFrame("notice_raid_pc", tostring(uiName));
+        frame = ui.CreateNewFrame("notice_raid_pc", tostring(uiName));
     end
-
+    
     local gauge = GET_CHILD_RECURSIVELY(frame, "icon_gauge");
     if gauge ~= nil then
         handle = tonumber(handle);
