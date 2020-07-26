@@ -4852,7 +4852,7 @@ function SCR_GET_Drain_Ratio2(skill)
 end
 
 function SCR_GET_Hagalaz_Ratio(skill)
-    local value = skill.Level * 5
+    local value = skill.Level * 1.5
     
     return value;
 end

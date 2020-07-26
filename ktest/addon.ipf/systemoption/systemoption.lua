@@ -211,15 +211,16 @@ function INIT_LANGUAGE_CONFIG(frame)
 	local selIndex = 0;
 	local cnt = option.GetNumCountry();
 	for i = 0 , cnt - 1 do
-		local lanUIString =  string.format("{@st42b}%s", option.GetPossibleCountryUIName(i));
+		local lanUIString =  option.GetPossibleCountryUIName(i);
+		local lanUIString2 =  string.format("{@st42b}%s", option.GetPossibleCountryUIName(i));
 		local NationGroup = GetServerNation();
 		if (lanUIString ~= "kr") then 
 			if NationGroup == "GLOBAL" then
 				if (lanUIString ~= "Japanese")then
-					catelist:AddItem(lanUIString, lanUIString);
+					catelist:AddItem(lanUIString, lanUIString2);
 				end
 			else
-				catelist:AddItem(lanUIString, lanUIString);
+				catelist:AddItem(lanUIString, lanUIString2);
 			end
 		end
 	end
