@@ -5,6 +5,7 @@ end
 local MAX_SELECT = 60
 
 function ITEMDECOMPOSE_UI_CLOSE(frame, ctrl)
+	frame = frame:GetTopParentFrame()
 	ui.EnableSlotMultiSelect(0);
 	frame:ShowWindow(0)
 end

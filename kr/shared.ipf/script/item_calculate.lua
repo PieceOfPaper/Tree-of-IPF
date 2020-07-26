@@ -375,7 +375,7 @@ function GET_BASIC_ATK(item)
         itemATK = itemATK * weaponClass[classType];
     end
 
-    local Upper440BonusRatio = GetClassByNameFromList(itemGradeClass,'440LevelUpperClassTypeRatioIncrease')
+    local Upper440BonusRatio = GetClassByNameFromList(itemGradeClass,'Upper440LevelClassTypeRatioIncrease')
     if Upper440BonusRatio ~= nil and lv >= 440 then
         itemATK = itemATK * Upper440BonusRatio[classType]
     end
@@ -461,7 +461,7 @@ function GET_BASIC_MATK(item)
         itemATK = itemATK * weaponClass[classType];
     end
     
-    local Upper440BonusRatio = GetClassByNameFromList(itemGradeClass,'440LevelUpperClassTypeRatioIncrease')
+    local Upper440BonusRatio = GetClassByNameFromList(itemGradeClass,'Upper440LevelClassTypeRatioIncrease')
     if Upper440BonusRatio ~= nil and lv >= 440 then
         itemATK = itemATK * Upper440BonusRatio[classType]
     end
@@ -642,7 +642,7 @@ function SCR_REFRESH_ARMOR(item, enchantUpdate, ignoreReinfAndTranscend, reinfBo
 
         basicDef = ((40 + lv * 8) * armorClassTypeRatio[classType]) * gradeRatio;
         
-        local Upper440BonusRatio = GetClassByNameFromList(itemGradeClass,'440LevelUpperClassTypeRatioIncrease')
+        local Upper440BonusRatio = GetClassByNameFromList(itemGradeClass,'Upper440LevelClassTypeRatioIncrease')
         if Upper440BonusRatio ~= nil and lv >= 440 then
             basicDef = basicDef * Upper440BonusRatio[classType]
         end

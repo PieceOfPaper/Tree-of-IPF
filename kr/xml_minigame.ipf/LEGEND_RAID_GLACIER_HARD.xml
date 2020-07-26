@@ -44,14 +44,13 @@
                     </Event>
                     <Event execCount="1" eventName="CustomLog">
                         <execList>
-                            <ToolScp Scp="MGAME_EVT_SCRIPT_ARG" Client="NO" UseSleep="NO">
-                                <Str Str="SCR_LEGEND_GLACIER_CUSTOM_LOG"/>
-                                <Str Str="Legend_Raid_Glacier_Start"/>
-                                <Num Num="0"/>
-                            </ToolScp>
                             <ToolScp Scp="GAME_ST_EVT_EXEC_SOUL_CRISTAL_LIMIT" Client="NO" UseSleep="NO">
                                 <Num Num="1"/>
                                 <Num Num="5"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_STAGE_CHECK_LOG_STAGEPROGRESS" Client="NO" UseSleep="NO">
+                                <Str Str="LEGEND_RAID_GLACIER_HARD"/>
+                                <Str Str="StageStart"/>
                             </ToolScp>
                         </execList>
                     </Event>
@@ -88,11 +87,6 @@
                             </ToolScp>
                             <ToolScp Scp="GAME_ST_EVT_EXEC_VALUE" Client="NO" UseSleep="NO">
                                 <Str Str="Glacier_Start"/>
-                                <Num Num="0"/>
-                            </ToolScp>
-                            <ToolScp Scp="MGAME_EVT_SCRIPT_ARG" Client="NO" UseSleep="NO">
-                                <Str Str="SCR_LEGEND_GLACIER_CUSTOM_LOG"/>
-                                <Str Str="Legend_Raid_Glacier_Success"/>
                                 <Num Num="0"/>
                             </ToolScp>
                             <ToolScp Scp="MGAME_END" Client="NO" UseSleep="NO">
@@ -298,7 +292,7 @@
                                 <Num Num="5"/>
                             </ToolScp>
                             <ToolScp Scp="MGAME_FAIL_CHECK_LOG" Client="NO" UseSleep="NO">
-                                <Str Str="LEGEND_RAID_GLACIER_NORMAL"/>
+                                <Str Str="LEGEND_RAID_GLACIER_HARD"/>
                                 <Str Str="TimeOut"/>
                             </ToolScp>
                         </execList>
@@ -319,7 +313,7 @@
                                 <Num Num="5"/>
                             </ToolScp>
                             <ToolScp Scp="MGAME_FAIL_CHECK_LOG" Client="NO" UseSleep="NO">
-                                <Str Str="LEGEND_RAID_GLACIER_NORMAL"/>
+                                <Str Str="LEGEND_RAID_GLACIER_HARD"/>
                                 <Str Str="AllPCDead"/>
                             </ToolScp>
                         </execList>
@@ -376,6 +370,18 @@
                                 <Str Str="Stage1_Clear"/>
                                 <Num Num="1"/>
                             </ToolScp>
+                            <ToolScp Scp="MGAME_STAGE_CHECK_LOG_STAGEPROGRESS" Client="NO" UseSleep="NO">
+                                <Str Str="LEGEND_RAID_GLACIER_HARD"/>
+                                <Str Str="StageClear"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="MongoLog">
+                        <execList>
+                            <ToolScp Scp="MGAME_STAGE_CHECK_LOG_STAGEPROGRESS" Client="NO" UseSleep="NO">
+                                <Str Str="LEGEND_RAID_GLACIER_HARD"/>
+                                <Str Str="StageStart"/>
+                            </ToolScp>
                         </execList>
                     </Event>
                 </StageEvents>
@@ -429,14 +435,17 @@
                                 <Str Str="Stage2_Clear"/>
                                 <Num Num="1"/>
                             </ToolScp>
+                            <ToolScp Scp="MGAME_STAGE_CHECK_LOG_STAGEPROGRESS" Client="NO" UseSleep="NO">
+                                <Str Str="LEGEND_RAID_GLACIER_HARD"/>
+                                <Str Str="StageClear"/>
+                            </ToolScp>
                         </execList>
                     </Event>
-                    <Event execCount="1" eventName="CustomLog">
+                    <Event execCount="1" eventName="MongoLog">
                         <execList>
-                            <ToolScp Scp="MGAME_EVT_SCRIPT_ARG" Client="NO" UseSleep="NO">
-                                <Str Str="SCR_LEGEND_GLACIER_CUSTOM_LOG"/>
-                                <Str Str="Stage2_Start"/>
-                                <Num Num="0"/>
+                            <ToolScp Scp="MGAME_STAGE_CHECK_LOG_STAGEPROGRESS" Client="NO" UseSleep="NO">
+                                <Str Str="LEGEND_RAID_GLACIER_HARD"/>
+                                <Str Str="StageStart"/>
                             </ToolScp>
                         </execList>
                     </Event>
@@ -493,10 +502,17 @@
                             <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
                                 <Str Str="Stage1_1"/>
                             </ToolScp>
-                            <ToolScp Scp="MGAME_EVT_SCRIPT_ARG" Client="NO" UseSleep="NO">
-                                <Str Str="SCR_LEGEND_GLACIER_CUSTOM_LOG"/>
-                                <Str Str="Stage1_1_Clear"/>
-                                <Num Num="0"/>
+                            <ToolScp Scp="MGAME_STAGE_CHECK_LOG_STAGEPROGRESS" Client="NO" UseSleep="NO">
+                                <Str Str="LEGEND_RAID_GLACIER_HARD"/>
+                                <Str Str="StageClear"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="MongoLog">
+                        <execList>
+                            <ToolScp Scp="MGAME_STAGE_CHECK_LOG_STAGEPROGRESS" Client="NO" UseSleep="NO">
+                                <Str Str="LEGEND_RAID_GLACIER_HARD"/>
+                                <Str Str="StageStart"/>
                             </ToolScp>
                         </execList>
                     </Event>
@@ -560,10 +576,9 @@
                             <ToolScp Scp="MGAME_EXEC_ACTORSCP" Client="NO" UseSleep="NO">
                                 <Str Str="SCR_PBETA_START_MSG"/>
                             </ToolScp>
-                            <ToolScp Scp="MGAME_EVT_SCRIPT_ARG" Client="NO" UseSleep="NO">
-                                <Str Str="SCR_LEGEND_GLACIER_CUSTOM_LOG"/>
-                                <Str Str="Stage2_1_Clear"/>
-                                <Num Num="0"/>
+                            <ToolScp Scp="MGAME_STAGE_CHECK_LOG_STAGEPROGRESS" Client="NO" UseSleep="NO">
+                                <Str Str="LEGEND_RAID_GLACIER_HARD"/>
+                                <Str Str="StageClear"/>
                             </ToolScp>
                         </execList>
                     </Event>
@@ -589,6 +604,14 @@
                             </ToolScp>
                             <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
                                 <Str Str="Stage2_1"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="MongoLog">
+                        <execList>
+                            <ToolScp Scp="MGAME_STAGE_CHECK_LOG_STAGEPROGRESS" Client="NO" UseSleep="NO">
+                                <Str Str="LEGEND_RAID_GLACIER_HARD"/>
+                                <Str Str="StageStart"/>
                             </ToolScp>
                         </execList>
                     </Event>
@@ -632,6 +655,10 @@
                             <ToolScp Scp="GAME_ST_EVT_ADD_VALUE" Client="NO" UseSleep="NO">
                                 <Str Str="Pbeta_Clear"/>
                                 <Num Num="1"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_STAGE_CHECK_LOG_STAGEPROGRESS" Client="NO" UseSleep="NO">
+                                <Str Str="LEGEND_RAID_GLACIER_HARD"/>
+                                <Str Str="StageClear"/>
                             </ToolScp>
                         </execList>
                     </Event>
@@ -696,6 +723,14 @@
                             </ToolScp>
                         </execList>
                     </Event>
+                    <Event execCount="1" eventName="MongoLog">
+                        <execList>
+                            <ToolScp Scp="MGAME_STAGE_CHECK_LOG_STAGEPROGRESS" Client="NO" UseSleep="NO">
+                                <Str Str="LEGEND_RAID_GLACIER_HARD"/>
+                                <Str Str="StageStart"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
                 </StageEvents>
             </Stage>
             <Stage Name="Boss_Glacier" AutoStart="0">
@@ -738,6 +773,10 @@
                                 <Num Num="0"/>
                                 <Str Str="None"/>
                             </ToolScp>
+                            <ToolScp Scp="MGAME_STAGE_CHECK_LOG_STAGEPROGRESS" Client="NO" UseSleep="NO">
+                                <Str Str="LEGEND_RAID_GLACIER_HARD"/>
+                                <Str Str="MinigameSuccess"/>
+                            </ToolScp>
                         </execList>
                     </Event>
                     <Event eventName="Glacier_Pattern_Start">
@@ -763,11 +802,6 @@
                             <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
                                 <Str Str="GLACIER_SNOW_CLOUD"/>
                             </ToolScp>
-                            <ToolScp Scp="MGAME_EVT_SCRIPT_ARG" Client="NO" UseSleep="NO">
-                                <Str Str="SCR_LEGEND_GLACIER_CUSTOM_LOG"/>
-                                <Str Str="Stage_Glacier_Start"/>
-                                <Num Num="0"/>
-                            </ToolScp>
                             <ToolScp Scp="GAME_ST_EVT_EXEC_VALUE" Client="NO" UseSleep="NO">
                                 <Str Str="Glacier_Start"/>
                                 <Num Num="1"/>
@@ -791,6 +825,14 @@
                             <ToolScp Scp="MGAME_EVT_SCP_TO_MON_CMD" Client="NO" UseSleep="NO">
                                 <MGameObj List="Boss_Glacier/0"/>
                                 <Str Str="SCR_LEGEND_GLACIER_WITCH_FRENZY_STACK_CHECK"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="MongoLog">
+                        <execList>
+                            <ToolScp Scp="MGAME_STAGE_CHECK_LOG_STAGEPROGRESS" Client="NO" UseSleep="NO">
+                                <Str Str="LEGEND_RAID_GLACIER_HARD"/>
+                                <Str Str="StageStart"/>
                             </ToolScp>
                         </execList>
                     </Event>
@@ -827,11 +869,6 @@
                             <ToolScp Scp="MGAME_EVT_EXEC_DELMON" Client="NO" UseSleep="NO">
                                 <MGameObjPtr List="Start/2/Start/3"/>
                             </ToolScp>
-                            <ToolScp Scp="MGAME_EVT_SCRIPT_ARG" Client="NO" UseSleep="NO">
-                                <Str Str="SCR_LEGEND_GLACIER_CUSTOM_LOG"/>
-                                <Str Str="Stage1_Start"/>
-                                <Num Num="0"/>
-                            </ToolScp>
                             <ToolScp Scp="SCR_RAID_CLEAR_TIME_START_SETTING" Client="NO" UseSleep="NO"/>
                         </execList>
                     </Event>
@@ -852,11 +889,6 @@
                             </ToolScp>
                             <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
                                 <Str Str="Stage2"/>
-                            </ToolScp>
-                            <ToolScp Scp="MGAME_EVT_SCRIPT_ARG" Client="NO" UseSleep="NO">
-                                <Str Str="SCR_LEGEND_GLACIER_CUSTOM_LOG"/>
-                                <Str Str="Stage1_Clear"/>
-                                <Num Num="0"/>
                             </ToolScp>
                         </execList>
                     </Event>
@@ -890,11 +922,6 @@
                                 <Num Num="1"/>
                                 <Num Num="0"/>
                             </ToolScp>
-                            <ToolScp Scp="MGAME_EVT_SCRIPT_ARG" Client="NO" UseSleep="NO">
-                                <Str Str="SCR_LEGEND_GLACIER_CUSTOM_LOG"/>
-                                <Str Str="Stage_Pbeta_Start"/>
-                                <Num Num="0"/>
-                            </ToolScp>
                             <ToolScp Scp="GAME_ST_EVT_EXEC_VALUE" Client="NO" UseSleep="NO">
                                 <Str Str="Pbeta_Start"/>
                                 <Num Num="1"/>
@@ -918,11 +945,6 @@
                             <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
                                 <Str Str="Stage2"/>
                             </ToolScp>
-                            <ToolScp Scp="MGAME_EVT_SCRIPT_ARG" Client="NO" UseSleep="NO">
-                                <Str Str="SCR_LEGEND_GLACIER_CUSTOM_LOG"/>
-                                <Str Str="Stage2_Clear"/>
-                                <Num Num="0"/>
-                            </ToolScp>
                         </execList>
                     </Event>
                     <Event execCount="1" eventName="Pbeta_Claer">
@@ -940,11 +962,6 @@
                             <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
                                 <Str Str="Boss_Pbeta"/>
                             </ToolScp>
-                            <ToolScp Scp="MGAME_EVT_SCRIPT_ARG" Client="NO" UseSleep="NO">
-                                <Str Str="SCR_LEGEND_GLACIER_CUSTOM_LOG"/>
-                                <Str Str="Stage_Pbeta_Clear"/>
-                                <Num Num="0"/>
-                            </ToolScp>
                         </execList>
                     </Event>
                     <Event execCount="1" eventName="Glacier_Claer">
@@ -961,11 +978,6 @@
                             </ToolScp>
                             <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
                                 <Str Str="Success"/>
-                            </ToolScp>
-                            <ToolScp Scp="MGAME_EVT_SCRIPT_ARG" Client="NO" UseSleep="NO">
-                                <Str Str="SCR_LEGEND_GLACIER_CUSTOM_LOG"/>
-                                <Str Str="Stage_Glacier_Clear"/>
-                                <Num Num="0"/>
                             </ToolScp>
                             <ToolScp Scp="MGAME_EXEC_REVIVE" Client="NO" UseSleep="NO"/>
                         </execList>
@@ -995,11 +1007,6 @@
                             <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
                                 <Str Str="Stage1_1"/>
                             </ToolScp>
-                            <ToolScp Scp="MGAME_EVT_SCRIPT_ARG" Client="NO" UseSleep="NO">
-                                <Str Str="SCR_LEGEND_GLACIER_CUSTOM_LOG"/>
-                                <Str Str="Stage1_1_Start"/>
-                                <Num Num="0"/>
-                            </ToolScp>
                         </execList>
                     </Event>
                     <Event execCount="1" eventName="Stage2_1_Start">
@@ -1028,11 +1035,6 @@
                             </ToolScp>
                             <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
                                 <Str Str="Stage2_1"/>
-                            </ToolScp>
-                            <ToolScp Scp="MGAME_EVT_SCRIPT_ARG" Client="NO" UseSleep="NO">
-                                <Str Str="SCR_LEGEND_GLACIER_CUSTOM_LOG"/>
-                                <Str Str="Stage2_1_Start"/>
-                                <Num Num="0"/>
                             </ToolScp>
                         </execList>
                     </Event>

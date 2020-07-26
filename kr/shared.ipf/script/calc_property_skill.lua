@@ -10992,8 +10992,17 @@ function SCR_GET_Devaluation_BuffTime(skill)
 end
 
 function SCR_GET_Blindside_Ratio2(skill)
+    local pc = GetSkillOwner(skill);
     local value = 5 + skill.Level
-    value = math.floor(value * SCR_REINFORCEABILITY_TOOLTIP(skill))
+
+    local abilRateAdd = 1
+    local abilAppraiser3 = GetAbility(pc, "Appraiser3")
+    if abilAppraiser3 ~= nil and TryGetProp(abilAppraiser3, "ActiveState") == 1 then
+        local abillevel = TryGetProp(abilAppraiser3, "Level", 0)
+        abilRateAdd = abilRateAdd + (abillevel * 0.005 + 0.1)
+    end
+
+    value = math.floor(value * abilRateAdd)
     
     return value
 end
