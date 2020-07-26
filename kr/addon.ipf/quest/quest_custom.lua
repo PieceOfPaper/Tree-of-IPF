@@ -562,22 +562,3 @@ function IS_STYLE_INFO_DRAW()
 
 	return true;
 end
-
-function UPDATE_Q_TIME_CTRLSET_FORCE(frame,msg,argStr,argNum)
-	frame = ui.GetFrame("questinfoset_2");	
-	local GroupCtrl = GET_CHILD(frame, "member", "ui::CGroupBox");
-	local ctrlName = "_Q_CUSTOM_MGAME_QUEST";
-	local cnt = geQuest.GetCustomQuestCount();
-	local stageList = session.mgame.GetStageQuestList();
-	local stageCnt = stageList:size();
-	for i = 0, cnt - 1 do
-		local ctrlset = GroupCtrl:GetControlSet('emptyset2', ctrlName.."_"..i);
-		for j = 0 , stageCnt - 1 do
-			local timeSet = ctrlset:GetControlSet('emptyset2', "ITEM_TIME_"..j);
-			if timeSet ~= nil then
-				timeSet:SetValue(argNum);
-				timeSet:SetUserValue("STARTTIME",imcTime.GetAppTime());
-			end
-		end
-	end
-end
