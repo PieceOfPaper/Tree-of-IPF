@@ -1846,12 +1846,6 @@ function SCR_ABIL_Arbalester10_INACTIVE(self, ability)
 end
 
 function SCR_ABIL_SPEARMASTERY_Dagger_ACTIVE(self, ability)
-    SCR_ABIL_SPEARMASTERY_Dagger_CALC(self, ability)
-end
-
-function SCR_ABIL_SPEARMASTERY_Dagger_CALC(self, ability)
-    local prev_addATK = GetExProp(ability, "ABIL_ADD_ATK");
-
     local addATK = 0;
 
     local rItem  = GetEquipItem(self, 'RH');
@@ -1876,7 +1870,7 @@ function SCR_ABIL_SPEARMASTERY_Dagger_CALC(self, ability)
 
     addATK = addATK * add_rate;
     
-    self.PATK_MAIN_BM = self.PATK_MAIN_BM - prev_addATK + addATK;
+    self.PATK_MAIN_BM = self.PATK_MAIN_BM + addATK;
     
     SetExProp(ability, "ABIL_ADD_ATK", addATK);
 end

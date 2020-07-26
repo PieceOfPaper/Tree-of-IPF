@@ -180,7 +180,7 @@ function UPDATE_CHALLENGE_MODE_MINIMAP_MARK(x, y, z, isAlive, isHardMode)
 		if isHardMode == 1 then
 			msg = "ChallengeModePortalMark_HardMode";
 		end
-		session.minimap.AddIconInfo("ChallengeModePortalMark", "trasuremapmark", x, y, z, ClMsg(msg), true, nil, 1.5);
+		session.minimap.AddIconInfo(msg, "trasuremapmark", x, y, z, ClMsg(msg), true, nil, 1.5);
 	else
 		session.minimap.RemoveIconInfo("ChallengeModePortalMark");
 	end
