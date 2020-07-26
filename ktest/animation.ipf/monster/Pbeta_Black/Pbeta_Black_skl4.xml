@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by IMCGames Co., Ltd (IMCGames Co., Ltd) -->
+<ActionDesc>
+    <Sound frame="0.00" soundFile="mon_voice_lapene_skl2_cast"/>
+    <Particle frame="0" attachNode="Bip001 Spine1" particleName="I_smoke013_lightDark" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <Particle frame="0" attachNode="Bip001 Spine1" particleName="F_spread_in039_2" useAttach="true" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <Particle frame="0" attachNode="Bip001 Spine1" particleName="F_spread_in030_air" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.4" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <Particle frame="0" attachNode="Dummy_emitter" particleName="None" useAttach="false" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <BlendOn frame="0" R="0" G="0" B="0" A="50"/>
+    <Sound frame="2.00" soundFile="mon_voice_lapene_skl1_shot"/>
+    <Sound frame="4.30" soundFile="skl_eff_darksight_ground_loop"/>
+    <Sound frame="10.00" soundFile="skl_eff_spread_7"/>
+    <Particle frame="20" attachNode="Bip001 Spine1" particleName="F_spread_in039_2" useAttach="true" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <Sound frame="20.71" soundFile="skl_eff_spread_10"/>
+    <Sound frame="48.00" soundFile="boss_skl_eff_force_whoosh_1"/>
+    <Sound frame="48.00" soundFile="skl_eff_whoosh_2"/>
+    <Particle frame="50" attachNode="Bip001 Spine1" particleName="I_smoke013_lightDark" useAttach="true" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <Particle frame="60" attachNode="Bip001 Spine1" particleName="F_spread_in030_ice4" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.8" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <Particle frame="65" attachNode="Dummy_emitter" particleName="F_ground161_ice" useAttach="true" hiddenObj="false" changeEffect="None" scale="6" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <Sound frame="67.00" soundFile="skl_eff_unknocker_coin_hit"/>
+    <Sound frame="68.01" soundFile="mon_move_swordballista_skl2_shot"/>
+    <Sound frame="68.79" soundFile="skl_wiz_frostnova"/>
+    <BlendOn frame="69" R="50" G="80" B="110" A="100"/>
+    <BlendOff frame="80" R="0" G="0" B="0" A="0"/>
+</ActionDesc>

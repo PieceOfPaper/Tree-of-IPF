@@ -101,11 +101,6 @@ function UPDATE_BUFF_UI_SLOTSET(frame, buff_ui, index)
         local y = buff_ui["slotsets"][index]:GetY() + slot:GetY() + slot:GetHeight() + buff_ui["txt_y_offset"];
 
         local captWidth, captHeight = 50, 20;
-        if index == 3 then
-            captWidth = 0;
-            captHeight = 0;
-        end
-
         local caption = frame:CreateOrGetControl('richtext', "_t_" .. index .. "_" .. buff_ui["slotcount"][index], x, y, captWidth, captHeight);
         caption:SetFontName("yellow_13");
         buff_ui["captionlist"][index][buff_ui["slotcount"][index]] = caption;
@@ -147,11 +142,6 @@ function INIT_BUFF_UI(frame, buff_ui, updatescp)
             local y = buff_ui["slotsets"][i]:GetY() + slot:GetY() + slot:GetHeight() + buff_ui["txt_y_offset"];
 
             local captWidth, captHeight = 50, 20;
-            if i == 3 then
-                captWidth = 0;
-                captHeight = 0;
-            end
-
             local capt = frame:CreateOrGetControl('richtext', "_t_" .. i .. "_" .. buff_ui["slotcount"][i], x, y, captWidth, captHeight);
             capt:SetFontName("yellow_13");
             buff_ui["captionlist"][i][buff_ui["slotcount"][i]] = capt;

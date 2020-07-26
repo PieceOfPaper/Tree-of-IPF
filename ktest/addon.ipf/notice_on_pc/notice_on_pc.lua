@@ -8,10 +8,12 @@ function NOTICE_ON_UI(uiName, iconName, handle, duration)
     if frame == nil then
         frame = ui.CreateNewFrame("notice_on_pc", uiName);
     end
+
     if duration == 0 then
        ui.CloseFrame(uiName) 
        return;
     end
+
     frame:SetUserValue("HANDLE", handle);
     frame:SetDuration(duration)
     frame:RunUpdateScript("UPDATE_NOTICE_ICON_POS");

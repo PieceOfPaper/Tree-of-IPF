@@ -47,6 +47,10 @@ function HOUSING_PROMOTE_POST_INIT(frame)
 
     local socialinfo_3 = GET_CHILD(socialinfo, "socialinfo_3");
     socialinfo_3:SetTextByKey("value", 0);
+    
+    local desc = GET_CHILD(socialinfo, "desc");
+    desc:SetTextByKey("value", " ");
+    desc:Resize(desc:GetWidth(), desc:GetLineCount() * 22);
 
     local pointinfo = GET_CHILD(frame, "pointinfo");
     local pointinfo_1 = GET_CHILD(pointinfo, "pointinfo_1");
@@ -57,9 +61,9 @@ function HOUSING_PROMOTE_POST_INIT(frame)
 
     local pointinfo_3 = GET_CHILD(pointinfo, "pointinfo_3");
     pointinfo_3:SetTextByKey("value", 0);
-    
-    local URL = GET_CHILD_RECURSIVELY(frame, "URL");
-    URL:SetTextByKey("value", "");
+
+    -- local URL = GET_CHILD_RECURSIVELY(frame, "URL");
+    -- URL:SetTextByKey("value", "");
 end
 
 function HOUSING_PROMOTE_POST_HOUSE_WARP_BTN_CHECK()
@@ -81,7 +85,7 @@ function HOUSING_PROMOTE_POST_UPDATE(code, ret_json)
     end
 
     local parsed = json.decode(ret_json);
-    
+
     if parsed["thumbnail_id"] ~= nil then
         GetHousingThumbnailImage("HOUSING_PROMOTE_POST_THUMNAIL_UPDATE", parsed["channel_id"], parsed["page_id"], parsed["thumbnail_id"], "None");
     end    
@@ -100,17 +104,23 @@ function HOUSING_PROMOTE_POST_UPDATE(code, ret_json)
         local socialInfo = GET_CHILD(frame, "socialInfo");
         HOUSING_PROMOTE_POST_SOCIAL_INFO(socialInfo, parsed["socialInfo"]);
     end
-    
+
+    local desc = GET_CHILD_RECURSIVELY(frame, "desc");
+    if parsed["desc"] ~= "" then
+        desc:SetTextByKey("value", parsed["desc"]);
+    end
+    desc:Resize(desc:GetWidth(), desc:GetLineCount() * 22);
+
     local optioninfo = GET_CHILD(frame, "optioninfo");
     optioninfo:ShowWindow(0);
 
     local pointinfo = GET_CHILD(frame, "pointinfo");
     pointinfo:ShowWindow(0);
     
-    local URL = GET_CHILD_RECURSIVELY(frame, "URL");
-    if parsed["url"] ~= nil then
-        URL:SetTextByKey("value", parsed["url"]);
-    end
+    -- local URL = GET_CHILD_RECURSIVELY(frame, "URL");
+    -- if parsed["url"] ~= nil then
+    --     URL:SetTextByKey("value", parsed["url"]);
+    -- end
 
     local housing_warp_btn = GET_CHILD_RECURSIVELY(frame, "housing_warp_btn");
     housing_warp_btn:SetEventScriptArgString(ui.LBUTTONUP, parsed["channel_id"]);
@@ -123,10 +133,13 @@ function HOUSING_PROMOTE_POST_THUMNAIL_UPDATE(code, pageID, filePath)
         return;
     end
     
+    local folderPath = filefind.GetBinPath("Housing"):c_str()
+    local fullPath = folderPath .. "\\" .. filePath;
+
     local frame = ui.GetFrame("housing_promote_post");
-    local thumbnail = GET_CHILD_RECURSIVELY(frame, "thumbnail");    
-    if filefind.FileExists(filePath, true) == true then
-        ui.SetImageByPath(filePath, thumbnail);
+    local thumbnail = GET_CHILD_RECURSIVELY(frame, "thumbnail");
+    if filefind.FileExists(fullPath, true) == true then
+        ui.SetImageByPath(fullPath, thumbnail);
         thumbnail:Invalidate();
     end
 
@@ -199,9 +212,10 @@ function HOUSING_PROMOTE_POST_EDIT()
     local title = frame:GetUserValue("TITLE");
     local team_name = frame:GetUserValue("TEAM_NAME");
     local thumbnail = GET_CHILD_RECURSIVELY(frame, "thumbnail");
-    local URL = GET_CHILD_RECURSIVELY(frame, "URL");
+    local desc = GET_CHILD_RECURSIVELY(frame, "desc");
+    --local URL = GET_CHILD_RECURSIVELY(frame, "URL");
 
-    HOUSING_PROMOTE_WRITE_OPEN(team_name, title, thumbnail:GetImageName(), URL:GetTextByKey("value"));
+    HOUSING_PROMOTE_WRITE_OPEN(team_name, title, thumbnail:GetImageName(), desc:GetTextByKey("value"), "");
 end
 
 function IS_HAS_HOUSING_PROMOTE_POST()
@@ -270,7 +284,7 @@ function HOUSING_PROMOTE_POST_MY_HOUSE_UPDATE(code, ret_json)
     end
 
     local parsed = json.decode(ret_json);
-
+    
     if parsed["thumbnail_id"] ~=  nil then
         GetHousingThumbnailImage("HOUSING_PROMOTE_POST_THUMNAIL_UPDATE", parsed["channel_id"], parsed["page_id"], parsed["thumbnail_id"], "None");
     end
@@ -291,6 +305,12 @@ function HOUSING_PROMOTE_POST_MY_HOUSE_UPDATE(code, ret_json)
         local socialInfo = GET_CHILD(frame, "socialInfo");
         HOUSING_PROMOTE_POST_SOCIAL_INFO(socialInfo, parsed["socialInfo"]);
     end
+
+    local desc = GET_CHILD_RECURSIVELY(frame, "desc");
+    if parsed["desc"] ~= "" then
+        desc:SetTextByKey("value", parsed["desc"]);
+    end
+    desc:Resize(desc:GetWidth(), desc:GetLineCount() * 22);
     
     local optioninfo = GET_CHILD(frame, "optioninfo");
     optioninfo:ShowWindow(1);
@@ -310,10 +330,10 @@ function HOUSING_PROMOTE_POST_MY_HOUSE_UPDATE(code, ret_json)
         HOUSING_PROMOTE_POST_POINT_INFO(pointinfoCtrl, parsed["pointInfo"]);
     end
 
-    local URL = GET_CHILD_RECURSIVELY(frame, "URL");
-    if parsed["url"] ~= nil then
-        URL:SetTextByKey("value", parsed["url"]);
-    end
+    -- local URL = GET_CHILD_RECURSIVELY(frame, "URL");
+    -- if parsed["url"] ~= nil then
+    --     URL:SetTextByKey("value", parsed["url"]);
+    -- end
 
     local housing_warp_btn = GET_CHILD_RECURSIVELY(frame, "housing_warp_btn");
     housing_warp_btn:SetEventScriptArgString(ui.LBUTTONUP, parsed["channel_id"]);

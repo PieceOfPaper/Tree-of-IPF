@@ -229,12 +229,20 @@ function SET_BUFF_CAPTION_OFFSET(slotset, buff_ui, index)
 	end
 
 	local captionlist = buff_ui["captionlist"][index];
-    local totalCount = slotset:GetRow() * slotset:GetCol();
-    for i = 0, totalCount - 1 do
+	local totalCount = slotset:GetRow() * slotset:GetCol();
+	for i = 0, totalCount - 1 do
         local slot = slotset:GetSlotByIndex(i);
-        local slotHeight = slot:GetHeight();
-        local caption = captionlist[i];
-        caption:SetOffset(caption:GetX(), slotset:GetY() + slotHeight);
+		if slot ~= nil then
+			local row = math.floor(i / slotset:GetCol());
+			local addHeight = 0;
+			if row + 1 > 1 then
+				addHeight = 15;
+			end
+
+			local slotHeight = slot:GetHeight() * (row + 1) + addHeight;
+			local caption = captionlist[i];
+			caption:SetOffset(caption:GetX(), slotset:GetY() + slotHeight);
+		end
     end
 end
 
@@ -541,10 +549,6 @@ function ARRANGE_BUFF_SLOT(frame, buff_ui)
 
 	local col_buffsub = buffSub:GetCol();
 	local slotCnt_buffsub = buffSub:GetRow() * col_buffsub;
-
-	buffSub:SetOffset(buffSub:GetX(), buffCount:GetY() + default_slot_y_offset * visibleRow_buffcount);
-	SET_BUFF_CAPTION_OFFSET(buffSub, buff_ui, 3);
-
 	local visibleCnt_buffsub = 0;
 	for i = 0, slotCnt_buffsub - 1 do
 		local slot = buffSub:GetSlotByIndex(i);
@@ -561,6 +565,8 @@ function ARRANGE_BUFF_SLOT(frame, buff_ui)
 	visibleRow_buffsub = visibleRow_buffsub + 1;
 
 	buffSub:Resize(buffSub:GetWidth(), default_sub_slot_y_offset * visibleRow_buffsub);
+	buffSub:SetOffset(buffSub:GetX(), buffCount:GetY() + default_slot_y_offset * visibleRow_buffcount);
+	SET_BUFF_CAPTION_OFFSET(buffSub, buff_ui, 3);
 	-------------------------------------------------------------------------------
 	-- buff -----------------------------------------------------------------------
 	local buff = GET_CHILD_RECURSIVELY(frame, "buffslot", "ui::CSlotSet");
@@ -568,10 +574,6 @@ function ARRANGE_BUFF_SLOT(frame, buff_ui)
 	
 	local col_buff = buff:GetCol();
 	local slotCnt_buff = buff:GetRow() * col_buff;
-	
-	buff:SetOffset(buff:GetX(), buffSub:GetY() + default_sub_slot_y_offset * visibleRow_buffsub);
-	SET_BUFF_CAPTION_OFFSET(buff, buff_ui, 1);
-
 	local visibleCnt_buff = 0;
 	for i = 0, slotCnt_buff - 1 do
 		local slot = buff:GetSlotByIndex(i);
@@ -588,6 +590,8 @@ function ARRANGE_BUFF_SLOT(frame, buff_ui)
 	visibleRow_buff = visibleRow_buff + 1;
 
 	buff:Resize(buff:GetWidth(), default_slot_y_offset * visibleRow_buff);
+	buff:SetOffset(buff:GetX(), buffSub:GetY() + default_sub_slot_y_offset * visibleRow_buffsub);
+	SET_BUFF_CAPTION_OFFSET(buff, buff_ui, 1);
 	-------------------------------------------------------------------------------
     -- debuff ---------------------------------------------------------------------
 	local debuff = GET_CHILD_RECURSIVELY(frame, "debuffslot", "ui::CSlotSet");
@@ -595,10 +599,6 @@ function ARRANGE_BUFF_SLOT(frame, buff_ui)
 
 	local col_debuff = debuff:GetCol();
 	local slotCnt_debuff = debuff:GetRow() * col_debuff;
-	
-	debuff:SetOffset(debuff:GetX(), buff:GetY() + default_slot_y_offset * visibleRow_buff);
-	SET_BUFF_CAPTION_OFFSET(debuff, buff_ui, 2);
-
 	local visibleCnt_debuff = 0;
 	for i = 0, slotCnt_debuff - 1 do
 		local slot = debuff:GetSlotByIndex(i);
@@ -614,7 +614,9 @@ function ARRANGE_BUFF_SLOT(frame, buff_ui)
 	end
 	visibleRow_debuff = visibleRow_debuff + 1;
 
-	debuff:Resize(debuff:GetWidth(), (default_slot_y_offset) * visibleRow_debuff);
+	debuff:Resize(debuff:GetWidth(), default_slot_y_offset * visibleRow_debuff);
+	debuff:SetOffset(debuff:GetX(), buff:GetY() + default_slot_y_offset * visibleRow_buff);
+	SET_BUFF_CAPTION_OFFSET(debuff, buff_ui, 2);
 	-------------------------------------------------------------------------------
 end
 

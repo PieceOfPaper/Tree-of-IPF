@@ -2376,6 +2376,47 @@
         <Key Name="ANCIENT_INSERT_SKILL" Value="105200"/>
         <Key Name="ANCIENT_UNLOCK_UI" Value="105199"/>
         <Key Name="PVP_MINE_TradeCount11" Value="105202"/>
+        <Key Name="EVENT_2004_NEWUSER_COIN_COUNT" Value="105230"/>
+        <Key Name="EVENT_2004_NEWUSER_PARTNER_BUFF_END" Value="105258"/>
+        <Key Name="EVENT_2004_NEWUSER_PLAY_TIME" Value="105234"/>
+        <Key Name="EVENT_2004_NEWUSER_SHOP1" Value="105238"/>
+        <Key Name="EVENT_2004_NEWUSER_SHOP10" Value="105244"/>
+        <Key Name="EVENT_2004_NEWUSER_SHOP11" Value="105248"/>
+        <Key Name="EVENT_2004_NEWUSER_SHOP12" Value="105251"/>
+        <Key Name="EVENT_2004_NEWUSER_SHOP13" Value="105254"/>
+        <Key Name="EVENT_2004_NEWUSER_SHOP14" Value="105259"/>
+        <Key Name="EVENT_2004_NEWUSER_SHOP15" Value="105231"/>
+        <Key Name="EVENT_2004_NEWUSER_SHOP16" Value="105235"/>
+        <Key Name="EVENT_2004_NEWUSER_SHOP17" Value="105239"/>
+        <Key Name="EVENT_2004_NEWUSER_SHOP18" Value="105243"/>
+        <Key Name="EVENT_2004_NEWUSER_SHOP19" Value="105246"/>
+        <Key Name="EVENT_2004_NEWUSER_SHOP2" Value="105242"/>
+        <Key Name="EVENT_2004_NEWUSER_SHOP20" Value="105250"/>
+        <Key Name="EVENT_2004_NEWUSER_SHOP21" Value="105255"/>
+        <Key Name="EVENT_2004_NEWUSER_SHOP22" Value="105260"/>
+        <Key Name="EVENT_2004_NEWUSER_SHOP23" Value="105232"/>
+        <Key Name="EVENT_2004_NEWUSER_SHOP24" Value="105236"/>
+        <Key Name="EVENT_2004_NEWUSER_SHOP25" Value="105241"/>
+        <Key Name="EVENT_2004_NEWUSER_SHOP26" Value="105245"/>
+        <Key Name="EVENT_2004_NEWUSER_SHOP27" Value="105249"/>
+        <Key Name="EVENT_2004_NEWUSER_SHOP28" Value="105253"/>
+        <Key Name="EVENT_2004_NEWUSER_SHOP29" Value="105257"/>
+        <Key Name="EVENT_2004_NEWUSER_SHOP3" Value="105247"/>
+        <Key Name="EVENT_2004_NEWUSER_SHOP4" Value="105252"/>
+        <Key Name="EVENT_2004_NEWUSER_SHOP5" Value="105256"/>
+        <Key Name="EVENT_2004_NEWUSER_SHOP6" Value="105261"/>
+        <Key Name="EVENT_2004_NEWUSER_SHOP7" Value="105233"/>
+        <Key Name="EVENT_2004_NEWUSER_SHOP8" Value="105237"/>
+        <Key Name="EVENT_2004_NEWUSER_SHOP9" Value="105240"/>
+        <Key Name="EVENT_2005_BONFIRE_GET" Value="105283"/>
+        <Key Name="EVENT_2005_GLACIER_FIRST_KILL" Value="105285"/>
+        <Key Name="Episode_7_1_Clear" Value="105287"/>
+        <Key Name="Episode_7_2_Clear" Value="105280"/>
+        <Key Name="Episode_7_3_Clear" Value="105281"/>
+        <Key Name="Episode_8_1_Clear" Value="105282"/>
+        <Key Name="Episode_8_2_Clear" Value="105284"/>
+        <Key Name="Episode_9_1_Clear" Value="105286"/>
+        <Key Name="Episode_9_2_Clear" Value="105288"/>
     </KeyIDSpc>
     <KeyIDSpc Name="PCEtc">
         <Key Name="Kill_boss_Clymen_Q2" Value="7788"/>
@@ -10672,6 +10713,23 @@
         <Key Name="Kill_Baby_Marnoks_Q1" Value="105198"/>
         <Key Name="Kill_Baby_Skiaclipse" Value="105194"/>
         <Key Name="Kill_boss_molich_Q2" Value="105197"/>
+        <Key Name="Kill_Ancient_pattern_monster" Value="105229"/>
+        <Key Name="Kill_F_boss_Skiaclipse" Value="105228"/>
+        <Key Name="HaveEmoticon_101" Value="105262"/>
+        <Key Name="HaveEmoticon_102" Value="105263"/>
+        <Key Name="Kill_F_boss_Skiaclipse_Tornado" Value="105264"/>
+        <Key Name="Kill_F_boss_Skiaclipse_padObject" Value="105265"/>
+        <Key Name="GLACIER_RAID_TUTO_RP_01_TRACK" Value="105276"/>
+        <Key Name="Hide_3073" Value="105266"/>
+        <Key Name="Hide_3074" Value="105267"/>
+        <Key Name="Hide_3075" Value="105268"/>
+        <Key Name="Hide_3076" Value="105269"/>
+        <Key Name="Hide_3077" Value="105270"/>
+        <Key Name="Hide_3078" Value="105271"/>
+        <Key Name="Hide_3079" Value="105272"/>
+        <Key Name="Hide_3080" Value="105273"/>
+        <Key Name="Kill_Unique_boss_Glacier" Value="105275"/>
+        <Key Name="Kill_Unique_boss_Pbeta" Value="105274"/>
     </KeyIDSpc>
     <KeyIDSpc Name="GuildMember">
         <Key Name="Name" Value="9011"/>
@@ -11717,6 +11775,7 @@
         <Key Name="STEAM_NEW_WORLD_GUILD_QUEST_NEXT_RESET_DATE" Value="105022"/>
         <Key Name="STEAM_NEW_WORLD_GUILD_QUEST_TOTAL_SUCCESS_COUNT" Value="105020"/>
         <Key Name="STEAM_NEW_WORLD_GUILD_QUEST_WEEK_SUCCESS_COUNT" Value="105021"/>
+        <Key Name="GUILD_SYSTEM_MSG_HEAL_PWR" Value="105227"/>
     </KeyIDSpc>
     <KeyIDSpc Name="ZoneObject">
         <Key Name="JaqBoxLock" Value="122"/>
@@ -11828,6 +11887,9 @@
         <Key Name="UNDERAQUEDUCT_BOSS_SKILL_TIME_3" Value="104055"/>
         <Key Name="UNDERAQUEDUCT_EVENT1_BOSS_DAY_CHECK" Value="104063"/>
         <Key Name="EVENT_TP_SHOP_1912_COUNT" Value="104468"/>
+        <Key Name="GLACIER_TUTO_RP_BUFF_READY" Value="105278"/>
+        <Key Name="GLACIER_TUTO_RP_CHAT_CHECK" Value="105279"/>
+        <Key Name="GLACIER_TUTO_RP_COUNT" Value="105277"/>
     </KeyIDSpc>
     <KeyIDSpc Name="SessionObject">
         <Key Name="BOOKSHELF" Value="1079"/>
@@ -19130,6 +19192,21 @@
         <Key Name="ASSISTOR_TUTO_04" Value="105188"/>
         <Key Name="ASSISTOR_TUTO_05" Value="105189"/>
         <Key Name="MG_Last_SOLO_DUNGEON_MINI_ANCIENT_QUEST" Value="105201"/>
+        <Key Name="EVENT_RESET_TIME2" Value="105294"/>
+        <Key Name="F_TABLELAND_28_2_RAID_01" Value="105293"/>
+        <Key Name="F_TABLELAND_28_2_RAID_02" Value="105295"/>
+        <Key Name="F_TABLELAND_28_2_RAID_03" Value="105299"/>
+        <Key Name="F_TABLELAND_28_2_RAID_04" Value="105300"/>
+        <Key Name="F_TABLELAND_28_2_RAID_05" Value="105301"/>
+        <Key Name="F_TABLELAND_28_2_RAID_06" Value="105302"/>
+        <Key Name="F_TABLELAND_28_2_RAID_07" Value="105303"/>
+        <Key Name="F_TABLELAND_28_2_RAID_08" Value="105289"/>
+        <Key Name="GLACIER_RAID_TUTO_RP_01" Value="105290"/>
+        <Key Name="GLACIER_RAID_TUTO_RP_01_R" Value="105292"/>
+        <Key Name="HIDDEN_CRUSADER_SNOW_1" Value="105296"/>
+        <Key Name="HIDDEN_CRUSADER_SNOW_2" Value="105297"/>
+        <Key Name="MG_Last_GLACIER_TUTO_RP_MINI" Value="105291"/>
+        <Key Name="MG_Last_UNIQUE_RAID_GLACIER" Value="105298"/>
     </KeyIDSpc>
     <KeyIDSpc Name="Monster">
         <Key Name="MaxHate" Value="6671"/>

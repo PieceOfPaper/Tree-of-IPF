@@ -7,6 +7,7 @@
 	<input moveable="true" hittestframe="true" moveintitlebar="false" catchmovepos="true"/>
 	<option closebutton="false"/>
 	<sound opensound="skill_window_open" closesound="skill_window_close"/>
+	<script CloseScp="BGMPLAYER_REDUCTION_CLOSE_UI"/>
 	<layer layerlevel="99"/>
 	<userconfig SIMPLE_WIDTH="176" SIMPLE_HEIGHT="85" CLASSIC_WIDTH="180" CLASSIC_HEIGHT="89" TITLETXT_CLASSIC_FORAMT="{@st66b}{s16}{b}" TITLETXT_SIMPLE_FORAMT="{@st43}{s16}"/>
 	<controls>

@@ -82,6 +82,13 @@ function GODDESS_ROULETTE_COIN_ACQUIRE_STATE_OPEN(frame)
 				curvalue = 60;
 			end
 			maxvalue = GODDESS_ROULETTE_DAILY_PLAY_TIME_VALUE;
+
+			if maxvalue <= curvalue then
+				local clear_text = blackbg:CreateOrGetControl("richtext", "clear_text", 0, 0, 500, 80);
+				clear_text:SetText("{@st42b}{s20}"..ClMsg("GoddessRouletteDailyPlayTimeClearText"));
+				clear_text:SetGravity(ui.CENTER_HORZ, ui.CENTER_VERT);
+				clear_text:SetTextAlign("center", "top");
+			end			
 		elseif i == 3 then
 			text:SetTextByKey('value', ClMsg('EVENT_NEW_SEASON_SERVER_COIN_CHECK_STATE_'..i));
 
@@ -98,29 +105,36 @@ function GODDESS_ROULETTE_COIN_ACQUIRE_STATE_OPEN(frame)
 			maxvalue = GODDESS_ROULETTE_DAILY_CONTENTS_MAX_COIN_COUNT;
 			
 			-- 이벤트 공개 전 음영처리
-			blackbg:ShowWindow(1);
-			blackbg:SetAlpha(90);
+			-- blackbg:ShowWindow(1);
+			-- blackbg:SetAlpha(90);
 
-			local pic2 = ctrlSet:CreateControl("picture", "comming_soon_pic", 0, 0, 316, 76);
-			tolua.cast(pic2, "ui::CPicture");
-			pic2:SetImage("coming_soon_notice");
-			pic2:SetGravity(ui.CENTER_HORZ, ui.CENTER_VERT);
-			pic2:SetEnableStretch(1);
+			-- local pic2 = ctrlSet:CreateControl("picture", "comming_soon_pic", 0, 0, 316, 76);
+			-- tolua.cast(pic2, "ui::CPicture");
+			-- pic2:SetImage("coming_soon_notice");
+			-- pic2:SetGravity(ui.CENTER_HORZ, ui.CENTER_VERT);
+			-- pic2:SetEnableStretch(1);
+			
+			if maxvalue <= curvalue then
+				local clear_text = blackbg:CreateOrGetControl("richtext", "clear_text", 0, 0, 500, 80);
+				clear_text:SetText("{@st42b}{s20}"..ClMsg("GoddessRouletteDailyPlayTimeClearText"));
+				clear_text:SetGravity(ui.CENTER_HORZ, ui.CENTER_VERT);
+				clear_text:SetTextAlign("center", "top");
+			end			
 		elseif i == 5 then
 			text:SetTextByKey('value', ClMsg('EVENT_NEW_SEASON_SERVER_COIN_CHECK_STATE_'..i));
 
-			curvalue = TryGetProp(accObj, "GODDESS_ROULETTE_USE_ROULETTE_COUNT", 0);
+			curvalue = GET_USE_ROULETTE_COUNT(accObj);
 			maxvalue = GODDESS_ROULETTE_MAX_COUNT;
 
 			-- 이벤트 공개 전 음영처리
-			blackbg:ShowWindow(1);
-			blackbg:SetAlpha(90);
+			-- blackbg:ShowWindow(1);
+			-- blackbg:SetAlpha(90);
 
-			local pic2 = ctrlSet:CreateControl("picture", "comming_soon_pic", 0, 0, 316, 76);
-			tolua.cast(pic2, "ui::CPicture");
-			pic2:SetImage("coming_soon_notice");
-			pic2:SetGravity(ui.CENTER_HORZ, ui.CENTER_VERT);
-			pic2:SetEnableStretch(1);	
+			-- local pic2 = ctrlSet:CreateControl("picture", "comming_soon_pic", 0, 0, 316, 76);
+			-- tolua.cast(pic2, "ui::CPicture");
+			-- pic2:SetImage("coming_soon_notice");
+			-- pic2:SetGravity(ui.CENTER_HORZ, ui.CENTER_VERT);
+			-- pic2:SetEnableStretch(1);	
 		end
 
 		-- 진행도 완료시 음영처리
@@ -231,7 +245,7 @@ function CREATE_GODDESS_ROULETTE_COIN_STAMP_TOUR_LIST(starty, listgb, isClear)
 
 	local y = starty;
 	local clsList, clsCnt = GetClassList("note_eventlist");
-	for i = 0, clsCnt - 1 do
+	for i = 0, clsCnt - 3 do	-- 주간(1), 주간(2)는 룰렛코인 주지 않아 clsCnt - 3
 		local missionCls = GetClassByIndexFromList(clsList, i);
 		for j = 1, 3 do
 			local clearprop = TryGetProp(missionCls, "ClearProp"..j, 'None');
@@ -292,26 +306,27 @@ function GODDESS_ROULETTE_COIN_CONTENTS_STATE_OPEN(frame)
 	overtext:ShowWindow(0);
 
 	-- 콘텐츠 미션 보여주기 전
-	local fullblack_pic = GET_CHILD(frame, "fullblack_pic");
-	fullblack_pic:RemoveAllChild();
-	fullblack_pic:ShowWindow(1);
+	-- local fullblack_pic = GET_CHILD(frame, "fullblack_pic");
+	-- fullblack_pic:RemoveAllChild();
+	-- fullblack_pic:ShowWindow(1);
 
-	local pic2 = fullblack_pic:CreateControl("picture", "comming_soon_pic", 0, 0, 474, 114);
-	tolua.cast(pic2, "ui::CPicture");
-	pic2:SetImage("coming_soon_notice");
-	pic2:SetGravity(ui.CENTER_HORZ, ui.CENTER_VERT);
-	pic2:SetEnableStretch(1);
+	-- local pic2 = fullblack_pic:CreateControl("picture", "comming_soon_pic", 0, 0, 474, 114);
+	-- tolua.cast(pic2, "ui::CPicture");
+	-- pic2:SetImage("coming_soon_notice");
+	-- pic2:SetGravity(ui.CENTER_HORZ, ui.CENTER_VERT);
+	-- pic2:SetEnableStretch(1);
 
 	-- 콘텐츠 미션 보여주기 후
-	-- local accObj = GetMyAccountObj();
-	-- local check = TryGetProp(accObj, "GODDESS_ROULETTE_DAILY_CONTENTS_ACQUIRE_COUNT", 0);
-	-- if GODDESS_ROULETTE_DAILY_CONTENTS_MAX_COIN_COUNT <= check then
-	-- 	overtext:ShowWindow(1);
-	-- 	fullblack_pic:ShowWindow(1);
-	-- else
-	-- 	fullblack_pic:ShowWindow(0);
-	-- 	CREATE_GODDESS_ROULETTE_COIN_CONTENTS_LIST(listgb);
-	-- end
+	local fullblack_pic = GET_CHILD(frame, "fullblack_pic");
+	local accObj = GetMyAccountObj();
+	local check = TryGetProp(accObj, "GODDESS_ROULETTE_DAILY_CONTENTS_ACQUIRE_COUNT", 0);
+	if GODDESS_ROULETTE_DAILY_CONTENTS_MAX_COIN_COUNT <= check then
+		overtext:ShowWindow(1);
+		fullblack_pic:ShowWindow(1);
+	else
+		fullblack_pic:ShowWindow(0);
+		CREATE_GODDESS_ROULETTE_COIN_CONTENTS_LIST(listgb);
+	end
 end
 
 function CREATE_GODDESS_ROULETTE_COIN_CONTENTS_LIST(listgb)

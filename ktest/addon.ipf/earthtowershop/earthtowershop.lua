@@ -412,13 +412,20 @@ end
 
 function EXCHANGE_COUNT_CHECK(cls)
     local recipecls = GetClass('ItemTradeShop', cls.ClassName);
+
     if recipecls.AccountNeedProperty ~= 'None' then
         local aObj = GetMyAccountObj()
         local sCount = TryGetProp(aObj, recipecls.AccountNeedProperty);
         return sCount;
     end
 
-    return "None"; 
+    if recipecls.NeedProperty ~= 'None' then
+        local sObj = GetSessionObject(GetMyPCObject(), "ssn_shop");
+        local sCount = TryGetProp(sObj, recipecls.NeedProperty);
+        return sCount;
+    end
+
+    return "None";
 end
 
 function INSERT_ITEM(cls, tree, slotHeight, haveMaterial, shopType)

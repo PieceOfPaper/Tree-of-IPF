@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by gameds (IMCGames Co., Ltd) -->
+<ActionDesc>
+    <Sound frame="0.00" soundFile="mon_voice_lapene_skl1_shot"/>
+    <Sound frame="0.00" soundFile="skl_wiz_icewall_born"/>
+    <Sound frame="0.00" soundFile="mon_tomblord_skl_2"/>
+    <Particle frame="3" attachActor="None" attachNode="Bip001 Spine1" particleName="I_smoke052_white2" hiddenObj="false" useAttach="true" scale="1.5" pause="true" targetPos="false"/>
+    <Particle frame="3" attachActor="None" attachNode="effect_l_ice" particleName="I_smoke052_white3" hiddenObj="false" useAttach="true" scale="1.5" pause="true" targetPos="false"/>
+    <Particle frame="3" attachActor="None" attachNode="effect_r_ice" particleName="I_smoke052_white3" hiddenObj="false" useAttach="true" scale="1.5" pause="true" targetPos="false"/>
+</ActionDesc>

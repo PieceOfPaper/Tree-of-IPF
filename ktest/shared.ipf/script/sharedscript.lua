@@ -2148,7 +2148,7 @@ function SCR_POSSIBLE_UI_OPEN_CHECK(pc, questIES, subQuestZoneList, chType)
             ret = "OPEN"
             return ret, subQuestZoneList
         end
-    elseif questIES.QuestMode == "MAIN" or questIES.PossibleUI_Notify == 'UNCOND' then
+    elseif questIES.QuestMode == "MAIN" or questIES.QuestMode == "SUB" or questIES.PossibleUI_Notify == 'UNCOND' then
         ret = "OPEN"
         return ret, subQuestZoneList
     end

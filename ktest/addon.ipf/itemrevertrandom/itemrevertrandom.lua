@@ -1,7 +1,6 @@
--- itemrevertrandom.lua
+-- 장인의 돋보기
 function ITEMREVERTRANDOM_ON_INIT(addon, frame)
 	addon:RegisterMsg("MSG_SUCCESS_REVERT_RANDOM_OPTION", "SUCCESS_REVERT_RANDOM_OPTION");
-
 end
 
 local isCloseable = 1
@@ -22,9 +21,19 @@ function OPEN_REVERT_RANDOM(invItem)
 		end
 	end
 
+	local item = GetIES(invItem:GetObject());
 	frame:SetUserValue('REVERTITEM_GUID', invItem:GetIESID());
-	frame:ShowWindow(1);	
+	frame:SetUserValue("CLASS_ID", item.ClassID);
+
+	local richtext_1 = GET_CHILD_RECURSIVELY(frame, "richtext_1");
+	richtext_1:SetTextByKey("value", item.Name);	
+
+	local text_needmaterial = GET_CHILD_RECURSIVELY(frame, "text_needmaterial");
+	text_needmaterial:SetTextByKey("name", item.Name);
+
 	isCloseable = 1;
+
+	frame:ShowWindow(1);	
 	ui.OpenFrame('inventory');
 end
 
@@ -116,7 +125,6 @@ function CLEAR_ITEM_REVERT_RANDOM_UI()
 	isCloseable = 1
 
 	UPDATE_REMAIN_MASTER_GLASS_COUNT(frame)
-
 end
 
 function ITEM_REVERT_RANDOM_DROP(frame, icon, argStr, argNum)
@@ -149,20 +157,14 @@ function ITEM_REVERT_RANDOM_REG_TARGETITEM(frame, itemID, reReg)
 		return;
 	end
 
-	local item = GetIES(invItem:GetObject());
-	local itemCls = GetClassByType('Item', item.ClassID)
+	local obj = GetIES(invItem:GetObject());
+	local itemCls = GetClassByType('Item', obj.ClassID)
 
 	if TryGetProp(itemCls, 'NeedRandomOption') ~= 1 then
 		ui.SysMsg(ClMsg("NotAllowedRandomReset"));
 		return;
 	end
-
-	local pc = GetMyPCObject();
-	if pc == nil then
-		return;
-	end
-
-	local obj = GetIES(invItem:GetObject());
+	
 	if IS_NEED_APPRAISED_ITEM(obj) == true or IS_NEED_RANDOM_OPTION_ITEM(obj) == true then 
 		ui.SysMsg(ClMsg("NeedAppraisd"));
 		return;
@@ -177,8 +179,6 @@ function ITEM_REVERT_RANDOM_REG_TARGETITEM(frame, itemID, reReg)
 		ui.SysMsg(ClMsg("MaterialItemIsLock"));
 		return;
 	end
-
-	local invframe = ui.GetFrame("inventory");
 
 	local putOnItem = GET_CHILD_RECURSIVELY(frame, "text_putonitem")
 	putOnItem:ShowWindow(0)
@@ -224,23 +224,11 @@ function ITEM_REVERT_RANDOM_REG_TARGETITEM(frame, itemID, reReg)
 		end
 	end
 
-	local isAbleExchange = 1;
-	if obj.MaxDur <= MAXDUR_DECREASE_POINT_PER_RANDOM_RESET or obj.Dur <= MAXDUR_DECREASE_POINT_PER_RANDOM_RESET then
-		isAbleExchange = -2;
-	end
-
 	local slot = GET_CHILD_RECURSIVELY(frame, "slot");	
 	SET_SLOT_ITEM(slot, invItem);
---	SET_REVERT_RANDOM_RESET(frame);	
 end
 
-function SET_REVERT_RANDOM_RESET(frame)
---	reg:ShowWindow(0);
-end;
-
-
 function ITEM_REVERT_RANDOM_EXEC(frame)
-
 	frame = frame:GetTopParentFrame();
 	local slot = GET_CHILD_RECURSIVELY(frame, "slot");
 	local invItem = GET_SLOT_ITEM(slot);
@@ -260,26 +248,14 @@ function ITEM_REVERT_RANDOM_EXEC(frame)
 		return;
 	end
 
-
 	local clmsg = ScpArgMsg("DoRevertRandomReset")
-	ui.MsgBox_NonNested(clmsg, frame:GetName(), "_ITEM_REVERT_RANDOM_EXEC", "_ITEM_REVERT_RANDOM_CANCEL");
+	ui.MsgBox_NonNested(clmsg, frame:GetName(), "_ITEM_REVERT_RANDOM_EXEC", "None");
 end
-
-function _ITEM_REVERT_RANDOM_CANCEL()
-	local frame = ui.GetFrame("itemrevertrandom");
-end;
 
 function _ITEM_REVERT_RANDOM_EXEC()
 	local frame = ui.GetFrame("itemrevertrandom");
 	if frame:IsVisible() == 0 then
 		return;
-	end
-
-	local isAbleExchange = frame:GetUserIValue("isAbleExchange")
-
-	if isAbleExchange == -2 then
-		ui.SysMsg(ClMsg("MaxDurUnderflow")); 
-		return
 	end
 
 	local slot = GET_CHILD_RECURSIVELY(frame, "slot");
@@ -299,35 +275,41 @@ function _ITEM_REVERT_RANDOM_EXEC()
 	if ui.GetFrame("apps") ~= nil then
 		ui.CloseFrame("apps")
 	end
+
+	local revertItemGUID = frame:GetUserValue('REVERTITEM_GUID');
+	local revertItem = session.GetInvItemByGuid(revertItemGUID);
+	if revertItem == nil then
+		revertItemGUID = GET_NEXT_ITEM_GUID_BY_CLASSID(frame:GetUserValue("CLASS_ID"));
+	end
 	
 	session.ResetItemList();
-	session.AddItemID(frame:GetUserValue('REVERTITEM_GUID'));	
+	session.AddItemID(revertItemGUID);	
 	session.AddItemID(invItem:GetIESID());
 	local resultlist = session.GetItemIDList();
 	item.DialogTransaction("REVERT_ITEM_OPTION", resultlist);
 end
 
 function SUCCESS_REVERT_RANDOM_OPTION(frame)
-local RESET_SUCCESS_EFFECT_NAME = frame:GetUserConfig('RESET_SUCCESS_EFFECT');
+	local RESET_SUCCESS_EFFECT_NAME = frame:GetUserConfig('RESET_SUCCESS_EFFECT');
 	local EFFECT_SCALE = tonumber(frame:GetUserConfig('EFFECT_SCALE'));
 	local EFFECT_DURATION = tonumber(frame:GetUserConfig('EFFECT_DURATION'));
 	local pic_bg = GET_CHILD_RECURSIVELY(frame, 'pic_bg');
 	if pic_bg == nil then
 		return;
 	end
---		pic_bg:PlayActiveUIEffect();
+
 	pic_bg:PlayUIEffect(RESET_SUCCESS_EFFECT_NAME, EFFECT_SCALE, 'RESET_SUCCESS_EFFECT');
 
 	local do_revertrandom = GET_CHILD_RECURSIVELY(frame, "do_revertrandom")
-		do_revertrandom:ShowWindow(0)
+	do_revertrandom:ShowWindow(0)
 
-		ui.SetHoldUI(true);
+	ui.SetHoldUI(true);
 
 	ReserveScript("_SUCCESS_REVERT_RANDOM_OPTION()", EFFECT_DURATION)
 end
 
 function _SUCCESS_REVERT_RANDOM_OPTION()
-ui.SetHoldUI(false);
+	ui.SetHoldUI(false);
 	local frame = ui.GetFrame("itemrevertrandom");
 	if frame:IsVisible() == 0 then
 		return;
@@ -346,10 +328,7 @@ ui.SetHoldUI(false);
 	if pic_bg == nil then
 		return;
 	end
-		pic_bg:StopUIEffect('RESET_SUCCESS_EFFECT', true, 0.5);
-
-
-	local item = GetIES(invItem:GetObject());
+	pic_bg:StopUIEffect('RESET_SUCCESS_EFFECT', true, 0.5);
 
 	local sendOK = GET_CHILD_RECURSIVELY(frame, "send_ok")
 	sendOK:ShowWindow(1)
@@ -359,8 +338,6 @@ ui.SetHoldUI(false);
 	local text_afterreset = GET_CHILD_RECURSIVELY(frame, "text_afterreset")
 	text_afterreset:ShowWindow(1)
 
-	local gbox = frame:GetChild("gbox");
-	invItem = GET_SLOT_ITEM(slot);
 	local invItemGUID = invItem:GetIESID()
 	local resetInvItem = session.GetInvItemByGuid(invItemGUID)
 	local obj = GetIES(resetInvItem:GetObject());
@@ -410,9 +387,9 @@ ui.SetHoldUI(false);
 end
 
 function UPDATE_REMAIN_MASTER_GLASS_COUNT(frame)
-	local itemHaveCount = GET_INV_ITEM_COUNT_BY_PROPERTY({
-        {Name = 'StringArg', Value ='Master_Glass'}
-    }, false);
+	local classID = frame:GetUserValue("CLASS_ID");
+	local itemHaveCount = GET_INV_ITEM_COUNT_BY_CLASSID(classID);
+
 	local text_havematerial = GET_CHILD_RECURSIVELY(frame, "text_havematerial")
 	text_havematerial:SetTextByKey("count", itemHaveCount)
 end
@@ -450,8 +427,6 @@ function ITEM_REVERT_RANDOM_INV_RBTN(itemObj, slot)
 		return
 	end
 
-
-	--local isCloseable = frame:GetUserValue("IS_CLOSEABLE_STATE")
 	if isCloseable == 0 then
 		ui.SysMsg(ClMsg("CannotCloseRandomReset"));
 		return
@@ -572,13 +547,11 @@ function SHOW_REVERT_ITEM_RESULT(itemGuid, _propNameList, _propValueList)
 		frame:SetUserValue("IS_PLAYED_EFFECT", 1)
 	end
 
-
 	ui.SetHoldUI(true);
 	propNameList = _propNameList
 	propValueList = _propValueList
 
 	local scp = string.format("_SHOW_REVERT_ITEM_RESULT(\"%s\")", itemGuid)
-
 	ReserveScript(scp, EFFECT_DURATION)
 end
 
@@ -729,10 +702,6 @@ function ITEMREVERTRANDOM_SEND_ANSWER(parent, ctrl, argStr, argNum)
 	local slot = GET_CHILD_RECURSIVELY(frame, "slot");
 	local icon = slot:GetIcon();
 	local iconInfo = icon:GetInfo();
-	session.ResetItemList();
-	session.AddItemID(iconInfo:GetIESID());
-	
-
 	local icon = slot:GetIcon()
 	if icon == nil then		
 		return
@@ -770,6 +739,8 @@ function ITEMREVERTRANDOM_SEND_ANSWER(parent, ctrl, argStr, argNum)
 
 	frame:SetUserValue("IS_PLAYED_EFFECT", 0)
 
+	session.ResetItemList();
+	session.AddItemID(iconInfo:GetIESID());
 	item.DialogTransaction("ANSWER_REVERT_ITEM_OPTION", resultlist, stringArgList);
 	ui.CloseFrame("revertrandomagreebox")
 	isCloseable = 1

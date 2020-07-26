@@ -1,20 +1,27 @@
 <?xml version="1.0" encoding="EUC-KR"?>
 <!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by IMCGames Co., Ltd (IMCGames Co., Ltd) -->
 <ActionDesc>
-	<BlendOn frame="0" R="0" G="0" B="0" A="50"/>
-	<BlendOn frame="8" R="100" G="85" B="40" A="100"/>
-	<BlendOn frame="9" R="50" G="40" B="20" A="100"/>
-	<BlendOn frame="10" R="0" G="0" B="0" A="0"/>
-	<BlendOn frame="14" R="180" G="150" B="90" A="100"/>
-	<BlendOn frame="15" R="130" G="115" B="65" A="100"/>
-	<BlendOff frame="16" R="0" G="0" B="0" A="0"/>
-	<Particle frame="0" attachNode="Bip001 Spine1" particleName="F_cleric_DoublePunch_shot_spread_in_orange" useAttach="false" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" soft2DValue="20"/>
-	<Particle frame="8" attachNode="Dummy_emitter" particleName="F_warrior_swashbuckling_shot_ground" useAttach="false" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" soft2DValue="20"/>
-	<Particle frame="8" attachNode="Dummy_emitter" particleName="F_dash013_white" useAttach="false" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="false" soft2DValue="20"/>
-	<Particle frame="14" attachNode="Dummy_emitter" particleName="F_explosion98_rize_up_orange" useAttach="false" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="false" soft2DValue="20"/>
-	<Particle frame="14" attachNode="Dummy_emitter" particleName="F_ground185_spred_out_light_orange" useAttach="false" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" soft2DValue="20"/>
-	<Particle frame="15" attachNode="Dummy_emitter" particleName="F_explosion098_dark_orange2" useAttach="false" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="false" soft2DValue="20"/>
-	<Particle frame="15" attachNode="Dummy_emitter" particleName="F_ground190_circle_crack" useAttach="false" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="false" soft2DValue="20"/>
-	<Particle frame="17" attachNode="Dummy_emitter" particleName="F_ground190_circle_crack" useAttach="false" hiddenObj="false" changeEffect="None" scale="4.7" pause="true" use2DEffect="false" soft2DValue="20"/>
-	<Particle frame="22" attachNode="Dummy_emitter" particleName="F_ground190_circle_crack" useAttach="false" hiddenObj="false" changeEffect="None" scale="6.2" pause="true" use2DEffect="false" soft2DValue="20"/>
+    <BlendOn frame="0" R="0" G="0" B="0" A="50"/>
+    <Particle frame="0" attachNode="Bip001 Spine1" particleName="F_cleric_DoublePunch_shot_spread_in_orange" useAttach="false" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false" sound=""/>
+    <Sound frame="0.00" soundFile="skl_fgt_buff_3"/>
+    <Sound frame="1.00" soundFile="mon_voice13_cast1"/>
+    <Sound frame="4.00" soundFile="skl_eff_short_impact_whoosh_3"/>
+    <BlendOn frame="8" R="100" G="85" B="40" A="100"/>
+    <Particle frame="8" attachNode="Dummy_emitter" particleName="F_warrior_swashbuckling_shot_ground" useAttach="false" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <Particle frame="8" attachNode="Dummy_emitter" particleName="F_dash013_white" useAttach="false" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <Sound frame="8.00" soundFile="skl_eff_stoneunderground_3"/>
+    <BlendOn frame="9" R="50" G="40" B="20" A="100"/>
+    <BlendOn frame="10" R="0" G="0" B="0" A="0"/>
+    <Sound frame="11.00" soundFile="skl_eff_photowall_landing_s"/>
+    <Sound frame="11.00" soundFile="skl_eff_short_impact_whoosh_2"/>
+    <BlendOn frame="14" R="180" G="150" B="90" A="100"/>
+    <Particle frame="14" attachNode="Dummy_emitter" particleName="F_explosion98_rize_up_orange" useAttach="false" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <Particle frame="14" attachNode="Dummy_emitter" particleName="F_ground185_spred_out_light_orange" useAttach="false" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <BlendOn frame="15" R="130" G="115" B="65" A="100"/>
+    <Particle frame="15" attachNode="Dummy_emitter" particleName="F_explosion098_dark_orange2" useAttach="false" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <Particle frame="15" attachNode="Dummy_emitter" particleName="F_ground190_circle_crack" useAttach="false" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <Sound frame="15.00" soundFile="skl_explosion01"/>
+    <BlendOff frame="16" R="0" G="0" B="0" A="0"/>
+    <Particle frame="17" attachNode="Dummy_emitter" particleName="F_ground190_circle_crack" useAttach="false" hiddenObj="false" changeEffect="None" scale="4.7" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <Particle frame="22" attachNode="Dummy_emitter" particleName="F_ground190_circle_crack" useAttach="false" hiddenObj="false" changeEffect="None" scale="6.2" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
 </ActionDesc>

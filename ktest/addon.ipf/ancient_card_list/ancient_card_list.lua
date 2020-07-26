@@ -161,16 +161,26 @@ function INIT_ANCIENT_CARD_SLOTS(frame,type)
             if card ~= nil then
                 SET_ANCIENT_CARD_SLOT(ctrlSet,card)
             end
+            local default_image = GET_CHILD_RECURSIVELY(ctrlSet,"default_image")
+            AUTO_CAST(default_image)
+            default_image:SetImage("toketmon_info_slot")
         elseif type == ANCIENT_COMBINE_TAB or type == ANCIENT_EVOLVE_TAB then
             ctrlSet:SetEventScript(ui.DROP,"ON_ANCIENT_CARD_COMBINE_DROP")
             ctrlSet:SetEventScript(ui.RBUTTONDOWN, 'ANCIENT_CARD_SLOT_POP_COMBINE')
             if index == 3 then
                 local default_image = GET_CHILD_RECURSIVELY(ctrlSet,"default_image")
                 AUTO_CAST(default_image)
-                default_image:SetImage("m_question_mark")
-                default_image:Resize(97,128)
-                default_image:SetAlpha(60)
+                default_image:SetImage("toketmon_result")
+                -- default_image:SetAlpha(60)
                 ctrlSet:SetEventScript(ui.RBUTTONDOWN,"ON_ANCIENT_CARD_RELOAD")
+            else
+                local default_image = GET_CHILD_RECURSIVELY(ctrlSet,"default_image")
+                AUTO_CAST(default_image)
+                if type == ANCIENT_COMBINE_TAB then
+                    default_image:SetImage("toketmon_compose_slot")
+                elseif type == ANCIENT_EVOLVE_TAB then
+                    default_image:SetImage("toketmon_evolution_slot")
+                end
             end
         end
     end
@@ -634,17 +644,15 @@ end
 
 function REQUEST_SWAP_ANCIENT_CARD(frame,guid,slot)
     local zoneName = session.GetMapName();
-    if IS_ANCIENT_CARD_UI_ENABLE_MAP(zoneName) == false then
-        addon.BroadMsg("NOTICE_Dm_!", ClMsg("ImpossibleInCurrentMap"), 3);
-        return
-    end
     local zoneKeyword = GetClass("Map", zoneName).Keyword;
     keywordTable = StringSplit(zoneKeyword, ";");
     if table.find(keywordTable,"IsRaidField") > 0 or table.find(keywordTable,"WeeklyBossMap") > 0 then
+        addon.BroadMsg("NOTICE_Dm_!", ClMsg("ImpossibleInCurrentMap"), 3);
         return
     end
     
     if zoneName == 'd_solo_dungeon_2' then
+        addon.BroadMsg("NOTICE_Dm_!", ClMsg("ImpossibleInCurrentMap"), 3);
         return;
     end
     

@@ -16,7 +16,7 @@ function QUESTEPISODEREWARD_INFO(episodeName, xPos, prop)
 	local result = SCR_EPISODE_CHECK(pcObj, episodeRewardIES.ClassName)
 	
     -- 최신 에피소드 보상 UI 출력 예외 처리
-	if result == 'New' then
+	if result == 'New' or result == 'Next' then
 	    return
 	end
 

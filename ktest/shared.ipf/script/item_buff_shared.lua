@@ -52,7 +52,9 @@ function ITEMBUFF_CHECK_Squire_EquipmentTouchUp(self, item)
     if item.GroupName == "Armor" then
         if item.ClassType == "Shield" or
            item.ClassType == "Shirt" or
-           item.ClassType == "Pants" then
+           item.ClassType == "Pants" or
+           item.ClassType == "Gloves" or
+           item.ClassType == "Boots" then
                 return 1;
         end
     end
@@ -206,22 +208,29 @@ function ITEMBUFF_VALUE_Squire_EquipmentTouchUp(self, item, skillLevel)
             lv = grothItem;
         end
     end
-    
+
     if item.GroupName == 'Armor' then -- 방어구 손질
-        local value = math.floor(skillLevel + skillLevel * ((lv * 0.01) * (1 + (grade * 0.1 ))));
-        local count = 500 + skillLevel * 50 + self.INT;
+        local def = TryGetProp(item, "DEF", 0)
+        local mdef = TryGetProp(item, "MDEF", 0)
+
+        local value = math.floor(((def + mdef) / 2) * (skillLevel * 0.007));
+        local count = math.floor(500 + skillLevel * 50 + ((self.DEX + self.STR) * 0.1))
         local sec = 3600;        
         local Squire4 = GetAbility(self, 'Squire4');
     
         if Squire4 ~= nil then
             count = count + Squire4.Level * 5
         end
+
         return value, sec, count;
     end
     
-    -- 무기 손질        
-    local value = math.floor(skillLevel + skillLevel * ((lv * 0.03) * (1 + (grade * 0.1 ))));
-    local count = 2500 + skillLevel * 250 + self.INT;
+    -- 무기 손질
+    local minatk = TryGetProp(item, "MINATK", 0)
+    local maxatk = TryGetProp(item, "MAXATK", 0)
+
+    local value = math.floor(((minatk + maxatk) / 2) * (skillLevel * 0.007));
+    local count = math.floor(2500 + skillLevel * 250 + ((self.DEX + self.STR) * 0.5))
     local sec = 3600;
     local Squire3 = GetAbility(self, 'Squire3');
     if Squire3 ~= nil then

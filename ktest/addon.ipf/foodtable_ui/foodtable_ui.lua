@@ -213,22 +213,24 @@ function REMOVE_FOOD_TABLE(parent, ctrl)
 end
 
 function DESC_FOOD_salad(skillType, skillLevel, abilLevel)
-    local value = 7.5 + skillLevel * 2.5;
-	return ScpArgMsg("IncreaseHP{Value}For{Time}Minute", "Value", value, "Time", 30 + abilLevel);
+	local value = SCR_GET_FOOD_salad_Ratio(skillLevel)
+	local propValue = string.format("%.1f", value);
+	return ScpArgMsg("IncreaseHP{Value}For{Time}Minute", "Value", propValue, "Time", 30 + abilLevel);
 end
 
 function DESC_FOOD_sandwich(skillType, skillLevel, abilLevel)
-    local value = 7.5 + skillLevel * 2.5;
-	return ScpArgMsg("IncreaseSP{Value}For{Time}Minute", "Value", value, "Time", 30 + abilLevel);
+	local value = SCR_GET_FOOD_sandwich_Ratio(skillLevel)
+	local propValue = string.format("%.1f", value);
+	return ScpArgMsg("IncreaseSP{Value}For{Time}Minute", "Value", propValue, "Time", 30 + abilLevel);
 end
 
 function DESC_FOOD_soup(skillType, skillLevel, abilLevel)
-    local value = skillLevel;
+    local value = SCR_GET_FOOD_soup_Ratio(skillLevel)
 	return ScpArgMsg("IncreaseRHPTIME{Value}For{Time}Minute", "Value", value, "Time", 30 + abilLevel);
 end
 
 function DESC_FOOD_yogurt(skillType, skillLevel, abilLevel)
-    local value = skillLevel;
+    local value = SCR_GET_FOOD_yogurt_Ratio(skillLevel)
 	return ScpArgMsg("IncreaseRSPTIME{Value}For{Time}Minute", "Value", value, "Time", 30 + abilLevel);
 end
 

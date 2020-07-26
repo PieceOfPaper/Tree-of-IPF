@@ -186,17 +186,19 @@ function IS_ENABLE_RELEASE_OPTION(item)
 end;
 
 function GET_OPTION_RELEASE_COST(item, taxRate)
-    if item == nil then
-        return 0;
-    end;
+    -- if item == nil then
+    --     return 0;
+    -- end;
 
-    local price = TryGetProp(item, 'UseLv');
-    price = price * 100;
-    if taxRate ~= nil then
-        price = tonumber(CALC_PRICE_WITH_TAX_RATE(price, taxRate));
-    end;
+    -- local price = TryGetProp(item, 'UseLv');
+    -- price = price * 100;
+    -- if taxRate ~= nil then
+    --     price = tonumber(CALC_PRICE_WITH_TAX_RATE(price, taxRate));
+    -- end;
     
-    return SyncFloor(price);
+    -- return SyncFloor(price);
+
+    return 1
 end;
 
 -- 아이커가 가능한 랜덤 레전드 아이템인가?

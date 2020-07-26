@@ -12,6 +12,7 @@ function ITEMCRAFT_ON_INIT(addon, frame)
 	addon:RegisterMsg('RESTQUICKSLOT_CLOSE', 'CRAFT_EXIT');
 	addon:RegisterMsg('JOYSTICK_RESTQUICKSLOT_CLOSE', 'CRAFT_EXIT');
 	
+	addon:RegisterMsg("PROGRESS_ITEM_CRAFT_MSG", "PROGRESS_ITEM_CRAFT_MSG");
 
 	local bg = GET_CHILD(frame, "bg", "ui::CGroupBox");
 	bg:SetSkinName('bg');
@@ -2298,4 +2299,18 @@ function JOURNAL_INSERT_CRAFT(cls, tree, slotHeight)
 	app:SetEventScript(ui.LBUTTONUP, 'JORNAL_RECIPE_FOCUS');
 	page:Resize(page:GetWidth(), app:GetY() + app:GetHeight() + 20);
 
+end
+
+
+
+
+-- 아이템 제작 외에도 SetCraftState()를 이용해 유저 행동 제한하고 싶어서
+-- 이쪽에서 안내 msg 내용 관리하도록 함
+function PROGRESS_ITEM_CRAFT_MSG()
+	local goddess_roulette_frame = ui.GetFrame("goddess_roulette");
+	if goddess_roulette_frame:IsVisible() == 1 then
+		return;
+	end
+
+	ui.SysMsg(ClMsg("prosessItemCraft"));
 end

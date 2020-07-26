@@ -79,6 +79,21 @@ function OPEN_HOUSING_EDITMODE()
 	HOUSING_EDITMODE_CONTROL_IMAGE_SET(true, true);
 	
 	ui.CloseFrame("questinfoset_2");
+	
+	local option = IsEnabledOption("HousingPromoteLock");
+	if option == 0 then
+		local gbox_editmode = GET_CHILD_RECURSIVELY(frame, "gbox_editmode");
+		gbox_editmode:Resize(280, 315);		
+
+		local btn_promote = GET_CHILD_RECURSIVELY(frame, "btn_promote");
+		btn_promote:ShowWindow(1);		
+	else
+		local gbox_editmode = GET_CHILD_RECURSIVELY(frame, "gbox_editmode");
+		gbox_editmode:Resize(280, 260);
+
+		local btn_promote = GET_CHILD_RECURSIVELY(frame, "btn_promote");
+		btn_promote:ShowWindow(0);		
+    end
 end
 
 function HOUSING_EDITMODE_CONTROL_IMAGE_SET(isOpen, isMoveRemove)

@@ -52,15 +52,27 @@
                     <Str Str="Bip001 Spine1"/>
                     <Num Num="0"/>
                 </Scp>
+                <Scp Scp="C_SOUND" Client="YES" UseSleep="NO" Time="200">
+                    <Str Str="skl_eff_atk_move_m_5"/>
+                </Scp>
                 <Scp Scp="C_EFFECT" Client="YES" UseSleep="NO" Time="400">
                     <Str_Arg Str="F_warrior_swashbuckling_shot_ground" Arg="0.5"/>
                     <Str Str="None"/>
                     <Num Num="0"/>
                 </Scp>
+                <Scp Scp="C_SOUND" Client="YES" UseSleep="NO" Time="700">
+                    <Str Str="skl_fgt_light_cast_2"/>
+                </Scp>
                 <Scp Scp="C_EFFECT" Client="YES" UseSleep="NO" Time="700">
                     <Str_Arg Str="spread_in011_rainbow" Arg="0.5"/>
                     <Str Str="Bip001 Head"/>
                     <Num Num="0.2"/>
+                </Scp>
+                <Scp Scp="C_SOUND" Client="YES" UseSleep="NO" Time="1200">
+                    <Str Str="skl_eff_hit_plants_7"/>
+                </Scp>
+                <Scp Scp="C_SOUND" Client="YES" UseSleep="NO" Time="1300">
+                    <Str Str="skl_eff_body_atk_21"/>
                 </Scp>
                 <Scp Scp="EFT_AND_HIT" Client="NO" UseSleep="YES" TooltipScp="TOOLTIP_EFT_AND_HIT" Time="1500">
                     <Pos Angle="0" Dist="190"/>
@@ -124,6 +136,9 @@
                     <Num Num="0"/>
                     <Num Num="0"/>
                 </Scp>
+                <Scp Scp="C_SOUND" Client="YES" UseSleep="NO" Time="2000">
+                    <Str Str="skl_fgt_light_cast_2"/>
+                </Scp>
                 <Scp Scp="C_EFFECT" Client="YES" UseSleep="NO" Time="2100">
                     <Str_Arg Str="F_light019" Arg="0.5"/>
                     <Str Str="Bone_BeyeR_down"/>
@@ -134,6 +149,9 @@
                     <Str Str="Bone_BeyeL_down"/>
                     <Num Num="0"/>
                 </Scp>
+                <Scp Scp="C_SOUND" Client="YES" UseSleep="NO" Time="2500">
+                    <Str Str="skl_eff_special_hit_2"/>
+                </Scp>
                 <Scp Scp="SKL_TGT_BUFF" Client="NO" UseSleep="NO" Time="2600">
                     <Str Str="Ancient_Provoke_Debuff"/>
                     <Num Num="99"/>
@@ -143,6 +161,9 @@
                     <Num Num="100"/>
                     <Num Num="0"/>
                     <Num Num="0"/>
+                </Scp>
+                <Scp Scp="C_SOUND" Client="YES" UseSleep="NO" Time="2600">
+                    <Str Str="skl_eff_whirlwind_smoke"/>
                 </Scp>
                 <Scp Scp="C_SHOCKWAVE" Client="YES" UseSleep="NO" Time="2700">
                     <Num Num="3"/>
@@ -206,10 +227,22 @@
                     <Num Num="0"/>
                     <Num Num="100"/>
                 </Scp>
+                <Scp Scp="C_SOUND" Client="YES" UseSleep="NO" Time="700">
+                    <Str Str="skl_eff_force_whoosh_3"/>
+                </Scp>
+                <Scp Scp="C_SOUND" Client="YES" UseSleep="NO" Time="700">
+                    <Str Str="skl_eff_atk_move_m_5"/>
+                </Scp>
                 <Scp Scp="C_EFFECT" Client="YES" UseSleep="NO" Time="1000">
-                    <Str_Arg Str="I_dash25_red_mash2" Arg="2"/>
+                    <Str_Arg Str="I_dash25_red_mash3" Arg="2"/>
                     <Str Str="Bone_Bhair01"/>
                     <Num Num="0"/>
+                </Scp>
+                <Scp Scp="C_SOUND" Client="YES" UseSleep="NO" Time="1100">
+                    <Str Str="skl_eff_body_atk_21"/>
+                </Scp>
+                <Scp Scp="C_SOUND" Client="YES" UseSleep="NO" Time="1100">
+                    <Str Str="arrow_hit_critical"/>
                 </Scp>
                 <Scp Scp="EFT_AND_HIT" Client="NO" UseSleep="YES" TooltipScp="TOOLTIP_EFT_AND_HIT" Time="1200">
                     <Pos Angle="0" Dist="130"/>
@@ -260,6 +293,12 @@
             </HitList>
             <EtcList>
                 <Anim Time="0" Anim="skl1" Speed="1"/>
+                <Scp Scp="C_SOUND" Client="YES" UseSleep="NO" Time="500">
+                    <Str Str="skl_eff_atk_move_l_3"/>
+                </Scp>
+                <Scp Scp="C_SOUND" Client="YES" UseSleep="NO" Time="600">
+                    <Str Str="skl_eff_boss_missile_whoosh"/>
+                </Scp>
                 <Scp Scp="C_FORCE_EFT" Client="YES_Time" UseSleep="NO" Time="700">
                     <Str_Arg Str="I_force108_violet" Arg="1.5"/>
                     <Str Str="arrow_cast"/>
@@ -322,6 +361,9 @@
                     <Num Num="1"/>
                     <Num Num="0"/>
                 </Scp>
+                <Scp Scp="C_SOUND" Client="YES" UseSleep="NO" Time="650">
+                    <Str Str="skl_eff_boss_missile_whoosh"/>
+                </Scp>
                 <Scp Scp="MSL_THROW" Client="NO" UseSleep="YES" TooltipScp="TOOLTIP_MSL_THROW" Time="700">
                     <Str_Arg Str="I_force108_violet#Bip001 Spine" Arg="1.5"/>
                     <Str_Arg Str="F_hit_star" Arg="1.5"/>
@@ -341,6 +383,9 @@
                     <Num Num="1"/>
                     <Num Num="0"/>
                 </Scp>
+                <Scp Scp="C_SOUND" Client="YES" UseSleep="NO" Time="800">
+                    <Str Str="skl_eff_boss_missile_whoosh"/>
+                </Scp>
                 <Scp Scp="MSL_THROW" Client="NO" UseSleep="YES" TooltipScp="TOOLTIP_MSL_THROW" Time="800">
                     <Str_Arg Str="I_force108_violet#Bip001 Spine" Arg="1.5"/>
                     <Str_Arg Str="F_hit_star" Arg="1.5"/>
@@ -359,6 +404,18 @@
                     <Num Num="0"/>
                     <Num Num="1"/>
                     <Num Num="0"/>
+                </Scp>
+                <Scp Scp="C_SOUND" Client="YES" UseSleep="NO" Time="900">
+                    <Str Str="skl_eff_boss_missile_whoosh"/>
+                </Scp>
+                <Scp Scp="C_SOUND" Client="YES" UseSleep="NO" Time="950">
+                    <Str Str="skl_fgt_light_cast_2"/>
+                </Scp>
+                <Scp Scp="C_SOUND" Client="YES" UseSleep="NO" Time="1150">
+                    <Str Str="skl_fgt_light_cast_2"/>
+                </Scp>
+                <Scp Scp="C_SOUND" Client="YES" UseSleep="NO" Time="1350">
+                    <Str Str="skl_fgt_light_cast_2"/>
                 </Scp>
             </EtcList>
         </MainSkl>
@@ -382,6 +439,18 @@
                     <Num Num="1"/>
                     <Num Num="0"/>
                     <Num Num="0"/>
+                </Scp>
+                <Scp Scp="C_SOUND" Client="YES" UseSleep="NO" Time="1100">
+                    <Str Str="skl_eff_whoosh_1"/>
+                </Scp>
+                <Scp Scp="C_SOUND" Client="YES" UseSleep="NO" Time="1100">
+                    <Str Str="skl_eff_atk_move_s_3"/>
+                </Scp>
+                <Scp Scp="C_SOUND" Client="YES" UseSleep="NO" Time="1150">
+                    <Str Str="skl_eff_boss_missile_whoosh"/>
+                </Scp>
+                <Scp Scp="C_SOUND" Client="YES" UseSleep="NO" Time="1200">
+                    <Str Str="skl_fgt_light_cast_2"/>
                 </Scp>
                 <Scp Scp="C_EFFECT" Client="YES" UseSleep="NO" Time="1200">
                     <Str_Arg Str="I_light028" Arg="1"/>
@@ -407,6 +476,15 @@
                     <Num Num="1"/>
                     <Num Num="0"/>
                 </Scp>
+                <Scp Scp="C_SOUND" Client="YES" UseSleep="NO" Time="1800">
+                    <Str Str="skl_eff_boss_missile_whoosh"/>
+                </Scp>
+                <Scp Scp="C_SOUND" Client="YES" UseSleep="NO" Time="1800">
+                    <Str Str="skl_eff_whoosh_1"/>
+                </Scp>
+                <Scp Scp="C_SOUND" Client="YES" UseSleep="NO" Time="1900">
+                    <Str Str="skl_fgt_light_cast_2"/>
+                </Scp>
                 <Scp Scp="C_EFFECT" Client="YES" UseSleep="NO" Time="1900">
                     <Str_Arg Str="I_light028" Arg="1"/>
                     <Str Str="Dummy_weapon"/>
@@ -430,6 +508,15 @@
                     <Num Num="0"/>
                     <Num Num="1"/>
                     <Num Num="0"/>
+                </Scp>
+                <Scp Scp="C_SOUND" Client="YES" UseSleep="NO" Time="2200">
+                    <Str Str="skl_eff_whoosh_1"/>
+                </Scp>
+                <Scp Scp="C_SOUND" Client="YES" UseSleep="NO" Time="2200">
+                    <Str Str="skl_eff_boss_missile_whoosh"/>
+                </Scp>
+                <Scp Scp="C_SOUND" Client="YES" UseSleep="NO" Time="2250">
+                    <Str Str="skl_fgt_light_cast_2"/>
                 </Scp>
                 <Scp Scp="C_EFFECT" Client="YES" UseSleep="NO" Time="2250">
                     <Str_Arg Str="I_light028" Arg="1"/>
@@ -479,6 +566,12 @@
                     <Num Num="1"/>
                     <Num Num="0"/>
                 </Scp>
+                <Scp Scp="C_SOUND" Client="YES" UseSleep="NO" Time="2600">
+                    <Str Str="skl_eff_whoosh_1"/>
+                </Scp>
+                <Scp Scp="C_SOUND" Client="YES" UseSleep="NO" Time="2600">
+                    <Str Str="skl_eff_boss_missile_whoosh"/>
+                </Scp>
                 <Scp Scp="SKL_SET_TARGET_CIRCLE" Client="NO" UseSleep="NO" Time="2700">
                     <Pos Angle="0" Dist="0"/>
                     <Num Num="150"/>
@@ -493,6 +586,9 @@
                     <Num Num="0"/>
                 </Scp>
                 <Scp Scp="SKL_SET_DIR_TO_TGT" Client="NO" UseSleep="NO" Time="2800"/>
+                <Scp Scp="C_SOUND" Client="YES" UseSleep="NO" Time="2900">
+                    <Str Str="skl_eff_atk_move_m_10"/>
+                </Scp>
                 <Scp Scp="C_EFFECT" Client="YES" UseSleep="NO" Time="3000">
                     <Str_Arg Str="I_light028" Arg="1"/>
                     <Str Str="Dummy_weapon"/>
@@ -522,6 +618,15 @@
                     <Str Str="Bone_tail01"/>
                     <Num Num="0"/>
                 </Scp>
+                <Scp Scp="C_SOUND" Client="YES" UseSleep="NO" Time="3950">
+                    <Str Str="skl_eff_atk_move_m_2"/>
+                </Scp>
+                <Scp Scp="C_SOUND" Client="YES" UseSleep="NO" Time="4200">
+                    <Str Str="skl_fgt_light_cast_2"/>
+                </Scp>
+                <Scp Scp="C_SOUND" Client="YES" UseSleep="NO" Time="4200">
+                    <Str Str="skl_eff_spreadshot_whoosh"/>
+                </Scp>
             </EtcList>
         </MainSkl>
     </Skill>
@@ -537,6 +642,9 @@
                     <Str Str="Marnoks_Baby"/>
                     <Num Num="0"/>
                 </Scp>
+                <Scp Scp="C_SOUND" Client="YES" UseSleep="NO" Time="0">
+                    <Str Str="skl_eff_buff_loop_5"/>
+                </Scp>
                 <Scp Scp="C_EFFECT_DETACH" Client="YES" UseSleep="NO" Time="1000">
                     <Str_Arg Str="F_ground146_circle2" Arg="1.5"/>
                     <Num Num="0.5"/>
@@ -544,6 +652,12 @@
                 <Scp Scp="SKL_USE_PCSKILL_BALLON" Client="NO" UseSleep="NO" Time="2000">
                     <Num Num="163896"/>
                     <Num Num="3"/>
+                </Scp>
+                <Scp Scp="C_SOUND" Client="YES" UseSleep="NO" Time="2000">
+                    <Str Str="skl_eff_buff_20"/>
+                </Scp>
+                <Scp Scp="C_SOUND" Client="YES" UseSleep="NO" Time="2200">
+                    <Str Str="skl_eff_buff_loop_9"/>
                 </Scp>
                 <Scp Scp="MONSKL_CRE_PAD" Client="NO" UseSleep="NO" Time="2300">
                     <Pos Angle="0" Dist="-5.9272892e-15"/>
@@ -561,6 +675,9 @@
                     <Str_Arg Str="F_lineup007_white" Arg="1.7"/>
                     <Str Str="None"/>
                     <Num Num="0"/>
+                </Scp>
+                <Scp Scp="C_SOUND" Client="YES" UseSleep="NO" Time="3700">
+                    <Str Str="skl_eff_buff_loop_9"/>
                 </Scp>
                 <Anim Time="4400" Anim="skl4_end" Speed="1"/>
             </EtcList>
@@ -609,6 +726,9 @@
                     <Num Num="0"/>
                     <Num Num="0"/>
                 </Scp>
+                <Scp Scp="C_SOUND" Client="YES" UseSleep="NO" Time="700">
+                    <Str Str="skl_fgt_light_cast_2"/>
+                </Scp>
                 <Scp Scp="C_EFFECT" Client="YES" UseSleep="NO" Time="700">
                     <Str_Arg Str="F_hit_star_orange##0.01" Arg="1"/>
                     <Str Str="Dummy_weapon"/>
@@ -630,15 +750,24 @@
                     <Num Num="0"/>
                     <Num Num="0"/>
                 </Scp>
+                <Scp Scp="C_SOUND" Client="YES" UseSleep="NO" Time="1100">
+                    <Str Str="skl_fgt_light_cast_2"/>
+                </Scp>
                 <Scp Scp="C_EFFECT" Client="YES" UseSleep="NO" Time="1100">
                     <Str_Arg Str="F_hit_star##0.01" Arg="1.5"/>
                     <Str Str="Dummy_weapon"/>
                     <Num Num="0"/>
                 </Scp>
+                <Scp Scp="C_SOUND" Client="YES" UseSleep="NO" Time="1700">
+                    <Str Str="skl_fgt_light_cast_2"/>
+                </Scp>
                 <Scp Scp="C_EFFECT" Client="YES" UseSleep="NO" Time="1700">
                     <Str_Arg Str="F_hit_star" Arg="3"/>
                     <Str Str="Dummy_weapon"/>
                     <Num Num="0"/>
+                </Scp>
+                <Scp Scp="C_SOUND" Client="YES" UseSleep="NO" Time="1700">
+                    <Str Str="skl_eff_special_hit_1"/>
                 </Scp>
                 <Scp Scp="SKL_SETPOS_TARGET" Client="NO" UseSleep="NO" Time="1800">
                     <Str_Arg Str="None" Arg="1"/>

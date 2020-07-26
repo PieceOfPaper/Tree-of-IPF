@@ -1,9 +1,8 @@
--- itemsandrarevertrandom.lua
+-- 산드라의 감정 돋보기
 function ITEMSANDRAREVERTRANDOM_ON_INIT(addon, frame)
 	addon:RegisterMsg("MSG_SUCCESS_SANDRAREVERT_RANDOM_OPTION", "SUCCESS_SANDRAREVERT_RANDOM_OPTION");
 end
 
--- 산드라의 돋보기 아이템을 이용해서 UI 오픈
 function OPEN_SANDRAREVERT_RANDOM(invItem)
 	for i = 1, #revertrandomitemlist do
 		local frame = ui.GetFrame(revertrandomitemlist[i]);
@@ -12,8 +11,17 @@ function OPEN_SANDRAREVERT_RANDOM(invItem)
 		end
 	end
 
+	local item = GetIES(invItem:GetObject());
 	local frame = ui.GetFrame('itemsandrarevertrandom');
-	frame:SetUserValue('REVERTITEM_GUID', invItem:GetIESID());	 
+	frame:SetUserValue('REVERTITEM_GUID', invItem:GetIESID());
+	frame:SetUserValue("CLASS_ID", item.ClassID);
+
+	local richtext_1 = GET_CHILD_RECURSIVELY(frame, "richtext_1");
+	richtext_1:SetTextByKey("value", item.Name);	
+
+	local text_needmaterial = GET_CHILD_RECURSIVELY(frame, "text_needmaterial");
+	text_needmaterial:SetTextByKey("name", item.Name);	
+
 	frame:ShowWindow(1);
 end
 
@@ -23,10 +31,9 @@ function ITEM_SANDRAREVERT_RANDOM_OPEN(frame)
 	CLEAR_ITEM_SANDRAREVERT_RANDOM_UI()
 	local tab = GET_CHILD_RECURSIVELY(ui.GetFrame("inventory"), "inventype_Tab");	
 	tolua.cast(tab, "ui::CTabControl");
-	tab:SelectTab(0); -- 인벤토리의 모두보기 탭으로 이동
+	tab:SelectTab(0);
 
-	INVENTORY_SET_CUSTOM_RBTNDOWN("ITEM_SANDRAREVERT_RANDOM_INV_RBTN")	
-
+	INVENTORY_SET_CUSTOM_RBTNDOWN("ITEM_SANDRAREVERT_RANDOM_INV_RBTN")
 end
 
 function ITEM_SANDRAREVERT_RANDOM_CLOSE(frame)
@@ -38,7 +45,6 @@ function ITEM_SANDRAREVERT_RANDOM_CLOSE(frame)
 	control.DialogOk();
 end
 
--- UI 초기화
 function CLEAR_ITEM_SANDRAREVERT_RANDOM_UI()
 	if ui.CheckHoldedUI() == true then
 		return;
@@ -79,7 +85,6 @@ function CLEAR_ITEM_SANDRAREVERT_RANDOM_UI()
 	UPDATE_REMAIN_SANDRA_GLASS_COUNT(frame)
 end
 
--- 감정 후 확인 버튼 클릭시 UI 갱신
 function SENDOK_ITEM_SANDRAREVERT_RANDOM_UI()
 	if ui.CheckHoldedUI() == true then
 		return;
@@ -105,7 +110,7 @@ function SENDOK_ITEM_SANDRAREVERT_RANDOM_UI()
 	bodyGbox1:ShowWindow(1)
 	local bodyGbox1_1 = GET_CHILD_RECURSIVELY(frame, 'bodyGbox1_1');
 	bodyGbox1_1:RemoveAllChild();
-	bodyGbox1_1:EnableHitTest(1);		-- 체크박스 클릭을 위해 hittest 옵션 켜줌
+	bodyGbox1_1:EnableHitTest(1);
 
 	local bodyGbox2 = GET_CHILD_RECURSIVELY(frame, 'bodyGbox2');
 	bodyGbox2:ShowWindow(0)
@@ -115,7 +120,6 @@ function SENDOK_ITEM_SANDRAREVERT_RANDOM_UI()
 	ITEM_SANDRAREVERT_RANDOM_REG_TARGETITEM(frame, iconInfo:GetIESID())
 end
 
--- 슬롯에 아이템 드랍
 function ITEM_SANDRAREVERT_RANDOM_DROP(frame, icon, argStr, argNum)
 	if ui.CheckHoldedUI() == true then
 		return;
@@ -150,20 +154,14 @@ function ITEM_SANDRAREVERT_RANDOM_REG_TARGETITEM(frame, itemID)
 		return;
 	end
 
-	local item = GetIES(invItem:GetObject());
-	local itemCls = GetClassByType('Item', item.ClassID)
+	local obj = GetIES(invItem:GetObject());
+	local itemCls = GetClassByType('Item', obj.ClassID)
 
 	if TryGetProp(itemCls, "NeedRandomOption") == nil or itemCls.NeedRandomOption ~= 1 then
 		ui.SysMsg(ClMsg("NotAllowedRandomReset"));
 		return;
 	end
 
-	local pc = GetMyPCObject();
-	if pc == nil then
-		return;
-	end
-
-	local obj = GetIES(invItem:GetObject());
 	if IS_NEED_APPRAISED_ITEM(obj) == true or IS_NEED_RANDOM_OPTION_ITEM(obj) == true then 
 		ui.SysMsg(ClMsg("NeedAppraisd"));
 		return;
@@ -223,18 +221,12 @@ function ITEM_SANDRAREVERT_RANDOM_REG_TARGETITEM(frame, itemID)
 		end
 	end
 
-	local isAbleExchange = 1;
-	if obj.MaxDur <= MAXDUR_DECREASE_POINT_PER_RANDOM_RESET or obj.Dur <= MAXDUR_DECREASE_POINT_PER_RANDOM_RESET then
-		isAbleExchange = -2;
-	end
-
 	local slot = GET_CHILD_RECURSIVELY(frame, "slot");
 	SET_SLOT_ITEM(slot, invItem);
 
-	frame:SetUserValue("RANDOM_PROP_CNT", cnt);		-- 현재 해당 장비의 랜덤 옵션 개 수 
+	frame:SetUserValue("RANDOM_PROP_CNT", cnt);	
 end
 
--- 재감정 버튼 클릭
 function ITEM_SANDRAREVERT_RANDOM_EXEC(frame)
 	frame = frame:GetTopParentFrame();
 	local slot = GET_CHILD_RECURSIVELY(frame, "slot");
@@ -257,11 +249,7 @@ function ITEM_SANDRAREVERT_RANDOM_EXEC(frame)
 	end
 
 	local clmsg = ScpArgMsg("DoSandrarevertRandomResetOptionCountNoReset")
-	ui.MsgBox_NonNested(clmsg, frame:GetName(), "_ITEM_SANDRAREVERT_RANDOM_EXEC", "_ITEM_SANDRAREVERT_RANDOM_CANCEL");
-end
-
-function _ITEM_SANDRAREVERT_RANDOM_CANCEL()
-	local frame = ui.GetFrame("itemsandrarevertrandom");
+	ui.MsgBox_NonNested(clmsg, frame:GetName(), "_ITEM_SANDRAREVERT_RANDOM_EXEC", "None");
 end
 
 function _ITEM_SANDRAREVERT_RANDOM_EXEC()
@@ -270,12 +258,6 @@ function _ITEM_SANDRAREVERT_RANDOM_EXEC()
 		return;
 	end
 	
-	local isAbleExchange = frame:GetUserIValue("isAbleExchange")
-	if isAbleExchange == -2 then
-		ui.SysMsg(ClMsg("MaxDurUnderflow")); 
-		return;
-	end
-
 	local slot = GET_CHILD_RECURSIVELY(frame, "slot");
 	local invItem = GET_SLOT_ITEM(slot);
 	if invItem == nil then
@@ -294,8 +276,14 @@ function _ITEM_SANDRAREVERT_RANDOM_EXEC()
 		ui.CloseFrame("apps")
 	end
 
+	local revertItemGUID = frame:GetUserValue('REVERTITEM_GUID');
+	local revertItem = session.GetInvItemByGuid(revertItemGUID);
+	if revertItem == nil then
+		revertItemGUID = GET_NEXT_ITEM_GUID_BY_CLASSID(frame:GetUserValue("CLASS_ID"));
+	end
+
 	session.ResetItemList();
-	session.AddItemID(frame:GetUserValue('REVERTITEM_GUID'));
+	session.AddItemID(revertItemGUID);
 	session.AddItemID(invItem:GetIESID());
 	local resultlist = session.GetItemIDList();
 	local optionList = NewStringList();
@@ -326,12 +314,9 @@ function _ITEM_SANDRAREVERT_RANDOM_EXEC()
 	gBox:EnableHitTest(0); -- 감정 시작 이후 체크박스 클릭 못하게
 
 	item.DialogTransaction("REVERT_ITEM_OPTION", resultlist, "", optionList);
-
-	return;
 end
 
 function SUCCESS_SANDRAREVERT_RANDOM_OPTION(frame, msg, argStr, argNum)
-	print("SUCCESS_SANDRAREVERT_RANDOM_OPTION")
 	local RESET_SUCCESS_EFFECT_NAME = frame:GetUserConfig('RESET_SUCCESS_EFFECT');
 	local EFFECT_SCALE = tonumber(frame:GetUserConfig('EFFECT_SCALE'));
 	local EFFECT_DURATION = tonumber(frame:GetUserConfig('EFFECT_DURATION'));
@@ -370,16 +355,11 @@ function _SUCCESS_SANDRAREVERT_RANDOM_OPTION()
 	if pic_bg == nil then
 		return;
 	end
-		pic_bg:StopUIEffect('RESET_SUCCESS_EFFECT', true, 0.5);
-
-
-	local item = GetIES(invItem:GetObject());
+	pic_bg:StopUIEffect('RESET_SUCCESS_EFFECT', true, 0.5);
 
 	local sendOK = GET_CHILD_RECURSIVELY(frame, "send_ok")
 	sendOK:ShowWindow(1)
 
-	local gbox = frame:GetChild("gbox");
-	invItem = GET_SLOT_ITEM(slot);
 	local invItemGUID = invItem:GetIESID()
 	local resetInvItem = session.GetInvItemByGuid(invItemGUID)
 	if resetInvItem == nil then
@@ -393,7 +373,6 @@ function _SUCCESS_SANDRAREVERT_RANDOM_OPTION()
 		refreshScp(obj);
 	end
 	
-	-- 변경 후 옵션 UI 변경
 	local gBox = GET_CHILD_RECURSIVELY(frame, "bodyGbox2_1");
     local ypos = 0;
 	for i = 1 , MAX_RANDOM_OPTION_COUNT do
@@ -435,16 +414,12 @@ function _SUCCESS_SANDRAREVERT_RANDOM_OPTION()
 	bodyGbox2:ShowWindow(1)
 
 	UPDATE_REMAIN_SANDRA_GLASS_COUNT(frame)
-
-	return;
 end
 
--- 보유한 돋보기 갯 수 출력
-function UPDATE_REMAIN_SANDRA_GLASS_COUNT(frame)	
-	local itemHaveCount = GET_INV_ITEM_COUNT_BY_PROPERTY({
-        {Name = 'StringArg', Value ='Sandra_Glass'}
-	}, false);
-	
+function UPDATE_REMAIN_SANDRA_GLASS_COUNT(frame)
+	local classID = frame:GetUserValue("CLASS_ID");
+	local itemHaveCount = GET_INV_ITEM_COUNT_BY_CLASSID(classID);
+
 	local text_havematerial = GET_CHILD_RECURSIVELY(frame, "text_havematerial")
 	text_havematerial:SetTextByKey("count", itemHaveCount)
 end

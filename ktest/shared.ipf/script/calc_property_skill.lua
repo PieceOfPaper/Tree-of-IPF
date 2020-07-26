@@ -177,11 +177,6 @@ function SCR_Get_SpendSP(skill)
         end
     end
 
-    -- EVENT_2004_UPHILL
-    if IsBuffApplied(pc, "EVENT_2004_UPHILL_BUFF") == "YES" then
-        return 0
-    end
-
     ----------
     value = value - decsp;
     if value < 1 then
@@ -536,12 +531,6 @@ function SCR_GET_SKL_COOLDOWN(skill)
         end
     end
     
-    if skill.ClassName == "Cleric_Heal" then
-        if IsPVPServer(pc) == 1 then
-            basicCoolDown = basicCoolDown + 28000
-        end
-    end
-    
     if skill.ClassName == "Cleric_Cure" then
         local jobHistory = '';
         if IsServerObj(pc) == 1 then
@@ -564,8 +553,18 @@ function SCR_GET_SKL_COOLDOWN(skill)
         end
     end
     
-    basicCoolDown = SCR_COMMON_COOLDOWN_DECREASE(pc, basicCoolDown)
+    basicCoolDown = SCR_COMMON_COOLDOWN_DECREASE(pc, skill, basicCoolDown)
     
+    if IsPVPServer(pc) == 1 then
+        if skill.ClassName == "Cleric_Heal" then
+            basicCoolDown = basicCoolDown + 2000
+        end
+
+        if skill.ClassName == "Priest_Revive" or skill.ClassName == "Priest_Resurrection" then
+            basicCoolDown = 180000
+        end
+    end
+
     local ret = math.floor(basicCoolDown) / 1000
     ret = math.floor(ret) * 1000;
     if coolDownClassify == "Fix" then
@@ -616,7 +615,7 @@ function SCR_GET_SKL_COOLDOWN_ADD_LEVEL_BYGEM(skill)
         end
     end
     
-    basicCoolDown = SCR_COMMON_COOLDOWN_DECREASE(pc, basicCoolDown)
+    basicCoolDown = SCR_COMMON_COOLDOWN_DECREASE(pc, skill, basicCoolDown)
     
     local ret = math.floor(basicCoolDown) / 1000
     ret = math.floor(ret) * 1000;
@@ -635,7 +634,7 @@ function SCR_GET_SKL_COOLDOWN_Bunshin_no_jutsu(skill)
     local abilAddCoolDown = GetAbilityAddSpendValue(pc, skill.ClassName, "CoolDown");
     basicCoolDown = basicCoolDown + abilAddCoolDown;
     
-    basicCoolDown = SCR_COMMON_COOLDOWN_DECREASE(pc, basicCoolDown)
+    basicCoolDown = SCR_COMMON_COOLDOWN_DECREASE(pc, skill, basicCoolDown)
     
     local ret = math.floor(basicCoolDown) / 1000
     ret = math.floor(ret) * 1000;
@@ -648,7 +647,7 @@ function SCR_GET_SKL_COOLDOWN_KaguraDance(skill)
     local abilAddCoolDown = GetAbilityAddSpendValue(pc, skill.ClassName, "CoolDown");
     basicCoolDown = basicCoolDown + abilAddCoolDown;
     
-    basicCoolDown = SCR_COMMON_COOLDOWN_DECREASE(pc, basicCoolDown)
+    basicCoolDown = SCR_COMMON_COOLDOWN_DECREASE(pc, skill, basicCoolDown)
     
     local ret = math.floor(basicCoolDown) / 1000
     ret = math.floor(ret) * 1000;
@@ -662,7 +661,7 @@ function SCR_GET_SKL_COOLDOWN_BUNSIN(skill)
     local abilAddCoolDown = GetAbilityAddSpendValue(pc, skill.ClassName, "CoolDown");
     basicCoolDown = basicCoolDown + abilAddCoolDown;
     
-    basicCoolDown = SCR_COMMON_COOLDOWN_DECREASE(pc, basicCoolDown)
+    basicCoolDown = SCR_COMMON_COOLDOWN_DECREASE(pc, skill, basicCoolDown)
     
     if IsServerSection() == 1 and GetExProp(pc, "BUNSIN_VIBORA_DAGGER") ~= 0 then
         basicCoolDown = 0
@@ -685,7 +684,7 @@ function SCR_GET_SKL_COOLDOWN_PrimeAndLoad(skill)
         basicCoolDown = basicCoolDown - (abilMusketeer29.Level * 1000);
     end
     
-    basicCoolDown = SCR_COMMON_COOLDOWN_DECREASE(pc, basicCoolDown)
+    basicCoolDown = SCR_COMMON_COOLDOWN_DECREASE(pc, skill, basicCoolDown)
 
     local ret = math.floor(basicCoolDown) / 1000
     ret = math.floor(ret) * 1000;   
@@ -706,7 +705,7 @@ function SCR_GET_SKL_COOLDOWN_CounterSpell(skill)
         end
     end
     
-    basicCoolDown = SCR_COMMON_COOLDOWN_DECREASE(pc, basicCoolDown)
+    basicCoolDown = SCR_COMMON_COOLDOWN_DECREASE(pc, skill, basicCoolDown)
     
     local ret = math.floor(basicCoolDown) / 1000
     
@@ -735,7 +734,7 @@ function SCR_GET_SKL_CoolDown_BackSlide(skill)
         end
     end
     
-    basicCoolDown = SCR_COMMON_COOLDOWN_DECREASE(pc, basicCoolDown)
+    basicCoolDown = SCR_COMMON_COOLDOWN_DECREASE(pc, skill, basicCoolDown)
     
     local ret = math.floor(basicCoolDown) / 1000
     ret = math.floor(ret) * 1000;
@@ -756,7 +755,7 @@ function SCR_GET_SKL_CoolDown_Prevent(skill)
         end
     end
     
-    basicCoolDown = SCR_COMMON_COOLDOWN_DECREASE(pc, basicCoolDown)
+    basicCoolDown = SCR_COMMON_COOLDOWN_DECREASE(pc, skill, basicCoolDown)
     
     local ret = math.floor(basicCoolDown) / 1000
     ret = math.floor(ret) * 1000;
@@ -795,7 +794,7 @@ function SCR_GET_SKL_COOLDOWN_Golden_Bell_Shield(skill)
     
     basicCoolDown = basicCoolDown + abilAddCoolDown;
         
-    basicCoolDown = SCR_COMMON_COOLDOWN_DECREASE(pc, basicCoolDown)
+    basicCoolDown = SCR_COMMON_COOLDOWN_DECREASE(pc, skill, basicCoolDown)
     
     if IsPVPServer(pc) == 1 then
         basicCoolDown = basicCoolDown + 10000;
@@ -811,7 +810,7 @@ function SCR_GET_SKL_COOLDOWN_VisibleTalent(skill)
     local abilAddCoolDown = GetAbilityAddSpendValue(pc, skill.ClassName, "CoolDown");
     basicCoolDown = basicCoolDown + abilAddCoolDown  - ((skill.Level - 1) * 1000);
     
-    basicCoolDown = SCR_COMMON_COOLDOWN_DECREASE(pc, basicCoolDown)
+    basicCoolDown = SCR_COMMON_COOLDOWN_DECREASE(pc, skill, basicCoolDown)
     
     local ret = math.floor(basicCoolDown) / 1000
     
@@ -827,7 +826,7 @@ function SCR_GET_SKL_COOLDOWN_Chronomancer_Stop(skill)
     local abilAddCoolDown = GetAbilityAddSpendValue(pc, skill.ClassName, "CoolDown");
     basicCoolDown = basicCoolDown + abilAddCoolDown  - ((skill.Level - 1) * 5000);
     
-    basicCoolDown = SCR_COMMON_COOLDOWN_DECREASE(pc, basicCoolDown)
+    basicCoolDown = SCR_COMMON_COOLDOWN_DECREASE(pc, skill, basicCoolDown)
     
     local ret = math.floor(basicCoolDown) / 1000
     
@@ -866,7 +865,18 @@ function SCR_GET_SKL_COOLDOWN_WIZARD(skill)
     
     basicCoolDown = basicCoolDown + abilAddCoolDown;
     
-    basicCoolDown = SCR_COMMON_COOLDOWN_DECREASE(pc, basicCoolDown)
+    basicCoolDown = SCR_COMMON_COOLDOWN_DECREASE(pc, skill, basicCoolDown)
+
+    if IsPVPServer(pc) == 1 then
+        if skill.ClassName == "Chronomancer_BackMasking" then
+            basicCoolDown = 180000
+        end
+
+        local abilChronomancer12 = GetAbility(pc, "Chronomancer12")
+        if skill.ClassName == "Chronomancer_Samsara" and abilChronomancer12 ~= nil and TryGetProp(abilChronomancer12, "ActiveState", 0) == 1 then
+            basicCoolDown = 180000
+        end
+    end
     
     if basicCoolDown < skill.MinCoolDown then
         return skill.MinCoolDown;
@@ -888,7 +898,7 @@ function SCR_GET_SKL_COOLDOWN_Teleportation(skill)
     local abilAddCoolDown = GetAbilityAddSpendValue(pc, skill.ClassName, "CoolDown");
     
     basicCoolDown = (basicCoolDown - (TryGetProp(skill, "Level", 0) - 1) * 1000) + abilAddCoolDown;
-    basicCoolDown = SCR_COMMON_COOLDOWN_DECREASE(pc, basicCoolDown)
+    basicCoolDown = SCR_COMMON_COOLDOWN_DECREASE(pc, skill, basicCoolDown)
     
     if basicCoolDown < skill.MinCoolDown then
         return skill.MinCoolDown;
@@ -911,7 +921,7 @@ function SCR_GET_SKL_COOLDOWN_SummonFamiliar(skill)
     
     basicCoolDown = basicCoolDown + abilAddCoolDown;
     
-    basicCoolDown = SCR_COMMON_COOLDOWN_DECREASE(pc, basicCoolDown)
+    basicCoolDown = SCR_COMMON_COOLDOWN_DECREASE(pc, skill, basicCoolDown)
     
     if basicCoolDown < skill.MinCoolDown then
         return skill.MinCoolDown;
@@ -930,7 +940,7 @@ function SCR_GET_SKL_COOLDOWN_Bloodletting(skill)
     
     basicCoolDown = basicCoolDown + abilAddCoolDown;
         
-    basicCoolDown = SCR_COMMON_COOLDOWN_DECREASE(pc, basicCoolDown)
+    basicCoolDown = SCR_COMMON_COOLDOWN_DECREASE(pc, skill, basicCoolDown)
     
     if IsPVPServer(pc) == 1 then
         basicCoolDown = basicCoolDown + 20000;
@@ -948,7 +958,7 @@ function SCR_GET_SKL_COOLDOWN_HealingFactor(skill)
     
     basicCoolDown = basicCoolDown + abilAddCoolDown;
         
-    basicCoolDown = SCR_COMMON_COOLDOWN_DECREASE(pc, basicCoolDown)
+    basicCoolDown = SCR_COMMON_COOLDOWN_DECREASE(pc, skill, basicCoolDown)
     
     if IsPVPServer(pc) == 1 then
         basicCoolDown = basicCoolDown + 20000;
@@ -966,7 +976,7 @@ function SCR_GET_SKL_COOLDOWN_GravityPole(skill)
     
     basicCoolDown = basicCoolDown + abilAddCoolDown;
         
-    basicCoolDown = SCR_COMMON_COOLDOWN_DECREASE(pc, basicCoolDown)
+    basicCoolDown = SCR_COMMON_COOLDOWN_DECREASE(pc, skill, basicCoolDown)
     
     if IsPVPServer(pc) == 1 then
         basicCoolDown = basicCoolDown + 15000;
@@ -2645,7 +2655,7 @@ function SCR_GET_SKL_COOLDOWN_MortalSlash(skill)
         end
     end
     
-    basicCoolDown = SCR_COMMON_COOLDOWN_DECREASE(pc, basicCoolDown)
+    basicCoolDown = SCR_COMMON_COOLDOWN_DECREASE(pc, skill, basicCoolDown)
     
     if IsBuffApplied(pc, "Bunshin_Debuff") == "YES" then
         local bunshinBuff = nil
@@ -3832,7 +3842,7 @@ function SCR_GET_SKL_COOLDOWN_CannonBarrage(skill)
         basicCoolDown = basicCoolDown * abilCoolDownRate;
     end
     
-    basicCoolDown = SCR_COMMON_COOLDOWN_DECREASE(pc, basicCoolDown)
+    basicCoolDown = SCR_COMMON_COOLDOWN_DECREASE(pc, skill, basicCoolDown)
 
     local ret = math.floor(basicCoolDown) / 1000
     ret = math.floor(ret) * 1000;   
@@ -6053,26 +6063,27 @@ end
 
 function SCR_GET_Omikuji_Time(skill)
     local value = 20
+
+    value = value * SCR_REINFORCEABILITY_TOOLTIP(skill)
+
     return math.floor(value)
 end
 
 function SCR_GET_Omikuji_Ratio(skill)
     local value = 15 + (5 * skill.Level)
-    value = value * SCR_REINFORCEABILITY_TOOLTIP(skill)
 
     return math.floor(value)
 end
 
 function SCR_GET_Omikuji_Ratio2(skill)
     local value = 180 + (20 * skill.Level)
-    value = value * SCR_REINFORCEABILITY_TOOLTIP(skill)
 
     return math.floor(value)
 end
 
 function SCR_GET_Omikuji_Ratio3(skill)
     local value = 45 + (5 * skill.Level)
-    value = value * SCR_REINFORCEABILITY_TOOLTIP(skill)
+    
     return math.floor(value)
 end
 
@@ -7188,6 +7199,12 @@ end
 function SCR_GET_Burrow_Ratio(skill)
 local value = 5 * skill.Level
 return value
+end
+
+function SCR_GET_Burrow_Time(skill)
+    local value = 20 + skill.Level * 2
+    value = value * SCR_REINFORCEABILITY_TOOLTIP(skill)
+    return value
 end
 
 function SCR_Get_HellFire_SkillFactor(skill)
@@ -8511,33 +8528,25 @@ end
 
 
 function SCR_GET_WeaponTouchUp_Ratio(skill)
-    return skill.Level
+    return skill.Level * 0.7
 end
 
 function SCR_GET_WeaponTouchUp_Ratio2(skill)
     local pc = GetSkillOwner(skill)
-    local value = 2500 + skill.Level * 250 + pc.INT
+    local value = math.floor(2500 + skill.Level * 250 + ((pc.DEX + pc.STR) * 0.5))
     local Squire3 = GetAbility(pc, 'Squire3');
-    
-    if Squire3 ~= nil and 1 == Squire3.ActiveState and skill.Level >= 3 then
-        value = value + Squire3.Level * 20
-    end
     
     return value
 end
 
 function SCR_GET_ArmorTouchUp_Ratio(skill)
-    return skill.Level
+    return skill.Level * 0.7
 end
 
 function SCR_GET_ArmorTouchUp_Ratio2(skill)
     local pc = GetSkillOwner(skill)
-    local value = 500 + skill.Level * 50 + pc.INT
+    local value = math.floor(500 + skill.Level * 50 + ((pc.DEX + pc.STR) * 0.1))
     local Squire4 = GetAbility(pc, 'Squire4');
-    
-    if Squire4 ~= nil and 1 == Squire4.ActiveState and skill.Level >= 3 then
-        value = value + Squire4.Level * 5
-    end
     
     return value
 end
@@ -8646,6 +8655,22 @@ end
 
 function SCR_GET_Camp_Ratio2(skill)
     return skill.Level * 5
+end
+
+function SCR_GET_FOOD_salad_Ratio(skilllevel)
+    return 4 + skilllevel * 1.2
+end
+
+function SCR_GET_FOOD_sandwich_Ratio(skilllevel)
+    return 4 + skilllevel * 1.2
+end
+
+function SCR_GET_FOOD_soup_Ratio(skilllevel)
+    return skilllevel * 3
+end
+
+function SCR_GET_FOOD_yogurt_Ratio(skilllevel)
+    return skilllevel * 3
 end
 
 function SCR_GET_SR_LV_TEST(skill)
@@ -9894,7 +9919,7 @@ function SCR_GET_HoverBomb_Ratio(skill)
 end
 
 function SCR_GET_SneakHit_Ratio(skill)
-    return 30 + skill.Level * 2;
+    return 40 + skill.Level * 2;
 end
 
 function SCR_GET_SneakHit_Bufftime(skill)
@@ -9911,11 +9936,11 @@ function SCR_GET_SneakHit_Bufftime(skill)
 end
 
 function SCR_GET_Feint_Ratio(skill)
-    return 3 * skill.Level;
+    return 50 + skill.Level * 8;
 end
 
 function SCR_GET_Feint_Ratio2(skill)
-    return 2 + skill.Level * 1
+    return 5 + skill.Level * 1.5
 end
 
 function SCR_GET_Feint_Bufftime(skill)
@@ -9928,6 +9953,12 @@ end
 
 function SCR_GET_Evasion_Ratio(skill)
     local value = 50 * skill.Level
+    
+    return value
+end
+
+function SCR_GET_Evasion_Ratio2(skill)
+    local value = 2 * skill.Level
     
     return value
 end
@@ -10775,11 +10806,6 @@ function SCR_GET_SPENDITEM_COUNT_Samsara(skill)
     local count = skill.SpendItemBaseCount
     local pc = GetSkillOwner(skill);
     local addCount = GetAbilityAddSpendValue(pc, skill.ClassName, "SpendItem");
-
-    -- EVENT_2004_UPHILL
-    if IsBuffApplied(pc, "EVENT_2004_UPHILL_BUFF") == "YES" then
-        return 0;
-    end
 
     return count + addCount;
 end
@@ -12092,7 +12118,7 @@ function SCR_GET_FreezeBullet_Ratio(skill)
 end
 
 function SCR_GET_brutality_Ratio(skill)
-    local value = (skill.Level * 4)
+    local value = 20 + (skill.Level * 4)
     
     return value
 end
@@ -12169,7 +12195,7 @@ function SCR_GET_SKL_COOLDOWN_Preparation(skill)
     
     basicCoolDown = basicCoolDown + abilAddCoolDown;
         
-    basicCoolDown = SCR_COMMON_COOLDOWN_DECREASE(pc, basicCoolDown)
+    basicCoolDown = SCR_COMMON_COOLDOWN_DECREASE(pc, skill, basicCoolDown)
     
     return math.floor(basicCoolDown);
 end
@@ -12181,7 +12207,7 @@ function SCR_GET_SKL_COOLDOWN_KnifeThrowing(skill)
     
     basicCoolDown = basicCoolDown + abilAddCoolDown;
         
-    basicCoolDown = SCR_COMMON_COOLDOWN_DECREASE(pc, basicCoolDown)
+    basicCoolDown = SCR_COMMON_COOLDOWN_DECREASE(pc, skill, basicCoolDown)
     
 
     return math.floor(basicCoolDown);
@@ -12260,7 +12286,7 @@ end
 
 -- Matross_Roar
 function SCR_GET_Roar_Time(skill)
-    local value = 60
+    local value = 30
     return value
 end
 
@@ -12659,7 +12685,7 @@ function SCR_GET_SKL_COOLDOWN_ControlBlade(skill)
         end
     end
     
-    basicCoolDown = SCR_COMMON_COOLDOWN_DECREASE(pc, basicCoolDown)
+    basicCoolDown = SCR_COMMON_COOLDOWN_DECREASE(pc, skill, basicCoolDown)
     
     
     local ret = math.floor(basicCoolDown) / 1000
@@ -12706,7 +12732,7 @@ end
 
 function SCR_GET_Penyerapan_Ratio(skill)
     local pc = GetSkillOwner(skill);
-    local value = 500 + (skill.Level-1) * 100;
+    local value = 800 + (skill.Level-1) * 275;
     
     if pc ~= nil then
         local str = TryGetProp(pc, "STR", 0)
@@ -12823,7 +12849,7 @@ function SCR_GET_SKL_COOLDOWN_SeptEtoiles(skill)
         end
     end
 
-    basicCoolDown = SCR_COMMON_COOLDOWN_DECREASE(pc, basicCoolDown)
+    basicCoolDown = SCR_COMMON_COOLDOWN_DECREASE(pc, skill, basicCoolDown)
     
     local ret = math.floor(basicCoolDown) / 1000
     ret = math.floor(ret) * 1000;
@@ -12868,7 +12894,7 @@ function SCR_GET_SKL_COOLDOWN_Fleche(skill)
         end
     end
 
-    basicCoolDown = SCR_COMMON_COOLDOWN_DECREASE(pc, basicCoolDown)
+    basicCoolDown = SCR_COMMON_COOLDOWN_DECREASE(pc, skill, basicCoolDown)
     
     local ret = math.floor(basicCoolDown) / 1000
     ret = math.floor(ret) * 1000;
@@ -12913,7 +12939,7 @@ function SCR_GET_SKL_COOLDOWN_HolySmash(skill)
         end
     end
 
-    basicCoolDown = SCR_COMMON_COOLDOWN_DECREASE(pc, basicCoolDown)
+    basicCoolDown = SCR_COMMON_COOLDOWN_DECREASE(pc, skill, basicCoolDown)
     
     local ret = math.floor(basicCoolDown) / 1000
     ret = math.floor(ret) * 1000;
@@ -12958,7 +12984,7 @@ function SCR_GET_SKL_COOLDOWN_Condemn(skill)
         end
     end
 
-    basicCoolDown = SCR_COMMON_COOLDOWN_DECREASE(pc, basicCoolDown)
+    basicCoolDown = SCR_COMMON_COOLDOWN_DECREASE(pc, skill, basicCoolDown)
     
     local ret = math.floor(basicCoolDown) / 1000
     ret = math.floor(ret) * 1000;
@@ -13002,7 +13028,7 @@ function SCR_GET_SKL_COOLDOWN_BlossomSlash(skill)
         end
     end
 
-    basicCoolDown = SCR_COMMON_COOLDOWN_DECREASE(pc, basicCoolDown)
+    basicCoolDown = SCR_COMMON_COOLDOWN_DECREASE(pc, skill, basicCoolDown)
     local ret = math.floor(basicCoolDown) / 1000
     ret = math.floor(ret) * 1000;
     if coolDownClassify == "Fix" then
@@ -13045,16 +13071,16 @@ function SCR_GET_Tracking_Ratio2(skill)
     return value
 end
 
-function SCR_COMMON_COOLDOWN_DECREASE(pc, basicCoolDown)
+function SCR_COMMON_COOLDOWN_DECREASE(pc, skill, basicCoolDown)
 
     -- Laima CoolTime Buff
     local laimaCoolTime = GetExProp(pc, "LAIMA_BUFF_COOLDOWN")
-    if laimaCoolTime ~= 0 then
+    if laimaCoolTime ~= 0 and TryGetProp(skill, "CoolDownGroup", "None") ~= "ItemSetSkill" then
         basicCoolDown = basicCoolDown * (1 - laimaCoolTime)
     end
 
     -- Laima CoolTime Debuff
-    if laimaCoolTime == 0 and IsBuffApplied(pc, 'CarveLaima_Debuff') == 'YES' then
+    if laimaCoolTime == 0 and IsBuffApplied(pc, 'CarveLaima_Debuff') == 'YES' and TryGetProp(skill, "CoolDownGroup", "None") ~= "ItemSetSkill" then
         basicCoolDown = basicCoolDown * 1.2;
     end
 
@@ -13077,13 +13103,6 @@ function SCR_COMMON_COOLDOWN_DECREASE(pc, basicCoolDown)
     -- GM Buff
     if IsBuffApplied(pc, 'GM_Cooldown_Buff') == 'YES' then
         basicCoolDown = basicCoolDown * 0.9;
-    end
-
-    -- EVENT_2004_UPHILL
-    if IsBuffApplied(pc, 'EVENT_2004_UPHILL_USER_BUFF') == 'YES' then
-        basicCoolDown = basicCoolDown * 0.1;
-    elseif IsBuffApplied(pc, 'EVENT_2004_UPHILL_TREE_BUFF_2') == 'YES' then
-        basicCoolDown = basicCoolDown * 0.7;
     end
 
     -- -- Centurion Buff (Removed)
@@ -13158,7 +13177,7 @@ function SCR_GET_SKL_COOLDOWN_ShadowThorn(skill)
         end
     end
 
-    basicCoolDown = SCR_COMMON_COOLDOWN_DECREASE(pc, basicCoolDown)
+    basicCoolDown = SCR_COMMON_COOLDOWN_DECREASE(pc, skill, basicCoolDown)
     
     local ret = math.floor(basicCoolDown) / 1000
     ret = math.floor(ret) * 1000;

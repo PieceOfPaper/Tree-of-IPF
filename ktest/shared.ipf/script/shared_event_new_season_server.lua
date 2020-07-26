@@ -6,15 +6,19 @@ function IS_EVENT_NEW_SEASON_SERVER(accObj)
             return true;
         end
 
+        if accObj == nil then
+            return false;
+        end
+
         local prop = TryGetProp(accObj, "EVENT_NEW_SEASON_SERVER_ACCOUNT", 0);
         if prop == 1 then
-            if GetServerGroupID() == 1001 or GetServerGroupID() == 2001 then
+            if groupid == 1001 or groupid == 2001 then
                 return true;
-            elseif GetServerGroupID() == 1003 or GetServerGroupID() == 2003 then
+            elseif groupid == 1003 or groupid == 2003 then
                 return true;
-            elseif GetServerGroupID() == 1004 or GetServerGroupID() == 2004 then
+            elseif groupid == 1004 or groupid == 2004 then
                 return true;
-            elseif GetServerGroupID() == 1005 or GetServerGroupID() == 2005 then
+            elseif groupid == 1005 or groupid == 2005 then
                 return true;
             end
         end        

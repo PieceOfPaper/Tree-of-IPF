@@ -16,7 +16,7 @@
 		<groupbox name="gbox_remove_list_detail" rect="0 0 240 160" parent="gbox_remove_list" margin="0 5 0 0" layout_gravity="center top" draw="false" hittestbox="true" hittest="true" scrollbar="true"/>
 		<button name="btn_remove_list_clear" parent="gbox_remove_list" rect="0 0 115 50" margin="-60 165 0 0" layout_gravity="center top" MouseOnAnim="btn_mouseover" MouseOffAnim="btn_mouseoff" stretch="false" hittest="true" caption="{@st42b}비우기{/}" skin="test_gray_button" oversound="button_over" LBtnUpScp="SCR_HOUSING_EDITMODE_CLEAR_REMOVE_LIST"/>
 		<button name="btn_remove_list_submit" parent="gbox_remove_list" rect="0 0 115 50" margin="60 165 0 0" layout_gravity="center top" MouseOnAnim="btn_mouseover" MouseOffAnim="btn_mouseoff" stretch="false" hittest="true" caption="{@st42b}제거{/}" skin="test_red_button" oversound="button_over" LBtnUpScp="SCR_HOUSING_EDITMODE_DO_REMOVE"/>
-		<groupbox name="gbox_editmode" rect="0 0 280 315" margin="260 0 0 0" layout_gravity="left top" draw="true" skin="blackbox_op_50" hittestbox="true" hittest="true"/>
+		<groupbox name="gbox_editmode" rect="0 0 280 315" margin="260 0 0 0" layout_gravity="left top" draw="true" skin="blackbox_op_50" hittestbox="true" hittest="true" scrollbar="false"/>
 		<richtext name="txt_editmode_hotkey" parent="gbox_editmode" rect="0 0 180 30" margin="0 10 0 0" layout_gravity="center top" caption="{@st43}기능{/}" fontname="white_20_ol_ds" resizebytext="true"/>
 		<labelline name="labelline3" parent="gbox_editmode" rect="0 0 245 5" margin="0 45 0 0" layout_gravity="center top" skin="labelline_def_2"/>
 		<picture name="pic_editmode_close" parent="gbox_editmode" rect="0 0 40 40" margin="10 55 0 0" layout_gravity="left top" image="Esc" stretch="true"/>

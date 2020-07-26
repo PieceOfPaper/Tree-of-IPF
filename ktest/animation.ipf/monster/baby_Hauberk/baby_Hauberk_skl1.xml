@@ -1,16 +1,23 @@
 <?xml version="1.0" encoding="EUC-KR"?>
 <!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by IMCGames Co., Ltd (IMCGames Co., Ltd) -->
 <ActionDesc>
-	<BlendOn frame="0" R="0" G="0" B="0" A="50"/>
-	<BlendOn frame="8" R="90" G="75" B="40" A="100"/>
-	<BlendOn frame="9" R="50" G="40" B="20" A="50"/>
-	<BlendOn frame="10" R="0" G="0" B="0" A="50"/>
-	<BlendOn frame="11" R="90" G="75" B="40" A="100"/>
-	<BlendOn frame="12" R="50" G="40" B="20" A="50"/>
-	<BlendOn frame="13" R="0" G="0" B="0" A="50"/>
-	<BlendOff frame="14" R="0" G="0" B="0" A="0"/>
-	<Particle frame="8" attachNode="Dummy_effect_skl1_001" particleName="F_scratch001_orange" useAttach="false" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="false" soft2DValue="20"/>
-	<Particle frame="11" attachNode="Dummy_effect_skl1_002" particleName="F_scratch001_orange" useAttach="false" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="false" soft2DValue="20"/>
-	<Particle frame="8" attachNode="Dummy_effect_skl1_001" particleName="I_light013_spark_orange" useAttach="false" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="false" soft2DValue="20"/>
-	<Particle frame="11" attachNode="Dummy_effect_skl1_002" particleName="I_light013_spark_orange" useAttach="false" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="false" soft2DValue="20"/>
+    <BlendOn frame="0" R="0" G="0" B="0" A="50"/>
+    <Sound frame="0.00" soundFile="mon_voice3_s_atk"/>
+    <Sound frame="6.00" soundFile="swd_attack3"/>
+    <Sound frame="7.00" soundFile="skl_eff_atk_move_s_11"/>
+    <Sound frame="7.00" soundFile="swd_blow_metal1"/>
+    <BlendOn frame="8" R="90" G="75" B="40" A="100"/>
+    <Particle frame="8" attachNode="Dummy_effect_skl1_001" particleName="F_scratch001_orange" useAttach="false" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false" sound="skl_eff_atk_move_s_6"/>
+    <Particle frame="8" attachNode="Dummy_effect_skl1_001" particleName="I_light013_spark_orange" useAttach="false" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false" sound="skilvoice"/>
+    <BlendOn frame="9" R="50" G="40" B="20" A="50"/>
+    <BlendOn frame="10" R="0" G="0" B="0" A="50"/>
+    <Sound frame="10.00" soundFile="swd_blow_metal1"/>
+    <Sound frame="10.00" soundFile="swd_attack3"/>
+    <BlendOn frame="11" R="90" G="75" B="40" A="100"/>
+    <Particle frame="11" attachNode="Dummy_effect_skl1_002" particleName="F_scratch001_orange" useAttach="false" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false" sound="skl_eff_atk_move_s_6"/>
+    <Particle frame="11" attachNode="Dummy_effect_skl1_002" particleName="I_light013_spark_orange" useAttach="false" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false" sound=""/>
+    <BlendOn frame="12" R="50" G="40" B="20" A="50"/>
+    <Sound frame="12.00" soundFile="skl_eff_atk_move_s_10"/>
+    <BlendOn frame="13" R="0" G="0" B="0" A="50"/>
+    <BlendOff frame="14" R="0" G="0" B="0" A="0"/>
 </ActionDesc>

@@ -14,10 +14,15 @@ local postIndex = {};
 local postPropByID = {}; 
 
 function HOUSING_PROMOTE_BOARD_ON_INIT(addon, frame)
-
+    
 end
 
 function HOUSING_PROMOTE_BOARD_OPEN()
+    local option = IsEnabledOption("HousingPromoteLock");
+    if option == 1 then
+        return;
+    end    
+
     local frame = ui.GetFrame("housing_promote_board");
     local editDiff = GET_CHILD_RECURSIVELY(frame, "search_dif");
     editDiff:ShowWindow(1);
@@ -427,8 +432,11 @@ function HOUSING_PROMOTE_BOARD_POST_THUMNAIL_UPDATE(code, page_id, filePath, fil
         return;
     end
     
-    if filefind.FileExists(filePath, true) == true then
-        ui.SetImageByPath(filePath, thumbnail);
+    local folderPath = filefind.GetBinPath("Housing"):c_str()
+    local fullPath = folderPath .. "\\" .. filePath;
+
+    if filefind.FileExists(fullPath, true) == true then
+        ui.SetImageByPath(fullPath, thumbnail);
         thumbnail:Invalidate();
     end
 end

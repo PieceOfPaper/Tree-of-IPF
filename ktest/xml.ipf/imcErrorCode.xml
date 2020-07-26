@@ -626,4 +626,5 @@
   <Code Code="ERROR_TX_LEAK" Team="tos_team" Category="ERROR" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="TX 릭입니다. tx는 반드시 TxBegin 과 TxCommit 또는 TxRollBack 이 한쌍을 이뤄야합니다."/>
   <Code Code="INFO_TRACE_CHATSERVER" Team="tos_team" Category="INFO" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="개발용 정보"/>
   <Code Code="INFO_CPQ" Team="tos_team" Category="SYSTEM" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="CPQ 관련 로그"/>
+	<Code Code="ERROR_GUILD_CABIENT_INVV" Team="PROGRAM" Category="LOGIC" SubCategory="GuildInv" Logger="root" Enabled="YES" CallStack="NO" Desc="길드 보관함 에러"/>
 </imcErrorCode>

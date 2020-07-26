@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GameList>
+    <Game Name="GLACIER_TUTO_RP_MINI" minLv="0" maxLv="0" playerCountCheckDestroy="1" startWaitSec="-1">
+        <StageList>
+            <Stage Name="DefGroup">
+                <ObjList>
+                    <Obj Type="Monster" MonType="150228" Pos="-1104.46#205.84#1344.71" range="20" genCount="90" maxStackCount="1" genTime="10000" genReadyTime="10000" objectKey="0" propList="&apos;SimpleAI&apos; &apos;GLACIER_RP_MON&apos; ">
+                        <SelfAI ActiveMessageMapInBattle="1"/>
+                    </Obj>
+                    <Obj Type="Monster" MonType="150228" Pos="-1260.65#208.30#1406.25" range="20" genCount="90" maxStackCount="1" genTime="23000" genReadyTime="20000" objectKey="1" propList="&apos;SimpleAI&apos; &apos;GLACIER_RP_MON&apos; ">
+                        <SelfAI ActiveMessageMapInBattle="1"/>
+                    </Obj>
+                    <Obj Type="Monster" MonType="150228" Pos="-1424.01#208.30#1321.11" range="20" genCount="90" maxStackCount="1" genTime="36000" genReadyTime="35000" objectKey="2" propList="&apos;SimpleAI&apos; &apos;GLACIER_RP_MON&apos; ">
+                        <SelfAI ActiveMessageMapInBattle="1"/>
+                    </Obj>
+                    <Obj Type="Monster" MonType="150229" Pos="-1249.05#208.25#1163.42" genCount="1" genTime="20000" objectKey="3" propList="&apos;SimpleAI&apos; &apos;GLACIER_TUTO_RP_NPC_01_AI&apos; "/>
+                    <Obj Type="Monster" MonType="150218" Pos="-1244.95#208.24#1135.74" angle="96" genCount="1" genTime="20000" objectKey="4" propList="&apos;Name&apos; &apos;크루세이더 파견원&apos; &apos;SimpleAI&apos; &apos;GLACIER_TUTO_RP_NPC_02_AI&apos; ">
+                        <SelfAI ActiveMessageMapInBattle="1"/>
+                    </Obj>
+                    <Obj Type="Monster" MonType="40073" Pos="-1221.51#207.69#937.49" angle="101" genCount="1" genTime="20000" objectKey="5"/>
+                </ObjList>
+                <StageEvents>
+                    <Event execCount="1" eventName="메세지">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_STAGE_TIME_CHECK" Client="NO" UseSleep="NO">
+                                <Num Num="5"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_MSG_ICON" Client="YES" UseSleep="NO" CondFunc="">
+                                <Str Str="장치가 충전되면 버프를 받아 회오리 속에서 터트려야합니다!"/>
+                                <Str Str="scroll"/>
+                                <Num Num="5"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event eventName="stageClear">
+                        <condList>
+                            <ToolScp Scp="MGAME_EVT_COND_SCRIPT" Client="NO" UseSleep="NO">
+                                <Str Str="GLACIER_TUTO_RP_MGAME_CLEARCHECK"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="GAME_EVT_ON_BYNAME" Client="NO" UseSleep="NO">
+                                <Str Str="AfterTrack"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="AfterTrack" execWithStart="0">
+                        <execList>
+                            <ToolScp Scp="MGAME_EVT_SCRIPT" Client="NO" UseSleep="NO">
+                                <Str Str="GLACIER_TUTO_RP_MGAME_AFTER_TRACK"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                </StageEvents>
+                <ScrLockList>
+                    <Area>
+                        <Pos Value="-1393.568848 208.304367 1327.486450"/>
+                    </Area>
+                    </ScrLockList>
+            </Stage>
+        </StageList>
+    </Game>
+</GameList>

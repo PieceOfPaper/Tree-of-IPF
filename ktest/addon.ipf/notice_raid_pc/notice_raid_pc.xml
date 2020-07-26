@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<uiframe name="notice_raid_pc" x="0" y="0" width="200" height="100" create="open">
+	<frame title="notice_raid_pc" layout_gravity="center center" margin="0 0 0 0"/>
+	<skin frameskin="none"/>
+	<draw drawtitlebar="false" drawnotitlebar="false"/>
+	<option hideable="false" closebutton="false"/>
+	<userconfig COLD_BLAST_ICON_WIDTH="55" COLD_BLAST_ICON_HEIGHT="100" ENCHANTMENT_ICON_WIDTH="55" ENCHANTMENT_ICON_HEIGHT="55" SINGLE_ICON_START_X="67" COUPLE_ICON_START_X="50"/>
+	<controls>
+		<groupbox name="gbox" rect="0 0 200 100" hittest="false" hittestbox="false" margin="0 0 0 0" layout_gravity="left top" draw="false" scrollbar="false" fixheight="false"/>
+		<picture name="icon" layout_gravity="left bottom" parent="gbox" hittest="false" imagealign="left bottom" rect="0 0 55 100" image="None" margin="0 0 0 0"/>
+		<gauge name="icon_gauge" rect="0 0 55 55" margin="0 0 0 0" layout_gravity="left bottom" parent="gbox" hittest="false" vertical="true" drawlastpoint="false" skin="gauge_Glacier_fascination"/>
+	</controls>
+</uiframe>

@@ -218,6 +218,7 @@ function RANKROLLBACK_DELETE_RANK_CARD(className)
 end
 
 function OPEN_RANKROLLBACK_UI_BY_SYSMENU()
+	ui.CloseFrame('inventory')
     ui.OpenFrame('changejob');
     CHANGEJOB_SHOW_RANKROLLBACK();
 end

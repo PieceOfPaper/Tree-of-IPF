@@ -384,6 +384,8 @@ end
 
 
 function INVENTORY_OPEN(frame)
+	ui.CloseFrame('changejob')
+
 	frame:SetUserValue("MONCARDLIST_OPENED", 0);
 
 	ui.Chat("/requpdateequip"); -- 내구도 회복 유료템 때문에 정확한 값을 지금 알아야 함.
@@ -1298,6 +1300,12 @@ function INVENTORY_SORT_BY_NAME(a, b)
     return itemName_a < itemName_b;
 end
 
+function INVENTORY_SORT_BY_LIMIT_TIME(a, b)
+	local itemCls_a = GetIES(a:GetObject());
+	local itemCls_b = GetIES(b:GetObject());
+
+    return tonumber(GET_ITEM_LIFE_TIME(itemCls_a)) > tonumber(GET_ITEM_LIFE_TIME(itemCls_b));
+end
 
 function INVENTORY_SORT_BY_COUNT(a, b)
 	return a.count > b.count
@@ -1498,6 +1506,22 @@ function INVENTORY_TOTAL_LIST_GET(frame, setpos, isIgnorelifticon, invenTypeStr)
 										customFunc(slot, scriptArg, invItem, nil);
 									end
 								end
+
+								-- 인벤토리 옵션 적용 중이면 빈 tree 만들어 "필터링 옵션 적용 중"이라는 문구 표시해주기
+								local isOptionApplied = CHECK_INVENTORY_OPTION_APPLIED(baseidcls);
+								if isOptionApplied == 1 and cap =="" then -- 검색 중에는 조건에 맞는 아이템 없으면 tree 안 만듬
+									if invenTypeStr == nil or invenTypeStr == typeStr then
+										local tree_box = GET_CHILD_RECURSIVELY(group, 'treeGbox_'.. typeStr,'ui::CGroupBox');
+										local tree = GET_CHILD_RECURSIVELY(tree_box, 'inventree_'.. typeStr,'ui::CTreeControl');
+		
+										EMPTY_TREE_INVENTORY_OPTION_TEXT(baseidcls, tree);		-- 해당 아이템이 속한 탭
+									end
+	
+									local tree_box_all = GET_CHILD_RECURSIVELY(group, 'treeGbox_All','ui::CGroupBox');
+									local tree_all = GET_CHILD_RECURSIVELY(tree_box_all, 'inventree_All','ui::CTreeControl');
+	
+									EMPTY_TREE_INVENTORY_OPTION_TEXT(baseidcls, tree_all);	-- ALL 탭 
+								end
 							end
 						end
 					end
@@ -1540,6 +1564,24 @@ function INVENTORY_TOTAL_LIST_GET(frame, setpos, isIgnorelifticon, invenTypeStr)
 			end
 		end		
 	end
+end
+
+function EMPTY_TREE_INVENTORY_OPTION_TEXT(baseidcls, tree)
+	local treegroupname = baseidcls.TreeGroup
+		local treegroup = tree:FindByValue(treegroupname);
+		if tree:IsExist(treegroup) == 0 then
+			treegroup = tree:Add(baseidcls.TreeGroupCaption, baseidcls.TreeGroup);
+			
+			local treeNode = tree:GetNodeByTreeItem(treegroup);
+			treeNode:SetUserValue("BASE_CAPTION", baseidcls.TreeGroupCaption);
+			
+			ui.inventory.AddInvenGroupName(treegroupname);
+	
+			local hGroup = tree:FindByValue(baseidcls.TreeGroup);
+			if hGroup ~= nil then
+				tree:SetItemCaption(hGroup, treeNode:GetUserValue("BASE_CAPTION") ..' (0) '.. ClMsg("ApplyOption"));
+			end
+		end
 end
 
 function CHECK_INV_LBTN(frame, object, argStr, argNum)

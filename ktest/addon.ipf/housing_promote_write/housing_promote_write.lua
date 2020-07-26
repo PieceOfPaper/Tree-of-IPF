@@ -9,7 +9,7 @@ function HOUSING_PROMOTE_WRITE_ON_INIT(addon, frame)
     addon:RegisterMsg("HOUSING_PROMOTE_THUMBNAIL_CREATE_SUCCESS", "HOUSING_PROMOTE_THUMBNAIL_CREATE_SUCCESS");
 end
 
-function HOUSING_PROMOTE_WRITE_OPEN(team_name, title, imgname, url)
+function HOUSING_PROMOTE_WRITE_OPEN(team_name, title, imgname, desc, url)
     local frame = ui.GetFrame("housing_promote_write");
     HOUSING_PROMOTE_WRITE_INIT(frame);
     
@@ -27,14 +27,24 @@ function HOUSING_PROMOTE_WRITE_OPEN(team_name, title, imgname, url)
         ctrl:SetImage(imgname);
     end
 
-    local url_ctrl = GET_CHILD(frame, "url_text");
-	local url_def = GET_CHILD(frame, "url_def");
-    if url ~= nil and url ~= "" then
-        url_def:ShowWindow(0);
-        url_ctrl:SetText(url);
+    local desc_ctrl = GET_CHILD(frame, "desc_text");
+    local desc_def = GET_CHILD(frame, "desc_def");
+    desc_ctrl:SetText(desc);
+
+    if desc ~= nil and desc ~= "" then
+        desc_def:ShowWindow(0);
     else
-        url_def:ShowWindow(1);
+        desc_def:ShowWindow(1);
     end
+
+    -- local url_ctrl = GET_CHILD(frame, "url_text");
+	-- local url_def = GET_CHILD(frame, "url_def");
+    -- if url ~= nil and url ~= "" then
+    --     url_def:ShowWindow(0);
+    --     url_ctrl:SetText(url);
+    -- else
+    --     url_def:ShowWindow(1);
+    -- end
 
     local is_myHouse = frame:GetUserValue("IS_MY_HOUSE");
     local thumbnail_create = GET_CHILD(frame, "thumbnail_create");
@@ -76,6 +86,10 @@ function HOUSING_PROMOTE_WRITE_URL_CLICK(parent)
 	ctrl:ShowWindow(0);
 end
 
+function HOUSING_PROMOTE_WRITE_INTRO_CLICK(parent)
+	local ctrl = GET_CHILD(parent, "desc_def");
+	ctrl:ShowWindow(0);
+end
 
 ------------------- 홍보 썸네일 시작 -------------------
 housingframelist = {"housing_promote_board", "housing_promote_post", "housing_promote_write"};
@@ -178,25 +192,28 @@ function HOUSING_PROMOTE_WRITE_REG_POST(parent, ctrl)
         ui.MsgBox(ClMsg("InputTitlePlease"));
         return;
     end
-    
-    local url_ctrl = GET_CHILD(frame, "url_text");
-    local url_text = url_ctrl:GetText();
 
-    if url_text ~= "" then
-        if string.find(url_text, "http:") ~= nil or string.find(url_text, "https:") ~= nil then
-            if string.find(url_text, "www.youtube.com/") == nil and string.find(url_text, "www.twitch.tv/") == nil then
-                ui.MsgBox(ClMsg("Housing_Promote_URL_error"));
-                return;
-            end
-        else
-            ui.MsgBox(ClMsg("Housing_Promote_URL_error"));
-            return;
-        end
-    end
+    local desc_ctrl = GET_CHILD(frame, "desc_text");
+    local desc_text = desc_ctrl:GetText();
+    
+    -- local url_ctrl = GET_CHILD(frame, "url_text");
+    -- local url_text = url_ctrl:GetText();
+
+    -- if url_text ~= "" then
+    --     if string.find(url_text, "http:") ~= nil or string.find(url_text, "https:") ~= nil then
+    --         if string.find(url_text, "www.youtube.com/") == nil and string.find(url_text, "www.twitch.tv/") == nil then
+    --             ui.MsgBox(ClMsg("Housing_Promote_URL_error"));
+    --             return;
+    --         end
+    --     else
+    --         ui.MsgBox(ClMsg("Housing_Promote_URL_error"));
+    --         return;
+    --     end
+    -- end
 
     -- 게시글 등록
     local aidx = session.loginInfo.GetAID();
-    PostHousingPage("HOUSING_PROMOTE_WRITE_REG_POST_UPDATE", aidx, title_text, url_text, thumnail_tempfilePath);
+    PostHousingPage("HOUSING_PROMOTE_WRITE_REG_POST_UPDATE", aidx, title_text, desc_text, "", thumnail_tempfilePath);
 end
 
 function HOUSING_PROMOTE_WRITE_REG_POST_UPDATE(code, ret_String)

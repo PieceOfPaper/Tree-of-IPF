@@ -11,7 +11,7 @@
                 <Num Num="0"/>
                 <Num Num="0"/>
                 <Num Num="10"/>
-                <Num Num="0"/>
+                <Num Num="1"/>
                 <Num Num="0"/>
                 <Num Num="0"/>
                 <Num Num="1"/>
@@ -30,8 +30,7 @@
                 <Num Num="0"/>
                 <Num Num="1"/>
                 <Num Num="0"/>
-                <Str Str="Paladin41"/>
-                <Str Str="Paladin42"/>
+                <Str Str="Paladin41/Paladin42"/>
                 <Num Num="0"/>
             </ToolScp>
         </KeyInput>
@@ -91,13 +90,14 @@
                 </Cond>
                 <Skill ScrLock="None" JumpFlee="NO" MSPDToUsePos="0">
                     <EtcList>
+                        <Scp Scp="SKL_SET_TARGET_CLIENT_TARGETTING" Client="NO" UseSleep="NO" Time="0"/>
                         <Scp Scp="MONSKL_C_PLAY_ANIM" Client="YES" UseSleep="NO" Time="0">
                             <Str Str="SKL_BUFF"/>
                             <Num Num="1"/>
                             <Num Num="1"/>
                             <Num Num="0"/>
                         </Scp>
-                        <Scp Scp="SKL_BUFF_IF_NOBUFF" Client="NO" UseSleep="NO" Time="300">
+                        <Scp Scp="SKL_TGT_BUFF_IF_NOBUFF" Client="NO" UseSleep="NO" Time="300">
                             <Str Str="Sanctuary_Paladin41_Buff"/>
                             <Str Str="Sanctuary_Paladin41_Buff"/>
                             <Num Num="0" UseFunc="1" FuncTxt="return obj.Level"/>
@@ -105,7 +105,6 @@
                             <Num Num="15000"/>
                             <Num Num="1"/>
                             <Num Num="100"/>
-                            <Num Num="0"/>
                             <Num Num="1"/>
                         </Scp>
                     </EtcList>
@@ -119,13 +118,14 @@
                 </Cond>
                 <Skill ScrLock="None" JumpFlee="NO" MSPDToUsePos="0">
                     <EtcList>
+                        <Scp Scp="SKL_SET_TARGET_CLIENT_TARGETTING" Client="NO" UseSleep="NO" Time="0"/>
                         <Scp Scp="MONSKL_C_PLAY_ANIM" Client="YES" UseSleep="NO" Time="0">
                             <Str Str="SKL_BUFF"/>
                             <Num Num="1"/>
                             <Num Num="1"/>
                             <Num Num="0"/>
                         </Scp>
-                        <Scp Scp="SKL_BUFF_IF_NOBUFF" Client="NO" UseSleep="NO" Time="300">
+                        <Scp Scp="SKL_TGT_BUFF_IF_NOBUFF" Client="NO" UseSleep="NO" Time="300">
                             <Str Str="Sanctuary_Paladin42_Buff"/>
                             <Str Str="Sanctuary_Paladin42_Buff"/>
                             <Num Num="0" UseFunc="1" FuncTxt="return obj.Level"/>
@@ -133,7 +133,6 @@
                             <Num Num="15000"/>
                             <Num Num="1"/>
                             <Num Num="100"/>
-                            <Num Num="0"/>
                             <Num Num="1"/>
                         </Scp>
                     </EtcList>

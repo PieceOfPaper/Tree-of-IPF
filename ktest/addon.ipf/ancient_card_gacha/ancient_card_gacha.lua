@@ -39,22 +39,28 @@ function ANCIENT_GACHA_SET_CARD_LIST(frame,x,y,rarityStr)
         ctrlSet:SetUserValue("DEST_Y",50)
         ctrlSet:SetUserValue("INIT_X",init_x)
         ctrlSet:SetUserValue("INIT_Y",init_y)
-        ctrlSet:ReserveScript("ANCIENT_GACHA_SET_CARD_RESERVE", i*i*0.01,0,"")
+        imcSound.PlaySoundEvent("sys_slot_card_whoosh")
+        ctrlSet:ReserveScript("ANCIENT_GACHA_SET_CARD_RESERVE", i*i*0.01+0.23,0,"")
         local ancient_card_gbox = GET_CHILD_RECURSIVELY(ctrlSet,"ancient_card_gbox")
         ancient_card_gbox:SetEventScriptArgNumber(ui.LBUTTONDOWN,i)
         local rarity = tonumber(rarityList[i])
         if rarity == nil then
             rarity = 1
         end
-        local effectName = "I_screen_card002_mouseover_"..CONVERT_RARITY_TO_STRING(rarity)
+        local effectName = "I_screen_card002_mouseover_"..CONVERT_RARITY_TO_EFFECT_STRING(rarity)
         ancient_card_gbox:AddActiveUIEffect(effectName,12,1,"MOUSEON","MOUSEOFF")
     end
     local slot_bg_image = GET_CHILD(slot,"slot_bg_image")
     slot_bg_image:ReserveScript("CLEAR_UI_EFFECT", 10,0,"")
 end
 
-function CONVERT_RARITY_TO_STRING(rarity)
+function CONVERT_RARITY_TO_EFFECT_STRING(rarity)
     local rarityStrList = {'normal','rare','unique','legend'}
+    return rarityStrList[rarity]
+end
+
+function CONVERT_RARITY_TO_SOUND_STRING(rarity)
+    local rarityStrList = {'normal','magic','unique','legend'}
     return rarityStrList[rarity]
 end
 
@@ -186,14 +192,17 @@ function ON_ANCIENT_CARD_GACHA_CARD_OPEN(frame,index,monClassName,isValid)
     local default_image = GET_CHILD_RECURSIVELY(ctrlSet,'default_image')
     local ancientCls = GetClass("Ancient_Info",monClassName)
     local rarity = ancientCls.Rarity
-    local effectName = "I_screen_card001_open_"..CONVERT_RARITY_TO_STRING(rarity)
+    local effectName = "I_screen_card001_open_"..CONVERT_RARITY_TO_EFFECT_STRING(rarity)
+    local soundName = "sys_card_button_click_"..CONVERT_RARITY_TO_SOUND_STRING(rarity)
     if isValid == true then
         effectName = effectName.."_s"
     else
+        soundName = "sys_card_button_click_normal"
         effectName = effectName.."_0"
     end
     default_image:SetImage(nil)
     local monCls = GetClass("Monster",monClassName)
+    imcSound.PlaySoundEvent(soundName)
     ctrlSet:PlayUIEffect(effectName, tonumber(frame:GetUserConfig("CARD_OPEN_EFFECT_SCALE")),"OPEN"..index)
     local ancient_card_gbox = GET_CHILD_RECURSIVELY(ctrlSet,"ancient_card_gbox")
     ancient_card_gbox:EnableHitTest(0)

@@ -116,6 +116,7 @@ function SQIORE_SLOT_DROP(parent, ctrl)
 	local skillLevel = frame:GetUserIValue("SKILLLEVEL");
 	local valueFunc = _G["ITEMBUFF_VALUE_" .. frame:GetUserValue("SKILLNAME")];
 	local value, validSec = valueFunc(pc, obj, skillLevel);
+
 	local nextObj = CloneIES(obj);
 	nextObj.BuffValue = value;
 	local refreshScp = nextObj.RefreshScp;

@@ -1,0 +1,1386 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<GameList>
+	<Game Name="UNIQUE_RAID_GLACIER" minLv="0" maxLv="0" mapName="snow_raid_glacier" playerCountCheckDestroy="1" startWaitSec="-1">
+		<StageList>
+			<Stage Name="Start">
+				<ObjList>
+					<Obj Type="Monster" MonType="150217" Pos="-729.70#285.29#-733.48" angle="-97" genCount="1" genTime="20000" objectKey="0" propList="&apos;Dialog&apos; &apos;GLACIER_NPC_01&apos; &apos;Name&apos; &apos;크루세이더 보초병&apos; "/>
+					<Obj Type="Monster" MonType="150218" Pos="-697.62#286.06#-739.46" angle="-94" genCount="1" genTime="20000" objectKey="1" propList="&apos;Name&apos; &apos;크루세이더 보초병&apos; "/>
+					<Obj Type="Monster" MonType="20053" Pos="-560.50#289.58#-845.46" angle="-95" genCount="1" genTime="20000" objectKey="2"/>
+					<Obj Type="Monster" MonType="20053" Pos="-385.56#289.16#-853.37" angle="-95" genCount="1" genTime="20000" objectKey="3"/>
+					<Obj Type="Monster" MonType="150218" Pos="-698.63#285.42#-827.48" angle="65" genCount="1" genTime="20000" objectKey="4" propList="&apos;Name&apos; &apos;크루세이더 보초병&apos; "/>
+					<Obj Type="Monster" MonType="157101" Pos="-852.19#409.72#156.79" angle="-134" genCount="1" genTime="20000" objectKey="5" propList="&apos;OBB&apos; &apos;NO&apos; &apos;OBBSize&apos; &apos;0;0;0&apos; &apos;Dialog&apos; &apos;GLACIER_KRUVINA_STAGE1&apos; "/>
+					<Obj Type="Monster" MonType="157101" Pos="579.16#436.17#-798.55" angle="4" genCount="1" genTime="20000" objectKey="6" propList="&apos;OBB&apos; &apos;NO&apos; &apos;OBBSize&apos; &apos;0;0;0&apos; &apos;Dialog&apos; &apos;GLACIER_KRUVINA_STAGE2&apos; "/>
+					<Obj Type="Monster" MonType="160029" Pos="1248.10#597.88#981.66" genCount="1" genTime="20000" objectKey="7" propList="&apos;NumArg1&apos; &apos;1&apos; "/>
+				</ObjList>
+				<StageEvents>
+					<Event eventName="Glacier_Enter_Check">
+						<condList>
+							<ToolScp Scp="GAME_ST_EVT_COND_VALUE" Client="NO" UseSleep="NO">
+								<Str Str="Boss_Glacier_Stage_Enter_Check"/>
+								<Str Str="=="/>
+								<Num Num="0"/>
+							</ToolScp>
+							<ToolScp Scp="MGAME_EVT_COND_SCRIPT" Client="NO" UseSleep="NO">
+								<Str Str="SCR_UNIQUE_GALCIER_STAGE_START_CHECK"/>
+							</ToolScp>
+						</condList>
+						<execList>
+							<ToolScp Scp="MGAME_EXEC_ACTORSCP" Client="NO" UseSleep="NO">
+								<Str Str="SCR_UNIQUE_GALCIER_STAGET_START_MOVE_PC"/>
+							</ToolScp>
+							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+								<Str Str="Boss_Glacier"/>
+							</ToolScp>
+							<ToolScp Scp="MGAME_EVT_SCP_TO_MON_CMD" Client="NO" UseSleep="NO">
+								<MGameObj List="Boss_Glacier/0"/>
+								<Str Str="SCR_UNIQUE_GLACIER_STAGE_START_APPLY_BUFF"/>
+							</ToolScp>
+							<ToolScp Scp="GAME_ST_EVT_EXEC_VALUE" Client="NO" UseSleep="NO">
+								<Str Str="Boss_Glacier_Stage_Enter_Check"/>
+								<Num Num="1"/>
+							</ToolScp>
+						</execList>
+					</Event>
+					<Event execCount="1" eventName="CustomLog">
+						<execList>
+							<ToolScp Scp="MGAME_EVT_SCRIPT_ARG" Client="NO" UseSleep="NO">
+								<Str Str="SCR_UNIQUE_GLACIER_CUSTOM_LOG"/>
+								<Str Str="Unique_Raid_Glacier_Start"/>
+								<Num Num="0"/>
+							</ToolScp>
+						</execList>
+					</Event>
+				</StageEvents>
+			</Stage>
+			<Stage Name="Success" AutoStart="0">
+				<StartScpList>
+					<ToolScp Scp="MGAME_GIVE_ADVENTURE_BOOK_CLEAR_POINT" Client="NO" UseSleep="NO">
+						<Str Str="Unique_Raid_Glacier"/>
+					</ToolScp>
+					<ToolScp Scp="MGAME_SET_QUEST_NAME" Client="NO" UseSleep="NO">
+						<Str Str="레이드 성공!{nl}60초 뒤, 입장한 곳으로 돌아갑니다."/>
+					</ToolScp>
+					<ToolScp Scp="MGAME_SET_DM_ICON" Client="NO" UseSleep="NO">
+						<Str Str="레이드 성공!{nl}60초 뒤, 입장한 곳으로 돌아갑니다."/>
+						<Str Str="Clear"/>
+						<Num Num="5"/>
+					</ToolScp>
+				</StartScpList>
+				<ObjList/>
+				<StageEvents>
+					<Event execCount="1" eventName="Return_Zone">
+						<condList>
+							<ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+								<Num Num="60"/>
+							</ToolScp>
+						</condList>
+						<execList>
+							<ToolScp Scp="MGAME_EVT_SCRIPT_ARG" Client="NO" UseSleep="NO">
+								<Str Str="SCR_UNIQUE_GLACIER_CUSTOM_LOG"/>
+								<Str Str="Unique_Raid_Glacier_Success"/>
+								<Num Num="0"/>
+							</ToolScp>
+							<ToolScp Scp="MGAME_END" Client="NO" UseSleep="NO">
+								<Num Num="1"/>
+							</ToolScp>
+							<ToolScp Scp="MGAME_RETURN" Client="NO" UseSleep="NO"/>
+						</execList>
+					</Event>
+					<Event execCount="1" eventName="30Sec">
+						<condList>
+							<ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+								<Num Num="30"/>
+							</ToolScp>
+						</condList>
+						<execList>
+							<ToolScp Scp="MGAME_MSG_ICON" Client="YES" UseSleep="NO">
+								<Str Str="30초 후 입장 지역으로 돌아갑니다."/>
+								<Str Str="Clear"/>
+								<Num Num="5"/>
+							</ToolScp>
+						</execList>
+					</Event>
+					<Event execCount="1" eventName="20Sec">
+						<condList>
+							<ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+								<Num Num="40"/>
+							</ToolScp>
+						</condList>
+						<execList>
+							<ToolScp Scp="MGAME_MSG_ICON" Client="YES" UseSleep="NO">
+								<Str Str="20초 후 입장 지역으로 돌아갑니다."/>
+								<Str Str="Clear"/>
+								<Num Num="5"/>
+							</ToolScp>
+						</execList>
+					</Event>
+					<Event execCount="1" eventName="10Sec">
+						<condList>
+							<ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+								<Num Num="50"/>
+							</ToolScp>
+						</condList>
+						<execList>
+							<ToolScp Scp="MGAME_MSG_ICON" Client="YES" UseSleep="NO">
+								<Str Str="10초 후 입장 지역으로 돌아갑니다."/>
+								<Str Str="Clear"/>
+								<Num Num="5"/>
+							</ToolScp>
+						</execList>
+					</Event>
+				</StageEvents>
+			</Stage>
+			<Stage Name="Fail" AutoStart="0">
+				<StartScpList>
+					<ToolScp Scp="MGAME_SET_QUEST_NAME" Client="NO" UseSleep="NO">
+						<Str Str="레이드 실패!{nl}30초 뒤, 입장한 곳으로 돌아갑니다."/>
+					</ToolScp>
+				</StartScpList>
+				<ObjList/>
+				<StageEvents>
+					<Event execCount="1" eventName="Raid_Stop">
+						<execList>
+							<ToolScp Scp="MGAME_EVT_SCRIPT_ARG" Client="NO" UseSleep="NO">
+								<Str Str="SCR_UNIQUE_GLACIER_CUSTOM_LOG"/>
+								<Str Str="Unique_Raid_Glacier_Fail"/>
+								<Num Num="0"/>
+							</ToolScp>
+							<ToolScp Scp="MGAME_EVT_SCRIPT" Client="NO" UseSleep="NO">
+								<Str Str="SCR_RAID_END_STOP_DEBUFF_MON"/>
+							</ToolScp>
+							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
+								<Str Str="Boss_Pbeta"/>
+							</ToolScp>
+							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
+								<Str Str="Boss_Glacier"/>
+							</ToolScp>
+							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
+								<Str Str="Stage1"/>
+							</ToolScp>
+							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
+								<Str Str="Stage2"/>
+							</ToolScp>
+						</execList>
+					</Event>
+					<Event execCount="1" eventName="20Sec">
+						<condList>
+							<ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+								<Num Num="10"/>
+							</ToolScp>
+						</condList>
+						<execList>
+							<ToolScp Scp="MGAME_MSG" Client="YES" UseSleep="NO">
+								<Str Str="20초 후 입장 지역으로 돌아갑니다."/>
+								<Num Num="5"/>
+							</ToolScp>
+						</execList>
+					</Event>
+					<Event execCount="1" eventName="10Sec">
+						<condList>
+							<ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+								<Num Num="20"/>
+							</ToolScp>
+						</condList>
+						<execList>
+							<ToolScp Scp="MGAME_MSG" Client="YES" UseSleep="NO">
+								<Str Str="10초 후 입장 지역으로 돌아갑니다."/>
+								<Num Num="5"/>
+							</ToolScp>
+						</execList>
+					</Event>
+					<Event execCount="1" eventName="Return_Zone">
+						<condList>
+							<ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+								<Num Num="30"/>
+							</ToolScp>
+						</condList>
+						<execList>
+							<ToolScp Scp="MGAME_END" Client="NO" UseSleep="NO">
+								<Num Num="1"/>
+							</ToolScp>
+							<ToolScp Scp="MGAME_RETURN" Client="NO" UseSleep="NO"/>
+						</execList>
+					</Event>
+				</StageEvents>
+			</Stage>
+			<Stage Name="Fail_Check">
+				<ObjList/>
+				<StageEvents>
+					<Event execCount="1" eventName="30Min">
+						<condList>
+							<ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+								<Num Num="1800"/>
+							</ToolScp>
+						</condList>
+						<execList>
+							<ToolScp Scp="MGAME_MSG_ICON" Client="YES" UseSleep="NO">
+								<Str Str="레이드 종료까지 30분 남았습니다."/>
+								<Str Str="!"/>
+								<Num Num="5"/>
+							</ToolScp>
+						</execList>
+					</Event>
+					<Event execCount="1" eventName="15Min">
+						<condList>
+							<ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+								<Num Num="2700"/>
+							</ToolScp>
+						</condList>
+						<execList>
+							<ToolScp Scp="MGAME_MSG_ICON" Client="YES" UseSleep="NO">
+								<Str Str="레이드 종료까지 15분 남았습니다."/>
+								<Str Str="!"/>
+								<Num Num="5"/>
+							</ToolScp>
+						</execList>
+					</Event>
+					<Event execCount="1" eventName="5Min">
+						<condList>
+							<ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+								<Num Num="3300"/>
+							</ToolScp>
+						</condList>
+						<execList>
+							<ToolScp Scp="MGAME_MSG_ICON" Client="YES" UseSleep="NO">
+								<Str Str="레이드 종료까지 5분 남았습니다."/>
+								<Str Str="!"/>
+								<Num Num="5"/>
+							</ToolScp>
+						</execList>
+					</Event>
+					<Event execCount="1" eventName="TimeOver">
+						<condList>
+							<ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+								<Num Num="3600"/>
+							</ToolScp>
+						</condList>
+						<execList>
+							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+								<Str Str="Fail"/>
+							</ToolScp>
+							<ToolScp Scp="MGAME_MSG_ICON" Client="YES" UseSleep="NO">
+								<Str Str="제한 시간 1시간이 경과되어 레이드에 실패하였습니다.{nl}30초 후 입장 지역으로 이동됩니다."/>
+								<Str Str="!"/>
+								<Num Num="5"/>
+							</ToolScp>
+							<ToolScp Scp="MGAME_FAIL_CHECK_LOG" Client="NO" UseSleep="NO">
+								<Str Str="UNIQUE_RAID_GLACIER"/>
+								<Str Str="TimeOut"/>
+							</ToolScp>
+						</execList>
+					</Event>
+					<Event execCount="1" eventName="PC_ALL_DEAD">
+						<condList>
+							<ToolScp Scp="MGAME_EVT_COND_PCCNT" Client="NO" UseSleep="NO">
+								<Num Num="0"/>
+							</ToolScp>
+						</condList>
+						<execList>
+							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+								<Str Str="Fail"/>
+							</ToolScp>
+							<ToolScp Scp="MGAME_MSG_ICON" Client="YES" UseSleep="NO">
+								<Str Str="모든 PC가 전투 불능상태가 되어 레이드에 실패하였습니다.{nl}30초 후 입장 지역으로 돌아갑니다."/>
+								<Str Str="!"/>
+								<Num Num="5"/>
+							</ToolScp>
+							<ToolScp Scp="MGAME_FAIL_CHECK_LOG" Client="NO" UseSleep="NO">
+								<Str Str="UNIQUE_RAID_GLACIER"/>
+								<Str Str="AllPCDead"/>
+							</ToolScp>
+						</execList>
+					</Event>
+				</StageEvents>
+			</Stage>
+			<Stage Name="Stage1" AutoStart="0">
+				<ObjList>
+					<Obj Type="Monster" MonType="20053" Pos="-359.88#425.02#174.67" angle="-102" genCount="1" genTime="20000" objectKey="2"/>
+					<Obj Type="Monster" MonType="20053" Pos="-184.63#437.00#97.68" angle="-102" genCount="1" genTime="20000" objectKey="1"/>
+                    <Obj Type="Monster" MonType="59458" Pos="-254.81#287.26#-635.40" angle="-88" genCount="1" genTime="20000" objectKey="3" UseAiOutOfPc="1" propList="&apos;ClassID&apos; &apos;59457&apos; &apos;UseAiOutOfPC&apos; &apos;1&apos; &apos;BTree&apos; &apos;BasicMonster&apos; "/>
+                    <Obj Type="Monster" MonType="59458" Pos="-245.58#288.23#-774.99" angle="-88" genCount="1" genTime="20000" objectKey="4" UseAiOutOfPc="1" propList="&apos;UseAiOutOfPC&apos; &apos;1&apos; &apos;BTree&apos; &apos;BasicMonster&apos; "/>
+                    <Obj Type="Monster" MonType="59458" Pos="-397.67#312.25#-436.50" angle="-88" genCount="1" genTime="20000" objectKey="5" UseAiOutOfPc="1" propList="&apos;UseAiOutOfPC&apos; &apos;1&apos; &apos;BTree&apos; &apos;BasicMonster&apos; "/>
+                    <Obj Type="Monster" MonType="59458" Pos="-104.45#287.33#-805.27" angle="-88" genCount="1" genTime="20000" objectKey="6" UseAiOutOfPc="1" propList="&apos;UseAiOutOfPC&apos; &apos;1&apos; &apos;BTree&apos; &apos;BasicMonster&apos; "/>
+                    <Obj Type="Monster" MonType="59458" Pos="-127.63#287.26#-688.00" angle="-88" genCount="1" genTime="20000" objectKey="7" UseAiOutOfPc="1" propList="&apos;UseAiOutOfPC&apos; &apos;1&apos; &apos;BTree&apos; &apos;BasicMonster&apos; "/>
+                    <Obj Type="Monster" MonType="59458" Pos="-190.88#287.26#-533.85" angle="-88" genCount="1" genTime="20000" objectKey="8" UseAiOutOfPc="1" propList="&apos;UseAiOutOfPC&apos; &apos;1&apos; &apos;BTree&apos; &apos;BasicMonster&apos; "/>
+                    <Obj Type="Monster" MonType="59458" Pos="-60.04#287.26#-718.74" angle="-88" genCount="1" genTime="20000" objectKey="9" UseAiOutOfPc="1" propList="&apos;UseAiOutOfPC&apos; &apos;1&apos; &apos;BTree&apos; &apos;BasicMonster&apos; "/>
+                    <Obj Type="Monster" MonType="59458" Pos="-89.69#287.26#-595.76" angle="-88" genCount="1" genTime="20000" objectKey="10" UseAiOutOfPc="1" propList="&apos;UseAiOutOfPC&apos; &apos;1&apos; &apos;BTree&apos; &apos;BasicMonster&apos; "/>
+                    <Obj Type="Monster" MonType="59458" Pos="-354.65#289.06#-546.19" angle="-88" genCount="1" genTime="20000" objectKey="11" UseAiOutOfPc="1" propList="&apos;UseAiOutOfPC&apos; &apos;1&apos; &apos;BTree&apos; &apos;BasicMonster&apos; "/>
+                    <Obj Type="Monster" MonType="59457" Pos="-993.99#409.72#87.16" angle="-54" genCount="1" genTime="20000" objectKey="12" UseAiOutOfPc="1" propList="&apos;UseAiOutOfPC&apos; &apos;1&apos; "/>
+                    <Obj Type="Monster" MonType="59457" Pos="-879.00#409.72#107.29" angle="-54" genCount="1" genTime="20000" objectKey="13" UseAiOutOfPc="1" propList="&apos;UseAiOutOfPC&apos; &apos;1&apos; "/>
+                    <Obj Type="Monster" MonType="59457" Pos="-817.90#409.72#214.28" angle="-54" genCount="1" genTime="20000" objectKey="14" UseAiOutOfPc="1" propList="&apos;UseAiOutOfPC&apos; &apos;1&apos; "/>
+                    <Obj Type="Monster" MonType="59457" Pos="-738.20#409.72#283.28" angle="-54" genCount="1" genTime="20000" objectKey="15" UseAiOutOfPc="1" propList="&apos;UseAiOutOfPC&apos; &apos;1&apos; "/>
+                    <Obj Type="Monster" MonType="59457" Pos="-714.10#409.72#189.75" angle="-54" genCount="1" genTime="20000" objectKey="16" UseAiOutOfPc="1" propList="&apos;UseAiOutOfPC&apos; &apos;1&apos; "/>
+                    <Obj Type="Monster" MonType="59457" Pos="-777.47#409.72#105.10" angle="-54" genCount="1" genTime="20000" objectKey="17" UseAiOutOfPc="1" propList="&apos;UseAiOutOfPC&apos; &apos;1&apos; "/>
+                    <Obj Type="Monster" MonType="59457" Pos="-850.40#409.72#11.28" angle="-59" genCount="1" genTime="20000" objectKey="18" UseAiOutOfPc="1" propList="&apos;UseAiOutOfPC&apos; &apos;1&apos; "/>
+                    <Obj Type="Monster" MonType="59457" Pos="-946.51#409.72#-38.89" angle="-54" genCount="1" genTime="20000" objectKey="19" UseAiOutOfPc="1" propList="&apos;UseAiOutOfPC&apos; &apos;1&apos; "/>
+                    <Obj Type="Monster" MonType="59457" Pos="-827.81#409.72#-92.70" angle="-54" genCount="1" genTime="20000" objectKey="20" UseAiOutOfPc="1" propList="&apos;UseAiOutOfPC&apos; &apos;1&apos; "/>
+                    <Obj Type="Monster" MonType="59457" Pos="-719.12#409.72#-20.68" angle="-54" genCount="1" genTime="20000" objectKey="21" UseAiOutOfPc="1" propList="&apos;UseAiOutOfPC&apos; &apos;1&apos; "/>
+                    <Obj Type="Monster" MonType="59457" Pos="-639.36#409.72#100.76" angle="-94" genCount="1" genTime="20000" objectKey="22" UseAiOutOfPc="1" propList="&apos;UseAiOutOfPC&apos; &apos;1&apos; "/>
+                    <Obj Type="Monster" MonType="59457" Pos="-631.23#409.72#7.02" angle="-54" genCount="1" genTime="20000" objectKey="23" UseAiOutOfPc="1" propList="&apos;UseAiOutOfPC&apos; &apos;1&apos; "/>
+                    <Obj Type="Monster" MonType="59457" Pos="-1046.47#409.72#-4.19" angle="-54" genCount="1" genTime="20000" objectKey="24" UseAiOutOfPc="1" propList="&apos;UseAiOutOfPC&apos; &apos;1&apos; "/>
+                    <Obj Type="Monster" MonType="59457" Pos="-617.72#409.72#251.37" angle="-121" genCount="1" genTime="20000" objectKey="25" UseAiOutOfPc="1" propList="&apos;UseAiOutOfPC&apos; &apos;1&apos; "/>
+                    <Obj Type="Monster" MonType="59457" Pos="-903.12#409.72#193.83" angle="-70" genCount="1" genTime="20000" objectKey="26" UseAiOutOfPc="1" propList="&apos;UseAiOutOfPC&apos; &apos;1&apos; "/>
+				</ObjList>
+				<StageEvents>
+					<Event execCount="1" eventName="Clear_Check">
+						<condList>
+							<ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+								<MGameObj List="Stage1/3/Stage1/4/Stage1/5/Stage1/6/Stage1/7/Stage1/8/Stage1/9/Stage1/10/Stage1/11/Stage1/12/Stage1/13/Stage1/14/Stage1/15/Stage1/16/Stage1/17/Stage1/18/Stage1/19/Stage1/20/Stage1/21/Stage1/22/Stage1/23/Stage1/24/Stage1/26/Stage1/25"/>
+								<Num Num="0"/>
+							</ToolScp>
+						</condList>
+						<execList>
+							<ToolScp Scp="MGAME_MSG_ICON" Client="YES" UseSleep="NO">
+								<Str Str="가로막혀 있던 길이 열렸습니다."/>
+								<Str Str="Clear"/>
+								<Num Num="5"/>
+							</ToolScp>
+							<ToolScp Scp="MGAME_EVT_EXEC_DELMON" Client="NO" UseSleep="NO">
+								<MGameObjPtr List="Stage1/2/Stage1/1"/>
+							</ToolScp>
+							<ToolScp Scp="GAME_ST_EVT_EXEC_VALUE" Client="NO" UseSleep="NO">
+								<Str Str="Stage1_Clear"/>
+								<Num Num="1"/>
+							</ToolScp>
+						</execList>
+					</Event>
+				</StageEvents>
+			</Stage>
+			<Stage Name="Stage2" AutoStart="0">
+				<ObjList>
+                    <Obj Type="Monster" MonType="59460" Pos="216.61#419.93#251.62" angle="164" genCount="1" genTime="20000" objectKey="0" UseAiOutOfPc="1" propList="&apos;UseAiOutOfPC&apos; &apos;1&apos; &apos;BTree&apos; &apos;BasicMonster&apos; "/>
+                    <Obj Type="Monster" MonType="59460" Pos="125.27#419.93#306.84" angle="164" genCount="1" genTime="20000" objectKey="3" UseAiOutOfPc="1" propList="&apos;UseAiOutOfPC&apos; &apos;1&apos; &apos;BTree&apos; &apos;BasicMonster&apos; "/>
+                    <Obj Type="Monster" MonType="59460" Pos="113.77#419.93#152.73" angle="164" genCount="1" genTime="20000" objectKey="4" UseAiOutOfPc="1" propList="&apos;UseAiOutOfPC&apos; &apos;1&apos; &apos;BTree&apos; &apos;BasicMonster&apos; "/>
+                    <Obj Type="Monster" MonType="59460" Pos="213.07#421.20#64.95" angle="164" genCount="1" genTime="20000" objectKey="5" UseAiOutOfPc="1" propList="&apos;UseAiOutOfPC&apos; &apos;1&apos; &apos;BTree&apos; &apos;BasicMonster&apos; "/>
+                    <Obj Type="Monster" MonType="59460" Pos="243.71#419.93#149.55" angle="164" genCount="1" genTime="20000" objectKey="6" UseAiOutOfPc="1" propList="&apos;UseAiOutOfPC&apos; &apos;1&apos; &apos;BTree&apos; &apos;BasicMonster&apos; "/>
+                    <Obj Type="Monster" MonType="59460" Pos="321.13#419.93#235.47" angle="164" genCount="1" genTime="20000" objectKey="7" UseAiOutOfPc="1" propList="&apos;UseAiOutOfPC&apos; &apos;1&apos; &apos;BTree&apos; &apos;BasicMonster&apos; "/>
+                    <Obj Type="Monster" MonType="59460" Pos="351.45#419.93#118.17" angle="164" range="30" genCount="1" genTime="20000" objectKey="8" UseAiOutOfPc="1" propList="&apos;UseAiOutOfPC&apos; &apos;1&apos; &apos;BTree&apos; &apos;BasicMonster&apos; "/>
+                    <Obj Type="Monster" MonType="59460" Pos="317.89#425.09#15.29" angle="164" genCount="1" genTime="20000" objectKey="9" UseAiOutOfPc="1" propList="&apos;UseAiOutOfPC&apos; &apos;1&apos; &apos;BTree&apos; &apos;BasicMonster&apos; "/>
+                    <Obj Type="Monster" MonType="59460" Pos="71.00#419.93#249.00" angle="164" genCount="1" genTime="20000" objectKey="10" UseAiOutOfPc="1" propList="&apos;UseAiOutOfPC&apos; &apos;1&apos; &apos;BTree&apos; &apos;BasicMonster&apos; "/>
+                    <Obj Type="Monster" MonType="59461" Pos="602.57#436.17#-747.46" angle="117" genCount="1" genTime="20000" objectKey="11" UseAiOutOfPc="1" propList="&apos;UseAiOutOfPC&apos; &apos;1&apos; &apos;BTree&apos; &apos;BasicMonster&apos; "/>
+                    <Obj Type="Monster" MonType="59461" Pos="587.08#436.17#-615.89" angle="117" genCount="1" genTime="20000" objectKey="12" UseAiOutOfPc="1" propList="&apos;UseAiOutOfPC&apos; &apos;1&apos; &apos;BTree&apos; &apos;BasicMonster&apos; "/>
+                    <Obj Type="Monster" MonType="59461" Pos="703.22#436.17#-530.11" angle="117" genCount="1" genTime="20000" objectKey="13" UseAiOutOfPc="1" propList="&apos;UseAiOutOfPC&apos; &apos;1&apos; &apos;BTree&apos; &apos;BasicMonster&apos; "/>
+                    <Obj Type="Monster" MonType="59461" Pos="741.60#436.17#-641.65" angle="117" genCount="1" genTime="20000" objectKey="14" UseAiOutOfPc="1" propList="&apos;UseAiOutOfPC&apos; &apos;1&apos; &apos;BTree&apos; &apos;BasicMonster&apos; "/>
+                    <Obj Type="Monster" MonType="59461" Pos="728.01#436.17#-758.10" angle="117" genCount="1" genTime="20000" objectKey="15" UseAiOutOfPc="1" propList="&apos;UseAiOutOfPC&apos; &apos;1&apos; &apos;BTree&apos; &apos;BasicMonster&apos; "/>
+                    <Obj Type="Monster" MonType="59461" Pos="800.66#436.17#-829.37" angle="117" genCount="1" genTime="20000" objectKey="16" UseAiOutOfPc="1" propList="&apos;UseAiOutOfPC&apos; &apos;1&apos; &apos;BTree&apos; &apos;BasicMonster&apos; "/>
+                    <Obj Type="Monster" MonType="59461" Pos="850.89#436.17#-722.40" angle="117" genCount="1" genTime="20000" objectKey="17" UseAiOutOfPc="1" propList="&apos;UseAiOutOfPC&apos; &apos;1&apos; &apos;BTree&apos; &apos;BasicMonster&apos; "/>
+                    <Obj Type="Monster" MonType="59461" Pos="868.69#436.17#-591.02" angle="117" genCount="1" genTime="20000" objectKey="18" UseAiOutOfPc="1" propList="&apos;UseAiOutOfPC&apos; &apos;1&apos; &apos;BTree&apos; &apos;BasicMonster&apos; "/>
+                    <Obj Type="Monster" MonType="59460" Pos="644.67#436.17#-676.11" angle="119" genCount="1" genTime="20000" objectKey="19" UseAiOutOfPc="1" propList="&apos;UseAiOutOfPC&apos; &apos;1&apos; &apos;BTree&apos; &apos;BasicMonster&apos; "/>
+                    <Obj Type="Monster" MonType="59460" Pos="672.43#436.17#-807.57" angle="119" genCount="1" genTime="20000" objectKey="20" UseAiOutOfPc="1" propList="&apos;UseAiOutOfPC&apos; &apos;1&apos; &apos;BTree&apos; &apos;BasicMonster&apos; "/>
+                    <Obj Type="Monster" MonType="59460" Pos="765.00#436.17#-706.10" angle="119" genCount="1" genTime="20000" objectKey="21" UseAiOutOfPc="1" propList="&apos;UseAiOutOfPC&apos; &apos;1&apos; &apos;BTree&apos; &apos;BasicMonster&apos; "/>
+                    <Obj Type="Monster" MonType="59460" Pos="782.77#436.17#-570.77" angle="119" genCount="1" genTime="20000" objectKey="22" UseAiOutOfPc="1" propList="&apos;UseAiOutOfPC&apos; &apos;1&apos; &apos;BTree&apos; &apos;BasicMonster&apos; "/>
+                    <Obj Type="Monster" MonType="59460" Pos="862.74#436.17#-647.62" angle="119" genCount="1" genTime="20000" objectKey="23" UseAiOutOfPc="1" propList="&apos;UseAiOutOfPC&apos; &apos;1&apos; &apos;BTree&apos; &apos;BasicMonster&apos; "/>
+					<Obj Type="Monster" MonType="147455" Pos="1213.43#460.93#-861.00" angle="106" genCount="1" genTime="20000" objectKey="1"/>
+					<Obj Type="Monster" MonType="147455" Pos="1320.63#466.62#-761.51" angle="-141" genCount="1" genTime="20000" objectKey="2"/>
+					<Obj Type="Monster" MonType="157104" Pos="490.84#426.37#-383.91" angle="-81" genCount="1" genTime="20000" objectKey="25"/>
+				</ObjList>
+				<StageEvents>
+					<Event execCount="1" eventName="Clear_Check">
+						<condList>
+							<ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+								<MGameObj List="Stage2/0/Stage2/3/Stage2/4/Stage2/5/Stage2/6/Stage2/7/Stage2/8/Stage2/9/Stage2/10/Stage2/11/Stage2/12/Stage2/13/Stage2/14/Stage2/15/Stage2/16/Stage2/17/Stage2/18/Stage2/19/Stage2/20/Stage2/21/Stage2/22/Stage2/23"/>
+								<Num Num="0"/>
+							</ToolScp>
+						</condList>
+						<execList>
+							<ToolScp Scp="MGAME_MSG_ICON" Client="YES" UseSleep="NO">
+								<Str Str="다음 지역으로 가는 길목이 열렸습니다."/>
+								<Str Str="Clear"/>
+								<Num Num="5"/>
+							</ToolScp>
+							<ToolScp Scp="MGAME_EVT_EXEC_DELMON" Client="NO" UseSleep="NO">
+								<MGameObjPtr List="Stage2/1/Stage2/2"/>
+							</ToolScp>
+							<ToolScp Scp="GAME_ST_EVT_ADD_VALUE" Client="NO" UseSleep="NO">
+								<Str Str="Stage2_Clear"/>
+								<Num Num="1"/>
+							</ToolScp>
+						</execList>
+					</Event>
+					<Event execCount="1" eventName="CustomLog">
+						<execList>
+							<ToolScp Scp="MGAME_EVT_SCRIPT_ARG" Client="NO" UseSleep="NO">
+								<Str Str="SCR_UNIQUE_GLACIER_CUSTOM_LOG"/>
+								<Str Str="Stage2_Start"/>
+								<Num Num="0"/>
+							</ToolScp>
+						</execList>
+					</Event>
+				</StageEvents>
+			</Stage>
+			<Stage Name="Stage1_1" AutoStart="0">
+				<ObjList>
+					<Obj Type="Monster" MonType="20053" Pos="-375.11#423.03#189.65" angle="-102" genCount="1" genTime="20000" objectKey="0"/>
+					<Obj Type="Monster" MonType="20053" Pos="-211.77#431.06#146.61" angle="-102" genCount="1" genTime="20000" objectKey="1"/>
+                    <Obj Type="Monster" MonType="59458" Pos="-970.66#409.72#41.83" angle="-31" genCount="1" genTime="20000" objectKey="2" propList="&apos;UseAiOutOfPC&apos; &apos;1&apos; &apos;BTree&apos; &apos;BasicMonster&apos; "/>
+                    <Obj Type="Monster" MonType="59458" Pos="-835.68#409.72#-25.30" angle="-31" genCount="1" genTime="20000" objectKey="3" UseAiOutOfPc="1" propList="&apos;UseAiOutOfPC&apos; &apos;1&apos; &apos;BTree&apos; &apos;BasicMonster&apos; "/>
+                    <Obj Type="Monster" MonType="59458" Pos="-699.74#409.72#-56.13" angle="-31" genCount="1" genTime="20000" objectKey="4" UseAiOutOfPc="1" propList="&apos;UseAiOutOfPC&apos; &apos;1&apos; &apos;BTree&apos; &apos;BasicMonster&apos; "/>
+                    <Obj Type="Monster" MonType="59458" Pos="-603.43#409.72#28.70" angle="-31" genCount="1" genTime="20000" objectKey="5" UseAiOutOfPc="1" propList="&apos;UseAiOutOfPC&apos; &apos;1&apos; &apos;BTree&apos; &apos;BasicMonster&apos; "/>
+                    <Obj Type="Monster" MonType="59458" Pos="-594.45#409.72#256.34" angle="-31" genCount="1" genTime="20000" objectKey="6" UseAiOutOfPc="1" propList="&apos;UseAiOutOfPC&apos; &apos;1&apos; &apos;BTree&apos; &apos;BasicMonster&apos; "/>
+                    <Obj Type="Monster" MonType="59458" Pos="-723.46#409.72#168.87" angle="-31" genCount="1" genTime="20000" objectKey="7" UseAiOutOfPc="1" propList="&apos;UseAiOutOfPC&apos; &apos;1&apos; &apos;BTree&apos; &apos;BasicMonster&apos; "/>
+                    <Obj Type="Monster" MonType="59458" Pos="-968.05#409.72#-49.86" angle="-31" genCount="1" genTime="20000" objectKey="8" UseAiOutOfPc="1" propList="&apos;UseAiOutOfPC&apos; &apos;1&apos; &apos;BTree&apos; &apos;BasicMonster&apos; "/>
+                    <Obj Type="Monster" MonType="59458" Pos="-800.01#409.72#-123.00" angle="-31" genCount="1" genTime="20000" objectKey="9" UseAiOutOfPc="1" propList="&apos;UseAiOutOfPC&apos; &apos;1&apos; &apos;BTree&apos; &apos;BasicMonster&apos; "/>
+                    <Obj Type="Monster" MonType="59458" Pos="-620.80#409.72#-32.02" angle="-31" genCount="1" genTime="20000" objectKey="10" UseAiOutOfPc="1" propList="&apos;UseAiOutOfPC&apos; &apos;1&apos; &apos;BTree&apos; &apos;BasicMonster&apos; "/>
+                    <Obj Type="Monster" MonType="59458" Pos="-584.02#409.72#128.02" angle="-31" genCount="1" genTime="20000" objectKey="11" UseAiOutOfPc="1" propList="&apos;UseAiOutOfPC&apos; &apos;1&apos; &apos;BTree&apos; &apos;BasicMonster&apos; "/>
+                    <Obj Type="Monster" MonType="59458" Pos="-812.22#409.72#232.02" angle="-31" genCount="1" genTime="20000" objectKey="12" UseAiOutOfPc="1" propList="&apos;UseAiOutOfPC&apos; &apos;1&apos; &apos;BTree&apos; &apos;BasicMonster&apos; "/>
+                    <Obj Type="Monster" MonType="59457" Pos="-811.33#409.72#128.57" angle="-54" genCount="1" genTime="20000" objectKey="13" UseAiOutOfPc="1" propList="&apos;UseAiOutOfPC&apos; &apos;1&apos; "/>
+                    <Obj Type="Monster" MonType="59457" Pos="-968.21#409.72#168.03" angle="-54" genCount="1" genTime="20000" objectKey="14" UseAiOutOfPc="1" propList="&apos;UseAiOutOfPC&apos; &apos;1&apos; "/>
+                    <Obj Type="Monster" MonType="59457" Pos="-897.03#409.72#71.42" angle="-54" genCount="1" genTime="20000" objectKey="15" UseAiOutOfPc="1" propList="&apos;UseAiOutOfPC&apos; &apos;1&apos; "/>
+                    <Obj Type="Monster" MonType="59457" Pos="-910.11#409.72#-68.49" angle="-54" genCount="1" genTime="20000" objectKey="16" UseAiOutOfPc="1" propList="&apos;UseAiOutOfPC&apos; &apos;1&apos; "/>
+                    <Obj Type="Monster" MonType="59457" Pos="-647.03#409.72#95.88" angle="-54" genCount="1" genTime="20000" objectKey="17" UseAiOutOfPc="1" propList="&apos;UseAiOutOfPC&apos; &apos;1&apos; "/>
+                    <Obj Type="Monster" MonType="59457" Pos="-716.83#409.72#251.56" angle="-54" genCount="1" genTime="20000" objectKey="18" UseAiOutOfPc="1" propList="&apos;UseAiOutOfPC&apos; &apos;1&apos; "/>
+                    <Obj Type="Monster" MonType="59457" Pos="-678.00#409.72#320.92" angle="-54" genCount="1" genTime="20000" objectKey="19" UseAiOutOfPc="1" propList="&apos;UseAiOutOfPC&apos; &apos;1&apos; "/>
+                    <Obj Type="Monster" MonType="59457" Pos="-634.58#409.72#212.72" angle="-54" genCount="1" genTime="20000" objectKey="20" UseAiOutOfPc="1" propList="&apos;UseAiOutOfPC&apos; &apos;1&apos; "/>
+                    <Obj Type="Monster" MonType="59457" Pos="-772.17#409.72#28.38" angle="-54" genCount="1" genTime="20000" objectKey="21" UseAiOutOfPc="1" propList="&apos;UseAiOutOfPC&apos; &apos;1&apos; "/>
+                    <Obj Type="Monster" MonType="59457" Pos="-731.24#409.72#-128.15" angle="-54" genCount="1" genTime="20000" objectKey="22" UseAiOutOfPc="1" propList="&apos;UseAiOutOfPC&apos; &apos;1&apos; "/>
+                    <Obj Type="Monster" MonType="59457" Pos="-1044.45#409.72#-47.16" angle="-54" genCount="1" genTime="20000" objectKey="23" UseAiOutOfPc="1" propList="&apos;UseAiOutOfPC&apos; &apos;1&apos; "/>
+				</ObjList>
+				<StageEvents>
+					<Event execCount="1" eventName="Claer_Check">
+						<condList>
+							<ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+								<MGameObj List="Stage1_1/2/Stage1_1/3/Stage1_1/4/Stage1_1/5/Stage1_1/6/Stage1_1/7/Stage1_1/8/Stage1_1/9/Stage1_1/10/Stage1_1/11/Stage1_1/12/Stage1_1/13/Stage1_1/14/Stage1_1/15/Stage1_1/16/Stage1_1/17/Stage1_1/18/Stage1_1/19/Stage1_1/20/Stage1_1/21/Stage1_1/22/Stage1_1/23"/>
+								<Num Num="0"/>
+							</ToolScp>
+						</condList>
+						<execList>
+							<ToolScp Scp="MGAME_MSG_ICON" Client="YES" UseSleep="NO">
+								<Str Str="크루비나 장치로 인하여, 몰려들던 몬스터를{nl}모두 처치하였습니다."/>
+								<Str Str="Clear"/>
+								<Num Num="5"/>
+							</ToolScp>
+							<ToolScp Scp="MGAME_EVT_EXEC_DELMON" Client="NO" UseSleep="NO">
+								<MGameObjPtr List="Stage1_1/0/Stage1_1/1"/>
+							</ToolScp>
+							<ToolScp Scp="GAME_ST_EVT_EXEC_VALUE" Client="NO" UseSleep="NO">
+								<Str Str="Stage1_1_Clear"/>
+								<Num Num="1"/>
+							</ToolScp>
+							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
+								<Str Str="Stage1_1"/>
+							</ToolScp>
+							<ToolScp Scp="MGAME_EVT_SCRIPT_ARG" Client="NO" UseSleep="NO">
+								<Str Str="SCR_UNIQUE_GLACIER_CUSTOM_LOG"/>
+								<Str Str="Stage1_1_Clear"/>
+								<Num Num="0"/>
+							</ToolScp>
+						</execList>
+					</Event>
+				</StageEvents>
+			</Stage>
+			<Stage Name="Stage2_1" AutoStart="0">
+				<ObjList>
+                    <Obj Type="Monster" MonType="59461" Pos="623.52#436.17#-630.47" angle="-73" genCount="1" genTime="20000" objectKey="0" UseAiOutOfPc="1" propList="&apos;UseAiOutOfPC&apos; &apos;1&apos; &apos;BTree&apos; &apos;BasicMonster&apos; "/>
+                    <Obj Type="Monster" MonType="59461" Pos="786.22#436.17#-674.02" angle="-173" genCount="1" genTime="20000" objectKey="1" UseAiOutOfPc="1" propList="&apos;UseAiOutOfPC&apos; &apos;1&apos; &apos;BTree&apos; &apos;BasicMonster&apos; "/>
+                    <Obj Type="Monster" MonType="59461" Pos="850.32#438.93#-785.81" angle="165" genCount="1" genTime="20000" objectKey="2" UseAiOutOfPc="1" propList="&apos;UseAiOutOfPC&apos; &apos;1&apos; &apos;BTree&apos; &apos;BasicMonster&apos; "/>
+                    <Obj Type="Monster" MonType="59461" Pos="867.82#436.17#-591.66" angle="-146" genCount="1" genTime="20000" objectKey="3" UseAiOutOfPc="1" propList="&apos;UseAiOutOfPC&apos; &apos;1&apos; &apos;BTree&apos; &apos;BasicMonster&apos; "/>
+                    <Obj Type="Monster" MonType="59461" Pos="638.80#436.17#-531.14" angle="-67" genCount="1" genTime="20000" objectKey="4" UseAiOutOfPc="1" propList="&apos;UseAiOutOfPC&apos; &apos;1&apos; &apos;BTree&apos; &apos;BasicMonster&apos; "/>
+                    <Obj Type="Monster" MonType="59461" Pos="751.55#436.17#-520.29" angle="-96" genCount="1" genTime="20000" objectKey="5" UseAiOutOfPc="1" propList="&apos;UseAiOutOfPC&apos; &apos;1&apos; &apos;BTree&apos; &apos;BasicMonster&apos; "/>
+                    <Obj Type="Monster" MonType="59461" Pos="775.61#436.17#-850.60" angle="156" genCount="1" genTime="20000" objectKey="6" UseAiOutOfPc="1" propList="&apos;UseAiOutOfPC&apos; &apos;1&apos; &apos;BTree&apos; &apos;BasicMonster&apos; "/>
+                    <Obj Type="Monster" MonType="59461" Pos="914.27#441.36#-691.84" angle="177" genCount="1" genTime="20000" objectKey="7" UseAiOutOfPc="1" propList="&apos;UseAiOutOfPC&apos; &apos;1&apos; &apos;BTree&apos; &apos;BasicMonster&apos; "/>
+                    <Obj Type="Monster" MonType="59461" Pos="535.00#436.17#-686.60" angle="-63" genCount="1" genTime="20000" objectKey="8" UseAiOutOfPc="1" propList="&apos;UseAiOutOfPC&apos; &apos;1&apos; &apos;BTree&apos; &apos;BasicMonster&apos; "/>
+                    <Obj Type="Monster" MonType="59460" Pos="670.45#436.17#-719.16" angle="-83" genCount="1" genTime="20000" objectKey="9" UseAiOutOfPc="1" propList="&apos;UseAiOutOfPC&apos; &apos;1&apos; &apos;BTree&apos; &apos;BasicMonster&apos; "/>
+                    <Obj Type="Monster" MonType="59460" Pos="742.98#436.17#-745.93" angle="-174" genCount="1" genTime="20000" objectKey="10" UseAiOutOfPc="1" propList="&apos;UseAiOutOfPC&apos; &apos;1&apos; &apos;BTree&apos; &apos;BasicMonster&apos; "/>
+                    <Obj Type="Monster" MonType="59460" Pos="649.87#436.17#-812.34" angle="149" genCount="1" genTime="20000" objectKey="11" UseAiOutOfPc="1" propList="&apos;UseAiOutOfPC&apos; &apos;1&apos; &apos;BTree&apos; &apos;BasicMonster&apos; "/>
+                    <Obj Type="Monster" MonType="59460" Pos="754.25#436.17#-593.53" angle="-136" genCount="1" genTime="20000" objectKey="12" UseAiOutOfPc="1" propList="&apos;UseAiOutOfPC&apos; &apos;1&apos; &apos;BTree&apos; &apos;BasicMonster&apos; "/>
+                    <Obj Type="Monster" MonType="59460" Pos="836.64#436.17#-661.86" angle="-101" genCount="1" genTime="20000" objectKey="13" UseAiOutOfPc="1" propList="&apos;UseAiOutOfPC&apos; &apos;1&apos; &apos;BTree&apos; &apos;BasicMonster&apos; "/>
+                    <Obj Type="Monster" MonType="59460" Pos="554.59#436.17#-560.54" angle="-81" genCount="1" genTime="20000" objectKey="14" UseAiOutOfPc="1" propList="&apos;UseAiOutOfPC&apos; &apos;1&apos; &apos;BTree&apos; &apos;BasicMonster&apos; "/>
+                    <Obj Type="Monster" MonType="59460" Pos="884.13#439.78#-728.99" angle="-168" genCount="1" genTime="20000" objectKey="15" UseAiOutOfPc="1" propList="&apos;UseAiOutOfPC&apos; &apos;1&apos; &apos;BTree&apos; &apos;BasicMonster&apos; "/>
+                    <Obj Type="Monster" MonType="59460" Pos="794.49#436.17#-820.02" angle="141" genCount="1" genTime="20000" objectKey="16" UseAiOutOfPc="1" propList="&apos;UseAiOutOfPC&apos; &apos;1&apos; &apos;BTree&apos; &apos;BasicMonster&apos; "/>
+                    <Obj Type="Monster" MonType="59460" Pos="683.09#436.17#-534.48" angle="-96" genCount="1" genTime="20000" objectKey="17" UseAiOutOfPc="1" propList="&apos;UseAiOutOfPC&apos; &apos;1&apos; &apos;BTree&apos; &apos;BasicMonster&apos; "/>
+					<Obj Type="Monster" MonType="160029" Pos="1457.24#501.04#-319.14" genCount="1" genTime="20000" objectKey="18" propList="&apos;NumArg1&apos; &apos;1&apos; "/>
+				</ObjList>
+				<StageEvents>
+					<Event execCount="1" eventName="Monster_Wave">
+						<condList>
+							<ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+								<MGameObj List="Stage2_1/0/Stage2_1/1/Stage2_1/2/Stage2_1/3/Stage2_1/4/Stage2_1/5/Stage2_1/6/Stage2_1/7/Stage2_1/8"/>
+								<Num Num="3"/>
+							</ToolScp>
+						</condList>
+						<execList>
+							<ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
+								<MGameObjIndex List="Stage2_1/9/Stage2_1/10/Stage2_1/11/Stage2_1/12/Stage2_1/13/Stage2_1/14/Stage2_1/15/Stage2_1/16/Stage2_1/17"/>
+								<Num Num="1"/>
+								<Num Num="0"/>
+							</ToolScp>
+						</execList>
+					</Event>
+					<Event execCount="1" eventName="Claer_Cheack">
+						<condList>
+							<ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+								<MGameObj List="Stage2_1/9/Stage2_1/10/Stage2_1/11/Stage2_1/12/Stage2_1/13/Stage2_1/14/Stage2_1/15/Stage2_1/16/Stage2_1/17"/>
+								<Num Num="0"/>
+							</ToolScp>
+						</condList>
+						<execList>
+							<ToolScp Scp="MGAME_MSG_ICON" Client="YES" UseSleep="NO">
+								<Str Str="크루비나 장치로 인하여, 몰려들던 몬스터를{nl}모두 처치하였습니다."/>
+								<Str Str="Clear"/>
+								<Num Num="2"/>
+							</ToolScp>
+							<ToolScp Scp="GAME_ST_EVT_EXEC_VALUE" Client="NO" UseSleep="NO">
+								<Str Str="Stage2_1_All_MonDead"/>
+								<Num Num="1"/>
+							</ToolScp>
+							<ToolScp Scp="MGAME_EXEC_ACTORSCP" Client="NO" UseSleep="NO">
+								<Str Str="SCR_PBETA_START_MSG"/>
+							</ToolScp>
+							<ToolScp Scp="MGAME_EVT_SCRIPT_ARG" Client="NO" UseSleep="NO">
+								<Str Str="SCR_UNIQUE_GLACIER_CUSTOM_LOG"/>
+								<Str Str="Stage2_1_Clear"/>
+								<Num Num="0"/>
+							</ToolScp>
+						</execList>
+					</Event>
+					<Event eventName="Pbeat_Enter_Check">
+						<condList>
+							<ToolScp Scp="GAME_ST_EVT_COND_VALUE" Client="NO" UseSleep="NO">
+								<Str Str="Stage2_1_All_MonDead"/>
+								<Str Str="=="/>
+								<Num Num="1"/>
+							</ToolScp>
+							<ToolScp Scp="MGAME_EVT_COND_SCRIPT" Client="NO" UseSleep="NO">
+								<Str Str="SCR_UNIQUE_PBETA_STAGE_START_CHECK"/>
+							</ToolScp>
+						</condList>
+						<execList>
+							<ToolScp Scp="GAME_ST_EVT_EXEC_VALUE" Client="NO" UseSleep="NO">
+								<Str Str="Stage2_1_All_MonDead"/>
+								<Num Num="0"/>
+							</ToolScp>
+							<ToolScp Scp="GAME_ST_EVT_EXEC_VALUE" Client="NO" UseSleep="NO">
+								<Str Str="Stage2_1_Clear"/>
+								<Num Num="1"/>
+							</ToolScp>
+							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
+								<Str Str="Stage2_1"/>
+							</ToolScp>
+						</execList>
+					</Event>
+				</StageEvents>
+			</Stage>
+			<Stage Name="Boss_Pbeta" AutoStart="0">
+				<ObjList>
+					<Obj Type="Monster" MonType="59373" Pos="1318.48#535.51#164.89" angle="-57" genCount="1" genTime="20000" autoGen="0" objectKey="0" propList="&apos;DeadScript&apos; &apos;SCR_UNIQUE_PBETA_ALLCLEAR_BUFF_AND_PAD&apos; "/>
+					<Obj Type="Monster" MonType="157101" Pos="1522.44#535.51#273.01" angle="-129" genCount="1" genTime="20000" objectKey="1"/>
+					<Obj Type="Monster" MonType="157101" Pos="1108.58#535.51#113.83" angle="52" genCount="1" genTime="20000" objectKey="2"/>
+					<Obj Type="Monster" MonType="157101" Pos="1438.63#535.51#-112.61" angle="-124" genCount="1" genTime="20000" objectKey="3"/>
+					<Obj Type="Monster" MonType="147455" Pos="1213.65#545.92#682.20" angle="-171" genCount="1" genTime="20000" objectKey="7"/>
+					<Obj Type="Monster" MonType="147455" Pos="1243.35#594.87#876.04" angle="-171" genCount="1" genTime="20000" autoGen="0" objectKey="8"/>
+					<Obj Type="Monster" MonType="147455" Pos="1439.27#498.13#-388.06" genCount="1" genTime="20000" autoGen="0" objectKey="4"/>
+				</ObjList>
+				<StageEvents>
+					<Event execCount="1" eventName="Clear_Check" execWithStart="0">
+						<condList>
+							<ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+								<MGameObj List="Boss_Pbeta/0"/>
+								<Num Num="0"/>
+							</ToolScp>
+							<ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+								<Num Num="10"/>
+							</ToolScp>
+						</condList>
+						<execList>
+							<ToolScp Scp="MGAME_MSG_ICON" Client="YES" UseSleep="NO">
+								<Str Str="마기에 오염된 프베타를 처치하였습니다."/>
+								<Str Str="Clear"/>
+								<Num Num="5"/>
+							</ToolScp>
+							<ToolScp Scp="GAME_ST_EVT_EXEC_VALUE" Client="NO" UseSleep="NO">
+								<Str Str="Battle_Field_Summon_Monster"/>
+								<Num Num="0"/>
+							</ToolScp>
+							<ToolScp Scp="GAME_ST_EVT_EXEC_VALUE" Client="NO" UseSleep="NO">
+								<Str Str="Battle_Field_Summon_BombMonster"/>
+								<Num Num="0"/>
+							</ToolScp>
+							<ToolScp Scp="GAME_ST_EVT_ADD_VALUE" Client="NO" UseSleep="NO">
+								<Str Str="Pbeta_Clear"/>
+								<Num Num="1"/>
+							</ToolScp>
+						</execList>
+					</Event>
+					<Event eventName="Pbeta_Pattern_Start">
+						<condList>
+							<ToolScp Scp="MGAME_EVT_COND_MONCNT_ALIVE" Client="NO" UseSleep="NO">
+								<MGameObj List="Boss_Pbeta/0"/>
+								<Num Num="1"/>
+							</ToolScp>
+						</condList>
+						<execList>
+							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+								<Str Str="PBETA_KRUVINA_SPIRIT"/>
+							</ToolScp>
+							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+								<Str Str="PBETA_BATTLE_FIELD"/>
+							</ToolScp>
+							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+								<Str Str="PBETA_SUMMON_TRAP"/>
+							</ToolScp>
+						</execList>
+					</Event>
+					<Event execCount="1" eventName="Pbeta_MSG">
+						<condList>
+							<ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+								<MGameObj List="Boss_Pbeta/0"/>
+								<Num Num="0"/>
+							</ToolScp>
+						</condList>
+						<execList>
+							<ToolScp Scp="MGAME_EXEC_ACTORSCP" Client="NO" UseSleep="NO">
+								<Str Str="SCR_PBETA_DEAD_MSG"/>
+							</ToolScp>
+						</execList>
+					</Event>
+				</StageEvents>
+			</Stage>
+			<Stage Name="Boss_Glacier" AutoStart="0">
+				<ObjList>
+					<Obj Type="Monster" MonType="59374" Pos="1238.11#602.46#1545.81" angle="-33" genCount="1" genTime="20000" objectKey="0" propList="&apos;DeadScript&apos; &apos;SCR_UNIQUE_GLACIER_ALLCLEAR_BUFF_AND_PAD&apos; "/>
+					<Obj Type="Monster" MonType="157102" Pos="1064.43#602.46#1722.76" angle="-58" genCount="1" genTime="20000" objectKey="1" propList="&apos;Dialog&apos; &apos;UNIQUE_GLACIER_USE_TORCH&apos; "/>
+					<Obj Type="Monster" MonType="157102" Pos="1440.44#602.46#1248.09" angle="-38" genCount="1" genTime="20000" objectKey="2" propList="&apos;Dialog&apos; &apos;UNIQUE_GLACIER_USE_TORCH&apos; "/>
+					<Obj Type="Monster" MonType="147455" Pos="1221.70#595.00#938.74" genCount="1" genTime="20000" objectKey="3"/>
+					<Obj Type="Monster" MonType="147455" Pos="1183.00#558.34#739.45" genCount="1" genTime="20000" objectKey="4"/>
+					<Obj Type="Monster" MonType="160029" Pos="1229.14#609.07#1041.52" genCount="1" genTime="20000" objectKey="5" propList="&apos;Range&apos; &apos;4000&apos; &apos;Enter&apos; &apos;GLACIER_SOUND&apos; "/>
+				</ObjList>
+				<StageEvents>
+					<Event execCount="1" eventName="Clear_Check">
+						<condList>
+							<ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+								<MGameObj List="Boss_Glacier/0"/>
+								<Num Num="0"/>
+							</ToolScp>
+						</condList>
+						<execList>
+							<ToolScp Scp="GAME_ST_EVT_ADD_VALUE" Client="NO" UseSleep="NO">
+								<Str Str="Glacier_Clear"/>
+								<Num Num="1"/>
+							</ToolScp>
+							<ToolScp Scp="MGAME_EXEC_ACTORSCP" Client="NO" UseSleep="NO">
+								<Str Str="SCR_GLACIER_DEAD_MSG"/>
+							</ToolScp>
+						</execList>
+					</Event>
+					<Event eventName="Glacier_Pattern_Start">
+						<condList>
+							<ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+								<MGameObj List="Boss_Glacier/0"/>
+								<Num Num="1"/>
+							</ToolScp>
+						</condList>
+						<execList>
+							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+								<Str Str="GLACIER_ESSENCE_WARMTH"/>
+							</ToolScp>
+							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+								<Str Str="GLACIER_COLD_BLAST"/>
+							</ToolScp>
+							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+								<Str Str="GLACIER_SNOW_STORM"/>
+							</ToolScp>
+							<ToolScp Scp="MGAME_EVT_SCRIPT_ARG" Client="NO" UseSleep="NO">
+								<Str Str="SCR_UNIQUE_GLACIER_CUSTOM_LOG"/>
+								<Str Str="Stage_Glacier_Start"/>
+								<Num Num="0"/>
+							</ToolScp>
+						</execList>
+					</Event>
+				</StageEvents>
+			</Stage>
+			<Stage Name="RankResetPoint">
+				<ObjList/>
+				<StageEvents>
+					<Event execCount="1" eventName="PointSetting">
+						<execList>
+							<ToolScp Scp="MGAME_SET_RANK_RESET_POINT_AND_LOG" Client="NO" UseSleep="NO">
+								<Num Num="20"/>
+								<Str Str="UniqueRaid: Unique_Raid_Glacier"/>
+							</ToolScp>
+						</execList>
+					</Event>
+				</StageEvents>
+			</Stage>
+			<Stage Name="STAGE_MANAGER">
+				<ObjList/>
+				<StageEvents>
+					<Event execCount="1" eventName="Stage_1_Start">
+						<condList>
+							<ToolScp Scp="GAME_ST_EVT_COND_VALUE" Client="NO" UseSleep="NO">
+								<Str Str="Start"/>
+								<Str Str="=="/>
+								<Num Num="1"/>
+							</ToolScp>
+						</condList>
+						<execList>
+							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+								<Str Str="Stage1"/>
+							</ToolScp>
+							<ToolScp Scp="MGAME_EVT_EXEC_DELMON" Client="NO" UseSleep="NO">
+								<MGameObjPtr List="Start/2/Start/3"/>
+							</ToolScp>
+							<ToolScp Scp="MGAME_EVT_SCRIPT_ARG" Client="NO" UseSleep="NO">
+								<Str Str="SCR_UNIQUE_GLACIER_CUSTOM_LOG"/>
+								<Str Str="Stage1_Start"/>
+								<Num Num="0"/>
+							</ToolScp>
+						</execList>
+					</Event>
+					<Event execCount="1" eventName="Stage_1_Claer">
+						<condList>
+							<ToolScp Scp="GAME_ST_EVT_COND_VALUE" Client="NO" UseSleep="NO">
+								<Str Str="Stage1_Clear"/>
+								<Str Str="=="/>
+								<Num Num="1"/>
+							</ToolScp>
+						</condList>
+						<execList>
+							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
+								<Str Str="Stage1"/>
+							</ToolScp>
+							<ToolScp Scp="MGAME_EVT_EXEC_DELMON" Client="NO" UseSleep="NO">
+								<MGameObjPtr List="Stage1/2/Stage1/1"/>
+							</ToolScp>
+							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+								<Str Str="Stage2"/>
+							</ToolScp>
+							<ToolScp Scp="MGAME_EVT_SCRIPT_ARG" Client="NO" UseSleep="NO">
+								<Str Str="SCR_UNIQUE_GLACIER_CUSTOM_LOG"/>
+								<Str Str="Stage1_Clear"/>
+								<Num Num="0"/>
+							</ToolScp>
+						</execList>
+					</Event>
+					<Event execCount="1" eventName="Pbeta_Start">
+						<condList>
+							<ToolScp Scp="GAME_ST_EVT_COND_VALUE" Client="NO" UseSleep="NO">
+								<Str Str="Stage1_1_Clear"/>
+								<Str Str="=="/>
+								<Num Num="1"/>
+							</ToolScp>
+							<ToolScp Scp="GAME_ST_EVT_COND_VALUE" Client="NO" UseSleep="NO">
+								<Str Str="Stage2_1_Clear"/>
+								<Str Str="=="/>
+								<Num Num="1"/>
+							</ToolScp>
+							<ToolScp Scp="GAME_ST_EVT_COND_VALUE" Client="NO" UseSleep="NO">
+								<Str Str="OBJ_DLG"/>
+								<Str Str="=="/>
+								<Num Num="2"/>
+							</ToolScp>
+						</condList>
+						<execList>
+							<ToolScp Scp="MGAME_EXEC_ACTORSCP" Client="NO" UseSleep="NO">
+								<Str Str="SCR_UNIQUE_PBETA_STAGET_START_MOVE_PC"/>
+							</ToolScp>
+							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+								<Str Str="Boss_Pbeta"/>
+							</ToolScp>
+							<ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
+								<MGameObjIndex List="Boss_Pbeta/0"/>
+								<Num Num="1"/>
+								<Num Num="0"/>
+							</ToolScp>
+							<ToolScp Scp="MGAME_EVT_SCRIPT_ARG" Client="NO" UseSleep="NO">
+								<Str Str="SCR_UNIQUE_GLACIER_CUSTOM_LOG"/>
+								<Str Str="Stage_Pbeta_Start"/>
+								<Num Num="0"/>
+							</ToolScp>
+						</execList>
+					</Event>
+					<Event execCount="1" eventName="Stage_2_Clear">
+						<condList>
+							<ToolScp Scp="GAME_ST_EVT_COND_VALUE" Client="NO" UseSleep="NO">
+								<Str Str="Stage2_Clear"/>
+								<Str Str="=="/>
+								<Num Num="1"/>
+							</ToolScp>
+							<ToolScp Scp="SCR_MGAME_VALUE_CHECK_2" Client="NO" UseSleep="NO">
+								<Str Str="OBJ_DLG"/>
+								<Str Str="UNDER"/>
+								<Num Num="1"/>
+							</ToolScp>
+						</condList>
+						<execList>
+							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
+								<Str Str="Stage2"/>
+							</ToolScp>
+							<ToolScp Scp="MGAME_EVT_SCRIPT_ARG" Client="NO" UseSleep="NO">
+								<Str Str="SCR_UNIQUE_GLACIER_CUSTOM_LOG"/>
+								<Str Str="Stage2_Clear"/>
+								<Num Num="0"/>
+							</ToolScp>
+						</execList>
+					</Event>
+					<Event execCount="1" eventName="Pbeta_Claer">
+						<condList>
+							<ToolScp Scp="GAME_ST_EVT_COND_VALUE" Client="NO" UseSleep="NO">
+								<Str Str="Pbeta_Clear"/>
+								<Str Str="=="/>
+								<Num Num="1"/>
+							</ToolScp>
+						</condList>
+						<execList>
+							<ToolScp Scp="MGAME_EVT_EXEC_DELMON" Client="NO" UseSleep="NO">
+								<MGameObjPtr List="Boss_Pbeta/7/Boss_Pbeta/8"/>
+							</ToolScp>
+							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
+								<Str Str="Boss_Pbeta"/>
+							</ToolScp>
+							<ToolScp Scp="MGAME_EVT_SCRIPT_ARG" Client="NO" UseSleep="NO">
+								<Str Str="SCR_UNIQUE_GLACIER_CUSTOM_LOG"/>
+								<Str Str="Stage_Pbeta_Clear"/>
+								<Num Num="0"/>
+							</ToolScp>
+						</execList>
+					</Event>
+					<Event execCount="1" eventName="Glacier_Claer">
+						<condList>
+							<ToolScp Scp="GAME_ST_EVT_COND_VALUE" Client="NO" UseSleep="NO">
+								<Str Str="Glacier_Clear"/>
+								<Str Str="=="/>
+								<Num Num="1"/>
+							</ToolScp>
+						</condList>
+						<execList>
+							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
+								<Str Str="Boss_Glacier"/>
+							</ToolScp>
+							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+								<Str Str="Success"/>
+							</ToolScp>
+							<ToolScp Scp="MGAME_EVT_SCRIPT_ARG" Client="NO" UseSleep="NO">
+								<Str Str="SCR_UNIQUE_GLACIER_CUSTOM_LOG"/>
+								<Str Str="Stage_Glacier_Clear"/>
+								<Num Num="0"/>
+							</ToolScp>
+						</execList>
+					</Event>
+					<Event execCount="1" eventName="Stage1_1_Start">
+						<condList>
+							<ToolScp Scp="SCR_MGAME_VALUE_CHECK_2" Client="NO" UseSleep="NO">
+								<Str Str="Stage1_Clear"/>
+								<Str Str="=="/>
+								<Num Num="1"/>
+							</ToolScp>
+							<ToolScp Scp="SCR_MGAME_VALUE_CHECK_2" Client="NO" UseSleep="NO">
+								<Str Str="OBJ_DLG"/>
+								<Str Str="=="/>
+								<Num Num="1"/>
+							</ToolScp>
+						</condList>
+						<execList>
+							<ToolScp Scp="MGAME_MSG_ICON" Client="YES" UseSleep="NO">
+								<Str Str="크루비나의 장치가 작동하여, 주변의 몬스터들이 몰려 옵니다."/>
+								<Str Str="!"/>
+								<Num Num="5"/>
+							</ToolScp>
+							<ToolScp Scp="MGAME_EXEC_ACTORSCP" Client="NO" UseSleep="NO">
+								<Str Str="SCR_UNIQUE_GLACIER_STAGE1_1_MOVE_PC"/>
+							</ToolScp>
+							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+								<Str Str="Stage1_1"/>
+							</ToolScp>
+							<ToolScp Scp="MGAME_EVT_SCRIPT_ARG" Client="NO" UseSleep="NO">
+								<Str Str="SCR_UNIQUE_GLACIER_CUSTOM_LOG"/>
+								<Str Str="Stage1_1_Start"/>
+								<Num Num="0"/>
+							</ToolScp>
+						</execList>
+					</Event>
+					<Event execCount="1" eventName="Stage2_1_Start">
+						<condList>
+							<ToolScp Scp="GAME_ST_EVT_COND_VALUE" Client="NO" UseSleep="NO">
+								<Str Str="Stage1_Clear"/>
+								<Str Str="=="/>
+								<Num Num="1"/>
+							</ToolScp>
+							<ToolScp Scp="SCR_MGAME_VALUE_CHECK_2" Client="NO" UseSleep="NO">
+								<Str Str="Stage2_Clear"/>
+								<Str Str="=="/>
+								<Num Num="1"/>
+							</ToolScp>
+							<ToolScp Scp="SCR_MGAME_VALUE_CHECK_2" Client="NO" UseSleep="NO">
+								<Str Str="OBJ_DLG"/>
+								<Str Str="OVER"/>
+								<Num Num="2"/>
+							</ToolScp>
+						</condList>
+						<execList>
+							<ToolScp Scp="MGAME_MSG_ICON" Client="YES" UseSleep="NO">
+								<Str Str="크루비나의 장치가 작동하여, 주변의 몬스터들이 몰려 옵니다."/>
+								<Str Str="!"/>
+								<Num Num="5"/>
+							</ToolScp>
+							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+								<Str Str="Stage2_1"/>
+							</ToolScp>
+							<ToolScp Scp="MGAME_EVT_SCRIPT_ARG" Client="NO" UseSleep="NO">
+								<Str Str="SCR_UNIQUE_GLACIER_CUSTOM_LOG"/>
+								<Str Str="Stage2_1_Start"/>
+								<Num Num="0"/>
+							</ToolScp>
+						</execList>
+					</Event>
+				</StageEvents>
+			</Stage>
+			<Stage Name="PBETA_KRUVINA_SPIRIT" AutoStart="0">
+				<ObjList/>
+				<StageEvents>
+					<Event execCount="1" eventName="HP_70_BELOW">
+						<condList>
+							<ToolScp Scp="MGAME_EVT_COND_MONHP" Client="NO" UseSleep="NO">
+								<MGameObj List="Boss_Pbeta/0"/>
+								<Num Num="70"/>
+								<Str Str="UNDER"/>
+								<Num Num="1"/>
+								<Str Str="OVER"/>
+							</ToolScp>
+						</condList>
+						<execList>
+							<ToolScp Scp="MGAME_EVT_SCP_TO_MON_CMD" Client="NO" UseSleep="NO">
+								<MGameObj List="Boss_Pbeta/0"/>
+								<Str Str="SCR_UNIQUE_PBETA_KRUVINA_SPIRIT_START"/>
+							</ToolScp>
+							<ToolScp Scp="MGAME_EVT_SCP_TO_MON_CMD" Client="NO" UseSleep="NO">
+								<MGameObj List="Boss_Pbeta/1/Boss_Pbeta/2/Boss_Pbeta/3"/>
+								<Str Str="SCR_UNIQUE_PBETA_KRUVINA_SPIRIT_BLACK_CRYSTAL_START"/>
+							</ToolScp>
+						</execList>
+					</Event>
+				</StageEvents>
+			</Stage>
+			<Stage Name="PBETA_BATTLE_FIELD" AutoStart="0">
+				<ObjList>
+					<Obj Type="Monster" MonType="59460" Pos="1015.03#535.51#111.54" genCount="1" genTime="20000" autoGen="0" objectKey="0"/>
+					<Obj Type="Monster" MonType="59460" Pos="1043.55#535.51#157.73" genCount="1" genTime="20000" autoGen="0" objectKey="1"/>
+					<Obj Type="Monster" MonType="59460" Pos="1045.87#535.51#53.41" genCount="1" genTime="20000" autoGen="0" objectKey="2"/>
+					<Obj Type="Monster" MonType="59459" Pos="1094.43#535.51#-70.38" genCount="1" genTime="20000" autoGen="0" objectKey="9" propList="&apos;BTree&apos; &apos;BT_TimeBomb_Unique_Pbeta&apos; "/>
+					<Obj Type="Monster" MonType="59461" Pos="1358.66#535.51#-97.13" genCount="1" genTime="20000" autoGen="0" objectKey="3"/>
+					<Obj Type="Monster" MonType="59461" Pos="1373.17#535.51#-26.41" genCount="1" genTime="20000" autoGen="0" objectKey="4"/>
+					<Obj Type="Monster" MonType="59461" Pos="1444.70#535.51#-27.32" genCount="1" genTime="20000" autoGen="0" objectKey="5"/>
+					<Obj Type="Monster" MonType="59457" Pos="1443.39#535.51#273.77" genCount="1" genTime="20000" autoGen="0" objectKey="6"/>
+					<Obj Type="Monster" MonType="59457" Pos="1395.18#535.51#296.20" genCount="1" genTime="20000" autoGen="0" objectKey="7"/>
+					<Obj Type="Monster" MonType="59457" Pos="1427.52#535.51#332.00" genCount="1" genTime="20000" autoGen="0" objectKey="8"/>
+					<Obj Type="Monster" MonType="59460" Pos="1073.44#535.51#106.11" genCount="1" genTime="20000" autoGen="0" objectKey="10"/>
+					<Obj Type="Monster" MonType="59461" Pos="1429.24#535.51#-78.50" genCount="1" genTime="20000" autoGen="0" objectKey="11"/>
+					<Obj Type="Monster" MonType="59457" Pos="1471.69#535.51#308.60" genCount="1" genTime="20000" autoGen="0" objectKey="12"/>
+				</ObjList>
+				<StageEvents>
+					<Event eventName="DmageDebuff">
+						<condList>
+							<ToolScp Scp="GAME_ST_EVT_COND_VALUE" Client="NO" UseSleep="NO">
+								<Str Str="battle_field_unique_pbeta_third_victory_debuff"/>
+								<Str Str="=="/>
+								<Num Num="1"/>
+							</ToolScp>
+						</condList>
+						<execList>
+							<ToolScp Scp="MGAME_EXEC_GIVE_BUFF" Client="NO" UseSleep="NO">
+								<Str Str="PBETA_UNIQUE_BATTLE_VICTORY_DMG_BUFF"/>
+								<Num Num="99"/>
+								<Num Num="0"/>
+								<Num Num="90000"/>
+								<Num Num="1"/>
+								<Num Num="0"/>
+							</ToolScp>
+						</execList>
+					</Event>
+					<Event eventName="SummonBombMonster">
+						<condList>
+							<ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+								<Num Num="15"/>
+							</ToolScp>
+							<ToolScp Scp="GAME_ST_EVT_COND_VALUE" Client="NO" UseSleep="NO">
+								<Str Str="Battle_Field_Summon_BombMonster"/>
+								<Str Str="=="/>
+								<Num Num="1"/>
+							</ToolScp>
+							<ToolScp Scp="MGAME_EVT_COND_MONCNT_OVER" Client="NO" UseSleep="NO">
+								<MGameObj List="Boss_Pbeta/0"/>
+								<Num Num="1"/>
+							</ToolScp>
+							<ToolScp Scp="MGAME_EVT_COND_SCRIPT_MON" Client="NO" UseSleep="NO">
+								<MGameObj List="Boss_Pbeta/0"/>
+								<Str Str="SCR_UNIQUE_PBETA_BATTLE_FIELD_SUMMONCHECK_BOMB_MONSTER"/>
+								<Str Str="None"/>
+								<Num Num="0"/>
+							</ToolScp>
+						</condList>
+						<execList>
+							<ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
+								<MGameObjIndex List="PBETA_BATTLE_FIELD/9"/>
+								<Num Num="1"/>
+								<Num Num="0"/>
+							</ToolScp>
+							<ToolScp Scp="MGAME_EVT_SCP_TO_MON_CMD" Client="NO" UseSleep="NO">
+								<MGameObj List="PBETA_BATTLE_FIELD/9"/>
+								<Str Str="SCR_UNIQUE_PBETA_BATTLE_FIELD_SUMMON_BOMB_MONSTER"/>
+							</ToolScp>
+						</execList>
+					</Event>
+					<Event eventName="SummonMonster">
+						<condList>
+							<ToolScp Scp="GAME_ST_EVT_COND_VALUE" Client="NO" UseSleep="NO">
+								<Str Str="Battle_Field_Summon_Monster"/>
+								<Str Str="=="/>
+								<Num Num="1"/>
+							</ToolScp>
+							<ToolScp Scp="MGAME_EVT_COND_MONCNT_OVER" Client="NO" UseSleep="NO">
+								<MGameObj List="Boss_Pbeta/0"/>
+								<Num Num="1"/>
+							</ToolScp>
+						</condList>
+						<execList>
+							<ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
+								<MGameObjIndex List="PBETA_BATTLE_FIELD/0/PBETA_BATTLE_FIELD/1/PBETA_BATTLE_FIELD/2/PBETA_BATTLE_FIELD/3/PBETA_BATTLE_FIELD/4/PBETA_BATTLE_FIELD/5/PBETA_BATTLE_FIELD/6/PBETA_BATTLE_FIELD/7/PBETA_BATTLE_FIELD/8/PBETA_BATTLE_FIELD/10/PBETA_BATTLE_FIELD/11/PBETA_BATTLE_FIELD/12"/>
+								<Num Num="1"/>
+								<Num Num="0"/>
+							</ToolScp>
+							<ToolScp Scp="MGAME_EVT_SCP_TO_MON_CMD" Client="NO" UseSleep="NO">
+								<MGameObj List="PBETA_BATTLE_FIELD/0/PBETA_BATTLE_FIELD/1/PBETA_BATTLE_FIELD/2/PBETA_BATTLE_FIELD/3/PBETA_BATTLE_FIELD/4/PBETA_BATTLE_FIELD/5/PBETA_BATTLE_FIELD/6/PBETA_BATTLE_FIELD/7/PBETA_BATTLE_FIELD/8/PBETA_BATTLE_FIELD/10/PBETA_BATTLE_FIELD/11/PBETA_BATTLE_FIELD/12"/>
+								<Str Str="SCR_UNIQUE_PBETA_BATTLE_FIELD_SUMMON_MONSTER"/>
+							</ToolScp>
+							<ToolScp Scp="GAME_ST_EVT_EXEC_VALUE" Client="NO" UseSleep="NO">
+								<Str Str="Battle_Field_Summon_Monster"/>
+								<Num Num="0"/>
+							</ToolScp>
+						</execList>
+					</Event>
+				</StageEvents>
+			</Stage>
+			<Stage Name="PBETA_SUMMON_TRAP" AutoStart="0">
+				<ObjList>
+					<Obj Type="Monster" MonType="160029" Pos="1221.56#535.51#-4.79" genCount="1" genTime="20000" objectKey="0"/>
+					<Obj Type="Monster" MonType="160029" Pos="1252.76#535.51#318.64" genCount="1" genTime="20000" objectKey="1"/>
+					<Obj Type="Monster" MonType="160029" Pos="1555.32#535.51#102.86" genCount="1" genTime="20000" objectKey="2"/>
+				</ObjList>
+				<StageEvents>
+					<Event eventName="RunPad">
+						<condList>
+							<ToolScp Scp="GAME_ST_EVT_COND_VALUE" Client="NO" UseSleep="NO">
+								<Str Str="summon_trap_pad_crate"/>
+								<Str Str="=="/>
+								<Num Num="1"/>
+							</ToolScp>
+							<ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+								<Num Num="10"/>
+							</ToolScp>
+						</condList>
+						<execList>
+							<ToolScp Scp="MGAME_EVT_SCRIPT" Client="NO" UseSleep="NO">
+								<Str Str="SCR_UNIQUE_PBETA_SUMMON_TRAP_RUN_PAD"/>
+							</ToolScp>
+						</execList>
+					</Event>
+					<Event execCount="1" eventName="HP_75_BELOW">
+						<condList>
+							<ToolScp Scp="MGAME_EVT_COND_MONHP" Client="NO" UseSleep="NO">
+								<MGameObj List="Boss_Pbeta/0"/>
+								<Num Num="75"/>
+								<Str Str="UNDER"/>
+								<Num Num="1"/>
+								<Str Str="OVER"/>
+							</ToolScp>
+						</condList>
+						<execList>
+							<ToolScp Scp="GAME_ST_EVT_EXEC_VALUE" Client="NO" UseSleep="NO">
+								<Str Str="summon_trap_pad_crate"/>
+								<Num Num="1"/>
+							</ToolScp>
+							<ToolScp Scp="GAME_EVT_ON_BYNAME" Client="NO" UseSleep="NO">
+								<Str Str="RunPad"/>
+							</ToolScp>
+						</execList>
+					</Event>
+					<Event execCount="1" eventName="HP_60_BELOW">
+						<condList>
+							<ToolScp Scp="MGAME_EVT_COND_MONHP" Client="NO" UseSleep="NO">
+								<MGameObj List="Boss_Pbeta/0"/>
+								<Num Num="60"/>
+								<Str Str="UNDER"/>
+								<Num Num="1"/>
+								<Str Str="OVER"/>
+							</ToolScp>
+						</condList>
+						<execList>
+							<ToolScp Scp="GAME_ST_EVT_EXEC_VALUE" Client="NO" UseSleep="NO">
+								<Str Str="summon_trap_pad_crate"/>
+								<Num Num="1"/>
+							</ToolScp>
+							<ToolScp Scp="GAME_EVT_ON_BYNAME" Client="NO" UseSleep="NO">
+								<Str Str="RunPad"/>
+							</ToolScp>
+						</execList>
+					</Event>
+					<Event execCount="1" eventName="HP_45_BELOW">
+						<condList>
+							<ToolScp Scp="MGAME_EVT_COND_MONHP" Client="NO" UseSleep="NO">
+								<MGameObj List="Boss_Pbeta/0"/>
+								<Num Num="45"/>
+								<Str Str="UNDER"/>
+								<Num Num="1"/>
+								<Str Str="OVER"/>
+							</ToolScp>
+						</condList>
+						<execList>
+							<ToolScp Scp="GAME_ST_EVT_EXEC_VALUE" Client="NO" UseSleep="NO">
+								<Str Str="summon_trap_pad_crate"/>
+								<Num Num="1"/>
+							</ToolScp>
+							<ToolScp Scp="GAME_EVT_ON_BYNAME" Client="NO" UseSleep="NO">
+								<Str Str="RunPad"/>
+							</ToolScp>
+						</execList>
+					</Event>
+					<Event execCount="1" eventName="HP_15_BELOW">
+						<condList>
+							<ToolScp Scp="MGAME_EVT_COND_MONHP" Client="NO" UseSleep="NO">
+								<MGameObj List="Boss_Pbeta/0"/>
+								<Num Num="15"/>
+								<Str Str="UNDER"/>
+								<Num Num="1"/>
+								<Str Str="OVER"/>
+							</ToolScp>
+						</condList>
+						<execList>
+							<ToolScp Scp="GAME_ST_EVT_EXEC_VALUE" Client="NO" UseSleep="NO">
+								<Str Str="summon_trap_pad_crate"/>
+								<Num Num="1"/>
+							</ToolScp>
+							<ToolScp Scp="GAME_EVT_ON_BYNAME" Client="NO" UseSleep="NO">
+								<Str Str="RunPad"/>
+							</ToolScp>
+						</execList>
+					</Event>
+					<Event execCount="1" eventName="HP_5_BELOW">
+						<condList>
+							<ToolScp Scp="MGAME_EVT_COND_MONHP" Client="NO" UseSleep="NO">
+								<MGameObj List="Boss_Pbeta/0"/>
+								<Num Num="5"/>
+								<Str Str="UNDER"/>
+								<Num Num="1"/>
+								<Str Str="OVER"/>
+							</ToolScp>
+						</condList>
+						<execList>
+							<ToolScp Scp="GAME_ST_EVT_EXEC_VALUE" Client="NO" UseSleep="NO">
+								<Str Str="summon_trap_pad_crate"/>
+								<Num Num="1"/>
+							</ToolScp>
+							<ToolScp Scp="GAME_EVT_ON_BYNAME" Client="NO" UseSleep="NO">
+								<Str Str="RunPad"/>
+							</ToolScp>
+						</execList>
+					</Event>
+				</StageEvents>
+			</Stage>
+			<Stage Name="GLACIER_ESSENCE_WARMTH" AutoStart="0">
+				<ObjList/>
+				<StageEvents>
+					<Event execCount="1" eventName="WitchCold_Debuff">
+						<condList>
+							<ToolScp Scp="MGAME_EVT_COND_MONCNT_ALIVE" Client="NO" UseSleep="NO">
+								<MGameObj List="Boss_Glacier/0"/>
+								<Num Num="1"/>
+							</ToolScp>
+						</condList>
+						<execList>
+							<ToolScp Scp="MGAME_EVT_SCP_TO_MON_CMD" Client="NO" UseSleep="NO">
+								<MGameObj List="Boss_Glacier/0"/>
+								<Str Str="SCR_UNIQUE_GLACIER_APPLY_WITCH_COLD_DEBUFF_ALL_PC"/>
+							</ToolScp>
+						</execList>
+					</Event>
+					<Event eventName="_WitchCold_Debuff">
+						<condList>
+							<ToolScp Scp="MGAME_EVT_COND_MONCNT_ALIVE" Client="NO" UseSleep="NO">
+								<MGameObj List="Boss_Glacier/0"/>
+								<Num Num="1"/>
+							</ToolScp>
+							<ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+								<Num Num="5"/>
+							</ToolScp>
+						</condList>
+						<execList>
+							<ToolScp Scp="MGAME_EVT_SCP_TO_MON_CMD" Client="NO" UseSleep="NO">
+								<MGameObj List="Boss_Glacier/0"/>
+								<Str Str="_SCR_UNIQUE_GLACIER_APPLY_WITCH_COLD_DEBUFF_ALL_PC"/>
+							</ToolScp>
+						</execList>
+					</Event>
+				</StageEvents>
+			</Stage>
+			<Stage Name="GLACIER_COLD_BLAST" AutoStart="0">
+				<ObjList/>
+				<StageEvents>
+					<Event execCount="1" eventName="HP_75_BELOW">
+						<condList>
+							<ToolScp Scp="MGAME_EVT_COND_MONHP" Client="NO" UseSleep="NO">
+								<MGameObj List="Boss_Glacier/0"/>
+								<Num Num="75"/>
+								<Str Str="UNDER"/>
+								<Num Num="1"/>
+								<Str Str="OVER"/>
+							</ToolScp>
+						</condList>
+						<execList>
+							<ToolScp Scp="MGAME_EVT_SCP_TO_MON_CMD" Client="NO" UseSleep="NO">
+								<MGameObj List="Boss_Glacier/0"/>
+								<Str Str="SCR_UNIQUE_GLACIER_APPLY_COLD_BLAST_DEBUFF"/>
+							</ToolScp>
+						</execList>
+					</Event>
+					<Event execCount="1" eventName="HP_50_BELOW">
+						<condList>
+							<ToolScp Scp="MGAME_EVT_COND_MONHP" Client="NO" UseSleep="NO">
+								<MGameObj List="Boss_Glacier/0"/>
+								<Num Num="50"/>
+								<Str Str="UNDER"/>
+								<Num Num="1"/>
+								<Str Str="OVER"/>
+							</ToolScp>
+						</condList>
+						<execList>
+							<ToolScp Scp="MGAME_EVT_SCP_TO_MON_CMD" Client="NO" UseSleep="NO">
+								<MGameObj List="Boss_Glacier/0"/>
+								<Str Str="SCR_UNIQUE_GLACIER_APPLY_COLD_BLAST_DEBUFF"/>
+							</ToolScp>
+						</execList>
+					</Event>
+					<Event execCount="1" eventName="HP_30_BELOW">
+						<condList>
+							<ToolScp Scp="MGAME_EVT_COND_MONHP" Client="NO" UseSleep="NO">
+								<MGameObj List="Boss_Glacier/0"/>
+								<Num Num="30"/>
+								<Str Str="UNDER"/>
+								<Num Num="1"/>
+								<Str Str="OVER"/>
+							</ToolScp>
+						</condList>
+						<execList>
+							<ToolScp Scp="MGAME_EVT_SCP_TO_MON_CMD" Client="NO" UseSleep="NO">
+								<MGameObj List="Boss_Glacier/0"/>
+								<Str Str="SCR_UNIQUE_GLACIER_APPLY_COLD_BLAST_DEBUFF"/>
+							</ToolScp>
+						</execList>
+					</Event>
+					<Event execCount="1" eventName="HP_15_BELOW">
+						<condList>
+							<ToolScp Scp="MGAME_EVT_COND_MONHP" Client="NO" UseSleep="NO">
+								<MGameObj List="Boss_Glacier/0"/>
+								<Num Num="15"/>
+								<Str Str="UNDER"/>
+								<Num Num="1"/>
+								<Str Str="OVER"/>
+							</ToolScp>
+						</condList>
+						<execList>
+							<ToolScp Scp="MGAME_EVT_SCP_TO_MON_CMD" Client="NO" UseSleep="NO">
+								<MGameObj List="Boss_Glacier/0"/>
+								<Str Str="SCR_UNIQUE_GLACIER_APPLY_COLD_BLAST_DEBUFF"/>
+							</ToolScp>
+						</execList>
+					</Event>
+				</StageEvents>
+			</Stage>
+			<Stage Name="GLACIER_SNOW_STORM" AutoStart="0">
+				<ObjList/>
+				<StageEvents>
+					<Event execCount="1" eventName="HP_90_BELOW">
+						<condList>
+							<ToolScp Scp="MGAME_EVT_COND_MONHP" Client="NO" UseSleep="NO">
+								<MGameObj List="Boss_Glacier/0"/>
+								<Num Num="90"/>
+								<Str Str="UNDER"/>
+								<Num Num="1"/>
+								<Str Str="OVER"/>
+							</ToolScp>
+						</condList>
+						<execList>
+							<ToolScp Scp="MGAME_EVT_SCP_TO_MON" Client="NO" UseSleep="NO">
+								<MGameObj List="Boss_Glacier/0"/>
+								<Str Str="SCR_UNIQUE_GLACIER_SNOW_STORM_RUN_PAD"/>
+							</ToolScp>
+						</execList>
+					</Event>
+					<Event execCount="1" eventName="HP_75_BELOW">
+						<condList>
+							<ToolScp Scp="MGAME_EVT_COND_MONHP" Client="NO" UseSleep="NO">
+								<MGameObj List="Boss_Glacier/0"/>
+								<Num Num="75"/>
+								<Str Str="UNDER"/>
+								<Num Num="1"/>
+								<Str Str="OVER"/>
+							</ToolScp>
+						</condList>
+						<execList>
+							<ToolScp Scp="MGAME_EVT_SCP_TO_MON" Client="NO" UseSleep="NO">
+								<MGameObj List="Boss_Glacier/0"/>
+								<Str Str="SCR_UNIQUE_GLACIER_SNOW_STORM_RUN_PAD"/>
+							</ToolScp>
+						</execList>
+					</Event>
+					<Event execCount="1" eventName="HP_50_BELOW">
+						<condList>
+							<ToolScp Scp="MGAME_EVT_COND_MONHP" Client="NO" UseSleep="NO">
+								<MGameObj List="Boss_Glacier/0"/>
+								<Num Num="50"/>
+								<Str Str="UNDER"/>
+								<Num Num="1"/>
+								<Str Str="OVER"/>
+							</ToolScp>
+						</condList>
+						<execList>
+							<ToolScp Scp="MGAME_EVT_SCP_TO_MON" Client="NO" UseSleep="NO">
+								<MGameObj List="Boss_Glacier/0"/>
+								<Str Str="SCR_UNIQUE_GLACIER_SNOW_STORM_RUN_PAD"/>
+							</ToolScp>
+						</execList>
+					</Event>
+					<Event execCount="1" eventName="HP_30_BELOW">
+						<condList>
+							<ToolScp Scp="MGAME_EVT_COND_MONHP" Client="NO" UseSleep="NO">
+								<MGameObj List="Boss_Glacier/0"/>
+								<Num Num="30"/>
+								<Str Str="UNDER"/>
+								<Num Num="1"/>
+								<Str Str="OVER"/>
+							</ToolScp>
+						</condList>
+						<execList>
+							<ToolScp Scp="MGAME_EVT_SCP_TO_MON" Client="NO" UseSleep="NO">
+								<MGameObj List="Boss_Glacier/0"/>
+								<Str Str="SCR_UNIQUE_GLACIER_SNOW_STORM_RUN_PAD"/>
+							</ToolScp>
+						</execList>
+					</Event>
+					<Event execCount="1" eventName="HP_15_BELOW">
+						<condList>
+							<ToolScp Scp="MGAME_EVT_COND_MONHP" Client="NO" UseSleep="NO">
+								<MGameObj List="Boss_Glacier/0"/>
+								<Num Num="15"/>
+								<Str Str="UNDER"/>
+								<Num Num="1"/>
+								<Str Str="OVER"/>
+							</ToolScp>
+						</condList>
+						<execList>
+							<ToolScp Scp="MGAME_EVT_SCP_TO_MON" Client="NO" UseSleep="NO">
+								<MGameObj List="Boss_Glacier/0"/>
+								<Str Str="SCR_UNIQUE_GLACIER_SNOW_STORM_RUN_PAD"/>
+							</ToolScp>
+						</execList>
+					</Event>
+				</StageEvents>
+			</Stage>
+		</StageList>
+		<WorldInitList>
+			<ToolScp Scp="MGAME_INIT_CHANGE_VIEW" Client="NO" UseSleep="NO">
+				<Num Num="1500"/>
+			</ToolScp>
+		</WorldInitList>
+	</Game>
+</GameList>

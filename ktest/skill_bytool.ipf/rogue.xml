@@ -399,14 +399,8 @@ return func(skill.Level)" Str="0" UseFunc="1"/>
 					<Str Str="voice_war_atk_medium" />
 					<Str Str="voice_atk_medium_war_f" />
 				</Scp>
-				<Scp Client="NO" Scp="SKL_BUFF" Time="800" UseSleep="NO">
-					<Str Str="Burrow_Rogue" />
-					<Num FuncTxt=" return obj.Level;" Num="1" UseFunc="1" />
-					<Num Num="0" />
-					<Num Num="30000" />
-					<Num Num="1" />
-					<Num Num="100" />
-					<Num Num="0" />
+				<Scp Scp="SKL_RUN_SCRIPT" Client="NO" UseSleep="NO" Time="800">
+					<Str Str="SCR_ADDBUFF_Burrow_Rogue"/>
 				</Scp>
                 <Scp Client="NO" Scp="SKL_TGT_REMOVE_DEBUFF" Time="110" UseSleep="NO">
                 <Str FuncTxt="local func_name = 'get_remove_debuff_tooltip_' .. TryGetProp(obj, 'ClassName', 'None')
@@ -639,29 +633,7 @@ return func(skill.Level)" Str="0" UseFunc="1"/>
 					<Str Str="voice_atk_medium_war_f" />
 				</Scp>
 			</EtcList>
-			<ResultList>
-				<ToolScp Client="NO" Scp="S_R_TGTBUFF" UseSleep="NO">
-					<Str Str="Stun" />
-					<Num FuncTxt="return skill.Level;" Num="1" UseFunc="1" />
-					<Num Num="0" />
-                    <Num Num="3000" UseFunc="1" FuncTxt="local value = 500 + (100 * skill.Level)
-                    local angle = 120
-                    local attackerx, attackerz = GetDir(self)
-                    local targetx, targetz = GetDir(target)
-                    local attackerDir = GetAngleTo(self, target)
-                    local targetDir = DirToAngle(targetx, targetz)
-                    local relativeAngle = attackerDir - targetDir
-                    local revAngle = angle * -1
-                    if GetExProp(from, &quot;IS_BACKATTACK&quot;) == 1 or (angle/2 &gt;= relativeAngle and 0 &lt;= relativeAngle) or (revAngle/2 &lt;= relativeAngle and 0 &gt;= relativeAngle) then
-                    value = value * 1.5
-                    end
-                    return value" />
-					<Num Num="1" />
-					<Num Num="50" UseFunc="1" FuncTxt="local value = 70; if IsPVPServer(self) == 1 or IsPVPField(self) == 1 then value = 50 end return value;"/>
-					<Num Num="-1" />
-				</ToolScp>
-			</ResultList>
-		</MainSkl>
+			</MainSkl>
 	</Skill>
 	<Skill Name="Rogue_Feint">
 		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
@@ -669,36 +641,33 @@ return func(skill.Level)" Str="0" UseFunc="1"/>
 				<Frame Angle="0" AniTime="9999" Dist="0" ForceATK="0" HitCount="1" Length="30" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="9799" Type="FAN" Width="30" />
 			</HitList>
 			<EtcList>
-				<Scp Client="YES" Scp="C_VOICE_SOUND" Time="200" UseSleep="NO">
+				<Scp Scp="SKL_SET_TARGET_CLIENT_TARGETTING" Client="NO" UseSleep="NO" Time="0"/>
+                <Scp Scp="C_VOICE_SOUND" Client="YES" UseSleep="NO" Time="200">
 					<Str Str="voice_war_atk_medium" />
 					<Str Str="voice_atk_medium_war_f" />
 				</Scp>
-				<Scp Client="NO" Scp="SKL_SET_TARGET_SQUARE" Time="200" UseSleep="NO">
-					<Pos Angle="0" Dist="0" />
-					<Num Num="0" />
-					<Num Num="80" />
-					<Num Num="15" />
-					<Num FuncTxt=" return 15" Num="5" UseFunc="1" />
-					<Num Num="2" />
-					<Num Num="1" />
-				</Scp>
-				<Scp Client="NO" Scp="SKL_TGT_BUFF" Time="200" UseSleep="NO">
-					<Str Str="Feint_Debuff" />
+				<Scp Scp="SKL_SETPOS_TARGET" Client="NO" UseSleep="NO" Time="300">
+					<Str_Arg Str="None" Arg="1"/>
+					<Num Num="135"/>
+					<Num Num="20"/>
+					<Num Num="0" UseFunc="1" FuncTxt="return 50 + obj.Level * 8"/>
+					</Scp>
+					<Scp Scp="SKL_LOOK_TGT" Client="NO" UseSleep="NO" Time="325"/>
+				<Scp Scp="SKL_TGT_BUFF" Client="NO" UseSleep="NO" Time="330">
+					<Str Str="Feint_HoldRotate_Debuff"/>
 					<Num Num="1" />
 					<Num Num="0" />
-					<Num FuncTxt=" return 20000" Num="0" UseFunc="1" />
+					<Num Num="3000"/>
+					<Num Num="1"/>
+					<Num Num="100"/>
+				<Num Num="0"/>
+					<Num Num="1"/>
+					</Scp>
+					<Scp Scp="MONSKL_C_PLAY_ANIM" Client="YES" UseSleep="NO" Time="340">
+					<Str Str="SKL_BEHEAD1"/>
+					<Num Num="2"/>
 					<Num Num="1" />
-					<Num Num="100" />
-				</Scp>
-				<Scp Client="NO" Scp="SKL_TGT_BUFF" Time="200" UseSleep="NO">
-					<Str Str="Feint_HoldRotate_Debuff" />
-					<Num Num="1" />
-					<Num Num="0" />
-					<Num Num="3000" />
-					<Num Num="1" />
-					<Num Num="100" />
-					<Num Num="1" />
-					<Num Num="1" />
+					<Num Num="0"/>
 				</Scp>
 			</EtcList>
 		</MainSkl>

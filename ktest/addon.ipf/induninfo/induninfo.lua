@@ -199,6 +199,14 @@ function INDUNINFO_CREATE_CATEGORY(frame)
                     end
                 end
 
+                if indunCls.DungeonType == "Event" then
+                    cyclePicImg:SetImage(GET_INDUN_ICON_NAME('event_s'))
+
+                    local margin = cyclePicImg:GetOriginalMargin()
+                    cyclePicImg:SetMargin(margin.left, margin.top, margin.right - 6, margin.bottom)
+                    cyclePicImg:Resize(cyclePicImg:GetOriginalWidth() + 11, cyclePicImg:GetOriginalHeight())
+                end
+
                 categoryCtrl:SetUserValue('RESET_GROUP_ID', resetGroupID);
                 if firstBtn == nil then -- 디폴트는 첫번째가 클릭되게 함
                     firstBtn = btn;
@@ -1081,6 +1089,12 @@ function INDUNINFO_MAKE_DETAIL_INFO_BOX(frame, indunClassID)
         countItemData:ShowWindow(0);
         cycleCtrlPic:ShowWindow(0);
 
+        if indunCls.DungeonType == "Event" then
+            cycleImage:SetImage(GET_INDUN_ICON_NAME('event_l'))
+            cycleImage:ShowWindow(1)
+        end
+    
+
     else
         -- if isTokenState == true then
         --     isTokenState = TryGetProp(indunCls, "PlayPerReset_Token")
@@ -1169,6 +1183,11 @@ function INDUNINFO_MAKE_DETAIL_INFO_BOX(frame, indunClassID)
             end
         
             cycleImage:ShowWindow(0);
+        end
+
+        if indunCls.DungeonType == "Event" then
+            cycleCtrlPic:SetImage(GET_INDUN_ICON_NAME('event_l'))
+            cycleCtrlPic:ShowWindow(1)
         end
 
 --        if indunCls.MGame == 'MISSION_EVENT_BLUEORB' then

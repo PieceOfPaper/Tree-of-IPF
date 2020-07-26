@@ -4919,6 +4919,15 @@ function SCR_EPISODE_CHECK(pc, episodeRewardClassName)
             return "New"; 
         end
     end
+    
+    -- 0. Next 검사
+    if unLockGroup ~= nil and unLockGroup == "Next" then
+        local unLockGroupPropName = "Episode_Unlock_" .. unLockGroup ;
+        local unLockGroupProp = TryGetProp(accountObj, unLockGroupPropName)
+        if unLockGroupProp ~= 1 then
+            return "Next"; 
+        end
+    end
 
     -- 1. Lock 검사
     if unLockGroup ~= nil and unLockGroup ~= "None" then

@@ -452,13 +452,8 @@ return time"/>
 					<Str Str="None"/>
 					<Num Num="0"/>
 				</Scp>
-				<Scp Scp="PAD_SEARCH_AND_CHANGE_TARGET" Client="NO" UseSleep="NO" Time="800">
-					<Str Str="Miko_Hamaya"/>
-					<Str Str="Exorcist_Entity"/>
-					<Pos Angle="0" Dist="3.8255448e-43" PosType="1"/>
-					<Num Num="4"/>
-					<Num Num="150"/>
-					<Str Str="ALL"/>
+				<Scp Scp="SKL_RUN_SCRIPT" Client="NO" UseSleep="NO" Time="800">
+					<Str Str="SCR_MIKO_Hamaya"/>
 				</Scp>
 				<Scp Scp="SKL_RUN_SCRIPT" Client="NO" UseSleep="NO" Time="850">
 					<Str Str="SCR_EXOSICT_ENTITY"/>
