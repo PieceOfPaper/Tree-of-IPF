@@ -94,14 +94,15 @@ function GODPROTECTION_ITME_LIST_INIT(frame)
 		frame = ui.GetFrame("godprotection");
 	end
 
-	local allcnt = session.GodProtection.GetItemListCount();
-	local cnt = allcnt;
-	-- 맨 마지막 slot 부터 생성, 일반 아이템 슬롯만 설정
-	for i = allcnt - 1, 2, -1 do
-		cnt = cnt - 1;
-		slot = GET_CHILD_RECURSIVELY(frame, 'slot_'..i);
+	local allcnt = session.GodProtection.GetItemListCount()
+	local slot_index = 14
+	local cnt = 14;	
+	-- 맨 마지막 slot 부터 생성, 일반 아이템 슬롯만 설정, 뒤에서부터 12개 그리면 됨
+	for i = allcnt, allcnt - 11, -1 do		
+		slot = GET_CHILD_RECURSIVELY(frame, 'slot_'.. slot_index);
+		slot_index = slot_index - 1		
 		if slot ~= nil then
-			local itemid = session.GodProtection.GetItemIDbyIndex(cnt);	
+			local itemid = session.GodProtection.GetItemIDbyIndex(i - 1);	
 			local itemCls = GetClassByType('Item', itemid);
 			if itemCls ~= nil then
 				SET_SLOT_IMG(slot, itemCls.Icon);
