@@ -249,6 +249,11 @@ function PUT_ACCOUNT_ITEM_TO_WAREHOUSE_BY_INVITEM_MSG_YESSCP(guid, count)
     end
     
     local obj = GetIES(invItem:GetObject());
+    
+    if _CHECK_ACCOUNT_WAREHOUSE_SLOT_COUNT_TO_PUT(obj) == false then
+        return;
+    end
+    
     if CHECK_EMPTYSLOT(frame, obj) == 1 then
         return
     end

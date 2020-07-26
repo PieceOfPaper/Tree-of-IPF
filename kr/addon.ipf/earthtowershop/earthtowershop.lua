@@ -1074,6 +1074,7 @@ end
 function CRAFT_ITEM_CANCEL(eachSet, slot, stringArg)
     if eachSet~=nil then
         eachSet:SetUserValue("MATERIAL_IS_SELECTED", 'nonselected');
+        eachSet:SetUserValue(eachSet:GetName(), 'None');
 
         local slot = GET_CHILD_RECURSIVELY(eachSet, "slot");
         if slot ~= nil then

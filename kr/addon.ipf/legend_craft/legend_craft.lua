@@ -344,17 +344,15 @@ function LEGEND_CRAFT_EXECUTE(parent, ctrl)
 	local frame = ctrl:GetTopParentFrame();
 	local targetRecipeName = ctrl:GetUserValue('TARGET_RECIPE_NAME');
 
-	local ctrlset = nil;
 	local recipeCls = nil;
 	local craftType = frame:GetUserValue("CRAFT_TYPE");
 	if craftType == "SPECIAL_MISC_CRAFT" then
-		recipeCls = GET_SPECIAL_MISC_TARGET_ITEM_CLASS(targetRecipeName);
-		ctrlset = GET_CHILD_RECURSIVELY(frame, 'RECIPE_'..recipeCls.ClassID);
+		local strlist = StringSplit(parent:GetName(), 'RECIPE_');
+		recipeCls = GetClassByType("SpecialMiscRecipe", strlist[2]);
 	else
 		recipeCls = GetClass("legendrecipe", targetRecipeName);
-		ctrlset = GET_CHILD_RECURSIVELY(frame, 'RECIPE_'..targetRecipeName);
 	end
-	if recipeCls == nil or ctrlset == nil then
+	if recipeCls == nil then
 		return;
 	end
 
@@ -363,7 +361,7 @@ function LEGEND_CRAFT_EXECUTE(parent, ctrl)
 
 	local maxMaterialCnt = recipeCls.MaterialItemSlotCnt;
 	for i = 1, maxMaterialCnt do
-		local matCtrlset = GET_CHILD_RECURSIVELY(ctrlset, 'MATERIAL_'..i);
+		local matCtrlset = GET_CHILD_RECURSIVELY(parent, 'MATERIAL_'..i);
 		guid_list[i] = tostring(matCtrlset:GetUserValue(matCtrlset:GetName()))
 		if matCtrlset ~= nil then
 			local btn = GET_CHILD(matCtrlset, 'btn');
@@ -405,7 +403,7 @@ end
 
 function ON_SUCCESS_LEGEND_CRAFT(frame, msg, argStr, argNum)
 	local craftType = frame:GetUserValue("CRAFT_TYPE");
-	PLAY_BLACKSMITH_SUCCESS_EFFECT(argStr, craftType);
+	PLAY_BLACKSMITH_SUCCESS_EFFECT(argStr, craftType, argNum);
 	
 	if craftType == "LEGEND_CRAFT" then
 		LEGEND_CRAFT_MAKE_LIST(frame);
@@ -514,14 +512,4 @@ function SPECIAL_MISC_MAKE_CTRLSET(recipeBox, recipeCls)
 
 	local ypos = math.max(matBox:GetY() + matBox:GetHeight() + 60, itemIcon:GetY() + itemIcon:GetHeight() + 70);
 	ctrlset:Resize(ctrlset:GetWidth(), ypos);
-end
-
-function GET_SPECIAL_MISC_TARGET_ITEM_CLASS(name)
-	local clslist, cnt = GetClassList("SpecialMiscRecipe");
-	for i = 0, cnt - 1 do
-		local cls = GetClassByIndexFromList(clslist, i);
-		if cls ~= nil and cls.TargetItem == name then
-			return cls;
-		end
-	end
 end
