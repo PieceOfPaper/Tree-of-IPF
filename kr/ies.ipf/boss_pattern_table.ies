@@ -30,7 +30,7 @@ ClassID,EndTime,arg2,ClassName,Name,SkillClassName,Type,StartTime,ConditionScrip
 29,900000,0,"Weekly_PadPattern_02","고뇌의 룬","Mon_weekly_pattern_Skill_29","Type3","33000","","0","Weekly_PadPattern_02","장판이 1분간 생성됩니다.장판 위의 적에게 1초마다 [명중 감소], [치명타 발생 증가], [치명타 공격력 증가] 버프를 부여합니다."
 30,900000,0,"Weekly_Mirror","거울","Mon_weekly_pattern_Skill_30","Type2","3000/60000","","0","Weekly_Mirror","캐릭터 위치에 암흑 마법진이 소환됩니다. 암흑 마법진은 2초 후에 폭발하여 큰 대미지를 줍니다."
 31,900000,0,"Weekly_Revolution","공전","Mon_weekly_pattern_Skill_31","Type1","3000/60000","","0","Weekly_Revolution","캐릭터 위치에 소환진을 생성합니다. 소환진에서 주기적으로 생성되는 소환물은 캐릭터에게 달려가 자폭합니다."
-32,900000,0,"Weekly_StarPall","스타폴","Mon_weekly_pattern_Skill_32","Type3","83000","","0","Weekly_StarPall","일정 간격으로 지면에 투사체가 떨어집니다.{nl}해당 투사체는 캐릭터에게 [재사용 대기시간 감소] 버프를 부여합니다."
+32,900000,0,"Weekly_StarFall","스타폴","Mon_weekly_pattern_Skill_32","Type3","83000","","0","Weekly_StarFall","일정 간격으로 지면에 투사체가 떨어집니다.{nl}해당 투사체는 캐릭터에게 [재사용 대기시간 감소] 버프를 부여합니다."
 33,900000,0,"Weekly_UnusualSpace ","이공간으로","Mon_weekly_pattern_Skill_33","Type2","3000/60000","","0","Weekly_UnusualSpace ","일정 시간 동안 보스 몬스터의 이동속도가 증가합니다."
 34,900000,0,"Weekly_Infectious","전염병","Mon_weekly_pattern_Skill_34","Type2","3000/60000","","0","Weekly_Infectious","일정 시간 동안 보스의 공격력이 상승하며, 방어력이 감소합니다."
 35,900000,0,"Weekly_PurifyingStone","정화석","Mon_weekly_pattern_Skill_35","Type3","0","","0","Weekly_PurifyingStone","캐릭터에게 [독 내성] 버프 80중첩을 부여합니다. 중앙에는 카운트 30을 보유한 정화석이 생성됩니다.{nl}정화석의 카운트는 2초마다 1씩 감소합니다.{nl}캐릭터의 [독 내성] 버프를 차감하여 정화석 카운트를 증가시킬 수 있습니다.{nl}카운트가 일정 수치 이하로 감소하면 독이 누출되어 캐릭터의 [독 내성] 버프 중첩이 감소합니다.{nl}[독 내성] 버프가 모두 소진되면, [중독] 디버프에 걸립니다.{nl}[중독] 디버프는 보스에게 주는 피해를 감소시킵니다."

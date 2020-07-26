@@ -165,6 +165,17 @@ date_time.add_time = function(pivot, sec)
     return ret_str
 end
 
+-- a_str가 b_str보다 같거나 크다면 true
+date_time.is_later_than = function(a_str, b_str)
+    local a = date_time.get_lua_datetime_from_str(a_str)
+    local b = date_time.get_lua_datetime_from_str(b_str)
+    if a >= b then
+        return true
+    else
+        return false
+    end
+end
+
 -- 추가 팀창고 개수
 account_warehouse.get_max_tab = function()
     return 4

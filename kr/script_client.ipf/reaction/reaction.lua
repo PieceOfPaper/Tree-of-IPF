@@ -53,7 +53,7 @@ function C_EFFECT(actor, obj, effectName, scale, nodeName, lifeTime)
         lifeTime = 0;
     end
 
-    -- 포포팝 피슽로 체크
+    -- 포포팝 피스톨 체크
     if IS_EXIST_BRIQUETTING_OR_BEAUTYSHOP_ITEM(actor, "LH", "Pistol", obj.type, 634214) == true then
         effectName = "None";
     end

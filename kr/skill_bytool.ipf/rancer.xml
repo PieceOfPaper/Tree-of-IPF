@@ -61,12 +61,12 @@
 				</Scp>
 			</EtcList>
 			<ResultList>
-			<ToolScp Client="NO" Scp="S_R_TGT_REMOVE_BUFF" UseSleep="NO">
-                <Str FuncTxt="local func_name = 'get_remove_buff_tooltip_' .. TryGetProp(skill, 'ClassName', 'None')
+				<ToolScp Client="NO" Scp="S_R_TGT_REMOVE_BUFF" UseSleep="NO">
+					<Str FuncTxt="local func_name = 'get_remove_buff_tooltip_' .. TryGetProp(skill, 'ClassName', 'None')
                local func = _G[func_name]
                if func == nil then return end
                return func(skill.Level)" Str="0" UseFunc="1"/>
-              </ToolScp>
+				</ToolScp>
 			</ResultList>
 		</MainSkl>
 	</Skill>
@@ -329,12 +329,12 @@ return 2000 + AddTime"/>
 				</Scp>
 			</EtcList>
 			<ResultList>
-        <ToolScp Client="NO" Scp="S_R_TGT_Decrease_heal_debuff" UseSleep="NO">
-          <Str FuncTxt="local func_name = 'get_decrease_heal_debuff_tooltip_' .. TryGetProp(skill, 'ClassName', 'None')
+				<ToolScp Client="NO" Scp="S_R_TGT_Decrease_heal_debuff" UseSleep="NO">
+					<Str FuncTxt="local func_name = 'get_decrease_heal_debuff_tooltip_' .. TryGetProp(skill, 'ClassName', 'None')
                local func = _G[func_name]
                if func == nil then return end
                return func(skill.Level)" Str="0" UseFunc="1"/>
-        </ToolScp>
+				</ToolScp>
 				<ToolScp Client="NO" Scp="S_R_TGTBUFF" UseSleep="NO">
 					<Str Str="JoustSilence_Debuff" />
 					<Num FuncTxt="return skill.Level;" Num="1" UseFunc="1" />
@@ -411,6 +411,9 @@ return 2000 + AddTime"/>
 					<Str Str="voice_war_atk_medium" />
 					<Str Str="voice_atk_medium_war_f" />
 				</Scp>
+				<Scp Scp="SKL_RUN_SCRIPT" Client="NO" UseSleep="NO" Time="0">
+					<Str Str="SCR_VIBORA_THSPEAR_CRUSH_TRIGGER"/>
+				</Scp>
 			</EtcList>
 			<ResultList>
 				<ToolScp Client="NO" Scp="S_R_TGTBUFF" UseSleep="NO">
@@ -425,4 +428,4 @@ return 2000 + AddTime"/>
 			</ResultList>
 		</MainSkl>
 	</Skill>
-    </ToolSkill>
+</ToolSkill>

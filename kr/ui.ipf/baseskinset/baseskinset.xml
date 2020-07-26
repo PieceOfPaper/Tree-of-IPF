@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by imc (imc) -->
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
 <!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by MintPC (Mi) -->
 <skinset name="Base">
 	<skinlist category="frames">
@@ -4406,6 +4406,17 @@
 			<img name="bottomcore" imgrect="712 724 110 35"/>
 			<img name="bottomright" imgrect="823 724 65 35"/>
 		</skin>
+		<skin name="arbor_day_balloon" texture="\skin\say_balloon.tga">
+			<img name="topleft" imgrect="86 658 55 30"/>
+			<img name="topcore" imgrect="142 658 62 30"/>
+			<img name="topright" imgrect="205 658 55 30"/>
+			<img name="bodyleft" imgrect="86 689 55 28"/>
+			<img name="bodycore" imgrect="142 689 62 28"/>
+			<img name="bodyright" imgrect="205 689 55 28"/>
+			<img name="bottomleft" imgrect="86 718 55 30"/>
+			<img name="bottomcore" imgrect="142 718 62 30"/>
+			<img name="bottomright" imgrect="205 718 55 30"/>
+		</skin>
 	</skinlist>
 	<skinlist category="buttons">
 		<skin name="button_companion" texture="\skin\barrack.tga">
@@ -7447,6 +7458,8 @@
 		<image name="red_check_line" file="\skin\stamp_tour.tga" imgrect="889 725 430 22" CMM_Caption="오늘 할 일 밑줄"/>
 		<image name="stamp_roulette_mark" file="\skin\stamp_tour.tga" imgrect="1281 650 97 74" CMM_Caption="룰렛 도장"/>
 		<image name="coming_soon_notice" file="\skin\stamp_tour.tga" imgrect="727 760 316 76" CMM_Caption="커밍순"/>
+		<image name="arbor_day_balloon_direction" file="\skin\say_balloon.tga" imgrect="1 457 82 75" CMM_Caption="식목일 말풍선 말꼬리"/>
+		<image name="arbor_day_balloon_decoration" file="\skin\say_balloon.tga" imgrect="263 539 75 57" CMM_Caption="식목일 말풍선 장식"/>
 	</imagelist>
 	<imagelist category="je_button">
 		<image name="menu_guild_info" file="\skin\guild_skin.tga" imgrect="165 298 45 45" CMM_Caption="길드 정보"/>
@@ -7872,6 +7885,11 @@
 		<image name="companion_list_check" file="\skin\pip_test2.tga" imgrect="737 394 35 35" CMM_Caption="컴패니언 목록"/>
 		<image name="companion_list_check_cursoron" file="\skin\pip_test2.tga" imgrect="773 394 35 35"/>
 		<image name="companion_list_check_clicked" file="\skin\pip_test2.tga" imgrect="773 394 35 35"/>
+	</imagelist>
+	<imagelist category="yiseul_button">
+		<image name="pvpmine_shop_btn" file="\skin\pip_test.tga" imgrect="2049 61 66 59" CMM_Caption="용병단 증표 ui 버튼"/>
+		<image name="pvpmine_shop_btn_cursoron" file="\skin\pip_test.tga" imgrect="2049 121 66 59"/>
+		<image name="pvpmine_shop_btn_clicked" file="\skin\pip_test.tga" imgrect="2049 181 66 59"/>
 	</imagelist>
 	<imagelist category="testmin_image">
 		<image name="clock_inven" file="\skin\pip_test.tga" imgrect="403 698 50 50" CMM_Caption="기간제 시계 아이콘 및 날짜 뒷배경"/>
@@ -10296,7 +10314,7 @@
 		<image name="icon_Weekly_IceWall" file="\icon\buff_icon3.tga" imgrect="128 512 128 128" CMM_Caption="아이스 월"/>
 		<image name="icon_Weekly_CRT_UP" file="\icon\buff_icon3.tga" imgrect="256 512 128 128" CMM_Caption="치명타 특화"/>
 		<image name="icon_Weekly_CRTDR_UP" file="\icon\buff_icon3.tga" imgrect="384 512 128 128" CMM_Caption="치명타 저항 특화"/>
-		<image name="icon_Weekly_StarPall" file="\icon\buff_icon3.tga" imgrect="512 512 128 128" CMM_Caption="스타폴"/>
+		<image name="icon_Weekly_StarFall" file="\icon\buff_icon3.tga" imgrect="512 512 128 128" CMM_Caption="스타폴"/>
 		<image name="icon_event_2002_choco" file="\icon\buff_icon3.tga" imgrect="640 512 128 128" CMM_Caption="발렌타인데이 버프"/>
 		<image name="icon_Event_Challenge_Count_Reset" file="\icon\buff_icon3.tga" imgrect="768 512 128 128" CMM_Caption="챌린지 모드 횟수 초기화"/>
 		<image name="icon_Weekly_IgnoreInvincibility" file="\icon\buff_icon3.tga" imgrect="896 512 128 128" CMM_Caption="무적 무시"/>
@@ -10317,6 +10335,7 @@
 		<image name="icon_cler_GoldenBellBoom" file="\icon\buff_icon3.tga" imgrect="768 768 128 128" CMM_Caption="금종조: 해방"/>
 		<image name="icon_DeployPavise_QuarrelShooter32" file="\icon\buff_icon3.tga" imgrect="896 768 128 128" CMM_Caption="파비스 설치: 준비"/>
 		<image name="icon_DeployPavise_QuarrelShooter33" file="\icon\buff_icon3.tga" imgrect="0 896 128 128" CMM_Caption="파비스 설치: 크로스 보우"/>
+		<image name="icon_Buff_Event_Blessed_Fruit" file="\icon\buff_icon3.tga" imgrect="128 896 128 128" CMM_Caption="축복받은 열매"/>
 		<image name="icon_cleric_InquisitorMagicDrain" file="\icon\buff_icon3.tga" imgrect="256 896 128 128" CMM_Caption="인퀴지터: 마력흡수"/>
 	</imagelist>
 	<imagelist category="housing_bufficon">
@@ -10850,6 +10869,9 @@
 		<image name="plate_achieve_weeklyrank_5" file="\skin\user_title_skin.tga" imgrect="430 71 214 34" CMM_Caption="주간보스_블롯"/>
 		<image name="plate_achieve_moringponia_first_kill_hard" file="\skin\user_title_skin.tga" imgrect="430 106 214 34" CMM_Caption="모링포니아 하드_퍼스트"/>
 		<image name="plate_achieve_moringponia_clear_hard" file="\skin\user_title_skin.tga" imgrect="430 141 214 34" CMM_Caption="모링포니아 하드_클리어"/>
+		<image name="plate_achieve_weeklyrank_6" file="\skin\user_title_skin.tga" imgrect="430 176 214 34" CMM_Caption="주간보스_렉시퍼"/>
+		<image name="plate_achieve_weeklyrank_7" file="\skin\user_title_skin.tga" imgrect="430 211 214 34" CMM_Caption="주간보스_하우벅"/>
+		<image name="plate_achieve_weeklyrank_8" file="\skin\user_title_skin.tga" imgrect="649 0 214 34" CMM_Caption="주간보스_마르녹스"/>
 	</imagelist>
 	<imagelist category="skin_hair">
 		<image name="icon_skintone_01_m01" file="\skin\skinhair\icon_skintone_01_m01.png" imgrect="0 0 80 80" CMM_Caption="남성 01"/>

@@ -31,7 +31,7 @@
 		<groupbox name="countBox" parent="infoBox" rect="0 0 412 60" margin="0 44 0 0" layout_gravity="right top" draw="false" hittestbox="false"/>
 		<picture name="countPic" parent="countBox" rect="0 0 27 27" margin="0 0 0 0" layout_gravity="left center" image="indun_entrance"/>
 		<picture name="cyclePic" parent="countBox" rect="0 0 41 27" margin="110 2 0 0" layout_gravity="left center" image="indun_icon_week_l"/>
-		<picture name="cycleCtrlPic" parent="countBox" rect="0 0 41 27" margin="0 3 70 0" layout_gravity="right center" image="indun_icon_event_l_eng"/>
+		<picture name="cycleCtrlPic" parent="countBox" rect="0 0 51 27" margin="0 3 75 0" layout_gravity="right center" image="indun_icon_event_l_eng"/>
 		<richtext name="countText" parent="countBox" rect="0 0 190 30" margin="30 0 0 0" layout_gravity="left center" fontname="brown_18_b" caption="입장 횟수"/>
 		<richtext name="countData" parent="countBox" rect="0 0 190 30" margin="0 0 0 0" layout_gravity="right center" textalign="right center" fontname="brown_18_b" format="%s/%s회" param1="now" param1_def="0" param2="max" param2_def="3"/>
 		<richtext name="countItemData" parent="countBox" rect="0 0 190 30" margin="0 0 0 0" layout_gravity="right center" textalign="right center" fontname="brown_18_b" format="%s개" param1="admissionitem" param1_def="0"/>
@@ -87,7 +87,7 @@
 		<groupbox name="rankbox" parent="rank_gb" rect="0 0 487 434" margin="52 58 0 0" layout_gravity="left top" skin="test_frame_midle" draw="true" hittestbox="false"/>
 		<groupbox name="rankboxTitle" parent="rank_gb" rect="0 0 486 41" margin="52 58 0 0" layout_gravity="left top" skin="market_listbase" draw="true" hittestbox="false"/>
 		<richtext name="rankTitle" parent="rankboxTitle" rect="0 0 30 40" margin="30 0 0 0" layout_gravity="left center" caption="{@st66b}{s16}순위"/>
-		<richtext name="rankTeamName" parent="rankboxTitle" rect="0 0 30 40" margin="150 0 0 0" layout_gravity="left center" caption="{@st66b}{s16}팀명"/>
+		<richtext name="rankTeamName" parent="rankboxTitle" rect="0 0 30 40" margin="130 0 0 0" layout_gravity="left center" caption="{@st66b}{s16}팀명"/>
 		<richtext name="rankDamage" parent="rankboxTitle" rect="0 0 30 40" margin="0 0 20 0" layout_gravity="right center" caption="{@st66b}{s16}1회 최고 대미지"/>
 		<groupbox name="rankListBox" parent="rankbox" rect="0 0 487 393" margin="0 36 0 0" layout_gravity="left top" draw="false" hittest="true"/>
 		<tab name="season_tab" parent="rank_gb" rect="0 0 52 300" margin="0 58 0 0" itemspc="16" layout_gravity="left top" vertical="true" LBtnDownScp="WEEKLY_BOSS_DATA_REUQEST" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" clicksound="inven_arrange" fixwidth="true" oversound="button_cursor_over_2" skin="tab2"/>

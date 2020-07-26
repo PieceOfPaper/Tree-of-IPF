@@ -182,14 +182,14 @@ function INDUNINFO_CREATE_CATEGORY(frame)
 --                    if SCR_RAID_EVENT_20190102(nil, false) then
                         cyclePicImg:SetImage(GET_INDUN_ICON_NAME('event_s'))
                         local margin = cyclePicImg:GetOriginalMargin();
-                        cyclePicImg:SetMargin(margin.left, margin.top, margin.right + 20, margin.bottom);
+                        cyclePicImg:SetMargin(margin.left, margin.top, margin.right - 6, margin.bottom);
                         cyclePicImg:Resize(cyclePicImg:GetOriginalWidth() + 11, cyclePicImg:GetOriginalHeight());
                     elseif IsBuffApplied(pc, "Event_Unique_Raid_Bonus_Limit") == "YES" then
                         local accountObject = GetMyAccountObj(pc)
                         if TryGetProp(accountObject ,"EVENT_UNIQUE_RAID_BONUS_LIMIT") > 0 then
                             cyclePicImg:SetImage(GET_INDUN_ICON_NAME('event_s'))
                             local margin = cyclePicImg:GetOriginalMargin();
-                            cyclePicImg:SetMargin(margin.left, margin.top, margin.right + 20, margin.bottom);
+                            cyclePicImg:SetMargin(margin.left, margin.top, margin.right - 6, margin.bottom);
                             cyclePicImg:Resize(cyclePicImg:GetOriginalWidth() + 11, cyclePicImg:GetOriginalHeight());
                         else
                             cyclePicImg:ShowWindow(0);
@@ -1158,10 +1158,12 @@ function INDUNINFO_MAKE_DETAIL_INFO_BOX(frame, indunClassID)
         if indunCls.DungeonType == 'UniqueRaid' then
 --            if SCR_RAID_EVENT_20190102(nil, false) and admissionItemName == 'Dungeon_Key01' then -- 별의 탑 폐쇄 구역 제외 조건 걸어주기
             if IsBuffApplied(pc, "Event_Unique_Raid_Bonus") == "YES" and admissionItemName == "Dungeon_Key01" then
+                cycleCtrlPic:SetImage(GET_INDUN_ICON_NAME('event_l'))
                 cycleCtrlPic:ShowWindow(1);
             elseif IsBuffApplied(pc, "Event_Unique_Raid_Bonus_Limit") == "YES" and admissionItemName == "Dungeon_Key01" then
                 local accountObject = GetMyAccountObj(pc)
                 if TryGetProp(accountObject,"EVENT_UNIQUE_RAID_BONUS_LIMIT") > 0 then
+                    cycleCtrlPic:SetImage(GET_INDUN_ICON_NAME('event_l'))
                     cycleCtrlPic:ShowWindow(1);
                 end
             end
@@ -1715,6 +1717,11 @@ function WEEKLY_BOSS_RANK_UPDATE()
 
         local damage = session.weeklyboss.GetRankInfoDamage(i - 1);
         local teamname = session.weeklyboss.GetRankInfoTeamName(i - 1);
+        local guildID = session.weeklyboss.GetRankInfoGuildID(i - 1)
+        if guildID ~= "0" then
+            ctrlSet:SetUserValue("GUILD_IDX",guildID)
+            GetGuildEmblemImage("WEEKLY_BOSS_EMBLEM_IMAGE_SET",guildID)
+        end
 
         local name = GET_CHILD(ctrlSet, "attr_name_text", "ui::CRichText");
         name:SetTextByKey("value", teamname);
@@ -1724,6 +1731,31 @@ function WEEKLY_BOSS_RANK_UPDATE()
     
     end
 
+end
+
+function WEEKLY_BOSS_EMBLEM_IMAGE_SET(code, return_json)
+    if code ~= 200 then
+        if code == 400 or code == 404 then
+            return
+        else
+            SHOW_GUILD_HTTP_ERROR(code, return_json, "WEEKLY_BOSS_EMBLEM_IMAGE_SET")
+            return
+        end
+    end
+    
+    local guild_idx = return_json
+    emblemFolderPath = filefind.GetBinPath("GuildEmblem"):c_str()
+    local emblemPath = emblemFolderPath .. "\\" .. guild_idx .. ".png";
+
+    local frame = ui.GetFrame('induninfo')
+    local rankListBox = GET_CHILD_RECURSIVELY(frame, "rankListBox", "ui::CGroupBox");
+    for i = 0,rankListBox:GetChildCount()-1 do
+        local controlset = rankListBox:GetChildByIndex(i)
+        if controlset:GetUserValue("GUILD_IDX") == guild_idx then
+            local picture = tolua.cast(controlset:GetChildRecursively("attr_emblem_pic"), "ui::CPicture");
+            ui.SetImageByPath(emblemPath, picture);        
+        end
+    end
 end
 
 -- 페이지 컨트롤 page

@@ -16,7 +16,7 @@
 					<Str Str="Rykuma_Buff" />
 					<Num Num="1" />
 					<Num Num="0" />
-					<Num FuncTxt="local value = 20000; local isDragonPower = GetExProp(self, 'ITEM_DRAGON_POWER') if tonumber(isDragonPower) &gt;= 1 then value = 30000 end return value" Num="20000" UseFunc="1" />
+                    <Num FuncTxt="local value = 25000; local isDragonPower = GetExProp(self, 'ITEM_DRAGON_POWER') if tonumber(isDragonPower) >= 1 then value = 50000 end return value" Num="20000" UseFunc="1"/>
 					<Num Num="1" />
 					<Num Num="100" />
 					<Num Num="0" />
@@ -46,7 +46,7 @@
 					<Str Str="Korup_Buff" />
 					<Num Num="1" />
 					<Num Num="0" />
-					<Num Num="10000" />
+                    <Num FuncTxt="local value = 15000; local isDragonPower = GetExProp(self, 'ITEM_DRAGON_POWER') if tonumber(isDragonPower) >= 1 then value = 25000 end return value" Num="20000" UseFunc="1"/>
 					<Num Num="1" />
 					<Num Num="100" />
 					<Num Num="0" />
@@ -82,7 +82,7 @@
                     <Str Str="Apsauga_Buff"/>
                     <Num Num="1"/>
                     <Num Num="0"/>
-                    <Num Num="30000"/>
+                    <Num FuncTxt="local value = 30000; local isDragonPower = GetExProp(self, 'ITEM_DRAGON_POWER') if tonumber(isDragonPower) >= 1 then value = 60000 end return value" Num="30000" UseFunc="1"/>
                     <Num Num="1"/>
                     <Num Num="100"/>
 					<Num Num="1"/>
@@ -113,7 +113,7 @@
                     <Str Str="Bendrinti_Buff"/>
                     <Num Num="1"/>
                     <Num Num="0"/>
-                    <Num Num="30000"/>
+                    <Num FuncTxt="local value = 30000; local isDragonPower = GetExProp(self, 'ITEM_DRAGON_POWER') if tonumber(isDragonPower) >= 1 then value = 50000 end return value" Num="30000" UseFunc="1"/>
                     <Num Num="1"/>
                     <Num Num="100"/>
                     <Num Num="0"/>

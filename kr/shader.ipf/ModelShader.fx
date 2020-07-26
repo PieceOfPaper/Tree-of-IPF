@@ -2023,7 +2023,7 @@ technique BillboardHeadTq
 		SRGBWRITEENABLE = FALSE;
 		CullMode = none;
 		AlphaTestEnable = true;
-		AlphaRef = 0x90;
+		AlphaRef = 0x30;
 		AlphaFunc = Greater;
 		ZEnable = true;
 		ZFunc = LessEqual;

@@ -667,7 +667,6 @@
                     <Obj Type="Monster" MonType="2000113" Pos="-12.22#0.10#724.90" range="400" genCount="1" maxStackCount="1" genTime="20000" objectKey="1"/>
                     <Obj Type="Monster" MonType="2000113" Pos="49.06#0.10#-565.05" range="400" genCount="1" maxStackCount="1" genTime="20000" objectKey="2"/>
                     <Obj Type="Monster" MonType="2000113" Pos="708.54#0.10#22.62" range="300" genCount="1" maxStackCount="1" genTime="20000" objectKey="3"/>
-                    <Obj Type="Monster" MonType="2000114" Pos="-117.82#0.10#208.06" range="800" genCount="1" maxStackCount="15" genTime="20000" objectKey="4"/>
                     <Obj Type="Monster" MonType="2000115" Pos="224.62#4.56#-136.70" range="800" genCount="1" maxStackCount="10" genTime="20000" objectKey="5"/>
                     <Obj Type="Monster" MonType="2000116" Pos="-324.49#0.10#744.60" range="500" genCount="1" maxStackCount="1" genTime="20000" objectKey="6"/>
                     <Obj Type="Monster" MonType="2000116" Pos="343.44#0.10#-726.61" range="500" genCount="1" maxStackCount="1" genTime="20000" objectKey="7"/>
@@ -746,24 +745,6 @@
                         <execList>
                             <ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
                                 <MGameObjIndex List="BuffObject/2"/>
-                                <Num Num="1"/>
-                                <Num Num="0"/>
-                            </ToolScp>
-                        </execList>
-                    </Event>
-                    <Event execMS="5000" eventName="Gen_HP">
-                        <condList>
-                            <ToolScp Scp="MGAME_EVT_COND_PCCNT_OVER" Client="NO" UseSleep="NO">
-                                <Num Num="1"/>
-                            </ToolScp>
-                            <ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
-                                <MGameObj List="BuffObject/4"/>
-                                <Num Num="14"/>
-                            </ToolScp>
-                        </condList>
-                        <execList>
-                            <ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
-                                <MGameObjIndex List="BuffObject/4"/>
                                 <Num Num="1"/>
                                 <Num Num="0"/>
                             </ToolScp>

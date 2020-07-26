@@ -2103,11 +2103,7 @@ function SCR_Get_MSPD(self)
         return 10;
     end
     
-    if IsBuffApplied(self, 'SnipersSerenity_Buff') == 'YES' then
-        local value = GetExProp(self, 'SniperSPD')
 
-    	return value;
-    end
     
     if IsBuffApplied(self, 'HideShot_Buff') == 'YES' then
         return 25;
@@ -2271,6 +2267,12 @@ function SCR_Get_MSPD(self)
     if GetExProp(self, "IS_OOBE_DUMMYPC") == 1 then
         value = 55;
     end
+
+    if IsBuffApplied(self, 'SnipersSerenity_Buff') == 'YES' then
+        if value >= GetExProp(self, 'SniperSPD') then
+            return GetExProp(self, 'SniperSPD')
+        end
+    end    
     
     return math.floor(value);
 end
@@ -2658,6 +2660,11 @@ function SCR_Get_Sta_Run(self)
         value = SCR_FIELD_DUNGEON_CONSUME_DECREASE(self, 'Sta_Run', value);
     end
 
+    -- EVENT_2004_UPHILL
+    if IsBuffApplied(self, "EVENT_2004_UPHILL_BUFF") == "YES" then
+        return 0
+    end
+    
     return math.floor(value);
 end
 
@@ -2697,6 +2704,12 @@ function SCR_Get_Sta_Runable(self)
 end
 
 function SCR_Get_Sta_Jump(self)
+    
+    -- EVENT_2004_UPHILL
+    if IsBuffApplied(self, "EVENT_2004_UPHILL_BUFF") == "YES" then
+        return 0
+    end
+
     return 1000;
 end
 

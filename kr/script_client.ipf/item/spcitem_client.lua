@@ -1,4 +1,4 @@
---- scpitem_client.lua
+﻿--- scpitem_client.lua
 
 function SPCI_DAGGER_MULTIPLE_HIT_C(actor, skill, hitInfo, additionalInfo)
 	
@@ -57,6 +57,10 @@ end
 -- doll_gabia
 function SCR_BARRACK_CREATE_FAIRY_DOLL_GABIA(handle)
 	SCR_CREATE_FAIRY(handle, "doll_gabia");
+end
+
+function SCR_BARRACK_CREATE_FAIRY_DOLL_HAUBERK(handle)
+	SCR_CREATE_FAIRY(handle, "doll_hauberk");
 end
 
 -- wing item effect offset

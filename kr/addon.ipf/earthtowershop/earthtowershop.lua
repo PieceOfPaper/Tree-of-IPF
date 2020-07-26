@@ -37,10 +37,6 @@ function EARTHTOWERSHOP_BUY_ITEM(itemName,itemCount)
 	if recipecls.AccountNeedProperty ~= 'None' then
 	    local aObj = GetMyAccountObj()
         local sCount = TryGetProp(aObj, recipecls.AccountNeedProperty); 
-        --EVENT_2003_WHITEDAY
-        if recipecls.ClassName == 'WhiteDayShop2003_14' then
-            sCount = sCount + 1
-        end
 --        --EVENT_1906_SUMMER_FESTA
 --        local time = geTime.GetServerSystemTime()
 --        time = time.wYear..time.wMonth..time.wDay
@@ -264,7 +260,7 @@ function EARTH_TOWER_INIT(frame, shopType)
 
     local title = GET_CHILD(frame, 'title', 'ui::CRichText')
     local close = GET_CHILD(frame, 'close');
-    if shopType == 'EarthTower' then
+    if shopType == 'EarthTower' or shopType == 'EarthTower2' then
         title:SetText('{@st43}'..ScpArgMsg("EarthTowerShop"));
         close:SetTextTooltip(ScpArgMsg('CloseUI{NAME}', 'NAME', ScpArgMsg("EarthTowerShop")));
     elseif shopType == 'EventShop' or shopType == 'EventShop2' or shopType == 'EventShop3' then
@@ -331,9 +327,6 @@ function EARTH_TOWER_INIT(frame, shopType)
     elseif shopType == 'FishingShop2002' then
         -- title:SetText('{@st43}'..ScpArgMsg("EVENT_2002_FISHING_SHOP"));
         -- close:SetTextTooltip(ScpArgMsg('CloseUI{NAME}', 'NAME', ScpArgMsg("EventShop")));
-    elseif shopType == "EarthTower2" then
-        title:SetText('{@st43}'..ScpArgMsg("EarthTowerShop"));
-        close:SetTextTooltip(ScpArgMsg('CloseUI{NAME}', 'NAME', ScpArgMsg("EventShop")));
     else
         title:SetText('{@st43}'..ScpArgMsg(shopType));
         close:SetTextTooltip(ScpArgMsg('CloseUI{NAME}', 'NAME', ScpArgMsg("EventShop")));
@@ -422,10 +415,6 @@ function EXCHANGE_COUNT_CHECK(cls)
     if recipecls.AccountNeedProperty ~= 'None' then
         local aObj = GetMyAccountObj()
         local sCount = TryGetProp(aObj, recipecls.AccountNeedProperty);
-        --EVENT_2003_WHITEDAY
-        if recipecls.ClassName == 'WhiteDayShop2003_14' then
-            sCount = sCount + 1
-        end
         return sCount;
     end
 
@@ -648,10 +637,6 @@ function EXCHANGE_CREATE_TREE_PAGE(tree, slotHeight, groupName, classType, cls, 
     if recipecls.AccountNeedProperty ~= 'None' then
         local aObj = GetMyAccountObj()
         local sCount = TryGetProp(aObj, recipecls.AccountNeedProperty); 
-        --EVENT_2003_WHITEDAY
-        if recipecls.ClassName == 'WhiteDayShop2003_14' then
-            sCount = sCount + 1
-        end
         local cntText = ScpArgMsg("Excnaged_AccountCount_Remind","COUNT",string.format("%d", sCount))
         local tradeBtn = GET_CHILD(ctrlset, "tradeBtn");
         if sCount <= 0 then
@@ -1067,10 +1052,6 @@ function EARTHTOWERSHOP_CHANGECOUNT_NUM_CHANGE(ctrlset,change)
     if recipecls.AccountNeedProperty ~= 'None' then
         local aObj = GetMyAccountObj()
         local sCount = TryGetProp(aObj, recipecls.AccountNeedProperty); 
-        --EVENT_2003_WHITEDAY
-        if recipecls.ClassName == 'WhiteDayShop2003_14' then
-            sCount = sCount + 1
-        end
 --        --EVENT_1906_SUMMER_FESTA
 --        local time = geTime.GetServerSystemTime()
 --        time = time.wYear..time.wMonth..time.wDay

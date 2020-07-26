@@ -1965,6 +1965,20 @@
 					</Event>
 				</Job>
 			</Motion>
+			<Motion Name="Default_Ride">
+				<Job Name="All" LoopTime="500">
+					<Event>
+						<Particle frame="0" attachNode="Dummy_emitter_pet2" particleName="E_pc_item_accessory_hiphop05" useAttach="true" hiddenObj="false" scale="0.85" pause="true" use2DEffect="true" soft2DValue="20"/>
+					</Event>
+				</Job>
+			</Motion>
+			<Motion Name="REST">
+				<Job Name="All" LoopTime="500">
+					<Event>
+						<Particle frame="0" attachNode="Dummy_emitter_pet2" particleName="E_pc_item_accessory_hiphop05" useAttach="true" hiddenObj="false" scale="0.85" pause="true" use2DEffect="true" soft2DValue="20"/>
+					</Event>
+				</Job>
+			</Motion>
 		</Class>
 		<Class Costume="hiphop_pistol">
 			<Motion Name="PNSATK">
@@ -4266,6 +4280,20 @@
 				<Job Name="All" LoopTime="500">
 					<Event>
 						<Particle frame="0" attachNode="Dummy_emitter" particleName="E_pc_item_accessory_hiphop05" useAttach="true" hiddenObj="false" scale="0.85" pause="true" use2DEffect="true" soft2DValue="20"/>
+					</Event>
+				</Job>
+			</Motion>
+			<Motion Name="Default_Ride">
+				<Job Name="All" LoopTime="500">
+					<Event>
+						<Particle frame="0" attachNode="Dummy_emitter_pet2" particleName="E_pc_item_accessory_hiphop05" useAttach="true" hiddenObj="false" scale="0.85" pause="true" use2DEffect="true" soft2DValue="20"/>
+					</Event>
+				</Job>
+			</Motion>
+			<Motion Name="REST">
+				<Job Name="All" LoopTime="500">
+					<Event>
+						<Particle frame="0" attachNode="Dummy_emitter_pet2" particleName="E_pc_item_accessory_hiphop05" useAttach="true" hiddenObj="false" scale="0.85" pause="true" use2DEffect="true" soft2DValue="20"/>
 					</Event>
 				</Job>
 			</Motion>

@@ -372,6 +372,11 @@ function GET_BASIC_ATK(item)
         itemATK = itemATK * weaponClass[classType];
     end
 
+    local ChangeBasicProp = TryGetProp(item, "ChangeBasicPropValue", 0)
+    if ChangeBasicProp > 0 then
+        itemATK = ChangeBasicProp
+    end
+    
     local damageRange = weaponDamageClass[classType]
     if damageRange == nil then
         return 0;
@@ -445,6 +450,11 @@ function GET_BASIC_MATK(item)
     
     if itemGradeClass ~= nil and weaponClass[classType] > 0 then
         itemATK = itemATK * weaponClass[classType];
+    end
+    
+    local ChangeBasicProp = TryGetProp(item, "ChangeBasicPropValue", 0)
+    if ChangeBasicProp > 0 then
+        itemATK = ChangeBasicProp
     end
     
     return itemATK;
@@ -617,6 +627,12 @@ function SCR_REFRESH_ARMOR(item, enchantUpdate, ignoreReinfAndTranscend, reinfBo
         end
 
         basicDef = ((40 + lv * 8) * armorClassTypeRatio[classType]) * gradeRatio;
+        
+        local ChangeBasicProp = TryGetProp(item, "ChangeBasicPropValue", 0)
+        if ChangeBasicProp > 0 then
+            basicDef = ChangeBasicProp
+        end
+        
         upgradeRatio = upgradeRatio + GET_UPGRADE_ADD_DEF_RATIO(item, ignoreReinfAndTranscend) / 100;
         
         local armorMaterialRatio = GetClassByNameFromList(itemGradeClass,'armorMaterial_'..basicProp)        
@@ -725,6 +741,11 @@ function SCR_REFRESH_ACC(item, enchantUpdate, ignoreReinfAndTranscend, reinfBonu
             
             local accRatio = ACCClassTypeRatio[classType]
             local basicDef = ((2 + lv * 0.3) * accRatio) * gradeRatio;
+            
+            local ChangeBasicProp = TryGetProp(item, "ChangeBasicPropValue", 0)
+            if ChangeBasicProp > 0 then
+                basicDef = ChangeBasicProp
+            end
             
             local upgradeRatio = 1;
             upgradeRatio = upgradeRatio + GET_UPGRADE_ADD_DEF_RATIO(item, ignoreReinfAndTranscend) / 100;

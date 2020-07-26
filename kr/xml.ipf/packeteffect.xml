@@ -7,7 +7,11 @@
 		<Effect Name="F_buff_basic048_2"/>
 		<Effect Name="F_ground058_smoke2"/>
 		<Effect Name="dead2"/>
-        	<Effect Name="fishingrod_carrot_set"/>
+		<Effect Name="fishingrod_carrot_set"/>
+		<Effect Name="Stage1_Boss"/>
+		<Effect Name="F_fire040_circle"/>
+		<Effect Name="Stage2_Boss"/>
+		<Effect Name="Stage3_Boss"/>
 	</Category>
 	<Category ID="139">
 		<Effect Name="E_pc_effectitem_gabia"/>
@@ -19,15 +23,15 @@
 		<Effect Name="Weekly_FallingRock"/>
 		<Effect Name="LEGEND_RAID_MORINGPONIA_HARD"/>
 		<Effect Name="Field_Macro_Debuff_Remove"/>
-        <Effect Name="Crusader_Condemn_Damage_Pad"/>
-        <Effect Name="Crusader_Condemn_Heal_Pad"/>
+		<Effect Name="Crusader_Condemn_Damage_Pad"/>
+		<Effect Name="Crusader_Condemn_Heal_Pad"/>
 	</Category>
 	<Category ID="187">
 		<Effect Name="F_bg_boil002"/>
 		<Effect Name="F_wizard_snowrolling_ground"/>
 		<Effect Name="F_wizard_combustion_ground"/>
 		<Effect Name="guild_agit_extension"/>
-<Effect Name="F_buff_basic050_circle"/>
+		<Effect Name="F_buff_basic050_circle"/>
 	</Category>
 	<Category ID="14">
 		<Effect Name="GUILD_COLONY_F_REMAINS_37_1"/>
@@ -209,23 +213,24 @@
 		<Effect Name="F_circle033_spread_ou_blue"/>
 		<Effect Name="F_ground004_loop2"/>
 		<Effect Name="F_ground004_circle2"/>
-        <Effect Name="F_wizard_backmasking_ground"/>
-        <Effect Name="Tantaliser_Hard_Pad3"/>
-        <Effect Name="[MOR]SUMMON_MUSHROOM"/>
-        <Effect Name="[MOR]CURSE_PATTERN"/>
-        <Effect Name="[MOR]DARK_PATTERN"/>
-        <Effect Name="TANTALISER_APPEAR"/>
-        <Effect Name="[MOR]PAD_FOLLOW"/>
-        <Effect Name="I_wizard_AlchemisticMissile_force_rize#Dummy_effect_hand_L"/>
-        <Effect Name="I_wizard_AlchemisticMissile_force_rize#Bip01 Head"/>
-        <Effect Name="F_ground196_levitation_violet_loop"/>
-        <Effect Name="F_rize022_ground_dark_loop2"/>
-        <Effect Name="Moringponia_Hard_Petrify"/>
-        <Effect Name="Tantaliser_Hard_Nabu"/>
-        <Effect Name="Tantaliser_Hard_Breath"/>
-        <Effect Name="Tantaliser_Hard_Debuff_Pad"/>
-        <Effect Name="Moringponia_Hard_Curse"/>
+		<Effect Name="F_wizard_backmasking_ground"/>
+		<Effect Name="Tantaliser_Hard_Pad3"/>
+		<Effect Name="[MOR]SUMMON_MUSHROOM"/>
+		<Effect Name="[MOR]CURSE_PATTERN"/>
+		<Effect Name="[MOR]DARK_PATTERN"/>
+		<Effect Name="TANTALISER_APPEAR"/>
+		<Effect Name="[MOR]PAD_FOLLOW"/>
+		<Effect Name="I_wizard_AlchemisticMissile_force_rize#Dummy_effect_hand_L"/>
+		<Effect Name="I_wizard_AlchemisticMissile_force_rize#Bip01 Head"/>
+		<Effect Name="F_ground196_levitation_violet_loop"/>
+		<Effect Name="F_rize022_ground_dark_loop2"/>
+		<Effect Name="Moringponia_Hard_Petrify"/>
+		<Effect Name="Tantaliser_Hard_Nabu"/>
+		<Effect Name="Tantaliser_Hard_Breath"/>
+		<Effect Name="Tantaliser_Hard_Debuff_Pad"/>
+		<Effect Name="Moringponia_Hard_Curse"/>
 		<Effect Name="Moringponia_Hard_Poison"/>
+		<Effect Name="Weekly_Lecifer_Pad"/>
 	</Category>
 	<Category ID="146">
 		<Effect Name="beginner"/>
@@ -2272,7 +2277,8 @@
 		<Effect Name="F_burstup048_fire_mint##1"/>
 		<Effect Name="I_horn001_ground_burstup"/>
 		<Effect Name="EVENT_2001_NEWYEAR_MISSION"/>
-        <Effect Name="LEGEND_RAID_MORINGPONIA_HARD"/>
+		<Effect Name="LEGEND_RAID_MORINGPONIA_HARD"/>
+		<Effect Name="EVENT_2004_UPHILL_MISSION"/>
 	</Category>
 	<Category ID="197">
 		<Effect Name="F_burstup030_fire1"/>
@@ -2401,10 +2407,10 @@
 		<Effect Name="F_pc_effectitem_12animal_jump"/>
 		<Effect Name="F_pc_effectitem_2020magical_jump01"/>
 		<Effect Name="F_pc_effectitem_2020magical_jump02"/>
-	<Effect Name="voice_archer_m_shinngburst_cast"/>
-        <Effect Name="voice_war_m_startup_cast"/>
-        <Effect Name="voice_archer_f_shinngburst_cast"/>
-    </Category>
+		<Effect Name="voice_archer_m_shinngburst_cast"/>
+		<Effect Name="voice_war_m_startup_cast"/>
+		<Effect Name="voice_archer_f_shinngburst_cast"/>
+	</Category>
 	<Category ID="171">
 		<Effect Name="MISSION_UPHILL_DEFFENSE_EVENT2"/>
 		<Effect Name="MISSION_UPHILL_DEFFENSE_EVENT1"/>
@@ -3387,12 +3393,12 @@
 		<Effect Name="F_cleric_RingOfLight_circle_explosion_end_red"/>
 		<Effect Name="F_cleric_holyenchant_ground"/>
 		<Effect Name="RubricSpear_pad"/>
-        <Effect Name="F_cleric_Golden_Bell_Shield_hit"/>
-        <Effect Name="I_wizard_InfernalShadow_abil"/>
-        <Effect Name="F_cleric_ogouveve_ground"/>
-        <Effect Name="Shadowmancer_ShadowCondensationBuffPad"/>
-        <Effect Name="F_cleric_stormcalling_shot"/> 
-        <Effect Name="Daoshi_StormCalling_Daoshi28"/>
+		<Effect Name="F_cleric_Golden_Bell_Shield_hit"/>
+		<Effect Name="I_wizard_InfernalShadow_abil"/>
+		<Effect Name="F_cleric_ogouveve_ground"/>
+		<Effect Name="Shadowmancer_ShadowCondensationBuffPad"/>
+		<Effect Name="F_cleric_stormcalling_shot"/>
+		<Effect Name="Daoshi_StormCalling_Daoshi28"/>
 	</Category>
 	<Category ID="60">
 		<Effect Name="SETPOS"/>
@@ -5205,6 +5211,7 @@
 		<Effect Name="I_force018_trail_violet"/>
 		<Effect Name="F_pattern008_violet_loop##1"/>
 		<Effect Name="Weekly_boss_Mirtis_line"/>
+		<Effect Name="EVENT_2004_UPHILL_MISSION"/>
 	</Category>
 	<Category ID="45">
 		<Effect Name="Cleric_Barrier"/>
@@ -6401,6 +6408,7 @@
 		<Effect Name="F_explosion028_red "/>
 		<Effect Name="I_smoke013_dark_earth##0.8"/>
 		<Effect Name="EVENT_2001_NEWYEAR_MISSION"/>
+		<Effect Name="EVENT_2004_UPHILL_MISSION"/>
 	</Category>
 	<Category ID="27">
 		<Effect Name="SAPPER_TRAP_Sapper_BroomTrap"/>

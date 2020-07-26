@@ -39,6 +39,16 @@ function get_hp_recovery_ratio(pc, value)
     ratio = math.min(max_hp_recovery_ratio, ratio)
     ratio = ratio * mhp
 
+    if IsServerSection() == 1 then
+        if IsPVPServer(pc) == 1 or IsPVPField(pc) == 1 then
+            ratio = ratio * 0.5
+        end
+    else
+        if IsPVPServer() == 1 or IsPVPField() == 1 then
+            ratio = ratio * 0.5
+        end
+    end
+
     return math.floor(ratio)
 end
 

@@ -10,6 +10,10 @@ function CHANGEAGREEBOX_FIANLAGREE_CLICK(frame, ctrl)
 end
 
 function IS_MYPC_EXCHANGE_BENEFIT_STATE()
+	if session.loginInfo.IsPremiumState(NEXON_PC) == true then
+		return true
+	end
+
 	if session.loginInfo.IsPremiumState(ITEM_TOKEN) == false then
 		return false;
 	end

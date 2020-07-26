@@ -3585,7 +3585,7 @@
 		<userconfig/>
 		<controls>
 			<groupbox name="gbox_quest_detailed" rect="0 0 344 135" margin="0 0 0 0" layout_gravity="center top" skin="None" hittest="false" resizebyparent="true" resizebyresolution="true"/>
-			<richtext name="quest_detailed_text" rect="0 0 340 100" parent="gbox_quest_detailed" margin="0 30 0 0" layout_gravity="center top" format="{@st43}{s16}[%s]%s{nl}%s{/}{nl}{nl}{s16}{b}{#ff9900}%s{/}" param1="mapName" param2="quest_text" param3="quest_mission" param4="quest_notice" hittest="false"/>
+			<richtext name="quest_detailed_text" rect="0 0 340 100" parent="gbox_quest_detailed" margin="0 30 0 0" layout_gravity="center top" fixwidth="true" format="{@st43}{s16}[%s]%s{nl}%s{/}{nl}{nl}{s16}{b}{#ff9900}%s{/}" param1="mapName" param2="quest_text" param3="quest_mission" param4="quest_notice" hittest="false"/>
 			<richtext name="quest_notice_text" rect="0 0 340 35" parent="gbox_quest_detailed" margin="0 0 0 10" layout_gravity="center bottom" format="{s15}{b}{#ff9900}{ol}%s{/}{nl}{s15}{b}{#ff9900}{ol}%s{/}" param1="quest_notice1" param2="quest_notice2" hittest="false"/>
 		</controls>
 	</controlset>
@@ -5023,8 +5023,9 @@
 		<controls>
 			<groupbox name="attr_bg" rect="0 0 486 79" margin="0 0 0 0" layout_gravity="left center" stretch="true" skin="base_btn"/>
 			<picture name="attr_rank_pic" rect="0 0 75 62" margin="10 0 0 0" layout_gravity="left center" stretch="true" image="raid_week_rank_01" hittest="false"/>
+			<picture name="attr_emblem_pic" rect="0 0 26 26" margin="95 0 0 0" layout_gravity="left center" stretch="true" image="guildmark_slot" hittest="false"/>
 			<richtext name="attr_rank_text" rect="0 0 75 62" margin="12 1 0 0" layout_gravity="left center" resizebytext="false" textalign="center center" format="{@st43}{s18}{ol}{ds}%s위" param1="value" param1_def="0" fontname="white_14_ol"/>
-			<richtext name="attr_name_text" rect="0 0 130 20" margin="100 0 0 0" layout_gravity="left center" resizebytext="false" textalign="center center" format="%s" param1="value" param1_def="이름" fontname="black_16_b"/>
+			<richtext name="attr_name_text" rect="0 0 130 20" margin="130 0 0 0" layout_gravity="left center" resizebytext="false" textalign="left center" format="%s" param1="value" param1_def="이름" fontname="black_16_b"/>
 			<richtext name="attr_value_text" rect="0 0 200 20" margin="0 0 20 0" layout_gravity="right center" resizebytext="false" textalign="right center" format="%s" param1="value" param1_def="값" fontname="black_16_b"/>
 		</controls>
 	</controlset>

@@ -420,7 +420,12 @@ function ITEM_OPTIONEXTRACT_REG_TARGETITEM(frame, itemID)
 	local itemName = GET_CHILD_RECURSIVELY(frame, "text_itemname")
 	itemName:SetText(obj.Name)
 
-	gauge_potential:SetPoint(obj.PR, obj.MaxPR);
+	--steam_new_world
+	local pr = obj.PR
+	if IsBuffApplied(pc, "Event_Steam_New_World_Buff") == "YES" then
+        pr = pr * 1.2;
+    end
+	gauge_potential:SetPoint(pr, obj.MaxPR);
 	local slot = GET_CHILD_RECURSIVELY(frame, "slot");
 	slot:SetGravity(ui.LEFT, ui.CENTER_VERT)
 	local slot_result = GET_CHILD_RECURSIVELY(frame, "slot_result");
@@ -839,6 +844,11 @@ function _FAIL_ITEM_OPTION_EXTRACT()
 	else
 		isDestroy = 0
 		local obj = GetIES(invItem:GetObject());
+		--steam_new_world
+		local pr = obj.PR
+		if IsBuffApplied(pc, "Event_Steam_New_World_Buff") == "YES" then
+			pr = pr * 1.2;
+		end
 		gauge_potential:SetPoint(obj.PR, obj.MaxPR);
 	end
 
