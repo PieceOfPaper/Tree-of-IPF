@@ -29,13 +29,17 @@ function PAD_SET_HOLD(actor, obj, padGuid)
 	geClientPadSkill.SetPadHoldMove(padGuid);
 end
 
-function C_PAD_EFFECT_POS(actor, obj, padGuid, eftName, scl, x, y, z, lifeTime, activeEffect, activeEffect_arg, isEnablePositionCompensation)
+function C_PAD_EFFECT_POS(actor, obj, padGuid, eftName, scl, x, y, z, lifeTime, activeEffect, activeEffect_arg, isEnablePositionCompensation, ignoreVisibleOption)
 	-- actor 는 nil 일 수도 있다.
 	if isEnablePositionCompensation == nil then
 		isEnablePositionCompensation = 1;
 	end
+
+	if ignoreVisibleOption == nil then
+		ignoreVisibleOption = 0;
+	end
 	
-	effect.PlayPadEffect(actor, eftName, scl, x, y, z, lifeTime, activeEffect, padGuid, isEnablePositionCompensation);
+	effect.PlayPadEffect(actor, eftName, scl, x, y, z, lifeTime, activeEffect, padGuid, isEnablePositionCompensation, ignoreVisibleOption);
 end
 
 function C_PAD_EFFECT_POS_ANGLE(actor, obj, padGuid, eftName, scl, x, y, z, lifeTime, angle, isEnablePositionCompensation, fixHeight)

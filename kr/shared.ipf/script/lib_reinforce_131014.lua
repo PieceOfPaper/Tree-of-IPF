@@ -196,6 +196,11 @@ function GET_REINFORCE_PRICE(fromItem, moruItem, pc)
     if IsBuffApplied(pc, "Event_Reinforce_Discount_50") == "YES" then
         value = value/2
     end
+
+    --steam_new_world
+    if IsBuffApplied(pc, "Event_Steam_New_World_Buff") == "YES" then
+        value = value/2
+    end
     
     return SyncFloor(value);
 

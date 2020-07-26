@@ -1,4 +1,4 @@
-<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by Hey (IMCGames Co., Ltd) -->
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
 <Category>
 	<ReadXml Name="bonescale"/>
 	<ReadXml Name="skill_Simony"/>
@@ -12,6 +12,10 @@
 	<ReadXml Name="item"/>
 	<ReadXml Name="item_colorspray"/>
 	<ReadXml Name="item_Equip"/>
+	<ReadXml Name="item_event"/>
+	<ReadXml Name="item_event_Equip"/>
+	<ReadXml Name="item_GuildHousing"/>	
+	<ReadXml Name="item_PersonalHousing"/>	
 	<ReadXml Name="item_Quest"/>
 	<ReadXml Name="item_opt"/>
 	<ReadXml Name="item_common"/>
@@ -167,6 +171,7 @@
 	<ReadXml Name="worldpvp_expcard"/>
 	<ReadXml Name="sharedconst_system"/>
 	<ReadXml Name="itemtradeshop"/>
+	<ReadXml Name="itemtradeshop_month"/>
 	<ReadXml Name="reward_property"/>
 	<ReadXml Name="Journal_monkill_reward"/>
 	<ReadXml Name="xp_teamlevel"/>
@@ -249,4 +254,8 @@
 	<ReadXml Name="item_ark_option"/>	
 	<ReadXml Name="playlist_playtime"/>
 	<ReadXml Name="boss_pattern_table"/>
+	<ReadXml Name="item_skillmake_costume"/>
+	<ReadXml Name="skill_selectground_drawrange"/>
+	<ReadXml Name="skill_ignore_holdskill"/>
+	<ReadXml Name="event_new_season_server_content_clear_coin_reward"/>
 </Category>

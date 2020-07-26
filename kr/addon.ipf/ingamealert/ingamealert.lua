@@ -83,7 +83,7 @@ end
 function INGAMEALERT_SET_MARGIN_BY_CHAT_FRAME(frame)
 	local chatFrame = ui.GetFrame("chatframe")
 	if chatFrame ~= nil and chatFrame:IsVisible() == 1 then
-		frame:SetMargin(5, 0, 0, chatFrame:GetHeight() + 20)
+		frame:SetMargin(5, 0, 0, config.GetXMLConfig("ChatFrameSizeHeight") + 20)
 	end
 	INGAMEALERT_ALIGN_ELEM(frame)
 	frame:ShowWindow(1)
@@ -120,8 +120,22 @@ function INGAMEALERT_REMOVE_ELEM_BY_OBJECT(obj)
 end
 
 function ON_INGAMEALERT_ELEM_CLOSE(parent, ctrl)
+	local frame = parent:GetTopParentFrame();
 	INGAMEALERT_REMOVE_ELEM_BY_OBJECT(parent)
-	INGAMEALERT_ALIGN_ELEM(parent:GetTopParentFrame())
+	INGAMEALERT_ALIGN_ELEM(frame)
+
+	local count = 0; 
+	local list_gb = GET_CHILD(frame, "list_gb")
+	for i=0, list_gb:GetChildCount()-1 do
+		local ctrl = list_gb:GetChildByIndex(i);
+		if ctrl:IsVisible() == 1 then
+			count = count + 1;
+		end
+	end
+
+	if count <= 0 then
+		frame:ShowWindow(0);
+	end
 end
 
 function ON_INGAMEALERT_ELEM_NO(parent, ctrl)

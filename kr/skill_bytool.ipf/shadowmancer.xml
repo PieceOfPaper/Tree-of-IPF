@@ -312,7 +312,7 @@
 					<Num Num="0" />
 				</Scp>
                 <Scp Client="NO" Scp="SKL_TGT_BUFF" Time="400" UseSleep="NO">
-                    <Str Str="ShadowdrainFatter_Buff" />
+                    <Str Str="ShadowdrainFatter_Debuff" />
                     <Num FuncTxt="return obj.Level;" Num="0" UseFunc="1" />
                     <Num Num="0" />
                     <Num FuncTxt="return 20000 + obj.Level * 2000;" Num="0" UseFunc="1" />

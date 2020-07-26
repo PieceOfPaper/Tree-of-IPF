@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by IMC (IMCGames Co., Ltd) -->
+<uiframe name="minimized_event_new_season_server_coin_check_button" x="0" y="0" width="110" height="130">
+	<frame layout_gravity="right top" margin="0 262 410 0"/>
+	<layer layerlevel="32"/>
+	<draw drawtitlebar="false" drawframe="false"/>
+	<option visible="true" closebutton="false" useimageitem="true" piptype="right" autoopen="true" hideable="false"/>
+	<controls>
+		<button	name="openBtn" rect="0 0 100 60" margin="0 0 0 0" layout_gravity="center top" image="god_roulette_coin_entrance" clicksound="button_click_3" oversound="button_cursor_over_2" LBtnDownScp="MINIMIZED_EVENT_NEW_SEASON_SERVER_COIN_CHECK_BUTTON_CLICK"/>
+		<richtext name="title" rect="0 0 110 30" margin="0 0 0 0" layout_gravity="center center" caption="{@st66d_y}{s16}여신의 룰렛 코인" hittest="false" fixwidth="true" textalign="center center"/>
+	</controls>
+</uiframe>

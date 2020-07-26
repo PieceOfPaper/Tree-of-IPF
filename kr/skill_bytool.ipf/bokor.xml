@@ -502,17 +502,14 @@
 					<Str Str="voice_cleric_m_effigy_shot" />
 					<Str Str="voice_cleric_effigy_shot" />
 				</Scp>
-				<Scp Client="NO" Scp="SKL_SET_TARGET_CIRCLE" Time="50" UseSleep="NO">
+				<Scp Client="NO" Scp="SKL_TGT_DMG_HEXING_BUFF" Time="300" UseSleep="NO">
 					<Pos Angle="0" Dist="0" />
 					<Num Num="180" />
 					<Num Num="15" />
 					<Num Num="2" />
 					<Num Num="0" />
-					<Num Num="0" />
-				</Scp>
-				<Scp Client="NO" Scp="SKL_TGT_DMG_BUFF" Time="300" UseSleep="NO">
-					<Num Num="1" />
-					<Str Str="Hexing_Debuff" />
+					<Num Num="1"/>
+					<Str Str="Hexing_Debuff"/>
 				</Scp>
 			</EtcList>
 		</MainSkl>

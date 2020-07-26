@@ -46,14 +46,14 @@ function EARTHTOWERSHOP_BUY_ITEM(itemName,itemCount)
 --            end
 --        end
 		local cntText = ScpArgMsg("Excnaged_AccountCount_Remind","COUNT",string.format("%d", sCount))
-		local tradeBtn = GET_CHILD(ctrlset, "tradeBtn");
-		if sCount <= 0 then
-			cntText = ScpArgMsg("Excnaged_No_Enough");
+        local tradeBtn = GET_CHILD(ctrlset, "tradeBtn");
+        if sCount <= 0 then
+            cntText = ScpArgMsg("Excnaged_No_Enough");
             tradeBtn:SetColorTone("FF444444");
             tradeBtn:SetEnable(0);
-		end;
-		exchangeCountText:SetTextByKey("value", cntText);
-	end
+        end;
+        exchangeCountText:SetTextByKey("value", cntText);
+    end
 
 end
 function REQ_EARTH_TOWER_SHOP_OPEN()
@@ -203,6 +203,12 @@ function REQ_EVENT_2001_NEWYEAR_SHOP_OPEN()
     ui.OpenFrame('earthtowershop');
 end
 
+function REQ_EVENT_2002_FISHING_SHOP_OPEN()
+    local frame = ui.GetFrame("earthtowershop");
+    frame:SetUserValue("SHOP_TYPE", 'FishingShop2002');
+    ui.OpenFrame('earthtowershop');
+end
+
 function EARTH_TOWER_SHOP_OPEN(frame)
     if frame == nil then
         frame = ui.GetFrame("earthtowershop")
@@ -312,6 +318,9 @@ function EARTH_TOWER_INIT(frame, shopType)
     elseif shopType == 'NewYearShop' then
         title:SetText('{@st43}'..ScpArgMsg("EVENT_2001_NEWYEAR_SHOP"));
         close:SetTextTooltip(ScpArgMsg('CloseUI{NAME}', 'NAME', ScpArgMsg("EventShop")));
+    elseif shopType == 'FishingShop2002' then
+        title:SetText('{@st43}'..ScpArgMsg("EVENT_2002_FISHING_SHOP"));
+        close:SetTextTooltip(ScpArgMsg('CloseUI{NAME}', 'NAME', ScpArgMsg("EventShop")));
     end
 
 
@@ -346,13 +355,15 @@ function EARTH_TOWER_INIT(frame, shopType)
     while cls ~= nil do
 
         if cls.ShopType == shopType then
-            local haveM = CRAFT_HAVE_MATERIAL(cls);     
-            if checkHaveMaterial == 1 then
-                if haveM == 1 then
-                   INSERT_ITEM(cls, tree, slotHeight,haveM, shopType);
+            if EARTH_TOWER_IS_ITEM_SELL_TIME(cls) == true then
+                local haveM = CRAFT_HAVE_MATERIAL(cls);     
+                if checkHaveMaterial == 1 then
+                    if haveM == 1 then
+                    INSERT_ITEM(cls, tree, slotHeight,haveM, shopType);
+                    end
+                else
+                    INSERT_ITEM(cls, tree, slotHeight,haveM, shopType);
                 end
-            else
-                INSERT_ITEM(cls, tree, slotHeight,haveM, shopType);
             end
         end
         
@@ -364,6 +375,14 @@ function EARTH_TOWER_INIT(frame, shopType)
 
 end
 
+function EARTH_TOWER_IS_ITEM_SELL_TIME(recipeCls)
+    local startDateString = TryGetProp(recipeCls,'SellStartTime',nil)
+    local endDateString = TryGetProp(recipeCls,'SellEndTime',nil)
+    if startDateString ~= nil and endDateString ~= nil then
+        return IS_CURREUNT_IN_PERIOD(startDateString, endDateString, true)
+    end
+    return true;
+end
 
 function INSERT_ITEM(cls, tree, slotHeight, haveMaterial, shopType)
 
@@ -814,6 +833,8 @@ function EARTH_TOWER_SHOP_TRADE_ENTER()
 --        item.DialogTransaction("EVENT1912_GREWUP_SHOP_1_TREAD1", resultlist, cntText);
     elseif shopType == 'NewYearShop' then
         item.DialogTransaction("EVENT_2001_NEWYEAR_SHOP_1_THREAD1", resultlist, cntText);
+    elseif shopType == 'FishingShop2002' then
+        item.DialogTransaction("EVENT_2002_FISHING_SHOP_1_THREAD1", resultlist, cntText);
 	end
 end
 

@@ -1,51 +1,52 @@
-<?xml version='1.0' encoding='utf-8'?>
+<?xml version="1.0" encoding="utf-8"?>
+<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by IMC (IMCGames Co., Ltd) -->
 <ToolSkill>
-    <Skill Name="Scout_FreeStep">
+	<Skill Name="Scout_FreeStep">
 		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
 			<HitList>
-				<Frame Angle="0" AniTime="9999" Dist="0" ForceATK="0" HitCount="1" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" TermMax="0" TermMin="0" Time="9799" Type="FAN" />
+				<Frame Angle="0" AniTime="9999" Dist="0" ForceATK="0" HitCount="1" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" TermMax="0" TermMin="0" Time="9799" Type="FAN"/>
 			</HitList>
 			<EtcList>
 				<Scp Client="YES" Scp="C_SOUND" Time="0" UseSleep="NO">
-					<Str Str="skl_eff_buff_10" />
+					<Str Str="skl_eff_buff_10"/>
 				</Scp>
 				<Scp Client="YES" Scp="C_VOICE_SOUND" Time="100" UseSleep="NO">
 					<Str Str="voice_scout_m_freestep_cast"/>
 					<Str Str="voice_scout_f_freestep_cast"/>
 				</Scp>
 				<Scp Client="NO" Scp="SKL_BUFF" Time="200" UseSleep="NO">
-					<Str Str="FreeStep_Buff" />
-					<Num FuncTxt="return obj.Level;" Num="1" UseFunc="1" />
-					<Num Num="0" />
-					<Num Num="1800000" />
-					<Num Num="1" />
-					<Num Num="100" />
-					<Num Num="0" />
+					<Str Str="FreeStep_Buff"/>
+					<Num FuncTxt="return obj.Level;" Num="1" UseFunc="1"/>
+					<Num Num="0"/>
+					<Num Num="1800000"/>
+					<Num Num="1"/>
+					<Num Num="100"/>
+					<Num Num="0"/>
 				</Scp>
 				<Scp Client="YES" Scp="C_SOUND" Time="300" UseSleep="NO">
-					<Str Str="skl_eff_aspergillum_shot" />
+					<Str Str="skl_eff_aspergillum_shot"/>
 				</Scp>
 			</EtcList>
 		</MainSkl>
 	</Skill>
 	<Skill Name="Scout_DoubleAttack">
-        <MainSkl ScrLock="None" JumpFlee="NO" MSPDToUsePos="0">
+		<MainSkl ScrLock="None" JumpFlee="NO" MSPDToUsePos="0">
 			<HitList>
-                <Frame Type="FAN" Time="9799" HitCount="1" TermMin="0" TermMax="0" PosType="0" Dist="0" RandDist="0" RandomPerHit="0" Angle="0" AniTime="9999" RotAngle="0" ForceATK="0"/>
+				<Frame Type="FAN" Time="9799" HitCount="1" TermMin="0" TermMax="0" PosType="0" Dist="0" RandDist="0" RandomPerHit="0" Angle="0" AniTime="9999" RotAngle="0" ForceATK="0"/>
 			</HitList>
 			<EtcList>
-                <Scp Scp="C_VOICE_SOUND" Client="YES" UseSleep="NO" Time="100">
-                    <Str Str="voice_scout_m_doubleattack_cast"/>
-                    <Str Str="voice_scout_f_doubleattack_cast"/>
+				<Scp Scp="C_VOICE_SOUND" Client="YES" UseSleep="NO" Time="100">
+					<Str Str="voice_scout_m_doubleattack_cast"/>
+					<Str Str="voice_scout_f_doubleattack_cast"/>
 				</Scp>
-                <Scp Scp="SKL_BUFF" Client="NO" UseSleep="NO" Time="200">
-					<Str Str="DoubleAttack_Buff" />
-                    <Num Num="1" UseFunc="1" FuncTxt="return obj.Level;"/>
-					<Num Num="0" />
-					<Num Num="1800000" />
-					<Num Num="1" />
-					<Num Num="100" />
-					<Num Num="0" />
+				<Scp Scp="SKL_BUFF" Client="NO" UseSleep="NO" Time="200">
+					<Str Str="DoubleAttack_Buff"/>
+					<Num Num="1" UseFunc="1" FuncTxt="return obj.Level;"/>
+					<Num Num="0"/>
+					<Num Num="1800000"/>
+					<Num Num="1"/>
+					<Num Num="100"/>
+					<Num Num="0"/>
 				</Scp>
 			</EtcList>
 		</MainSkl>
@@ -53,106 +54,115 @@
 	<Skill Name="Scout_ObliqueFire">
 		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
 			<HitList>
-				<Frame Angle="0" AniTime="300" Dist="0" ForceATK="1" HitCount="1" Length="30" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="100" Type="FAN" Width="30" />
+				<Frame Angle="0" AniTime="300" Dist="0" ForceATK="1" HitCount="1" Length="30" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="100" Type="FAN" Width="30"/>
 			</HitList>
 			<EtcList>
-				<Scp Client="YES" Scp="C_VOICE_SOUND" Time="100" UseSleep="NO">
-					<Str Str="voice_archer_m_atk" />
-					<Str Str="voice_archer_f_atk" />
+				<Scp Scp="SKL_BUFF" Client="NO" UseSleep="NO" Time="0">
+					<Str Str="ObliqueFire_Buff"/>
+					<Num Num="1"/>
+					<Num Num="0"/>
+					<Num Num="10000"/>
+					<Num Num="1"/>
+					<Num Num="100"/>
+					<Num Num="0"/>
+				</Scp>
+				<Scp Scp="C_VOICE_SOUND" Client="YES" Time="100" UseSleep="NO">
+					<Str Str="voice_archer_m_atk"/>
+					<Str Str="voice_archer_f_atk"/>
 				</Scp>
 				<Scp Client="YES_Time" Scp="C_FORCE_EFT" Time="200" UseSleep="NO">
-					<Str_Arg Arg="0.5" Str="None" />
-					<Str Str="None" />
-					<Str_Arg Arg="1" Str="I_archer_pistol_atk_smoke" />
-					<Str Str="arrow_blow" />
-					<Str Str="DEAD" />
-					<Num Num="1000" />
-					<Num Num="1" />
-					<Num Num="0" />
-					<Angle_Abs Angle="0" />
-					<Num Num="0" />
-					<Num Num="5" />
-					<Num Num="2" />
-					<Num Num="0" />
-					<Num Num="0" />
-					<Num Num="1" />
+					<Str_Arg Arg="0.5" Str="None"/>
+					<Str Str="None"/>
+					<Str_Arg Arg="1" Str="I_archer_pistol_atk_smoke"/>
+					<Str Str="arrow_blow"/>
+					<Str Str="DEAD"/>
+					<Num Num="1000"/>
+					<Num Num="1"/>
+					<Num Num="0"/>
+					<Angle_Abs Angle="0"/>
+					<Num Num="0"/>
+					<Num Num="5"/>
+					<Num Num="2"/>
+					<Num Num="0"/>
+					<Num Num="0"/>
+					<Num Num="1"/>
 				</Scp>
 				<Scp Client="YES" Scp="C_EFFECT" Time="300" UseSleep="NO">
-					<Str_Arg Arg="1" Str="I_archer_pistol_atk_smoke" />
-					<Str Str="Dummy_effect_pistol_R" />
-					<Num Num="0" />
+					<Str_Arg Arg="1" Str="I_archer_pistol_atk_smoke"/>
+					<Str Str="Dummy_effect_pistol_R"/>
+					<Num Num="0"/>
 				</Scp>
 			</EtcList>
 			<ResultList>
 				<ToolScp Client="NO" Scp="S_R_SET_FORCE_DAMAGE" UseSleep="NO">
-					<Num Num="1" />
-					<Num Num="1" />
-					<Num Num="2" />
-					<Str_Arg Arg="0.5" Str="I_archer_pistol_atk" />
-					<Str Str="arrow_cast" />
-					<Str_Arg Arg="1" Str="I_archer_pistol_atk_smoke" />
-					<Str Str="arrow_blow" />
-					<Str Str="SLOW" />
-					<Num Num="800" />
-					<Num Num="1" />
-					<Num Num="0" />
-					<Angle_Abs Angle="0" />
-					<Num Num="5" />
-					<Num Num="0" />
-					<Num Num="0" />
-					<Num Num="2" />
-					<Num Num="100" />
-					<Num Num="0.1" />
-					<Num Num="1" />
-					<Num Num="180" />
+					<Num Num="1"/>
+					<Num Num="1"/>
+					<Num Num="2"/>
+					<Str_Arg Arg="0.5" Str="I_archer_pistol_atk"/>
+					<Str Str="arrow_cast"/>
+					<Str_Arg Arg="1" Str="I_archer_pistol_atk_smoke"/>
+					<Str Str="arrow_blow"/>
+					<Str Str="SLOW"/>
+					<Num Num="800"/>
+					<Num Num="1"/>
+					<Num Num="0"/>
+					<Angle_Abs Angle="0"/>
+					<Num Num="5"/>
+					<Num Num="0"/>
+					<Num Num="0"/>
+					<Num Num="2"/>
+					<Num Num="100"/>
+					<Num Num="0.1"/>
+					<Num Num="1"/>
+					<Num Num="180"/>
 				</ToolScp>
 				<ToolScp Client="NO" Scp="S_R_COND_TGTBUFF" UseSleep="NO">
-					<Str Str="JollyRoger_Enemy_Debuff" />
+					<Str Str="JollyRoger_Enemy_Debuff"/>
 				</ToolScp>
 				<ToolScp Client="NO" Scp="S_R_SET_FORCE_DAMAGE" UseSleep="NO">
-					<Num Num="1" />
-					<Num Num="1" />
-					<Num Num="2" />
-					<Str_Arg Arg="0.5" Str="I_archer_pistol_atk" />
-					<Str Str="arrow_cast" />
-					<Str_Arg Arg="1" Str="I_archer_pistol_atk_smoke" />
-					<Str Str="arrow_blow" />
-					<Str Str="SLOW" />
-					<Num Num="800" />
-					<Num Num="1" />
-					<Num Num="0" />
-					<Angle_Abs Angle="0" />
-					<Num Num="5" />
-					<Num Num="0" />
-					<Num Num="0" />
-					<Num Num="2" />
-					<Num Num="100" />
-					<Num Num="0.1" />
-					<Num Num="1" />
-					<Num Num="180" />
+					<Num Num="1"/>
+					<Num Num="1"/>
+					<Num Num="2"/>
+					<Str_Arg Arg="0.5" Str="I_archer_pistol_atk"/>
+					<Str Str="arrow_cast"/>
+					<Str_Arg Arg="1" Str="I_archer_pistol_atk_smoke"/>
+					<Str Str="arrow_blow"/>
+					<Str Str="SLOW"/>
+					<Num Num="800"/>
+					<Num Num="1"/>
+					<Num Num="0"/>
+					<Angle_Abs Angle="0"/>
+					<Num Num="5"/>
+					<Num Num="0"/>
+					<Num Num="0"/>
+					<Num Num="2"/>
+					<Num Num="100"/>
+					<Num Num="0.1"/>
+					<Num Num="1"/>
+					<Num Num="180"/>
 				</ToolScp>
 			</ResultList>
 		</MainSkl>
 	</Skill>
 	<Skill Name="Scout_DaggerSlash">
-        <MainSkl ScrLock="None" JumpFlee="NO" MSPDToUsePos="0">
+		<MainSkl ScrLock="None" JumpFlee="NO" MSPDToUsePos="0">
 			<HitList>
-                <Frame Type="SQUARE" Time="0" HitCount="1" TermMin="0" TermMax="0" PosType="0" Dist="0" RandDist="0" RandomPerHit="0" Angle="0" Width="30" Length="55" AniTime="100" RotAngle="0" ForceATK="0"/>
-                <Frame Type="SQUARE" Time="100" HitCount="1" TermMin="0" TermMax="0" PosType="0" Dist="0" RandDist="0" RandomPerHit="0" Angle="0" Width="30" Length="55" AniTime="300" RotAngle="0" ForceATK="0"/>
+				<Frame Type="SQUARE" Time="0" HitCount="1" TermMin="0" TermMax="0" PosType="0" Dist="0" RandDist="0" RandomPerHit="0" Angle="0" Width="30" Length="55" AniTime="100" RotAngle="0" ForceATK="0"/>
+				<Frame Type="SQUARE" Time="100" HitCount="1" TermMin="0" TermMax="0" PosType="0" Dist="0" RandDist="0" RandomPerHit="0" Angle="0" Width="30" Length="55" AniTime="300" RotAngle="0" ForceATK="0"/>
 			</HitList>
 			<EtcList>
-                <Scp Scp="C_VOICE_SOUND" Client="YES" UseSleep="NO" Time="200">
-                    <Str Str="voice_scout_m_daggerslash_cast"/>
-                    <Str Str="voice_scout_f_daggerslash_cast"/>
+				<Scp Scp="C_VOICE_SOUND" Client="YES" UseSleep="NO" Time="200">
+					<Str Str="voice_scout_m_daggerslash_cast"/>
+					<Str Str="voice_scout_f_daggerslash_cast"/>
 				</Scp>
-                <Scp Scp="SKL_BUFF" Client="NO" UseSleep="NO" Time="0">
-					<Str Str="DaggerSlash_Buff" />
-					<Num Num="1" />
-					<Num Num="0" />
+				<Scp Scp="SKL_BUFF" Client="NO" UseSleep="NO" Time="0">
+					<Str Str="DaggerSlash_Buff"/>
+					<Num Num="1"/>
+					<Num Num="0"/>
 					<Num Num="3000"/>
-					<Num Num="1" />
-					<Num Num="100" />
-					<Num Num="0" />
+					<Num Num="1"/>
+					<Num Num="100"/>
+					<Num Num="0"/>
 				</Scp>
 			</EtcList>
 		</MainSkl>
@@ -161,103 +171,103 @@
 		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
 			<EtcList>
 				<Scp Client="YES" Scp="C_VOICE_SOUND" Time="200" UseSleep="NO">
-					<Str Str="voice_war_atk_short" />
-					<Str Str="voice_atk_short_war_f" />
+					<Str Str="voice_war_atk_short"/>
+					<Str Str="voice_atk_short_war_f"/>
 				</Scp>
 				<Scp Client="YES_Time" Scp="C_FORCE_EFT" Time="300" UseSleep="NO">
-					<Str_Arg Arg="0.69999999" Str="I_arrow009#Dummy_Force" />
-					<Str Str="arrow_cast" />
-					<Str_Arg Arg="1" Str="F_hit_good" />
-					<Str Str="arrow_blow" />
-					<Str Str="SLOW" />
-					<Num Num="800" />
-					<Num Num="2" />
-					<Num Num="0" />
-					<Angle_Abs Angle="0" />
-					<Num Num="0" />
-					<Num Num="5" />
-					<Num Num="0" />
-					<Num Num="0" />
-					<Num Num="1" />
-					<Num Num="0" />
+					<Str_Arg Arg="0.69999999" Str="I_arrow009#Dummy_Force"/>
+					<Str Str="arrow_cast"/>
+					<Str_Arg Arg="1" Str="F_hit_good"/>
+					<Str Str="arrow_blow"/>
+					<Str Str="SLOW"/>
+					<Num Num="800"/>
+					<Num Num="2"/>
+					<Num Num="0"/>
+					<Angle_Abs Angle="0"/>
+					<Num Num="0"/>
+					<Num Num="5"/>
+					<Num Num="0"/>
+					<Num Num="0"/>
+					<Num Num="1"/>
+					<Num Num="0"/>
 				</Scp>
 			</EtcList>
 			<ResultList>
 				<ToolScp Client="NO" Scp="S_R_SET_FORCE_DAMAGE" UseSleep="NO">
-					<Num Num="2" />
-					<Num Num="1" />
-					<Num Num="2" />
-					<Str_Arg Arg="0.69999999" Str="I_arrow009_red" />
-					<Str Str="arrow_cast" />
-					<Str_Arg Arg="1" Str="F_hit_good" />
-					<Str Str="arrow_blow" />
-					<Str Str="SLOW" />
-					<Num Num="800" />
-					<Num Num="1" />
-					<Num Num="0" />
-					<Angle_Abs Angle="0" />
-					<Num Num="5" />
-					<Num Num="0" />
-					<Num Num="0" />
-					<Num Num="2" />
-					<Num Num="100" />
-					<Num Num="0.1" />
-					<Num Num="2" />
-					<Num Num="180" />
+					<Num Num="2"/>
+					<Num Num="1"/>
+					<Num Num="2"/>
+					<Str_Arg Arg="0.69999999" Str="I_arrow009_red"/>
+					<Str Str="arrow_cast"/>
+					<Str_Arg Arg="1" Str="F_hit_good"/>
+					<Str Str="arrow_blow"/>
+					<Str Str="SLOW"/>
+					<Num Num="800"/>
+					<Num Num="1"/>
+					<Num Num="0"/>
+					<Angle_Abs Angle="0"/>
+					<Num Num="5"/>
+					<Num Num="0"/>
+					<Num Num="0"/>
+					<Num Num="2"/>
+					<Num Num="100"/>
+					<Num Num="0.1"/>
+					<Num Num="2"/>
+					<Num Num="180"/>
 				</ToolScp>
 			</ResultList>
 		</MainSkl>
 		<ByCondSkills>
 			<SubSkl>
 				<Cond>
-					<ToolScp Client="NO" Scp="SKL_SELECT_EQUIP_SH_WEAPON" UseSleep="NO" />
+					<ToolScp Client="NO" Scp="SKL_SELECT_EQUIP_SH_WEAPON" UseSleep="NO"/>
 				</Cond>
 				<Skill JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
 					<EtcList>
 						<Scp Client="YES" Scp="C_VOICE_SOUND" Time="300" UseSleep="NO">
-							<Str Str="voice_war_atk_short" />
-							<Str Str="voice_atk_short_war_f" />
+							<Str Str="voice_war_atk_short"/>
+							<Str Str="voice_atk_short_war_f"/>
 						</Scp>
 						<Scp Client="YES_Time" Scp="C_FORCE_EFT" Time="300" UseSleep="NO">
-							<Str_Arg Arg="0.75" Str="I_arrow009_1#Dummy_q_Force" />
-							<Str Str="arrow_cast" />
-							<Str_Arg Arg="1" Str="F_hit_good" />
-							<Str Str="arrow_blow" />
-							<Str Str="SLOW" />
-							<Num Num="800" />
-							<Num Num="2" />
-							<Num Num="0" />
-							<Angle_Abs Angle="0" />
-							<Num Num="0" />
-							<Num Num="5" />
-							<Num Num="0" />
-							<Num Num="0" />
-							<Num Num="1" />
-							<Num Num="0" />
+							<Str_Arg Arg="0.75" Str="I_arrow009_1#Dummy_q_Force"/>
+							<Str Str="arrow_cast"/>
+							<Str_Arg Arg="1" Str="F_hit_good"/>
+							<Str Str="arrow_blow"/>
+							<Str Str="SLOW"/>
+							<Num Num="800"/>
+							<Num Num="2"/>
+							<Num Num="0"/>
+							<Angle_Abs Angle="0"/>
+							<Num Num="0"/>
+							<Num Num="5"/>
+							<Num Num="0"/>
+							<Num Num="0"/>
+							<Num Num="1"/>
+							<Num Num="0"/>
 						</Scp>
 					</EtcList>
 					<ResultList>
 						<ToolScp Client="NO" Scp="S_R_SET_FORCE_DAMAGE" UseSleep="NO">
-							<Num Num="2" />
-							<Num Num="1" />
-							<Num Num="2" />
-							<Str_Arg Arg="0.75" Str="I_arrow009_red" />
-							<Str Str="arrow_cast" />
-							<Str_Arg Arg="1" Str="F_hit_good" />
-							<Str Str="arrow_blow" />
-							<Str Str="SLOW" />
-							<Num Num="800" />
-							<Num Num="1" />
-							<Num Num="0" />
-							<Angle_Abs Angle="0" />
-							<Num Num="5" />
-							<Num Num="0" />
-							<Num Num="0" />
-							<Num Num="2" />
-							<Num Num="100" />
-							<Num Num="0.1" />
-							<Num Num="2" />
-							<Num Num="180" />
+							<Num Num="2"/>
+							<Num Num="1"/>
+							<Num Num="2"/>
+							<Str_Arg Arg="0.75" Str="I_arrow009_red"/>
+							<Str Str="arrow_cast"/>
+							<Str_Arg Arg="1" Str="F_hit_good"/>
+							<Str Str="arrow_blow"/>
+							<Str Str="SLOW"/>
+							<Num Num="800"/>
+							<Num Num="1"/>
+							<Num Num="0"/>
+							<Angle_Abs Angle="0"/>
+							<Num Num="5"/>
+							<Num Num="0"/>
+							<Num Num="0"/>
+							<Num Num="2"/>
+							<Num Num="100"/>
+							<Num Num="0.1"/>
+							<Num Num="2"/>
+							<Num Num="180"/>
 						</ToolScp>
 					</ResultList>
 				</Skill>
@@ -267,36 +277,36 @@
 	<Skill Name="Scout_Cloaking">
 		<EnableScripts>
 			<ToolScp Client="NO" Scp="SKL_CHECK_BY_SCRIPT" UseSleep="NO">
-				<Str Str="BUFFAPPLIED_CHECK" />
+				<Str Str="BUFFAPPLIED_CHECK"/>
 			</ToolScp>
 		</EnableScripts>
 		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
 			<EtcList>
 				<Scp Client="YES" Scp="C_SOUND" Time="0" UseSleep="NO">
-					<Str Str="skl_eff_cloaking_on" />
+					<Str Str="skl_eff_cloaking_on"/>
 				</Scp>
 				<Scp Client="NO" Scp="SKL_BUFF" Time="0" UseSleep="NO">
-					<Str Str="Cloaking_Buff" />
-					<Num FuncTxt="return obj.Level" Num="1" UseFunc="1" />
-					<Num Num="0" />
-					<Num FuncTxt="return 10000 + obj.Level * 2000;" Num="0" UseFunc="1" />
-					<Num Num="1" />
-					<Num Num="100" />
-					<Num Num="0" />
+					<Str Str="Cloaking_Buff"/>
+					<Num FuncTxt="return obj.Level" Num="1" UseFunc="1"/>
+					<Num Num="0"/>
+					<Num FuncTxt="return 10000 + obj.Level * 2000;" Num="0" UseFunc="1"/>
+					<Num Num="1"/>
+					<Num Num="100"/>
+					<Num Num="0"/>
 				</Scp>
 				<Scp Client="YES" Scp="C_EFFECT" Time="200" UseSleep="NO">
-					<Str_Arg Arg="3" Str="F_cleric_cloaking_shot" />
-					<Str Str="Dummy_emitter" />
-					<Num Num="0" />
+					<Str_Arg Arg="3" Str="F_cleric_cloaking_shot"/>
+					<Str Str="Dummy_emitter"/>
+					<Num Num="0"/>
 				</Scp>
 				<Scp Client="YES" Scp="C_VOICE_SOUND" Time="200" UseSleep="NO">
-					<Str Str="voice_war_atk_medium" />
-					<Str Str="voice_atk_medium_war_f" />
+					<Str Str="voice_war_atk_medium"/>
+					<Str Str="voice_atk_medium_war_f"/>
 				</Scp>
 				<Scp Client="YES" Scp="C_EFFECT" Time="200" UseSleep="NO">
-					<Str_Arg Arg="3" Str="F_scout_cloaking" />
-					<Str Str="Dummy_emitter" />
-					<Num Num="0" />
+					<Str_Arg Arg="3" Str="F_scout_cloaking"/>
+					<Str Str="Dummy_emitter"/>
+					<Num Num="0"/>
 				</Scp>
 			</EtcList>
 		</MainSkl>
@@ -305,8 +315,8 @@
 		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
 			<EtcList>
 				<Scp Client="YES" Scp="C_VOICE_SOUND" Time="0" UseSleep="NO">
-					<Str Str="voice_war_atk_medium" />
-					<Str Str="voice_atk_medium_war_f" />
+					<Str Str="voice_war_atk_medium"/>
+					<Str Str="voice_atk_medium_war_f"/>
 				</Scp>
 			</EtcList>
 		</MainSkl>
@@ -314,38 +324,38 @@
 	<Skill Name="Scout_Scan">
 		<KeyInput>
 			<ToolScp Client="YES" Scp="SKL_KEY_GROUND_EVENT" UseSleep="NO">
-				<Num Num="3" />
-				<Num Num="0" />
-				<Num Num="0" />
-				<Num Num="1" />
-				<Num Num="100" />
-				<Num Num="0" />
-				<Num Num="0" />
-				<Num Num="0" />
-				<Num Num="0" />
-				<Str_Arg Arg="1" Str="E_pc_full_charge##1" />
-				<Str Str="Dummy_emitter" />
-				<Num Num="1" />
-				<Num Num="0" />
-				<Num Num="3" />
-				<Num Num="0.2" />
-				<Num Num="100" />
-				<Num Num="0" />
+				<Num Num="3"/>
+				<Num Num="0"/>
+				<Num Num="0"/>
+				<Num Num="1"/>
+				<Num Num="100"/>
+				<Num Num="0"/>
+				<Num Num="0"/>
+				<Num Num="0"/>
+				<Num Num="0"/>
+				<Str_Arg Arg="1" Str="E_pc_full_charge##1"/>
+				<Str Str="Dummy_emitter"/>
+				<Num Num="1"/>
+				<Num Num="0"/>
+				<Num Num="3"/>
+				<Num Num="0.2"/>
+				<Num Num="100"/>
+				<Num Num="0"/>
 			</ToolScp>
 		</KeyInput>
 		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
 			<HitList>
-				<Frame Angle="0" AniTime="99999" Dist="0" ForceATK="0" HitCount="1" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" TermMax="0" TermMin="0" Time="99799" Type="FAN" />
+				<Frame Angle="0" AniTime="99999" Dist="0" ForceATK="0" HitCount="1" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" TermMax="0" TermMin="0" Time="99799" Type="FAN"/>
 			</HitList>
 			<EtcList>
 				<Scp Client="YES" Scp="C_VOICE_SOUND" Time="200" UseSleep="NO">
-					<Str Str="voice_war_atk_medium" />
-					<Str Str="voice_atk_medium_war_f" />
+					<Str Str="voice_war_atk_medium"/>
+					<Str Str="voice_atk_medium_war_f"/>
 				</Scp>
 				<Scp Client="NO" Scp="MONSKL_CRE_PAD" Time="700" UseSleep="NO">
-					<Pos Angle="0" Dist="0" PosType="3" />
-					<Angle Angle="0" />
-					<Str Str="Scan_pad" />
+					<Pos Angle="0" Dist="0" PosType="3"/>
+					<Angle Angle="0"/>
+					<Str Str="Scan_pad"/>
 				</Scp>
 			</EtcList>
 		</MainSkl>
@@ -353,93 +363,93 @@
 	<Skill Name="Scout_FlareShot">
 		<KeyInput>
 			<ToolScp Client="YES" Scp="SKL_KEY_GROUND_EVENT" UseSleep="NO">
-				<Num Num="3" />
-				<Num Num="0" />
-				<Num Num="0" />
-				<Num Num="1" />
-				<Num Num="100" />
-				<Num Num="0" />
-				<Num Num="0" />
-				<Num Num="0" />
-				<Num Num="0" />
-				<Str_Arg Arg="1" Str="E_pc_full_charge##1" />
-				<Str Str="Dummy_emitter" />
-				<Num Num="1" />
-				<Num Num="0" />
-				<Num Num="3" />
-				<Num Num="0.2" />
-				<Num Num="100" />
-				<Num Num="0" />
+				<Num Num="3"/>
+				<Num Num="0"/>
+				<Num Num="0"/>
+				<Num Num="1"/>
+				<Num Num="100"/>
+				<Num Num="0"/>
+				<Num Num="0"/>
+				<Num Num="0"/>
+				<Num Num="0"/>
+				<Str_Arg Arg="1" Str="E_pc_full_charge##1"/>
+				<Str Str="Dummy_emitter"/>
+				<Num Num="1"/>
+				<Num Num="0"/>
+				<Num Num="3"/>
+				<Num Num="0.2"/>
+				<Num Num="100"/>
+				<Num Num="0"/>
 			</ToolScp>
 		</KeyInput>
 		<KeyInputStart>
 			<ToolScp Client="YES" Scp="MONSKL_C_PLAY_ANIM" UseSleep="NO">
-				<Str Str="SKL_FLARESHOT_CHARGE" />
-				<Num Num="1" />
-				<Num Num="1" />
+				<Str Str="SKL_FLARESHOT_CHARGE"/>
+				<Num Num="1"/>
+				<Num Num="1"/>
 			</ToolScp>
 			<ToolScp Client="YES" Scp="MONSKL_C_RESERVE_ANIM" UseSleep="NO">
-				<Str Str="SKL_FLARESHOT_LOOP" />
-				<Num Num="1" />
-				<Num Num="1" />
+				<Str Str="SKL_FLARESHOT_LOOP"/>
+				<Num Num="1"/>
+				<Num Num="1"/>
 			</ToolScp>
 			<ToolScp Client="NO" Scp="SKL_PLAY_SOUND" UseSleep="NO">
-				<Str Str="voice_f_pubilc_cast_1" />
-				<Num Num="0" />
-				<Str Str="voice_archer_atk_cast" />
+				<Str Str="voice_f_pubilc_cast_1"/>
+				<Num Num="0"/>
+				<Str Str="voice_archer_atk_cast"/>
 			</ToolScp>
 			<ToolScp Client="YES" Scp="C_EFFECT" UseSleep="NO">
-				<Str_Arg Arg="3.5" Str="F_archer_FlareShot_shot_fire2" />
-				<Str Str="Dummy_body" />
-				<Num Num="0" />
+				<Str_Arg Arg="3.5" Str="F_archer_FlareShot_shot_fire2"/>
+				<Str Str="Dummy_body"/>
+				<Num Num="0"/>
 			</ToolScp>
 			<ToolScp Client="YES" Scp="C_EFFECT" UseSleep="NO">
-				<Str_Arg Arg="3.5" Str="F_archer_FlareShot_shot_fire" />
-				<Str Str="Dummy_body" />
-				<Num Num="0" />
+				<Str_Arg Arg="3.5" Str="F_archer_FlareShot_shot_fire"/>
+				<Str Str="Dummy_body"/>
+				<Num Num="0"/>
 			</ToolScp>
 		</KeyInputStart>
 		<KeyInputEnd>
-			<ToolScp Client="YES" Scp="MONSKL_C_CLEAR_RESERVE_ANIM" UseSleep="NO" />
+			<ToolScp Client="YES" Scp="MONSKL_C_CLEAR_RESERVE_ANIM" UseSleep="NO"/>
 			<ToolScp Client="NO" Scp="SKL_STOP_SOUND" UseSleep="NO">
-				<Str Str="voice_f_pubilc_cast_1" />
-				<Str Str="voice_archer_atk_cast" />
+				<Str Str="voice_f_pubilc_cast_1"/>
+				<Str Str="voice_archer_atk_cast"/>
 			</ToolScp>
 			<ToolScp Client="YES" Scp="C_EFFECT_DETACH" UseSleep="NO">
-				<Str_Arg Arg="3.5" Str="F_archer_FlareShot_shot_fire" />
-				<Num Num="0.5" />
+				<Str_Arg Arg="3.5" Str="F_archer_FlareShot_shot_fire"/>
+				<Num Num="0.5"/>
 			</ToolScp>
 			<ToolScp Client="YES" Scp="C_EFFECT_DETACH" UseSleep="NO">
-				<Str_Arg Arg="3.5" Str="F_archer_FlareShot_shot_fire2" />
-				<Num Num="0.5" />
+				<Str_Arg Arg="3.5" Str="F_archer_FlareShot_shot_fire2"/>
+				<Num Num="0.5"/>
 			</ToolScp>
 		</KeyInputEnd>
 		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
 			<HitList>
-				<Frame Angle="0" AniTime="99999" Dist="0" ForceATK="0" HitCount="1" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" TermMax="0" TermMin="0" Time="99799" Type="FAN" />
+				<Frame Angle="0" AniTime="99999" Dist="0" ForceATK="0" HitCount="1" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" TermMax="0" TermMin="0" Time="99799" Type="FAN"/>
 			</HitList>
 			<EtcList>
 				<Scp Client="YES" Scp="C_VOICE_SOUND" Time="0" UseSleep="NO">
-					<Str Str="voice_wiz_m_flare_shot" />
-					<Str Str="voice_wiz_flare_shot" />
+					<Str Str="voice_wiz_m_flare_shot"/>
+					<Str Str="voice_wiz_flare_shot"/>
 				</Scp>
 				<Scp Client="NO" Scp="MSL_PAD_THROW" Time="50" UseSleep="YES">
-					<Str_Arg Arg="0.5" Str="E_archer_Flareshot_arrow#Dummy_Force" />
-					<Str_Arg Arg="1" Str="F_explosion092_hit" />
-					<Str_Arg Arg="1" Str="None" />
-					<Pos Angle="0" Dist="0" PosType="3" />
-					<Num Num="20" />
-					<Num Num="0.2" />
-					<Num Num="0" />
-					<Num Num="30" />
-					<Num Num="1" />
-					<Num Num="1000" />
-					<Num Num="1" />
-					<Str_Arg Arg="1" Str="None" />
-					<Num Num="0" />
-					<Num Num="0" />
-					<Angle Angle="0" />
-					<Str Str="FlareShot_pad" />
+					<Str_Arg Arg="0.5" Str="E_archer_Flareshot_arrow#Dummy_Force"/>
+					<Str_Arg Arg="1" Str="F_explosion092_hit"/>
+					<Str_Arg Arg="1" Str="None"/>
+					<Pos Angle="0" Dist="0" PosType="3"/>
+					<Num Num="20"/>
+					<Num Num="0.2"/>
+					<Num Num="0"/>
+					<Num Num="30"/>
+					<Num Num="1"/>
+					<Num Num="1000"/>
+					<Num Num="1"/>
+					<Str_Arg Arg="1" Str="None"/>
+					<Num Num="0"/>
+					<Num Num="0"/>
+					<Angle Angle="0"/>
+					<Str Str="FlareShot_pad"/>
 				</Scp>
 			</EtcList>
 		</MainSkl>
@@ -448,65 +458,65 @@
 		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
 			<EtcList>
 				<Scp Client="YES" Scp="C_VOICE_SOUND" Time="500" UseSleep="NO">
-					<Str Str="voice_war_atk_medium" />
-					<Str Str="voice_atk_medium_war_f" />
+					<Str Str="voice_war_atk_medium"/>
+					<Str Str="voice_atk_medium_war_f"/>
 				</Scp>
 				<Scp Client="YES" Scp="C_EFFECT_ATTACH" Time="640" UseSleep="NO">
-					<Str_Arg Arg="1" Str="F_archer_fluflu_shot_light#Dummy_Force" />
-					<Num Num="0.5" />
-					<Pos Angle="0" Dist="0" />
-					<Num Num="0" />
+					<Str_Arg Arg="1" Str="F_archer_fluflu_shot_light#Dummy_Force"/>
+					<Num Num="0.5"/>
+					<Pos Angle="0" Dist="0"/>
+					<Num Num="0"/>
 				</Scp>
 				<Scp Client="YES_Time" Scp="C_FORCE_EFT" Time="640" UseSleep="NO">
-					<Str_Arg Arg="0.60000002" Str="I_archer_fluflu_force_mash#Dummy_Force" />
-					<Str Str="arrow_cast" />
-					<Str_Arg Arg="0.60000002" Str="F_archer_fluflu_hit_spread_out" />
-					<Str Str="arrow_blow" />
-					<Str Str="SLOW" />
-					<Num Num="700" />
-					<Num Num="1" />
-					<Num Num="0" />
-					<Angle_Abs Angle="0" />
-					<Num Num="0" />
-					<Num Num="5" />
-					<Num Num="0" />
-					<Num Num="0" />
-					<Num Num="1" />
+					<Str_Arg Arg="0.60000002" Str="I_archer_fluflu_force_mash#Dummy_Force"/>
+					<Str Str="arrow_cast"/>
+					<Str_Arg Arg="0.60000002" Str="F_archer_fluflu_hit_spread_out"/>
+					<Str Str="arrow_blow"/>
+					<Str Str="SLOW"/>
+					<Num Num="700"/>
+					<Num Num="1"/>
+					<Num Num="0"/>
+					<Angle_Abs Angle="0"/>
+					<Num Num="0"/>
+					<Num Num="5"/>
+					<Num Num="0"/>
+					<Num Num="0"/>
+					<Num Num="1"/>
 				</Scp>
 			</EtcList>
 		</MainSkl>
 		<ByCondSkills>
 			<SubSkl>
 				<Cond>
-					<ToolScp Client="NO" Scp="SKL_SELECT_EQUIP_SH_WEAPON" UseSleep="NO" />
+					<ToolScp Client="NO" Scp="SKL_SELECT_EQUIP_SH_WEAPON" UseSleep="NO"/>
 				</Cond>
 				<Skill JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
 					<EtcList>
 						<Scp Client="YES" Scp="C_VOICE_SOUND" Time="400" UseSleep="NO">
-							<Str Str="voice_war_atk_medium" />
-							<Str Str="voice_atk_medium_war_f" />
+							<Str Str="voice_war_atk_medium"/>
+							<Str Str="voice_atk_medium_war_f"/>
 						</Scp>
 						<Scp Client="YES_Time" Scp="C_FORCE_EFT" Time="600" UseSleep="NO">
-							<Str_Arg Arg="0.5" Str="I_archer_fluflu_force_mash#Dummy_q_Force" />
-							<Str Str="arrow_cast" />
-							<Str_Arg Arg="0.30000001" Str="F_archer_fluflu_hit_spread_out" />
-							<Str Str="arrow_blow" />
-							<Str Str="SLOW" />
-							<Num Num="700" />
-							<Num Num="1" />
-							<Num Num="0" />
-							<Angle_Abs Angle="0" />
-							<Num Num="0" />
-							<Num Num="5" />
-							<Num Num="0" />
-							<Num Num="0" />
-							<Num Num="1" />
+							<Str_Arg Arg="0.5" Str="I_archer_fluflu_force_mash#Dummy_q_Force"/>
+							<Str Str="arrow_cast"/>
+							<Str_Arg Arg="0.30000001" Str="F_archer_fluflu_hit_spread_out"/>
+							<Str Str="arrow_blow"/>
+							<Str Str="SLOW"/>
+							<Num Num="700"/>
+							<Num Num="1"/>
+							<Num Num="0"/>
+							<Angle_Abs Angle="0"/>
+							<Num Num="0"/>
+							<Num Num="5"/>
+							<Num Num="0"/>
+							<Num Num="0"/>
+							<Num Num="1"/>
 						</Scp>
 						<Scp Client="YES" Scp="C_EFFECT_ATTACH" Time="640" UseSleep="NO">
-							<Str_Arg Arg="1" Str="F_archer_fluflu_shot_light#Dummy_q_Force" />
-							<Num Num="0.5" />
-							<Pos Angle="0" Dist="0" />
-							<Num Num="0" />
+							<Str_Arg Arg="1" Str="F_archer_fluflu_shot_light#Dummy_q_Force"/>
+							<Num Num="0.5"/>
+							<Pos Angle="0" Dist="0"/>
+							<Num Num="0"/>
 						</Scp>
 					</EtcList>
 				</Skill>
@@ -517,114 +527,114 @@
 		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
 			<EtcList>
 				<Scp Client="NO" Scp="SKL_RESET_COOLTIME" Time="0" UseSleep="NO">
-					<Str Str="Scout_Camouflage" />
+					<Str Str="Scout_Camouflage"/>
 				</Scp>
 				<Scp Client="NO" Scp="SKL_TOGGLE_ON" Time="0" UseSleep="NO">
-					<Num Num="1" />
+					<Num Num="1"/>
 				</Scp>
 				<Scp Client="YES" Scp="C_VOICE_SOUND" Time="0" UseSleep="NO">
-					<Str Str="voice_archer_m_camouflage_shot" />
-					<Str Str="voice_archer_camouflage_shot" />
+					<Str Str="voice_archer_m_camouflage_shot"/>
+					<Str Str="voice_archer_camouflage_shot"/>
 				</Scp>
 				<Scp Client="YES" Scp="C_SHOW_PARTS_MODEL" Time="0" UseSleep="NO">
-					<Str Str="LH" />
-					<Num Num="0" />
+					<Str Str="LH"/>
+					<Num Num="0"/>
 				</Scp>
 				<Scp Client="YES" Scp="C_SHOW_PARTS_MODEL" Time="0" UseSleep="NO">
-					<Str Str="RH" />
-					<Num Num="0" />
+					<Str Str="RH"/>
+					<Num Num="0"/>
 				</Scp>
 				<Scp Client="NO" Scp="SKL_CHANGE_SKLSUBANIM" Time="0" UseSleep="NO">
-					<Str Str="Bow_Attack" />
-					<Str Str="HIDE_STD" />
+					<Str Str="Bow_Attack"/>
+					<Str Str="HIDE_STD"/>
 				</Scp>
 				<Scp Client="YES" Scp="MONSKL_C_PLAY_ANIM" Time="0" UseSleep="NO">
-					<Str Str="HIDE" />
-					<Num Num="1" />
-					<Num Num="0" />
+					<Str Str="HIDE"/>
+					<Num Num="1"/>
+					<Num Num="0"/>
 				</Scp>
 				<Scp Client="YES" Scp="C_SKL_MON_ATTACH_NODE" Time="0" UseSleep="NO">
-					<Str Str="skill_HideBox" />
-					<Str Str="Dummy_HideBox" />
-					<Num Num="1" />
-					<Str Str="None" />
-					<Num Num="0" />
-					<Num Num="1" />
+					<Str Str="skill_HideBox"/>
+					<Str Str="Dummy_HideBox"/>
+					<Num Num="1"/>
+					<Str Str="None"/>
+					<Num Num="0"/>
+					<Num Num="1"/>
 				</Scp>
 				<Scp Client="NO" Scp="SKL_CHANGE_SKLSUBANIM" Time="0" UseSleep="NO">
-					<Str Str="CrossBow_Attack" />
-					<Str Str="HIDE_STD" />
+					<Str Str="CrossBow_Attack"/>
+					<Str Str="HIDE_STD"/>
 				</Scp>
 				<Scp Client="NO" Scp="SKL_CHANGE_SKLSUBANIM" Time="0" UseSleep="NO">
-					<Str Str="Pistol_Attack" />
-					<Str Str="HIDE_STD" />
+					<Str Str="Pistol_Attack"/>
+					<Str Str="HIDE_STD"/>
 				</Scp>
 				<Scp Client="NO" Scp="SKL_CHANGE_SKLSUBANIM" Time="0" UseSleep="NO">
-					<Str Str="Musket_Attack" />
-					<Str Str="HIDE_STD" />
+					<Str Str="Musket_Attack"/>
+					<Str Str="HIDE_STD"/>
 				</Scp>
 				<Scp Client="NO" Scp="SKL_BUFF" Time="100" UseSleep="NO">
-					<Str Str="Camouflage_Buff" />
-					<Num FuncTxt="return obj.Level" Num="1" UseFunc="1" />
-					<Num Num="0" />
-					<Num Num="0" />
-					<Num Num="1" />
-					<Num Num="100" />
+					<Str Str="Camouflage_Buff"/>
+					<Num FuncTxt="return obj.Level" Num="1" UseFunc="1"/>
+					<Num Num="0"/>
+					<Num Num="0"/>
+					<Num Num="1"/>
+					<Num Num="100"/>
 				</Scp>
 			</EtcList>
 		</MainSkl>
 		<ByCondSkills>
 			<SubSkl>
 				<Cond>
-					<ToolScp Client="NO" Scp="SKL_SELECT_TOGGLED" UseSleep="NO" />
+					<ToolScp Client="NO" Scp="SKL_SELECT_TOGGLED" UseSleep="NO"/>
 				</Cond>
 				<Skill JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
 					<EtcList>
 						<Scp Client="YES" Scp="MONSKL_C_PLAY_ANIM" Time="0" UseSleep="NO">
-							<Str Str="UNHIDE" />
-							<Num Num="1" />
-							<Num Num="0" />
+							<Str Str="UNHIDE"/>
+							<Num Num="1"/>
+							<Num Num="0"/>
 						</Scp>
 						<Scp Client="NO" Scp="SKL_BUFF_REMOVE" Time="0" UseSleep="NO">
-							<Str Str="Camouflage_Buff" />
+							<Str Str="Camouflage_Buff"/>
 						</Scp>
 						<Scp Client="YES" Scp="C_SHOW_PARTS_MODEL" Time="0" UseSleep="NO">
-							<Str Str="LH" />
-							<Num Num="1" />
+							<Str Str="LH"/>
+							<Num Num="1"/>
 						</Scp>
 						<Scp Client="YES" Scp="C_SHOW_PARTS_MODEL" Time="0" UseSleep="NO">
-							<Str Str="RH" />
-							<Num Num="1" />
+							<Str Str="RH"/>
+							<Num Num="1"/>
 						</Scp>
 						<Scp Client="NO" Scp="SKL_CHANGE_SKLSUBANIM" Time="0" UseSleep="NO">
-							<Str Str="Bow_Attack" />
-							<Str Str="None" />
+							<Str Str="Bow_Attack"/>
+							<Str Str="None"/>
 						</Scp>
 						<Scp Client="NO" Scp="SKL_CHANGE_SKLSUBANIM" Time="0" UseSleep="NO">
-							<Str Str="CrossBow_Attack" />
-							<Str Str="None" />
+							<Str Str="CrossBow_Attack"/>
+							<Str Str="None"/>
 						</Scp>
 						<Scp Client="NO" Scp="SKL_CHANGE_SKLSUBANIM" Time="0" UseSleep="NO">
-							<Str Str="Pistol_Attack" />
-							<Str Str="None" />
+							<Str Str="Pistol_Attack"/>
+							<Str Str="None"/>
 						</Scp>
 						<Scp Client="NO" Scp="SKL_CHANGE_SKLSUBANIM" Time="0" UseSleep="NO">
-							<Str Str="Musket_Attack" />
-							<Str Str="None" />
+							<Str Str="Musket_Attack"/>
+							<Str Str="None"/>
 						</Scp>
 						<Scp Client="YES" Scp="C_SKL_MON_ATTACH_NODE" Time="300" UseSleep="NO">
-							<Str Str="skill_HideBox" />
-							<Str Str="Dummy_HideBox" />
-							<Num Num="0" />
-							<Str Str="None" />
-							<Num Num="0" />
+							<Str Str="skill_HideBox"/>
+							<Str Str="Dummy_HideBox"/>
+							<Num Num="0"/>
+							<Str Str="None"/>
+							<Num Num="0"/>
 						</Scp>
 						<Scp Client="NO" Scp="SKL_TOGGLE_ON" Time="300" UseSleep="NO">
-							<Num Num="0" />
+							<Num Num="0"/>
 						</Scp>
 					</EtcList>
 				</Skill>
 			</SubSkl>
 		</ByCondSkills>
 	</Skill>
-	</ToolSkill>
+</ToolSkill>

@@ -52,7 +52,7 @@ end
 function APPS_INIT_BUTTONS(frame)    
     local attendanceBtn = GET_CHILD(frame, 'attendanceBtn');
     local EXITAPP = GET_CHILD(frame, 'EXITAPP');
-    if ATTENDANCE_OPEN_CHECK() == true then
+    if GET_PROGRESS_ATTENDANCE_CHECK() == true then
         local margin = EXITAPP:GetOriginalMargin();
         EXITAPP:SetMargin(margin.left, margin.top, margin.right, margin.bottom);
         attendanceBtn:ShowWindow(1);

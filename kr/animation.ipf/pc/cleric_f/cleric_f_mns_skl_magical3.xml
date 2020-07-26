@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by IMCGames Co., Ltd (IMCGames Co., Ltd) -->
+<ActionDesc>
+    <BlendOn frame="0" R="0" G="0" B="0" A="50"/>
+    <Particle frame="0" attachNode="Bip01 Spine2" particleName="F_pose_magical_light3" useAttach="false" hiddenObj="false" changeEffect="None" scale="5" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <HeadRotBip frame="0" BipName="Dummy_head"/>
+    <Sound frame="1.00" soundFile="skl_eff_f_2020magical03_formchage"/>
+    <BlendOn frame="3" R="10" G="5" B="5" A="100"/>
+    <Particle frame="5" attachNode="Dummy_emitter" particleName="F_pose_magical_spin2" useAttach="false" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <Particle frame="5" attachNode="Bip01 Spine2" particleName="F_pose_magical2_light03_2" useAttach="false" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <BlendOn frame="6" R="20" G="15" B="15" A="200"/>
+    <BlendOn frame="9" R="35" G="30" B="30" A="200"/>
+    <BlendOn frame="12" R="55" G="50" B="50" A="200"/>
+    <BlendOn frame="15" R="85" G="80" B="80" A="200"/>
+    <BlendOn frame="18" R="105" G="100" B="100" A="200"/>
+    <Particle frame="18" attachNode="Bip01 Spine2" particleName="F_pose_magical2_light01_pink" useAttach="false" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <Particle frame="19" attachNode="Bip01 Spine2" particleName="F_pose_magical2_light02_blue" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.6" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <Particle frame="20" attachNode="Bip01 Spine2" particleName="F_pose_magical_light3" useAttach="false" hiddenObj="false" changeEffect="None" scale="5" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <BlendOn frame="21" R="140" G="130" B="130" A="200"/>
+    <BlendOn frame="24" R="155" G="150" B="150" A="200"/>
+    <BlendOn frame="27" R="190" G="180" B="180" A="200"/>
+    <BlendOn frame="30" R="255" G="255" B="255" A="200"/>
+    <Particle frame="32" attachNode="Bip01 Spine2" particleName="F_pose_magical2_light02" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.85" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <Particle frame="40" attachNode="Bip01 Spine2" particleName="F_pose_magical_light3" useAttach="false" hiddenObj="false" changeEffect="None" scale="5" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <Particle frame="51" attachNode="Bip01 Spine2" particleName="F_pose_magical2_light02_pink" useAttach="false" hiddenObj="false" changeEffect="None" scale="1.2" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <BlendOn frame="52" R="255" G="255" B="255" A="200"/>
+    <Particle frame="52" attachNode="Bip01 R Finger2Nub" particleName="F_light019_red" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.4" pause="true" use2DEffect="true" soft2DValue="20" targetPos="false"/>
+    <BlendOn frame="54" R="190" G="180" B="180" A="200"/>
+    <BlendOn frame="56" R="140" G="130" B="130" A="200"/>
+    <BlendOn frame="58" R="90" G="80" B="80" A="200"/>
+    <BlendOff frame="59" R="0" G="0" B="0" A="0"/>
+</ActionDesc>

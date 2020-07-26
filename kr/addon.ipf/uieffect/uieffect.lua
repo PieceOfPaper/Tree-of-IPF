@@ -29,7 +29,9 @@ end
 function change_client_size(frame)
 	frame:MoveFrame(0, 0);
 	local width = option.GetClientWidth()
-    if width < 1920 then width = 1920 end    
+	if width < 1920 then 
+		width = 1920;
+	end
     local ratio = option.GetClientHeight() / option.GetClientWidth()
 	local height = width * ratio
 	frame:Resize(width, height)    
@@ -47,40 +49,40 @@ function START_SNIPE(sx, sy)
     local screen_width = option.GetClientWidth();
 	local screen_height = option.GetClientHeight();    
 
-    if g_screen_width == nil then g_screen_width = screen_width end
-    if g_screen_height == nil then g_screen_height = screen_height end   
+    if g_screen_width == nil then g_screen_width = screen_width; end
+    if g_screen_height == nil then g_screen_height = screen_height; end   
 
-    local re_create_controlset = false
-    if g_screen_width ~= screen_width or g_screen_height ~= screen_height then 				re_create_controlset = true 
+    local re_create_controlset = false;
+    if g_screen_width ~= screen_width or g_screen_height ~= screen_height then 					re_create_controlset = true;
 	end
 
-    g_screen_width = screen_width
-    g_screen_height = screen_height    
+    g_screen_width = screen_width;
+    g_screen_height = screen_height;
 
-    local x_size = 6
-    local y_size = 0
+    local x_size = 6;
+    local y_size = 0;
     local ratio = screen_width / screen_height    
     if ratio > 2 then 
-        x_size = 20
-        y_size = 10
+        x_size = 20;
+        y_size = 10;
     end
     
     if re_create_controlset == true then 
-        DESTROY_CHILD_BYNAME(frame, 'POSTEXT')    
-        DESTROY_CHILD_BYNAME(frame, 'SNIPER')    
-        child = nil
+        DESTROY_CHILD_BYNAME(frame, 'POSTEXT');   
+        DESTROY_CHILD_BYNAME(frame, 'SNIPER');    
+        child = nil;
     end
     
-	if screen_width < 1920 then screen_width = 1920 end
-    if screen_height < 1080 then screen_height = 1080 end
+	if screen_width < 1920 then screen_width = 1920; end
+    if screen_height < 1080 then screen_height = 1080; end
 
 	if child == nil then        
-		local skinSize = ui.GetSkinImageSize("snipe_center");	
+		local skinSize = ui.GetSkinImageSize("snipe_center02");	
 		child = frame:CreateControl("groupbox", "SNIPER", 0, 0, screen_width * 2 + skinSize.x * x_size, screen_height * 8 + skinSize.y * 4);        
 		child:SetSkinName("None");        
 
-		local createX = 16 + x_size - 2
-		local createY = 14 + y_size       
+		local createX = 16 + x_size - 2;
+		local createY = 14 + y_size;       
 		for i = 0 , createX - 1 do
 			for j = 0 , createY - 1 do
 				local x = i * skinSize.x;
@@ -94,12 +96,10 @@ function START_SNIPE(sx, sy)
 					local centerOffsetY = y + skinSize.y * 0.75;
 					child:SetUserValue("CENTER_X", centerOffsetX / 2);
 					child:SetUserValue("CENTER_Y", centerOffsetY / 2);
-					pic:SetImage("snipe_center");
+					pic:SetImage("snipe_center02");
 					child:SetUserValue("CENTERNAME", childName);
 					centerX = x;
 					centerY = y;
-				else
-					pic:SetImage("snipe_bg");
 				end
 			end
 		end

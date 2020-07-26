@@ -1,61 +1,122 @@
 <?xml version='1.0' encoding='utf-8'?>
-<ToolSkill><Skill Name="Mon_Yishontorcher_Skill_2">
-		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
-			<HitList>
-				<Frame Angle="0" AniTime="1000" Dist="0" ForceATK="1" HitCount="1" Length="130" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="800" Type="SQUARE" Width="10" />
-			</HitList>
-			<EtcList>
-				<Anim Anim="skl" Speed="0.80000001" Time="0" />
-				<Scp Client="YES" Scp="C_EFFECT" Time="0" UseSleep="NO">
-					<Str_Arg Arg="1" Str="I_smoke013_dark3_1" />
-					<Str Str="F_Bone_01" />
-					<Num Num="0.5" />
-				</Scp>
-				<Scp Client="YES" Scp="C_SOUND" Time="250" UseSleep="NO">
-					<Str Str="mon_voice_onion_the_great_3" />
-				</Scp>
-				<Scp Client="YES_Time" Scp="C_FORCE_EFT" Time="570" UseSleep="NO">
-					<Str_Arg Arg="0.69999999" Str="I_smoke001_dark_3#F_Bone_01" />
-					<Str Str="arrow_cast" />
-					<Str_Arg Arg="1" Str="I_explosion002_dark2" />
-					<Str Str="arrow_blow" />
-					<Str Str="SLOW" />
-					<Num Num="200" />
-					<Num Num="1" />
-					<Num Num="0" />
-					<Angle_Abs Angle="0" />
-					<Num Num="0" />
-					<Num Num="5" />
-					<Num Num="10" />
-					<Num Num="0" />
-					<Num Num="1" />
-					<Num Num="1" />
-					<Str Str="None" />
-					<PosDist Angle="0" Dist="3.8255448e-43" />
-					<Num Num="0" />
-				</Scp>
-			</EtcList>
-		</MainSkl>
-	</Skill>
-	<Skill Name="Mon_Yishontorcher_Skill_1">
-		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
-			<HitList>
-				<Frame Angle="0" AniTime="700" Dist="0" ForceATK="0" HitCount="1" Length="50" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.52359879" TermMax="0" TermMin="0" Time="500" Type="CIRCLE" Width="35" />
-			</HitList>
-			<EtcList>
-				<Anim Anim="atk" Speed="1" Time="0" />
-				<Scp Client="YES" Scp="C_SOUND" Time="200" UseSleep="NO">
-					<Str Str="mon_voice_mushcaria_7" />
-				</Scp>
-				<Scp Client="YES" Scp="C_SOUND" Time="300" UseSleep="NO">
-					<Str Str="skl_eff_short_impact_whoosh_3" />
-				</Scp>
-				<Scp Client="YES" Scp="C_EFFECT" Time="600" UseSleep="NO">
-					<Str_Arg Arg="2" Str="F_burstup029_smoke_dark2" />
-					<Str Str="effect_dum" />
-					<Num Num="0" />
-				</Scp>
-			</EtcList>
-		</MainSkl>
-	</Skill>
-	</ToolSkill>
+<ToolSkill>
+    <Skill Name="Mon_Yishontorcher_Skill_2">
+        <MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+            <HitList>
+                <Frame Angle="0" AniTime="1000" Dist="0" ForceATK="1" HitCount="1" Length="130" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="800" Type="SQUARE" Width="10"/>
+            </HitList>
+            <EtcList>
+                <Anim Anim="skl" Speed="0.80000001" Time="0"/>
+                <Scp Client="YES" Scp="C_EFFECT" Time="0" UseSleep="NO">
+                    <Str_Arg Arg="1" Str="I_smoke013_dark3_1"/>
+                    <Str Str="F_Bone_01"/>
+                    <Num Num="0.5"/>
+                </Scp>
+                <Scp Client="YES" Scp="C_SOUND" Time="250" UseSleep="NO">
+                    <Str Str="mon_voice_onion_the_great_3"/>
+                </Scp>
+                <Scp Client="YES_Time" Scp="C_FORCE_EFT" Time="570" UseSleep="NO">
+                    <Str_Arg Arg="0.69999999" Str="I_smoke001_dark_3#F_Bone_01"/>
+                    <Str Str="arrow_cast"/>
+                    <Str_Arg Arg="1" Str="I_explosion002_dark2"/>
+                    <Str Str="arrow_blow"/>
+                    <Str Str="SLOW"/>
+                    <Num Num="200"/>
+                    <Num Num="1"/>
+                    <Num Num="0"/>
+                    <Angle_Abs Angle="0"/>
+                    <Num Num="0"/>
+                    <Num Num="5"/>
+                    <Num Num="10"/>
+                    <Num Num="0"/>
+                    <Num Num="1"/>
+                    <Num Num="1"/>
+                    <Str Str="None"/>
+                    <PosDist Angle="0" Dist="3.8255448e-43"/>
+                    <Num Num="0"/>
+                </Scp>
+            </EtcList>
+        </MainSkl>
+    </Skill>
+    <Skill Name="Mon_Yishontorcher_Skill_1">
+        <MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+            <HitList>
+                <Frame Angle="0" AniTime="700" Dist="0" ForceATK="0" HitCount="1" Length="50" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.52359879" TermMax="0" TermMin="0" Time="500" Type="CIRCLE" Width="35"/>
+            </HitList>
+            <EtcList>
+                <Anim Anim="atk" Speed="1" Time="0"/>
+                <Scp Client="YES" Scp="C_SOUND" Time="200" UseSleep="NO">
+                    <Str Str="mon_voice_mushcaria_7"/>
+                </Scp>
+                <Scp Client="YES" Scp="C_SOUND" Time="300" UseSleep="NO">
+                    <Str Str="skl_eff_short_impact_whoosh_3"/>
+                </Scp>
+                <Scp Client="YES" Scp="C_EFFECT" Time="600" UseSleep="NO">
+                    <Str_Arg Arg="2" Str="F_burstup029_smoke_dark2"/>
+                    <Str Str="effect_dum"/>
+                    <Num Num="0"/>
+                </Scp>
+            </EtcList>
+        </MainSkl>
+    </Skill>
+    <Skill Name="Mon_Yishontorcher_Skill_3">
+        <MainSkl ScrLock="None" JumpFlee="NO" MSPDToUsePos="0">
+            <HitList>
+                <Frame Type="CIRCLE" Time="9999" HitCount="1" TermMin="0" TermMax="0" PosType="0" Dist="0" RandDist="0" RandomPerHit="0" Angle="0" AniTime="10199" RotAngle="0" ForceATK="0"/>
+            </HitList>
+            <EtcList>
+                <Anim Time="0" Anim="skl" Speed="0.5"/>
+                <Scp Scp="SKL_SET_TARGET_CIRCLE" Client="NO" UseSleep="NO" Time="0">
+                    <Pos Angle="0" Dist="0"/>
+                    <Num Num="120"/>
+                    <Num Num="5"/>
+                    <Num Num="2"/>
+                    <Num Num="0"/>
+                    <Num Num="1"/>
+                    <Num Num="1"/>
+                    <Num Num="0"/>
+                    <Num Num="1"/>
+                    <Num Num="0"/>
+                    <Num Num="0"/>
+                </Scp>
+                <Scp Scp="MSL_THROW_SYNC" Client="NO" UseSleep="YES" TooltipScp="TOOLTIP_MSL_THROW" Time="0">
+                    <Str_Arg Str="I_force015_yellow" Arg="1"/>
+                    <Str_Arg Str="F_rize015_1_yellow_drop" Arg="1"/>
+                    <Str_Arg Str="I_force003_green" Arg="1"/>
+                    <Pos Angle="0" Dist="0" PosType="9"/>
+                    <Num Num="45"/>
+                    <Num Num="1"/>
+                    <Num Num="0"/>
+                    <Num Num="600"/>
+                    <Num Num="1"/>
+                    <Num Num="1000"/>
+                    <Num Num="1"/>
+                    <Num Num="0"/>
+                    <Str_Arg Str="F_sys_target_monster##1" Arg="1"/>
+                    <Num Num="1200"/>
+                    <Num Num="0"/>
+                    <Num Num="0"/>
+                    <Num Num="1"/>
+                    <Num Num="0"/>
+                </Scp>
+                <Scp Scp="C_SOUND" Client="YES" UseSleep="NO" Time="800">
+                    <Str Str="mon_voice_mushcaria_7"/>
+                </Scp>
+                <Scp Scp="C_SOUND" Client="YES" UseSleep="NO" Time="900">
+                    <Str Str="skl_eff_short_impact_whoosh_3"/>
+                </Scp>
+            </EtcList>
+            <ResultList>
+                <ToolScp Scp="S_R_TGTBUFF" Client="NO" UseSleep="NO">
+                    <Str Str="ElectricShock"/>
+                    <Num Num="3"/>
+                    <Num Num="0"/>
+                    <Num Num="5000"/>
+                    <Num Num="1"/>
+                    <Num Num="100"/>
+                    <Num Num="-1"/>
+                </ToolScp>
+            </ResultList>
+        </MainSkl>
+    </Skill>
+</ToolSkill>

@@ -25,7 +25,6 @@ function UPDATE_SKILL_BY_SKILLMAKECOSTUME(resStr)
     local datas = StringSplit(resStr, ":");
     local msg = datas[1];
     local skillName = datas[2];
-    local skillID = datas[3];
     local frame = ui.GetFrame("skillability");
     if frame ~= nil then
         local ctrlSet = GET_CHILD_RECURSIVELY(frame, "SKILL_"..skillName);
@@ -35,7 +34,6 @@ function UPDATE_SKILL_BY_SKILLMAKECOSTUME(resStr)
             elseif msg == "remove_skill" then
                 ctrlSet:SetVisible(0);
                 frame:RemoveChild(ctrlSet:GetName());
-                
                 local commonSkillCount = session.skill.GetCommonSkillCount();
                 local job_tab = GET_CHILD_RECURSIVELY(frame, "job_tab");
                 if job_tab ~= nil and commonSkillCount <= 0 then
@@ -50,17 +48,6 @@ function UPDATE_SKILL_BY_SKILLMAKECOSTUME(resStr)
     end
 end
 
-function CHECK_SKILLTREEGB_IN_COMMON_TRANSSKILL(gb, gbChildCnt)
-    if gb == nil then return false; end
-    for i = 0, gbChildCnt - 1 do
-        local child = gb:GetChildByIndex(i);
-        if child ~= nil and string.find(child:GetName(), "SKILL_") ~= nil and (string.find(child:GetName(), "MagicalGirl") ~= nil or string.find(child:GetName(), "Ranger") ~= nil) then
-            return true;
-        end
-    end
-    return false;
-end
-
 function SKILLABILITY_COMMON_LEGENDITEMSKILL_UPDATE(frame, msg, skillID, argNum)
     if frame == nil then return; end
     local skillability_job = GET_CHILD_RECURSIVELY(frame, "skillability_job_Common");
@@ -70,7 +57,7 @@ function SKILLABILITY_COMMON_LEGENDITEMSKILL_UPDATE(frame, msg, skillID, argNum)
 
     -- check child skillID
     local gb_ChildCnt = skilltree_gb:GetChildCount();
-    local exist_trans_skill = CHECK_SKILLTREEGB_IN_COMMON_TRANSSKILL(skilltree_gb, gb_ChildCnt);
+    local exist_trans_skill = HAS_SKILLTREEGB_IN_COMMON_TRANSSKILL_BY_CHILD(skilltree_gb, gb_ChildCnt);
     if exist_trans_skill == nil then return; end
 
     -- check msg skillID
@@ -78,7 +65,7 @@ function SKILLABILITY_COMMON_LEGENDITEMSKILL_UPDATE(frame, msg, skillID, argNum)
     if skillInfo ~= nil then
         local sklObj = GetIES(skillInfo:GetObject());
         if sklObj == nil then return end
-        if string.find(sklObj.ClassName, "MagicalGirl") == nil or string.find(sklObj.ClassName, "Ranger") == nil then
+        if HAS_SKILLTREEGB_IN_COMMON_TRANSSKILL_BY_SKILL_OBJ(sklObj) == false then
             exist_trans_skill = false;
         end
     end
@@ -100,7 +87,7 @@ function SKILLABILITY_COMMON_LEGENDITEMSKILL_UPDATE(frame, msg, skillID, argNum)
                 local gb_Child = skilltree_gb:GetChildByIndex(i);
                 if gb_Child == nil then break end
 
-                if string.find(gb_Child:GetName(), "SKILL_") ~= nil and (string.find(gb_Child:GetName(), "MagicalGirl") == nil or string.find(gb_Child:GetName(), "Ranger") == nil) then
+                if string.find(gb_Child:GetName(), "SKILL_") ~= nil and HAS_SKILLTREEGB_IN_COMMON_TRANSSKILL_BY_CHILDNAME(gb_Child:GetName()) == false then
                     local ctrlSet = GET_CHILD_RECURSIVELY(skilltree_gb, gb_Child:GetName());
                     if skillInfo == nil then
                         ctrlSet:SetVisible(0);
@@ -120,15 +107,15 @@ function SKILLABILITY_COMMON_LEGENDITEMSKILL_UPDATE(frame, msg, skillID, argNum)
             end
         end
     else
-         if skillInfo == nil then return end
-         local sklObj = GetIES(skillInfo:GetObject());
-         if sklObj == nil then return end
+        if skillInfo == nil then return end
+        local sklObj = GetIES(skillInfo:GetObject());
+        if sklObj == nil then return end
 
-         local visibleSkillName = "SKILL_"..sklObj.ClassName;
-         local ctrlSet = GET_CHILD_RECURSIVELY(skilltree_gb, visibleSkillName);
-         if ctrlSet ~= nil then
-             ctrlSet:SetVisible(1);
-         end
+        local visibleSkillName = "SKILL_"..sklObj.ClassName;
+        local ctrlSet = GET_CHILD_RECURSIVELY(skilltree_gb, visibleSkillName);
+        if ctrlSet ~= nil then
+            ctrlSet:SetVisible(1);
+        end
     end
 
     session.skill.ReqCommonSkillList();
@@ -1291,7 +1278,7 @@ function ON_POPULAR_SKILL_INFO(frame)
 end
     
 function ON_UPDATE_COMMON_SKILL_LIST(frame, msg, argStr, argNum)
-	local commonSkillCount = session.skill.GetCommonSkillCount();	
+    local commonSkillCount = session.skill.GetCommonSkillCount();	
 	if commonSkillCount < 1 then		
         local job_tab = GET_CHILD_RECURSIVELY(frame, "job_tab");
         if job_tab ~= nil then
@@ -1367,9 +1354,11 @@ function SKILLABILITY_DEPLOY_JOB_SKILL(skilltree_gb, jobClsName, unlockLvHash, S
     local rowCount = 0;
     --deploy skill controlset
     local y = 0;
+
     if jobClsName == "Common" then
         skilltree_gb:RemoveAllChild()
     end
+    
     --total loop count == skill count in job
     for lv, lvList in pairs(unlockLvHash) do 
         local levelRow = CALC_LIST_LINE_BREAK(lvList, SKILL_COL_COUNT, SKILL_LINE_BREAK_COUNT);

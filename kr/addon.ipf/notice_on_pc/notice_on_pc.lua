@@ -1,5 +1,6 @@
 function NOTICE_ON_PC_ON_INIT(addon, frame)
     addon:RegisterMsg("NOTICE_MORINGPONIA_TARGET", "NOTICE_ON_MORINGPONIA_TARGET");
+    addon:RegisterMsg("NOTICE_TO_UI", "ON_NOTICE_TO_UI");
 end
 
 function NOTICE_ON_UI(uiName, iconName, handle, duration)
@@ -40,4 +41,13 @@ function UPDATE_NOTICE_ICON_POS(frame, num)
 	local y = point.y - frame:GetHeight() - 40;
     frame:MoveFrame(x, y);
 	return 1;
+end
+
+function ON_NOTICE_TO_UI(frame, msg, argStr, argNum)
+    local argList = SCR_STRING_CUT(argStr)
+    local uiName = argList[1]
+    local iconName = argList[2]
+    local handle = tonumber(argList[3])
+
+    NOTICE_ON_UI(uiName, iconName, handle, argNum)
 end

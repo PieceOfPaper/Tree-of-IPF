@@ -441,8 +441,7 @@ function EXEC_SELECT_POSTBOX_ITEM_PC(pcName)
 		local itemCls = GetClassByType("Item", itemInfo.itemType);
 		
 		local teamTradeProp = TryGetProp(itemCls, 'TeamTrade');
-		local lifeTimeProp = TryGetProp(itemCls, 'LifeTime', 0);
-		if teamTradeProp ~= 'YES' or lifeTimeProp ~= 0 then
+		if teamTradeProp ~= 'YES' then
 			noTeamTradeItem = noTeamTradeItem + 1;
 		end
 	end

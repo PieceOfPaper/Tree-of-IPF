@@ -25921,6 +25921,13 @@ return &quot;A &quot; .. IMCRandom(0, 100);"/>
         </List>
     </AI>
     <AI Name="velcoffer" ActiveMessageMapInBattle="1"/>
+    <AI Name="weekly_dummy_monster" UpdateMS="1000" ActiveMessageMapInBattle="1">
+        <List>
+            <ToolScp Scp="SAI_FUNC_DIRECT" Client="NO" UseSleep="NO">
+                <Str Str="SCR_WEEKLY_DUMMY_MONSTER"/>
+            </ToolScp>
+        </List>
+    </AI>
     <AI Name="골렘AI" ActiveMessageMapInBattle="1">
         <List>
             <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">

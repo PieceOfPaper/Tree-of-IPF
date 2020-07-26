@@ -174,6 +174,19 @@ function KEYCONFIG_SAVE_INPUT(frame)
 		local useAlt = txt_key:GetUserValue("UseAlt");
 		local useCtrl = txt_key:GetUserValue("UseCtrl");
 		local key = txt_key:GetUserValue("Key");        
+
+		if id ~= nil and id == "Jump" then
+			local exceptionJumpKeyList = { "None", "NUMLOCK", "MULTIPLY", "NUMMINUS", "ADD", "PADENTER", "DECIMAL" };
+			for i = 1, #exceptionJumpKeyList do
+				local exceptionJumpKey = exceptionJumpKeyList[i];
+				if key == exceptionJumpKey then
+					KEYCONFIG_RESTORE_KEY_TEXT(txt_key);
+					ui.SysMsg(ClMsg("ResettingJumpKey"));
+					return;
+				end
+			end
+		end
+
 		if key == "" then
 			KEYCONFIG_RESTORE_KEY_TEXT(txt_key);
 			return;

@@ -24,6 +24,38 @@
 				</Scp>
 			</EtcList>
 		</MainSkl>
+        <ByCondSkills>
+            <SubSkl>
+                <Cond>
+                    <ToolScp Client="NO" Scp="SKL_SELECT_ABIL" UseSleep="NO">
+                        <Str Str="Cleric29"/>
+                    </ToolScp>
+                </Cond>
+                <Skill JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+                    <HitList>
+                        <Frame Angle="0" AniTime="9999" Dist="0" ForceATK="0" HitCount="1" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="9799" Type="FAN"/>
+                    </HitList>
+                    <EtcList>
+                        <Scp Client="YES" Scp="C_VOICE_SOUND" Time="0" UseSleep="NO">
+                            <Str Str="voice_cleric_m_patronsaint_shot"/>
+                            <Str Str="voice_cleric_patronsaint_shot"/>
+                        </Scp>
+                        <Scp Client="NO" Scp="SKL_BUFF" Time="100" UseSleep="NO">
+                            <Str Str="PatronSaint_Abil_Buff"/>
+                            <Num FuncTxt="return obj.Level;" Num="1" UseFunc="1"/>
+                            <Num Num="0"/>
+                            <Num Num="30000"/>
+                            <Num Num="1"/>
+                            <Num Num="100"/>
+                            <Num Num="0"/>
+                        </Scp>
+                        <Scp Client="YES" Scp="C_SOUND" Time="100" UseSleep="NO">
+                            <Str Str="skl_eff_patronsaint_buff_shot"/>
+                        </Scp>
+                    </EtcList>
+                </Skill>
+            </SubSkl>
+        </ByCondSkills>        
 	</Skill>
 	<Skill Name="Cleric_Fade">
 		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
@@ -42,6 +74,39 @@
 				</Scp>
 			</EtcList>
 		</MainSkl>
+        <ByCondSkills>
+            <SubSkl>
+                <Cond>
+                    <ToolScp Client="NO" Scp="SKL_SELECT_ABIL" UseSleep="NO">
+                        <Str Str="Cleric28"/>
+                    </ToolScp>
+                </Cond>
+                <Skill JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+                    <HitList>
+                        <Frame Angle="0" AniTime="9999" Dist="0" ForceATK="0" HitCount="1" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="9799" Type="FAN"/>
+                    </HitList>
+                    <EtcList>
+                        <Scp Client="NO" Scp="SKL_BUFF" Time="0" UseSleep="NO">
+                            <Str Str="Fade_Abil_Buff"/>
+                            <Num Num="1"/>
+                            <Num Num="0"/>
+                            <Num Num="12000"/>
+                            <Num Num="1"/>
+                            <Num Num="100"/>
+                            <Num Num="0"/>
+                        </Scp>
+                        <Scp Scp="SKL_SET_IMMUNE_STATE" Client="NO" UseSleep="NO" Time="0">
+                            <Str Str="Skill_NoDamage_Buff"/>
+                            <Num Num="100"/>
+                        </Scp>
+                        <Scp Client="YES" Scp="C_VOICE_SOUND" Time="0" UseSleep="NO">
+                            <Str Str="voice_cleric_m_fade_shot"/>
+                            <Str Str="voice_cleric_fade_shot"/>
+                        </Scp>
+                    </EtcList>
+                </Skill>
+            </SubSkl>
+        </ByCondSkills>
 	</Skill>
 	<Skill Name="Cleric_DeprotectedZone">
 		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
@@ -96,7 +161,16 @@
 					<Str Str="voice_war_atk_medium" />
 					<Str Str="voice_atk_medium_war_f" />
 				</Scp>
-			</EtcList>
+                <Scp Client="NO" Scp="SKL_BUFF" Time="250" UseSleep="NO">
+                    <Str Str="Smite_Buff"/>
+                    <Num Num="1"/>
+                    <Num Num="0"/>
+                    <Num Num="60000"/>
+                    <Num Num="1"/>
+                    <Num Num="100"/>
+                    <Num Num="0"/>
+                </Scp>
+            </EtcList>           
 		</MainSkl>
 	</Skill>
 	<Skill Name="Cleric_ShieldCharge">
@@ -610,6 +684,67 @@ return value"/>
 				</Scp>
 			</EtcList>
 		</MainSkl>
+        <ByCondSkills>
+            <SubSkl>
+                <Cond>
+                    <ToolScp Client="NO" Scp="SKL_SELECT_ABIL" UseSleep="NO">
+                        <Str Str="Cleric30"/>
+                    </ToolScp>
+                </Cond>
+                <Skill JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+                    <HitList>
+                        <Frame Type="FAN" Time="0" HitCount="1" TermMin="0" TermMax="0" PosType="0" Dist="0" RandDist="0" RandomPerHit="0" Angle="0" SklAngle="0.17453299" AniTime="300" RotAngle="0" ForceATK="0"/>
+                    </HitList>
+                    <EtcList>
+                        <Scp Scp="MONSKL_C_PLAY_ANIM" Client="YES" UseSleep="NO" Time="0">
+                            <Str Str="SKL_BUFF"/>
+                            <Num Num="3"/>
+                            <Num Num="1"/>
+                            <Num Num="1"/>
+                        </Scp>
+                        <Scp Scp="C_VOICE_SOUND" Client="YES" UseSleep="NO" Time="100">
+                            <Str Str="voice_cleric_m_heal_shot"/>
+                            <Str Str="voice_cleric_heal_shot"/>
+                        </Scp>
+                        <Scp Scp="SKL_CONSUME_SP" Client="NO" UseSleep="NO" Time="100">
+                            <Num Num="0" UseFunc="1" FuncTxt="local baseSP = TryGetProp(obj, &quot;SpendSP&quot;, 0) local addValue = 0 if IsBuffApplied(self, 'Heal_Overload_Buff') == 'YES' then addValue = baseSP local over = GetBuffOver(self, &quot;Heal_Overload_Buff&quot;) addValue = math.floor(addValue * over * 0.5) end local mnaValue = TryGetProp(self, &quot;MNA&quot;, 0) * 0.2 if mnaValue > baseSP / 2 then mnaValue = baseSP / 2 end mnaValue = math.floor(mnaValue) addValue = addValue - math.floor(mnaValue) return addValue;"/>
+                        </Scp>
+                        <Scp Scp="SKL_BUFF" Client="NO" UseSleep="NO" Time="200">
+                            <Str Str="Heal_Buff"/>
+                            <Num Num="1"/>
+                            <Num Num="0"/>
+                            <Num Num="1000"/>
+                            <Num Num="1"/>
+                            <Num Num="100"/>
+                            <Num Num="0"/>
+                        </Scp>
+                        <Scp Scp="SKL_BUFF" Client="NO" UseSleep="NO" Time="200">
+                            <Str Str="Heal_Overload_Buff"/>
+                            <Num Num="1"/>
+                            <Num Num="0"/>
+                            <Num Num="3500" UseFunc="1" FuncTxt="local value = 3500
+        local jobHistory = GetJobHistoryString(self);
+        if string.find(jobHistory, &quot;Char4_14&quot;) ~= nil then
+            value = value - 700
+        end
+        local jobList = GetJobHistoryList(self)
+        for i = 1, #jobList do
+            if jobList[i] == 4002 then
+                value = value - 300
+            end
+        end
+        return value"/>
+                            <Num Num="1"/>
+                            <Num Num="100"/>
+                            <Num Num="0"/>
+                        </Scp>
+                        <Scp Scp="C_SOUND" Client="YES" UseSleep="NO" Time="200">
+                            <Str Str="skl_cleric_heal_shot"/>
+                        </Scp>
+                    </EtcList>
+                </Skill>
+            </SubSkl>
+        </ByCondSkills>
 	</Skill>
 	<Skill Name="Cleric_Holy_Baptism">
 		<MainSkl JumpFlee="NO" MSPDToUsePos="0.000000" MoveFIle="None" ScrLock="None">

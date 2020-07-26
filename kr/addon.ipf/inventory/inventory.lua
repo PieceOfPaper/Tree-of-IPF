@@ -1967,7 +1967,7 @@ end
 
 function REQUEST_SUMMON_BOSS_TX()
 	local invFrame = ui.GetFrame("inventory");
-	local itemGuid = invFrame:GetUserValue("INVITEM_GUID");
+	local itemGuid = invFrame:GetUserValue("REQ_USE_ITEM_GUID");
 	local invItem = session.GetInvItemByGuid(itemGuid)
 	
 	if nil == invItem then
@@ -4080,7 +4080,7 @@ function BEFORE_APPLIED_NON_EQUIP_ITEM_OPEN(invItem)
 	if itemobj == nil then
 		return;
 	end
-	invFrame:SetUserValue("INVITEM_GUID", invItem:GetIESID());
+	invFrame:SetUserValue("REQ_USE_ITEM_GUID", invItem:GetIESID());
 	
 	if itemobj.Script == 'SCR_SUMMON_MONSTER_FROM_CARDBOOK' then
 		local textmsg = string.format("[ %s ]{nl}%s", itemobj.Name, ScpArgMsg("Card_Summon_check_Use"));
@@ -4103,7 +4103,7 @@ function BEFORE_APPLIED_YESSCP_OPEN(invItem)
 	if itemobj == nil then
 		return;
 	end
-	invFrame:SetUserValue("INVITEM_GUID", invItem:GetIESID());
+	invFrame:SetUserValue("REQ_USE_ITEM_GUID", invItem:GetIESID());
 	
 	local strLang = TryGetProp(itemobj , 'StringArg')
 	if strLang ~='None' then
@@ -4115,7 +4115,7 @@ end
 
 function REQUEST_USE_ITEM_TX()
 	local invFrame = ui.GetFrame("inventory");
-	local itemGuid = invFrame:GetUserValue("INVITEM_GUID");
+	local itemGuid = invFrame:GetUserValue("REQ_USE_ITEM_GUID");
 	local invItem = session.GetInvItemByGuid(itemGuid)
 	
 	if nil == invItem then
@@ -4152,7 +4152,7 @@ function BEFORE_APPLIED_GESTURE_YESSCP_OPEN(invItem)
 	if itemobj == nil then
 		return;
 	end
-	invFrame:SetUserValue("INVITEM_GUID", invItem:GetIESID());
+	invFrame:SetUserValue("REQ_USE_ITEM_GUID", invItem:GetIESID());
 	
 	local strLang = TryGetProp(itemobj , 'StringArg')
 	if strLang ~='None' then
@@ -4172,7 +4172,7 @@ function BEFORE_APPLIED_CAHT_BALLOON_YESSCP_OPEN(invItem)
 	if itemobj == nil then
 		return;
 	end
-	invFrame:SetUserValue("INVITEM_GUID", invItem:GetIESID());
+	invFrame:SetUserValue("REQ_USE_ITEM_GUID", invItem:GetIESID());
 	
 	local strLang = TryGetProp(itemobj , 'StringArg')
 	local numLang = TryGetProp(itemobj , 'NumberArg1')

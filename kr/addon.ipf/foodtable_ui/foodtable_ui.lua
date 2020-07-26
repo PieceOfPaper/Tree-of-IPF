@@ -78,12 +78,13 @@ function ON_OPEN_FOOD_TABLE_UI(frame, msg, handle, forceOpenUI)
 
 	for i = 0 , cnt - 1 do
 		local foodItem = tableInfo:GetFoodItem(i);
-		local ctrlSet = gbox_table:CreateControlSet('camp_food_item', "FOOD" .. i, 0, 0);
-		local cls = GetClassByType("FoodTable", foodItem.type);
-		SET_FOOD_TABLE_BASE_INFO(ctrlSet, cls, tableInfo, foodItem.abilLevel);
-		local itemcount = GET_CHILD(ctrlSet, "itemcount");
-		itemcount:SetTextByKey("value", foodItem.remainCount);
-
+		if foodItem ~= nil and foodItem.remainCount > 0 then
+			local ctrlSet = gbox_table:CreateControlSet('camp_food_item', "FOOD" .. i, 0, 0);
+			local cls = GetClassByType("FoodTable", foodItem.type);
+			SET_FOOD_TABLE_BASE_INFO(ctrlSet, cls, tableInfo, foodItem.abilLevel);
+			local itemcount = GET_CHILD(ctrlSet, "itemcount");
+			itemcount:SetTextByKey("value", foodItem.remainCount);
+		end
 	end	
 
 	GBOX_AUTO_ALIGN(gbox_table, 15, 3, 10, true, false);

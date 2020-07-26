@@ -176,14 +176,14 @@ function INDUNINFO_CREATE_CATEGORY(frame)
                     local pc = GetMyPCObject()
                     if IsBuffApplied(pc, "Event_Unique_Raid_Bonus") == "YES" then
 --                    if SCR_RAID_EVENT_20190102(nil, false) then
-                        cyclePicImg:SetImage(GET_INDUN_ICON_NAME('event_l_eng'))
+                        cyclePicImg:SetImage(GET_INDUN_ICON_NAME('event_s'))
                         local margin = cyclePicImg:GetOriginalMargin();
                         cyclePicImg:SetMargin(margin.left, margin.top, margin.right + 20, margin.bottom);
                         cyclePicImg:Resize(cyclePicImg:GetOriginalWidth() + 11, cyclePicImg:GetOriginalHeight());
                     elseif IsBuffApplied(pc, "Event_Unique_Raid_Bonus_Limit") == "YES" then
                         local accountObject = GetMyAccountObj(pc)
                         if TryGetProp(accountObject ,"EVENT_UNIQUE_RAID_BONUS_LIMIT") > 0 then
-                            cyclePicImg:SetImage(GET_INDUN_ICON_NAME('event_l_eng'))
+                            cyclePicImg:SetImage(GET_INDUN_ICON_NAME('event_s'))
                             local margin = cyclePicImg:GetOriginalMargin();
                             cyclePicImg:SetMargin(margin.left, margin.top, margin.right + 20, margin.bottom);
                             cyclePicImg:Resize(cyclePicImg:GetOriginalWidth() + 11, cyclePicImg:GetOriginalHeight());
@@ -1093,7 +1093,9 @@ function INDUNINFO_MAKE_DETAIL_INFO_BOX(frame, indunClassID)
 
 --        if SCR_RAID_EVENT_20190102(nil, false) == true and admissionItemName == 'Dungeon_Key01' then
         local pc = GetMyPCObject()
-        if IsBuffApplied(pc, "Event_Unique_Raid_Bonus") == "YES" and admissionItemName == "Dungeon_Key01" then
+        if IsBuffApplied(pc,"Event_Steam_New_World_Buff") == "YES" and admissionItemName == "Dungeon_Key01" then
+            nowAdmissionItemCount = 1
+        elseif IsBuffApplied(pc, "Event_Unique_Raid_Bonus") == "YES" and admissionItemName == "Dungeon_Key01" then
             nowAdmissionItemCount  = admissionItemCount
         elseif IsBuffApplied(pc, "Event_Unique_Raid_Bonus_Limit") == "YES" and admissionItemName == "Dungeon_Key01" then
             local accountObject = GetMyAccountObj(pc)

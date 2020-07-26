@@ -569,3 +569,45 @@ function GET_SKILL_OVERHEAT_COUNT(sklObj)
 
     return overHeat;
 end
+
+function HAS_SKILLTREEGB_IN_COMMON_TRANSSKILL_BY_CHILD(gb, gbChildCnt)
+    if gb == nil then 
+        return false; 
+    end
+
+    for i = 0, gbChildCnt - 1 do
+        local child = gb:GetChildByIndex(i);
+        if child ~= nil and string.find(child:GetName(), "SKILL") ~= nil then
+            local datas = StringSplit(child:GetName(), "_");
+            local skillName = datas[2];
+            local cls = GetClassByStrProp("SkillMakeCostume", "SkillName", skillName);
+            if cls ~= nil then
+                return true;
+            end
+        end
+    end
+
+    return false;
+end
+
+function HAS_SKILLTREEGB_IN_COMMON_TRANSSKILL_BY_CHILDNAME(name)
+    local cls = GetClassByStrProp("SkillMakeCostume", "SkillName", name);
+    if cls ~= nil then
+        return true;
+    end
+
+    return false;
+end
+
+function HAS_SKILLTREEGB_IN_COMMON_TRANSSKILL_BY_SKILL_OBJ(obj)
+    if obj == nil then
+        return false;
+    end
+
+    local cls = GetClassByStrProp("SkillMakeCostume", "SkillName", obj.ClassName);
+    if cls ~= nil then
+        return true;
+    end
+
+    return false;
+end

@@ -23,5 +23,6 @@
 		<richtext name="periodText1" rect="0 0 180 30" parent="dayBox" margin="10 33 0 0" layout_gravity="left top" caption="yyyy.mm.dd" fontname="black_16_b"/>
 		<richtext name="periodText2" rect="0 0 180 30" parent="dayBox" margin="0 0 10 8" layout_gravity="right bottom" format="~%s" fontname="black_16_b" param1="date" param1_def="yyyy.mm.dd"/>
 		<richtext name="infoText" rect="0 0 590 80" parent="bgBox" fixwidth="true" margin="342 0 0 76" layout_gravity="left bottom" fontname="black_16_b"/>
+		<richtext name="newCharInfoText" rect="0 0 590 80" parent="bgBox" fixwidth="true" margin="342 0 0 40" layout_gravity="left bottom" fontname="black_16_b"/>
 	</controls>
 </uiframe>
