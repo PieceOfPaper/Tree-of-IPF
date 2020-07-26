@@ -722,6 +722,7 @@
 		<Class ClassID="4265" ClassName="ancient_card_list" Data="어시스터 보관함"/>
     <Class ClassID="4266" ClassName="NEED_MAXLV" Data="최고 레벨 달성시에 활성화할 수 있습니다."/>
     <Class ClassID="4267" ClassName="NeedValidLv{lv1}{lv2}" Data="Lv{lv1}이상 Lv{lv2}미만 캐릭터만 사용할 수 있습니다."/>
+		<Class ClassID="4268" ClassName="Moru_Ruby_Charge/20;" Data="상자 개봉으로 획득한 루비 모루는{nl}{@st66d_y}{s20}거래가 불가능합니다.{nl}{/}{/}정말 개봉하시겠습니까?"/>
 	</Category>
 	<Category Name="ItemTooltip">
 		<Class ClassID="5001" ClassName="CoolDown : {Sec} Sec" Data="재사용 대기시간 : {Sec}초"/>
@@ -14495,6 +14496,8 @@
 		<Class ClassID="820047" ClassName="AncientComboBuffHelp" Data="{S14}※어시스터의 속성, 종족, 등급 조합에 따라 패시브가 적용됩니다.{nl}※조합된 어시스터의 레벨, 등급, 진화 등급에 따라 강화됩니다."/>
 		<Class ClassID="820048" ClassName="AncientCostOver" Data="총 코스트가 초과하여 등록할 수 없습니다."/>
 		<Class ClassID="820049" ClassName="AncientAddMaxCost" Data="어시스터 코스트가 {addCost} 증가하였습니다."/>
+		<Class ClassID="820050" ClassName="AncientCombineConfirm" Data="{S20}{#8B00FF}합성{/}{/}하시겠습니까?{nl}{#ff0000}※합성시 카드가 파괴됩니다.{/}"/>
+		<Class ClassID="820051" ClassName="AncientEvolveConfirm" Data="{S19}{ol}{#028A0F}진화{/}{/}{/}하시겠습니까?{nl}{#ff0000}※진화시 카드가 파괴됩니다.{/}"/>
 	</Category>
 	<Category Name="NXA">
 		<Class ClassID="900000" ClassName="NXABillingPurchaseSuccess" Data="?????????????"/>

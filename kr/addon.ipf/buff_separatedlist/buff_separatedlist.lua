@@ -15,7 +15,7 @@ function INIT_BUFF_SEPARATEDLIST_UI(frame)
 	if frame ~= nil then
 		local charbaseinfoFrame = ui.GetFrame("charbaseinfo1_my");
 		if charbaseinfoFrame ~= nil then
-			frame:MoveFrame(option.GetClientWidth() / 2 + 100, option.GetClientHeight() / 2 + 350);
+			frame:MoveFrame(818, 310);
 		end
 
 		local timer = GET_CHILD_RECURSIVELY(frame, "addontimer");
