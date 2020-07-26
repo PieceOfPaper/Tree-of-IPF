@@ -750,7 +750,7 @@
                     </Event>
                 </StageEvents>
             </Stage>
-            <Stage Name="Boss_Glacier" AutoStart="0">
+            <Stage Name="Boss_Glacier"AutoStart="0">
                 <ObjList>
                     <Obj Type="Monster" MonType="59494" Pos="1269.11#602.46#1503.88" angle="-53" genCount="1" genTime="20000" objectKey="0" propList="&apos;DeadScript&apos; &apos;SCR_LEGEND_GLACIER_ALLCLEAR_BUFF_AND_PAD&apos; &apos;BornScript&apos; &apos;SCR_LEGEND_GLACIER_BORN_SCRIPT&apos; "/>
                     <Obj Type="Monster" MonType="157103" Pos="1119.74#602.46#1677.24" angle="-58" genCount="1" genTime="20000" objectKey="1" propList="&apos;Dialog&apos; &apos;LEGEND_GLACIER_USE_TORCH&apos; "/>
