@@ -346,6 +346,14 @@ function MAKE_CONTENTS_ICON(frame, mapName, contentsCls, mapWidth, mapHeight, of
 	end
 
 	local startPos = contentsCls.StartPos
+	if TryGetProp(contentsCls, 'ClassID', 0) == 102 then
+		local tempList = SCR_STRING_CUT(startPos, ';')
+		local sysTime = geTime.GetServerSystemTime();
+		local todayIndex = sysTime.wDayOfWeek + 1
+		if #tempList >= todayIndex then
+			startPos = tempList[todayIndex]
+		end
+	end
 	local posList = SCR_STRING_CUT(startPos, '/')
 
 	local WorldPos = { x = tonumber(posList[1]), z = tonumber(posList[2]) }
