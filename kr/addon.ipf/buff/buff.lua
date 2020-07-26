@@ -213,7 +213,7 @@ function SET_BUFF_SLOT(slot, capt, class, buffType, handle, slotlist, buffIndex,
 	slot:Invalidate();
 end
 
-function SET_BUFF_CAPTION_OFFSET(slotset, buff_ui, index)
+function SET_BUFF_CAPTION_OFFSET(frame, slotset, buff_ui, index)
 	if index == 1 then
 		if slotset:GetName() ~= "buffslot" then
 			return;
@@ -236,10 +236,13 @@ function SET_BUFF_CAPTION_OFFSET(slotset, buff_ui, index)
 			local row = math.floor(i / slotset:GetCol());
 			local addHeight = 0;
 			if row + 1 > 1 then
-				addHeight = 15;
+				if frame:GetName() == "targetbuff" then
+					addHeight = 12 * row + 1;
+				else
+					addHeight = 15 * row + 1;
+				end
 			end
-
-			local slotHeight = slot:GetHeight() * (row + 1) + addHeight;
+			local slotHeight = (slot:GetHeight() * (row + 1)) + addHeight;
 			local caption = captionlist[i];
 			caption:SetOffset(caption:GetX(), slotset:GetY() + slotHeight);
 		end
@@ -331,7 +334,9 @@ function COMMON_BUFF_MSG(frame, msg, buffType, handle, buff_ui, buffIndex)
 		local buffCount = info.GetBuffCount(handle);
 		for i = 0, buffCount - 1 do
 			local buff = info.GetBuffIndexed(handle, i);
-			COMMON_BUFF_MSG(frame, "ADD", buff.buffID, handle, buff_ui, buff.index);
+			if buff ~= nil then
+				COMMON_BUFF_MSG(frame, "ADD", buff.buffID, handle, buff_ui, buff.index);
+			end
 		end
 		return;
 	elseif msg == "CLEAR" then
@@ -389,10 +394,6 @@ function COMMON_BUFF_MSG(frame, msg, buffType, handle, buff_ui, buffIndex)
 	else
 		if class.ApplyLimitCountBuff == 'YES' then
 			local slotlistIndex = 0;
-			if class.UserRemove == "NO" then
-				slotlistIndex = 1;
-			end
-			
 			if isOtherCastBuff == true then
 				slotlistIndex = 3;
 			end
@@ -566,7 +567,7 @@ function ARRANGE_BUFF_SLOT(frame, buff_ui)
 
 	buffSub:Resize(buffSub:GetWidth(), default_sub_slot_y_offset * visibleRow_buffsub);
 	buffSub:SetOffset(buffSub:GetX(), buffCount:GetY() + default_slot_y_offset * visibleRow_buffcount);
-	SET_BUFF_CAPTION_OFFSET(buffSub, buff_ui, 3);
+	SET_BUFF_CAPTION_OFFSET(frame, buffSub, buff_ui, 3);
 	-------------------------------------------------------------------------------
 	-- buff -----------------------------------------------------------------------
 	local buff = GET_CHILD_RECURSIVELY(frame, "buffslot", "ui::CSlotSet");
@@ -591,7 +592,7 @@ function ARRANGE_BUFF_SLOT(frame, buff_ui)
 
 	buff:Resize(buff:GetWidth(), default_slot_y_offset * visibleRow_buff);
 	buff:SetOffset(buff:GetX(), buffSub:GetY() + default_sub_slot_y_offset * visibleRow_buffsub);
-	SET_BUFF_CAPTION_OFFSET(buff, buff_ui, 1);
+	SET_BUFF_CAPTION_OFFSET(frame, buff, buff_ui, 1);
 	-------------------------------------------------------------------------------
     -- debuff ---------------------------------------------------------------------
 	local debuff = GET_CHILD_RECURSIVELY(frame, "debuffslot", "ui::CSlotSet");
@@ -616,7 +617,7 @@ function ARRANGE_BUFF_SLOT(frame, buff_ui)
 
 	debuff:Resize(debuff:GetWidth(), default_slot_y_offset * visibleRow_debuff);
 	debuff:SetOffset(debuff:GetX(), buff:GetY() + default_slot_y_offset * visibleRow_buff);
-	SET_BUFF_CAPTION_OFFSET(debuff, buff_ui, 2);
+	SET_BUFF_CAPTION_OFFSET(frame, debuff, buff_ui, 2);
 	-------------------------------------------------------------------------------
 end
 

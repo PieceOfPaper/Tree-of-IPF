@@ -171,7 +171,33 @@
 				<Str Str="ALL" />
 			</ToolScp>
 		</EnableScripts>
-		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+		<KeyInput>
+            <ToolScp Client="YES" Scp="SKL_KEY_DYNAMIC_CASTING" UseSleep="NO">
+                <Num Num="0"/>
+                <Num Num="0"/>
+                <Num FuncTxt="local value = 0 local self = GetMyPCObject() if IsPVPServer(self) == 1 then value = 5 end return value" Num="1" UseFunc="1"/>
+                <Num Num="1"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+                <Num Num="1"/>
+                <Num Num="1"/>
+                <Str_Arg Arg="1" Str="None"/>
+                <Str Str="None"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+                <Num Num="5"/>
+                <Num Num="1"/>
+                <Num Num="45"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+            </ToolScp>
+        </KeyInput>                    
+        <MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
 			<HitList>
 				<Frame Angle="0" AniTime="10599" Dist="0" ForceATK="0" HitCount="1" Length="30" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="10399" Type="FAN" Width="30" />
 			</HitList>

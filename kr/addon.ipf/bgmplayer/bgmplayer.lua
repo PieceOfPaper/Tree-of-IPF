@@ -145,7 +145,6 @@ end
 function BGMPLAYER_OPEN_UI(frame, btn)
     ReloadBgmPlayer();
     LoadFavoritesBgmList();
-    SaveFavoritesBgmList();
     if IsBgmPlayerReductionFrameVisible() == 1 then
         return;
     end
@@ -690,8 +689,8 @@ function BGMPLAYER_PLAY(frame, btn)
                     end
                     titleText = GET_CHILD_RECURSIVELY(selectCtrlSet, "musictitle_text");
                 end
-                if titleText == nil then return; end
 
+                if titleText == nil then return; end
                 local musicTitle = titleText:GetTextByKey("value");
                 if musicTitle ~= nil then
                     musicTitle = StringSplit(musicTitle, '. ');
@@ -707,6 +706,7 @@ function BGMPLAYER_PLAY(frame, btn)
                 title = bgmMusicTitle_text:GetTextByKey("value");
                 PlayBgm(title, selectCtrlSetName);
                 BGMPLAYER_REDUCTION_SET_PLAYBTN(true);
+                BGMPLAYER_REDUCTION_SET_TITLE(title);
 
                 local totalTime = GetPlayBgmTotalTime();
                 totalTime = totalTime / 1000;

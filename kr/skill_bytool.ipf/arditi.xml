@@ -8,11 +8,15 @@
 			</HitList>
 			<EtcList>
 				<Scp Scp="TEST_CHECK_SERVER_APPTIME" Client="NO" UseSleep="NO" Time="0"/>
-				<Scp Scp="MONSKL_C_PLAY_ANIM" Client="YES" UseSleep="NO" Time="0">
-					<Str Str="SKL_GRANATA"/>
-					<Num Num="1.5"/>
+				<Scp Scp="SKL_BUFF_ABIL" Client="NO" UseSleep="NO" Time="0">
+					<Str Str="Arditi17"/>
+                    <Str Str="Gunpowder_Buff"/>
+                    <Num Num="1"/>
+                    <Num Num="0"/>
+					<Num Num="30000"/>
 					<Num Num="1"/>
-					<Num Num="0"/>
+					<Num Num="100"/>
+                    <Num Num="0"/>
 				</Scp>
 				<Scp Scp="C_VOICE_SOUND" Client="YES" UseSleep="NO" Time="300">
 					<Str Str="voice_scout_m_granata_cast"/>
@@ -52,7 +56,17 @@
 					<Num Num="1"/>
 					<Num Num="0"/>
 				</Scp>
-				<Scp Scp="C_VOICE_SOUND" Client="YES" UseSleep="NO" Time="200">
+				<Scp Scp="SKL_BUFF_ABIL" Client="NO" UseSleep="NO" Time="0">
+                    <Str Str="Arditi17"/>
+                    <Str Str="Gunpowder_Buff"/>
+                    <Num Num="1"/>
+                    <Num Num="0"/>
+                    <Num Num="30000"/>
+                    <Num Num="1"/>
+                    <Num Num="100"/>
+                    <Num Num="0"/>
+                </Scp>
+                <Scp Scp="C_VOICE_SOUND" Client="YES" UseSleep="NO" Time="200">
 					<Str Str="voice_scout_m_tregranata_cast"/>
 					<Str Str="voice_scout_f_tregranata_cast"/>
 				</Scp>
@@ -133,7 +147,17 @@
 					<Num Num="1"/>
 					<Num Num="0"/>
 				</Scp>
-				<Scp Scp="SKL_SET_IMMUNE_STATE" Client="NO" UseSleep="NO" Time="0">
+				<Scp Scp="SKL_BUFF_ABIL" Client="NO" UseSleep="NO" Time="0">
+                    <Str Str="Arditi17"/>
+                    <Str Str="Gunpowder_Buff"/>
+                    <Num Num="1"/>
+                    <Num Num="0"/>
+                    <Num Num="30000"/>
+                    <Num Num="1"/>
+                    <Num Num="100"/>
+                    <Num Num="0"/>
+                </Scp>
+                <Scp Scp="SKL_SET_IMMUNE_STATE" Client="NO" UseSleep="NO" Time="0">
 					<Str Str="Skill_NoDamage_Buff"/>
 					<Num Num="100"/>
 				</Scp>
@@ -243,7 +267,17 @@
 					<Num Num="1"/>
 					<Num Num="0"/>
 				</Scp>
-				<Scp Client="NO" Scp="SKL_BUFF_ABIL" Time="200" UseSleep="NO">
+				<Scp Scp="SKL_BUFF_ABIL" Client="NO" UseSleep="NO" Time="0">
+                    <Str Str="Arditi17"/>
+                    <Str Str="Arditibleed_Buff"/>
+                    <Num Num="1"/>
+                    <Num Num="0"/>
+                    <Num Num="30000"/>
+                    <Num Num="1"/>
+                    <Num Num="100"/>
+                    <Num Num="0"/>
+                </Scp>
+                <Scp Client="NO" Scp="SKL_BUFF_ABIL" Time="200" UseSleep="NO">
 					<Str Str="Arditi6"/>
 					<Str Str="Invasione_Buff"/>
 					<Num Num="1"/>
@@ -311,6 +345,16 @@
 				<Num Num="100"/>
 				<Num Num="0"/>
 			</ToolScp>
+            <Scp Scp="SKL_BUFF_ABIL" Client="NO" UseSleep="NO" Time="0">
+                    <Str Str="Arditi17"/>
+                    <Str Str="Arditibleed_Buff"/>
+                    <Num Num="1"/>
+                    <Num Num="0"/>
+                    <Num Num="30000"/>
+                    <Num Num="1"/>
+                    <Num Num="100"/>
+                    <Num Num="0"/>
+                </Scp>
             <ToolScp Scp="SKL_BUFF" Client="NO" UseSleep="NO">
 				<Str Str="Skill_SuperArmor_Buff"/>
 				<Num Num="1"/>

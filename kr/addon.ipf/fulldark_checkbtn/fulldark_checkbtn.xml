@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uiframe name="fulldark_checkbtn" x="0" y="0" width="4096" height="2048" create="open">
+	<frame fullheight="false" fasthide="true" layout_gravity="center center" margin="0 0 0 0" draw="false"/>
+	<draw drawframe="false" drawtitlebar="false"/>
+	<layer layerlevel="97"/>
+	<option hideable="true" autoopen="false"/>
+	<animation frameOpenAnim="chat_balloon_start" frameCloseAnim="chat_balloon_end2"/>
+	<userconfig GACHA_EFT_1="I_gacha_end01" GACHA_EFT_SCALE_1="7.0" GACHA_EFT_2="I_gacha_end02" GACHA_EFT_SCALE_2="7.0"/>
+	<controls>
+		<picture name="screenmask" rect="0 0 4096 2048" hittest="false" image="fullblack" stretch="true" alpha="70"/>
+		<picture name="itembgimg" rect="0 0 758 508" margin="0 -20 0 0" layout_gravity="center center" changecursor="false" hittest="false" image="gacha_big_01" stretch="true"/>
+		<picture name="itemimg" rect="0 0 200 200" margin="0 -25 0 0" layout_gravity="center center" changecursor="false" hittest="false" image="gacha_big_01" stretch="true"/>
+		<richtext name="itemname" rect="0 0 200 30" margin="0 250 0 0" layout_gravity="center center" format="{@st43}%s 획득!{/}" param1="value" param1_def="def" hittest="false"/>
+		<button name="checkBtn" rect="0 0 124 50" margin="0 330 0 0" layout_gravity="center center" image="gachanext_btn" LBtnUpScp="FULLDARK_CHECKBTN_UI_CLOSE"/>
+	</controls>
+</uiframe>

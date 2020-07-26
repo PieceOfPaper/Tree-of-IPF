@@ -6223,6 +6223,14 @@
             </ToolScp>
         </List>
     </AI>
+    <AI Name="EVENT_2005_BONFIRE" ActiveMessageMapInBattle="1">
+        <List>
+            <ToolScp Scp="S_AI_CUSTOM_SCRIPT" Client="NO" UseSleep="YES">
+                <Str Str="EVENT_2005_BONFIRE_AI"/>
+                <Num Num="0"/>
+            </ToolScp>
+        </List>
+    </AI>
     <AI Name="EVENT_CURSED_COAST_POTAL" ActiveMessageMapInBattle="1">
         <StartList>
             <ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
@@ -6261,6 +6269,13 @@
                 <Str Str="SCR_EVENT_TP_SHOP_1912_NPC_AI_BORN"/>
             </ToolScp>
             <ToolScp Scp="EnableAIOutOfPC" Client="NO" UseSleep="NO"/>
+        </StartList>
+    </AI>
+    <AI Name="EVENT_GODDESS_ROULETTE_NPC_AI" UpdateMS="60000" ActiveMessageMapInBattle="1">
+        <StartList>
+            <ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+                <Str Str="SCR_EVENT_GODDESS_ROULETTE_NPC_AI_BORN"/>
+            </ToolScp>
         </StartList>
     </AI>
     <AI Name="EXORCIST_JOB_QUEEST_MON1" ActiveMessageMapInBattle="1"/>
@@ -10037,11 +10052,11 @@
             </ToolScp>
         </List>
     </AI>
-    <AI Name="F_Moringponia_Summon_AI" ActiveMessageMapInBattle="1">
+    <AI Name="F_Moringponia_Summon_AI" UpdateMS="100" ActiveMessageMapInBattle="1">
         <List>
             <ToolScp Scp="S_AI_CUSTOM_SCRIPT" Client="NO" UseSleep="YES">
                 <Str Str="SCR_MORINGPONIA_RECOVERED_SPHERE_S_AI_1"/>
-                <Num Num="10"/>
+                <Num Num="30"/>
             </ToolScp>
             <ToolScp Scp="S_AI_BUFF" Client="NO" UseSleep="NO">
                 <Num Num="0"/>
@@ -10558,6 +10573,55 @@
             </ToolScp>
             <ToolScp Scp="S_AI_DIALOG_ROTATE" Client="NO" UseSleep="NO">
                 <Num Num="0"/>
+            </ToolScp>
+        </StartList>
+    </AI>
+    <AI Name="GLACIER_MAGICTRAP_CORE" UpdateMS="100" ActiveMessageMapInBattle="1">
+        <List>
+            <ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+                <Str Str="SCR_UNIQUE_GLACIER_WITCHCRAFT_FIELD_OBJECT_AI"/>
+            </ToolScp>
+        </List>
+    </AI>
+    <AI Name="GLACIER_RAID_TUTO_RP_TRACK_MON_AI" UpdateMS="1000" ActiveMessageMapInBattle="1"/>
+    <AI Name="GLACIER_RP_MON" ActiveMessageMapInBattle="1">
+        <List>
+            <ToolScp Scp="SAI_FUNC_DIRECT" Client="NO" UseSleep="NO">
+                <Str Str="SCR_GARAID_TUTO_RP_MON_AI_02"/>
+            </ToolScp>
+            <ToolScp Scp="SAI_FUNC_DIRECT" Client="NO" UseSleep="NO">
+                <Str Str="SCR_GARAID_TUTO_RP_MON_AI"/>
+            </ToolScp>
+        </List>
+        <StartList>
+            <ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
+                <Num Num="0"/>
+                <Str_Arg Str="F_ground180_snow_loop" Arg="20"/>
+                <Str Str="MID"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
+                <Num Num="0"/>
+                <Str_Arg Str="F_cleric_zemina_buff_blue" Arg="13"/>
+                <Str Str="MID"/>
+            </ToolScp>
+        </StartList>
+    </AI>
+    <AI Name="GLACIER_TUTO_RP_NPC_01_AI" ActiveMessageMapInBattle="1">
+        <List>
+            <ToolScp Scp="SAI_FUNC_DIRECT" Client="NO" UseSleep="NO">
+                <Str Str="GLACIER_TUTO_RP_NPC_01_AI"/>
+            </ToolScp>
+        </List>
+    </AI>
+    <AI Name="GLACIER_TUTO_RP_NPC_02_AI" ActiveMessageMapInBattle="1">
+        <List>
+            <ToolScp Scp="SAI_FUNC_DIRECT" Client="NO" UseSleep="NO">
+                <Str Str="GLACIER_TUTO_RP_NPC_02_AI_CHAT"/>
+            </ToolScp>
+        </List>
+        <StartList>
+            <ToolScp Scp="SAI_FUNC_DIRECT" Client="NO" UseSleep="NO">
+                <Str Str="GLACIER_TUTO_RP_NPC_02_AI"/>
             </ToolScp>
         </StartList>
     </AI>
@@ -11523,17 +11587,6 @@
         <List>
             <ToolScp Scp="S_AI_CUSTOM_SCRIPT" Client="NO" UseSleep="YES">
                 <Str Str="SCR_SKIACLIPSE_GIMMICK_S_AI_1"/>
-                <Num Num="100"/>
-            </ToolScp>
-        </List>
-        <StartList>
-            <ToolScp Scp="EnableAIOutOfPC" Client="NO" UseSleep="NO"/>
-        </StartList>
-    </AI>
-    <AI Name="F_SKIACLIPSE_Tornado_AI" ActiveMessageMapInBattle="1">
-        <List>
-            <ToolScp Scp="S_AI_CUSTOM_SCRIPT" Client="NO" UseSleep="YES">
-                <Str Str="SCR_F_SKIACLIPSE_Tornado_AI"/>
                 <Num Num="100"/>
             </ToolScp>
         </List>

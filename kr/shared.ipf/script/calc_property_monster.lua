@@ -380,7 +380,7 @@ function SCR_Get_MON_DEF(self)
     end
 
     local debuffRank = TryGetProp(self, "DebuffRank");
-    if debuffRank == "LegendRaidBoss" or debuffRank == "WorldRaid" or debuffRank == "FieldBoss" then
+    if debuffRank == "LegendRaidBoss" or debuffRank == "WorldRaid" or debuffRank == "FieldBoss" or debuffRank == "WeeklyBoss" then
         local reduceDefLimit = math.floor(originDef * 0.75);
         if originDef == 0 then
             SetExProp(self, "MON_ORIGIN_DEF", math.floor(value));
@@ -462,7 +462,7 @@ function SCR_Get_MON_MDEF(self)
     end
 
     local debuffRank = TryGetProp(self, "DebuffRank");
-    if debuffRank == "LegendRaidBoss" or debuffRank == "WorldRaid" or debuffRank == "FieldBoss" then
+    if debuffRank == "LegendRaidBoss" or debuffRank == "WorldRaid" or debuffRank == "FieldBoss" or debuffRank == "WeeklyBoss" then
         local reduceDefLimit = math.floor(originDef * 0.75);
         if originDef == 0 then
             SetExProp(self, "MON_ORIGIN_MDEF", math.floor(value));

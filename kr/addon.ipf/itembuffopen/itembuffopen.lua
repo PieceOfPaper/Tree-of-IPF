@@ -88,6 +88,11 @@ function SQIORE_SLOT_DROP(parent, ctrl)
 		return;
 	end
 
+	if nil == session.GetInvItemByType(invItem.type) then
+		ui.SysMsg(ClMsg("CannotDropItem"));
+		return;
+	end
+
 	local pc = GetMyPCObject();
 	local obj = GetIES(invItem:GetObject());
 
@@ -116,6 +121,7 @@ function SQIORE_SLOT_DROP(parent, ctrl)
 	local skillLevel = frame:GetUserIValue("SKILLLEVEL");
 	local valueFunc = _G["ITEMBUFF_VALUE_" .. frame:GetUserValue("SKILLNAME")];
 	local value, validSec = valueFunc(pc, obj, skillLevel);
+
 	local nextObj = CloneIES(obj);
 	nextObj.BuffValue = value;
 	local refreshScp = nextObj.RefreshScp;

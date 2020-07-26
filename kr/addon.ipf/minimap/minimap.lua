@@ -209,7 +209,11 @@ function UPDATE_MINIMAP(frame)
                         else
                             PictureC:ShowWindow(0);
                         end
-                    end
+					end
+					
+					if MonProp:GetClassName() == "NPC_goddess_Roulette" and IS_EVENT_NEW_SEASON_SERVER() == false and GetServerNation() ~= "KOR" then
+						PictureC:ShowWindow(0);
+					end
 				end
 			end
 		end

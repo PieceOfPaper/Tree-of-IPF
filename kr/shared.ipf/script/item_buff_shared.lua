@@ -10,6 +10,8 @@ function GET_ITEM_PROPERT_STR(item, basicTooltipProp)
     elseif item.GroupName == "SubWeapon" then
         if basicTooltipProp == "ATK" then
             return ClMsg("MAXATK"), ClMsg("MINATK");
+        elseif basicTooltipProp == "MATK" then
+            return ClMsg("Magic_Atk"), "";            
         elseif basicTooltipProp == "DEF" then
             return ClMsg("MELEEDEF"), "";
         end
@@ -52,7 +54,9 @@ function ITEMBUFF_CHECK_Squire_EquipmentTouchUp(self, item)
     if item.GroupName == "Armor" then
         if item.ClassType == "Shield" or
            item.ClassType == "Shirt" or
-           item.ClassType == "Pants" then
+           item.ClassType == "Pants" or
+           item.ClassType == "Gloves" or
+           item.ClassType == "Boots" then
                 return 1;
         end
     end
@@ -175,8 +179,6 @@ function ITEMBUFF_STONECOUNT_Enchanter_EnchantArmor(invItemList)
 end
 
 function ITEMBUFF_VALUE_Squire_EquipmentTouchUp(self, item, skillLevel)
-    
---  local value = item.ItemStar + skillLevel * item.ItemStar;
     local grade = TryGetProp(item,"ItemGrade");
     if grade == nil then
         return 0;
@@ -206,22 +208,46 @@ function ITEMBUFF_VALUE_Squire_EquipmentTouchUp(self, item, skillLevel)
             lv = grothItem;
         end
     end
-    
+
+    local buffvalue = TryGetProp(item, "BuffValue", 0)
+
     if item.GroupName == 'Armor' then -- 방어구 손질
-        local value = math.floor(skillLevel + skillLevel * ((lv * 0.01) * (1 + (grade * 0.1 ))));
-        local count = 500 + skillLevel * 50 + self.INT;
+        local def = TryGetProp(item, "DEF", 0) - buffvalue
+        local mdef = TryGetProp(item, "MDEF", 0) - buffvalue
+
+        local value = math.floor(((def + mdef) / 2) * (skillLevel * 0.007));
+        if item.ClassType == "Shield" then
+            if def <= 0 then
+                value = math.floor(mdef * (skillLevel * 0.007));
+            elseif mdef <= 0 then
+                value = math.floor(def * (skillLevel * 0.007));
+            end
+        end
+        
+        local count = math.floor(500 + skillLevel * 50 + ((self.DEX + self.STR) * 0.1))
         local sec = 3600;        
         local Squire4 = GetAbility(self, 'Squire4');
     
         if Squire4 ~= nil then
             count = count + Squire4.Level * 5
         end
+
         return value, sec, count;
     end
-    
-    -- 무기 손질        
-    local value = math.floor(skillLevel + skillLevel * ((lv * 0.03) * (1 + (grade * 0.1 ))));
-    local count = 2500 + skillLevel * 250 + self.INT;
+
+    -- 무기 손질
+    local minatk = TryGetProp(item, "MINATK", 0) - buffvalue
+    local maxatk = TryGetProp(item, "MAXATK", 0) - buffvalue
+    local matk = TryGetProp(item, "MATK", 0) - buffvalue
+
+    local value = math.floor(((minatk + maxatk) / 2) * (skillLevel * 0.007));
+    if item.ClassType == "Trinket" then
+        value = math.floor(((maxatk + matk) / 2) * (skillLevel * 0.007));
+    elseif item.ClassType == "Staff" or item.ClassType == "THStaff" then
+        value = math.floor(matk * (skillLevel * 0.007));
+    end
+
+    local count = math.floor(2500 + skillLevel * 250 + ((self.DEX + self.STR) * 0.5))
     local sec = 3600;
     local Squire3 = GetAbility(self, 'Squire3');
     if Squire3 ~= nil then

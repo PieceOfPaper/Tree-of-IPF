@@ -72,7 +72,10 @@ function TRANSCEND_SCROLL_SET_TARGET_ITEM(invframe, invItem)
 
 	local anticipatedTranscend, percent = GET_ANTICIPATED_TRANSCEND_SCROLL_SUCCESS(itemObj, scrollObj)
 
+	text_name:SetTextByKey("value", "");
 	text_name:SetTextByKey("value", itemObj.Name)
+	text_name:ShowWindow(1);
+
 	text_transcend:SetTextByKey("value", anticipatedTranscend)
 	text_rate:SetTextByKey("value", percent)
 	text_desc:SetTextByKey("value", anticipatedTranscend)
@@ -83,9 +86,7 @@ function TRANSCEND_SCROLL_SET_TARGET_ITEM(invframe, invItem)
 	text_itemtranscend:ShowWindow(1);
 
 	TRANSCEND_SCROLL_CANCEL();
-
 	TRANSCEND_SCROLL_TARGET_ITEM_SLOT(slot, invItem, scrollObj.ClassID);
-
 	TRANSCEND_SCROLL_LOCK_ITEM(invItem:GetIESID())
 
 	frame:SetUserValue("EnableTranscendButton", 1);
@@ -375,7 +376,6 @@ function TRANSCEND_SCROLL_SELECT_TARGET_ITEM(scrollItem)
 	end
 	
 	local frame = ui.GetFrame("transcend_scroll");
-	local slot = GET_CHILD(frame, "slot", "ui::CSlot");
 
 	local scrollObj = GetIES(scrollItem:GetObject());
 	if IS_TRANSCEND_SCROLL_ITEM(scrollObj) ~= 1 then
@@ -391,15 +391,14 @@ function TRANSCEND_SCROLL_SELECT_TARGET_ITEM(scrollItem)
 		ui.SysMsg(ScpArgMsg('LessThanItemLifeTime'));
 		return;
 	end
-
-	ui.GuideMsg("SelectItem");
+	
+	TRANSCEND_SCROLL_UI_RESET();
+	frame:ShowWindow(1);
+	
+	ui.GuideMsg("DropItemPlz");
 
 	local invframe = ui.GetFrame("inventory");
 	local gbox = invframe:GetChild("inventoryGbox");
-	local x, y = GET_GLOBAL_XY(gbox);
-	x = x - gbox:GetWidth() * 0.7;
-	y = y - 40;
-	SET_MOUSE_FOLLOW_BALLOON(ClMsg("ClickItemToTranscendByScroll"), 0, x, y);
 	ui.SetEscapeScp("TRANSCEND_SCROLL_CANCEL()");
 		
 	local tab = gbox:GetChild("inventype_Tab");	
@@ -407,19 +406,11 @@ function TRANSCEND_SCROLL_SELECT_TARGET_ITEM(scrollItem)
 	tab:SelectTab(1);
 	
 	SET_SLOT_APPLY_FUNC(invframe, "TRANSCEND_SCROLL_CHECK_TARGET_ITEM", nil, "Equip");
-	SET_INV_LBTN_FUNC(invframe, "TRANSCEND_SCROLL_SET_TARGET_ITEM");
+	INVENTORY_SET_CUSTOM_RBTNDOWN("TRANSCEND_SCROLL_INV_RBTN");
 end
 
 function TRANSCEND_SCROLL_CANCEL()
-	SET_MOUSE_FOLLOW_BALLOON(nil);
-	ui.RemoveGuideMsg("SelectItem");
-	SET_MOUSE_FOLLOW_BALLOON();
-	ui.SetEscapeScp("");
-	
-	local invframe = ui.GetFrame("inventory");
-	SET_SLOT_APPLY_FUNC(invframe, "None");
-	SET_INV_LBTN_FUNC(invframe, "None");
-	RESET_MOUSE_CURSOR();
+	TRANSCEND_SCROLL_LOCK_ITEM("None");
 end
 
 function TRANSCEND_SCROLL_ATTEMPT_FAIL(num)
@@ -431,7 +422,17 @@ function TRANSCEND_SCROLL_CLOSE()
 	frame:SetUserValue("ScrollGuid", "None")
 	frame:SetUserValue("BeforeTranscend", "None");
 	frame:OpenFrame(0);
+	
+	ui.RemoveGuideMsg("DropItemPlz");
+	ui.SetEscapeScp("");
+
 	TRANSCEND_SCROLL_LOCK_ITEM("None")
+	TRANSCEND_SCROLL_UI_RESET();
+	TRANSCEND_SCROLL_CANCEL();
+	
+	local invframe = ui.GetFrame("inventory");
+	SET_SLOT_APPLY_FUNC(invframe, "None");
+	INVENTORY_SET_CUSTOM_RBTNDOWN("None");
 end
 
 function TRANSCEND_SCROLL_LOCK_ITEM(guid)
@@ -452,8 +453,46 @@ function TRANSCEND_SCROLL_LOCK_ITEM(guid)
 		lockItemGuid = guid;
 	end
 
+	if lockItemGuid == "None" then
+		return;
+	end
+
 	local invframe = ui.GetFrame("inventory");
 	if invframe == nil then return; end
 	invframe:SetUserValue("ITEM_GUID_IN_TRANSCEND_SCROLL", guid);
 	INVENTORY_ON_MSG(invframe, "UPDATE_ITEM_TRANSCEND_SCROLL", lockItemGuid);
+end
+
+function TRANSCEND_SCROLL_UI_RESET()
+	local frame = ui.GetFrame("transcend_scroll");
+
+	local slot = GET_CHILD(frame, "slot");
+	slot:ClearIcon();
+
+	local text_name = GET_CHILD(frame, "text_name");
+	local text_itemtranscend = frame:GetChild("text_itemtranscend");	
+
+	text_name:ShowWindow(0);
+	text_itemtranscend:ShowWindow(0);
+end
+
+function TRANSCEND_SCROLL_INV_RBTN(itemObj, slot)
+	local icon = slot:GetIcon();
+	local iconInfo = icon:GetInfo();
+	local invItem = GET_PC_ITEM_BY_GUID(iconInfo:GetIESID());
+
+	local invframe = ui.GetFrame("inventory");
+	TRANSCEND_SCROLL_SET_TARGET_ITEM(invframe, invItem)
+end
+
+function TRANSCEND_SCROLL_ITEM_DROP(parent, ctrl)
+	local liftIcon = ui.GetLiftIcon();
+	local iconInfo = liftIcon:GetInfo();
+	local invItem = GET_PC_ITEM_BY_GUID(iconInfo:GetIESID());	
+	if nil == invItem then
+		return;
+	end
+
+	local invframe = ui.GetFrame("inventory");
+	TRANSCEND_SCROLL_SET_TARGET_ITEM(invframe, invItem)
 end

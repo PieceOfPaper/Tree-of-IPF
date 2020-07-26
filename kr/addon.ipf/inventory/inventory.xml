@@ -152,11 +152,12 @@
 		<button name="inventory_lock" parent="searchGbox" rect="0 0 33 33" margin="67 0 0 3" layout_gravity="left bottom" LBtnUpArgNum="" LBtnUpScp="LOCK_ITEM_INVENTORY" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" clicksound="button_click_big" image="inven_lockup_btn" oversound="button_over" stretch="true" texttooltip="{@st59}선택한 아이템이 잠금 상태가 됩니다.{/}"/>
 		<button name="inventory_option" parent="searchGbox" rect="0 0 33 33" margin="99 0 0 3" layout_gravity="left bottom" LBtnUpArgNum="" LBtnUpScp="INV_INVENTORY_OPTION_OPEN" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" clicksound="button_click_big" image="inven_setup_btn" oversound="button_over" stretch="true" texttooltip="{@st59}아이템 필터 옵션 켜기/끄기{/}"/>
 		<groupbox name="bottomGbox" rect="0 0 475 85" margin="0 0 0 49" layout_gravity="center bottom" draw="true" hittestbox="false" resizebyparent="false" scrollbar="false" skin=""/>
-		<groupbox name="weightGbox" parent="bottomGbox" rect="0 0 134 70" margin="7 0 0 0" layout_gravity="left top" hittestbox="true" resizebyparent="false" scrollbar="false" texttooltip="qwe"/>
-		<picture name="inventory_arrow" parent="weightGbox" rect="0 0 134 41" margin="0 28 0 0" fixwidth="false" stretch="false" layout_gravity="left top" hittest="true" image="weight_ruler" oversound="button_over"/>
-		<picture name="inventory_weight" parent="weightGbox" rect="0 0 134 41" margin="0 28 0 0" fixwidth="true" stretch="false" layout_gravity="left top" hittest="false" image="weight_frame"/>
-		<picture name="inventory_weight_name_bg" parent="weightGbox" rect="0 0 132 28" margin="0 0 0 0" fixwidth="true" stretch="false" layout_gravity="left top" hittest="false" image="weight_name_bg"/>
+		<groupbox name="weightGbox" parent="bottomGbox" rect="0 0 134 33" margin="7 0 0 0" layout_gravity="left top" hittestbox="true" resizebyparent="false" scrollbar="false" texttooltip="qwe" draw="false"/>
+		<picture name="inventory_weight_name_bg" parent="weightGbox" rect="0 0 132 31" margin="0 0 0 0" fixwidth="true" stretch="true" layout_gravity="left top" hittest="false" image="weight_name_bg"/>
 		<richtext name="invenweight" parent="inventory_weight_name_bg" margin="0 0 0 0" layout_gravity="center center" caption="무게" fontname="white_16_b_ds_ol" hittest="false"/>
+		<groupbox name="slotcountGbox" parent="bottomGbox" rect="0 0 134 33" margin="7 34 0 0" layout_gravity="left top" hittestbox="true" resizebyparent="false" scrollbar="false" texttooltip="슬롯" draw="false"/>
+		<picture name="inventory_slotcount_name_bg" parent="slotcountGbox" rect="0 0 132 31" margin="0 0 0 0" fixwidth="true" stretch="true" layout_gravity="left top" hittest="false" image="weight_name_bg"/>
+		<richtext name="invenslotcount" parent="inventory_slotcount_name_bg" margin="0 0 0 0" layout_gravity="center center" caption="슬롯" fontname="white_16_b_ds_ol" hittest="false"/>
 		<groupbox name="medalGbox" parent="bottomGbox" rect="0 0 162 31" margin="0 0 5 50" layout_gravity="right top" draw="true" hittestbox="true" resizebyparent="false" resizebyresolution="false" scrollbar="false" skin="test_edit_skin"/>
 		<picture name="Pic_Medal" parent="medalGbox" rect="0 0 27 27" margin="2 0 0 0" layout_gravity="left center" hittest="true" image="bonusTP_pic" oversound="button_over"/>
 		<richtext name="medalt" parent="medalGbox" rect="0 0 100 20" margin="40 0 0 0" layout_gravity="left center" caption="{@st41b}{/}" serviceNation="KOR"/>
@@ -164,7 +165,7 @@
 		<richtext name="medalt_GLOBAL" parent="medalGbox" rect="0 0 100 20" margin="40 0 0 0" layout_gravity="left center" caption="{@st41b}{/}" serviceNation="GLOBAL"/>
 		<richtext name="medalText" parent="medalGbox" rect="0 0 250 20" margin="0 0 5 0" layout_gravity="right center" fontname="white_20_ol" format="{@st41b}%s" hittest="false" param1="medal" param1_def="123!9" spacey="0"/>
 		<richtext name="medalFreeTime" parent="medalGbox" rect="0 0 250 20" margin="32 0 0 0" layout_gravity="left center" fontname="white_20_ol" format="{@st41b}%s" hittest="false" param1="medal" param1_def="123!9" spacey="0"/>
-		<groupbox name="moneyGbox" parent="bottomGbox" rect="0 0 162 31" margin="0 34 170 0" layout_gravity="right top" draw="true" hittestbox="false" resizebyparent="false" scrollbar="false" skin="test_edit_skin"/>
+		<groupbox name="moneyGbox" parent="bottomGbox" rect="0 0 163 31" margin="0 34 170 0" layout_gravity="right top" draw="true" hittestbox="false" resizebyparent="false" scrollbar="false" skin="test_edit_skin"/>
 		<groupbox name="trustPointGbox" parent="bottomGbox" rect="0 0 162 31" margin="0 34 5 0" layout_gravity="right top" draw="true" hittestbox="true" resizebyparent="false" scrollbar="false" skin="test_edit_skin"/>
 		<picture name="Zeny_Img" parent="moneyGbox" rect="0 0 27 27" margin="2 0 0 0" layout_gravity="left center" image="silver_pic" oversound="button_over"/>
 		<picture name="trustPointImg" parent="trustPointGbox" rect="0 0 29 29" margin="2 0 0 0" layout_gravity="left center" image="icon_credit_grade_1" oversound="button_over" hittest="false"/>

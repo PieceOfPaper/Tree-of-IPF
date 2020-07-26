@@ -1,4 +1,4 @@
-﻿-- quest_episode.lua
+-- quest_episode.lua
 
 local episodeStateInfo = {
 	Locked = 0,
@@ -6,6 +6,7 @@ local episodeStateInfo = {
 	Reward  = 2,		-- 보상 받기 가능
 	Progress = 3,     -- 진행중
 	New = 4,        -- 최신 에피소드
+	Next = 5,       -- 다음 에피소드
 };
 
 local episodeQuestList = nil;
@@ -165,6 +166,8 @@ function CHECK_EPISODE_STATE(episodeRewardClassname)
 		return episodeStateInfo.Reward;
 	elseif result == "New" then
 	    return episodeStateInfo.New;
+	elseif result == "Next" then
+	    return episodeStateInfo.Next;
 	end
 
 	return episodeStateInfo.Progress;
@@ -196,6 +199,9 @@ function DRAW_EPISODE_QUEST_CTRL(bgCtrl, titleInfo, y)
 	if episodeState == episodeStateInfo.Locked then
 		colorTone = titleCtrlSet:GetUserConfig("LOCK_COLORTONE");
 		backGroundSkinName = titleCtrlSet:GetUserConfig("LOCK_SKIN");
+	elseif episodeState == episodeStateInfo.Next then
+		colorTone = titleCtrlSet:GetUserConfig("LOCK_COLORTONE");
+		backGroundSkinName = titleCtrlSet:GetUserConfig("LOCK_SKIN");
 	elseif episodeState == episodeStateInfo.Clear then
 		colorTone = titleCtrlSet:GetUserConfig("CLEAR_COLORTONE");
 	end
@@ -205,10 +211,12 @@ function DRAW_EPISODE_QUEST_CTRL(bgCtrl, titleInfo, y)
 		textToolTip = ScpArgMsg("EpisodeLockMsg")
 	elseif episodeState == episodeStateInfo.New then
 	    textToolTip = ScpArgMsg("NewEpisodeLockMsg")
+	elseif episodeState == episodeStateInfo.Next then
+		textToolTip = ScpArgMsg("NextEpisodeLockMsg")
 	elseif episodeState == episodeStateInfo.Clear then
 		textToolTip = ScpArgMsg("EpisodeClearMsg")
 	end 
-
+	
 	-- title 정보 설정
 	local episodeGbox = GET_CHILD_RECURSIVELY(titleCtrlSet, "episodeGbox")
 	local episodeNameText = GET_CHILD_RECURSIVELY(titleCtrlSet, "episodeNameText")
@@ -266,6 +274,8 @@ function DRAW_EPISODE_QUEST_CTRL(bgCtrl, titleInfo, y)
 		rewardBtn:SetImage(titleCtrlSet:GetUserConfig("LOCK_REWARD_BOX"));
 	elseif episodeState == episodeStateInfo.New then
 	    rewardBtn:SetImage(titleCtrlSet:GetUserConfig("LOCK_REWARD_BOX"));
+	elseif episodeState == episodeStateInfo.Next then
+	    rewardBtn:SetImage(titleCtrlSet:GetUserConfig("LOCK_REWARD_BOX"));
 	else
 		rewardBtn:SetColorTone(colorTone);
 	end
@@ -277,7 +287,7 @@ function DRAW_EPISODE_QUEST_CTRL(bgCtrl, titleInfo, y)
 	local questCtrlTitleHeight = 0;
 	local questCtrlTotalHeight =0;
 
-	if episodeState ~= episodeStateInfo.Locked then
+	if episodeState ~= episodeStateInfo.Locked and episodeState ~= episodeStateInfo.Next then
 		-- 퀘스트 목록 제목
 		local openMark = GET_CHILD_RECURSIVELY(titleCtrlSet, "openMark")	
 		openMark:SetImage(titleCtrlSet:GetUserConfig("OPENED_CTRL_IMAGE"))

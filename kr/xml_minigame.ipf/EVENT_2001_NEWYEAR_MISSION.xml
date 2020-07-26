@@ -1,549 +1,550 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
 <GameList>
-    <Game Name="EVENT_2001_NEWYEAR_MISSION" journal="0" minLv="0" maxLv="0" mapName="c_fedimian_event" playerCountCheckDestroy="1" startWaitSec="-1">
-        <StageList>
-            <Stage Name="Start">
-                <StartScpList>
-                    <ToolScp Scp="MGAME_CUSTOM_START_FUNC" Client="NO" UseSleep="NO">
-                        <Str Str="EVENT_2001_NEWYEAR_PROP_INIT"/>
-                    </ToolScp>
-                </StartScpList>
-                <ObjList>
-                    <Obj Type="Monster" MonType="2000206" Pos="737.00#160.00#-141.00" genCount="1" objectKey="0"/>
-                </ObjList>
-                <StageEvents>
-                    <Event execCount="1" eventName="Setting">
-                        <condList>
-                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
-                                <Num Num="5"/>
-                            </ToolScp>
-                        </condList>
-                        <execList>
-                            <ToolScp Scp="MGAME_MSG" Client="YES" UseSleep="NO">
-                                <Str Str="잠시 후 이펙트가 사라집니다. 모두 준비해주시기 바랍니다."/>
-                                <Num Num="5"/>
-                            </ToolScp>
-                        </execList>
-                    </Event>
-                    <Event execCount="1" eventName="Stage">
-                        <condList>
-                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
-                                <Num Num="10"/>
-                            </ToolScp>
-                        </condList>
-                        <execList>
-                            <ToolScp Scp="MGAME_MSG" Client="YES" UseSleep="NO">
-                                <Str Str=" [일정 시간 움직임이 없으면 아이템을 획득하실 수 없습니다.]"/>
-                                <Num Num="5"/>
-                            </ToolScp>
-                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
-                                <Str Str="Stage1"/>
-                            </ToolScp>
-                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
-                                <Str Str="Stage2"/>
-                            </ToolScp>
-                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
-                                <Str Str="Stage3"/>
-                            </ToolScp>
-                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
-                                <Str Str="Update"/>
-                            </ToolScp>
-                            <ToolScp Scp="MGAME_EXEC_GIVE_BUFF" Client="NO" UseSleep="NO">
-                                <Str Str="Event_2020_Bonus"/>
-                                <Num Num="1"/>
-                                <Num Num="0"/>
-                                <Num Num="0"/>
-                                <Num Num="1"/>
-                                <Num Num="0"/>
-                            </ToolScp>
-                        </execList>
-                    </Event>
-                    <Event execCount="1" eventName="EscapeMsg">
-                        <condList>
-                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
-                                <Num Num="15"/>
-                            </ToolScp>
-                        </condList>
-                        <execList>
-                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
-                                <Str Str="Start"/>
-                            </ToolScp>
-                            <ToolScp Scp="MGAME_MSG" Client="YES" UseSleep="NO">
-                                <Str Str="캐릭터가 움직일 수 없는 경우 &apos;/탈출&apos; 을 입력하시면 출발 지점으로 돌아갑니다.(재사용 시간 15초)"/>
-                                <Num Num="5"/>
-                            </ToolScp>
-                        </execList>
-                    </Event>
-                </StageEvents>
-            </Stage>
-            <Stage Name="Stage1" AutoStart="0">
-                <ObjList>
-                    <Obj Type="Monster" MonType="2000201" Pos="512.93#160.55#-41.47" genCount="1" objectKey="0">
-                        <SelfAI ActiveMessageMapInBattle="1">
-                            <List>
-                                <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
-                                    <AbsPos X="519.51709" Y="160.55499" Z="-177.66414"/>
-                                </ToolScp>
-                                <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
-                                    <AbsPos X="513.97632" Y="160.55499" Z="-41.410656"/>
-                                </ToolScp>
-                                <ToolScp Scp="S_AI_RESET_RALLY" Client="NO" UseSleep="NO" ExtraArg="1"/>
-                            </List>
-                        </SelfAI>
-                    </Obj>
-                    <Obj Type="Monster" MonType="2000201" Pos="233.39#160.83#-165.60" genCount="1" objectKey="1">
-                        <SelfAI ActiveMessageMapInBattle="1">
-                            <List>
-                                <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
-                                    <AbsPos X="309.64624" Y="160.56636" Z="-252.97112"/>
-                                </ToolScp>
-                                <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
-                                    <AbsPos X="235.09129" Y="160.8233" Z="-166.40683"/>
-                                </ToolScp>
-                                <ToolScp Scp="S_AI_RESET_RALLY" Client="NO" UseSleep="NO" ExtraArg="1"/>
-                            </List>
-                        </SelfAI>
-                    </Obj>
-                    <Obj Type="Monster" MonType="2000201" Pos="-206.33#160.55#-230.24" genCount="1" objectKey="2">
-                        <SelfAI ActiveMessageMapInBattle="1">
-                            <List>
-                                <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
-                                    <AbsPos X="-316.31729" Y="160.55499" Z="-422.46649"/>
-                                </ToolScp>
-                                <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
-                                    <AbsPos X="-203.20009" Y="160.55499" Z="-230.39021"/>
-                                </ToolScp>
-                                <ToolScp Scp="S_AI_RESET_RALLY" Client="NO" UseSleep="NO" ExtraArg="1"/>
-                            </List>
-                        </SelfAI>
-                    </Obj>
-                    <Obj Type="Monster" MonType="2000201" Pos="-587.55#169.24#-436.18" genCount="1" objectKey="3">
-                        <SelfAI ActiveMessageMapInBattle="1">
-                            <List>
-                                <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
-                                    <AbsPos X="-464.44226" Y="172.18384" Z="-250.64679"/>
-                                </ToolScp>
-                                <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
-                                    <AbsPos X="-588.54858" Y="169.41721" Z="-436.14258"/>
-                                </ToolScp>
-                                <ToolScp Scp="S_AI_RESET_RALLY" Client="NO" UseSleep="NO" ExtraArg="1"/>
-                            </List>
-                        </SelfAI>
-                    </Obj>
-                    <Obj Type="Monster" MonType="2000201" Pos="-730.14#169.31#-302.66" genCount="1" objectKey="4">
-                        <SelfAI ActiveMessageMapInBattle="1">
-                            <List>
-                                <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
-                                    <AbsPos X="-670.49976" Y="169.31268" Z="-232.34421"/>
-                                </ToolScp>
-                                <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
-                                    <AbsPos X="-729.28259" Y="169.30969" Z="-301.80539"/>
-                                </ToolScp>
-                                <ToolScp Scp="S_AI_RESET_RALLY" Client="NO" UseSleep="NO" ExtraArg="1"/>
-                            </List>
-                        </SelfAI>
-                    </Obj>
-                    <Obj Type="Monster" MonType="2000201" Pos="-521.00#461.96#171.89" genCount="1" objectKey="5">
-                        <SelfAI ActiveMessageMapInBattle="1">
-                            <List>
-                                <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
-                                    <AbsPos X="-325.24274" Y="447.55731" Z="9.3399639"/>
-                                </ToolScp>
-                                <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
-                                    <AbsPos X="-521.01453" Y="461.9606" Z="171.46046"/>
-                                </ToolScp>
-                                <ToolScp Scp="S_AI_RESET_RALLY" Client="NO" UseSleep="NO" ExtraArg="1"/>
-                            </List>
-                        </SelfAI>
-                    </Obj>
-                    <Obj Type="Monster" MonType="2000201" Pos="-221.25#482.24#435.81" genCount="1" objectKey="6">
-                        <SelfAI ActiveMessageMapInBattle="1">
-                            <List>
-                                <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
-                                    <AbsPos X="-300.01608" Y="482.23898" Z="359.57211"/>
-                                </ToolScp>
-                                <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
-                                    <AbsPos X="-221.5605" Y="482.24319" Z="435.32172"/>
-                                </ToolScp>
-                                <ToolScp Scp="S_AI_RESET_RALLY" Client="NO" UseSleep="NO" ExtraArg="1"/>
-                            </List>
-                        </SelfAI>
-                    </Obj>
-                    <Obj Type="Monster" MonType="2000201" Pos="-7.43#478.44#278.79" genCount="1" objectKey="7">
-                        <SelfAI ActiveMessageMapInBattle="1">
-                            <List>
-                                <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
-                                    <AbsPos X="294.28424" Y="478.35699" Z="339.92493"/>
-                                </ToolScp>
-                                <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
-                                    <AbsPos X="-6.1865988" Y="478.42941" Z="278.83084"/>
-                                </ToolScp>
-                                <ToolScp Scp="S_AI_RESET_RALLY" Client="NO" UseSleep="NO" ExtraArg="1"/>
-                            </List>
-                        </SelfAI>
-                    </Obj>
-                    <Obj Type="Monster" MonType="2000201" Pos="447.21#482.24#544.97" genCount="1" objectKey="8">
-                        <SelfAI ActiveMessageMapInBattle="1">
-                            <List>
-                                <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
-                                    <AbsPos X="477.19785" Y="482.2431" Z="709.75372"/>
-                                </ToolScp>
-                                <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
-                                    <AbsPos X="446.79236" Y="482.2431" Z="545.46826"/>
-                                </ToolScp>
-                                <ToolScp Scp="S_AI_RESET_RALLY" Client="NO" UseSleep="NO" ExtraArg="1"/>
-                            </List>
-                        </SelfAI>
-                    </Obj>
-                    <Obj Type="Monster" MonType="2000201" Pos="710.69#415.74#310.78" genCount="1" objectKey="9">
-                        <SelfAI ActiveMessageMapInBattle="1">
-                            <List>
-                                <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
-                                    <AbsPos X="796.1651" Y="450.17792" Z="403.13223"/>
-                                </ToolScp>
-                                <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
-                                    <AbsPos X="713.15106" Y="415.08527" Z="308.54898"/>
-                                </ToolScp>
-                                <ToolScp Scp="S_AI_RESET_RALLY" Client="NO" UseSleep="NO" ExtraArg="1"/>
-                            </List>
-                        </SelfAI>
-                    </Obj>
-                    <Obj Type="Monster" MonType="2000202" Pos="252.98#160.55#-294.93" genCount="1" objectKey="10">
-                        <SelfAI ActiveMessageMapInBattle="1">
-                            <List>
-                                <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
-                                    <AbsPos X="99.545204" Y="160.55499" Z="-221.1355"/>
-                                </ToolScp>
-                                <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
-                                    <AbsPos X="255.79997" Y="160.55499" Z="-299.77393"/>
-                                </ToolScp>
-                                <ToolScp Scp="S_AI_RESET_RALLY" Client="NO" UseSleep="NO" ExtraArg="1"/>
-                            </List>
-                        </SelfAI>
-                    </Obj>
-                    <Obj Type="Monster" MonType="2000202" Pos="-766.25#451.61#222.29" genCount="1" objectKey="11">
-                        <SelfAI ActiveMessageMapInBattle="1">
-                            <List>
-                                <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
-                                    <AbsPos X="-528.23547" Y="447.55731" Z="-9.338213"/>
-                                </ToolScp>
-                                <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
-                                    <AbsPos X="-767.95123" Y="451.60739" Z="222.08058"/>
-                                </ToolScp>
-                                <ToolScp Scp="S_AI_RESET_RALLY" Client="NO" UseSleep="NO" ExtraArg="1"/>
-                            </List>
-                        </SelfAI>
-                    </Obj>
-                    <Obj Type="Monster" MonType="2000202" Pos="-292.03#482.24#550.51" genCount="1" objectKey="12">
-                        <SelfAI ActiveMessageMapInBattle="1">
-                            <List>
-                                <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
-                                    <AbsPos X="-224.15016" Y="482.24319" Z="585.12982"/>
-                                </ToolScp>
-                                <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
-                                    <AbsPos X="-292.15524" Y="482.24319" Z="550.57806"/>
-                                </ToolScp>
-                                <ToolScp Scp="S_AI_RESET_RALLY" Client="NO" UseSleep="NO" ExtraArg="1"/>
-                            </List>
-                        </SelfAI>
-                    </Obj>
-                    <Obj Type="Monster" MonType="2000202" Pos="19.71#543.57#548.41" genCount="1" objectKey="13">
-                        <SelfAI ActiveMessageMapInBattle="1">
-                            <List>
-                                <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
-                                    <AbsPos X="135.06725" Y="543.58832" Z="692.43787"/>
-                                </ToolScp>
-                                <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
-                                    <AbsPos X="20.979324" Y="543.56622" Z="548.54205"/>
-                                </ToolScp>
-                                <ToolScp Scp="S_AI_RESET_RALLY" Client="NO" UseSleep="NO" ExtraArg="1"/>
-                            </List>
-                        </SelfAI>
-                    </Obj>
-                    <Obj Type="Monster" MonType="2000202" Pos="507.02#496.85#414.72" genCount="1" objectKey="14">
-                        <SelfAI ActiveMessageMapInBattle="1">
-                            <List>
-                                <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
-                                    <AbsPos X="539.80011" Y="482.2431" Z="512.11835"/>
-                                </ToolScp>
-                                <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
-                                    <AbsPos X="506.92575" Y="496.99249" Z="415.12064"/>
-                                </ToolScp>
-                                <ToolScp Scp="S_AI_RESET_RALLY" Client="NO" UseSleep="NO" ExtraArg="1"/>
-                            </List>
-                        </SelfAI>
-                    </Obj>
-                    <Obj Type="Monster" MonType="2000202" Pos="512.42#752.12#1099.21" genCount="1" objectKey="15">
-                        <SelfAI ActiveMessageMapInBattle="1">
-                            <List>
-                                <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
-                                    <AbsPos X="653.78931" Y="747.09833" Z="1032.4364"/>
-                                </ToolScp>
-                                <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
-                                    <AbsPos X="513.15686" Y="752.1217" Z="1098.041"/>
-                                </ToolScp>
-                                <ToolScp Scp="S_AI_RESET_RALLY" Client="NO" UseSleep="NO" ExtraArg="1"/>
-                            </List>
-                        </SelfAI>
-                    </Obj>
-                    <Obj Type="Monster" MonType="2000203" Pos="241.71#160.83#-227.22" genCount="1" genTime="20000" autoGen="0" objectKey="16"/>
-                    <Obj Type="Monster" MonType="2000203" Pos="-272.74#160.56#-247.46" genCount="1" genTime="20000" autoGen="0" objectKey="17"/>
-                    <Obj Type="Monster" MonType="2000203" Pos="-422.64#160.55#-438.82" genCount="1" genTime="20000" autoGen="0" objectKey="18"/>
-                    <Obj Type="Monster" MonType="2000203" Pos="-657.12#169.32#-245.03" genCount="1" genTime="20000" autoGen="0" objectKey="19"/>
-                    <Obj Type="Monster" MonType="2000203" Pos="-539.79#447.56#71.49" genCount="1" genTime="20000" autoGen="0" objectKey="20"/>
-                    <Obj Type="Monster" MonType="2000203" Pos="-663.26#447.56#116.97" genCount="1" genTime="20000" autoGen="0" objectKey="21"/>
-                    <Obj Type="Monster" MonType="2000203" Pos="-264.96#482.15#294.52" genCount="1" genTime="20000" autoGen="0" objectKey="22"/>
-                    <Obj Type="Monster" MonType="2000203" Pos="-256.86#482.24#393.58" genCount="1" genTime="20000" autoGen="0" objectKey="23"/>
-                    <Obj Type="Monster" MonType="2000203" Pos="17.69#478.38#301.67" genCount="1" genTime="20000" autoGen="0" objectKey="24"/>
-                    <Obj Type="Monster" MonType="2000203" Pos="256.82#478.36#388.77" genCount="1" genTime="20000" autoGen="0" objectKey="25"/>
-                    <Obj Type="Monster" MonType="2000203" Pos="129.89#543.59#610.39" genCount="1" genTime="20000" autoGen="0" objectKey="26"/>
-                    <Obj Type="Monster" MonType="2000203" Pos="511.88#482.24#472.91" genCount="1" genTime="20000" autoGen="0" objectKey="27"/>
-                    <Obj Type="Monster" MonType="2000203" Pos="470.05#482.24#515.38" genCount="1" genTime="20000" autoGen="0" objectKey="28"/>
-                    <Obj Type="Monster" MonType="2000203" Pos="237.30#838.57#895.59" genCount="1" genTime="20000" autoGen="0" objectKey="29"/>
-                    <Obj Type="Monster" MonType="2000203" Pos="348.50#816.86#994.54" genCount="1" genTime="20000" autoGen="0" objectKey="30"/>
-                    <Obj Type="Monster" MonType="2000203" Pos="466.91#482.24#683.68" genCount="1" genTime="20000" autoGen="0" objectKey="31"/>
-                    <Obj Type="Monster" MonType="2000203" Pos="391.30#816.86#1053.71" genCount="1" genTime="20000" autoGen="0" objectKey="32"/>
-                    <Obj Type="Monster" MonType="2000203" Pos="429.00#311.00#162.00" genCount="1" genTime="20000" autoGen="0" objectKey="33"/>
-                    <Obj Type="Monster" MonType="2000203" Pos="74.00#317.00#-18.00" genCount="1" genTime="20000" autoGen="0" objectKey="34"/>
-                    <Obj Type="Monster" MonType="2000203" Pos="246.00#160.00#-459.00" genCount="1" genTime="20000" autoGen="0" objectKey="35"/>
-                </ObjList>
-                <StageEvents>
-                    <Event execCount="1" eventName="TrapGen">
-                        <execList>
-                            <ToolScp Scp="MGAME_EVT_SCRIPT" Client="NO" UseSleep="NO">
-                                <Str Str="EVENT_2001_NEWYEAR_TRAP_GEN"/>
-                            </ToolScp>
-                        </execList>
-                    </Event>
-                </StageEvents>
-            </Stage>
-            <Stage Name="Stage2" AutoStart="0">
-                <ObjList>
-                    <Obj Type="Monster" MonType="160016" Pos="326.00#160.00#-252.00" genCount="1" genTime="20000" autoGen="0" objectKey="0"/>
-                    <Obj Type="Monster" MonType="160016" Pos="296.20#160.55#-374.54" genCount="1" genTime="20000" autoGen="0" objectKey="1"/>
-                    <Obj Type="Monster" MonType="160016" Pos="126.00#160.00#-536.00" genCount="1" genTime="20000" autoGen="0" objectKey="2"/>
-                    <Obj Type="Monster" MonType="160016" Pos="187.00#160.00#-459.00" genCount="1" genTime="20000" autoGen="0" objectKey="3"/>
-                    <Obj Type="Monster" MonType="160016" Pos="158.00#170.00#-286.00" genCount="1" genTime="20000" autoGen="0" objectKey="4"/>
-                    <Obj Type="Monster" MonType="160016" Pos="165.00#162.00#-158.00" genCount="1" genTime="20000" autoGen="0" objectKey="5"/>
-                    <Obj Type="Monster" MonType="160016" Pos="46.00#160.00#-210.00" genCount="1" genTime="20000" autoGen="0" objectKey="6"/>
-                    <Obj Type="Monster" MonType="160016" Pos="-90.00#160.00#-309.00" genCount="1" genTime="20000" autoGen="0" objectKey="7"/>
-                    <Obj Type="Monster" MonType="160016" Pos="-163.00#160.00#-318.00" genCount="1" genTime="20000" autoGen="0" objectKey="8"/>
-                    <Obj Type="Monster" MonType="160016" Pos="-223.00#160.00#-417.00" genCount="1" genTime="20000" autoGen="0" objectKey="9"/>
-                    <Obj Type="Monster" MonType="160016" Pos="-310.00#177.00#-197.00" genCount="1" genTime="20000" autoGen="0" objectKey="10"/>
-                    <Obj Type="Monster" MonType="160016" Pos="-368.00#178.00#-529.00" genCount="1" genTime="20000" autoGen="0" objectKey="11"/>
-                    <Obj Type="Monster" MonType="160016" Pos="-648.00#176.00#-406.00" genCount="1" genTime="20000" autoGen="0" objectKey="12"/>
-                    <Obj Type="Monster" MonType="160016" Pos="-530.00#169.00#-145.00" genCount="1" genTime="20000" autoGen="0" objectKey="13"/>
-                    <Obj Type="Monster" MonType="160016" Pos="-893.00#208.00#-248.00" genCount="1" genTime="20000" autoGen="0" objectKey="14"/>
-                    <Obj Type="Monster" MonType="160016" Pos="-755.00#208.00#-71.00" genCount="1" genTime="20000" autoGen="0" objectKey="15"/>
-                    <Obj Type="Monster" MonType="160016" Pos="-105.00#365.00#74.00" genCount="1" genTime="20000" autoGen="0" objectKey="16"/>
-                    <Obj Type="Monster" MonType="160016" Pos="12.00#319.00#-52.00" genCount="1" genTime="20000" autoGen="0" objectKey="17"/>
-                    <Obj Type="Monster" MonType="160016" Pos="149.00#347.00#26.00" genCount="1" genTime="20000" autoGen="0" objectKey="18"/>
-                    <Obj Type="Monster" MonType="160016" Pos="323.00#312.00#23.00" genCount="1" genTime="20000" autoGen="0" objectKey="19"/>
-                    <Obj Type="Monster" MonType="160016" Pos="408.00#311.00#197.00" genCount="1" genTime="20000" autoGen="0" objectKey="20"/>
-                    <Obj Type="Monster" MonType="160016" Pos="670.00#291.00#135.00" genCount="1" genTime="20000" autoGen="0" objectKey="21"/>
-                    <Obj Type="Monster" MonType="160016" Pos="663.00#291.00#286.00" genCount="1" genTime="20000" autoGen="0" objectKey="22"/>
-                    <Obj Type="Monster" MonType="160016" Pos="813.00#291.00#178.00" genCount="1" genTime="20000" autoGen="0" objectKey="23"/>
-                    <Obj Type="Monster" MonType="160016" Pos="855.00#414.00#464.00" genCount="1" genTime="20000" autoGen="0" objectKey="24"/>
-                    <Obj Type="Monster" MonType="160016" Pos="487.00#487.00#412.00" genCount="1" genTime="20000" autoGen="0" objectKey="25"/>
-                    <Obj Type="Monster" MonType="160016" Pos="556.00#482.00#516.00" genCount="1" genTime="20000" autoGen="0" objectKey="26"/>
-                    <Obj Type="Monster" MonType="160016" Pos="543.00#482.00#567.00" genCount="1" genTime="20000" autoGen="0" objectKey="27"/>
-                    <Obj Type="Monster" MonType="160016" Pos="368.00#503.00#463.00" genCount="1" genTime="20000" autoGen="0" objectKey="28"/>
-                    <Obj Type="Monster" MonType="160016" Pos="405.00#503.00#343.00" genCount="1" genTime="20000" autoGen="0" objectKey="29"/>
-                    <Obj Type="Monster" MonType="160016" Pos="163.00#524.00#461.00" genCount="1" genTime="20000" autoGen="0" objectKey="30"/>
-                    <Obj Type="Monster" MonType="160016" Pos="39.00#524.00#435.00" genCount="1" genTime="20000" autoGen="0" objectKey="31"/>
-                    <Obj Type="Monster" MonType="160016" Pos="-187.00#481.00#168.00" genCount="1" genTime="20000" autoGen="0" objectKey="32"/>
-                    <Obj Type="Monster" MonType="160016" Pos="-374.00#462.00#323.00" genCount="1" genTime="20000" autoGen="0" objectKey="33"/>
-                    <Obj Type="Monster" MonType="160016" Pos="-462.00#462.00#274.00" genCount="1" genTime="20000" autoGen="0" objectKey="34"/>
-                    <Obj Type="Monster" MonType="160016" Pos="-551.00#461.00#170.00" genCount="1" genTime="20000" autoGen="0" objectKey="35"/>
-                    <Obj Type="Monster" MonType="160016" Pos="-623.00#461.00#176.00" genCount="1" genTime="20000" autoGen="0" objectKey="36"/>
-                    <Obj Type="Monster" MonType="160016" Pos="-637.00#447.00#-44.00" genCount="1" genTime="20000" autoGen="0" objectKey="37"/>
-                    <Obj Type="Monster" MonType="160016" Pos="-855.00#521.00#319.00" genCount="1" genTime="20000" autoGen="0" objectKey="38"/>
-                    <Obj Type="Monster" MonType="160016" Pos="-773.86#451.61#363.98" genCount="1" genTime="20000" autoGen="0" objectKey="39"/>
-                    <Obj Type="Monster" MonType="160016" Pos="-737.00#451.00#372.00" genCount="1" genTime="20000" autoGen="0" objectKey="40"/>
-                    <Obj Type="Monster" MonType="160016" Pos="-357.00#462.00#639.00" genCount="1" genTime="20000" autoGen="0" objectKey="41"/>
-                    <Obj Type="Monster" MonType="160016" Pos="-357.00#462.00#688.00" genCount="1" genTime="20000" autoGen="0" objectKey="42"/>
-                    <Obj Type="Monster" MonType="160016" Pos="-5.00#543.00#586.00" genCount="1" genTime="20000" autoGen="0" objectKey="43"/>
-                    <Obj Type="Monster" MonType="160016" Pos="190.00#543.00#728.00" genCount="1" genTime="20000" autoGen="0" objectKey="44"/>
-                    <Obj Type="Monster" MonType="160016" Pos="422.00#482.00#806.00" genCount="1" genTime="20000" autoGen="0" objectKey="45"/>
-                    <Obj Type="Monster" MonType="160016" Pos="613.00#526.00#701.00" genCount="1" genTime="20000" autoGen="0" objectKey="46"/>
-                    <Obj Type="Monster" MonType="160016" Pos="812.00#610.00#802.00" genCount="1" genTime="20000" autoGen="0" objectKey="47"/>
-                    <Obj Type="Monster" MonType="160016" Pos="855.00#679.00#1124.00" genCount="1" genTime="20000" autoGen="0" objectKey="48"/>
-                    <Obj Type="Monster" MonType="160016" Pos="648.00#747.00#1095.00" genCount="1" genTime="20000" autoGen="0" objectKey="49"/>
-                    <Obj Type="Monster" MonType="160016" Pos="634.00#747.00#1019.00" genCount="1" genTime="20000" autoGen="0" objectKey="50"/>
-                    <Obj Type="Monster" MonType="160016" Pos="529.00#752.00#1107.00" genCount="1" genTime="20000" autoGen="0" objectKey="51"/>
-                    <Obj Type="Monster" MonType="160016" Pos="519.00#752.00#1001.00" genCount="1" genTime="20000" autoGen="0" objectKey="52"/>
-                    <Obj Type="Monster" MonType="160016" Pos="357.00#816.00#1075.00" genCount="1" genTime="20000" autoGen="0" objectKey="53"/>
-                    <Obj Type="Monster" MonType="160016" Pos="301.00#816.00#1000.00" genCount="1" genTime="20000" autoGen="0" objectKey="54"/>
-                    <Obj Type="Monster" MonType="160016" Pos="194.00#866.00#902.00" genCount="1" genTime="20000" autoGen="0" objectKey="55"/>
-                    <Obj Type="Monster" MonType="160016" Pos="293.00#818.00#825.00" genCount="1" genTime="20000" autoGen="0" objectKey="56"/>
-                    <Obj Type="Monster" MonType="160016" Pos="-794.00#208.00#-75.00" genCount="1" genTime="20000" autoGen="0" objectKey="57"/>
-                    <Obj Type="Monster" MonType="160016" Pos="-131.00#178.00#-535.00" genCount="1" genTime="20000" autoGen="0" objectKey="58"/>
-                    <Obj Type="Monster" MonType="160016" Pos="-144.00#178.00#-576.00" genCount="1" genTime="20000" autoGen="0" objectKey="59"/>
-                    <Obj Type="Monster" MonType="160016" Pos="-228.00#178.00#-601.00" genCount="1" genTime="20000" autoGen="0" objectKey="60"/>
-                    <Obj Type="Monster" MonType="160016" Pos="-543.00#177.00#-544.00" genCount="1" genTime="20000" autoGen="0" objectKey="61"/>
-                    <Obj Type="Monster" MonType="160016" Pos="-573.00#182.00#-534.00" genCount="1" genTime="20000" autoGen="0" objectKey="62"/>
-                    <Obj Type="Monster" MonType="160016" Pos="-450.00#447.00#-25.00" genCount="1" genTime="20000" autoGen="0" objectKey="63"/>
-                    <Obj Type="Monster" MonType="160016" Pos="-512.00#447.00#-38.00" genCount="1" genTime="20000" autoGen="0" objectKey="64"/>
-                    <Obj Type="Monster" MonType="160016" Pos="-896.00#447.00#32.00" genCount="1" genTime="20000" autoGen="0" objectKey="65"/>
-                    <Obj Type="Monster" MonType="160016" Pos="-881.00#447.00#82.00" genCount="1" genTime="20000" autoGen="0" objectKey="66"/>
-                    <Obj Type="Monster" MonType="160016" Pos="-786.00#451.00#266.00" genCount="1" genTime="20000" autoGen="0" objectKey="67"/>
-                    <Obj Type="Monster" MonType="160016" Pos="-794.00#451.00#289.00" genCount="1" genTime="20000" autoGen="0" objectKey="68"/>
-                    <Obj Type="Monster" MonType="160016" Pos="-708.00#451.00#305.00" genCount="1" genTime="20000" autoGen="0" objectKey="69"/>
-                    <Obj Type="Monster" MonType="160016" Pos="-203.00#481.00#154.00" genCount="1" genTime="20000" autoGen="0" objectKey="70"/>
-                    <Obj Type="Monster" MonType="160016" Pos="-321.00#482.00#379.00" genCount="1" genTime="20000" autoGen="0" objectKey="71"/>
-                    <Obj Type="Monster" MonType="160016" Pos="-116.00#503.00#173.00" genCount="1" genTime="20000" autoGen="0" objectKey="72"/>
-                    <Obj Type="Monster" MonType="160016" Pos="-94.00#503.00#164.00" genCount="1" genTime="20000" autoGen="0" objectKey="73"/>
-                    <Obj Type="Monster" MonType="160016" Pos="127.00#478.00#243.00" genCount="1" genTime="20000" autoGen="0" objectKey="74"/>
-                    <Obj Type="Monster" MonType="160016" Pos="190.00#478.00#255.00" genCount="1" genTime="20000" autoGen="0" objectKey="75"/>
-                    <Obj Type="Monster" MonType="160016" Pos="13.00#524.00#449.00" genCount="1" genTime="20000" autoGen="0" objectKey="76"/>
-                    <Obj Type="Monster" MonType="160016" Pos="36.00#524.00#479.00" genCount="1" genTime="20000" autoGen="0" objectKey="77"/>
-                    <Obj Type="Monster" MonType="160016" Pos="10.00#543.00#574.00" genCount="1" genTime="20000" autoGen="0" objectKey="78"/>
-                    <Obj Type="Monster" MonType="160016" Pos="185.00#543.00#615.00" genCount="1" genTime="20000" autoGen="0" objectKey="79"/>
-                    <Obj Type="Monster" MonType="160016" Pos="423.00#482.00#651.00" genCount="1" genTime="20000" autoGen="0" objectKey="80"/>
-                    <Obj Type="Monster" MonType="160016" Pos="503.00#482.00#811.00" genCount="1" genTime="20000" autoGen="0" objectKey="81"/>
-                    <Obj Type="Monster" MonType="160016" Pos="455.00#484.00#822.00" genCount="1" genTime="20000" autoGen="0" objectKey="82"/>
-                    <Obj Type="Monster" MonType="160016" Pos="478.00#483.00#839.00" genCount="1" genTime="20000" autoGen="0" objectKey="83"/>
-                    <Obj Type="Monster" MonType="160016" Pos="203.00#818.00#710.00" genCount="1" genTime="20000" autoGen="0" objectKey="84"/>
-                    <Obj Type="Monster" MonType="160016" Pos="234.00#818.00#678.00" genCount="1" genTime="20000" autoGen="0" objectKey="85"/>
-                    <Obj Type="Monster" MonType="160016" Pos="218.00#818.00#637.00" genCount="1" genTime="20000" autoGen="0" objectKey="86"/>
-                    <Obj Type="Monster" MonType="160016" Pos="155.00#426.00#123.00" genCount="1" genTime="20000" autoGen="0" objectKey="87"/>
-                    <Obj Type="Monster" MonType="160016" Pos="205.00#426.00#130.00" genCount="1" genTime="20000" autoGen="0" objectKey="88"/>
-                    <Obj Type="Monster" MonType="160016" Pos="-294.00#292.00#-67.00" genCount="1" genTime="20000" autoGen="0" objectKey="89"/>
-                </ObjList>
-                <StageEvents>
-                    <Event execCount="1" eventName="PotGen">
-                        <execList>
-                            <ToolScp Scp="MGAME_EVT_SCRIPT" Client="NO" UseSleep="NO">
-                                <Str Str="EVENT_2001_NEWYEAR_POT_GEN"/>
-                            </ToolScp>
-                        </execList>
-                    </Event>
-                </StageEvents>
-            </Stage>
-            <Stage Name="Stage3" AutoStart="0">
-                <ObjList>
-                    <Obj Type="Monster" MonType="2000204" Pos="-405.00#160.00#-367.00" genCount="1" genTime="20000" objectKey="0"/>
-                    <Obj Type="Monster" MonType="2000204" Pos="251.00#160.00#-423.00" genCount="1" genTime="20000" objectKey="1"/>
-                    <Obj Type="Monster" MonType="2000204" Pos="-663.00#447.00#88.00" genCount="1" genTime="20000" objectKey="2"/>
-                    <Obj Type="Monster" MonType="2000204" Pos="493.00#482.00#558.00" genCount="1" genTime="20000" objectKey="3"/>
-                    <Obj Type="Monster" MonType="2000204" Pos="333.00#816.00#977.00" genCount="1" genTime="20000" objectKey="4"/>
-                </ObjList>
-            </Stage>
-            <Stage Name="Update" AutoStart="0">
-                <StartScpList>
-                    <ToolScp Scp="MGAME_SET_STYLE_INFO" Client="NO" UseSleep="NO">
-                        <Str Str="SUCCESS_COUNT"/>
-                        <Str Str="bar"/>
-                        <Str Str="[이벤트]새해 복주머니 당첨권 획득"/>
-                        <Num Num="25"/>
-                        <Num Num="1"/>
-                    </ToolScp>
-                </StartScpList>
-                <ObjList/>
-                <StageEvents>
-                    <Event eventName="TimeCheck">
-                        <execList>
-                            <ToolScp Scp="MGAME_EVT_SCRIPT" Client="NO" UseSleep="NO">
-                                <Str Str="EVENT_2001_NEWYEAR_TIME_CHECK"/>
-                            </ToolScp>
-                        </execList>
-                    </Event>
-                    <Event execMS="3000" eventName="AbuseCheck">
-                        <execList>
-                            <ToolScp Scp="MGAME_EXEC_ACTORSCP" Client="NO" UseSleep="NO">
-                                <Str Str="EVENT_2001_NEWYEAR_ABUSE_CHECK"/>
-                            </ToolScp>
-                        </execList>
-                    </Event>
-                    <Event eventName="IsEnd1">
-                        <condList>
-                            <ToolScp Scp="SCR_MGAME_VALUE_CHECK_2" Client="NO" UseSleep="NO">
-                                <Str Str="SUCCESS_COUNT"/>
-                                <Str Str="OVER"/>
-                                <Num Num="25"/>
-                            </ToolScp>
-                        </condList>
-                        <execList>
-                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
-                                <Str Str="End"/>
-                            </ToolScp>
-                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
-                                <Str Str="Update"/>
-                            </ToolScp>
-                        </execList>
-                    </Event>
-                    <Event eventName="IsEnd2">
-                        <condList>
-                            <ToolScp Scp="SCR_MGAME_VALUE_CHECK_2" Client="NO" UseSleep="NO">
-                                <Str Str="TIMECHECK"/>
-                                <Str Str="OVER"/>
-                                <Num Num="361"/>
-                            </ToolScp>
-                        </condList>
-                        <execList>
-                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
-                                <Str Str="End"/>
-                            </ToolScp>
-                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
-                                <Str Str="Update"/>
-                            </ToolScp>
-                        </execList>
-                    </Event>
-                </StageEvents>
-            </Stage>
-            <Stage Name="End" AutoStart="0">
-                <StartScpList>
-                    <ToolScp Scp="MGAME_ENT_DESTROY_STAGE" Client="NO" UseSleep="NO">
-                        <Str Str="Stage1"/>
-                    </ToolScp>
-                    <ToolScp Scp="MGAME_ENT_DESTROY_STAGE" Client="NO" UseSleep="NO">
-                        <Str Str="Stage2"/>
-                    </ToolScp>
-                    <ToolScp Scp="MGAME_ENT_DESTROY_STAGE" Client="NO" UseSleep="NO">
-                        <Str Str="Stage3"/>
-                    </ToolScp>
-                </StartScpList>
-                <ObjList/>
-                <StageEvents>
-                    <Event execCount="1" eventName="GiveReward">
-                        <execList>
-                            <ToolScp Scp="MGAME_EVT_SCRIPT" Client="NO" UseSleep="NO">
-                                <Str Str="EVENT_2001_NEWYEAR_GIVE_REWARD"/>
-                            </ToolScp>
-                        </execList>
-                    </Event>
-                    <Event execCount="1" eventName="End">
-                        <condList>
-                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
-                                <Num Num="15"/>
-                            </ToolScp>
-                        </condList>
-                        <execList>
-                            <ToolScp Scp="MGAME_RETURN" Client="NO" UseSleep="NO"/>
-                            <ToolScp Scp="MGAME_END" Client="NO" UseSleep="NO">
-                                <Num Num="1"/>
-                            </ToolScp>
-                        </execList>
-                    </Event>
-                </StageEvents>
-            </Stage>
-        </StageList>
-        <EnterList>
-            <ToolScp Scp="MGAME_ZONEENTER_SCRIPT" Client="NO" UseSleep="NO">
-                <Num Num="2"/>
-                <Str Str="EVENT_2001_NEWYEAR_BUFF_INIT"/>
-            </ToolScp>
-            <ToolScp Scp="MGAME_ZONEENTER_SCRIPT" Client="NO" UseSleep="NO">
-                <Num Num="2"/>
-                <Str Str="EVENT_2001_NEWYEAR_ENTER_BALLOON"/>
-            </ToolScp>
-            <ToolScp Scp="MGAME_ZONEENTER_SCRIPT" Client="NO" UseSleep="NO">
-                <Num Num="2"/>
-                <Str Str="EVENT_2001_NEWYEAR_SET_TIMER"/>
-            </ToolScp>
-            <ToolScp Scp="MGAME_C_CUSTOM_OPTION_CHECK" Client="YES" UseSleep="NO">
-                <Num Num="1"/>
-            </ToolScp>
-        </EnterList>
-    </Game>
+	<Game Name="EVENT_2001_NEWYEAR_MISSION" journal="0" minLv="0" maxLv="0" mapName="c_fedimian_event" playerCountCheckDestroy="1" startWaitSec="-1">
+		<StageList>
+			<Stage Name="Start">
+				<StartScpList>
+					<ToolScp Scp="MGAME_CUSTOM_START_FUNC" Client="NO" UseSleep="NO">
+						<Str Str="EVENT_2001_NEWYEAR_PROP_INIT"/>
+					</ToolScp>
+				</StartScpList>
+				<ObjList>
+					<Obj Type="Monster" MonType="2000206" Pos="737.00#160.00#-141.00" genCount="1" objectKey="0"/>
+				</ObjList>
+				<StageEvents>
+					<Event execCount="1" eventName="Setting">
+						<condList>
+							<ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+								<Num Num="5"/>
+							</ToolScp>
+						</condList>
+						<execList>
+							<ToolScp Scp="MGAME_MSG" Client="YES" UseSleep="NO">
+								<Str Str="잠시 후 이펙트가 사라집니다. 모두 준비해주시기 바랍니다."/>
+								<Num Num="5"/>
+							</ToolScp>
+						</execList>
+					</Event>
+					<Event execCount="1" eventName="Stage">
+						<condList>
+							<ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+								<Num Num="10"/>
+							</ToolScp>
+						</condList>
+						<execList>
+							<ToolScp Scp="MGAME_MSG" Client="YES" UseSleep="NO">
+								<Str Str=" [일정 시간 움직임이 없으면 아이템을 획득하실 수 없습니다.]"/>
+								<Num Num="5"/>
+							</ToolScp>
+							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+								<Str Str="Stage1"/>
+							</ToolScp>
+							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+								<Str Str="Stage2"/>
+							</ToolScp>
+							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+								<Str Str="Stage3"/>
+							</ToolScp>
+							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+								<Str Str="Update"/>
+							</ToolScp>
+							<ToolScp Scp="MGAME_EXEC_GIVE_BUFF" Client="NO" UseSleep="NO">
+								<Str Str="Event_2020_Bonus"/>
+								<Num Num="1"/>
+								<Num Num="0"/>
+								<Num Num="0"/>
+								<Num Num="1"/>
+								<Num Num="0"/>
+							</ToolScp>
+						</execList>
+					</Event>
+					<Event execCount="1" eventName="EscapeMsg">
+						<condList>
+							<ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+								<Num Num="15"/>
+							</ToolScp>
+						</condList>
+						<execList>
+							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
+								<Str Str="Start"/>
+							</ToolScp>
+							<ToolScp Scp="MGAME_MSG" Client="YES" UseSleep="NO">
+								<Str Str="캐릭터가 움직일 수 없는 경우 &apos;/탈출&apos; 을 입력하시면 출발 지점으로 돌아갑니다.(재사용 시간 15초)"/>
+								<Num Num="5"/>
+							</ToolScp>
+						</execList>
+					</Event>
+				</StageEvents>
+			</Stage>
+			<Stage Name="Stage1" AutoStart="0">
+				<ObjList>
+					<Obj Type="Monster" MonType="2000201" Pos="512.93#160.55#-41.47" genCount="1" objectKey="0">
+						<SelfAI ActiveMessageMapInBattle="1">
+							<List>
+								<ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+									<AbsPos X="519.51709" Y="160.55499" Z="-177.66414"/>
+								</ToolScp>
+								<ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+									<AbsPos X="513.97632" Y="160.55499" Z="-41.410656"/>
+								</ToolScp>
+								<ToolScp Scp="S_AI_RESET_RALLY" Client="NO" UseSleep="NO" ExtraArg="1"/>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="2000201" Pos="233.39#160.83#-165.60" genCount="1" objectKey="1">
+						<SelfAI ActiveMessageMapInBattle="1">
+							<List>
+								<ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+									<AbsPos X="309.64624" Y="160.56636" Z="-252.97112"/>
+								</ToolScp>
+								<ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+									<AbsPos X="235.09129" Y="160.8233" Z="-166.40683"/>
+								</ToolScp>
+								<ToolScp Scp="S_AI_RESET_RALLY" Client="NO" UseSleep="NO" ExtraArg="1"/>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="2000201" Pos="-206.33#160.55#-230.24" genCount="1" objectKey="2">
+						<SelfAI ActiveMessageMapInBattle="1">
+							<List>
+								<ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+									<AbsPos X="-316.31729" Y="160.55499" Z="-422.46649"/>
+								</ToolScp>
+								<ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+									<AbsPos X="-203.20009" Y="160.55499" Z="-230.39021"/>
+								</ToolScp>
+								<ToolScp Scp="S_AI_RESET_RALLY" Client="NO" UseSleep="NO" ExtraArg="1"/>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="2000201" Pos="-587.55#169.24#-436.18" genCount="1" objectKey="3">
+						<SelfAI ActiveMessageMapInBattle="1">
+							<List>
+								<ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+									<AbsPos X="-464.44226" Y="172.18384" Z="-250.64679"/>
+								</ToolScp>
+								<ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+									<AbsPos X="-588.54858" Y="169.41721" Z="-436.14258"/>
+								</ToolScp>
+								<ToolScp Scp="S_AI_RESET_RALLY" Client="NO" UseSleep="NO" ExtraArg="1"/>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="2000201" Pos="-730.14#169.31#-302.66" genCount="1" objectKey="4">
+						<SelfAI ActiveMessageMapInBattle="1">
+							<List>
+								<ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+									<AbsPos X="-670.49976" Y="169.31268" Z="-232.34421"/>
+								</ToolScp>
+								<ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+									<AbsPos X="-729.28259" Y="169.30969" Z="-301.80539"/>
+								</ToolScp>
+								<ToolScp Scp="S_AI_RESET_RALLY" Client="NO" UseSleep="NO" ExtraArg="1"/>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="2000201" Pos="-521.00#461.96#171.89" genCount="1" objectKey="5">
+						<SelfAI ActiveMessageMapInBattle="1">
+							<List>
+								<ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+									<AbsPos X="-325.24274" Y="447.55731" Z="9.3399639"/>
+								</ToolScp>
+								<ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+									<AbsPos X="-521.01453" Y="461.9606" Z="171.46046"/>
+								</ToolScp>
+								<ToolScp Scp="S_AI_RESET_RALLY" Client="NO" UseSleep="NO" ExtraArg="1"/>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="2000201" Pos="-221.25#482.24#435.81" genCount="1" objectKey="6">
+						<SelfAI ActiveMessageMapInBattle="1">
+							<List>
+								<ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+									<AbsPos X="-300.01608" Y="482.23898" Z="359.57211"/>
+								</ToolScp>
+								<ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+									<AbsPos X="-221.5605" Y="482.24319" Z="435.32172"/>
+								</ToolScp>
+								<ToolScp Scp="S_AI_RESET_RALLY" Client="NO" UseSleep="NO" ExtraArg="1"/>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="2000201" Pos="-7.43#478.44#278.79" genCount="1" objectKey="7">
+						<SelfAI ActiveMessageMapInBattle="1">
+							<List>
+								<ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+									<AbsPos X="294.28424" Y="478.35699" Z="339.92493"/>
+								</ToolScp>
+								<ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+									<AbsPos X="-6.1865988" Y="478.42941" Z="278.83084"/>
+								</ToolScp>
+								<ToolScp Scp="S_AI_RESET_RALLY" Client="NO" UseSleep="NO" ExtraArg="1"/>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="2000201" Pos="447.21#482.24#544.97" genCount="1" objectKey="8">
+						<SelfAI ActiveMessageMapInBattle="1">
+							<List>
+								<ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+									<AbsPos X="477.19785" Y="482.2431" Z="709.75372"/>
+								</ToolScp>
+								<ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+									<AbsPos X="446.79236" Y="482.2431" Z="545.46826"/>
+								</ToolScp>
+								<ToolScp Scp="S_AI_RESET_RALLY" Client="NO" UseSleep="NO" ExtraArg="1"/>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="2000201" Pos="710.69#415.74#310.78" genCount="1" objectKey="9">
+						<SelfAI ActiveMessageMapInBattle="1">
+							<List>
+								<ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+									<AbsPos X="796.1651" Y="450.17792" Z="403.13223"/>
+								</ToolScp>
+								<ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+									<AbsPos X="713.15106" Y="415.08527" Z="308.54898"/>
+								</ToolScp>
+								<ToolScp Scp="S_AI_RESET_RALLY" Client="NO" UseSleep="NO" ExtraArg="1"/>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="2000202" Pos="252.98#160.55#-294.93" genCount="1" objectKey="10">
+						<SelfAI ActiveMessageMapInBattle="1">
+							<List>
+								<ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+									<AbsPos X="99.545204" Y="160.55499" Z="-221.1355"/>
+								</ToolScp>
+								<ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+									<AbsPos X="255.79997" Y="160.55499" Z="-299.77393"/>
+								</ToolScp>
+								<ToolScp Scp="S_AI_RESET_RALLY" Client="NO" UseSleep="NO" ExtraArg="1"/>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="2000202" Pos="-766.25#451.61#222.29" genCount="1" objectKey="11">
+						<SelfAI ActiveMessageMapInBattle="1">
+							<List>
+								<ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+									<AbsPos X="-528.23547" Y="447.55731" Z="-9.338213"/>
+								</ToolScp>
+								<ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+									<AbsPos X="-767.95123" Y="451.60739" Z="222.08058"/>
+								</ToolScp>
+								<ToolScp Scp="S_AI_RESET_RALLY" Client="NO" UseSleep="NO" ExtraArg="1"/>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="2000202" Pos="-292.03#482.24#550.51" genCount="1" objectKey="12">
+						<SelfAI ActiveMessageMapInBattle="1">
+							<List>
+								<ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+									<AbsPos X="-224.15016" Y="482.24319" Z="585.12982"/>
+								</ToolScp>
+								<ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+									<AbsPos X="-292.15524" Y="482.24319" Z="550.57806"/>
+								</ToolScp>
+								<ToolScp Scp="S_AI_RESET_RALLY" Client="NO" UseSleep="NO" ExtraArg="1"/>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="2000202" Pos="19.71#543.57#548.41" genCount="1" objectKey="13">
+						<SelfAI ActiveMessageMapInBattle="1">
+							<List>
+								<ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+									<AbsPos X="135.06725" Y="543.58832" Z="692.43787"/>
+								</ToolScp>
+								<ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+									<AbsPos X="20.979324" Y="543.56622" Z="548.54205"/>
+								</ToolScp>
+								<ToolScp Scp="S_AI_RESET_RALLY" Client="NO" UseSleep="NO" ExtraArg="1"/>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="2000202" Pos="507.02#496.85#414.72" genCount="1" objectKey="14">
+						<SelfAI ActiveMessageMapInBattle="1">
+							<List>
+								<ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+									<AbsPos X="539.80011" Y="482.2431" Z="512.11835"/>
+								</ToolScp>
+								<ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+									<AbsPos X="506.92575" Y="496.99249" Z="415.12064"/>
+								</ToolScp>
+								<ToolScp Scp="S_AI_RESET_RALLY" Client="NO" UseSleep="NO" ExtraArg="1"/>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="2000202" Pos="512.42#752.12#1099.21" genCount="1" objectKey="15">
+						<SelfAI ActiveMessageMapInBattle="1">
+							<List>
+								<ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+									<AbsPos X="653.78931" Y="747.09833" Z="1032.4364"/>
+								</ToolScp>
+								<ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+									<AbsPos X="513.15686" Y="752.1217" Z="1098.041"/>
+								</ToolScp>
+								<ToolScp Scp="S_AI_RESET_RALLY" Client="NO" UseSleep="NO" ExtraArg="1"/>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="2000203" Pos="241.71#160.83#-227.22" genCount="1" genTime="20000" autoGen="0" objectKey="16"/>
+					<Obj Type="Monster" MonType="2000203" Pos="-272.74#160.56#-247.46" genCount="1" genTime="20000" autoGen="0" objectKey="17"/>
+					<Obj Type="Monster" MonType="2000203" Pos="-422.64#160.55#-438.82" genCount="1" genTime="20000" autoGen="0" objectKey="18"/>
+					<Obj Type="Monster" MonType="2000203" Pos="-657.12#169.32#-245.03" genCount="1" genTime="20000" autoGen="0" objectKey="19"/>
+					<Obj Type="Monster" MonType="2000203" Pos="-539.79#447.56#71.49" genCount="1" genTime="20000" autoGen="0" objectKey="20"/>
+					<Obj Type="Monster" MonType="2000203" Pos="-663.26#447.56#116.97" genCount="1" genTime="20000" autoGen="0" objectKey="21"/>
+					<Obj Type="Monster" MonType="2000203" Pos="-264.96#482.15#294.52" genCount="1" genTime="20000" autoGen="0" objectKey="22"/>
+					<Obj Type="Monster" MonType="2000203" Pos="-256.86#482.24#393.58" genCount="1" genTime="20000" autoGen="0" objectKey="23"/>
+					<Obj Type="Monster" MonType="2000203" Pos="17.69#478.38#301.67" genCount="1" genTime="20000" autoGen="0" objectKey="24"/>
+					<Obj Type="Monster" MonType="2000203" Pos="256.82#478.36#388.77" genCount="1" genTime="20000" autoGen="0" objectKey="25"/>
+					<Obj Type="Monster" MonType="2000203" Pos="129.89#543.59#610.39" genCount="1" genTime="20000" autoGen="0" objectKey="26"/>
+					<Obj Type="Monster" MonType="2000203" Pos="511.88#482.24#472.91" genCount="1" genTime="20000" autoGen="0" objectKey="27"/>
+					<Obj Type="Monster" MonType="2000203" Pos="470.05#482.24#515.38" genCount="1" genTime="20000" autoGen="0" objectKey="28"/>
+					<Obj Type="Monster" MonType="2000203" Pos="237.30#838.57#895.59" genCount="1" genTime="20000" autoGen="0" objectKey="29"/>
+					<Obj Type="Monster" MonType="2000203" Pos="348.50#816.86#994.54" genCount="1" genTime="20000" autoGen="0" objectKey="30"/>
+					<Obj Type="Monster" MonType="2000203" Pos="466.91#482.24#683.68" genCount="1" genTime="20000" autoGen="0" objectKey="31"/>
+					<Obj Type="Monster" MonType="2000203" Pos="391.30#816.86#1053.71" genCount="1" genTime="20000" autoGen="0" objectKey="32"/>
+					<Obj Type="Monster" MonType="2000203" Pos="429.00#311.00#162.00" genCount="1" genTime="20000" autoGen="0" objectKey="33"/>
+					<Obj Type="Monster" MonType="2000203" Pos="74.00#317.00#-18.00" genCount="1" genTime="20000" autoGen="0" objectKey="34"/>
+					<Obj Type="Monster" MonType="2000203" Pos="246.00#160.00#-459.00" genCount="1" genTime="20000" autoGen="0" objectKey="35"/>
+				</ObjList>
+				<StageEvents>
+					<Event execCount="1" eventName="TrapGen">
+						<execList>
+							<ToolScp Scp="MGAME_EVT_SCRIPT" Client="NO" UseSleep="NO">
+								<Str Str="EVENT_2001_NEWYEAR_TRAP_GEN"/>
+							</ToolScp>
+						</execList>
+					</Event>
+				</StageEvents>
+			</Stage>
+			<Stage Name="Stage2" AutoStart="0">
+				<ObjList>
+					<Obj Type="Monster" MonType="160016" Pos="326.00#160.00#-252.00" genCount="1" genTime="20000" autoGen="0" objectKey="0"/>
+					<Obj Type="Monster" MonType="160016" Pos="296.20#160.55#-374.54" genCount="1" genTime="20000" autoGen="0" objectKey="1"/>
+					<Obj Type="Monster" MonType="160016" Pos="126.00#160.00#-536.00" genCount="1" genTime="20000" autoGen="0" objectKey="2"/>
+					<Obj Type="Monster" MonType="160016" Pos="187.00#160.00#-459.00" genCount="1" genTime="20000" autoGen="0" objectKey="3"/>
+					<Obj Type="Monster" MonType="160016" Pos="158.00#170.00#-286.00" genCount="1" genTime="20000" autoGen="0" objectKey="4"/>
+					<Obj Type="Monster" MonType="160016" Pos="165.00#162.00#-158.00" genCount="1" genTime="20000" autoGen="0" objectKey="5"/>
+					<Obj Type="Monster" MonType="160016" Pos="46.00#160.00#-210.00" genCount="1" genTime="20000" autoGen="0" objectKey="6"/>
+					<Obj Type="Monster" MonType="160016" Pos="-90.00#160.00#-309.00" genCount="1" genTime="20000" autoGen="0" objectKey="7"/>
+					<Obj Type="Monster" MonType="160016" Pos="-163.00#160.00#-318.00" genCount="1" genTime="20000" autoGen="0" objectKey="8"/>
+					<Obj Type="Monster" MonType="160016" Pos="-223.00#160.00#-417.00" genCount="1" genTime="20000" autoGen="0" objectKey="9"/>
+					<Obj Type="Monster" MonType="160016" Pos="-310.00#177.00#-197.00" genCount="1" genTime="20000" autoGen="0" objectKey="10"/>
+					<Obj Type="Monster" MonType="160016" Pos="-368.00#178.00#-529.00" genCount="1" genTime="20000" autoGen="0" objectKey="11"/>
+					<Obj Type="Monster" MonType="160016" Pos="-648.00#176.00#-406.00" genCount="1" genTime="20000" autoGen="0" objectKey="12"/>
+					<Obj Type="Monster" MonType="160016" Pos="-530.00#169.00#-145.00" genCount="1" genTime="20000" autoGen="0" objectKey="13"/>
+					<Obj Type="Monster" MonType="160016" Pos="-893.00#208.00#-248.00" genCount="1" genTime="20000" autoGen="0" objectKey="14"/>
+					<Obj Type="Monster" MonType="160016" Pos="-755.00#208.00#-71.00" genCount="1" genTime="20000" autoGen="0" objectKey="15"/>
+					<Obj Type="Monster" MonType="160016" Pos="-105.00#365.00#74.00" genCount="1" genTime="20000" autoGen="0" objectKey="16"/>
+					<Obj Type="Monster" MonType="160016" Pos="12.00#319.00#-52.00" genCount="1" genTime="20000" autoGen="0" objectKey="17"/>
+					<Obj Type="Monster" MonType="160016" Pos="149.00#347.00#26.00" genCount="1" genTime="20000" autoGen="0" objectKey="18"/>
+					<Obj Type="Monster" MonType="160016" Pos="323.00#312.00#23.00" genCount="1" genTime="20000" autoGen="0" objectKey="19"/>
+					<Obj Type="Monster" MonType="160016" Pos="408.00#311.00#197.00" genCount="1" genTime="20000" autoGen="0" objectKey="20"/>
+					<Obj Type="Monster" MonType="160016" Pos="670.00#291.00#135.00" genCount="1" genTime="20000" autoGen="0" objectKey="21"/>
+					<Obj Type="Monster" MonType="160016" Pos="663.00#291.00#286.00" genCount="1" genTime="20000" autoGen="0" objectKey="22"/>
+					<Obj Type="Monster" MonType="160016" Pos="813.00#291.00#178.00" genCount="1" genTime="20000" autoGen="0" objectKey="23"/>
+					<Obj Type="Monster" MonType="160016" Pos="855.00#414.00#464.00" genCount="1" genTime="20000" autoGen="0" objectKey="24"/>
+					<Obj Type="Monster" MonType="160016" Pos="487.00#487.00#412.00" genCount="1" genTime="20000" autoGen="0" objectKey="25"/>
+					<Obj Type="Monster" MonType="160016" Pos="556.00#482.00#516.00" genCount="1" genTime="20000" autoGen="0" objectKey="26"/>
+					<Obj Type="Monster" MonType="160016" Pos="543.00#482.00#567.00" genCount="1" genTime="20000" autoGen="0" objectKey="27"/>
+					<Obj Type="Monster" MonType="160016" Pos="368.00#503.00#463.00" genCount="1" genTime="20000" autoGen="0" objectKey="28"/>
+					<Obj Type="Monster" MonType="160016" Pos="405.00#503.00#343.00" genCount="1" genTime="20000" autoGen="0" objectKey="29"/>
+					<Obj Type="Monster" MonType="160016" Pos="163.00#524.00#461.00" genCount="1" genTime="20000" autoGen="0" objectKey="30"/>
+					<Obj Type="Monster" MonType="160016" Pos="39.00#524.00#435.00" genCount="1" genTime="20000" autoGen="0" objectKey="31"/>
+					<Obj Type="Monster" MonType="160016" Pos="-187.00#481.00#168.00" genCount="1" genTime="20000" autoGen="0" objectKey="32"/>
+					<Obj Type="Monster" MonType="160016" Pos="-374.00#462.00#323.00" genCount="1" genTime="20000" autoGen="0" objectKey="33"/>
+					<Obj Type="Monster" MonType="160016" Pos="-462.00#462.00#274.00" genCount="1" genTime="20000" autoGen="0" objectKey="34"/>
+					<Obj Type="Monster" MonType="160016" Pos="-551.00#461.00#170.00" genCount="1" genTime="20000" autoGen="0" objectKey="35"/>
+					<Obj Type="Monster" MonType="160016" Pos="-623.00#461.00#176.00" genCount="1" genTime="20000" autoGen="0" objectKey="36"/>
+					<Obj Type="Monster" MonType="160016" Pos="-637.00#447.00#-44.00" genCount="1" genTime="20000" autoGen="0" objectKey="37"/>
+					<Obj Type="Monster" MonType="160016" Pos="-855.00#521.00#319.00" genCount="1" genTime="20000" autoGen="0" objectKey="38"/>
+					<Obj Type="Monster" MonType="160016" Pos="-773.86#451.61#363.98" genCount="1" genTime="20000" autoGen="0" objectKey="39"/>
+					<Obj Type="Monster" MonType="160016" Pos="-737.00#451.00#372.00" genCount="1" genTime="20000" autoGen="0" objectKey="40"/>
+					<Obj Type="Monster" MonType="160016" Pos="-357.00#462.00#639.00" genCount="1" genTime="20000" autoGen="0" objectKey="41"/>
+					<Obj Type="Monster" MonType="160016" Pos="-357.00#462.00#688.00" genCount="1" genTime="20000" autoGen="0" objectKey="42"/>
+					<Obj Type="Monster" MonType="160016" Pos="-5.00#543.00#586.00" genCount="1" genTime="20000" autoGen="0" objectKey="43"/>
+					<Obj Type="Monster" MonType="160016" Pos="190.00#543.00#728.00" genCount="1" genTime="20000" autoGen="0" objectKey="44"/>
+					<Obj Type="Monster" MonType="160016" Pos="422.00#482.00#806.00" genCount="1" genTime="20000" autoGen="0" objectKey="45"/>
+					<Obj Type="Monster" MonType="160016" Pos="613.00#526.00#701.00" genCount="1" genTime="20000" autoGen="0" objectKey="46"/>
+					<Obj Type="Monster" MonType="160016" Pos="812.00#610.00#802.00" genCount="1" genTime="20000" autoGen="0" objectKey="47"/>
+					<Obj Type="Monster" MonType="160016" Pos="855.00#679.00#1124.00" genCount="1" genTime="20000" autoGen="0" objectKey="48"/>
+					<Obj Type="Monster" MonType="160016" Pos="648.00#747.00#1095.00" genCount="1" genTime="20000" autoGen="0" objectKey="49"/>
+					<Obj Type="Monster" MonType="160016" Pos="634.00#747.00#1019.00" genCount="1" genTime="20000" autoGen="0" objectKey="50"/>
+					<Obj Type="Monster" MonType="160016" Pos="529.00#752.00#1107.00" genCount="1" genTime="20000" autoGen="0" objectKey="51"/>
+					<Obj Type="Monster" MonType="160016" Pos="519.00#752.00#1001.00" genCount="1" genTime="20000" autoGen="0" objectKey="52"/>
+					<Obj Type="Monster" MonType="160016" Pos="357.00#816.00#1075.00" genCount="1" genTime="20000" autoGen="0" objectKey="53"/>
+					<Obj Type="Monster" MonType="160016" Pos="301.00#816.00#1000.00" genCount="1" genTime="20000" autoGen="0" objectKey="54"/>
+					<Obj Type="Monster" MonType="160016" Pos="194.00#866.00#902.00" genCount="1" genTime="20000" autoGen="0" objectKey="55"/>
+					<Obj Type="Monster" MonType="160016" Pos="293.00#818.00#825.00" genCount="1" genTime="20000" autoGen="0" objectKey="56"/>
+					<Obj Type="Monster" MonType="160016" Pos="-794.00#208.00#-75.00" genCount="1" genTime="20000" autoGen="0" objectKey="57"/>
+					<Obj Type="Monster" MonType="160016" Pos="-131.00#178.00#-535.00" genCount="1" genTime="20000" autoGen="0" objectKey="58"/>
+					<Obj Type="Monster" MonType="160016" Pos="-144.00#178.00#-576.00" genCount="1" genTime="20000" autoGen="0" objectKey="59"/>
+					<Obj Type="Monster" MonType="160016" Pos="-228.00#178.00#-601.00" genCount="1" genTime="20000" autoGen="0" objectKey="60"/>
+					<Obj Type="Monster" MonType="160016" Pos="-543.00#177.00#-544.00" genCount="1" genTime="20000" autoGen="0" objectKey="61"/>
+					<Obj Type="Monster" MonType="160016" Pos="-573.00#182.00#-534.00" genCount="1" genTime="20000" autoGen="0" objectKey="62"/>
+					<Obj Type="Monster" MonType="160016" Pos="-450.00#447.00#-25.00" genCount="1" genTime="20000" autoGen="0" objectKey="63"/>
+					<Obj Type="Monster" MonType="160016" Pos="-512.00#447.00#-38.00" genCount="1" genTime="20000" autoGen="0" objectKey="64"/>
+					<Obj Type="Monster" MonType="160016" Pos="-896.00#447.00#32.00" genCount="1" genTime="20000" autoGen="0" objectKey="65"/>
+					<Obj Type="Monster" MonType="160016" Pos="-881.00#447.00#82.00" genCount="1" genTime="20000" autoGen="0" objectKey="66"/>
+					<Obj Type="Monster" MonType="160016" Pos="-786.00#451.00#266.00" genCount="1" genTime="20000" autoGen="0" objectKey="67"/>
+					<Obj Type="Monster" MonType="160016" Pos="-794.00#451.00#289.00" genCount="1" genTime="20000" autoGen="0" objectKey="68"/>
+					<Obj Type="Monster" MonType="160016" Pos="-708.00#451.00#305.00" genCount="1" genTime="20000" autoGen="0" objectKey="69"/>
+					<Obj Type="Monster" MonType="160016" Pos="-203.00#481.00#154.00" genCount="1" genTime="20000" autoGen="0" objectKey="70"/>
+					<Obj Type="Monster" MonType="160016" Pos="-321.00#482.00#379.00" genCount="1" genTime="20000" autoGen="0" objectKey="71"/>
+					<Obj Type="Monster" MonType="160016" Pos="-116.00#503.00#173.00" genCount="1" genTime="20000" autoGen="0" objectKey="72"/>
+					<Obj Type="Monster" MonType="160016" Pos="-94.00#503.00#164.00" genCount="1" genTime="20000" autoGen="0" objectKey="73"/>
+					<Obj Type="Monster" MonType="160016" Pos="127.00#478.00#243.00" genCount="1" genTime="20000" autoGen="0" objectKey="74"/>
+					<Obj Type="Monster" MonType="160016" Pos="190.00#478.00#255.00" genCount="1" genTime="20000" autoGen="0" objectKey="75"/>
+					<Obj Type="Monster" MonType="160016" Pos="13.00#524.00#449.00" genCount="1" genTime="20000" autoGen="0" objectKey="76"/>
+					<Obj Type="Monster" MonType="160016" Pos="36.00#524.00#479.00" genCount="1" genTime="20000" autoGen="0" objectKey="77"/>
+					<Obj Type="Monster" MonType="160016" Pos="10.00#543.00#574.00" genCount="1" genTime="20000" autoGen="0" objectKey="78"/>
+					<Obj Type="Monster" MonType="160016" Pos="185.00#543.00#615.00" genCount="1" genTime="20000" autoGen="0" objectKey="79"/>
+					<Obj Type="Monster" MonType="160016" Pos="423.00#482.00#651.00" genCount="1" genTime="20000" autoGen="0" objectKey="80"/>
+					<Obj Type="Monster" MonType="160016" Pos="503.00#482.00#811.00" genCount="1" genTime="20000" autoGen="0" objectKey="81"/>
+					<Obj Type="Monster" MonType="160016" Pos="455.00#484.00#822.00" genCount="1" genTime="20000" autoGen="0" objectKey="82"/>
+					<Obj Type="Monster" MonType="160016" Pos="478.00#483.00#839.00" genCount="1" genTime="20000" autoGen="0" objectKey="83"/>
+					<Obj Type="Monster" MonType="160016" Pos="203.00#818.00#710.00" genCount="1" genTime="20000" autoGen="0" objectKey="84"/>
+					<Obj Type="Monster" MonType="160016" Pos="234.00#818.00#678.00" genCount="1" genTime="20000" autoGen="0" objectKey="85"/>
+					<Obj Type="Monster" MonType="160016" Pos="218.00#818.00#637.00" genCount="1" genTime="20000" autoGen="0" objectKey="86"/>
+					<Obj Type="Monster" MonType="160016" Pos="155.00#426.00#123.00" genCount="1" genTime="20000" autoGen="0" objectKey="87"/>
+					<Obj Type="Monster" MonType="160016" Pos="205.00#426.00#130.00" genCount="1" genTime="20000" autoGen="0" objectKey="88"/>
+					<Obj Type="Monster" MonType="160016" Pos="-294.00#292.00#-67.00" genCount="1" genTime="20000" autoGen="0" objectKey="89"/>
+				</ObjList>
+				<StageEvents>
+					<Event execCount="1" eventName="PotGen">
+						<execList>
+							<ToolScp Scp="MGAME_EVT_SCRIPT" Client="NO" UseSleep="NO">
+								<Str Str="EVENT_2001_NEWYEAR_POT_GEN"/>
+							</ToolScp>
+						</execList>
+					</Event>
+				</StageEvents>
+			</Stage>
+			<Stage Name="Stage3" AutoStart="0">
+				<ObjList>
+					<Obj Type="Monster" MonType="2000204" Pos="-405.00#160.00#-367.00" genCount="1" genTime="20000" objectKey="0"/>
+					<Obj Type="Monster" MonType="2000204" Pos="251.00#160.00#-423.00" genCount="1" genTime="20000" objectKey="1"/>
+					<Obj Type="Monster" MonType="2000204" Pos="-663.00#447.00#88.00" genCount="1" genTime="20000" objectKey="2"/>
+					<Obj Type="Monster" MonType="2000204" Pos="493.00#482.00#558.00" genCount="1" genTime="20000" objectKey="3"/>
+					<Obj Type="Monster" MonType="2000204" Pos="333.00#816.00#977.00" genCount="1" genTime="20000" objectKey="4"/>
+				</ObjList>
+			</Stage>
+			<Stage Name="Update" AutoStart="0">
+				<StartScpList>
+					<ToolScp Scp="MGAME_SET_STYLE_INFO" Client="NO" UseSleep="NO">
+						<Str Str="SUCCESS_COUNT"/>
+						<Str Str="bar"/>
+						<Str Str="[이벤트]럭키 티켓 획득"/>
+						<Num Num="25"/>
+						<Num Num="1"/>
+					</ToolScp>
+				</StartScpList>
+				<ObjList/>
+				<StageEvents>
+					<Event eventName="TimeCheck">
+						<execList>
+							<ToolScp Scp="MGAME_EVT_SCRIPT" Client="NO" UseSleep="NO">
+								<Str Str="EVENT_2001_NEWYEAR_TIME_CHECK"/>
+							</ToolScp>
+						</execList>
+					</Event>
+					<Event execMS="3000" eventName="AbuseCheck">
+						<execList>
+							<ToolScp Scp="MGAME_EXEC_ACTORSCP" Client="NO" UseSleep="NO">
+								<Str Str="EVENT_2001_NEWYEAR_ABUSE_CHECK"/>
+							</ToolScp>
+						</execList>
+					</Event>
+					<Event eventName="IsEnd1">
+						<condList>
+							<ToolScp Scp="SCR_MGAME_VALUE_CHECK_2" Client="NO" UseSleep="NO">
+								<Str Str="SUCCESS_COUNT"/>
+								<Str Str="OVER"/>
+								<Num Num="25"/>
+							</ToolScp>
+						</condList>
+						<execList>
+							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+								<Str Str="End"/>
+							</ToolScp>
+							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
+								<Str Str="Update"/>
+							</ToolScp>
+						</execList>
+					</Event>
+					<Event eventName="IsEnd2">
+						<condList>
+							<ToolScp Scp="SCR_MGAME_VALUE_CHECK_2" Client="NO" UseSleep="NO">
+								<Str Str="TIMECHECK"/>
+								<Str Str="OVER"/>
+								<Num Num="361"/>
+							</ToolScp>
+						</condList>
+						<execList>
+							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+								<Str Str="End"/>
+							</ToolScp>
+							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
+								<Str Str="Update"/>
+							</ToolScp>
+						</execList>
+					</Event>
+				</StageEvents>
+			</Stage>
+			<Stage Name="End" AutoStart="0">
+				<StartScpList>
+					<ToolScp Scp="MGAME_ENT_DESTROY_STAGE" Client="NO" UseSleep="NO">
+						<Str Str="Stage1"/>
+					</ToolScp>
+					<ToolScp Scp="MGAME_ENT_DESTROY_STAGE" Client="NO" UseSleep="NO">
+						<Str Str="Stage2"/>
+					</ToolScp>
+					<ToolScp Scp="MGAME_ENT_DESTROY_STAGE" Client="NO" UseSleep="NO">
+						<Str Str="Stage3"/>
+					</ToolScp>
+				</StartScpList>
+				<ObjList/>
+				<StageEvents>
+					<Event execCount="1" eventName="GiveReward">
+						<execList>
+							<ToolScp Scp="MGAME_EVT_SCRIPT" Client="NO" UseSleep="NO">
+								<Str Str="EVENT_2001_NEWYEAR_GIVE_REWARD"/>
+							</ToolScp>
+						</execList>
+					</Event>
+					<Event execCount="1" eventName="End">
+						<condList>
+							<ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+								<Num Num="15"/>
+							</ToolScp>
+						</condList>
+						<execList>
+							<ToolScp Scp="MGAME_RETURN" Client="NO" UseSleep="NO"/>
+							<ToolScp Scp="MGAME_END" Client="NO" UseSleep="NO">
+								<Num Num="1"/>
+							</ToolScp>
+						</execList>
+					</Event>
+				</StageEvents>
+			</Stage>
+		</StageList>
+		<EnterList>
+			<ToolScp Scp="MGAME_ZONEENTER_SCRIPT" Client="NO" UseSleep="NO">
+				<Num Num="2"/>
+				<Str Str="EVENT_2001_NEWYEAR_BUFF_INIT"/>
+			</ToolScp>
+			<ToolScp Scp="MGAME_ZONEENTER_SCRIPT" Client="NO" UseSleep="NO">
+				<Num Num="2"/>
+				<Str Str="EVENT_2001_NEWYEAR_ENTER_BALLOON"/>
+			</ToolScp>
+			<ToolScp Scp="MGAME_ZONEENTER_SCRIPT" Client="NO" UseSleep="NO">
+				<Num Num="2"/>
+				<Str Str="EVENT_2001_NEWYEAR_SET_TIMER"/>
+			</ToolScp>
+			<ToolScp Scp="MGAME_C_CUSTOM_OPTION_CHECK" Client="YES" UseSleep="NO">
+				<Num Num="1"/>
+			</ToolScp>
+		</EnterList>
+	</Game>
 </GameList>

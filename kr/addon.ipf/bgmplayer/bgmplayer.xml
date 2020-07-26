@@ -7,6 +7,7 @@
 	<input moveable="true" hittestframe="true" moveintitlebar="false" catchmovepos="true"/>
 	<option closebutton="false"/>
 	<sound opensound="skill_window_open" closesound="skill_window_close"/>
+	<script CloseScp="BGMPLAYER_CLOSE_UI"/>
 	<layer layerlevel="99"/>
 	<userconfig PLAY_HALT_BTN_IMAGE_NAME="stop_classic" PLAY_START_BTN_IMAGE_NAME="play_classic" RANDOM_BTN_IMAGE_NAME="random_classic_cursoron" ACTIVE_RANDOM_BTN_IMAGE_NAME="random_classic" REPEAT_BTN_IMAGE_NAME="repeat_classic_cursoron" ACTIVE_REPEAT_BTN_IMAGE_NAME="repeat_classic" GAUGE_BAR_IMGNAME="bgm_following" TITLE_MIN_INDEX="3" TITLE_MAX_INDEX="10" PLAY_RANDOM="0" PLAY_REPEAT="0" ACTIVE_ALL_LIST="1" ACTIVE_FAVO_LIST="0" SIMPLE_GB_WIDTH="395" SIMPLE_GB_HEIGHT="480" CLASSIC_GB_WIDTH="406" CLASSIC_GB_HEIGHT="480" SKIN_MODE="0" TITLETXT_CLASSIC_FORMAT="{@st66b}{s24}{b}" TITLETXT_SIMPLE_FORMAT="{@st42b}{s24}" HEARTBTN_SIMPLE_IMG_NAME="heart_simple" HEARTBTN_CALSSIC_IMG_NAME="heart_classic" TITLEPIC_CALSSIC_IMAGENAME="bgm_title_decoration" TITLEGB_CLASSIC_SKINNAME="test_socket_topskin" DELAY_TIME="30"/>
 	<controls>

@@ -712,14 +712,14 @@ function ON_FRIEND_SESSION_CHANGE(frame, msg, aid, listType)
 	if nil == f then
 		return;
 	end
-	local showOnlyOnline = config.GetXMLConfig("Friend_ShowOnlyOnline")
 
-	if showOnlyOnline == 1 or f.mapID == 0 then
+	local showOnlyOnline = config.GetXMLConfig("Friend_ShowOnlyOnline")
+	if showOnlyOnline == 1 then
 		ON_UPDATE_FRIEND_LIST(frame);
 		return;
 	end
-	local treename = 'friendtree_normal'
 
+	local treename = 'friendtree_normal'
 	if listType ~= FRIEND_LIST_COMPLETE then
 		treename = 'friendtree_request'
 	end
@@ -730,6 +730,7 @@ function ON_FRIEND_SESSION_CHANGE(frame, msg, aid, listType)
 	if f:GetGroupName() ~= nil and f:GetGroupName() ~= "" then
 		pageCtrlName = "PAGE_" .. f:GetGroupName();
 	end
+
 	local page = tree:GetChild(pageCtrlName);
 	
 	if page == nil then
@@ -739,22 +740,48 @@ function ON_FRIEND_SESSION_CHANGE(frame, msg, aid, listType)
 			page = tree:GetChild("PAGE_" .. FRIEND_GET_GROUPNAME(listType));
 		end
 	end
-	local childName = "FR_" .. listType .. "_" .. f:GetInfo():GetACCID();
 
+	local childName = "FR_" .. listType .. "_" .. f:GetInfo():GetACCID();
 	local ctrlSet = page:GetChild(childName);
+
+	-- 이전 온라인/오프라인 구분 기준: ctrlSet:GetChild('logoutText') == nil
+	-- 현재 온라인/오프라인 구분 기준: f.mapID == 0
+
+	-- 이전에 온라인 / 현재 온라인인 경우: 위치 텍스트만 수정
+	if ctrlSet ~= nil then
+		if f.mapID ~= 0 and ctrlSet:GetChild('logoutText') == nil then
+
+			local map_name_text = ctrlSet:GetChild("map_name_text")
+			local map_name_channel_text = ctrlSet:GetChild("map_name_channel_text")
+			
+			local mapCls = GetClassByType("Map", f.mapID)
+
+			if map_name_channel_text ~= nil and mapCls ~= nil then
+				map_name_channel_text:SetColorTone(0)
+				map_name_channel_text:SetTextByKey("name", mapCls.Name)
+				map_name_channel_text:SetTextByKey("channel", f.channel+1)
+	
+				map_name_channel_text:ShowWindow(1)
+				map_name_text:ShowWindow(0)
+			end
+
+			return
+		end
+	end
+
+	-- 그 외의 경우: 컨트롤셋 새로 생성
 	if ctrlSet ~= nil then
 		page:RemoveChild(childName);
 	end
-	if f.mapID == 0 and ctrlSet:GetChild('logoutText') == nil then
+
+	if f.mapID == 0 then
 		ctrlSet = page:CreateOrGetControlSet('friend_not_online', childName, 0, 0);
-		
 	else --온라인상태
 		ctrlSet = page:CreateOrGetControlSet(GET_FRIEND_CTRLSET_NAME(listType), childName, 0, 0);
 		ctrlSet:Resize(ctrlSet:GetOriginalWidth(), FRIEND_MINIMIZE_HEIGHT);
 	end
 	
 	UPDATE_FRIEND_CONTROLSET(ctrlSet, listType, f);
-	
 end
 
 function OPEN_FRIEND_FRAME()

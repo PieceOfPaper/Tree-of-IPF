@@ -320,3 +320,77 @@ function SKL_KEY_CASTING_OR_PARTY_TARGET(actor, obj, dik, movable, rangeChargeTi
 
 	return arg1, arg2
 end
+
+function SKL_KEY_INPUT_RESURRECTION(actor, obj, dik, movable, rangeChargeTime, maxChargeTime, autoShot, rotateAble, execByKeyDown, upAbleSec, useDynamicLevel, isVisivle, isFullCharge, effectName, scale, nodeName, lifeTime, shockwave, intensity, time, frequency, angle, quickCast, hitCancel, showHPGauge)
+	if IsPVPServer() == 1 then
+		if isVisivle == nil then
+			isVisivle = 1
+		end
+	
+		if isFullCharge == nil then
+			isFullCharge = 0
+		end
+	
+		if effectName == nil then
+			effectName = "None"
+		end
+	
+		if scale == nil then
+			scale = 1.0
+		end
+	
+		if nodeName == nil then
+			nodeName = "None"
+		end
+	
+		if lifeTime == nil then
+			lifeTime = 0
+		end
+	
+		if shockwave == nil then
+			shockwave = 0
+		end
+	
+		if intensity == nil then 
+			intensity = 0
+		end
+		
+		if time == nil then
+			time = 0
+		end	
+		if	frequency == nil then
+			frequency = 0
+		end 
+	
+		if angle == nil then
+			angle = 0
+		end
+	
+		if quickCast == nil then
+			quickCast = 1
+		end
+	
+		if quickCast ~= nil and quickCast == false then
+			quickCast = 0
+		elseif quickCast ~= nil and quickCast == true then
+			quickCast = 1
+		end
+	
+		local useMouseDir = 0
+		if obj ~= nil and obj.type == 21614 and session.config.IsMouseMode() == true then
+			useMouseDir = 1
+		end
+
+		geSkillControl.SelectTargetCasting(actor, obj.type, dik, movable, rotateAble, rangeChargeTime, maxChargeTime, autoShot, execByKeyDown, upAbleSec, isVisivle, useDynamicLevel, isFullCharge, effectName, nodeName, lifeTime, scale, 1, 1, 1, shockwave, intensity, time, frequency, angle, quickCast, useMouseDir, showHPGauge)
+
+		if nil ~= hitCancel and hitCancel == 1 then
+			actor:SetHitCancelCast(false)
+		end
+
+		return 1, 0
+	end
+
+	local arg1, arg2 = SKL_PARTY_TARGET_BY_KEY(actor, obj, dik, showHPGauge)
+
+	return arg1, arg2
+end

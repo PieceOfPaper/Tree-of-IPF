@@ -120,7 +120,7 @@ function ADVENTURE_BOOK_ITEM.FILL_ITEM_INFO_MATERIAL(ctrlSet, info, isCraft)
 		SET_TEXT(item_score_set, "attr_name_text", "value", ClMsg('Score'));
 
 		SET_TEXT(item_consume_count_set, "attr_name_text", "value", ClMsg('ConsumedCount'))
-		SET_TEXT(item_myranking_set, "attr_name_text", "value", ClMsg('MyRanking'))
+		SET_TEXT(item_myranking_set, "attr_name_text", "value", ClMsg('ConsumedCountRank'))
 
 		local item_consume_count_set_bg = GET_CHILD(item_consume_count_set, "attr_bg", "ui::CPicture");
 		item_consume_count_set_bg:SetVisible(0);

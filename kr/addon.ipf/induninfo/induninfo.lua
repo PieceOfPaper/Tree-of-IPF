@@ -1090,8 +1090,8 @@ function INDUNINFO_MAKE_DETAIL_INFO_BOX(frame, indunClassID)
         cycleCtrlPic:ShowWindow(0);
 
         if indunCls.DungeonType == "Event" then
-            cycleCtrlPic:SetImage(GET_INDUN_ICON_NAME('event_l'))
-            cycleCtrlPic:ShowWindow(1)
+            cycleImage:SetImage(GET_INDUN_ICON_NAME('event_l'))
+            cycleImage:ShowWindow(1)
         end
     
 
@@ -1817,7 +1817,7 @@ end
 
 -- 입장하기 버튼 클릭
 function WEEKLY_BOSS_JOIN_ENTER_CLICK(parent,ctrl)
-    ui.MsgBox(ClMsg('EnterRightNow'), 'WEEKLY_BOSS_JOIN_ENTER_CLICK_MSG(0)', 'None');
+    ui.MsgBox(ClMsg('EnterRightNow2'), 'WEEKLY_BOSS_JOIN_ENTER_CLICK_MSG(0)', 'None');
 end     
 
 -- 연습모드 버튼 클릭

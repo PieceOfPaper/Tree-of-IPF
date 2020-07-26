@@ -173,7 +173,15 @@ return 10000 + addTime * 1000"/>
                     <Num Num="0"/>
                     <Num Num="4000"/>
                     <Num Num="1"/>
-                    <Num Num="100"/>
+                    <Num Num="100" UseFunc="1" FuncTxt="    local value = 100
+    local tbo = GetBuffOver(target, 'Keletihan_Debuff')
+    if IsPVPField(self) ~= 0 then
+        value = 50 + tbo * 10
+    end
+    if value >= 100 then
+        value = 100
+    end
+    return value"/>
                     <Num Num="-1"/>
                 </ToolScp>
                 <ToolScp Scp="C_SR_EFT_DEFAULT" Client="YES" UseSleep="NO">
@@ -263,6 +271,12 @@ return 10000 + addTime * 1000"/>
                 <Frame Type="FAN" Time="9799" HitCount="1" TermMin="0" TermMax="0" PosType="0" Dist="0" RandDist="0" RandomPerHit="0" Angle="0" AniTime="9999" RotAngle="0" ForceATK="0"/>
             </HitList>
             <EtcList>
+                <Scp Scp="MONSKL_C_PLAY_ANIM" Client="YES" UseSleep="NO" Time="0">
+                    <Str Str="SKL_RAWA"/>
+                    <Num Num="2"/>
+                    <Num Num="0"/>
+                    <Num Num="1"/>
+                </Scp>
                 <Scp Scp="C_VOICE_SOUND" Client="YES" UseSleep="NO" Time="100">
                     <Str Str="voice_scout_m_rawa_shot"/>
                     <Str Str="voice_scout_f_rawa_shot"/>

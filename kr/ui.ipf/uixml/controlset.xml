@@ -2135,6 +2135,13 @@
 			<richtext name="itemtext" rect="0 0 200 30" format="{@st43d}{/}" margin="0 0 0 31" layout_gravity="center bottom" textalign="center top" param1="txt" param1_def="ItemName" resizebytext="false" spacey="0" maxwidth="0" fontname="white_18_b_ds_ol" fixwidth="true" omitbywidth="true" updateparent="false" drawbackground="false" slideshow="false"/>
 		</controls>
 	</controlset>
+	<controlset name="gacha_itembox" toggle="false" hittest="true" width="200" height="200" skin="no" scroll="false">
+		<controls>
+			<picture name="slot" rect="0 0 170 170" margin="0 0 0 0" movepop="false" oversound="button_cursor_over_3" dropsound="icon_get_down" picksound="icon_pick_up" image="random_01" DropScp="None" texttooltip="" layout_gravity="center top" hittest="false" stretch="true"/>
+			<slot name="itemslot" rect="0 0 85 85" margin="0 40 0 0" movepop="false" oversound="button_cursor_over_3" dropsound="icon_get_down" picksound="icon_pick_up" skin="slot_empty" DropScp="None" texttooltip="" layout_gravity="center top" hittest="false"/>
+			<richtext name="itemtext" rect="0 0 200 30" format="{@st43d}{/}" margin="0 0 0 31" layout_gravity="center bottom" textalign="center top" param1="txt" param1_def="ItemName" resizebytext="false" spacey="0" maxwidth="0" fontname="white_18_b_ds_ol" fixwidth="true" omitbywidth="true" updateparent="false" drawbackground="false" slideshow="false"/>
+		</controls>
+	</controlset>
 	<controlset name="event_tp_itembox" toggle="false" hittest="true" width="190" height="200" skin="no" scroll="false">
 		<controls>
 			<picture name="pic" rect="0 0 190 164" margin="0 0 0 0" movepop="false" oversound="button_cursor_over_3" dropsound="icon_get_down" picksound="icon_pick_up" image="gacha_01" DropScp="None" texttooltip="" layout_gravity="center top" hittest="false"/>
@@ -5183,6 +5190,14 @@
 			<richtext name="rewardtext" rect="0 0 300 50" margin="20 0 0 0" layout_gravity="left center" hittest="true" fontname="black_16_b" format="%s" param1="value" fixwidth="true"/>
 			<picture name="rewardicon" rect="0 0 39 39" margin="0 -1 65 0" layout_gravity="right center" image="icon_item_Event_Roulette_Coin" stretch="true"/>
 			<richtext name="rewardcnt" rect="0 0 50 40" margin="0 0 5 0" layout_gravity="right center" format="{@st42b}{ds}{s16}x %s" param1="value" fixwidth="true" hittest="false"/>
+		</controls>
+	</controlset>
+	<controlset name="reward_item_list" hittest="true" width="550" height="90" draw="true" hittestset="false" skin="test_skill_skin3">
+		<controls>
+			<picture name="grade" rect="0 0 92 44" margin="25 0 0 0" layout_gravity="left center" imagealign="center center"/>
+			<picture name="icon" rect="0 0 60 60" margin="140 0 0 0" layout_gravity="left center" image="icon_item_Event_Roulette_Coin" stretch="true" imagealign="center center"/>
+			<richtext name="name" rect="0 0 270 40" margin="220 0 0 0" layout_gravity="left center" fontname="black_18_b" format="%s" param1="name" fixwidth="true" hittest="false" textalign="center center"/>
+			<richtext name="count" rect="0 0 60 40" margin="0 0 20 0" layout_gravity="right center" fontname="black_18_b" format="%s개" param1="count" fixwidth="true" hittest="false" textalign="right center"/>
 		</controls>
 	</controlset>
 	<controlset name="craft_recipe" hittest="true" width="525" height="250" skin="earth_T_shop_skin" hittestset="true" draw="true" stateskin="false">

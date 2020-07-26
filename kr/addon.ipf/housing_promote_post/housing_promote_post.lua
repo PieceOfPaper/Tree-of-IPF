@@ -133,10 +133,13 @@ function HOUSING_PROMOTE_POST_THUMNAIL_UPDATE(code, pageID, filePath)
         return;
     end
     
+    local folderPath = filefind.GetBinPath("Housing"):c_str()
+    local fullPath = folderPath .. "\\" .. filePath;
+
     local frame = ui.GetFrame("housing_promote_post");
-    local thumbnail = GET_CHILD_RECURSIVELY(frame, "thumbnail");    
-    if filefind.FileExists(filePath, true) == true then
-        ui.SetImageByPath(filePath, thumbnail);
+    local thumbnail = GET_CHILD_RECURSIVELY(frame, "thumbnail");
+    if filefind.FileExists(fullPath, true) == true then
+        ui.SetImageByPath(fullPath, thumbnail);
         thumbnail:Invalidate();
     end
 

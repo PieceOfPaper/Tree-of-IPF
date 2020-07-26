@@ -154,7 +154,8 @@ function PARSE_TOOLTIP_CAPTION(_obj, caption, predictSkillPoint)
             end
         end
         
-        if skillEnableCompanion == "BOTH" then
+        local classname = TryGetProp(obj, "ClassName", "None")
+        if skillEnableCompanion == "BOTH" and (classname ~= "Templer_BattleOrders" and classname ~= "Templer_AdvancedOrders" and classname ~= "Templer_HorseRiding") then
             addCaption = addCaption..ScpArgMsg('SKILL_CAPTION_MSG19').."{nl}"
         elseif skillEnableCompanion == "YES" then
             addCaption = addCaption..ScpArgMsg('SKILL_CAPTION_MSG20').."{nl}"

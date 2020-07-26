@@ -116,22 +116,24 @@ function CLIENT_ENCHANTCHIP(invItem)
 		close:SetTextTooltip(ClMsg("hairenchant_close"));
 	end
 
-	SET_INV_LBTN_FUNC(invframe, "ENCHANTCHIP_LBTN_CLICK");
-	ui.GuideMsg("SelectItem");
+	ui.GuideMsg("DropItemPlz");
 	CHANGE_MOUSE_CURSOR("MORU", "MORU_UP", "CURSOR_CHECK_ENCHANTCHIP");
+	INVENTORY_SET_CUSTOM_RBTNDOWN("ENCHANTCHIP_INV_RBTN");
 end
 
 
 function CANCEL_ENCHANTCHIP()
-	SET_MOUSE_FOLLOW_BALLOON(nil);
-	ui.RemoveGuideMsg("SelectItem");
-	SET_MOUSE_FOLLOW_BALLOON();
+	ui.RemoveGuideMsg("DropItemPlz");
 	ui.SetEscapeScp("");
+
 	HAIRENCHANT_UI_RESET();
+
 	local invframe = ui.GetFrame("inventory");
 	SET_SLOT_APPLY_FUNC(invframe, "None");
-	SET_INV_LBTN_FUNC(invframe, "None");
+
 	RESET_MOUSE_CURSOR();
+
+	INVENTORY_SET_CUSTOM_RBTNDOWN("None");
 end
 
 function CURSOR_CHECK_ENCHANTCHIP(slot)
@@ -164,9 +166,15 @@ function CHECK_ENCHANTCHIP_TARGET_ITEM(slot)
 	end
 end
 
-function ENCHANTCHIP_LBTN_CLICK(frame, invItem)
+function ENCHANTCHIP_INV_RBTN(itemObj, slot)
 	local enchantFrame = ui.GetFrame("hairenchant");
-	local slot = enchantFrame:GetChild("slot");
-	slot  = tolua.cast(slot, 'ui::CSlot');
-	HAIRENCHANT_DRAW_HIRE_ITEM(slot, invItem);
+
+	local icon = slot:GetIcon();
+	local iconInfo = icon:GetInfo();
+	local invItem = GET_PC_ITEM_BY_GUID(iconInfo:GetIESID());
+
+	local enchantslot = GET_CHILD(enchantFrame, "slot");
+	enchantslot = tolua.cast(enchantslot, 'ui::CSlot');
+
+	HAIRENCHANT_DRAW_HIRE_ITEM(enchantslot, invItem);
 end

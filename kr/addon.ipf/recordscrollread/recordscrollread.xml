@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by MinstFaith (EMBRACE) -->
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<uiframe name="recordscrollread" x="250" y="0" width="643" height="690" create="open">
+	<frame title="책이름" layout_gravity="center center"/>
+	<draw drawtitlebar="false" titlebarfixwidth="false"/>
+	<input moveable="false"/>
+	<layer layerlevel="90"/>
+	<skin frameskin="none"/>
+	<script OpenScp="RECORD_SCROLL_UI_OPEN" CloseScp="RECORD_SCROLL_UI_CLOSE"/>
+	<option hideable="true" closebutton="false" useimageitem="true"/>
+	<sound opensound="sys_popup_open_1" closesound="character_item_window_close"/>
+	<controls>
+		<picture name="bg_img" rect="0 0 643 690" margin="0 0 0 0" layout_gravity="center center" changecursor="false" hittest="false" image="record_scroll_skin" stretch="false"/>
+		<flowtext name="text" rect="0 0 400 500" margin="121 121 0 0" layout_gravity="left top" fixwidth="true" rateheight="true" sildeshow="false" spacey="2" updateparent="true"/>
+		<richtext name="page" rect="0 0 100 100" margin="0 200 0 0" layout_gravity="center center" format="%s" param1="value" param1_def="1/1" fontname="bookfont" spacey="0"/>
+		<button name="prev_btn" rect="0 0 88 44" margin="-90 200 0 0" layout_gravity="center center" image="record_page_arrow_L" LBtnUpScp="RECORD_SCROLL_PREV_PAGE" oversound="button_over" clicksound="button_click_big"/>
+		<button name="next_btn" rect="0 0 88 44" margin="90 200 0 0" layout_gravity="center center" image="record_page_arrow_R" LBtnUpScp="RECORD_SCROLL_NEXT_PAGE" oversound="button_over" clicksound="button_click_big"/>
+		<button name="close_btn" rect="0 0 36 37" margin="0 40 100 0" layout_gravity="right top" image="gold_close_button" LBtnUpScp="RECORD_SCROLL_UI_CLOSE" oversound="button_over" clicksound="button_click_big"/>
+	</controls>
+</uiframe>

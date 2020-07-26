@@ -97,17 +97,17 @@ function SHOW_PC_CONTEXT_MENU(handle)
 		end
 			
 		local contextMenuCtrlName = string.format("{@st41}%s (%d){/}", pcObj:GetPCApc():GetFamilyName(), handle);
-		local context = ui.CreateContextMenu("PC_CONTEXT_MENU", pcObj:GetPCApc():GetFamilyName(), 0, 0, 170, 100);
+		local context = ui.CreateContextMenu("PC_CONTEXT_MENU", pcObj:GetPCApc():GetFamilyName(), 0, 0, 270, 100);
 
 		-- 여기에 캐릭터 정보보기, 로그아웃PC관련 메뉴 추가하면됨
 		if session.world.IsIntegrateServer() == false then
 			local strScp = string.format("exchange.RequestChange(%d)", pcObj:GetHandleVal());
-			ui.AddContextMenuItem(context, ClMsg("Exchange"), strScp);
+			ui.AddContextMenuItem(context, "{img context_transaction 18 18} "..ClMsg("Exchange"), strScp);
 		
 			local strWhisperScp = string.format("ui.WhisperTo('%s')", pcObj:GetPCApc():GetFamilyName());
-			ui.AddContextMenuItem(context, ClMsg("WHISPER"), strWhisperScp);
+			ui.AddContextMenuItem(context, "{img context_whisper 18 17} "..ClMsg("WHISPER"), strWhisperScp);
 			strScp = string.format("PARTY_INVITE(\"%s\")", pcObj:GetPCApc():GetFamilyName());
-			ui.AddContextMenuItem(context, ClMsg("PARTY_INVITE"), strScp);
+			ui.AddContextMenuItem(context, "{img context_party_invitation 18 17} "..ClMsg("PARTY_INVITE"), strScp);
                         
             --[[
 			if AM_I_LEADER(PARTY_GUILD) == 1 or IS_GUILD_AUTHORITY(1, session.loginInfo.GetAID()) == 1 then
@@ -117,11 +117,11 @@ function SHOW_PC_CONTEXT_MENU(handle)
 			--]]
 			if session.party.GetPartyInfo(PARTY_GUILD) ~= nil and targetInfo.hasGuild == false then
 				strScp = string.format("GUILD_INVITE(\"%s\")", pcObj:GetPCApc():GetFamilyName());
-				ui.AddContextMenuItem(context, ClMsg("GUILD_INVITE"), strScp);
+				ui.AddContextMenuItem(context, "{img context_guild_invitation 18 17} "..ClMsg("GUILD_INVITE"), strScp);
 			end
 
 			strscp = string.format("barrackNormal.Visit(%d)", handle);
-			ui.AddContextMenuItem(context, ScpArgMsg("VisitBarrack"), strscp);
+			ui.AddContextMenuItem(context, "{img context_lodging_visit 16 17} "..ScpArgMsg("VisitBarrack"), strscp);
 			strscp = string.format("ui.ToggleHeaderText(%d)", handle);
 			if pcObj:GetHeaderText() ~= nil and string.len(pcObj:GetHeaderText()) ~= 0 then
 				if pcObj:IsHeaderTextVisible() == true  then			
@@ -133,20 +133,20 @@ function SHOW_PC_CONTEXT_MENU(handle)
 		end
 
 		strscp = string.format("PROPERTY_COMPARE(%d)", handle);
-		ui.AddContextMenuItem(context, ScpArgMsg("Auto_SalPyeoBoKi"), strscp);
+		ui.AddContextMenuItem(context, "{img context_look_into 18 17} "..ScpArgMsg("Auto_SalPyeoBoKi"), strscp);
 			
 		if session.world.IsIntegrateServer() == false then
 			local strRequestAddFriendScp = string.format("friends.RequestRegister('%s')", pcObj:GetPCApc():GetFamilyName());
-			ui.AddContextMenuItem(context, ScpArgMsg("ReqAddFriend"), strRequestAddFriendScp);
+			ui.AddContextMenuItem(context, "{img context_friend_application 18 13} "..ScpArgMsg("ReqAddFriend"), strRequestAddFriendScp);
 		end
 
-		ui.AddContextMenuItem(context, ScpArgMsg("RequestFriendlyFight"), string.format("REQUEST_FIGHT(\"%d\")", pcObj:GetHandleVal()));
+		ui.AddContextMenuItem(context, "{img context_friendly_match 18 17} "..ScpArgMsg("RequestFriendlyFight"), string.format("REQUEST_FIGHT(\"%d\")", pcObj:GetHandleVal()));
 		-- ui.AddContextMenuItem(context, ScpArgMsg("RequestFriendlyAncientFight"), string.format("REQUEST_ANCIENT_FIGHT(\"%d\")", pcObj:GetHandleVal()));
 		
 		local mapprop = session.GetCurrentMapProp();
     	local mapCls = GetClassByType("Map", mapprop.type);	
 		if IS_TOWN_MAP(mapCls) == true then
-			ui.AddContextMenuItem(context, ScpArgMsg("PH_SEL_DLG_2"), string.format("REQUEST_PERSONAL_HOUSING_WARP(\"%d\")", pcObj:GetPCApc():GetAID()));
+			ui.AddContextMenuItem(context, "{img context_personal_housing 18 17} "..ScpArgMsg("PH_SEL_DLG_2"), string.format("REQUEST_PERSONAL_HOUSING_WARP(\"%d\")", pcObj:GetPCApc():GetAID()));
 		end
 
 		local familyname = pcObj:GetPCApc():GetFamilyName()
@@ -155,17 +155,17 @@ function SHOW_PC_CONTEXT_MENU(handle)
 		if session.world.IsIntegrateServer() == false then
 			local strRequestLikeItScp = string.format("SEND_PC_INFO(%d)", handle);
 			if session.likeit.AmILikeYou(familyname) == true then
-				ui.AddContextMenuItem(context, ScpArgMsg("ReqUnlikeIt"), strRequestLikeItScp);
+				ui.AddContextMenuItem(context, "{img context_like 18 17} "..ScpArgMsg("ReqUnlikeIt"), strRequestLikeItScp);
 			else
-				ui.AddContextMenuItem(context, ScpArgMsg("ReqLikeIt"), strRequestLikeItScp);
+				ui.AddContextMenuItem(context, "{img context_like 18 17} "..ScpArgMsg("ReqLikeIt"), strRequestLikeItScp);
 			end
 		end
 
-		ui.AddContextMenuItem(context, ScpArgMsg("Report_AutoBot"), string.format("REPORT_AUTOBOT_MSGBOX(\"%s\")", pcObj:GetPCApc():GetFamilyName()));
+		ui.AddContextMenuItem(context, "{img context_automatic_suspicion 16 17} "..ScpArgMsg("Report_AutoBot"), string.format("REPORT_AUTOBOT_MSGBOX(\"%s\")", pcObj:GetPCApc():GetFamilyName()));
 
         -- report guild emblem
         if  pcObj:IsGuildExist() == true then
-            ui.AddContextMenuItem(context, ScpArgMsg("Report_GuildEmblem"), string.format("REPORT_GUILDEMBLEM_MSGBOX(\"%s\")", pcObj:GetPCApc():GetFamilyName()));        
+            ui.AddContextMenuItem(context, "{img context_inappropriate_emblem 17 17} "..ScpArgMsg("Report_GuildEmblem"), string.format("REPORT_GUILDEMBLEM_MSGBOX(\"%s\")", pcObj:GetPCApc():GetFamilyName()));        
         end
 
 		-- 보호모드, 강제킥
@@ -182,7 +182,7 @@ function SHOW_PC_CONTEXT_MENU(handle)
 			ui.AddContextMenuItem(context, ScpArgMsg("IndunBadPlayerReport"), scp);
 		end
 
-		ui.AddContextMenuItem(context, ClMsg("Cancel"), "None");
+		ui.AddContextMenuItem(context, "{img context_cancel 18 17} "..ClMsg("Cancel"), "None");
 		ui.OpenContextMenu(context);
 		return  context;
 	end

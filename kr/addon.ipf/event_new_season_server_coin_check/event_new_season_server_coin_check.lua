@@ -82,18 +82,18 @@ function COIN_ACQUIRE_STATE_OPEN(frame)
 			curvalue = GET_CONTENT_MISSION_CLEAR_COUNT();
 			maxvalue = EVENT_NEW_SEASON_SERVER_CONTENT_MISSION_MAX_COUNT;
 		elseif i == 5 then
-			curvalue = GET_CONTENT_USE_ROULETTE_COUNT();
+			curvalue = GET_USE_ROULETTE_COUNT(accObj);
 			maxvalue = EVENT_NEW_SEASON_SERVER_ROULETTE_MAX_COUNT;
 
 			-- 이벤트 공개 전 음영처리
-			blackbg:ShowWindow(1);
-			blackbg:SetAlpha(90);
+			-- blackbg:ShowWindow(1);
+			-- blackbg:SetAlpha(90);
 
-			local pic2 = ctrlSet:CreateControl("picture", "comming_soon_pic", 0, 0, 316, 76);
-			tolua.cast(pic2, "ui::CPicture");
-			pic2:SetImage("coming_soon_notice");
-			pic2:SetGravity(ui.CENTER_HORZ, ui.CENTER_VERT);
-			pic2:SetEnableStretch(1);		
+			-- local pic2 = ctrlSet:CreateControl("picture", "comming_soon_pic", 0, 0, 316, 76);
+			-- tolua.cast(pic2, "ui::CPicture");
+			-- pic2:SetImage("coming_soon_notice");
+			-- pic2:SetGravity(ui.CENTER_HORZ, ui.CENTER_VERT);
+			-- pic2:SetEnableStretch(1);		
 		end
 
 		-- 진행도 완료시 음영처리
@@ -269,15 +269,6 @@ function GET_STAMP_TOUR_CLEAR_COUNT()
 			curCount = curCount + 1;
 		end
 	end
-
-	return curCount;
-end
-
-function GET_CONTENT_USE_ROULETTE_COUNT(frame)
-	local accObj = GetMyAccountObj();
-	if accObj == nil then return 0;	end
-
-	local curCount = TryGetProp(accObj, "EVENT_NEW_SEASON_SERVER_USE_ROULETTE_COUNT");
 
 	return curCount;
 end

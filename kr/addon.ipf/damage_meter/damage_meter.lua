@@ -12,12 +12,17 @@ end
 function DAMAGE_METER_UI_OPEN(frame,msg,strArg,numArg)
     frame:ShowWindow(1)
     WEEKLYBOSS_DPS_INIT(frame,strArg,numArg)
-    local button = GET_CHILD_RECURSIVELY(frame,"stageGiveUp")
-    button:SetEnable(1)
 end
 
-function WEEKLYBOSS_DPS_INIT(frame,handle,appTime)
-    DAMAGE_METER_SET_WEEKLY_BOSS(frame,tonumber(handle));
+function WEEKLYBOSS_DPS_INIT(frame,strArg,appTime)
+    local stringList = StringSplit(strArg,'/');
+    local handle = tonumber(stringList[1])
+    local is_practice = stringList[2]
+
+    local stageGiveUp = GET_CHILD_RECURSIVELY(frame,'stageGiveUp')
+    stageGiveUp:SetEnable(BoolToNumber(is_practice == "PRACTICE"))
+
+    DAMAGE_METER_SET_WEEKLY_BOSS(frame,handle);
 
     frame:SetUserValue("NOW_TIME",appTime)
     frame:SetUserValue("END_TIME",appTime + 60*7)

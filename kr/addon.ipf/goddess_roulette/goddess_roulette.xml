@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<uiframe name="goddess_roulette" x="0" y="0" width="4096" height="2048">
+	<frame fasthide="false" layout_gravity="center center" margin="0 0 0 0" draw="false"/>
+	<draw drawtitlebar="false"/>
+	<skin frameskin="None"/>
+	<layer layerlevel="95"/>
+	<option closebutton="false" moveable="false" hideable="false"/>
+	<userconfig BUTTON_CLICK_SOUND="button_click_stats_OK"/>
+    <script CloseScp="GODDESS_ROULETTE_CLOSE"/>
+	<controls>
+		<picture name="screenmask" rect="0 0 4096 2048" hittest="false" image="fullblack" stretch="true" alpha="50"/>
+		<!-- roulette info-->
+		<groupbox name="roulette_gb" rect="0 0 650 1000" margin="0 -35 0 0" layout_gravity="center center" draw="false" hittest="true" scrollbar="false"/>
+		<picture name="roulette_title" parent="roulette_gb" rect="0 0 637 466" margin="0 0 0 0" layout_gravity="center top" image="goddess_roulette_title" stretch="true"/>
+		<picture name="roulette_board" parent="roulette_gb" rect="0 0 363 363" margin="0 377 0 0" layout_gravity="center top" image="" stretch="true"/>
+		<picture name="roulette_frame" parent="roulette_gb" rect="0 0 648 619" margin="0 250 0 0" layout_gravity="center top" image="goddess_roulette_frame" stretch="true"/>
+		<picture name="roulette_allow" parent="roulette_gb" rect="0 0 205 201" margin="0 240 0 0" layout_gravity="center top" image="goddess_roulette_allow" stretch="true"/>
+		<button name="startbtn" parent="roulette_gb" rect="0 0 248 70" margin="0 850 0 0" layout_gravity="center top" skin="test_red_button" LBtnUpScp="GODDESS_ROULETTE_BTN_CLICK" format="{@st42b}{ol}{s20}룰렛 돌리기 (%s/%s)" param1="curCnt" param2="maxCnt" texttooltip="10개의 코인이 소모됩니다.">
+			<uieffect effect="UI_light013_spark_blue2" scale="10" overlab="No" sound="None" offset="0 0" playtime="1" duration="1" conditon="active" event="LBUTTONUP"/>
+			<uieffect effect="I_sys_item_slot4" scale="9" overlab="No" sound="None" offset="-2 0" playtime="1" duration="1" conditon="active" event="LBUTTONUP"/>
+		</button>
+		<button name="itembtn" parent="roulette_gb" rect="0 0 64 64" margin="150 865 0 0" layout_gravity="center top" image="guild_banner_menu_btn" LBtnUpScp="GODDESS_ROULETTE_ITEM_OPEN" texttooltip="획득 가능한 아이템 확인하기"/>
+		<button name="roulette_closeBtn" rect="0 0 36 37" margin="350 -450 0 0" layout_gravity="center center" image="testclose_button" LBtnUpScp="GODDESS_ROULETTE_CLOSE"/>
+		<!-- item list info-->
+		<groupbox name="itemlist_gb" rect="0 0 630 850" margin="500 0 0 0" layout_gravity="center center" draw="false" hittest="true"/>
+		<groupbox name="itemlist_gbbg" parent="itemlist_gb" rect="0 0 630 790" margin="0 20 0 0" layout_gravity="center center" skin="test_paper_bg" draw="true" hittest="false"/>
+		<button name="itemlist_closeBtn" parent="itemlist_gb" rect="0 0 36 37" margin="0 55 5 0" layout_gravity="right top" image="gold_close_button" LBtnUpScp="GODDESS_ROULETTE_ITEM_CLOSE"/>
+		<groupbox name="title_gb" parent="itemlist_gb" rect="0 0 520 80" margin="0 15 0 0" layout_gravity="center top" draw="true" skin="test_h_redribbon_skin" />
+		<richtext name="title" parent="title_gb" rect="0 0 500 60" margin="0 -2 0 0" layout_gravity="center center" caption="{@st43b}{s22}여신의 룰렛 획득 가능 아이템"/>
+		<groupbox name="itemlistbg" parent="itemlist_gb" rect="0 0 570 665" margin="0 105 0 0" layout_gravity="center top" draw="true" skin="test_frame_midle" scrollbar="false"/>		
+		<groupbox name="itemlist" parent="itemlistbg" rect="0 0 570 590" margin="0 70 0 0" layout_gravity="center top" draw="false"/>
+		<groupbox name="gradeinfo_gb" parent="itemlistbg" rect="0 0 560 53" margin="0 11 0 0" layout_gravity="center top" skin="test_pvp_resul_team"/>
+		<richtext name="gradeinfo_text" parent="gradeinfo_gb" rect="0 0 500 40" margin="0 0 0 0" layout_gravity="center center" format="{@st42b}{s20}%s ~ %s" param1="startgrade" param2="endgrade"/>
+		<richtext name="tiptext" parent="itemlist_gb" rect="0 0 30 40" margin="0 0 0 45" layout_gravity="center bottom" caption="{@st66b}{s16}* 누적 이용 횟수에 따라 획득 가능 아이템 등급이 바뀝니다."/>
+	</controls>
+</uiframe>

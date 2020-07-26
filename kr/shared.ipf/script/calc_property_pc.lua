@@ -1732,7 +1732,12 @@ function SCR_GET_RHPTIME(self)
     if byBuff == nil then
         byBuff = 0;
     end
-    
+
+    local squireBuff = GetBuffByName(self, 'squire_food3_buff')
+    if squireBuff ~= nil then
+        defaultTime = math.floor(defaultTime * (1 - GetExProp(squireBuff, "SQUIRE_FOOD_ADD_RHPTIME")))
+    end
+
     local value = defaultTime - byItem - byBuff;
 
     if IsBuffApplied(self, 'SitRest') == 'YES' then 
@@ -1813,13 +1818,29 @@ function SCR_GET_RSPTIME(self)
     if byBuff == nil then
         byBuff = 0;
     end
-    
+
+    local servantBuff = GetBuffByName(self, 'ServantSP_Buff')
+    if servantBuff ~= nil then
+        defaultTime = math.floor(defaultTime * (1 - GetExProp(servantBuff, "ADD_RSPTIME")))
+    end
+
+    local squireBuff = GetBuffByName(self, 'squire_food4_buff')
+    if squireBuff ~= nil then
+        defaultTime = math.floor(defaultTime * (1 - GetExProp(squireBuff, "SQUIRE_FOOD_ADD_RSPTIME")))
+    end
+
+    -- 딥디르비 제미나 여신상도 처리 필요
+    local zeminaBuff = GetBuffByName(self, 'CarveZemina_Buff')
+    if zeminaBuff ~= nil then
+        defaultTime = math.floor(defaultTime * (1 - GetExProp(zeminaBuff, "RSPTIME")))
+    end
+
     local value = defaultTime - byItem - byBuff;
     
     if IsBuffApplied(self, 'SitRest') == 'YES' then 
         value = value * 0.5;
     end
-    
+
     if value < 1000 then
         value = 1000;
     end
@@ -2272,7 +2293,13 @@ function SCR_Get_MSPD(self)
         if value >= GetExProp(self, 'SniperSPD') then
             return GetExProp(self, 'SniperSPD')
         end
-    end    
+    end
+    
+    if IsBuffApplied(self, 'Burrow_Rogue') == 'YES' then
+        if value >= GetExProp(self, 'BurrowSPD') then
+            return GetExProp(self, 'BurrowSPD')
+        end
+    end
     
     return math.floor(value);
 end

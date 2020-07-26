@@ -402,4 +402,9 @@
 			<groupbox name="lifetimegb" rect="0 0 410 0" margin="0 245 0 0" layout_gravity="center top" hittest="false" draw="false" scrollbar="false"/>
 		</controls>
 	</tooltip>
+	<tooltip name="targetbuffbutton_texthelp" x="0" y="0" width="100" height="30" moveable="true" lifetime="90000" blendtime="1500" UpdateScp="UPDATE_TXT_TOOLTIP">
+		<controls>
+			<richtext name="caption" rect="0 0 256 20" margin="10 1 0 0" layout_gravity="left center" fixwidth="false" updateparent="true"/>
+		</controls>
+	</tooltip>
 </tooltipset>

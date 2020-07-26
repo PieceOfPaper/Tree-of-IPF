@@ -1,22 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by IMCGames Co., Ltd (IMCGames Co., Ltd) -->
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
 <ActionDesc>
-	<BlendOn frame="30" R="150" G="200" B="200" A="200"/>
-	<Particle frame="68" attachNode="Dummy_dead" particleName="F_explosion004_green" useAttach="false" hiddenObj="false" scale="2" pause="true" targetPos="false" sound=""/>
-	<Particle frame="68" attachNode="Dummy_dead" particleName="boss_pbeta_dead" useAttach="false" hiddenObj="false" scale="1.5" pause="true" targetPos="false"/>
-	<Particle frame="68" attachNode="Dummy_dead" particleName="F_circle021_yellow" useAttach="false" hiddenObj="false" scale="4" pause="true" targetPos="false"/>
-	<Shockwave frame="68" type="2" intensity="20" frequency="70" duration="0.3" range="1000"/>
-	<Shockwave frame="70" type="2" intensity="20" frequency="70" duration="0.3" range="1000"/>
-	<Shockwave frame="72" type="2" intensity="20" frequency="70" duration="0.3" range="1000"/>
-	<BlendOff frame="90" R="0" G="0" B="0" A="0"/>
-	<Shockwave frame="68" type="2" intensity="20" frequency="70" duration="0.3" range="1000"/>
-	<Shockwave frame="70" type="2" intensity="20" frequency="70" duration="0.3" range="1000"/>
-	<Shockwave frame="72" type="2" intensity="20" frequency="70" duration="0.3" range="1000"/>
-	<Shockwave frame="75" type="2" intensity="20" frequency="70" duration="0.3" range="1000"/>
-	<Shockwave frame="77" type="2" intensity="20" frequency="70" duration="0.3" range="1000"/>
-	<Shockwave frame="79" type="2" intensity="20" frequency="70" duration="0.3" range="1000"/>
-	<Shockwave frame="81" type="2" intensity="20" frequency="70" duration="0.3" range="1000"/>
-	<Sound frame="0.00" soundFile="mon_voice_lapene_dead"/>
-	<Sound frame="3.00" soundFile="mon_tomblord_born"/>
-	<Sound frame="60.00" soundFile="skl_eff_dead_boom_stone"/>
+    <Sound frame="0.00" soundFile="mon_voice_lapene_dead"/>
+    <Sound frame="3.00" soundFile="mon_tomblord_born"/>
+    <BlendOn frame="30" R="150" G="200" B="200" A="200"/>
+    <Sound frame="37.00" soundFile="skl_eff_landing_m"/>
+    <Sound frame="60.00" soundFile="skl_eff_dead_boom_stone"/>
+    <Particle frame="68" attachNode="Dummy_dead" particleName="F_explosion004_green" useAttach="false" hiddenObj="false" scale="2" pause="true" targetPos="false" sound=""/>
+    <Particle frame="68" attachNode="Dummy_dead" particleName="boss_pbeta_dead" useAttach="false" hiddenObj="false" scale="1.5" pause="true" targetPos="false"/>
+    <Particle frame="68" attachNode="Dummy_dead" particleName="F_circle021_yellow" useAttach="false" hiddenObj="false" scale="4" pause="true" targetPos="false"/>
+    <BlendOff frame="90" R="0" G="0" B="0" A="0"/>
 </ActionDesc>
