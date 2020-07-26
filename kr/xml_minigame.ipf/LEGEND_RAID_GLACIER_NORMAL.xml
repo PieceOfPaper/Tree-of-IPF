@@ -89,10 +89,9 @@
                                 <Str Str="Glacier_Start"/>
                                 <Num Num="0"/>
                             </ToolScp>
-                            <ToolScp Scp="MGAME_EVT_SCRIPT_ARG" Client="NO" UseSleep="NO">
-                                <Str Str="SCR_LEGEND_GLACIER_CUSTOM_LOG"/>
-                                <Str Str="Legend_Raid_Glacier_Success"/>
-                                <Num Num="0"/>
+                            <ToolScp Scp="MGAME_STAGE_CHECK_LOG_STAGEPROGRESS" Client="NO" UseSleep="NO">
+                                <Str Str="LEGEND_RAID_GLACIER_NORMAL"/>
+                                <Str Str="MinigameSuccess"/>
                             </ToolScp>
                             <ToolScp Scp="MGAME_END" Client="NO" UseSleep="NO">
                                 <Num Num="1"/>
@@ -728,6 +727,19 @@
                             </ToolScp>
                         </execList>
                     </Event>
+                    <Event eventName="TopHaterCheck">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="10"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_EVT_SCP_TO_MON_CMD" Client="NO" UseSleep="NO">
+                                <MGameObj List="Boss_Pbeta/0"/>
+                                <Str Str="SCR_LEGEND_TOP_HATER_CHECK"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
                 </StageEvents>
             </Stage>
             <Stage Name="Boss_Glacier" AutoStart="0">
@@ -735,11 +747,18 @@
                     <Obj Type="Monster" MonType="59492" Pos="1238.11#602.46#1545.81" angle="-33" genCount="1" genTime="20000" objectKey="0" propList="&apos;DeadScript&apos; &apos;SCR_LEGEND_GLACIER_ALLCLEAR_BUFF_AND_PAD&apos; &apos;BornScript&apos; &apos;SCR_LEGEND_GLACIER_BORN_SCRIPT&apos; "/>
                     <Obj Type="Monster" MonType="157103" Pos="1119.74#602.46#1677.24" angle="-58" genCount="1" genTime="20000" objectKey="1" propList="&apos;Dialog&apos; &apos;LEGEND_GLACIER_USE_TORCH&apos; "/>
                     <Obj Type="Monster" MonType="157103" Pos="1406.59#602.46#1279.94" angle="-38" genCount="1" genTime="20000" objectKey="2" propList="&apos;Dialog&apos; &apos;LEGEND_GLACIER_USE_TORCH&apos; "/>
-                    <Obj Type="Monster" MonType="147455" Pos="1221.70#595.00#938.74" genCount="1" genTime="20000" objectKey="3"/>
-                    <Obj Type="Monster" MonType="147455" Pos="1183.00#558.34#739.45" genCount="1" genTime="20000" objectKey="4"/>
+                    <Obj Type="Monster" MonType="147455" Pos="1236.56#592.80#908.24" genCount="1" genTime="20000" objectKey="3"/>
+                    <Obj Type="Monster" MonType="147455" Pos="1222.50#546.99#689.18" angle="-88" genCount="1" genTime="20000" objectKey="4"/>
                     <Obj Type="Monster" MonType="160029" Pos="1229.14#609.07#1041.52" genCount="1" genTime="20000" objectKey="5" propList="&apos;Range&apos; &apos;4000&apos; &apos;Enter&apos; &apos;GLACIER_SOUND&apos; "/>
                     <Obj Type="Monster" MonType="160035" Pos="1080.15#602.46#1400.45" genCount="1" genTime="20000" objectKey="6" propList="&apos;Dialog&apos; &apos;LEGEND_RAID_GLACIER_COLD_BLAST_OBJECT&apos; "/>
                     <Obj Type="Monster" MonType="160035" Pos="1506.47#602.46#1606.44" angle="-138" genCount="1" genTime="20000" objectKey="7" propList="&apos;Dialog&apos; &apos;LEGEND_RAID_GLACIER_COLD_BLAST_OBJECT&apos; "/>
+                    <Obj Type="Monster" MonType="147455" Pos="-438.25#416.17#197.87" angle="167" genCount="1" genTime="20000" objectKey="8"/>
+                    <Obj Type="Monster" MonType="147455" Pos="-272.71#428.04#126.88" angle="-17" genCount="1" genTime="20000" objectKey="9"/>
+                    <Obj Type="Monster" MonType="147455" Pos="-91.09#439.54#75.54" angle="167" genCount="1" genTime="20000" objectKey="10"/>
+                    <Obj Type="Monster" MonType="147455" Pos="1219.20#574.47#789.78" genCount="1" genTime="20000" objectKey="11"/>
+                    <Obj Type="Monster" MonType="147455" Pos="1203.51#534.65#608.73" genCount="1" genTime="20000" objectKey="12"/>
+                    <Obj Type="Monster" MonType="147455" Pos="-339.69#425.79#164.62" angle="-12" genCount="1" genTime="20000" objectKey="13"/>
+                    <Obj Type="Monster" MonType="147455" Pos="-176.83#436.49#109.77" angle="175" genCount="1" genTime="20000" objectKey="14"/>
                 </ObjList>
                 <StageEvents>
                     <Event execCount="1" eventName="Clear_Check">
@@ -756,10 +775,6 @@
                             </ToolScp>
                             <ToolScp Scp="MGAME_EXEC_ACTORSCP" Client="NO" UseSleep="NO">
                                 <Str Str="SCR_GLACIER_DEAD_MSG"/>
-                            </ToolScp>
-                            <ToolScp Scp="MGAME_STAGE_CHECK_LOG_STAGEPROGRESS" Client="NO" UseSleep="NO">
-                                <Str Str="LEGEND_RAID_GLACIER_NORMAL"/>
-                                <Str Str="StageClear"/>
                             </ToolScp>
                         </execList>
                     </Event>
@@ -817,6 +832,19 @@
                             <ToolScp Scp="MGAME_STAGE_CHECK_LOG_STAGEPROGRESS" Client="NO" UseSleep="NO">
                                 <Str Str="LEGEND_RAID_GLACIER_NORMAL"/>
                                 <Str Str="StageStart"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event eventName="TopHaterCheck">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="10"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_EVT_SCP_TO_MON_CMD" Client="NO" UseSleep="NO">
+                                <MGameObj List="Boss_Glacier/0"/>
+                                <Str Str="SCR_LEGEND_TOP_HATER_CHECK"/>
                             </ToolScp>
                         </execList>
                     </Event>
