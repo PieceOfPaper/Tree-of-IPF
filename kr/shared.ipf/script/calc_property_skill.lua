@@ -12261,7 +12261,7 @@ end
 
 -- Matross_Roar
 function SCR_GET_Roar_Time(skill)
-    local value = 60
+    local value = 30
     return value
 end
 
