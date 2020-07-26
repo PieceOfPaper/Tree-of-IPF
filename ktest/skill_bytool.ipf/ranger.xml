@@ -86,55 +86,6 @@
         <ByCondSkills>
             <SubSkl>
                 <Cond>
-                    <ToolScp Client="NO" Scp="SKL_SELECT_EQUIP_SH_WEAPON" UseSleep="NO"/>
-                </Cond>
-                <Skill JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
-                    <EtcList>
-                        <Scp Client="YES" Scp="C_EFFECT" Time="270" UseSleep="NO">
-                            <Str_Arg Arg="2" Str="I_spin011"/>
-                            <Str Str="Dummy_effect_pns_force_ride"/>
-                            <Num Num="0"/>
-                        </Scp>
-                        <Scp Client="YES" Scp="C_SHOCKWAVE" Time="280" UseSleep="NO">
-                            <Num Num="1"/>
-                            <Num Num="0.2"/>
-                            <Num Num="45"/>
-                            <Num Num="999"/>
-                        </Scp>
-                        <Scp Client="YES" Scp="C_VOICE_SOUND" Time="300" UseSleep="NO">
-                            <Str Str="voice_war_atk_medium"/>
-                            <Str Str="voice_atk_medium_war_f"/>
-                        </Scp>
-                        <Scp Client="YES_Time" Scp="C_FORCE_EFT" Time="300" UseSleep="NO">
-                            <Str_Arg Arg="0.2" Str="I_arrow009_spiralarrow#Dummy_q_Force"/>
-                            <Str Str="arrow_cast"/>
-                            <Str_Arg Arg="1" Str="F_hit_good"/>
-                            <Str Str="arrow_blow"/>
-                            <Str Str="SLOW"/>
-                            <Num Num="800"/>
-                            <Num Num="2"/>
-                            <Num Num="0"/>
-                            <Angle_Abs Angle="0"/>
-                            <Num Num="0"/>
-                            <Num Num="5"/>
-                            <Num Num="0"/>
-                            <Num Num="0"/>
-                            <Num Num="1"/>
-                            <Num Num="0"/>
-                        </Scp>
-                    </EtcList>
-                    <ResultList>
-                        <ToolScp Client="NO" Scp="S_R_TGT_Decrease_heal_debuff" UseSleep="NO">
-                            <Str FuncTxt="local func_name = 'get_decrease_heal_debuff_tooltip_' .. TryGetProp(skill, 'ClassName', 'None')
-                            local func = _G[func_name]
-                            if func == nil then return end
-                            return func(skill.Level)" Str="0" UseFunc="1"/>
-                        </ToolScp>
-                    </ResultList>
-                </Skill>
-            </SubSkl>
-            <SubSkl>
-                <Cond>
                     <ToolScp Scp="SKL_SELECT_ABIL" Client="NO" UseSleep="NO">
                         <Str Str="Ranger45"/>
                     </ToolScp>
@@ -147,7 +98,7 @@
                         <Scp Scp="SKL_SET_TARGET_SQUARE" Client="NO" UseSleep="NO" Time="250">
                             <Pos Angle="0" Dist="0" PosType="5"/>
                             <Num Num="0"/>
-                            <Num Num="100"/>
+                            <Num Num="170"/>
                             <Num Num="15"/>
                             <Num Num="9"/>
                             <Num Num="2"/>
@@ -208,6 +159,55 @@
                             <Num Num="1"/>
                             <Num Num="100"/>
                             <Num Num="-1"/>
+                        </ToolScp>
+                    </ResultList>
+                </Skill>
+            </SubSkl>        
+            <SubSkl>
+                <Cond>
+                    <ToolScp Client="NO" Scp="SKL_SELECT_EQUIP_SH_WEAPON" UseSleep="NO"/>
+                </Cond>
+                <Skill JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+                    <EtcList>
+                        <Scp Client="YES" Scp="C_EFFECT" Time="270" UseSleep="NO">
+                            <Str_Arg Arg="2" Str="I_spin011"/>
+                            <Str Str="Dummy_effect_pns_force_ride"/>
+                            <Num Num="0"/>
+                        </Scp>
+                        <Scp Client="YES" Scp="C_SHOCKWAVE" Time="280" UseSleep="NO">
+                            <Num Num="1"/>
+                            <Num Num="0.2"/>
+                            <Num Num="45"/>
+                            <Num Num="999"/>
+                        </Scp>
+                        <Scp Client="YES" Scp="C_VOICE_SOUND" Time="300" UseSleep="NO">
+                            <Str Str="voice_war_atk_medium"/>
+                            <Str Str="voice_atk_medium_war_f"/>
+                        </Scp>
+                        <Scp Client="YES_Time" Scp="C_FORCE_EFT" Time="300" UseSleep="NO">
+                            <Str_Arg Arg="0.2" Str="I_arrow009_spiralarrow#Dummy_q_Force"/>
+                            <Str Str="arrow_cast"/>
+                            <Str_Arg Arg="1" Str="F_hit_good"/>
+                            <Str Str="arrow_blow"/>
+                            <Str Str="SLOW"/>
+                            <Num Num="800"/>
+                            <Num Num="2"/>
+                            <Num Num="0"/>
+                            <Angle_Abs Angle="0"/>
+                            <Num Num="0"/>
+                            <Num Num="5"/>
+                            <Num Num="0"/>
+                            <Num Num="0"/>
+                            <Num Num="1"/>
+                            <Num Num="0"/>
+                        </Scp>
+                    </EtcList>
+                    <ResultList>
+                        <ToolScp Client="NO" Scp="S_R_TGT_Decrease_heal_debuff" UseSleep="NO">
+                            <Str FuncTxt="local func_name = 'get_decrease_heal_debuff_tooltip_' .. TryGetProp(skill, 'ClassName', 'None')
+                            local func = _G[func_name]
+                            if func == nil then return end
+                            return func(skill.Level)" Str="0" UseFunc="1"/>
                         </ToolScp>
                     </ResultList>
                 </Skill>

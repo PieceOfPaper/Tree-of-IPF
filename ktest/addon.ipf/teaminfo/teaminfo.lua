@@ -11,21 +11,6 @@ function TEAMINFO_OPEN(frame)
 	
 	local AddY = 0;
 	
-	local gbox_top = GET_CHILD_RECURSIVELY(frame,"gb_top");
-	local btn_delete =gbox_top:GetChild("btn_teamDelete");
-	btn_delete:ShowWindow(0);
-	btn_delete:SetEnable(0);
-
-	-- 내 계정인 경우에만.
-	if session.barrack.GetCurrentAccount() ==  session.barrack.GetMyAccount() then
-		-- 삭제 버튼 활성화.
-		if charCount == 0 and petCount == 0 then
-			btn_delete:ShowWindow(1);
-			btn_delete:SetEnable(1);
-			AddY = btn_delete:GetHeight();
-		end
-	end
-	
 	-- 팀 정보 표시
 	local gbox_mid =  GET_CHILD_RECURSIVELY(frame,"gb_mid");
 	if gbox_mid ~= nil then
@@ -63,9 +48,9 @@ function TEAMINFO_OPEN(frame)
 end
 
 function TEAM_DELETE(frame, ctrl, arg1, arg2)
-	WARNINGMSGBOX_EX_FRAME_OPEN(frame, nil, 'TeamDeleteWarning;TeamDeleteWarningCompare/_EXEC_DELETE_TEAM', 0)
+	
 end
 
 function _EXEC_DELETE_TEAM()
-	barrack.RequestDeleteTeam();
+	
 end

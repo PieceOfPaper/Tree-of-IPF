@@ -988,13 +988,13 @@ function _ANCIENT_CARD_LOCK_MODE(isLockMode)
 	end
 	if isLockMode == 1 then
 		frame:SetUserValue("LOCK_MODE","YES")
-		ui.GuideMsg("SelectItem");
+		ui.GuideMsg("AncientCardLockMsg");
 		CHANGE_MOUSE_CURSOR("Lock", "Lock", "None");
 		local scpScp = string.format("_ANCIENT_CARD_LOCK_MODE(%d)",0);
 		ui.SetEscapeScp(scpScp);
 	else
 		frame:SetUserValue("LOCK_MODE","NO")
-		ui.RemoveGuideMsg("SelectItem");
+		ui.RemoveGuideMsg("AncientCardLockMsg");
 		RESET_MOUSE_CURSOR();
 		ui.SetEscapeScp("");
 	end

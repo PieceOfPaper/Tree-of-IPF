@@ -862,6 +862,9 @@ function SCR_Get_MINPATK(self)
     value = value + byBuff + byRateBuff;
 
     local decRatio = TryGetProp(self, 'PATK_RATE_MUL_BM', 1);
+    if decRatio < 0.5 then
+        decRatio = 0.5
+    end
     value = math.floor(value * decRatio)    
     
     local maxPATK = TryGetProp(self, "MAXPATK");
@@ -941,6 +944,9 @@ function SCR_Get_MAXPATK(self)
     value = value + byBuff + byRateBuff;
 
     local decRatio = TryGetProp(self, 'PATK_RATE_MUL_BM', 1);
+    if decRatio < 0.5 then
+        decRatio = 0.5
+    end
     value = math.floor(value * decRatio)
     
     if value < 1 then
@@ -1039,6 +1045,9 @@ function SCR_Get_MINPATK_SUB(self)
     value = value + byBuff + byRateBuff;
 
     local decRatio = TryGetProp(self, 'PATK_RATE_MUL_BM', 1);
+    if decRatio < 0.5 then
+        decRatio = 0.5
+    end
     value = math.floor(value * decRatio)
     
     local maxPATK_SUB = TryGetProp(self, "MAXPATK_SUB");
@@ -1122,6 +1131,9 @@ function SCR_Get_MAXPATK_SUB(self)
     value = value + byBuff + byRateBuff;
 
     local decRatio = TryGetProp(self, 'PATK_RATE_MUL_BM', 1);
+    if decRatio < 0.5 then
+        decRatio = 0.5
+    end
     value = math.floor(value * decRatio)
     
     if value < 1 then
@@ -1213,6 +1225,9 @@ function SCR_Get_MINMATK(self)
     value = value + byBuff + byRateBuff;
 
     local decRatio = TryGetProp(self, 'MATK_RATE_MUL_BM', 1);
+    if decRatio < 0.5 then
+        decRatio = 0.5
+    end
     value = math.floor(value * decRatio)
     
     local maxMATK = TryGetProp(self, "MAXMATK");
@@ -1296,6 +1311,9 @@ function SCR_Get_MAXMATK(self)
     value = value + byBuff + byRateBuff;
 
     local decRatio = TryGetProp(self, 'MATK_RATE_MUL_BM', 1);
+    if decRatio < 0.5 then
+        decRatio = 0.5
+    end
     value = math.floor(value * decRatio)
     
     if value < 1 then
@@ -1323,6 +1341,9 @@ function SCR_Get_DEF(self)
     value = value + byBuff + byRateBuff;
 
     local decRatio = TryGetProp(self, 'DEF_RATE_MUL_BM', 1);
+    if decRatio < 0.5 then
+        decRatio = 0.5
+    end
     value = math.floor(value * decRatio)
     
     local throwItemDef = 0;
@@ -1408,6 +1429,9 @@ function SCR_Get_MDEF(self)
     value = value + byEnchant + byBuff + byRateBuff;
 
     local decRatio = TryGetProp(self, 'MDEF_RATE_MUL_BM', 1);
+    if decRatio < 0.5 then
+        decRatio = 0.5
+    end
     value = math.floor(value * decRatio)
     
     return math.floor(value);
@@ -1744,6 +1768,9 @@ function SCR_Get_CRTDR(self)
     value = value + byItemRareOption + byBuff + byRateBuff;
 
     local decRatio = TryGetProp(self, 'CRTDR_RATE_MUL_BM', 1);
+    if decRatio < 0.5 then
+        decRatio = 0.5
+    end
     value = math.floor(value * decRatio)
 	
     if value < 0 then

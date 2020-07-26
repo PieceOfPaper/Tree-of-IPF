@@ -17,24 +17,36 @@ end
 
 function CHECK_PVP_MINE_ZONE_OPEN()
 	local pvp_mine_rule = SCR_PVP_MINE_GET_REGION_RULE()
-	
-	local now_time = os.date('*t')
-	local hour = now_time['hour']
-	local min = now_time['min']
 
-	local firstStartTime = pvp_mine_rule.StartHour*60+pvp_mine_rule.FirstStartMin
-	local secondStartTime = pvp_mine_rule.StartHour*60+pvp_mine_rule.SecondStartMin
-	local nowTime = hour * 60 + min
-	if nowTime - firstStartTime >= 0 and secondStartTime + 15 - nowTime >= 0 then
-		if nowTime - firstStartTime < 5 then
-			return pvp_mine_rule.FirstStartMap
-		elseif nowTime - secondStartTime < 0 then
-			return pvp_mine_rule.FirstStartMap,"pvp_mine_enter_5min"
-		elseif nowTime - secondStartTime < 5 then
-			return pvp_mine_rule.SecondStartMap
-		else
-			return pvp_mine_rule.SecondStartMap,"pvp_mine_enter_5min"
-		end
+	local diff = PVP_MINE_GET_DIFF_TIME()
+	if diff > 1200 then
+		return nil,"NotActiveTimePVP"
+	elseif diff > 840 then
+		return pvp_mine_rule.FirstStartMap
+	elseif diff >= 0 then
+		return pvp_mine_rule.FirstStartMap,"pvp_mine_enter_5min"
+	elseif diff > -360 then
+		return pvp_mine_rule.SecondStartMap
+	elseif diff > -900 then
+		return pvp_mine_rule.SecondStartMap,"pvp_mine_enter_5min"
 	end
 	return nil,"NotActiveTimePVP"
+end
+
+function PVP_MINE_GET_DIFF_TIME()
+	local now_time = os.date('*t')
+	local year = now_time['year']
+	local month = now_time['month']
+	local day = now_time['day']
+	local hour = now_time['hour']
+	local min = now_time['min']
+	local sec = now_time['sec']
+
+	local now = hour * 3600 + min * 60 + sec
+	local pvp_mine_rule = SCR_PVP_MINE_GET_REGION_RULE()
+	local pvp_time = 20 * 3600 + 30 * 60
+	if pvp_mine_rule ~= nil then
+		pvp_time = pvp_mine_rule.StartHour * 3600 + pvp_mine_rule.SecondStartMin * 60
+	end
+	return pvp_time - now
 end

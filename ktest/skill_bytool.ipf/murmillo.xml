@@ -157,6 +157,9 @@
                 <Frame Time="0" Dist="0" Angle="-0.00088965916" Accel="1" Height="0" MoveType="0" Gravity="600" JumpPower="300"/>
                 <Frame Time="100" Dist="67.826317" Angle="-0.0057586166" Accel="1" Height="0" MoveType="0" Gravity="600" JumpPower="300"/>
             </MoveList>
+            <HitList>
+                <Frame Angle="0" AniTime="9999" Dist="0" ForceATK="0" HitCount="1" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" TermMax="0" TermMin="0" Time="9799" Type="FAN"/>
+            </HitList>
             <EtcList>
                 <Scp Scp="MONSKL_C_PLAY_ANIM" Client="YES" UseSleep="NO" Time="0">
                     <Str Str="skl_shieldtrain"/>
@@ -230,6 +233,9 @@
                         <Frame Time="0" Dist="0" Angle="-0.00088965916" Accel="1" Height="0" MoveType="0" Gravity="600" JumpPower="300"/>
                         <Frame Time="100" Dist="67.826317" Angle="-0.0057586166" Accel="1" Height="0" MoveType="0" Gravity="600" JumpPower="300"/>
                     </MoveList>
+                    <HitList>
+                        <Frame Angle="0" AniTime="9999" Dist="0" ForceATK="0" HitCount="1" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" TermMax="0" TermMin="0" Time="9799" Type="FAN"/>
+                    </HitList>
                     <EtcList>
                         <Scp Scp="MONSKL_C_PLAY_ANIM" Client="YES" UseSleep="NO" Time="0">
                             <Str Str="skl_shieldtrain_abil"/>
@@ -286,7 +292,7 @@
                             <Num Num="0"/>
                             <Num Num="1"/>
                         </Scp>
-                        <Scp Scp="SKL_TGT_BUFF_ABIL" Client="NO" UseSleep="NO" Time="700" LoopTime="500">
+                        <Scp Scp="SKL_TGT_BUFF_ABIL" Client="NO" UseSleep="NO" Time="700">
                             <Str Str="Murmillo28"/>
                             <Str Str="ShieldTrain_Abil_Debuff"/>
                             <Num Num="1"/>

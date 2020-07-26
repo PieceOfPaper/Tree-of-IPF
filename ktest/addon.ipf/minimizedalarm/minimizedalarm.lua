@@ -7,19 +7,22 @@ end
 function ON_PVP_PLAYING_UPDATE(frame, msg, argStr,argNum)
 	local pvp_type = GET_PVP_TYPE()
 	if pvp_type == "PVP_MINE" then
-		local zoneName,msg = CHECK_PVP_MINE_ZONE_OPEN()
-		local frame = parent:GetTopParentFrame()
-		frame:ShowWindow(1)
-		local pic = GET_CHILD_RECURSIVELY(frame,"pic")
-		if msg == nil then
-			pic:SetEnable(1)
-			frame:ShowWindow(1)
-			pic:SetEventScript(ui.LBUTTONUP,"OPEN_INDUNINFO_TAB_BY_ARG")
-			pic:SetEventScriptArgString(ui.LBUTTONUP,"4")
-			pic:SetEventScriptArgNumber(ui.LBUTTONUP,1)
-		else
-			pic:SetEnable(0)
+		local diff = PVP_MINE_GET_DIFF_TIME()
+		local argStr = "None"
+		if diff <= -900 then
+			argStr = "HIDE"
+		elseif diff <= -358 then
+			argStr = "UNABLE"
+		elseif diff <= 2 then
+			argStr = "ENABLE"
+		elseif diff <= 842 then
+			argStr = "UNABLE"
+		elseif diff <= 1202 then
+			argStr = "ENABLE",1
+		elseif diff <= 1800 then
+			argStr = "SHOW",1
 		end
+		ON_PVP_MINE_STATE_UPDATE(frame,"",argStr,0)
 	elseif pvp_type == "TEAM_BATTLE" then
 		frame:ShowWindow(1);
 		local pic = GET_CHILD_RECURSIVELY(frame,"pic")
@@ -32,8 +35,8 @@ function ON_PVP_PLAYING_UPDATE(frame, msg, argStr,argNum)
 end
 
 function GET_PVP_TYPE()
-	local zoneName,msg = CHECK_PVP_MINE_ZONE_OPEN()
-	if zoneName ~= nil then
+	local diff = PVP_MINE_GET_DIFF_TIME()
+	if diff > -900 and diff <= 1800 then
 		return "PVP_MINE"
 	end
 	if true == IsHaveCommandLine("-NOPVP") then
@@ -58,8 +61,8 @@ function IS_ON_PVP()
 	if session.IsMissionMap() == true then
 		return false
 	end
-	local zoneName,msg = CHECK_PVP_MINE_ZONE_OPEN()
-	if zoneName ~= nil then
+	local diff = PVP_MINE_GET_DIFF_TIME()
+	if diff > -900 and diff <= 1800 then
 		return true
 	end
 	local cnt = session.worldPVP.GetPlayTypeCount();
@@ -71,15 +74,22 @@ end
 
 function ON_PVP_MINE_STATE_UPDATE(frame,msg,argStr,argNum)
 	local pic = GET_CHILD_RECURSIVELY(frame,"pic")
-	if argStr == "START" then
-		pic:SetEnable(1)
+	if argStr == "SHOW" then
+		pic:SetEnable(0)
 		frame:ShowWindow(1)
 		pic:SetEventScript(ui.LBUTTONUP,"OPEN_INDUNINFO_TAB_BY_ARG")
 		pic:SetEventScriptArgString(ui.LBUTTONUP,"4")
 		pic:SetEventScriptArgNumber(ui.LBUTTONUP,1)
-	elseif argStr == "ENTER_END" then
+	elseif argStr == "ENABLE" then
+		frame:ShowWindow(1)
+		pic:SetEnable(1)
+		pic:SetEventScript(ui.LBUTTONUP,"OPEN_INDUNINFO_TAB_BY_ARG")
+		pic:SetEventScriptArgString(ui.LBUTTONUP,"4")
+		pic:SetEventScriptArgNumber(ui.LBUTTONUP,1)
+	elseif argStr == "UNABLE" then
+		frame:ShowWindow(1)
 		pic:SetEnable(0)
-	elseif argStr == "END" then
+	elseif argStr == "HIDE" then
 		frame:ShowWindow(0)
 	end
 end

@@ -219,9 +219,19 @@
                 <Num Num="0"/>
             </ToolScp>
             <ToolScp Client="NO" Scp="SKL_PLAY_SOUND" UseSleep="NO">
-                <Str Str="skl_eff_piedpiper_friedenslied_melody" />
+                <Str Str="skl_eff_piedpiper_friedenslied_melody_abil" UseFunc="1" FuncTxt="local value = 'skl_eff_piedpiper_friedenslied_melody'
+                local abil = GetAbility(self, 'PiedPiper22')
+                if abil ~= nil and TryGetProp(abil, 'ActiveState', 0) == 1 then
+                value = 'skl_eff_piedpiper_friedenslied_melody_abil'
+                end
+                return value" />
                 <Num Num="0" />
-                <Str Str="skl_eff_piedpiper_friedenslied_melody" />
+                <Str Str="skl_eff_piedpiper_friedenslied_melody_abil" UseFunc="1" FuncTxt="local value = 'skl_eff_piedpiper_friedenslied_melody'
+                local abil = GetAbility(self, 'PiedPiper22')
+                if abil ~= nil and TryGetProp(abil, 'ActiveState', 0) == 1 then
+                value = 'skl_eff_piedpiper_friedenslied_melody_abil'
+                end
+                return value" />
             </ToolScp>
             <ToolScp Client="NO" Scp="SKL_BUFF" UseSleep="NO">
                 <Str Str="HamelnNagetier_Buff" />
@@ -242,8 +252,18 @@
             </ToolScp>            
             <ToolScp Client="YES" Scp="MONSKL_C_RESET_CASTING_ANIM" UseSleep="NO" />
             <ToolScp Client="NO" Scp="SKL_STOP_SOUND" UseSleep="NO">
-                <Str Str="skl_eff_piedpiper_friedenslied_melody" />
-                <Str Str="skl_eff_piedpiper_friedenslied_melody" />
+                <Str Str="skl_eff_piedpiper_friedenslied_melody_abil" UseFunc="1" FuncTxt="local value = 'skl_eff_piedpiper_friedenslied_melody'
+                local abil = GetAbility(self, 'PiedPiper22')
+                if abil ~= nil and TryGetProp(abil, 'ActiveState', 0) == 1 then
+                value = 'skl_eff_piedpiper_friedenslied_melody_abil'
+                end
+                return value" />
+                <Str Str="skl_eff_piedpiper_friedenslied_melody_abil" UseFunc="1" FuncTxt="local value = 'skl_eff_piedpiper_friedenslied_melody'
+                local abil = GetAbility(self, 'PiedPiper22')
+                if abil ~= nil and TryGetProp(abil, 'ActiveState', 0) == 1 then
+                value = 'skl_eff_piedpiper_friedenslied_melody_abil'
+                end
+                return value" />
             </ToolScp>
             <ToolScp Client="NO" Scp="SKL_CONSUME_SKILL_COOLDOWN" UseSleep="NO">
                 <Num Num="1" />

@@ -255,12 +255,12 @@
 	</Skill>
 	<Skill Name="RuneCaster_Isa">
 		<EndScripts>
-			<ToolScp Client="NO" Scp="SKL_CANCEL_CANCEL" UseSleep="NO" />
+            <ToolScp Scp="SKL_CANCEL_CANCEL" Client="NO" UseSleep="NO"/>
 		</EndScripts>
 		<KeyInput>
             <ToolScp Scp="SKL_KEY_DYNAMIC_CASTING" Client="YES" UseSleep="NO">
+                <Num Num="1"/>
                 <Num Num="0"/>
-				<Num Num="0" />
                 <Num Num="0" UseFunc="1" FuncTxt=" local value = 2  local pc = GetMyPCObject()  if IsBuffApplied(pc, &quot;Runcaster_Casting_Buff&quot;) == &quot;YES&quot; then   local castingBuffOver = GetBuffOver(pc, 'Runcaster_Casting_Buff')      value = 1   if castingBuffOver == 2 then    value = 0.5   end  end    return value"/>
 				<Num Num="0" />
 				<Num Num="1" />
@@ -286,7 +286,7 @@
 			</ToolScp>
 		</KeyInput>
 		<KeyInputStart>
-			<ToolScp Client="YES" Scp="MONSKL_C_CASTING_ANIM" UseSleep="NO">
+            <ToolScp Scp="MONSKL_C_CASTING_ANIM" Client="YES" UseSleep="NO">
 				<Str Str="SKL_ISA_CAST" />
 				<Str Str="None" />
 				<Num Num="1" />
@@ -294,33 +294,33 @@
 				<Str Str="None" />
 				<Str Str="ASTD" />
 			</ToolScp>
-			<ToolScp Client="YES" Scp="C_SHOW_PARTS_MODEL" UseSleep="NO">
+            <ToolScp Scp="C_SHOW_PARTS_MODEL" Client="YES" UseSleep="NO">
 				<Str Str="LH" />
 				<Num Num="0" />
 			</ToolScp>
-			<ToolScp Client="YES" Scp="C_SHOW_PARTS_MODEL" UseSleep="NO">
+            <ToolScp Scp="C_SHOW_PARTS_MODEL" Client="YES" UseSleep="NO">
 				<Str Str="RH" />
 				<Num Num="0" />
 			</ToolScp>
-			<ToolScp Client="NO" Scp="SKL_PLAY_SOUND" UseSleep="NO">
+            <ToolScp Scp="SKL_PLAY_SOUND" Client="NO" UseSleep="NO">
 				<Str Str="voice_wiz_f_isa_cast" />
 				<Num Num="0" />
 				<Str Str="voice_wiz_m_isa_cast" />
 			</ToolScp>
 		</KeyInputStart>
 		<KeyInputEnd>
-			<ToolScp Client="YES" Scp="MONSKL_C_RESET_CASTING_ANIM" UseSleep="NO" />
-			<ToolScp Client="NO" Scp="SKL_STOP_SOUND" UseSleep="NO">
+            <ToolScp Scp="MONSKL_C_RESET_CASTING_ANIM" Client="YES" UseSleep="NO"/>
+            <ToolScp Scp="SKL_STOP_SOUND" Client="NO" UseSleep="NO">
 				<Str Str="voice_wiz_f_isa_cast" />
 				<Str Str="voice_wiz_m_isa_cast" />
 			</ToolScp>
 		</KeyInputEnd>
-		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+        <MainSkl ScrLock="None" JumpFlee="NO" MSPDToUsePos="0">
 			<EtcList>
-				<Scp Client="YES_Time" Scp="C_FORCE_EFT" Time="0" UseSleep="NO">
-					<Str_Arg Arg="2" Str="I_wizard_FreezingSphere_force_loop#Dummy_Force" />
+                <Scp Scp="C_FORCE_EFT" Client="YES_Time" UseSleep="NO" Time="0">
+                    <Str_Arg Str="I_wizard_FreezingSphere_force_loop#Dummy_Force" Arg="2"/>
 					<Str Str="None" />
-					<Str_Arg Arg="0.5" FuncTxt=" local dynTime = self:GetKeyCastTime();  if dynTime &gt;= 1 then return  &quot;F_wizard_icebolt_hit_ice&quot;, 0.8; else return &quot;F_explosion086_ice_blue&quot;, 0.8; end   " Str="F_wizard_energybolt_hit_explosion" UseFunc="1" />
+                    <Str_Arg Str="F_wizard_energybolt_hit_explosion" UseFunc="1" FuncTxt=" local dynTime = self:GetKeyCastTime();  if dynTime >= 1 then return  &quot;F_wizard_icebolt_hit_ice&quot;, 0.8; else return &quot;F_explosion086_ice_blue&quot;, 0.8; end   " Arg="0.5"/>
 					<Str Str="None" />
 					<Str Str="SLOW" />
 					<Num Num="300" />
@@ -332,17 +332,17 @@
 					<Num Num="10" />
 					<Num Num="0" />
 				</Scp>
-				<Scp Client="NO" Scp="SKL_BUFF_ABIL" Time="0" UseSleep="NO">
+                <Scp Scp="SKL_BUFF_ABIL" Client="NO" UseSleep="NO" Time="0">
 					<Str Str="RuneCaster1" />
 					<Str Str="Runcaster_Casting_Buff" />
 					<Num Num="1" />
 					<Num Num="0" />
-					<Num FuncTxt=" local value = 3000  local abil = GetAbility(self, &quot;RuneCaster1&quot;)  if abil ~= nil then   value = value + abil.Level * 200      if abil.Level == 50 then    value = value + 2000   end  end    return value" Num="0" UseFunc="1" />
+                    <Num Num="0" UseFunc="1" FuncTxt=" local value = 3000  local abil = GetAbility(self, &quot;RuneCaster1&quot;)  if abil ~= nil then   value = value + abil.Level * 200      if abil.Level == 50 then    value = value + 2000   end  end    return value"/>
 					<Num Num="1" />
 					<Num Num="100" />
 					<Num Num="0" />
 				</Scp>
-				<Scp Client="YES" Scp="C_VOICE_SOUND" Time="100" UseSleep="NO">
+                <Scp Scp="C_VOICE_SOUND" Client="YES" UseSleep="NO" Time="100">
 					<Str Str="voice_wiz_m_isa_shot" />
 					<Str Str="voice_wiz_f_isa_shot" />
 				</Scp>
@@ -576,7 +576,7 @@
         </EndScripts>
         <KeyInput>
             <ToolScp Scp="SKL_KEY_DYNAMIC_CASTING" Client="YES" UseSleep="NO">
-                <Num Num="0"/>
+                <Num Num="1"/>
                 <Num Num="0"/>
                 <Num Num="0" UseFunc="1" FuncTxt="local value = 2
 local pc = GetMyPCObject()  

@@ -1018,6 +1018,17 @@ end"/>
 				<Num Num="1"/>
 				<Num Num="100"/>
 			</ToolScp>
+            <ToolScp Scp="PAD_BUFF_ENEMY_CHECK_APPLIED" Client="NO" UseSleep="NO">
+                <Str Str="ENEMY"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+                <Str Str="HallucinationSmoke_Debuff"/>
+                <Num Num="1"/>
+                <Num Num="0"/>
+                <Num Num="20000"/>
+                <Num Num="1"/>
+                <Num Num="100"/>
+            </ToolScp>
 			<ToolScp Scp="PAD_ADD_LIFE" Client="NO" UseSleep="NO">
 				<Num Num="-500"/>
 				<Num Num="1"/>
@@ -15805,7 +15816,7 @@ return value"/>
 			</ToolScp>
 		</updateEvent>
 	</PadSkill>
-        <PadSkill Name="QuarrelShooter_BlockAndShoot" CheckerType="0" Range="15" AllowOverlap="1">
+        <PadSkill Name="QuarrelShooter_BlockAndShoot" CheckerType="0" Range="15" ApplyFlyMon="1" AllowOverlap="1">
             <createEvent>
                 <ToolScp Scp="PAD_ADD_LIFE" Client="NO" UseSleep="NO">
                     <Num Num="1200"/>

@@ -10686,7 +10686,7 @@ function SCR_GET_SR_LV_PalmStrike(skill)
     local value = pc.SR + skill.SklSR;
     local abil = GetAbility(pc, "Monk34")
     if abil ~= nil and TryGetProp(abil, "ActiveState", 0) == 1 then
-        value = value * 2
+        value = value + 10
     end
     
     if value < 1 then
@@ -13325,21 +13325,23 @@ function SCR_COMMON_COOLDOWN_DECREASE(pc, skill, basicCoolDown)
     --     end
     -- end
     
+    local tempskill = GetSkill(pc, TryGetProp(skill, "ClassName", "None"))
+
 -- 바카리네 방어구
-    if IsBuffApplied(pc, 'ITEM_BUFF_vakarine_armor') == 'YES' and IsShieldSkill(TryGetProp(skill, 'ClassName', 'None')) == 1 and TryGetProp(skill, 'ValueType', 'None') == 'Attack' then 
+    if IsBuffApplied(pc, 'ITEM_BUFF_vakarine_armor') == 'YES' and IsShieldSkill(TryGetProp(tempskill, 'ClassName', 'None')) == 1 and TryGetProp(tempskill, 'ValueType', 'None') == 'Attack' then 
         basicCoolDown = basicCoolDown * (1 - 0.2) -- 감소율 20%
     end
 
-    -- 달리아 방어구
-    if IsBuffApplied(pc, 'ITEM_BUFF_dalia_fury') == 'YES' and TryGetProp(skill, 'CastingCategory', 'None') == 'channeling' and TryGetProp(skill, 'ValueType', 'None') == 'Attack' then
+    -- 달리아 방어구    
+    if IsBuffApplied(pc, 'ITEM_BUFF_dalia_fury') == 'YES' and TryGetProp(tempskill, 'CastingCategory', 'None') == 'channeling' and TryGetProp(tempskill, 'ValueType', 'None') == 'Attack' then
         basicCoolDown = basicCoolDown * (1 - 0.2) -- 감소율 20%
     end
 
     -- 가비야의 선물    
     if IsBuffApplied(pc, 'ITEM_BUFF_gabija_present') == 'YES' then
-        if TryGetProp(skill, 'CastingCategory', 'None') == 'cast' and TryGetProp(skill, 'ValueType', 'None') == 'Attack' then
+        if TryGetProp(tempskill, 'CastingCategory', 'None') == 'cast' and TryGetProp(tempskill, 'ValueType', 'None') == 'Attack' then
             basicCoolDown = basicCoolDown * (1 - 0.2) -- 감소율 20%
-        elseif TryGetProp(skill, 'CastingCategory', 'None') == 'dynamic_casting' and TryGetProp(skill, 'ValueType', 'None') == 'Attack' then
+        elseif TryGetProp(tempskill, 'CastingCategory', 'None') == 'dynamic_casting' and TryGetProp(tempskill, 'ValueType', 'None') == 'Attack' then
             basicCoolDown = basicCoolDown * (1 - 0.1) -- 감소율 1%
         end
     end

@@ -5087,7 +5087,7 @@
 			<richtext name="ancient_card_type1_text" parent="ancient_card_type_gbox" margin="0 7 20 0" rect="0 0 163 20" param1_def="1" layout_gravity="right top"/>
 			<slot name="ancient_card_type2_pic" parent="ancient_card_type_gbox" rect="0 0 25 25" margin="20 33 0 0"/>
 			<richtext name="ancient_card_type2_text" parent="ancient_card_type_gbox" margin="0 37 20 0" rect="0 0 20 20" param1_def="1" layout_gravity="right top"/>
-			<picture name="gold_border" rect="0 0 163 216" margin="0 0 0 0" hittest="false" layout_gravity="center center"/>
+			<picture name="gold_border" rect="0 0 161 221" margin="0 -4 0 0" hittest="false" layout_gravity="center center"/>
 		</controls>
 	</controlset>
 	<controlset name="ancient_card_item_list" hittest="true" width="646" height="59" skin="monster_card_list" stateskin="false">

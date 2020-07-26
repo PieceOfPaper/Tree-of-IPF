@@ -38,20 +38,23 @@
         </MainSkl>
     </Skill>
     <Skill Name="PlagueDoctor_PlagueVapours">
-        <MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+        <MainSkl ScrLock="None" JumpFlee="NO" MSPDToUsePos="0">
             <HitList>
-                <Frame Angle="0" AniTime="9999" Dist="0" ForceATK="0" HitCount="1" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" TermMax="0" TermMin="0" Time="9799" Type="FAN"/>
+                <Frame Type="FAN" Time="9799" HitCount="1" TermMin="0" TermMax="0" PosType="0" Dist="0" RandDist="0" RandomPerHit="0" Angle="0" AniTime="9999" RotAngle="0" ForceATK="0" ScriptIndex="0" ScriptName="" SkillType="0"/>
             </HitList>
             <EtcList>
-                <Scp Client="NO" Scp="MONSKL_CRE_PAD" Time="0" UseSleep="NO">
+                <Scp Scp="MONSKL_CRE_PAD" Client="NO" UseSleep="NO" Time="0">
                     <Pos Angle="0" Dist="60"/>
                     <Angle Angle="0"/>
                     <Str Str="PlagueDoctor_PlagueVapours"/>
                     <Str Str="true"/>
                 </Scp>
-                <Scp Client="YES" Scp="C_VOICE_SOUND" Time="0" UseSleep="NO">
+                <Scp Scp="C_VOICE_SOUND" Client="YES" UseSleep="NO" Time="0">
                     <Str Str="voice_archer_atk"/>
                     <Str Str="voice_archer_f_atk"/>
+                </Scp>
+                <Scp Scp="SKL_RUN_SCRIPT" Client="NO" UseSleep="NO" Time="0">
+                    <Str Str="SCR_WHITEBEAKMASK_BUFF_ABIL"/>
                 </Scp>
             </EtcList>
         </MainSkl>
@@ -175,26 +178,13 @@
         <MainSkl ScrLock="None" JumpFlee="NO" MSPDToUsePos="0">
             <EtcList>
                 <Scp Scp="MONSKL_C_PLAY_ANIM" Client="YES" UseSleep="NO" Time="0">
-                    <Str Str="" UseFunc="1" FuncTxt="    local anim = &quot;SKL_BEAKMASK_ON&quot;
-    local abil = session.GetAbilityByName(&quot;PlagueDoctor23&quot;);
-    if abil ~= nil then
-        local abilObj = GetIES(abil:GetObject());
-        if abilObj.ActiveState == 1 then
-            anim = &quot;SKL_BEAKMASK_ON_ABIL&quot;
-        end
-    end
-    return anim"/>
+                    <Str Str="skl_Beakmask_on"/>
                     <Num Num="1"/>
                     <Num Num="1"/>
                     <Num Num="0"/>
                 </Scp>
                 <Scp Scp="SKL_BUFF" Client="NO" UseSleep="NO" Time="0">
-                    <Str Str="" UseFunc="1" FuncTxt="    local buff = &quot;BeakMask_Buff&quot;
-    local abil = GetAbility(self, &quot;PlagueDoctor23&quot;)
-    if abil ~= nil and TryGetProp(abil, &quot;ActiveState&quot;, 0) == 1 then
-        buff = &quot;WhiteBeakMask_Buff&quot;
-    end
-    return buff"/>
+                    <Str Str="BeakMask_Buff"/>
                     <Num Num="1" UseFunc="1" FuncTxt="return obj.Level"/>
                     <Num Num="0"/>
                     <Num Num="60000" UseFunc="1" FuncTxt="local value = 60000 if IsPVPServer(self) == 1 or IsPVPField(self) == 1 then value = math.floor(value / 3) end return value;"/>
@@ -209,6 +199,39 @@
                 </Scp>
             </EtcList>
         </MainSkl>
+        <ByCondSkills>
+            <SubSkl>
+                <Cond>
+                    <ToolScp Scp="SKL_SELECT_ABIL" Client="NO" UseSleep="NO">
+                        <Str Str="PlagueDoctor23"/>
+                    </ToolScp>
+                </Cond>
+                <Skill ScrLock="None" JumpFlee="NO" MSPDToUsePos="0">
+                    <EtcList>
+                        <Scp Scp="MONSKL_C_PLAY_ANIM" Client="YES" UseSleep="NO" Time="0">
+                            <Str Str="skl_Beakmask_on_abil"/>
+                            <Num Num="1"/>
+                            <Num Num="1"/>
+                            <Num Num="0"/>
+                        </Scp>
+                        <Scp Scp="SKL_BUFF" Client="NO" UseSleep="NO" Time="0">
+                            <Str Str="WhiteBeakMask_Buff"/>
+                            <Num Num="1" UseFunc="1" FuncTxt="return obj.Level"/>
+                            <Num Num="0"/>
+                            <Num Num="60000"/>
+                            <Num Num="1"/>
+                            <Num Num="100"/>
+                            <Num Num="0"/>
+                        </Scp>
+                        <Scp Scp="C_EFFECT" Client="YES" UseSleep="NO" Time="0">
+                            <Str_Arg Str="F_smoke064_grey" Arg="0.40000001"/>
+                            <Str Str="Bip01 Head"/>
+                            <Num Num="0"/>
+                        </Scp>
+                    </EtcList>
+                </Skill>
+            </SubSkl>
+        </ByCondSkills>
     </Skill>
     <Skill Name="PlagueDoctor_Bloodletting">
         <MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">

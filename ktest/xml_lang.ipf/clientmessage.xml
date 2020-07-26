@@ -9806,7 +9806,7 @@
 		<Class ClassID="105011" ClassName="AleadyPutInBasketReallyBuy?" Data="장바구니에 이미 있는 아이템입니다.{nl}장바구니에 담겠습니까?"/>
 		<Class ClassID="105012" ClassName="AleadyPutInBasket" Data="장바구니에 이미 있는 아이템입니다."/>
 		<Class ClassID="105013" ClassName="NoItemInBasket" Data="장바구니에 담긴 상품이 없습니다."/>
-		<Class ClassID="105014" ClassName="PremiumTabBuyMsg{TP}{HAVE}{BASKET}{RET}" Data="총 {#FF0000}{TP} TP{/}에 위 상품을 구매하시겠습니까?{nl} {nl}-보유중인 TP {#0000FF}{HAVE}{/}{nl}-장바구니 TP {#0000FF}{BASKET}{/}{nl}-구매 후 잔여 TP {#0000FF}{RET}{/}"/>
+		<Class ClassID="105014" ClassName="PremiumTabBuyMsg{TP}{HAVE}{BASKET}{RET}" Data="총 {#FF0900}{TP} TP{/}에 위 상품을 구매하시겠습니까?{nl} {nl}- 보유중인 TP {#0050FF}{HAVE}{/}{nl}- 장바구니 TP {#0050FF}{BASKET}{/}{nl}- 구매 후 잔여 TP {#0050FF}{RET}{/}"/>
 	</Category>
 	<Category Name="Market">
 		<Class ClassID="106001" ClassName="Seller" Data="판매자"/>
@@ -13849,8 +13849,8 @@
 		<Class ClassID="300160" ClassName="Premium_StatReset_Trade" Data="빛나는 스탯 초기화 포션"/>
 		<Class ClassID="300161" ClassName="Premium_SkillReset_Trade" Data="빛나는 스킬 초기화 포션"/>
 		<Class ClassID="300162" ClassName="Costume_Box" Data="코스튬 상자"/>
-		<Class ClassID="300163" ClassName="LimitPaymentGuidMsg" Data="이번 달 {Value} 만큼의 TP를 더 소모할 수 있습니다. {/}한도액 증가 및 문의 사항이 있는 경우 티켓을 보내 주세요."/>
-		<Class ClassID="300164" ClassName="LimitPaymentExcessMsg" Data="이번 달 {Value} 만큼 초과 하였습니다. {/}한도액 증가 및 문의 사항이 있는 경우 티켓을 보내 주세요."/>
+		<Class ClassID="300163" ClassName="LimitPaymentGuidMsg" Data="{#FFFFFF}{ol}{s18}이번 달 {#0050FF}{Value}{/} 만큼의 TP를 더 소모할 수 있습니다.{nl}{/}한도액 증가 및 문의 사항이 있는 경우 티켓을 보내 주세요.{/}{/}{/}"/>
+		<Class ClassID="300164" ClassName="LimitPaymentExcessMsg" Data="{#FFFFFF}{ol}{s18}이번 달 {#FF0900}{Value}{/} 만큼 초과 하였습니다.{nl} {/}한도액 증가 및 문의 사항이 있는 경우 티켓을 보내 주세요.{/}{/}{/}"/>
 		<Class ClassID="300165" ClassName="GachaMsg" Data="{Name} 열기"/>
 		<Class ClassID="300166" ClassName="PurchaseItemExceeded" Data="{Value}개 까지 구매 가능한 아이템입니다."/>
 		<Class ClassID="300167" ClassName="SelectPurchaseRestrictedItem" Data="해당 아이템은 팀당 {Value}개만 구매할 수 있습니다.{nl}구매하시겠습니까?"/>
@@ -14722,6 +14722,7 @@
 		<Class ClassID="820049" ClassName="AncientAddMaxCost" Data="어시스터 코스트가 {addCost} 증가하였습니다."/>
 		<Class ClassID="820052" ClassName="AncientCombineSameCard" Data="동일한 카드 3장으로는 합성할 수 없습니다.{/}"/>
 		<Class ClassID="820053" ClassName="AncientCardLock" Data="어시스터가 잠금 상태입니다."/>
+		<Class ClassID="820054" ClassName="AncientCardLockMsg" Data="잠금 설정할 어시스터를 선택해주세요."/>
 	</Category>
 	<Category Name="NXA">
 		<Class ClassID="900000" ClassName="NXABillingPurchaseSuccess" Data="?????????????"/>

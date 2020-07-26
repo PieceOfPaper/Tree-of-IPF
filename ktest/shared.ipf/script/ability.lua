@@ -1287,6 +1287,7 @@ function SCR_ABIL_Highlander42_INACTIVE(self, ability)
         SetSkillOverHeat(self, TryGetProp(skill, "ClassName", "None"), 5, 1);
         RequestResetOverHeat(self, "SkyLiner_OH")
         InvalidateSkill(self, skill.ClassName);
+        SendSkillProperty(self, skill)
     end
 end
 
@@ -2583,6 +2584,8 @@ function SCR_ABIL_Blossomblader19_ACTIVE(self, ability)
     local skill = GetSkill(self, "BlossomBlader_Flash");
     if skill ~= nil then
         skill.CastingCategory = "cast"
+        skill.AttackType = "Slash"
+
         InvalidateSkill(self, TryGetProp(skill, "ClassName", "None"))
     end
 end
@@ -2591,6 +2594,8 @@ function SCR_ABIL_Blossomblader19_INACTIVE(self, ability)
     local skill = GetSkill(self, "BlossomBlader_Flash");
     if skill ~= nil then
         skill.CastingCategory = "instant"
+        skill.AttackType = "Aries"
+
         InvalidateSkill(self, skill.ClassName);
     end
 end
@@ -2693,40 +2698,14 @@ function SCR_ABIL_Outlaw26_INACTIVE(self, ability)
 end 
 function SCR_ABIL_Fencer20_ACTIVE(self, ability) 
     if IsBuffApplied(self, 'EpeeGarde_Buff') == 'YES' then
-        local addATK = 0;
-
-        local rItem  = GetEquipItem(self, 'RH');
-        local lItem  = GetEquipItem(self, 'LH');
-        if TryGetProp(rItem, "ClassType", "None") == "Rapier" and TryGetProp(lItem, "ClassType", "None") == "Dagger" then
-            local akt = (lItem.MINATK + lItem.MAXATK) / 2
-            addATK = math.floor(akt * 0.25);
-        end
-
-        local add_rate = 1;
-        if IsBuffApplied(self, 'SwellHands_Buff') == 'YES' then
-            local swellhands_buff = GetBuffByName(self, 'SwellHands_Buff');
-            local max_ratio = GetExProp(swellhands_buff, 'MAX_RATIO');
-            add_rate = add_rate + (max_ratio / 100);
-        end
-
-        if IsBuffApplied(self, 'Honor_Buff') == 'YES' then
-            local honor_buff = GetBuffByName(self, 'Honor_Buff');
-            local add_patk = GetExProp(honor_buff, 'ADD_PATK');
-            add_rate = add_rate + add_patk;
-        end
-
-        addATK = addATK * add_rate;
-        
-        self.PATK_MAIN_BM = self.PATK_MAIN_BM + addATK;
-        
-        SetExProp(ability, "ABIL_ADD_ATK", addATK);
+        SCR_ABIL_Fencer20_CALC(self, ability)
     end
 end
 
 function SCR_ABIL_Fencer20_INACTIVE(self, ability)
-    local addATK = GetExProp(ability, "ABIL_ADD_ATK");
+    local addATK = GetExProp(ability, "Fencer20_ADD_ATK");
     self.PATK_MAIN_BM = self.PATK_MAIN_BM - addATK;
-    DelExProp(ability,"ABIL_ADD_ATK")
+    DelExProp(ability,"Fencer20_ADD_ATK")
 end
  
 function SCR_ABIL_Paladin43_ACTIVE(self, ability)
@@ -2767,4 +2746,12 @@ function SCR_ABIL_Sapper42_INACTIVE(self, ability)
         InvalidateSkill(self, skill.ClassName);
         SendSkillProperty(self, skill);
     end
+end
+
+function SCR_ABIL_Chaplain21_ACTIVE(self, ability)
+    RemoveBuff(self, "Aspergillum_Buff")
+end
+
+function SCR_ABIL_Chaplain21_INACTIVE(self, ability)
+
 end

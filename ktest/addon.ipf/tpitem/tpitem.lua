@@ -2581,11 +2581,11 @@ function TPSHOP_ITEM_BASKET_BUY(parent, control)
         end
 	end
 
-	local itemMsg = "{#0000FF}";
+	local itemMsg = "{@st66d_y}{s20}";
 	for k,v in pairs(itemNamelist) do 
 		itemMsg = itemMsg..string.format("%s x %d {nl}", k, v);
 	end
-	local msg = itemMsg.."{/} {nl}"..ScpArgMsg("PremiumTabBuyMsg{TP}{HAVE}{BASKET}{RET}", "TP", allPrice, "HAVE", GET_CASH_TOTAL_POINT_C(), "BASKET", allPrice, "RET", GET_CASH_TOTAL_POINT_C()-allPrice);
+	local msg = itemMsg.."{/}{/}{/} {nl}{#FFFFFF}{ol}{s18}"..ScpArgMsg("PremiumTabBuyMsg{TP}{HAVE}{BASKET}{RET}", "TP", allPrice, "HAVE", GET_CASH_TOTAL_POINT_C(), "BASKET", allPrice, "RET", GET_CASH_TOTAL_POINT_C()-allPrice);
 	
 	if #needWarningItemList > 0 or #cannotEquip > 0 then
     	OPEN_TPITEM_POPUPMSG(needWarningItemList, noNeedWarning, cannotEquip, itemAndTPItemIDTable, allPrice);
