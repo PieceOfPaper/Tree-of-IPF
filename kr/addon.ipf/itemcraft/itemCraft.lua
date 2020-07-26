@@ -388,9 +388,8 @@ function CRAFT_HAVE_MATERIAL(recipecls)
 	for i = 1 , 5 do
 		if recipecls["Item_"..i.."_1"] ~= "None" then
 			
-			local recipeItemCnt, invItemCnt = GET_RECIPE_MATERIAL_INFO(recipecls, i);
-                        
-			if recipeItemCnt > invItemCnt then
+			local recipeItemCnt, invItemCnt = GET_RECIPE_MATERIAL_INFO(recipecls, i);            
+			if math.is_larger_than(tostring(recipeItemCnt), tostring(invItemCnt)) == 1 then
 				return 0;
 			end
 			
@@ -1889,6 +1888,38 @@ function CRAFT_ITEM_ALL(itemSet, btn)
 		local invframe = ui.GetFrame('inventory')
 		btn:ShowWindow(0)
 		INVENTORY_UPDATE_ICONS(invframe)
+	end
+end
+
+-- 용병단 증표
+function CRAFT_PVP_MINE_ITEM_ALL(itemSet, btn)
+	local itemname = itemSet:GetUserValue("ClassName");
+	
+	if itemname ~= 'misc_pvp_mine2' then
+		return;
+	end
+	
+	local targetslot = GET_CHILD(itemSet, "slot", "ui::CSlot");	
+	local materialItemCnt = tonumber(targetslot:GetEventScriptArgString(ui.DROP));
+	
+	if itemname == 'misc_pvp_mine2' then
+		local myAccount = GetMyAccountObj()		
+		local count = TryGetProp(myAccount, 'MISC_PVP_MINE2', '0')
+		if count == 'None' then
+			count = '0'
+		end
+		if math.is_larger_than(tostring(materialItemCnt), count) == 1 then
+			ui.SysMsg(ClMsg('NotEnoughRecipe'))
+			return
+		end
+		local icon = targetslot:GetIcon();			
+		targetslot:SetEventScript(ui.RBUTTONUP, "CRAFT_ITEM_CANCEL");
+
+		--슬롯 컬러톤 및 폰트 밝게 변경. 
+		icon:SetColorTone('FFFFFFFF')
+		itemSet:SetUserValue("MATERIAL_IS_SELECTED", 'selected');
+		local invframe = ui.GetFrame('inventory')
+		btn:ShowWindow(0)		
 	end
 end
 

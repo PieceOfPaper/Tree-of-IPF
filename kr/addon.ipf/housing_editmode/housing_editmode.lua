@@ -90,20 +90,25 @@ function OPEN_HOUSING_EDITMODE()
 	
 	ui.CloseFrame("questinfoset_2");
 	
-	local option = IsEnabledOption("HousingPromoteLock");
-	if option == 0 then
-		local gbox_editmode = GET_CHILD_RECURSIVELY(frame, "gbox_editmode");
-		gbox_editmode:Resize(280, 315);		
-
-		local btn_promote = GET_CHILD_RECURSIVELY(frame, "btn_promote");
-		btn_promote:ShowWindow(1);		
-	else
-		local gbox_editmode = GET_CHILD_RECURSIVELY(frame, "gbox_editmode");
-		gbox_editmode:Resize(280, 260);
-
-		local btn_promote = GET_CHILD_RECURSIVELY(frame, "btn_promote");
-		btn_promote:ShowWindow(0);		
-    end
+	local currentMapName = session.GetMapName();
+	local housingPlaceClass = GetClass("Housing_Place", currentMapName);
+	if housingPlaceClass ~= nil then
+		local type = TryGetProp(housingPlaceClass, "Type");
+		local option = IsEnabledOption("HousingPromoteLock");
+		if option == 0 and type == "Personal" then
+			local gbox_editmode = GET_CHILD_RECURSIVELY(frame, "gbox_editmode");
+			gbox_editmode:Resize(280, 315);		
+	
+			local btn_promote = GET_CHILD_RECURSIVELY(frame, "btn_promote");
+			btn_promote:ShowWindow(1);		
+		else
+			local gbox_editmode = GET_CHILD_RECURSIVELY(frame, "gbox_editmode");
+			gbox_editmode:Resize(280, 260);
+	
+			local btn_promote = GET_CHILD_RECURSIVELY(frame, "btn_promote");
+			btn_promote:ShowWindow(0);		
+		end
+	end
 end
 
 function HOUSING_EDITMODE_CONTROL_IMAGE_SET(isOpen, isMoveRemove)

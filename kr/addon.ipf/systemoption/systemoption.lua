@@ -3,10 +3,25 @@ function SYSTEMOPTION_ON_INIT(addon, frame)
 	INIT_GAMESYS_CONFIG(frame);
 end
 
-function SYSTEMOPTION_CREATE(frame)
+function CONFIG_FIRST_OPEN(frame)
+	SYSTEMOPTION_CREATE(frame)
+	UPDATE_OPERATOR_CONFIG(frame);
+end
 
+function SYS_OPTION_OPEN(frame)
+	CONFIG_FIRST_OPEN(frame)
+end
+
+function SYS_OPTION_CLOSE()
+end
+
+function UPDATE_OPERATOR_CONFIG(frame)
+end
+
+function SYSTEMOPTION_CREATE(frame)
 	local bg2 = GET_CHILD_RECURSIVELY(frame, "bg2", "ui::CGroupBox")
-	bg2:SetScrollPos(0)
+	bg2:SetScrollPos(0);
+
 	INIT_SCREEN_CONFIG(frame);
 	INIT_SOUND_CONFIG(frame);
 	INIT_LANGUAGE_CONFIG(frame);
@@ -20,12 +35,102 @@ function SYSTEMOPTION_CREATE(frame)
 	SET_SIMPLIFY_MODEL(frame);
 	SET_RENDER_SHADOW(frame);
 	SET_QUESTINFOSET_TRANSPARENCY(frame);
+	SHOW_COLONY_BATTLEMESSAGE(frame);		
+	SYSTEMOPTION_INIT_TAB(frame);
 end
 
+-- // System Option Tab Item // --
+function SYSTEMOPTION_INIT_TAB(frame)
+	local tab = GET_CHILD_RECURSIVELY(frame, "GameAndUIModeTab");
+	local tabObj = tolua.cast(tab,  "ui::CTabControl");
+	if tabObj ~= nil then
+		tabObj:SelectTab(0);
+		SYSTEMOPTION_SYSTEM_VIEW(frame);
+	end
+end
+
+function SYSTEMOPTION_INIT_COLONY_HP_INFO_SIZE(frame)
+	local sizeType = config.GetShowGuildInColonyPartyHpGaugeSizeType();
+	if sizeType == 0 then
+		local guildinColonyPartyHpInfoRadioBtn_Big = GET_CHILD_RECURSIVELY(frame, "guildInColonyPartyhpInfoSize_0", "ui::CRadioButton");
+		if guildinColonyPartyHpInfoRadioBtn_Big ~= nil then
+			guildinColonyPartyHpInfoRadioBtn_Big:SetCheck(true);
+		end
+	elseif sizeType == 1 then
+		local guildinColonyPartyHpInfoRadioBtn_Small = GET_CHILD_RECURSIVELY(frame, "guildInColonyPartyhpInfoSize_1", "ui::CRadioButton");
+		if guildinColonyPartyHpInfoRadioBtn_Small ~= nil then
+			guildinColonyPartyHpInfoRadioBtn_Small:SetCheck(true);
+		end
+	end
+	config.SetShowGuildInColonyPartyHpGaugeSizeType(sizeType);
+end
+
+function SYSTEMOPTION_TAB_CHANGE(frame, ctrl, argStr, argNum)
+	local tab = GET_CHILD_RECURSIVELY(frame, "GameAndUIModeTab");
+	local tabObj = tolua.cast(tab,  "ui::CTabControl");
+	if tabObj ~= nil then
+		local curIndex = tabObj:GetSelectItemIndex();
+		if curIndex ~= nil then
+			if curIndex == 0 then -- system : display, sound, performance, graphic...
+				SYSTEMOPTION_SYSTEM_VIEW(frame);
+			elseif curIndex == 1 then -- Game
+				SYSTEMOPTION_GRAPHIC_VIEW(frame);
+			elseif curIndex == 2 then -- PVP Setting
+				SYSTEMOPTION_PVP_SETTING_VIEW(frame);
+			end
+		end
+	end
+end
+
+function SYSTEMOPTION_GBOX_SHOW_WINDOW_SETTING(frame, boxName, isShow)
+	local gBox = GET_CHILD_RECURSIVELY(frame, boxName);
+	if gBox ~= nil then
+		gBox:ShowWindow(isShow);
+	end
+end
+
+function SYSTEMOPTION_SYSTEM_VIEW(frame)
+	SYSTEMOPTION_GBOX_SHOW_WINDOW_SETTING(frame, "displayBox", 0);
+	SYSTEMOPTION_GBOX_SHOW_WINDOW_SETTING(frame, "soundPerfBox", 0);
+	SYSTEMOPTION_GBOX_SHOW_WINDOW_SETTING(frame, "soundBox", 1);
+	SYSTEMOPTION_GBOX_SHOW_WINDOW_SETTING(frame, "graphicBox", 0);
+	SYSTEMOPTION_GBOX_SHOW_WINDOW_SETTING(frame, "gameBox", 1);
+	SYSTEMOPTION_GBOX_SHOW_WINDOW_SETTING(frame, "uiModeBox", 1);
+	SYSTEMOPTION_GBOX_SHOW_WINDOW_SETTING(frame, "gamePVPSetting", 0);
+end
+
+function SYSTEMOPTION_GRAPHIC_VIEW(frame)
+	SYSTEMOPTION_GBOX_SHOW_WINDOW_SETTING(frame, "displayBox", 1);
+	SYSTEMOPTION_GBOX_SHOW_WINDOW_SETTING(frame, "soundPerfBox", 1);
+	SYSTEMOPTION_GBOX_SHOW_WINDOW_SETTING(frame, "soundBox", 0);
+	SYSTEMOPTION_GBOX_SHOW_WINDOW_SETTING(frame, "graphicBox", 1);
+	SYSTEMOPTION_GBOX_SHOW_WINDOW_SETTING(frame, "gameBox", 0);
+	SYSTEMOPTION_GBOX_SHOW_WINDOW_SETTING(frame, "uiModeBox", 0);
+	SYSTEMOPTION_GBOX_SHOW_WINDOW_SETTING(frame, "gamePVPSetting", 0);
+end
+
+function SYSTEMOPTION_PVP_SETTING_VIEW(frame)
+	SYSTEMOPTION_GBOX_SHOW_WINDOW_SETTING(frame, "displayBox", 0);
+	SYSTEMOPTION_GBOX_SHOW_WINDOW_SETTING(frame, "soundPerfBox", 0);
+	SYSTEMOPTION_GBOX_SHOW_WINDOW_SETTING(frame, "soundBox", 0);	
+	SYSTEMOPTION_GBOX_SHOW_WINDOW_SETTING(frame, "graphicBox", 0);
+	SYSTEMOPTION_GBOX_SHOW_WINDOW_SETTING(frame, "gameBox", 0);
+	SYSTEMOPTION_GBOX_SHOW_WINDOW_SETTING(frame, "uiModeBox", 0);
+	SYSTEMOPTION_GBOX_SHOW_WINDOW_SETTING(frame, "gamePVPSetting", 1);
+	SYSTEMOPTION_INIT_COLONY_HP_INFO_SIZE(frame);
+	SHOW_COLONY_GUILD_NAME(frame);
+	SHOW_COLONY_TEAM_NAME(frame);
+	SHOW_COLONY_ENEMY_GUILD_EMBLEM(frame);
+	SHOW_COLONY_MY_BUFF(frame);
+	SHOW_COLONY_PARTY_BUFF(frame);
+	SHOW_COLONY_GUILD_BUFF(frame);
+	SHOW_COLONY_ENEMY_BUFF(frame);	
+end
+-- // System Option Tab Item End // --
+
+-- // Init Config // --
 function INIT_LANGUAGE_CONFIG(frame)
-
 	local getGroup = GET_CHILD_RECURSIVELY(frame, "pipwin_low", "ui::CGroupBox")
-
 	local getPipwin_low = GET_CHILD_RECURSIVELY(frame, "pipwin_low", "ui::CGroupBox")
 	local catelist = GET_CHILD_RECURSIVELY(frame, "languageList", "ui::CDropList");
 	catelist:ClearItems();
@@ -37,14 +142,10 @@ function INIT_LANGUAGE_CONFIG(frame)
 	end
 
 	local selIndex = 0;
-
 	local cnt = option.GetNumCountry();
-
 	for i = 0 , cnt - 1 do
-
 		local lanUIString = option.GetPossibleCountryUIName(i);
 		local NationGroup = GetServerNation();
-		
 		if (lanUIString ~= "kr") then 
 			if NationGroup == "GLOBAL" then
 				if (lanUIString ~= "Japanese")then
@@ -61,7 +162,6 @@ function INIT_LANGUAGE_CONFIG(frame)
 end
 
 function INIT_SCREEN_CONFIG(frame)
-
 	local getGroup = GET_CHILD_RECURSIVELY(frame, "pipwin_low", "ui::CGroupBox")
 	local getPipwin_low = GET_CHILD_RECURSIVELY(frame, "pipwin_low", "ui::CGroupBox")
 	local catelist = GET_CHILD_RECURSIVELY(frame, "resolutionList", "ui::CDropList");
@@ -72,16 +172,17 @@ function INIT_SCREEN_CONFIG(frame)
 	local selIndex = 0;
 
 	local cnt = option.GetDisplayModeCount();
-
 	for i = 0 , cnt - 1 do
 		local width = option.GetDisplayModeWidth(i);
 		local height = option.GetDisplayModeHeight(i);
+		if width ~= 0 or height ~= 0 then -- 0 = resolution is higher than current PC resolution
 		local resString = string.format("{@st42b}%d * %d{/}", width, height);
 		catelist:AddItem(i, resString);
 
 		if curWidth == width and curHeight == height then
 			selIndex = i;
 		end
+	end
 	end
 
 	catelist:SelectItem(selIndex);
@@ -97,16 +198,19 @@ function INIT_SCREEN_CONFIG(frame)
 		autoPerfBtn:Select();
 	end
 
+	local chkOptimization = GET_CHILD_RECURSIVELY(frame, "check_optimization", "ui::CCheckBox");
+	if nil ~= chkOptimization then
+		chkOptimization:SetCheck(imcperfOnOff.IsEnableOptimization());
+	end;
+
 	local syncMode = option.IsEnableVSync()
 	local syncBtn = GET_CHILD_RECURSIVELY(frame,"vsync_" .. syncMode,"ui::CRadioButton");
 	if syncBtn ~= nil then
 		syncBtn:Select()
 	end
-
 end
 
 function INIT_SOUND_CONFIG(frame)
-	
 	SET_SLIDE_VAL(frame, "soundVol", "soundVol_text", config.GetSoundVolume());
 	SET_SLIDE_VAL(frame, "musicVol", "musicVol_text", config.GetMusicVolume());
 	SET_SLIDE_VAL(frame, "flutingVol", "flutingVol_text", config.GetFlutingVolume());
@@ -194,7 +298,6 @@ function INIT_GRAPHIC_CONFIG(frame)
 	
 	local Check_Enable_Daylight = GET_CHILD_RECURSIVELY(frame, "Check_Enable_Daylight", "ui::CCheckBox");
 	if Check_Enable_Daylight ~= nil then
-		print(config.GetEnableDayLight());
 		Check_Enable_Daylight:SetCheck(config.GetEnableDayLight());
 	end
 end
@@ -222,25 +325,15 @@ function INIT_GAMESYS_CONFIG(frame)
 	end
 end
 
-function CONFIG_FIRST_OPEN(frame)
-	
-	SYSTEMOPTION_CREATE(frame)
-	UPDATE_OPERATOR_CONFIG(frame);
-
+function INIT_CONTROL_CONFIG(frame)
+	local modeValue = config.GetXMLConfig("ControlMode");
+	local getGroup = GET_CHILD_RECURSIVELY(frame, "pipwin_low", "ui::CGroupBox")
+	local radioBtn = GET_CHILD_RECURSIVELY(frame, "controltype_" .. modeValue);
+	radioBtn:SetCheck(true);
 end
-
-function SYS_OPTION_OPEN(frame)
-
-	CONFIG_FIRST_OPEN(frame)
-end
-
-
-function SYS_OPTION_CLOSE()
-
-end
+-- // Init Config End // --
 
 function UPDATE_SCREEN_CONFIG(frame)
-
 	local scrMode = option.GetScreenMode();
 	local catelist = GET_CHILD_RECURSIVELY(frame, "resolutionList", "ui::CDropList");
 	if scrMode == 1 then
@@ -248,20 +341,10 @@ function UPDATE_SCREEN_CONFIG(frame)
 	else
 		catelist:ShowWindow(1);
 	end
-
 end
 
 function SEL_CONFIG_GRAPHIC(frame)
-
 	UPDATE_SCREEN_CONFIG(frame);
-
-end
-
-function INIT_CONTROL_CONFIG(frame)
-	local modeValue = config.GetXMLConfig("ControlMode");
-	local getGroup = GET_CHILD_RECURSIVELY(frame, "pipwin_low", "ui::CGroupBox")
-	local radioBtn = GET_CHILD_RECURSIVELY(frame, "controltype_" .. modeValue);
-	radioBtn:SetCheck(true);
 end
 
 function APPLY_CONTROLMODE(frame)    
@@ -279,7 +362,6 @@ function APPLY_CONTROLMODE(frame)
 end
 
 function APPLY_PERFMODE(frame)
-
 	local perfRadioBtn = GET_CHILD_RECURSIVELY(frame, "perftype_0");    
 	local perfType = GET_RADIOBTN_NUMBER(perfRadioBtn);
 	
@@ -300,6 +382,7 @@ function APPLY_PERFMODE(frame)
 		softParticle:SetCheck(1);
         imcperfOnOff.EnableRenderShadow(1);
 	end
+
 	highTexture:SetCheck(config.GetHighTexture());
 	otherPCDamage:SetCheck(config.GetOtherPCDamageEffect());
 	renderShadow:SetCheck(imcperfOnOff.IsEnableRenderShadow());
@@ -308,11 +391,18 @@ function APPLY_PERFMODE(frame)
 	config.SaveConfig();
 end
 
+function APPLY_OPTIMIZATION(frame)
+	if imcperfOnOff.IsEnableOptimization() == 1 then
+		imcperfOnOff.EnableOptimization(0);
+	else
+		imcperfOnOff.EnableOptimization(1);
+	end
+end
+
 function SHOW_PERFORMANCE_VALUE(frame)
 	local flag = config.GetXMLConfig("ShowPerformanceValue")
 	SHOW_FPS_FRAME(flag)
 end
-
 
 function APPLY_SCREEN(frame)
 	local scrRadioBtn = GET_CHILD_RECURSIVELY(frame, "scrtype_1" , "ui::CRadioButton");
@@ -327,11 +417,9 @@ function APPLY_SCREEN(frame)
 	end
 
 	config.SaveConfig();
-
 end
 
 function APPLY_LANGUAGE(frame)
-
 	local lanCtrl = GET_CHILD_RECURSIVELY(frame, "languageList", "ui::CDropList");
 	local lanString = lanCtrl:GetSelItemKey();
 	option.SetCountry(lanString)
@@ -340,43 +428,35 @@ function APPLY_LANGUAGE(frame)
 end
 
 function CHECK_CANCEL_SCREEN(frame, timer, str, num, totalTime)
-
 	if totalTime >= 5 then
 		timer:Stop();
 		return;
 	end
 
 	if keyboard.IsKeyDown("BACKSPACE") == 1 then
-
 		frame:EnableHide(0);
 		timer:Stop();
 		ReserveScript("CONFIG_ENABLE_HIDE()", 0.1);
 		option.RecoverDisplayMode();
 		INIT_SCREEN_CONFIG(frame);
 		INIT_LANGUAGE_CONFIG(frame);
-
 		return;
 	end
-
 end
 
 function CONFIG_ENABLE_HIDE()
-
 	local fr = ui.GetFrame("systemoption");
 	fr:EnableHide(1);
-
 end
 
 function SET_SLIDE_VAL(frame, ctrlName, txtname, value)
-
 	local slide = GET_CHILD_RECURSIVELY(frame, ctrlName, "ui::CSlideBar");
 	slide:SetLevel(value);
-	local txt = GET_CHILD_RECURSIVELY(frame, txtname, "ui::CRichText");
 
+	local txt = GET_CHILD_RECURSIVELY(frame, txtname, "ui::CRichText");
 	local rate = value / 255 * 100;
 	rate = math.floor(rate);
 	txt:SetTextByKey("opValue", rate);
-
 end
 
 function SET_SKL_CTRL_CONFIG(frame)
@@ -390,7 +470,6 @@ function SET_SKL_CTRL_CONFIG(frame)
 end
 
 function CONFIG_SKL_CTRL_SPD(frame, ctrl, str, num)
-
 	tolua.cast(ctrl, "ui::CSlideBar");
 	config.SetSklCtrlSpd(ctrl:GetLevel());
 	SET_SKL_CTRL_CONFIG(frame);
@@ -411,54 +490,35 @@ function CONFIG_AUTO_CELL_SELECT_SPD(frame, ctrl, str, num)
 end
 
 function CONFIG_SOUNDVOL(frame, ctrl, str, num)
-
 	tolua.cast(ctrl, "ui::CSlideBar");
 	config.SetSoundVolume(ctrl:GetLevel());
-
 	SET_SLIDE_VAL(frame, "soundVol", "soundVol_text", config.GetSoundVolume());
-
 end
 
 function CONFIG_MUSICVOL(frame, ctrl, str, num)
-
 	tolua.cast(ctrl, "ui::CSlideBar");
 	config.SetMusicVolume(ctrl:GetLevel());
-
 	SET_SLIDE_VAL(frame, "musicVol", "musicVol_text", config.GetMusicVolume());
-
 end
 
 function CONFIG_TOTALVOL(frame, ctrl, str, num)
-
 	tolua.cast(ctrl, "ui::CSlideBar");
 	config.SetTotalVolume(ctrl:GetLevel());
-
 	SET_SLIDE_VAL(frame, "totalVol", "totalVol_text", config.GetTotalVolume());
-
 end
 
 function CONFIG_FLUTINGVOL(frame, ctrl, str, num)
-
 	tolua.cast(ctrl, "ui::CSlideBar");
 	config.SetFlutingVolume(ctrl:GetLevel());
-
 	SET_SLIDE_VAL(frame, "flutingVol", "flutingVol_text", config.GetFlutingVolume());
-
-end
-
-function UPDATE_OPERATOR_CONFIG(frame)
-	
 end
 
 function SET_CHECKBOX_BY_IES_PROP(checkBox, idSpc, className, propName)
-
 	local cls = GetClass(idSpc, className);
 	checkBox:SetCheck(cls[propName]);
-
 end
 
 function CHANGE_SHARED_CONST(frame, checkBox, isch, numArg)
-
 	local propName = checkBox:GetName();
 	tolua.cast(checkBox, "ui::CCheckBox");
 	local cls = GetClass("SharedConst", propName);
@@ -469,9 +529,7 @@ function CHANGE_SHARED_CONST(frame, checkBox, isch, numArg)
 	end
 
 	iesman.ChangeIESProp("SharedConst", cls.ClassID, cls.ClassName, "Value", changeValue, "CHANGE BY OPTION", 1);
-
 end
-
 
 function APPLY_PKS_DELAY(frame)
 	local minDelay = config.GetXMLConfig("MinPksDelay");
@@ -489,21 +547,16 @@ function APPLY_PKS_DELAY(frame)
 	local maxPksDelay_text = GET_CHILD_RECURSIVELY(frame, "maxPksDelay_text", "ui::CRichText");
 	minPksDelay_text:SetTextByKey("opValue", minDelay);
 	maxPksDelay_text:SetTextByKey("opValue", maxDelay);
-
 end
 
 function ENABLE_WARFOG(parent, ctrl)
-	
 	local value = config.GetUseWarfog();
-
 	graphic.EnableWarFog(1- value);
 	config.SaveConfig();
-
 end
 
 function ENABLE_BLOOM(parent, ctrl)
 	local value = config.GetUseBloom();
-
 	graphic.EnableBloom(1- value);
 	config.SaveConfig();
 end
@@ -511,20 +564,17 @@ end
 function ENABLE_FXAA(parent, ctrl)
 	local value = config.GetUseFXAA();
 	graphic.EnableFXAA(1- value);
-	
 	config.SaveConfig();
 end
 
 function ENABLE_HITGLOW(parent, ctrl)
 	local value = config.GetUseHitGlow();
-
 	graphic.EnableHitGlow(1- value);
 	config.SaveConfig();
 end
 
 function ENABLE_DEPTH(parent, ctrl)
 	local value = config.GetUseDepth();
-
 	graphic.EnableDepth(1- value);
 	config.SaveConfig();
 end
@@ -542,30 +592,23 @@ function ENABLE_HIGHTTEXTURE(parent, ctrl)
 end
 
 function ENABLE_LOW(parent, ctrl)
-	
 	local value = config.GetUseLowOption();
-
 	graphic.EnableLowOption(1-value);
 	config.SaveConfig();
-
 end
 
 function ENABEL_VSYNC(frame)
-
 	local syncRadioBtn = GET_CHILD_RECURSIVELY(frame, "vsync_0" , "ui::CRadioButton");        
 	local syncType = GET_RADIOBTN_NUMBER(syncRadioBtn);
-
 	local scrRadioBtn = GET_CHILD_RECURSIVELY(frame, "scrtype_1" , "ui::CRadioButton");
 	local resCtrl = GET_CHILD_RECURSIVELY(frame, "resolutionList", "ui::CDropList");        
 	local scrType = GET_RADIOBTN_NUMBER(scrRadioBtn);
 	local resIndex = resCtrl:GetSelItemIndex();
 	option.SetDisplayMode(scrType, resIndex, syncType);
-
 end
 
 function ENABLE_OTHER_FLUTING(parent, ctrl)
 	local value = config.IsEnableOtherFluting();
-
 	config.EnableOtherFluting(1-value);
 	config.SaveConfig();
 end
@@ -605,15 +648,144 @@ function SHOW_COLONY_EFFECTCOSTUME(frame)
 		return;
 	end
 
+	local isShow = config.GetShowGuildInColonyEffectCostume();
+	local chkShowGuildInColonyEffectCostume = GET_CHILD_RECURSIVELY(frame, "chkShowGuildInColonyEffectCostume", "ui::CCheckBox");
+	if nil ~= chkShowGuildInColonyEffectCostume then
+		chkShowGuildInColonyEffectCostume:SetCheck(isShow);
+	end
+
 	effect.ShowColonyEffectCostume();
 end
+
+-- // Colony Option // --
+function SHOW_COLONY_BATTLEMESSAGE(frame)
+	if IS_IN_EVENT_MAP() == true then
+		return;
+	end
+
+	local isShow = config.GetShowGuildInColonyBattleMessage();
+	local chkShowGuildInColonyBattleMessage = GET_CHILD_RECURSIVELY(frame, "chkShowGuildInColonyBattleMessage", "ui::CCheckBox");
+	if chkShowGuildInColonyBattleMessage ~= nil then
+		chkShowGuildInColonyBattleMessage:SetCheck(isShow);
+	end
+
+	config.SetShowGuildInColonyBattleMessage(isShow);
+end
+
+function SHOW_COLONY_GUILD_NAME(frame)
+	if IS_IN_EVENT_MAP() == true then
+		return;
+	end
+
+	local isShow = config.GetShowGuildInColonyGuildName();
+	local chkShowGuildInColonyGuildName = GET_CHILD_RECURSIVELY(frame, "chkShowGuilldInColonyGuildName", "ui::CCheckBox");
+	if chkShowGuildInColonyGuildName ~= nil then
+		chkShowGuildInColonyGuildName:SetCheck(isShow);
+	end
+
+	config.SetShowGuildInColonyGuildName(isShow);
+	world.UpdateTitleOption();
+end
+
+function SHOW_COLONY_TEAM_NAME(frame)
+	if IS_IN_EVENT_MAP() == true then
+		return;
+	end
+
+	local isShow = config.GetShowGuildInColonyTeamName();
+	local chkShowGuildInColonyTeamName = GET_CHILD_RECURSIVELY(frame, "chkShowGuildInColonyTeamName", "ui::CCheckBox");
+	if chkShowGuildInColonyTeamName ~= nil then
+		chkShowGuildInColonyTeamName:SetCheck(isShow);
+	end
+
+	config.SetShowGuildInColonyTeamName(isShow);
+	world.UpdateTitleOption();
+end
+
+function SHOW_COLONY_ENEMY_GUILD_EMBLEM(frame)
+	if IS_IN_EVENT_MAP() == true then
+		return;
+	end
+
+	local isShow = config.GetShowGuildInColonyEnemyGuildEmblem();
+	local chkShowGuildInColonyEnemyGuildEmblem = GET_CHILD_RECURSIVELY(frame, "chkShowGuildInColonyEnemyGuildEmblem", "ui::CCheckBox");
+	if chkShowGuildInColonyEnemyGuildEmblem ~= nil then
+		chkShowGuildInColonyEnemyGuildEmblem:SetCheck(isShow);
+	end
+
+	config.SetShowGuildInColonyEnemyGuildEmblem(isShow);
+	world.UpdateTitleOption();
+end
+
+function SHOW_COLONY_MY_BUFF(frame)
+	if IS_IN_EVENT_MAP() == true then
+		return;
+	end
+
+	local isShow = config.GetShowGuildInColonyMyBuff();
+	local chkShowGuildInColonyMyBuff = GET_CHILD_RECURSIVELY(frame, "chkShowGuildInColonyMyBuff", "ui::CCheckBox");
+	if chkShowGuildInColonyMyBuff ~= nil then
+		chkShowGuildInColonyMyBuff:SetCheck(isShow);
+	end
+
+	config.SetShowGuildInColonyMyBuff(isShow);
+end
+
+function SHOW_COLONY_PARTY_BUFF(frame)
+	if IS_IN_EVENT_MAP() == true then
+		return;
+	end
+
+	local isShow = config.GetShowGuildInColonyPartyBuff();
+	local chkShowGuildInColonyPartyBuff = GET_CHILD_RECURSIVELY(frame, "chkShowGuildInColonyPartyBuff", "ui::CCheckBox");
+	if chkShowGuildInColonyPartyBuff ~= nil then
+		chkShowGuildInColonyPartyBuff:SetCheck(isShow);
+	end
+
+	config.SetShowGuildInColonyPartyBuff(isShow);
+end
+
+function SHOW_COLONY_GUILD_BUFF(frame)
+	if IS_IN_EVENT_MAP() == true then
+		return;
+	end
+
+	local isShow = config.GetShowGuildInColonyGuildBuff();
+	local chkShowGuildInColonyGuildBuff = GET_CHILD_RECURSIVELY(frame, "chkShowGuildInColonyGuildBuff", "ui::CCheckBox");
+	if chkShowGuildInColonyGuildBuff ~= nil then
+		chkShowGuildInColonyGuildBuff:SetCheck(isShow);
+	end
+
+	config.SetShowGuildInColonyGuildBuff(isShow);
+end
+
+function SHOW_COLONY_ENEMY_BUFF(frame)
+	if IS_IN_EVENT_MAP() == true then
+		return;
+	end
+
+	local isShow = config.GetShowGuildInColonyEnemyBuff();
+	local chkShowGuildInColonyEnemyBuff = GET_CHILD_RECURSIVELY(frame, "chkShowGuildInColonyEnemyBuff", "ui::CCheckBox");
+	if chkShowGuildInColonyEnemyBuff ~= nil then
+		chkShowGuildInColonyEnemyBuff:SetCheck(isShow);
+	end
+
+	config.SetShowGuildInColonyEnemyBuff(isShow);
+end
+
+function APPLY_COLONY_HP_INFO_SIZE(frame)    
+	local guildinColonyPartyHpInfoRadioBtn = GET_CHILD_RECURSIVELY(frame, "guildInColonyPartyhpInfoSize_0");    
+	local sizeType = GET_RADIOBTN_NUMBER(guildinColonyPartyHpInfoRadioBtn);
+	config.SetShowGuildInColonyPartyHpGaugeSizeType(sizeType);
+end
+-- // Colony Option End // --
 
 function SET_DMG_FONT_SCALE_CONTROLLER(frame)
 	local value = config.GetDmgFontScale();
 	local slide = GET_CHILD_RECURSIVELY(frame, "dmgFontSizeController", "ui::CSlideBar");
 	slide:SetLevel(value * 100);
-	local txt = GET_CHILD_RECURSIVELY(frame, "dmgFontSizeController_text", "ui::CRichText");
 	
+	local txt = GET_CHILD_RECURSIVELY(frame, "dmgFontSizeController_text", "ui::CRichText");
 	local str = string.format("%.2f", value);
 	txt:SetTextByKey("ctrlValue", str);
 end
@@ -626,7 +798,6 @@ end
 
 function SET_SHOW_PAD_SKILL_RANGE(frame)
 	local isEnable = config.IsEnableShowPadSkillRange();
-
 	local chkShowPadSkillRange = GET_CHILD_RECURSIVELY(frame, "chkShowPadSkillRange", "ui::CCheckBox");
 	if nil ~= chkShowPadSkillRange then
 		chkShowPadSkillRange:SetCheck(isEnable);
@@ -639,7 +810,6 @@ end
 
 function SET_SIMPLIFY_BUFF_EFFECTS(frame)
 	local isEnable = config.IsEnableSimplifyBuffEffects();
-
 	local chkSimplifyBuffEffects = GET_CHILD_RECURSIVELY(frame, "chkSimplifyBuffEffects", "ui::CCheckBox");
 	if nil ~= chkSimplifyBuffEffects then
 		chkSimplifyBuffEffects:SetCheck(isEnable);
@@ -652,7 +822,6 @@ end
 
 function SET_SIMPLIFY_MODEL(frame)
 	local isEnable = config.IsEnableSimplifyModel();
-
 	local chkSimplifyModel = GET_CHILD_RECURSIVELY(frame, "chkSimplifyModel", "ui::CCheckBox");
 	if nil ~= chkSimplifyModel then
 		chkSimplifyModel:SetCheck(isEnable);
@@ -713,7 +882,6 @@ end
 function CONFIG_BOSSMON_EFECT_TRANSPARENCY(frame, ctrl, str, num)
 	tolua.cast(ctrl, "ui::CSlideBar");
 	config.SetBossMonsterEffectTransparency(ctrl:GetLevel());
-	
 	SET_SLIDE_VAL(frame, "effect_transparency_boss_monster_value", "effect_transparency_boss_monster", config.GetBossMonsterEffectTransparency());
 end
 

@@ -327,6 +327,8 @@ function GET_ATK_PROP_LIST()
     list[#list+1] = "HR";
     list[#list+1] = "DR";
     list[#list+1] = "LootingChance";
+    list[#list+1] = "Magic_Earth_Atk";
+    list[#list+1] = "Magic_Ice_Atk";
 	return list;
 
 end
@@ -395,7 +397,7 @@ function GET_SUM_OF_PROP(equipItem, propList)
 
 	local ret = 0;
 	for i = 1 , #propList do
-		ret = ret + equipItem[propList[i]];
+		ret = ret + TryGetProp(equipItem, propList[i], 0);
 	end
 	
 	return ret;

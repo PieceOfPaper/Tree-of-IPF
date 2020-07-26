@@ -365,6 +365,9 @@ function SHOP_SELL_DROP(frame, ctrl)
 
 	local iconInfo = liftIcon:GetInfo();
 	local iesID = liftIcon:GetTooltipIESID();
+	if iesID == '0' then
+		return
+	end
 	local invItem = session.GetInvItemByGuid(iesID);
 	if invItem == nil then
 		return;

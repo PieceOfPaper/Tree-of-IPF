@@ -580,7 +580,7 @@ function MARKET_DRAW_CTRLSET_EQUIP(frame, isShowSocket)
 
 		for i = 1 , #list do
 			local propName = list[i];
-			local propValue = class[propName];
+			local propValue = TryGetProp(class, propName, 0);
 
 			local needToShow = true;
 			for j = 1, #basicTooltipPropList do
@@ -662,9 +662,9 @@ function MARKET_DRAW_CTRLSET_EQUIP(frame, isShowSocket)
 
 		for i = 1 , #list2 do
 			local propName = list2[i];
-			local propValue = itemObj[propName];
+			local propValue = TryGetProp(itemObj, propName, 0);
 			if propValue ~= 0 then
-				local strInfo = ABILITY_DESC_PLUS(ScpArgMsg(propName), itemObj[propName]);
+				local strInfo = ABILITY_DESC_PLUS(ScpArgMsg(propName), propValue);
 				SET_MARKET_EQUIP_CTRLSET_OPTION_TEXT(ctrlSet, strInfo);
 			end
 		end
@@ -1408,7 +1408,7 @@ function MARKET_DRAW_CTRLSET_OPTMISC(frame)
 	
 			for i = 1 , #list do
 				local propName = list[i];
-				local propValue = class[propName];
+				local propValue = TryGetProp(class, propName, 0);
 	
 				local needToShow = true;
 				for j = 1, #basicTooltipPropList do
@@ -1490,9 +1490,9 @@ function MARKET_DRAW_CTRLSET_OPTMISC(frame)
 	
 			for i = 1 , #list2 do
 				local propName = list2[i];
-				local propValue = itemObj[propName];
+				local propValue = TryGetProp(itemObj, propName, 0);
 				if propValue ~= 0 then
-					local strInfo = ABILITY_DESC_PLUS(ScpArgMsg(propName), itemObj[propName]);
+					local strInfo = ABILITY_DESC_PLUS(ScpArgMsg(propName), propValue);
 					SET_MARKET_EQUIP_CTRLSET_OPTION_TEXT(ctrlSet, strInfo);
 				end
 			end

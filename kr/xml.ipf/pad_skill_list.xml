@@ -841,6 +841,29 @@ end"/>
 			</ToolScp>
 		</updateEvent>
 	</PadSkill>
+    <PadSkill Name="Appraiser_Blindside_HiddenAbil" CheckerType="0" Range="80" ApplyFlyMon="1">
+        <createEvent>
+            <ToolScp Scp="PAD_ADD_LIFE" Client="NO" UseSleep="NO">
+                <Num Num="2200"/>
+                <Num Num="99999"/>
+            </ToolScp>
+            <ToolScp Scp="PAD_USEABLE_RELATION_ENEMY" Client="NO" UseSleep="NO"/>
+            <ToolScp Scp="PAD_CONCURRENT_USE_COUNT" Client="NO" UseSleep="NO">
+                <Num Num="10"/>
+            </ToolScp>
+        </createEvent>
+        <destroyEvent>
+            <ToolScp Scp="PAD_FUNC_UPDATE_RUNSCRIPT" Client="NO" UseSleep="NO">
+                <Str Str="SCR_APPRAISER_BLINDSIDE_DEBUFF"/>
+            </ToolScp>
+        </destroyEvent>
+        <updateEvent>
+            <ToolScp Scp="PAD_ADD_LIFE" Client="NO" UseSleep="NO">
+                <Num Num="-500"/>
+                <Num Num="1"/>
+            </ToolScp>
+        </updateEvent>
+    </PadSkill>
 	<PadSkill Name="Assassin_HallucinationSmoke" CheckerType="0" Range="55" ApplyFlyMon="1">
 		<createEvent>
 			<ToolScp Scp="C_PAD_EFFECT_POS" Client="YES" UseSleep="NO">
@@ -968,7 +991,7 @@ end"/>
 		<createEvent>
 			<ToolScp Scp="PAD_USEABLE_PC" Client="NO" UseSleep="NO"/>
 			<ToolScp Scp="PAD_ADD_LIFE" Client="NO" UseSleep="NO">
-				<Num Num="10000"/>
+				<Num Num="100"/>
 				<Num Num="1"/>
 			</ToolScp>
 			<ToolScp Scp="C_PAD_EFFECT_FORCE" Client="YES" UseSleep="NO">
@@ -976,37 +999,33 @@ end"/>
 				<Num Num="1"/>
 			</ToolScp>
 			<ToolScp Scp="PAD_FUNC_UPDATE_DIRECT" Client="NO" UseSleep="NO">
-				<Str Str="BK_MGAME_BORUTA_REVENGE_FEVER_BORN"/>
+				<Str Str="GM_MGAME_BORUTA_REVENGE_FEVER_BORN"/>
 			</ToolScp>
 		</createEvent>
 		<destroyEvent>
 			<ToolScp Scp="PAD_FUNC_UPDATE_DIRECT" Client="NO" UseSleep="NO">
-				<Str Str="BK_MGAME_BORUTA_REVENGE_FEVER_REVERSE_CREATE"/>
+				<Str Str="GM_MGAME_BORUTA_REVENGE_FEVER_REVERSE_CREATE"/>
 			</ToolScp>
 		</destroyEvent>
 		<updateEvent>
 			<ToolScp Scp="PAD_FUNC_UPDATE_DIRECT" Client="NO" UseSleep="NO">
-				<Str Str="BK_MGAME_BORUTA_REVENGE_FEVER_UPDATE"/>
+				<Str Str="GM_MGAME_BORUTA_REVENGE_FEVER_UPDATE"/>
 			</ToolScp>
-			<ToolScp Scp="PAD_ADD_LIFE" Client="NO" UseSleep="NO">
-				<Num Num="-40"/>
-				<Num Num="0"/>
-			</ToolScp>
-		</updateEvent>
+			</updateEvent>
 	</PadSkill>
-	<PadSkill Name="BK_MGAME_FEVER_REVERSE" CheckerType="0" Dist="165.70114" Angle="-0.83180231" Range="250" UpdateTerm="2000" AllowOverlap="1" EnableSearch="0">
+    <PadSkill Name="BK_MGAME_FEVER_REVERSE" CheckerType="0" Dist="165.70114" Angle="-0.83180231" Range="250" UpdateTerm="5000" AllowOverlap="1" EnableSearch="0">
 		<createEvent>
 			<ToolScp Scp="PAD_ADD_LIFE" Client="NO" UseSleep="NO">
-				<Num Num="12000"/>
+                <Num Num="12"/>
 				<Num Num="1"/>
 			</ToolScp>
 		</createEvent>
 		<updateEvent>
 			<ToolScp Scp="PAD_FUNC_UPDATE_DIRECT" Client="NO" UseSleep="NO">
-				<Str Str="BK_MGAME_BORUTA_REVENGE_FEVER_REVERSE_UPDATE"/>
+				<Str Str="GM_MGAME_BORUTA_REVENGE_FEVER_REVERSE_UPDATE"/>
 			</ToolScp>
 			<ToolScp Scp="PAD_ADD_LIFE" Client="NO" UseSleep="NO">
-				<Num Num="-200"/>
+                <Num Num="-1"/>
 				<Num Num="0"/>
 			</ToolScp>
 		</updateEvent>
@@ -7726,6 +7745,73 @@ return obj.Level"/>
 			</ToolScp>
 		</updateEvent>
 	</PadSkill>
+	<PadSkill Name="Exorcist_Katadikazo_Vibora" CheckerType="0" PadHeight="0" Range="150" UpdateTerm="1000" ApplyFlyMon="1" ObjType="2" Relation="1" AllowOverlap="1">
+		<createEvent>
+			<ToolScp Scp="PAD_ADD_LIFE" Client="NO" UseSleep="NO">
+				<Num Num="20000"/>
+				<Num Num="1"/>
+			</ToolScp>
+			<ToolScp Scp="PAD_USEABLE_RELATION_FRIEND" Client="NO" UseSleep="NO"/>
+			<ToolScp Scp="PAD_CONCURRENT_USE_COUNT" Client="NO" UseSleep="NO">
+				<Num Num="5"/>
+			</ToolScp>
+		</createEvent>
+		<destroyEvent>
+			<ToolScp Scp="PAD_FUNC_UPDATE_RUNSCRIPT" Client="NO" UseSleep="NO">
+				<Str Str="SCR_VIBORA_THMACE_KATADIKAZO_DESTROY"/>
+			</ToolScp>
+			<ToolScp Scp="PAD_REMOVEBUFF" Client="NO" UseSleep="NO">
+				<Str Str="PARTY"/>
+				<Num Num="0"/>
+				<Num Num="0"/>
+				<Str Str="ITEM_BUFF_VIBORA_THMACE_KATADIKAZO"/>
+			</ToolScp>
+		</destroyEvent>
+		<enterEvent>
+			<ToolScp Scp="PAD_TGT_BUFF" Client="NO" UseSleep="NO">
+				<Str Str="PARTY"/>
+				<Num Num="0"/>
+				<Num Num="0"/>
+				<Str Str="ITEM_BUFF_VIBORA_THMACE_KATADIKAZO"/>
+				<Num Num="99"/>
+				<Num Num="0"/>
+				<Num Num="0"/>
+				<Num Num="1"/>
+				<Num Num="100"/>
+				<Num Num="0"/>
+			</ToolScp>
+		</enterEvent>
+		<leaveEvent>
+			<ToolScp Scp="PAD_TGT_BUFF_REMOVE" Client="NO" UseSleep="NO">
+				<Str Str="PARTY"/>
+				<Num Num="0"/>
+				<Num Num="0"/>
+				<Str Str="ITEM_BUFF_VIBORA_THMACE_KATADIKAZO"/>
+				<Num Num="1"/>
+			</ToolScp>
+		</leaveEvent>
+		<updateEvent>
+			<ToolScp Scp="PAD_ADD_LIFE" Client="NO" UseSleep="NO">
+				<Num Num="-1000"/>
+				<Num Num="0"/>
+			</ToolScp>
+			<ToolScp Scp="PAD_FUNC_UPDATE_RUNSCRIPT" Client="NO" UseSleep="NO">
+				<Str Str="SCR_VIBORA_THMACE_KATADIKAZO_UPDATE"/>
+			</ToolScp>
+			<ToolScp Scp="PAD_BUFF_CHECK_BUFF_ENEMY" Client="NO" UseSleep="NO">
+				<Str Str="PARTY"/>
+				<Num Num="0"/>
+				<Num Num="0"/>
+				<Str Str="ITEM_BUFF_VIBORA_THMACE_KATADIKAZO"/>
+				<Str Str="ITEM_BUFF_VIBORA_THMACE_KATADIKAZO"/>
+				<Num Num="99"/>
+				<Num Num="0"/>
+				<Num Num="0"/>
+				<Num Num="1"/>
+				<Num Num="100"/>
+			</ToolScp>
+		</updateEvent>
+	</PadSkill>
 	<PadSkill Name="Exorcist_Rubric" CheckerType="1" Dist="172.91235" Angle="-2.8994689" Range="40" InnerRange="100" ApplyFlyMon="1" Relation="6" AllowOverlap="1" EnableSearch="0" IsMagicType="0" IsMineType="0">
 		<createEvent>
 			<ToolScp Scp="PAD_ADD_LIFE" Client="NO" UseSleep="NO">
@@ -11040,6 +11126,24 @@ return value"/>
 				<Num Num="0"/>
 				<Num Num="0"/>
 				<Str_Arg Str="None" Arg="0.30000001"/>
+			</ToolScp>
+		</updateEvent>
+	</PadSkill>
+	<PadSkill Name="Mergen_ArrowRain3" CheckerType="0" Range="100" UpdateTerm="500">
+		<createEvent>
+			<ToolScp Scp="PAD_ADD_LIFE" Client="NO" UseSleep="NO">
+				<Num Num="3000"/>
+				<Num Num="3000"/>
+			</ToolScp>
+		</createEvent>
+		<updateEvent>
+			<ToolScp Scp="PAD_ADD_LIFE" Client="NO" UseSleep="NO">
+				<Num Num="-500" UseFunc="1" FuncTxt='local skl = GetSkill(self, "Mergen_ArrowRain")
+local x, y, z = GetPadPos(userData)
+RunScript("SCR_VIBORA_ARROW_RAIN", self, skl, x, y, z)
+
+return -500'/>
+				<Num Num="0"/>
 			</ToolScp>
 		</updateEvent>
 	</PadSkill>
@@ -20758,6 +20862,34 @@ return 1'/>
 			</ToolScp>
 		</updateEvent>
 	</PadSkill>
+    <PadSkill Name="boss_misrus_circlewave" CheckerType="4" PadHeight="12" Range="50" InnerRange="10" AllowOverlap="1">
+        <createEvent>
+            <ToolScp Scp="PAD_ADD_LIFE" Client="NO" UseSleep="NO">
+                <Num Num="1500"/>
+                <Num Num="1"/>
+            </ToolScp>
+            <ToolScp Scp="PAD_ADD_CHECKER" Client="NO" UseSleep="NO">
+                <Num Num="250"/>
+                <Num Num="2.5"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+            </ToolScp>
+        </createEvent>
+        <enterEvent>
+            <ToolScp Scp="PAD_TGT_DAMAGE" Client="NO" UseSleep="NO">
+                <Str Str="ENEMY"/>
+                <Num Num="1"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+            </ToolScp>
+        </enterEvent>
+        <updateEvent>
+            <ToolScp Scp="PAD_ADD_LIFE" Client="NO" UseSleep="NO">
+                <Num Num="-200"/>
+                <Num Num="999999"/>
+            </ToolScp>
+        </updateEvent>
+    </PadSkill>
 	<PadSkill Name="boss_Moringponia_Petrify" CheckerType="0" Dist="1.4216819" Angle="-1.309636" Range="100" ApplyFlyMon="1" AllowOverlap="1" IgnoreDistanceInterval="1" EnableSearch="0">
 		<createEvent>
 			<ToolScp Scp="PAD_ADD_LIFE" Client="NO" UseSleep="NO">

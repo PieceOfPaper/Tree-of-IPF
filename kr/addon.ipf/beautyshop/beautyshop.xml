@@ -9,7 +9,7 @@
 	<sound opensound="sys_popup_open_1" closesound="character_item_window_close"/>
 	<animation frameOpenAnim="popup_start" frameCloseAnim="popup_end"/>
 	<script OpenScp="BEAUTYSHOP_OPEN" CloseScp="BEAUTYSHOP_CLOSE"/>
-	<userconfig HAIR_DYE_PALETTE_IMAGE_NAME="haircolor_mark" hairShopName_male="{@st43}바버샵(남)" hairShopName_female="{@st43}바버샵(여)" costumeShopName_male="{@st43}부티크(남)" costumeShopName_female="{@st43}부티크(여)" wigShopName_male="{@st43}바버샵 - 가발(남)" wigShopName_female="{@st43}바버샵 - 가발(여)" packageShopName_male="{@st43}부티크 - 패키지" packageShopName_female="{@st43}부티크 - 패키지" etcShopName="{@st43}바버샵 - 렌즈" previewShopName="{@st43}테마 상품 입어보기" TOGGLE_ON="ability_on" TOGGLE_OFF="ability_off" DISCOUNT_COLOR="{@st41b}{s16}{#ff1100}" skinShopName="{@st43}바버샵 - 스킨"/>
+	<userconfig HAIR_DYE_PALETTE_IMAGE_NAME="haircolor_mark" hairShopName_male="{@st43}바버샵(남)" hairShopName_female="{@st43}바버샵(여)" costumeShopName_male="{@st43}부티크(남)" costumeShopName_female="{@st43}부티크(여)" wigShopName_male="{@st43}바버샵 - 가발(남)" wigShopName_female="{@st43}바버샵 - 가발(여)" packageShopName_male="{@st43}부티크 - 패키지" packageShopName_female="{@st43}부티크 - 패키지" etcShopName="{@st43}바버샵 - 렌즈" previewShopName="{@st43}테마 상품 입어보기" TOGGLE_ON="ability_on" TOGGLE_OFF="ability_off" DISCOUNT_COLOR="{@st41b}{s16}{#ff1100}" skinShopName="{@st43}바버샵 - 스킨" DesigncutShopName_male="{@st43}디자인 컷(남)" DesigncutShopName_female="{@st43}디자인 컷(여)" />
 	<controls>
 		<!-- default frame -->
 		<groupbox name="gbBackGround" rect="0 0 1230 1000" margin="0 0 0 0" layout_gravity="left top" skin="test_frame_low" stretch="true"/>

@@ -125,9 +125,9 @@ function SHOW_PC_CONTEXT_MENU(handle)
 			strscp = string.format("ui.ToggleHeaderText(%d)", handle);
 			if pcObj:GetHeaderText() ~= nil and string.len(pcObj:GetHeaderText()) ~= 0 then
 				if pcObj:IsHeaderTextVisible() == true  then			
-					ui.AddContextMenuItem(context, ClMsg("BlockTitleText"), strscp);
+					ui.AddContextMenuItem(context, "{img context_preface_block 18 17} "..ClMsg("BlockTitleText"), strscp);
 				else
-					ui.AddContextMenuItem(context, ClMsg("UnblockTitleText"), strscp);
+					ui.AddContextMenuItem(context, "{img context_preface_remove 18 17} "..ClMsg("UnblockTitleText"), strscp);
 				end
 			end
 		end
@@ -146,7 +146,7 @@ function SHOW_PC_CONTEXT_MENU(handle)
 		local mapprop = session.GetCurrentMapProp();
     	local mapCls = GetClassByType("Map", mapprop.type);	
 		if IS_TOWN_MAP(mapCls) == true then
-			ui.AddContextMenuItem(context, "{img context_personal_housing 18 17} "..ScpArgMsg("PH_SEL_DLG_2"), string.format("REQUEST_PERSONAL_HOUSING_WARP(\"%d\")", pcObj:GetPCApc():GetAID()));
+			ui.AddContextMenuItem(context, "{img context_personal_housing 18 17} "..ScpArgMsg("PH_SEL_DLG_2"), string.format("REQUEST_PERSONAL_HOUSING_WARP(\"%s\")", pcObj:GetPCApc():GetAID()));
 		end
 
 		local familyname = pcObj:GetPCApc():GetFamilyName()

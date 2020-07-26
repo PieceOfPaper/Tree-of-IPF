@@ -92,7 +92,7 @@ function EVENT_STAMP_TOUR_SET_PAGE(argnum)
 		
 		-- 미션 내용
 		local desc = GET_CHILD_RECURSIVELY(ctrlSet, 'desc');
-		local missiontext = TryGetProp(missionCls, "Desc"..i, "");
+		local missiontext = dic.getTranslatedStr(TryGetProp(missionCls, "Desc"..i, ""));
 		local delimeter = string.find(missiontext,':')
 
 		-- 툴팁으로 자세한 미션 내용 출력

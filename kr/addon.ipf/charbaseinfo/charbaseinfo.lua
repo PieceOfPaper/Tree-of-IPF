@@ -1,12 +1,9 @@
 function CHARBASEINFO_ON_INIT(addon, frame)
-
 	addon:RegisterOpenOnlyMsg('LEVEL_UPDATE', 'CHARBASEINFO_ON_MSG');
 	addon:RegisterMsg('EXP_UPDATE', 'CHARBASEINFO_ON_MSG');
 	addon:RegisterMsg('JOB_EXP_UPDATE', 'ON_JOB_EXP_UPDATE');
 	addon:RegisterMsg('JOB_EXP_ADD', 'ON_JOB_EXP_UPDATE');
-
 	addon:RegisterMsg('CHANGE_COUNTRY', 'CHARBASEINFO_ON_MSG');
-
 end
 
 function CHARBASEINFO_LBTNUP(frame, msg, argStr, argNum)
@@ -17,7 +14,6 @@ function CHARBASEINFO_LBTNUP(frame, msg, argStr, argNum)
 		statusFrame:ShowWindow(1);
 	end
 end
-
 
 function ON_JOB_EXP_UPDATE(frame, msg, str, exp, tableinfo)
 	local curExp = exp - tableinfo.startExp;
@@ -55,8 +51,8 @@ function ON_JOB_EXP_UPDATE(frame, msg, str, exp, tableinfo)
 end
 
 function CHARBASEINFO_ON_MSG(frame, msg, argStr, argNum)
-	if msg == 'EXP_UPDATE'  or  msg == 'STAT_UPDATE' or msg == 'LEVEL_UPDATE' or msg == 'CHANGE_COUNTRY' then
-		local expGauge 			= GET_CHILD(frame, "exp", "ui::CGauge");
+	if msg == 'EXP_UPDATE' or msg == 'STAT_UPDATE' or msg == 'LEVEL_UPDATE' or msg == 'CHANGE_COUNTRY' then
+		local expGauge = GET_CHILD(frame, "exp", "ui::CGauge");
 		local exp = session.GetEXP()
 		local maxExp = session.GetMaxEXP()
 		local percent = 0.0;
@@ -73,21 +69,19 @@ function CHARBASEINFO_ON_MSG(frame, msg, argStr, argNum)
 			percent = 100.0;
 		end
 
-		local levelPercentObject    = GET_CHILD(frame, 'levelexppercent', 'ui::CRichText');
+		local levelPercentObject = GET_CHILD(frame, 'levelexppercent', 'ui::CRichText');
 		levelPercentObject:SetText(''..string.format('{@st42b}{s14}%.1f',percent)..'{s14}%{/}');
 
 		expGauge:SetTextTooltip(string.format("{@st42b}%.1f%% / %.1f%%{/}", percent, 100.0));
-		local levelTextObject		= GET_CHILD(frame, "levelexp", "ui::CRichText");
-		local level 				= info.GetLevel(session.GetMyHandle());
+		local levelTextObject = GET_CHILD(frame, "levelexp", "ui::CRichText");
+		local level = info.GetLevel(session.GetMyHandle());
 		levelTextObject:SetText('{@sti7}{s16}'..level);
 		if argNum ~= nil and argNum ~= 0 then
 			SHOW_GET_EXP(frame, argNum)
 		elseif msg == 'LEVEL_UPDATE' and argNum == -1 then
 			SHOW_GET_EXP(frame, -1)
 		end
-
 	end
-
 end
 
 function CHARBASEINFO_EXCHANGE()

@@ -949,8 +949,8 @@ function IS_VALUE_UP_BY_CHANGE_ITEM(itemtype, beforeItem, afterItem)
 			
 			for i = 3 , #list do
 				local propName = list[i];
-				equipAbilityTotal = equipAbilityTotal + afterItem[propName];
-				invAbilityTotal = invAbilityTotal + beforeItem[propName];
+				equipAbilityTotal = equipAbilityTotal + TryGetProp(afterItem, propName, 0);
+				invAbilityTotal = invAbilityTotal + TryGetProp(beforeItem, propName, 0);
 			end
 
 			if ABILITY_COMPARITION_VALUE(invAbilityTotal, equipAbilityTotal) < 0 then
@@ -986,8 +986,8 @@ function IS_VALUE_UP_BY_CHANGE_ITEM(itemtype, beforeItem, afterItem)
 
 		for i = 1 , #list do
 			local propName = list[i];
-			equipAbilityTotal = equipAbilityTotal + afterItem[propName];
-			invAbilityTotal = invAbilityTotal + beforeItem[propName];
+			equipAbilityTotal = equipAbilityTotal + TryGetProp(afterItem, propName, 0);
+			invAbilityTotal = invAbilityTotal + TryGetProp(beforeItem, propName, 0);
 
 		end
 

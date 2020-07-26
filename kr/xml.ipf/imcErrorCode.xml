@@ -628,4 +628,5 @@
   <Code Code="INFO_CPQ" Team="tos_team" Category="SYSTEM" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="CPQ 관련 로그"/>
 	<Code Code="ERROR_GUILD_CABIENT_INVV" Team="PROGRAM" Category="LOGIC" SubCategory="GuildInv" Logger="root" Enabled="YES" CallStack="NO" Desc="길드 보관함 에러"/>
 	<Code Code="WARNING_NETSTREAM_REFCNT" Team="tos_team" Category="PROGRAM" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="StreamDisconnected 오류 원인 추적용"/>
+  <Code Code="ERROR_BORUTA" Team="tos_team" Category="SYSTEM" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="보루타 랭킹 관련 에러"/>
 </imcErrorCode>

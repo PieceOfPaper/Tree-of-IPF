@@ -270,6 +270,9 @@ function SAVE_CHAT_MACRO(macroGbox, isclose)
 		else
 			local slot = macroGbox:GetChild("CHAT_MACRO_SLOT_" .. i);		
 			local poseID = tonumber( slot:GetUserValue('POSEID') );
+			if poseID == nil then
+				poseID = 0;
+			end
 			packet.ReqSaveChatMacro(i, poseID, text);
 	    end        
 	end

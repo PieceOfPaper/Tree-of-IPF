@@ -37,6 +37,16 @@ function RANKROLLBACK_ITEM_USE(invItem)
 end
 
 function RANKROLLBACK_CHECK_PLAYER_STATE(frame)
+	local jobClsID = frame:GetUserIValue('TARGET_JOB_CLASS_ID')
+	local jobCls = GetClassByType('Job', jobClsID)
+	local curJobAbilPoint = GetTotalAbilityPointByJob(GetMyPCObject(), TryGetProp(jobCls, 'ClassName', 'None'), 0)
+	local curTotalAbilPoint = session.ability.GetAbilityPoint()
+
+	local abilPointStr = GET_CHILD_RECURSIVELY(frame, "strAbility")
+	abilPointStr:SetTextByKey("value", GET_COMMAED_STRING(curJobAbilPoint))
+	abilPointStr:SetTextByKey("getvalue", GET_COMMAED_STRING(curJobAbilPoint))
+	abilPointStr:SetTextByKey("curvalue", GET_COMMAED_STRING(curTotalAbilPoint))
+
 	RANKROLLBACK_PC_EQUIP_STATE(frame);
 	RANKROLLBACK_PC_WITH_COMMPANION(frame);
 	RANKROLLBACK_PC_LOCATE(frame);

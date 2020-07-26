@@ -2172,4 +2172,31 @@
 			</EtcList>
 		</MainSkl>
 	</Skill>
+	<Skill Name="Cryomancer_Gust_Vibora">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="550" Dist="0" ForceATK="0" HitCount="1" Length="60" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453299" TermMax="0" TermMin="0" Time="550" Type="SQUARE" Width="50"/>
+				<Frame Angle="0.0043426398" AniTime="700" Dist="60.543854" ForceATK="0" HitCount="1" Length="60" PosType="1" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453299" TermMax="0" TermMin="0" Time="700" Type="SQUARE" Width="50"/>
+				<Frame Angle="0.003980299" AniTime="850" Dist="121.2795" ForceATK="0" HitCount="1" Length="60" PosType="1" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453299" TermMax="0" TermMin="0" Time="850" Type="SQUARE" Width="50"/>
+				<Frame Angle="0.003980299" AniTime="1000" Dist="182.015146" ForceATK="0" HitCount="1" Length="60" PosType="1" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453299" TermMax="0" TermMin="0" Time="850" Type="SQUARE" Width="50"/>
+			</HitList>
+			<EtcList>
+				<Scp Client="YES" Scp="C_VOICE_SOUND" Time="330" UseSleep="NO">
+					<Str Str="voice_wiz_m_gust_shot"/>
+					<Str Str="voice_wiz_gust_shot"/>
+				</Scp>
+				<Scp Client="YES" Scp="C_EFFECT" Time="400" UseSleep="NO">
+					<Str_Arg Arg="2" Str="E_wizard_gust_ice"/>
+					<Str Str="Dummy_emitter"/>
+					<Num Num="0"/>
+				</Scp>
+				<Scp Client="YES" Scp="C_SOUND" Time="400" UseSleep="NO">
+					<Str Str="skl_eff_hackapell_infiniteassault"/>
+				</Scp>
+			</EtcList>
+			<ResultList>
+				<ToolScp Client="NO" Scp="SCR_SKILL_GUST_VIBORA" UseSleep="NO"/>
+			</ResultList>
+		</MainSkl>
+	</Skill>
 </ToolSkill>

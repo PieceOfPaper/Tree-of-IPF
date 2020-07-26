@@ -4,9 +4,24 @@ local g_earth_shop_control_name = ""
 
 function EARTHTOWERSHOP_ON_INIT(addon, frame)
     addon:RegisterMsg('EARTHTOWERSHOP_BUY_ITEM', 'EARTHTOWERSHOP_BUY_ITEM');
+    addon:RegisterMsg('EARTHTOWERSHOP_BUY_ITEM_RESULT', 'EARTHTOWERSHOP_BUY_ITEM_RESULT');
 end
 
-function EARTHTOWERSHOP_BUY_ITEM(itemName,itemCount)
+function EARTHTOWERSHOP_BUY_ITEM_RESULT(frame, msg, argStr, argNum)
+    local token = StringSplit(argStr, '/')
+    ui.SysMsg(ScpArgMsg("RESULT_MISC_PVP_MINE2", "count1", GET_COMMAED_STRING(token[1]), "count2", GET_COMMAED_STRING(token[2])));
+    local propertyRemain = GET_CHILD_RECURSIVELY(frame,"propertyRemain")
+    local itemCls = GetClass('Item','misc_pvp_mine2')
+    propertyRemain:SetTextByKey('itemName',itemCls.Name)
+    local aObj = GetMyAccountObj()
+    local count = TryGetProp(aObj,"MISC_PVP_MINE2", '0')
+    if count == 'None' then
+        count = '0'
+    end
+    propertyRemain:SetTextByKey('itemCount', GET_COMMAED_STRING(count))
+end
+
+function EARTHTOWERSHOP_BUY_ITEM(frame, msg, itemName, itemCount)    
 	local controlFrame = ui.GetFrame(s_earth_shop_frame_name);
 	if controlFrame == nil then
 		return
@@ -257,6 +272,8 @@ function EARTH_TOWER_INIT(frame, shopType)
 
     INVENTORY_SET_CUSTOM_RBTNDOWN("None");
     RESET_INVENTORY_ICON();
+    local propertyRemain = GET_CHILD_RECURSIVELY(frame,"propertyRemain")
+    propertyRemain:ShowWindow(0)
 
     local title = GET_CHILD(frame, 'title', 'ui::CRichText')
     local close = GET_CHILD(frame, 'close');
@@ -278,6 +295,16 @@ function EARTH_TOWER_INIT(frame, shopType)
     elseif shopType == 'PVPMine' then
         title:SetText('{@st43}'..ScpArgMsg("pvp_mine_shop_name"));
         close:SetTextTooltip(ScpArgMsg('CloseUI{NAME}', 'NAME', ScpArgMsg("pvp_mine_shop_name")));
+        --property setting
+        propertyRemain:ShowWindow(1)
+        local itemCls = GetClass('Item','misc_pvp_mine2')
+        propertyRemain:SetTextByKey('itemName',itemCls.Name)
+        local aObj = GetMyAccountObj()
+        local count = TryGetProp(aObj,"MISC_PVP_MINE2", '0')
+        if count == 'None' then
+            count = '0'
+        end
+        propertyRemain:SetTextByKey('itemCount', GET_COMMAED_STRING(count))
     elseif shopType == 'MCShop1' then
         title:SetText('{@st43}'..ScpArgMsg("MASSIVE_CONTENTS_SHOP_NAME"));
         close:SetTextTooltip(ScpArgMsg('CloseUI{NAME}', 'NAME', ScpArgMsg("MASSIVE_CONTENTS_SHOP_NAME")));
@@ -378,7 +405,7 @@ function EARTH_TOWER_INIT(frame, shopType)
                     isExchangeEnable = false;
                 end
 
-                local haveM = CRAFT_HAVE_MATERIAL(cls);     
+                local haveM = CRAFT_HAVE_MATERIAL(cls);
                 if checkHaveMaterial == 1 then
                     if haveM == 1 then
                         if isExchangeEnable == true then
@@ -428,7 +455,7 @@ function EXCHANGE_COUNT_CHECK(cls)
     return "None";
 end
 
-function INSERT_ITEM(cls, tree, slotHeight, haveMaterial, shopType)
+function INSERT_ITEM(cls, tree, slotHeight, haveMaterial, shopType)    
     local item = GetClass('Item', cls.TargetItem);
     if item == nil then
         return;
@@ -442,12 +469,12 @@ function INSERT_ITEM(cls, tree, slotHeight, haveMaterial, shopType)
             classType = nil
         end
     end
-
+    
     EXCHANGE_CREATE_TREE_PAGE(tree, slotHeight, groupName, classType, cls, shopType);
 end
 
 
-function EXCHANGE_CREATE_TREE_PAGE(tree, slotHeight, groupName, classType, cls, shopType)
+function EXCHANGE_CREATE_TREE_PAGE(tree, slotHeight, groupName, classType, cls, shopType)    
     local hGroup = tree:FindByValue(groupName);
     if tree:IsExist(hGroup) == 0 then
         hGroup = tree:Add(ScpArgMsg(groupName), groupName);
@@ -511,7 +538,12 @@ function EXCHANGE_CREATE_TREE_PAGE(tree, slotHeight, groupName, classType, cls, 
     local startY = 80;
     local y = startY; 
     y = y + 10;
-    local itemHeight = ui.GetControlSetAttribute('craftRecipe_detail_item', 'height');
+    local itemHeight = 0
+    if shopType == 'PVPMine' then
+        itemHeight = ui.GetControlSetAttribute('craftRecipe_detail_pvp_mine_item', 'height');
+    else
+        itemHeight = ui.GetControlSetAttribute('craftRecipe_detail_item', 'height');
+    end
     local recipecls = GetClass('ItemTradeShop', ctrlset:GetName());
     local targetItem = GetClass("Item", recipecls.TargetItem);
     local itemName = GET_CHILD(ctrlset, "itemName")
@@ -550,7 +582,13 @@ function EXCHANGE_CREATE_TREE_PAGE(tree, slotHeight, groupName, classType, cls, 
         local recipeItemCnt, invItemCnt, dragRecipeItem, invItem, recipeItemLv, invItemlist  = GET_RECIPE_MATERIAL_INFO(recipecls, i);
             if invItemlist ~= nil then
                 for j = 0, recipeItemCnt - 1 do
-                    local itemSet = ctrlset:CreateOrGetControlSet('craftRecipe_detail_item', "EACHMATERIALITEM_" .. i ..'_'.. j, x, y);
+                    local itemSet = nil
+                    if shopType == 'PVPMine' then
+                        itemSet = ctrlset:CreateOrGetControlSet('craftRecipe_detail_pvp_mine_item', "EACHMATERIALITEM_" .. i ..'_'.. j, x, y);
+                    else
+                        itemSet = ctrlset:CreateOrGetControlSet('craftRecipe_detail_item', "EACHMATERIALITEM_" .. i ..'_'.. j, x, y);
+                    end
+                    
                     itemSet:SetUserValue("MATERIAL_IS_SELECTED", 'nonselected');
                     local slot = GET_CHILD(itemSet, "slot", "ui::CSlot");
                     local needcountTxt = GET_CHILD(itemSet, "needcount", "ui::CSlot");
@@ -575,7 +613,13 @@ function EXCHANGE_CREATE_TREE_PAGE(tree, slotHeight, groupName, classType, cls, 
                     itemCount = itemCount + 1;              
                 end
             else            
-                local itemSet = ctrlset:CreateOrGetControlSet('craftRecipe_detail_item', "EACHMATERIALITEM_" .. i, x, y);
+                local itemSet = nil
+                if shopType == 'PVPMine' then
+                    itemSet = ctrlset:CreateOrGetControlSet('craftRecipe_detail_pvp_mine_item', "EACHMATERIALITEM_" .. i, x, y);
+                else
+                    itemSet = ctrlset:CreateOrGetControlSet('craftRecipe_detail_item', "EACHMATERIALITEM_" .. i, x, y);
+                end
+                 
                 itemSet:SetUserValue("MATERIAL_IS_SELECTED", 'nonselected');
                 local slot = GET_CHILD(itemSet, "slot", "ui::CSlot");
                 local needcountTxt = GET_CHILD(itemSet, "needcount", "ui::CSlot");
@@ -677,9 +721,9 @@ function EXCHANGE_CREATE_TREE_PAGE(tree, slotHeight, groupName, classType, cls, 
     page:SetSlotSize(ctrlset:GetWidth(), ctrlset:GetHeight() + 40)
 end
 
-function EARTH_TOWER_SHOP_EXEC(parent, ctrl)
+function EARTH_TOWER_SHOP_EXEC(parent, ctrl)    
     local frame = parent:GetTopParentFrame();
-
+    local shopType = frame:GetUserValue("SHOP_TYPE");
 	s_earth_shop_frame_name = frame:GetName();
 	s_earth_shop_parent_name = parent:GetName();
     g_earth_shop_control_name = ctrl:GetName();
@@ -697,34 +741,47 @@ function EARTH_TOWER_SHOP_EXEC(parent, ctrl)
     end
 
     local recipecls = GetClass('ItemTradeShop', parent:GetName());
-    if recipecls ~= nil then
-        local isExceptionFlag = false;
-        for index = 1, 5 do
-            local clsName = "Item_"..index.."_1";
-            local itemName = recipecls[clsName];
-            local recipeItemCnt, invItemCnt, dragRecipeItem, invItem, recipeItemLv, invItemlist = GET_RECIPE_MATERIAL_INFO(recipecls, index);
 
-            if dragRecipeItem ~= nil then
-                local itemCount = GET_TOTAL_ITEM_CNT(dragRecipeItem.ClassID);
-                if itemCount < recipeItemCnt * resultCount then
-                    ui.AddText("SystemMsgFrame", ScpArgMsg('NotEnoughRecipe'));
-                    isExceptionFlag = true;
-                    break;
+
+    if shopType ~= 'PVPMine' then
+        if recipecls ~= nil then
+            local isExceptionFlag = false;
+            for index = 1, 5 do
+                local clsName = "Item_"..index.."_1";
+                local itemName = recipecls[clsName];
+                local recipeItemCnt, invItemCnt, dragRecipeItem, invItem, recipeItemLv, invItemlist = GET_RECIPE_MATERIAL_INFO(recipecls, index);
+
+                if dragRecipeItem ~= nil then
+                    local itemCount = GET_TOTAL_ITEM_CNT(dragRecipeItem.ClassID);
+                    if itemCount < recipeItemCnt * resultCount then
+                        ui.AddText("SystemMsgFrame", ScpArgMsg('NotEnoughRecipe'));
+                        isExceptionFlag = true;
+                        break;
+                    end
                 end
             end
-        end
 
-        if isExceptionFlag == true then
-            isExceptionFlag = false;
-            return;
+            if isExceptionFlag == true then
+                isExceptionFlag = false;
+                return;
+            end
         end
     end
-
-    local shopType = frame:GetUserValue("SHOP_TYPE");
-    if recipecls==nil or recipecls["Item_2_1"] ~='None' then
-        AddLuaTimerFuncWithLimitCountEndFunc("EARTH_TOWER_SHOP_TRADE_ENTER", 100, resultCount - 1, "EARTH_TOWER_SHOP_TRADE_LEAVE");
-    else
-        AddLuaTimerFuncWithLimitCountEndFunc("EARTH_TOWER_SHOP_TRADE_ENTER", 100, 0, "EARTH_TOWER_SHOP_TRADE_LEAVE");
+    
+    
+    if recipecls==nil or recipecls["Item_2_1"] ~='None' then        
+        if shopType == 'PVPMine' then
+            AddLuaTimerFuncWithLimitCountEndFunc("PVP_MINE_SHOP_TRADE_ENTER", 100, resultCount - 1, "EARTH_TOWER_SHOP_TRADE_LEAVE");            
+        else
+            AddLuaTimerFuncWithLimitCountEndFunc("EARTH_TOWER_SHOP_TRADE_ENTER", 100, resultCount - 1, "EARTH_TOWER_SHOP_TRADE_LEAVE");
+        end
+        
+    else        
+        if shopType == 'PVPMine' then
+            AddLuaTimerFuncWithLimitCountEndFunc("PVP_MINE_SHOP_TRADE_ENTER", 100, 0, "EARTH_TOWER_SHOP_TRADE_LEAVE");
+        else
+            AddLuaTimerFuncWithLimitCountEndFunc("EARTH_TOWER_SHOP_TRADE_ENTER", 100, 0, "EARTH_TOWER_SHOP_TRADE_LEAVE");
+        end
     end
 end
 
@@ -835,9 +892,7 @@ function EARTH_TOWER_SHOP_TRADE_ENTER()
 	elseif shopType == 'EventShop4' then
 		item.DialogTransaction("EVENT_ITEM_SHOP_TREAD4", resultlist, cntText);
     elseif shopType == 'EventShop8' then
-        item.DialogTransaction("EVENT_ITEM_SHOP_TREAD8", resultlist, cntText);
-	elseif shopType == 'PVPMine' then
-		item.DialogTransaction("PVP_MINE_SHOP", resultlist, cntText);
+        item.DialogTransaction("EVENT_ITEM_SHOP_TREAD8", resultlist, cntText);	
 	elseif shopType == 'MCShop1' then
 		item.DialogTransaction("MASSIVE_CONTENTS_SHOP_TREAD1", resultlist, cntText);
 	elseif shopType == 'DailyRewardShop' then
@@ -873,6 +928,53 @@ function EARTH_TOWER_SHOP_TRADE_ENTER()
         strArgList:Add(shopType);
         item.DialogTransaction("EVENT_SHOP_1_THREAD1", resultlist, cntText,strArgList);
 	end
+end
+
+-- 용병단 증표
+function PVP_MINE_SHOP_TRADE_ENTER()    
+	local frame = ui.GetFrame(s_earth_shop_frame_name);
+	if frame == nil then
+		return
+    end
+
+    local shopType = frame:GetUserValue("SHOP_TYPE");
+    if shopType ~= 'PVPMine' then
+        return
+    end    
+
+    local parent = GET_CHILD_RECURSIVELY(frame, s_earth_shop_parent_name);    
+        
+    local parentcset = parent;
+    local cnt = parentcset:GetChildCount();
+    for i = 0, cnt - 1 do
+        local eachcset = parentcset:GetChildByIndex(i);    
+        if string.find(eachcset:GetName(),'EACHMATERIALITEM_') ~= nil then
+            local selected = eachcset:GetUserValue("MATERIAL_IS_SELECTED")
+            if selected ~= 'selected' then
+                ui.AddText("SystemMsgFrame", ScpArgMsg('NotEnoughRecipe'));                
+                return;
+            end
+        end
+    end
+	
+    session.ResetItemList();
+    session.AddItemID(tostring(0), 1);
+    local recipeCls = GetClass("ItemTradeShop", parentcset:GetName())    
+	local resultlist = session.GetItemIDList();
+	local cntText = string.format("%s %s", recipeCls.ClassID, 1);
+	
+    local edit_itemcount = GET_CHILD_RECURSIVELY(parentcset, "itemcount");
+    if edit_itemcount == nil then 
+        return; 
+    end
+
+    local itemCountGBox = GET_CHILD_RECURSIVELY(parentcset, "gbox");
+    local resultCount = tonumber(edit_itemcount:GetText());
+    if itemCountGBox:IsVisible() == 0 then
+        resultCount = 1;
+    end
+    cntText = string.format("%s %s", recipeCls.ClassID, resultCount);
+    item.DialogTransaction("PVP_MINE_SHOP", resultlist, cntText);    
 end
 
 function EARTH_TOWER_SHOP_TRADE_LEAVE()
@@ -990,9 +1092,9 @@ function EARTHTOWERSHOP_DOWNBTN(frame, ctrl)
     EARTHTOWERSHOP_CHANGECOUNT(frame, ctrl, -1);
 end
 
-function EARTHTOWERSHOP_CHANGECOUNT(frame, ctrl, change)
+function EARTHTOWERSHOP_CHANGECOUNT(frame, ctrl, change)    
     if ctrl == nil then return; end
-
+    
     local gbox = ctrl:GetParent(); if gbox == nil then return; end
     local parentCtrl = gbox:GetParent(); if parentCtrl == nil then return; end
     local ctrlset = parentCtrl:GetParent(); if ctrlset == nil then return; end

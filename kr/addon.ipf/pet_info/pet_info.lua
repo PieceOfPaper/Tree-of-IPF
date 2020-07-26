@@ -669,7 +669,7 @@ function DROP_PET_EQUIP(parent, slot, str, num)
 		blongCnt = tonumber(blongProp);
 	end
 
-	if itemProp:IsEnableTeamTrade() == false or 0 <  blongCnt then
+	if TryGetProp(itemObj, 'EnableEquipMap', 'None') ~= 'pvp_Mine' and (itemProp:IsEnableTeamTrade() == false or 0 < blongCnt) then
 		ui.SysMsg(ClMsg("NonTradableItemIsNotForCompanion"));
 		return;
 	end

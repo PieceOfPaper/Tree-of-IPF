@@ -297,7 +297,7 @@ function ITEM_OPTIONADD_REG_ADD_ITEM(frame, itemID)
 	for i = 1 , #list do
 
 		local propName = list[i];
-		local propValue = targetItem[propName];
+		local propValue = TryGetProp(targetItem, propName, 0);
 		
 		if propValue ~= 0 then
             local checkPropName = propName;
@@ -312,7 +312,7 @@ function ITEM_OPTIONADD_REG_ADD_ITEM(frame, itemID)
 
 	for i = 1 , #list2 do
 		local propName = list2[i];
-		local propValue = targetItem[propName];
+		local propValue = TryGetProp(targetItem, propName, 0);
 		if propValue ~= 0 then
 
 			cnt = cnt +1
@@ -346,7 +346,7 @@ function ITEM_OPTIONADD_REG_ADD_ITEM(frame, itemID)
 
 	for i = 1 , #list do
 		local propName = list[i];
-		local propValue = targetItem[propName];
+		local propValue = TryGetProp(targetItem, propName, 0);
 
 		local needToShow = true;
 		for j = 1, #basicTooltipPropList do
@@ -355,32 +355,32 @@ function ITEM_OPTIONADD_REG_ADD_ITEM(frame, itemID)
 			end
 		end
 
-		if needToShow == true and targetItem[propName] ~= 0 and randomOptionProp[propName] == nil then -- 랜덤 옵션이랑 겹치는 프로퍼티는 여기서 출력하지 않음
+		if needToShow == true and propValue ~= 0 and randomOptionProp[propName] == nil then -- 랜덤 옵션이랑 겹치는 프로퍼티는 여기서 출력하지 않음
 
 			if  targetItem.GroupName == 'Weapon' then
 				if propName ~= "MINATK" and propName ~= 'MAXATK' then
-					local strInfo = ABILITY_DESC_PLUS(ScpArgMsg(propName), targetItem[propName]);					
+					local strInfo = ABILITY_DESC_PLUS(ScpArgMsg(propName), propValue);
 					inner_yPos = ADD_ITEM_PROPERTY_TEXT(property_gbox, strInfo, 0, inner_yPos);
 				end
 			elseif  targetItem.GroupName == 'Armor' then
 				if targetItem.ClassType == 'Gloves' then
 					if propName ~= "HR" then
-						local strInfo = ABILITY_DESC_PLUS(ScpArgMsg(propName), targetItem[propName]);
+						local strInfo = ABILITY_DESC_PLUS(ScpArgMsg(propName), propValue);
 						inner_yPos = ADD_ITEM_PROPERTY_TEXT(property_gbox, strInfo, 0, inner_yPos);
 					end
 				elseif targetItem.ClassType == 'Boots' then
 					if propName ~= "DR" then
-						local strInfo = ABILITY_DESC_PLUS(ScpArgMsg(propName), targetItem[propName]);
+						local strInfo = ABILITY_DESC_PLUS(ScpArgMsg(propName), propValue);
 						inner_yPos = ADD_ITEM_PROPERTY_TEXT(property_gbox, strInfo, 0, inner_yPos);
 					end
 				else
 					if propName ~= "DEF" then
-						local strInfo = ABILITY_DESC_PLUS(ScpArgMsg(propName), targetItem[propName]);
+						local strInfo = ABILITY_DESC_PLUS(ScpArgMsg(propName), propValue);
 						inner_yPos = ADD_ITEM_PROPERTY_TEXT(property_gbox, strInfo, 0, inner_yPos);
 					end
 				end
 			else
-				local strInfo = ABILITY_DESC_PLUS(ScpArgMsg(propName), targetItem[propName]);
+				local strInfo = ABILITY_DESC_PLUS(ScpArgMsg(propName), propValue);
 				inner_yPos = ADD_ITEM_PROPERTY_TEXT(property_gbox, strInfo, 0, inner_yPos);
 			end
 		end
@@ -426,7 +426,7 @@ function ITEM_OPTIONADD_REG_ADD_ITEM(frame, itemID)
 
 	for i = 1 , #list2 do
 		local propName = list2[i];
-		local propValue = targetItem[propName];
+		local propValue = TryGetProp(targetItem, propName, 0);
 		if propValue ~= 0 then
 			local strInfo = ABILITY_DESC_PLUS(ScpArgMsg(propName), targetItem[propName]);
 			inner_yPos = ADD_ITEM_PROPERTY_TEXT(property_gbox, strInfo, 0, inner_yPos);

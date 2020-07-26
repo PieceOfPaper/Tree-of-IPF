@@ -1,7 +1,6 @@
 function COLONY_HUD_BUFFLIST(frame, actor)
 	local actorHandle = actor:GetHandleVal();
 	local buffCount = info.GetBuffCount(actorHandle);
-	
 	local slotCount = frame:GetSlotCount();
 	for j = 0, slotCount - 1 do
 		local slot = frame:GetSlotByIndex(j);

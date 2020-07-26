@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by IMCGames Co., Ltd (IMCGames Co., Ltd) -->
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
 <!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by MinstFaith (EMBRACE) -->
 <List>
 	<Effect_Item>
@@ -373,6 +373,12 @@
 		<ItemList ItemClassName="wing_ep12wedding">
 			<effect TargetNode="Dummy_effect01" effect="I_spread_out001_light_violet_loop4" scale="1" offset="0;0" ReinforceValue="0" UseAttach="NO" PlayType="All" IsKeeping="NO" BlendMode="NO" OnLifeTime="NO" LifeTimeValue="0.0" GiveAttackFromEffect="None" UseTrailEffectChange="false" GiveAttackFromEffectScale="1.5" GiveAttackSelfEffect="None" GiveAttackSelfEffectScale="0.5" GiveAttackFromSound="None" GiveAttackSelfSound="None" TakeAttackEffect="None" TakeAttackEffectScale="0.5" TakeAttackSound="None" GiveAttackFromEffectOffSet="0;0" GiveAttackSelfEffectOffSet="0;0" TakeAttackEffectOffSet="0;0" SoundVolume="1"/>
 			<effect TargetNode="Dummy_effect02" effect="I_spread_out001_light_violet_loop4" scale="1" offset="0;0" ReinforceValue="0" UseAttach="NO" PlayType="All" IsKeeping="NO" BlendMode="NO" OnLifeTime="NO" LifeTimeValue="0.0" GiveAttackFromEffect="None" UseTrailEffectChange="false" GiveAttackFromEffectScale="1.5" GiveAttackSelfEffect="None" GiveAttackSelfEffectScale="0.5" GiveAttackFromSound="None" GiveAttackSelfSound="None" TakeAttackEffect="None" TakeAttackEffectScale="0.5" TakeAttackSound="None" GiveAttackFromEffectOffSet="0;0" GiveAttackSelfEffectOffSet="0;0" TakeAttackEffectOffSet="0;0" SoundVolume="1"/>
+		</ItemList>
+	</Effect_Item>
+	<Effect_Item>
+		<ItemList ItemClassName="EP12_Artefact_040">
+			<effect TargetNode="Dummy_amulet02" effect="None" scale="1" offset="0;0" ReinforceValue="0" UseAttach="NO" PlayType="All" IsKeeping="NO" BlendMode="NO" OnLifeTime="NO" LifeTimeValue="0.0" GiveAttackFromEffect="F_light001_yellow3" UseTrailEffectChange="false" GiveAttackFromEffectScale="0.5" GiveAttackSelfEffect="None" GiveAttackSelfEffectScale="0.5" GiveAttackFromSound="None" GiveAttackSelfSound="None" TakeAttackEffect="None" TakeAttackEffectScale="0.5" TakeAttackSound="None" GiveAttackFromEffectOffSet="0;0" GiveAttackSelfEffectOffSet="0;0" TakeAttackEffectOffSet="0;0" SoundVolume="1"/>
+			<effect TargetNode="Dummy_amulet03" effect="None" scale="1" offset="0;0" ReinforceValue="0" UseAttach="NO" PlayType="All" IsKeeping="NO" BlendMode="NO" OnLifeTime="NO" LifeTimeValue="0.0" GiveAttackFromEffect="F_light001_yellow3" UseTrailEffectChange="false" GiveAttackFromEffectScale="0.5" GiveAttackSelfEffect="None" GiveAttackSelfEffectScale="0.5" GiveAttackFromSound="None" GiveAttackSelfSound="None" TakeAttackEffect="None" TakeAttackEffectScale="0.5" TakeAttackSound="None" GiveAttackFromEffectOffSet="0;0" GiveAttackSelfEffectOffSet="0;0" TakeAttackEffectOffSet="0;0" SoundVolume="1"/>
 		</ItemList>
 	</Effect_Item>
 	<Effect_Item/>

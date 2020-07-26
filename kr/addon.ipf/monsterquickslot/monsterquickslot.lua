@@ -1,5 +1,5 @@
 function MONSTERQUICKSLOT_ON_INIT(addon, frame)
-
+	MONSTERQUICKSLOT_UPDATE_HOTKEYNAME(frame)
 end
 
 function MONSTER_QUICKSLOT(isOn, monName, buffType, ableToUseSkill)
@@ -212,5 +212,25 @@ function EXEC_INSTANT_QUICKSLOT(isOn)
 			ui.OpenFrame("quickslotnexpbar");
 		end
 		frame:ShowWindow(0);
+	end
+end
+
+function MONSTERQUICKSLOT_UPDATE_HOTKEYNAME(frame)
+	local slotset = GET_CHILD_RECURSIVELY(frame,"slotset")
+	for i = 0, slotset:GetSlotCount() - 1 do
+		local slot = slotset:GetChild("slot"..i+1)
+		tolua.cast(slot, "ui::CSlot");
+		local slotString = 'QuickSlotExecute'..(i + 1);
+		local hotKey = nil;
+		local controlmodeType = tonumber(config.GetXMLConfig("ControlMode"));
+		if controlmodeType == 1 then
+			hotKey = hotKeyTable.GetHotKeyString(slotString, 1);
+		else
+			hotKey = hotKeyTable.GetHotKeyString(slotString, 0);
+		end
+		-- 이 땜빵을 어찌해아 하나? 제일 좋은건 hotkey_joystic.xml의 Key, PressedKey를 예쁘게 정리하는 것이다.
+		hotKey = JOYSTICK_QUICKSLOT_REPLACE_HOTKEY_STRING(true, hotKey);
+		slot:SetText('{s14}{#f0dcaa}{b}{ol}'..hotKey, 'default', ui.LEFT, ui.TOP, 2, 1);
+		QUICKSLOT_MAKE_GAUGE(slot);
 	end
 end

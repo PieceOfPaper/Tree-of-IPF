@@ -57,7 +57,8 @@ function BEAUTYSHOP_DO_OPEN(frame, msg, shopTypeName, genderNum)
 		{Type="ETC", OpenFunc = ETCSHOP_OPEN, IDSpace = 'Beauty_Shop_Lens'},
 		{Type="PACKAGE", OpenFunc = PACKAGESHOP_OPEN, IDSpace = 'Beauty_Shop_Package_Cube'}, 
 		{Type="PREVIEW", OpenFunc = PREVIEWSHOP_OPEN, IDSpace = 'Beauty_Shop_Preview'}, 
-		{Type="SKIN", OpenFunc = SKINSHOP_OPEN, IDSpace = 'Beauty_Shop_Skin'}, 
+		{Type="SKIN", OpenFunc = SKINSHOP_OPEN, IDSpace = 'Beauty_Shop_Skin'},
+		{Type="DESIGNCUT", OpenFunc = DESIGNCUTSHOP_OPEN, IDSpace = 'Beauty_Shop_Designcut'},
 	};
 	
 	-- 상점 성별 설정.
@@ -313,6 +314,8 @@ function GET_BEAUTYSHOP_EQUIP_TYPE(frame, gender, itemClassName)
 		return PREVIEWSHOP_GET_ITEM_EQUIPTYPE(itemClassName);
 	elseif shopName == 'SKIN' then
 		return SKINSHOP_GET_ITEM_EQUIPTYPE(itemClassName);
+	elseif shopName == 'DESIGNCUT' then
+		return DESIGNCUTSHOP_GET_ITEM_EQUIPTYPE(gender, itemClassName);
 	end
 	return nil;
 end
@@ -761,11 +764,12 @@ function BEAUTYSHOP_ITEM_TO_BASKET(ItemClassName, ItemClassID, SubItemStrArg, ct
 		      ClassName = beautyShopClsName,
 		      ColorClassName = ctrlset:GetUserValue('COLOR_CLASS_NAME'),
 		      ColorEngName = colorName,
-		    };
-		    if priceInfo.ColorClassName ~= 'None' then
-		      priceInfo.IDSpace = 'Beauty_Shop_Hair';
-		      priceInfo.ClassName = item.ClassName;
-		    end
+			};
+
+		    if priceInfo.IDSpace =="Hair_Dye_List" then
+			  priceInfo.IDSpace = 'Beauty_Shop_Hair';
+			  priceInfo.ClassName = item.ClassName;
+			end
 			slot:SetUserValue('COLOR_NAME', colorName);
 			
 			local priceResult = GET_BEAUTYSHOP_ITEM_PRICE(pc, priceInfo, nil, nil, nil);	
@@ -1263,7 +1267,8 @@ function BEAUTYSHOP_GET_PREIVEW_SLOT_NAME(equipType, itemClassName)
 			{previewEquipName = "lh" , slotName = "slotPreview_lh"},
 			{previewEquipName = "rh" , slotName = "slotPreview_rh"},
 			{previewEquipName = "doll" , slotName = "slotPreview_doll"},
-			{previewEquipName = "skin" , slotName = "slotPreview_skin"}
+			{previewEquipName = "skin" , slotName = "slotPreview_skin"},
+			{previewEquipName = "designcut" , slotName = "slotPreview_wig"}
 	}
 
 	local _equipType = BEAUTYSHOP_GET_ITEM_EQUIPTYPE_BY_ITEMCLASSNAME(equipType,itemClassName )
@@ -1343,6 +1348,27 @@ function BEAUTYSHOP_SET_PREVIEW_WIG_EQUIP_SLOT(apc, existItem, classname)
 	-- 장착
 	apc:SetEquipItem(item.GetEquipSpotNum(defaultEqpSlot), existItem.ClassID);	
 	gereinforceeffect.SetBeautyShopPreviewEquipItem(apc:GetName(), item.GetEquipSpotNum(defaultEqpSlot), existItem.ClassID);
+end
+
+function BEAUTYSHOP_SET_PREVIEW_DESIGNCUT_EQUIP_SLOT(apc, slot, existItem, classname)
+	if apc == nil or slot == nil or existItem == nil or classname == nil then
+		return
+	end
+
+	local defaultEqpSlot = TryGetProp(existItem,"DefaultEqpSlot")
+	if defaultEqpSlot == nil then
+		return
+	end
+
+	local colorName = slot:GetUserValue("COLOR_NAME")
+	if colorName == nil or colorName == "None" then
+		colorName = "default"
+	end
+
+	local headIndex = BEAUTYSHOP_GET_HEADINDEX(apc:GetGender(), classname, colorName)
+	apc:SetHeadType(headIndex);
+	apc:SetEquipItem(item.GetEquipSpotNum(defaultEqpSlot), 0);
+	apc:SetHairWigVisible(true);
 end
 
 function BEAUTYSHOP_SET_PREVIEW_WIG_DYE_EQUIP_SLOT(apc, topFrame, wigVisible, existItem)
@@ -1485,6 +1511,9 @@ function BEAUTYSHOP_SET_PREVIEW_SLOT_LIST(apc)
 					BEAUTYSHOP_SET_PREVIEW_WEAPON_EQUIP_SLOT(apc, slot, existItem, classname);
 				elseif type == "skin" then
 					BEAUTYSHOP_SET_PREVIEW_SKIN_EQUIP_SLOT(apc, existItem);
+				elseif type == "designcut" then
+					wigVisible = visible;
+					BEAUTYSHOP_SET_PREVIEW_DESIGNCUT_EQUIP_SLOT(apc, slot, existItem, classname);
 				else -- 그외
 					local defaultEqpSlot = TryGetProp(existItem,"DefaultEqpSlot")
 					if defaultEqpSlot ~= nil  then -- DefaultEqpSlot이 있는것만.
@@ -1773,7 +1802,7 @@ function GET_CURRENT_TRY_ON_ITEM_LIST(frame)
 		if clsName ~= 'None' then
 			list[#list + 1] = {};
             local listItem = list[#list];
-            listItem['IDSpace'] = slot:GetUserValue('IDSPACE');
+			listItem['IDSpace'] = slot:GetUserValue('IDSPACE');
             listItem['ClassName'] = slot:GetUserValue('SHOP_CLASSNAME');
             listItem['ItemClassName'] = clsName;
             listItem['equipType'] = equipTypeList[i];
@@ -1877,7 +1906,7 @@ end
 function BEAUTYSHOP_INIT_DROPLIST(frame)
 	local cateDrop = GET_CHILD_RECURSIVELY(frame, 'cateDrop');
 	local shopTypeName = frame:GetUserValue('CURRENT_SHOP');
-	if shopTypeName == 'HAIR' then
+	if shopTypeName == 'HAIR' or shopTypeName == "DESIGNCUT" then
 		cateDrop:ShowWindow(0);
 		return;
 	end
@@ -1916,6 +1945,9 @@ function BEAUTYSHOP_UPDATE_ITEM_LIST_BY_SHOP(frame)
 	elseif shopName == 'SKIN' then
 		SKINSHOP_INIT_FUNCTIONMAP();
 		SKINSHOP_GET_SHOP_ITEM_LIST();
+	elseif shopName == 'DESIGNCUT' then
+		DESIGNCUTSHOP_INIT_FUNCTIONMAP();
+		DESIGNCUTSHOP_GET_SHOP_ITEM_LIST(BEAUTYSHOP_GET_GENDER());
 	end
 end
 
@@ -1961,7 +1993,7 @@ function BEAUTYSHOP_INIT_RIGHTTOP_BOX(frame)
 	local infoText = GET_CHILD_RECURSIVELY(frame, 'infoText');
 
 	local shopName = frame:GetUserValue('CURRENT_SHOP');
-	if shopName == 'HAIR' then
+	if shopName == 'HAIR' or shopName == "DESIGNCUT" then
 		rtSubItemTitle:ShowWindow(1);
 		gbSubItem:ShowWindow(1);
 		infoText:ShowWindow(1);
@@ -2128,7 +2160,7 @@ function GET_ALLOW_DUPLICATE_ITEM_CLIENT_MSG(itemClassName) -- return 'buy case 
 	end
 	if session.GetWarehouseItemByType(itemCls.ClassID) ~= nil then
 		return 'AlearyHaveItemReallyBuy?', 'AlreadyHaveWannaRebuyFromPreview';
-	end
+	end	
 	return '', '';
 end
 

@@ -186,7 +186,7 @@ function ITEM_OPTIONRELEASE_REG_TARGETITEM(frame, itemID)
 	for i = 1 , #list do
 
 		local propName = list[i];
-		local propValue = inheritItemCls[propName];
+		local propValue = TryGetProp(inheritItemCls, propName, 0);
 		
 		if propValue ~= 0 then
             local checkPropName = propName;
@@ -201,7 +201,7 @@ function ITEM_OPTIONRELEASE_REG_TARGETITEM(frame, itemID)
 
 	for i = 1 , #list2 do
 		local propName = list2[i];
-		local propValue = inheritItemCls[propName];
+		local propValue = TryGetProp(inheritItemCls, propName, 0);
 		
 		if propValue ~= 0 then
 			cnt = cnt + 1;
@@ -227,7 +227,7 @@ function ITEM_OPTIONRELEASE_REG_TARGETITEM(frame, itemID)
 
 	for i = 1 , #list do
 		local propName = list[i];
-		local propValue = inheritItemCls[propName];
+		local propValue = TryGetProp(inheritItemCls, propName, 0);
 		local needToShow = true;
 		for j = 1, #basicTooltipPropList do
 			if basicTooltipPropList[j] == propName then
@@ -235,32 +235,32 @@ function ITEM_OPTIONRELEASE_REG_TARGETITEM(frame, itemID)
 			end;
 		end;
 
-		if needToShow == true and inheritItemCls[propName] ~= 0 and randomOptionProp[propName] == nil then -- 랜덤 옵션이랑 겹치는 프로퍼티는 여기서 출력하지 않음
+		if needToShow == true and propValue ~= 0 and randomOptionProp[propName] == nil then -- 랜덤 옵션이랑 겹치는 프로퍼티는 여기서 출력하지 않음
 
 			if  inheritItemCls.GroupName == 'Weapon' then
 				if propName ~= "MINATK" and propName ~= 'MAXATK' then
-					local strInfo = ABILITY_DESC_PLUS(ScpArgMsg(propName), inheritItemCls[propName]);					
+					local strInfo = ABILITY_DESC_PLUS(ScpArgMsg(propName), propValue);					
 					inner_yPos = ADD_ITEM_PROPERTY_TEXT(property_gbox, strInfo, 0, inner_yPos);
 				end;
 			elseif  inheritItemCls.GroupName == 'Armor' then
 				if inheritItemCls.ClassType == 'Gloves' then
 					if propName ~= "HR" then
-						local strInfo = ABILITY_DESC_PLUS(ScpArgMsg(propName), inheritItemCls[propName]);
+						local strInfo = ABILITY_DESC_PLUS(ScpArgMsg(propName), propValue);
 						inner_yPos = ADD_ITEM_PROPERTY_TEXT(property_gbox, strInfo, 0, inner_yPos);
 					end;
 				elseif inheritItemCls.ClassType == 'Boots' then
 					if propName ~= "DR" then
-						local strInfo = ABILITY_DESC_PLUS(ScpArgMsg(propName), inheritItemCls[propName]);
+						local strInfo = ABILITY_DESC_PLUS(ScpArgMsg(propName), propValue);
 						inner_yPos = ADD_ITEM_PROPERTY_TEXT(property_gbox, strInfo, 0, inner_yPos);
 					end;
 				else
 					if propName ~= "DEF" then
-						local strInfo = ABILITY_DESC_PLUS(ScpArgMsg(propName), inheritItemCls[propName]);
+						local strInfo = ABILITY_DESC_PLUS(ScpArgMsg(propName), propValue);
 						inner_yPos = ADD_ITEM_PROPERTY_TEXT(property_gbox, strInfo, 0, inner_yPos);
 					end;
 				end;
 			else
-				local strInfo = ABILITY_DESC_PLUS(ScpArgMsg(propName), inheritItemCls[propName]);
+				local strInfo = ABILITY_DESC_PLUS(ScpArgMsg(propName), propValue);
 				inner_yPos = ADD_ITEM_PROPERTY_TEXT(property_gbox, strInfo, 0, inner_yPos);
 			end;
 		end;
@@ -278,9 +278,9 @@ function ITEM_OPTIONRELEASE_REG_TARGETITEM(frame, itemID)
 
 	for i = 1 , #list2 do
 		local propName = list2[i];
-		local propValue = invItemObj[propName];
+		local propValue = TryGetProp(invItemObj, propName, 0);
 		if propValue ~= 0 then
-			local strInfo = ABILITY_DESC_PLUS(ScpArgMsg(propName), invItemObj[propName]);
+			local strInfo = ABILITY_DESC_PLUS(ScpArgMsg(propName), propValue);
 			inner_yPos = ADD_ITEM_PROPERTY_TEXT(property_gbox, strInfo, 0, inner_yPos);
 		end;
 	end;
