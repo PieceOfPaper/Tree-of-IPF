@@ -68,9 +68,10 @@ function LEGEND_PREFIX_SELECT_TOOLTIP_DRAW(frame, targetItem, xpos, ypos, preFix
 		inner_yPos = DEFAULT_POS_Y;
 
 		local prefixCls = GetClass('LegendSetItem', preFixName)
+		local max_option_count = TryGetProp(prefixCls, 'MaxOptionCount', 5)
 		if prefixCls ~= nil then
-			for i = 0, 2 do
-				local index = 'EffectDesc_' .. i+3
+			for i = 0, (max_option_count - 3) do
+				local index = 'EffectDesc_' .. i + 3
 				local color = USE_SETOPTION_FONT
 				if EntireHaveCount >= i + 3 then
 					color = NOT_USE_SETOPTION_FONT

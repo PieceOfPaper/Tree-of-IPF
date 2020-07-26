@@ -12,9 +12,10 @@
     <controls>
         <picture name="chattail" rect="0 0 30 54" margin="-30 35 0 0" layout_gravity="center top" hittest="false" image="dark_balloon_2_direction" stretch="true"/>
         <groupbox name="chatBody" rect="0 0 280 100" margin="0 0 0 0" layout_gravity="center top" hittest="false" skin="dark_balloon_2" stretch="true"/>
-        <picture name="chathead" rect="0 0 100 60" margin="0 0 0 0" layout_gravity="center top" hittest="false" image="dark_balloon_2_direction" stretch="true"/>
+        <picture name="deco1" rect="0 0 100 100" margin="0 0 0 0" layout_gravity="center top" hittest="false" image="" draw="false" imagealign="center center"/>
+        <picture name="deco2" rect="0 0 100 100" margin="0 0 0 0" layout_gravity="center top" hittest="false" image="" draw="false" imagealign="center center"/>
         <richtext name="characterName" rect="0 0 20 100" margin="0 10 0 0" layout_gravity="center top" caption="임시이름" drawbackground="false" fixwidth="false" fontname="chatnametemp" hittest="false" maxwidth="260" resizebytext="true" slideshow="false" spacey="0" splitbyspace="false" textalign="left center" updateparent="true"/>
         <richtext name="chat" rect="0 0 20 100" margin="0 40 0 0" layout_gravity="center top" caption="text" drawbackground="false" fixwidth="false" fontname="black_18" hittest="true" maxwidth="260" resizebytext="true" slideshow="false" spacey="0" splitbyspace="true" textalign="left center" updateparent="true"/>
-        <spinepic name="spinePic" rect="0 0 120 120" margin="0 45 0 0" layout_gravity="center top" animation="animation" scale="0.2" stretch="true" offsetX="0" offsetY="0" draw="false"/>
+        <spinepic name="spinePic" rect="0 0 120 120" margin="0 145 0 0" layout_gravity="center top" animation="animation" scale="0.2" stretch="true" offsetX="0" offsetY="0" draw="false"/>
     </controls>
 </uiframe>

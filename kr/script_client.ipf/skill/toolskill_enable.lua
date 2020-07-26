@@ -182,6 +182,22 @@ function CHECK_IS_VILLAGE_C(actor, skl)
 
 end
 
+function CHECK_IS_PVP_C(actor, skl)
+    if IsPVPField(self) ~= 1 then
+        return 0;
+    end
+    
+    return 1;
+end
+
+function CHECK_IS_PVE_C(actor, skl)
+    if IsPVPField(self) ~= 0 then
+        return 0;
+    end
+    
+    return 1;
+end
+
 function CHECK_IS_GUIILDCOLONY_MAP_C(actor, skl)
     local mymapname = session.GetMapName();
     local map = GetClass("Map", mymapname);

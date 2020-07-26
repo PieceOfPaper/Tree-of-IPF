@@ -31,6 +31,7 @@ function SYSTEMOPTION_CREATE(frame)
     SET_AUTO_CELL_SELECT_CONFIG(frame);
     SET_DMG_FONT_SCALE_CONTROLLER(frame);
 	SET_SHOW_PAD_SKILL_RANGE(frame);
+	SET_SHOW_BOSS_SKILL_RANGE(frame);
 	SET_SIMPLIFY_BUFF_EFFECTS(frame);
 	SET_SIMPLIFY_MODEL(frame);
 	SET_RENDER_SHADOW(frame);
@@ -806,6 +807,18 @@ end
 
 function CONFIG_SHOW_PAD_SKILL_RANGE(frame, ctrl, str, num)
 	config.SetEnableShowPadSkillRange(ctrl:IsChecked());
+end
+
+function SET_SHOW_BOSS_SKILL_RANGE(frame)
+	local isEnable = config.IsEnableShowBossSkillRange();
+	local chkShowBossSkillRange = GET_CHILD_RECURSIVELY(frame, "chkShowBossSkillRange", "ui::CCheckBox");
+	if nil ~= chkShowBossSkillRange then
+		chkShowBossSkillRange:SetCheck(isEnable);
+	end;
+end
+
+function CONFIG_SHOW_BOSS_SKILL_RANGE(frame, ctrl, str, num)
+	config.SetEnableShowBossSkillRange(ctrl:IsChecked());
 end
 
 function SET_SIMPLIFY_BUFF_EFFECTS(frame)

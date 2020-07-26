@@ -8,6 +8,7 @@ function UPDATE_PREMIUM_TOOLTIP(tooltipframe, strarg, numarg1, numarg2)
 	local marketMinMax = tooltipframe:GetChild("marketMinMax");
 --	local token_buffCountUp = tooltipframe:GetChild("token_buffCountUp");
 	local token_teamwarehouse = tooltipframe:GetChild("token_teamwarehouse");
+	local token_icormultiple = tooltipframe:GetChild("token_icormultiple");
 --	local mission_reward = tooltipframe:GetChild("mission_reward");
 --	local RaidStance = tooltipframe:GetChild("RaidStance");
 	local token_remaintime = tooltipframe:GetChild("token_remaintime");
@@ -38,7 +39,8 @@ function UPDATE_PREMIUM_TOOLTIP(tooltipframe, strarg, numarg1, numarg2)
 		
         marketFastGet:ShowWindow(1);
         marketMinMax:ShowWindow(1);
-        token_teamwarehouse:ShowWindow(1);
+		token_teamwarehouse:ShowWindow(1);
+		token_icormultiple:ShowWindow(1);
 --        token_buffCountUp:ShowWindow(1);
 		token_expup:SetTextByKey("value", ScpArgMsg("Token_ExpUp{PER}", "PER", "20%"));
 		token_staup:SetTextByKey("value", ClMsg("AllowPremiumPose"));

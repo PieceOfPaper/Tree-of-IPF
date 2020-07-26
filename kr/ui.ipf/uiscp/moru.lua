@@ -185,6 +185,7 @@ function MORU_LBTN_CLICK(frame, invItem)
 	or moruObj.ClassName == "Moru_Gold_14d_Team_event1909"
 	or IS_MORU_NOT_DESTROY_TARGET_UNIQUE_ITEM(moruObj) == true then
 		if obj.PR > 0 then
+			ui.SysMsg(ClMsg("ItemIsNotReinforcable"));
 		    return;
 	    end
 	elseif moruObj.ClassName == "Moru_Potential" or moruObj.ClassName == "Moru_Potential14d" then
@@ -214,7 +215,7 @@ function MORU_LBTN_CLICK(frame, invItem)
     end
     
     if moruObj.ClassName == 'Moru_Diamond_14d_Team_Lv430' then
-        if obj.UseLv > 430 then
+        if obj.UseLv > 440 then
         return
         end
     end

@@ -1078,21 +1078,22 @@ function DRAW_EQUIP_DESC(tooltipframe, invitem, yPos, mainframename)
 	return tooltip_equip_property_CSet:GetHeight() + tooltip_equip_property_CSet:GetY();
 end
 
+-- 아크 tooltip_equip_desc
 function DRAW_EQUIP_ARK_DESC(tooltipframe, invitem, yPos, mainframename)
 	local class_name = TryGetProp(invitem, 'ClassName', 'None')
 	local tooltip_type = 1
 
 	local desc = ""
 
-	local func_str = string.format('get_tooltip_%s_arg%d', class_name, 2)
+	local func_str = string.format('get_tooltip_%s_arg%d', class_name, 2)		
 	local tooltip_func = _G[func_str]  -- get_tooltip_Ark_str_arg1 시리즈
 	if tooltip_func ~= nil then
-		local tooltiptype, option, level, value, base_value = tooltip_func()
-		tooltip_type = tooltiptype		
+		local tooltiptype, option, level, value, base_value = tooltip_func()		
+		tooltip_type = tooltiptype
 	end	
-
+	
 	if tooltip_type == 3 then
-		local msg = class_name .. '_desc{base1}{base2}'		
+		local msg = class_name .. '_desc{base1}{base2}'
 		local base1 = ''
 		local base2 = ''
 		local func_str = string.format('get_tooltip_%s_arg%d', class_name, 2)
@@ -1101,15 +1102,28 @@ function DRAW_EQUIP_ARK_DESC(tooltipframe, invitem, yPos, mainframename)
 			local tooltiptype, option, level, value, base_value = tooltip_func()			
 			base1 = base_value
 		end	
-		local func_str = string.format('get_tooltip_%s_arg%d', class_name, 3)
+		local func_str = string.format('get_tooltip_%s_arg%d', class_name, 3)		
 		local tooltip_func = _G[func_str]  -- get_tooltip_Ark_str_arg1 시리즈
 		if tooltip_func ~= nil then
-			local tooltiptype, option, level, value, base_value = tooltip_func()			
+			local tooltiptype, option, level, value, base_value = tooltip_func()						
 			base2 = base_value
 		end	
-		desc = ScpArgMsg(msg, 'base1', base1, 'base2', base2)
+		desc = ScpArgMsg(msg, 'base1', base1, 'base2', base2)		
 	else
-		desc = GET_ITEM_TOOLTIP_DESC(invitem);
+		local func_str = string.format('get_tooltip_%s_arg%d', class_name, 3)		
+		local tooltip_func = _G[func_str]  -- get_tooltip_Ark_str_arg3 시리즈
+		if tooltip_func ~= nil then
+			local tooltiptype, option, level, value, base_value, msg = tooltip_func()			
+			if tooltiptype == 4 then -- 3레벨 효과에 base가 1개인 경우
+				local base1 = base_value				
+				desc = ScpArgMsg(msg, 'base1', base1)
+			else
+				desc = GET_ITEM_TOOLTIP_DESC(invitem);
+			end
+			
+		else
+			desc = GET_ITEM_TOOLTIP_DESC(invitem);
+		end	
 	end
 
 	local gBox = GET_CHILD(tooltipframe, mainframename,'ui::CGroupBox')
@@ -1470,10 +1484,10 @@ function DRAW_EQUIP_SET(tooltipframe, invitem, ypos, mainframename)
 
 	if isUseLegendSet == 1 then
 		local prefixCls = GetClass('LegendSetItem', invitem.LegendPrefix)
+		local max_option_count = TryGetProp(prefixCls, 'MaxOptionCount', 5)
 		if prefixCls ~= nil then
-			for i = 0, 2 do
-		
-			local index = 'EffectDesc_' .. i+3
+			for i = 0, (max_option_count - 3) do		-- 3 4 5 
+			local index = 'EffectDesc_' .. i+ 3
 		--	local setEffect = set:GetSetEffect(i);
 
 				local color = USE_SETOPTION_FONT
@@ -1992,7 +2006,7 @@ local function _CREATE_ARK_LV(gBox, ypos, step, class_name, curlv)
 	local func_str = string.format('get_tooltip_%s_arg%d', class_name, step)
     local tooltip_func = _G[func_str]  -- get_tooltip_Ark_str_arg1 시리즈
 	if tooltip_func ~= nil then
-		local tooltip_type, status, interval, add_value, summon_atk = tooltip_func();		
+		local tooltip_type, status, interval, add_value, summon_atk, client_msg, unit = tooltip_func();		
 		local option = status        
 		local grade_count = math.floor(curlv / interval);
 		if tooltip_type == 3 then
@@ -2006,13 +2020,23 @@ local function _CREATE_ARK_LV(gBox, ypos, step, class_name, curlv)
 		end
 		
 		local strInfo = ABILITY_DESC_PLUS(ScpArgMsg(option), add_value)
-
-		if tooltip_type == 2 then			
+		
+		if tooltip_type == 2 then
 			local add_msg =  string.format(", %s "..ScpArgMsg("PropUp").."%.1f", ScpArgMsg('SUMMON_ATK'), math.abs(add_value / 200)) .. '%'
 			strInfo = strInfo .. ' ' .. add_msg
-		elseif tooltip_type == 3 then						
-			strInfo = string.format(" - %s "..ScpArgMsg("PropUp").."%d", ScpArgMsg(option), add_value + summon_atk) .. '%'
-		end
+		elseif tooltip_type == 3 then
+			if unit == nil then				
+				strInfo = string.format(" - %s "..ScpArgMsg("PropUp").."%d", ScpArgMsg(option), add_value + summon_atk) .. '%'				
+			else
+				strInfo = string.format(" - %s "..ScpArgMsg("PropUp").."%d", ScpArgMsg(option), add_value + summon_atk) .. unit				
+			end
+		elseif tooltip_type == 4 then
+			if unit == nil then
+				strInfo = string.format(" - %s "..ScpArgMsg("PropUp").."%d", ScpArgMsg(option), add_value + summon_atk) .. '%'
+			else
+				strInfo = string.format(" - %s "..ScpArgMsg("PropUp").."%d", ScpArgMsg(option), add_value + summon_atk) .. unit				
+			end
+		end		
 		
 		local infoText = gBox:CreateControl('richtext', 'infoText'..step, 15, ypos, gBox:GetWidth(), 30);
 		infoText:SetText(strInfo);		
@@ -2030,7 +2054,7 @@ local function _CREATE_ARK_OPTION(gBox, ypos, step, class_name)
 	local func_str = string.format('get_tooltip_%s_arg%d', class_name, step)
     local tooltip_func = _G[func_str]  -- get_tooltip_Ark_str_arg1 시리즈
 	if tooltip_func ~= nil then
-		local tooltip_type, status, interval, add_value, summon_atk = tooltip_func();
+		local tooltip_type, status, interval, add_value, summon_atk, client_msg, unit = tooltip_func();
 		local option = status
 		local infoText = gBox:CreateControl('richtext', 'infoText'..step, 15, ypos, gBox:GetWidth(), 30);
 		local text = ''
@@ -2038,9 +2062,13 @@ local function _CREATE_ARK_OPTION(gBox, ypos, step, class_name)
 			text = ScpArgMsg("ArkOptionText{Option}{interval}{addvalue}", "Option", ClMsg(option), "interval", interval, "addvalue", add_value)
 		elseif tooltip_type == 2 then
 			text = ScpArgMsg("ArkOptionText{Option}{interval}{addvalue}{option2}{addvalue2}", "Option", ClMsg(option), "interval", interval, "addvalue", add_value, 'option2', ClMsg(summon_atk), 'addvalue2', string.format('%.1f', add_value / 200))
-		elseif tooltip_type == 3 then
-			text = ScpArgMsg("ArkOptionText3{Option}{interval}{addvalue}", "Option", ClMsg(option), "interval", interval, "addvalue", add_value)
-		elseif tooltip_type == 4 then
+		elseif tooltip_type == 3 then			
+			if client_msg == nil then
+				text = ScpArgMsg("ArkOptionText3{Option}{interval}{addvalue}", "Option", ClMsg(option), "interval", interval, "addvalue", add_value)				
+			else
+				text = ScpArgMsg(client_msg, "Option", ClMsg(option), "interval", interval, "addvalue", add_value)				
+			end
+		elseif tooltip_type == 4 then			
 			text = ScpArgMsg("ArkOptionText4{Option}{interval}{addvalue}", "Option", ClMsg(option), "interval", interval, "addvalue", add_value)
 		end
 		

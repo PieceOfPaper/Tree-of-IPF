@@ -169,4 +169,9 @@
 		<Element Name="kupolecon02" root="kupolecon02" atlas="kupolecon02" json="kupolecon02" scale="1" offsetX="-10" offsetY="0" animation="animation"/>
 		<Element Name="kupolecon03" root="kupolecon03" atlas="kupolecon03" json="kupolecon03" scale="1" offsetX="-10" offsetY="0" animation="animation"/>
 	</Spine>
+	<Spine>
+		<Element Name="dionyscon01" root="dionyscon01" atlas="dionyscon01" json="dionyscon01" scale="1" offsetX="-10" offsetY="-10" animation="animation"/>
+		<Element Name="dionyscon02" root="dionyscon02" atlas="dionyscon02" json="dionyscon02" scale="1" offsetX="0" offsetY="-10" animation="animation"/>
+		<Element Name="dionyscon03" root="dionyscon03" atlas="dionyscon03" json="dionyscon03" scale="1" offsetX="-15" offsetY="-10" animation="animation"/>
+	</Spine>
 </List>

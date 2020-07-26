@@ -379,6 +379,9 @@ function ON_ACCOUNT_WAREHOUSE_ITEM_LIST(frame, msg, argStr, argNum, tab_index)
                 slot = GET_EMPTY_SLOT(slotset, current_tab_index, max_slot_per_tab);
             end
 
+            -- 아이커 종류 표시	
+            SET_SLOT_ICOR_CATEGORY(slot, obj);
+            
             slot:SetSkinName('invenslot2')
             local itemCls = GetIES(invItem:GetObject());
             local iconImg = GET_ITEM_ICON_IMAGE(itemCls);

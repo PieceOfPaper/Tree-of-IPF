@@ -1196,11 +1196,19 @@
                     <Event execCount="1" eventName="TimeOut">
                         <condList>
                             <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
-                                <Num Num="1810"/>
+                                <Num Num="1805"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_COND_VALUE_NOPC" Client="NO" UseSleep="NO">
+                                <Str Str="GM_BK_CLEAR"/>
+                                <Str Str="=="/>
+                                <Num Num="0"/>
                             </ToolScp>
                         </condList>
                         <execList>
-                            <ToolScp Scp="MGAME_GUILD_MINIGAME_EXIT" Client="NO" UseSleep="NO"/>
+                            <ToolScp Scp="MGAME_EVT_SCP_TO_MON" Client="NO" UseSleep="NO">
+                                <MGameObj List="Gen_Boss/0/Gen_Boss/1"/>
+                                <Str Str="GM_BK_FAIL_STOP_RUN"/>
+                            </ToolScp>
                             <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
                                 <Str Str="TimeAttackMode"/>
                             </ToolScp>
@@ -1217,10 +1225,8 @@
                             <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
                                 <Str Str="FailEnd"/>
                             </ToolScp>
-                            <ToolScp Scp="MGAME_EVT_SCP_TO_MON" Client="NO" UseSleep="NO">
-                                <MGameObj List="Gen_Boss/0/Gen_Boss/1"/>
-                                <Str Str="GM_BK_FAIL_STOP_RUN"/>
-                            </ToolScp>
+                            <ToolScp Scp="MGAME_GUILD_MINIGAME_EXIT" Client="NO" UseSleep="NO"/>
+                            <ToolScp Scp="MGAME_RETURN" Client="NO" UseSleep="NO"/>
                         </execList>
                     </Event>
                     <Event execCount="1" eventName="Left_10M">
@@ -1235,6 +1241,9 @@
                                 <Str Str="!"/>
                                 <Num Num="15"/>
                             </ToolScp>
+                            <ToolScp Scp="MGAME_TIMEOUT_UPDATE_FORCE" Client="NO" UseSleep="NO">
+                                <Str Str="Fail"/>
+                            </ToolScp>
                         </execList>
                     </Event>
                     <Event execCount="1" eventName="Left_5M">
@@ -1248,6 +1257,9 @@
                                 <Str Str="제한 시간 5분 남았습니다"/>
                                 <Str Str="5Min"/>
                                 <Num Num="15"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_TIMEOUT_UPDATE_FORCE" Client="NO" UseSleep="NO">
+                                <Str Str="Fail"/>
                             </ToolScp>
                         </execList>
                     </Event>
@@ -1289,6 +1301,9 @@
                                 <Str Str="1Min"/>
                                 <Num Num="10"/>
                             </ToolScp>
+                            <ToolScp Scp="MGAME_TIMEOUT_UPDATE_FORCE" Client="NO" UseSleep="NO">
+                                <Str Str="Fail"/>
+                            </ToolScp>
                         </execList>
                     </Event>
                     <Event eventName="Left_30S">
@@ -1302,6 +1317,22 @@
                                 <Str Str="제한 시간 30초 남았습니다"/>
                                 <Str Str="!"/>
                                 <Num Num="10"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_TIMEOUT_UPDATE_FORCE" Client="NO" UseSleep="NO">
+                                <Str Str="Fail"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="FailStop">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="1800"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_EVT_SCP_TO_MON" Client="NO" UseSleep="NO">
+                                <MGameObj List="Gen_Boss/0/Gen_Boss/1"/>
+                                <Str Str="GM_BK_FAIL_STOP_RUN"/>
                             </ToolScp>
                         </execList>
                     </Event>
@@ -1331,6 +1362,18 @@
                             </ToolScp>
                         </execList>
                     </Event>
+                    <Event eventName="synchronization">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="10"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_TIMEOUT_UPDATE_FORCE" Client="NO" UseSleep="NO">
+                                <Str Str="Fail"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
                 </StageEvents>
             </Stage>
             <Stage Name="FailEnd" AutoStart="0">
@@ -1351,7 +1394,6 @@
                             </ToolScp>
                         </condList>
                         <execList>
-                            <ToolScp Scp="MGAME_RETURN" Client="NO" UseSleep="NO"/>
                             <ToolScp Scp="MGAME_END" Client="NO" UseSleep="NO">
                                 <Num Num="1"/>
                             </ToolScp>

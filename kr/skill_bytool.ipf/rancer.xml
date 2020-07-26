@@ -1,7 +1,33 @@
 <?xml version='1.0' encoding='utf-8'?>
 <ToolSkill>
 <Skill Name="Rancer_GiganteMarcha">
-		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+		<KeyInput>
+            <ToolScp Client="YES" Scp="SKL_KEY_DYNAMIC_CASTING" UseSleep="NO">
+                <Num Num="0"/>
+                <Num Num="0"/>
+                <Num FuncTxt="local value = 0 local self = GetMyPCObject() if IsPVPField(self) == 1 then value = 1 end return value" Num="0" UseFunc="1"/>
+                <Num Num="0"/>
+                <Num Num="1"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+                <Num Num="1"/>
+                <Num Num="1"/>
+                <Str_Arg Arg="1" Str="None"/>
+                <Str Str="None"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+                <Num Num="5"/>
+                <Num Num="1"/>
+                <Num Num="45"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+            </ToolScp>
+        </KeyInput>
+        <MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
 			<HitList>
 				<Frame Angle="0" AniTime="350" Dist="0" ForceATK="0" HitCount="1" Length="120" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="150" Type="SQUARE" Width="45" />
 			</HitList>

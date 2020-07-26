@@ -126,33 +126,43 @@ end
 function ITEMBUFF_NEEDITEM_Squire_Repair(self, item)
 --  local needCount = item.ItemStar + item.ItemStar * (item.ItemGrade - 1) / 2;
     local reinforceCount = TryGetProp(item, "Reinforce_2");
-       if reinforceCount == nil then
-           return 0;
-   end
+    if reinforceCount == nil then
+        return 0;
+    end
 
-   local transcendCount = TryGetProp(item, "Transcend");
-       if transcendCount == nil then
-           return 0;
-   end
+    local transcendCount = TryGetProp(item, "Transcend");
+    if transcendCount == nil then
+        return 0;
+    end
 
-   local UseLv = item.UseLv / 30
-   if UseLv < 1 then
-       UseLv = 1;
-   end
+    local UseLv = item.UseLv / 30
+    if UseLv < 1 then
+        UseLv = 1;
+    end
       
-   local grade = TryGetProp(item, "ItemGrade");
-   if grade == nil then
-    return 0;
-   end
+    local grade = TryGetProp(item, "ItemGrade");
+    if grade == nil then
+        return 0;
+    end
    
-   local repairPriceRatio = TryGetProp(item,"RepairPriceRatio");   
-   if repairPriceRatio == nil then
-    return 0;
-   end
+    local repairPriceRatio = TryGetProp(item, "RepairPriceRatio");   
+    if repairPriceRatio == nil then
+        return 0;
+    end
+
+    repairPriceRatio = repairPriceRatio / 100;
+
+    local increaseCostList, increaseCostCnt = GetClassList("IncreaseCost");
+    if increaseCostList ~= nil then
+        for i = 0, increaseCostCnt - 1 do
+            local costCls = GetClassByIndexFromList(increaseCostList, i);
+            if costCls ~= nil and costCls.UseLv == item.UseLv then
+                repairPriceRatio = costCls.RepairPriceRatio;
+            end
+        end
+    end
    
-   repairPriceRatio = repairPriceRatio / 100;
---   local needCount = (UseLv + UseLv * (item.ItemGrade - 1) / 2) * (1 + (((grade-1) * 0.1) + (reinforceCount * 0.05) + (transcendCount * 0.2)));
-    local needCount = (UseLv + UseLv * (grade - 1) / 2) * (1 + (((grade-1) * 0.1) + (reinforceCount * 0.05) + (transcendCount * 0.2))) * repairPriceRatio;
+    local needCount = (UseLv + UseLv * (grade - 1) / 2) * (1 + (((grade - 1) * 0.1) + (reinforceCount * 0.05) + (transcendCount * 0.2))) * repairPriceRatio;
     needCount = math.max(1, needCount);
     return "misc_repairkit_1", math.floor(needCount);
 end

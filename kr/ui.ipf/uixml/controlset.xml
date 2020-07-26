@@ -4224,7 +4224,7 @@
 	</controlset>
 	<controlset name="tooltip_extract_option" hittest="true" width="410" height="335">
 		<controls>
-			<richtext name="nameText" rect="0 0 330 30" margin="0 10 0 0" layout_gravity="center top" caption="name" fontname="white_18_b_ol"/>
+			<richtext name="nameText" rect="0 0 410 30" margin="0 10 0 0" layout_gravity="center top" caption="name" fontname="white_18_b_ol" autofontsizebywidth="410" textalign="left center"/>
 			<picture name="item_bg" image="testgemston_item_bg" layout_gravity="center top" stretch="true" rect="0 0 250 230" margin="0 60 0 0" updateparent="true"/>
 			<picture name="itemPic" rect="0 0 200 200" margin="0 55 0 0" layout_gravity="center top" image="ok_button" stretch="true"/>
 			<richtext name="groupText" rect="0 0 100 30" margin="10 260 0 0" layout_gravity="left top" caption="group" fontname="brown_18_b"/>
@@ -5364,6 +5364,54 @@
 		<controls>
 			<richtext name="itemSlotsetText" rect="0 0 70 20" margin="10 3 0 0" layout_gravity="left top" caption="일반" fontname="black_16_b"/>
 			<slotset name="itemSlotset" rect="0 0 480 100" margin="0 30 0 0" layout_gravity="center top" LBtnDownScp="ITEM_DECOMPOSE_SLOT_LBTDOWN" enabledrag="false" enableselect="true" hideindrag="true" row="2" col="10" maxselect="60" size="50 50" skin="invenslot2" spc="2 2" enabledrop="false" enablepop="false"/>
+		</controls>
+	</controlset>
+	<controlset name="icoradd_multiple_set" toggle="false" hittest="true" width="657" height="222" skin="test_skin_01_btn" stateskin="false">
+		<controls>
+			<groupbox name="slotGbox" rect="0 0 318 200" margin="5 0 0 0" layout_gravity="left center" draw="false" hittestbox="false" resizebyparent="false" changecursor="false" scrollbar="false" hittest="true" skin="test_socket_topskin"/>
+			<slot name="slot" parent="slotGbox" margin="0 0 0 0" rect="0 0 100 100" movepop="false" dropsound="icon_get_down" picksound="icon_pick_up" DropScp="ICORADD_CTRL_MAIN_ITEM_DROP" skin="invenslot2" RBtnUpScp="REMOVE_ICORADD_CTRL_MAIN_ITEM" layout_gravity="center center"/>
+			<picture name="slot_bg_image" parent="slot" rect="0 0 85 80" margin="0 0 0 0" layout_gravity="center center" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" hittest="false" image="socket_slot_bg" oversound="button_over" stretch="true"/>
+			<picture name="arrowbox" parent="slotGbox" rect="0 0 81 81" hittest="false" image="gold_plus" oversound="button_cursor_over_3" margin="0 0 0 0" layout_gravity="center center" stretch="true"/>
+			<slot name="slot_add" parent="slotGbox" margin="0 0 10 0" rect="0 0 100 100" movepop="false" dropsound="icon_get_down" picksound="icon_pick_up" DropScp="ICORADD_CTRL_ADD_ITEM_DROP" skin="invenslot2" RBtnUpScp="REMOVE_ICORADD_CTRL_ADD_ITEM" layout_gravity="right center"/>
+			<groupbox name="optionGbox" rect="0 0 319 176" margin="0 0 15 0" layout_gravity="right center" draw="true" hittestbox="false" resizebyparent="false" resizebyresolution="false" scrollbar="false" skin="test_bgreentitle_skin"/>
+			<richtext name="text_beforeadd" margin="5 5 0 0" rect="0 0 300 36" parent="optionGbox" format="{@st43b}{s16}적용 옵션" hittestbox="false" textalign="left center" resizebytext="true" spacey="0" maxwidth="0" fontname="white_16_ol" fixwidth="true" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top"/>
+			<richtext name="text_afteradd" margin="5 5 0 0" rect="0 0 300 36" parent="optionGbox" format="{@st43b}{s16}장착 옵션" hittestbox="false" textalign="left center" resizebytext="true" spacey="0" maxwidth="0" fontname="white_16_ol" fixwidth="true" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top"/>
+			<groupbox name="optionGbox_0" rect="0 0 319 176" margin="0 30 0 0" parent="optionGbox" layout_gravity="center top" draw="true" hittestbox="false" resizebyparent="false" resizebyresolution="false" scrollbar="true" skin="None"/>
+			<groupbox name="optionGbox_1" rect="0 0 319 176" margin="0 0 0 0" parent="optionGbox_0" layout_gravity="center top" draw="false" hittestbox="false" resizebyparent="false" resizebyresolution="false" scrollbar="false"/>
+			<groupbox name="resultGbox" rect="0 0 318 200" margin="5 0 0 0" layout_gravity="left center" draw="false" hittestbox="false" resizebyparent="false" changecursor="false" scrollbar="false" hittest="true" skin="test_socket_topskin"/>
+			<picture name="result_effect_bg" parent="resultGbox" rect="0 0 308 190" hittest="false" image="SUCCESS_gold_bg" oversound="button_cursor_over_3" margin="0 0 0 0" layout_gravity="center center" stretch="true"/>
+			<picture name="yellow_skin_success" parent="resultGbox" rect="0 0 318 65" hittest="false" image="BnYellow_skin" margin="0 0 0 0" stretch="true" layout_gravity="center bottom"/>
+			<picture name="result_item_img" parent="resultGbox" rect="0 0 120 120" hittest="false" image="None" margin="0 0 0 0" stretch="true" layout_gravity="center center"/>
+			<picture name="text_success" parent="resultGbox" rect="0 0 161 63" hittest="false" image="card_reinforce_SUCCESS" margin="0 0 0 5" stretch="true" layout_gravity="center bottom"/>
+		</controls>
+	</controlset>
+	<controlset name="icorrelease_multiple_set" toggle="false" hittest="true" width="657" height="222" skin="test_skin_01_btn" stateskin="false">
+		<controls>
+			<groupbox name="slotGbox" rect="0 0 318 200" margin="5 0 0 0" layout_gravity="left center" draw="false" hittestbox="false" resizebyparent="false" changecursor="false" scrollbar="false" hittest="true" skin="test_socket_topskin"/>
+			<slot name="slot" parent="slotGbox" margin="0 0 0 0" rect="0 0 100 100" movepop="false" dropsound="icon_get_down" picksound="icon_pick_up" DropScp="ICORRELEASE_CTRL_ITEM_DROP" skin="invenslot2" RBtnUpScp="REMOVE_ICORRELEASE_CTRL_TARGETITEM" layout_gravity="center center"/>
+			<picture name="slot_bg_image" parent="slot" rect="0 0 85 80" margin="0 0 0 0" layout_gravity="center center" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" hittest="false" image="socket_slot_bg" oversound="button_over" stretch="true"/>
+			<picture name="arrowbox" parent="slotGbox" rect="0 0 80 65" hittest="false" image="gold_arrow_right" oversound="button_cursor_over_3" margin="0 0 0 0" layout_gravity="center center" stretch="true"/>
+			<slot name="slot_result" parent="slotGbox" margin="0 0 10 0" rect="0 0 100 100" movepop="false" hittest="false" dropsound="icon_get_down" picksound="icon_pick_up" skin="invenslot2" layout_gravity="right center"/>
+			<groupbox name="optionGbox" rect="0 0 319 176" margin="0 0 15 0" layout_gravity="right center" draw="true" hittestbox="false" resizebyparent="false" resizebyresolution="false" scrollbar="false" skin="test_bgreentitle_skin"/>
+			<richtext name="text_beforereset" margin="5 5 0 0" rect="0 0 300 36" parent="optionGbox" format="{@st43b}{s16}아이커 옵션" hittestbox="false" textalign="left center" resizebytext="true" spacey="0" maxwidth="0" fontname="white_16_ol" fixwidth="true" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top"/>
+			<groupbox name="optionGbox_0" rect="0 0 319 176" margin="0 30 0 0" parent="optionGbox" layout_gravity="center top" draw="true" hittestbox="false" resizebyparent="false" resizebyresolution="false" scrollbar="true" skin="None"/>
+			<groupbox name="optionGbox_1" rect="0 0 319 176" margin="0 0 0 0" parent="optionGbox_0" layout_gravity="center top" draw="false" hittestbox="false" resizebyparent="false" resizebyresolution="false" scrollbar="false"/>
+			<groupbox name="resultGbox" rect="0 0 318 200" margin="5 0 0 0" layout_gravity="left center" draw="false" hittestbox="false" resizebyparent="false" changecursor="false" scrollbar="false" hittest="true" skin="test_socket_topskin"/>
+			<picture name="result_effect_bg" parent="resultGbox" rect="0 0 308 190" hittest="false" image="SUCCESS_gold_bg" oversound="button_cursor_over_3" margin="0 0 0 0" stretch="true" layout_gravity="center center"/>
+			<picture name="yellow_skin_success" parent="resultGbox" rect="0 0 318 65" hittest="false" image="BnYellow_skin" margin="0 0 0 0" stretch="true" layout_gravity="center bottom"/>
+			<picture name="result_item_img" parent="resultGbox" rect="0 0 120 120" hittest="false" image="item_icon_weapon_linksoul1" margin="0 0 0 0" stretch="true" layout_gravity="center center"/>
+			<picture name="text_success" parent="resultGbox" rect="0 0 161 63" hittest="false" image="card_reinforce_SUCCESS" margin="0 0 0 5" stretch="true" layout_gravity="center bottom"/>
+		</controls>
+	</controlset>
+	<controlset name="tooltip_equip_property_narrow" hittest="true" width="300" height="0">
+		<controls>
+			<labelline name="labelline" margin="0 0 0 0" rect="0 0 280 3" skin="labelline_def_2" layout_gravity="center top"/>
+			<groupbox name="property_gbox" rect="0 0 300 0" layout_gravity="left top" margin="0 15 0 0" skin="bg" hittest="false" draw="false" updateparent="true" scrollbar="false"/>
+		</controls>
+	</controlset>
+	<controlset name="tooltip_item_prop_richtxt_narrow" toggle="false" hittest="false" width="300" height="25">
+		<controls>
+			<richtext name="text" rect="0 0 270 25" margin="17 0 0 0" fixwidth="true" hittest="false" fontname="brown_16"/>
 		</controls>
 	</controlset>
 </controlsetlist>

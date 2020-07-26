@@ -1,0 +1,420 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GameList>
+    <Game Name="F_TABLELAND_28_2_RAID_10_MINI01" minLv="0" maxLv="0" playerCountCheckDestroy="1" startWaitSec="-1">
+        <StageList>
+            <Stage Name="DefGroup">
+                <ObjList>
+                    <Obj Type="Monster" MonType="57897" Pos="-1420.71#154.98#-691.14" angle="134" genCount="1" maxStackCount="1" genTime="1000" genReadyTime="1000" objectKey="0" searchRange="100" propList="&apos;SimpleAI&apos; &apos;F_TABLELAND_28_2_RAID_10_MINI_MON_AI&apos; " tendency="1">
+                        <SelfAI ActiveMessageMapInBattle="1">
+                            <List>
+                                <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+                                    <Num Num="1000"/>
+                                </ToolScp>
+                            </List>
+                            <StartList>
+                                <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+                                    <Num Num="1000"/>
+                                </ToolScp>
+                            </StartList>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="57897" Pos="-1385.39#154.98#-614.44" angle="168" genCount="1" maxStackCount="1" genTime="1000" genReadyTime="1000" objectKey="1" searchRange="500" propList="&apos;SimpleAI&apos; &apos;F_TABLELAND_28_2_RAID_10_MINI_MON_AI&apos; " tendency="1">
+                        <SelfAI ActiveMessageMapInBattle="1">
+                            <List>
+                                <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+                                    <Num Num="1000"/>
+                                </ToolScp>
+                            </List>
+                            <StartList>
+                                <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+                                    <Num Num="1000"/>
+                                </ToolScp>
+                            </StartList>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="57897" Pos="-1419.37#154.98#-509.58" angle="-146" genCount="1" maxStackCount="1" genTime="1000" genReadyTime="1000" objectKey="2" searchRange="500" propList="&apos;SimpleAI&apos; &apos;F_TABLELAND_28_2_RAID_10_MINI_MON_AI&apos; " tendency="1">
+                        <SelfAI ActiveMessageMapInBattle="1">
+                            <List>
+                                <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+                                    <Num Num="1000"/>
+                                </ToolScp>
+                            </List>
+                            <StartList>
+                                <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+                                    <Num Num="1000"/>
+                                </ToolScp>
+                            </StartList>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="57897" Pos="-1532.24#154.98#-422.58" angle="-86" genCount="1" maxStackCount="1" genTime="1000" genReadyTime="1000" objectKey="3" searchRange="500" propList="&apos;SimpleAI&apos; &apos;F_TABLELAND_28_2_RAID_10_MINI_MON_AI&apos; " tendency="1">
+                        <SelfAI ActiveMessageMapInBattle="1">
+                            <List>
+                                <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+                                    <Num Num="1000"/>
+                                </ToolScp>
+                            </List>
+                            <StartList>
+                                <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+                                    <Num Num="1000"/>
+                                </ToolScp>
+                            </StartList>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="57897" Pos="-1385.92#154.98#-713.46" angle="139" genCount="1" maxStackCount="1" genTime="1000" genReadyTime="5000" objectKey="4" searchRange="500" propList="&apos;SimpleAI&apos; &apos;F_TABLELAND_28_2_RAID_10_MINI_MON_AI&apos; " tendency="1">
+                        <SelfAI ActiveMessageMapInBattle="1">
+                            <List>
+                                <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+                                    <Num Num="1000"/>
+                                </ToolScp>
+                            </List>
+                            <StartList>
+                                <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+                                    <Num Num="1000"/>
+                                </ToolScp>
+                            </StartList>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="57897" Pos="-1351.95#154.98#-618.46" angle="173" genCount="1" maxStackCount="1" genTime="1000" genReadyTime="5000" objectKey="5" searchRange="500" propList="&apos;SimpleAI&apos; &apos;F_TABLELAND_28_2_RAID_10_MINI_MON_AI&apos; " tendency="1">
+                        <SelfAI ActiveMessageMapInBattle="1">
+                            <List>
+                                <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+                                    <Num Num="1000"/>
+                                </ToolScp>
+                            </List>
+                            <StartList>
+                                <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+                                    <Num Num="1000"/>
+                                </ToolScp>
+                            </StartList>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="57897" Pos="-1392.29#154.98#-487.61" angle="-145" genCount="1" maxStackCount="1" genTime="1000" genReadyTime="5000" objectKey="6" searchRange="500" propList="&apos;SimpleAI&apos; &apos;F_TABLELAND_28_2_RAID_10_MINI_MON_AI&apos; " tendency="1">
+                        <SelfAI ActiveMessageMapInBattle="1">
+                            <List>
+                                <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+                                    <Num Num="1000"/>
+                                </ToolScp>
+                            </List>
+                            <StartList>
+                                <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+                                    <Num Num="1000"/>
+                                </ToolScp>
+                            </StartList>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="57897" Pos="-1523.55#154.98#-378.84" angle="-91" genCount="1" maxStackCount="1" genTime="1000" genReadyTime="5000" objectKey="7" searchRange="500" propList="&apos;SimpleAI&apos; &apos;F_TABLELAND_28_2_RAID_10_MINI_MON_AI&apos; " tendency="1">
+                        <SelfAI ActiveMessageMapInBattle="1">
+                            <List>
+                                <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+                                    <Num Num="1000"/>
+                                </ToolScp>
+                            </List>
+                            <StartList>
+                                <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+                                    <Num Num="1000"/>
+                                </ToolScp>
+                            </StartList>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="57897" Pos="-1397.52#154.98#-650.42" angle="156" genCount="1" maxStackCount="1" genTime="1000" genReadyTime="5000" objectKey="8" searchRange="500" propList="&apos;SimpleAI&apos; &apos;F_TABLELAND_28_2_RAID_10_MINI_MON_AI&apos; " tendency="1">
+                        <SelfAI ActiveMessageMapInBattle="1">
+                            <List>
+                                <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+                                    <Num Num="1000"/>
+                                </ToolScp>
+                            </List>
+                            <StartList>
+                                <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+                                    <Num Num="1000"/>
+                                </ToolScp>
+                            </StartList>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="57897" Pos="-1394.23#154.98#-555.47" angle="-160" genCount="1" maxStackCount="1" genTime="1000" genReadyTime="5000" objectKey="9" searchRange="500" propList="&apos;SimpleAI&apos; &apos;F_TABLELAND_28_2_RAID_10_MINI_MON_AI&apos; " tendency="1">
+                        <SelfAI ActiveMessageMapInBattle="1">
+                            <List>
+                                <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+                                    <Num Num="1000"/>
+                                </ToolScp>
+                            </List>
+                            <StartList>
+                                <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+                                    <Num Num="1000"/>
+                                </ToolScp>
+                            </StartList>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="57897" Pos="-1472.63#154.98#-468.14" angle="-119" genCount="1" maxStackCount="1" genTime="1000" genReadyTime="5000" objectKey="10" searchRange="500" propList="&apos;SimpleAI&apos; &apos;F_TABLELAND_28_2_RAID_10_MINI_MON_AI&apos; " tendency="1">
+                        <SelfAI ActiveMessageMapInBattle="1">
+                            <List>
+                                <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+                                    <Num Num="1000"/>
+                                </ToolScp>
+                            </List>
+                            <StartList>
+                                <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+                                    <Num Num="1000"/>
+                                </ToolScp>
+                            </StartList>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="57897" Pos="-1358.52#154.98#-660.41" angle="156" genCount="1" maxStackCount="1" genTime="1000" genReadyTime="10000" objectKey="11" searchRange="500" propList="&apos;SimpleAI&apos; &apos;F_TABLELAND_28_2_RAID_10_MINI_MON_AI&apos; " tendency="1">
+                        <SelfAI ActiveMessageMapInBattle="1">
+                            <List>
+                                <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+                                    <Num Num="1000"/>
+                                </ToolScp>
+                            </List>
+                            <StartList>
+                                <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+                                    <Num Num="1000"/>
+                                </ToolScp>
+                            </StartList>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="57897" Pos="-1345.47#154.98#-590.25" angle="-175" genCount="1" maxStackCount="1" genTime="1000" genReadyTime="10000" objectKey="12" searchRange="500" propList="&apos;SimpleAI&apos; &apos;F_TABLELAND_28_2_RAID_10_MINI_MON_AI&apos; " tendency="1">
+                        <SelfAI ActiveMessageMapInBattle="1">
+                            <List>
+                                <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+                                    <Num Num="1000"/>
+                                </ToolScp>
+                            </List>
+                            <StartList>
+                                <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+                                    <Num Num="1000"/>
+                                </ToolScp>
+                            </StartList>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="57897" Pos="-1365.80#154.98#-521.47" angle="-139" genCount="1" maxStackCount="1" genTime="1000" genReadyTime="10000" objectKey="13" searchRange="500" propList="&apos;SimpleAI&apos; &apos;F_TABLELAND_28_2_RAID_10_MINI_MON_AI&apos; " tendency="1">
+                        <SelfAI ActiveMessageMapInBattle="1">
+                            <List>
+                                <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+                                    <Num Num="1000"/>
+                                </ToolScp>
+                            </List>
+                            <StartList>
+                                <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+                                    <Num Num="1000"/>
+                                </ToolScp>
+                            </StartList>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="57897" Pos="-1407.07#154.98#-463.83" angle="-132" genCount="1" maxStackCount="1" genTime="1000" genReadyTime="10000" objectKey="14" searchRange="500" propList="&apos;SimpleAI&apos; &apos;F_TABLELAND_28_2_RAID_10_MINI_MON_AI&apos; " tendency="1">
+                        <SelfAI ActiveMessageMapInBattle="1">
+                            <List>
+                                <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+                                    <Num Num="1000"/>
+                                </ToolScp>
+                            </List>
+                            <StartList>
+                                <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+                                    <Num Num="1000"/>
+                                </ToolScp>
+                            </StartList>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="57897" Pos="-1475.17#154.98#-411.27" angle="-114" genCount="1" maxStackCount="1" genTime="1000" genReadyTime="10000" objectKey="15" searchRange="500" propList="&apos;SimpleAI&apos; &apos;F_TABLELAND_28_2_RAID_10_MINI_MON_AI&apos; " tendency="1">
+                        <SelfAI ActiveMessageMapInBattle="1">
+                            <List>
+                                <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+                                    <Num Num="1000"/>
+                                </ToolScp>
+                            </List>
+                            <StartList>
+                                <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+                                    <Num Num="1000"/>
+                                </ToolScp>
+                            </StartList>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="57897" Pos="-1359.74#154.98#-660.15" angle="155" genCount="1" maxStackCount="1" genTime="1000" genReadyTime="15000" objectKey="16" searchRange="500" propList="&apos;SimpleAI&apos; &apos;F_TABLELAND_28_2_RAID_10_MINI_MON_AI&apos; " tendency="1">
+                        <SelfAI ActiveMessageMapInBattle="1">
+                            <List>
+                                <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+                                    <Num Num="1000"/>
+                                </ToolScp>
+                            </List>
+                            <StartList>
+                                <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+                                    <Num Num="1000"/>
+                                </ToolScp>
+                            </StartList>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="57897" Pos="-1346.71#154.98#-588.63" angle="177" genCount="1" maxStackCount="1" genTime="1000" genReadyTime="15000" objectKey="17" searchRange="500" propList="&apos;SimpleAI&apos; &apos;F_TABLELAND_28_2_RAID_10_MINI_MON_AI&apos; " tendency="1">
+                        <SelfAI ActiveMessageMapInBattle="1">
+                            <List>
+                                <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+                                    <Num Num="1000"/>
+                                </ToolScp>
+                            </List>
+                            <StartList>
+                                <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+                                    <Num Num="1000"/>
+                                </ToolScp>
+                            </StartList>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="57897" Pos="-1363.95#154.98#-525.30" angle="-162" genCount="1" maxStackCount="1" genTime="1000" genReadyTime="15000" objectKey="18" searchRange="500" propList="&apos;SimpleAI&apos; &apos;F_TABLELAND_28_2_RAID_10_MINI_MON_AI&apos; " tendency="1">
+                        <SelfAI ActiveMessageMapInBattle="1">
+                            <List>
+                                <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+                                    <Num Num="1000"/>
+                                </ToolScp>
+                            </List>
+                            <StartList>
+                                <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+                                    <Num Num="1000"/>
+                                </ToolScp>
+                            </StartList>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="57897" Pos="-1407.84#154.98#-462.29" angle="-137" genCount="1" maxStackCount="1" genTime="1000" genReadyTime="15000" objectKey="19" searchRange="500" propList="&apos;SimpleAI&apos; &apos;F_TABLELAND_28_2_RAID_10_MINI_MON_AI&apos; " tendency="1">
+                        <SelfAI ActiveMessageMapInBattle="1">
+                            <List>
+                                <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+                                    <Num Num="1000"/>
+                                </ToolScp>
+                            </List>
+                            <StartList>
+                                <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+                                    <Num Num="1000"/>
+                                </ToolScp>
+                            </StartList>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="57897" Pos="-1472.23#154.98#-412.78" angle="-127" genCount="1" maxStackCount="1" genTime="1000" genReadyTime="15000" objectKey="20" searchRange="500" propList="&apos;SimpleAI&apos; &apos;F_TABLELAND_28_2_RAID_10_MINI_MON_AI&apos; " tendency="1">
+                        <SelfAI ActiveMessageMapInBattle="1">
+                            <List>
+                                <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+                                    <Num Num="1000"/>
+                                </ToolScp>
+                            </List>
+                            <StartList>
+                                <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+                                    <Num Num="1000"/>
+                                </ToolScp>
+                            </StartList>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="57899" Pos="-1306.01#154.98#-633.93" angle="168" genCount="1" maxStackCount="1" genTime="1000" genReadyTime="10000" objectKey="21" propList="&apos;SimpleAI&apos; &apos;F_TABLELAND_28_2_RAID_10_MINI_MON_AI&apos; " tendency="1">
+                        <SelfAI ActiveMessageMapInBattle="1">
+                            <List>
+                                <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+                                    <Num Num="1000"/>
+                                </ToolScp>
+                            </List>
+                            <StartList>
+                                <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+                                    <Num Num="1000"/>
+                                </ToolScp>
+                            </StartList>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="57899" Pos="-1334.46#154.98#-500.62" angle="-153" genCount="1" maxStackCount="1" genTime="1000" genReadyTime="10000" objectKey="22" propList="&apos;SimpleAI&apos; &apos;F_TABLELAND_28_2_RAID_10_MINI_MON_AI&apos; " tendency="1">
+                        <SelfAI ActiveMessageMapInBattle="1">
+                            <List>
+                                <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+                                    <Num Num="1000"/>
+                                </ToolScp>
+                            </List>
+                            <StartList>
+                                <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+                                    <Num Num="1000"/>
+                                </ToolScp>
+                            </StartList>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="57899" Pos="-1438.62#154.98#-383.57" angle="-111" genCount="1" maxStackCount="1" genTime="1000" genReadyTime="10000" objectKey="23" propList="&apos;SimpleAI&apos; &apos;F_TABLELAND_28_2_RAID_10_MINI_MON_AI&apos; " tendency="1">
+                        <SelfAI ActiveMessageMapInBattle="1">
+                            <List>
+                                <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+                                    <Num Num="1000"/>
+                                </ToolScp>
+                            </List>
+                            <StartList>
+                                <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+                                    <Num Num="1000"/>
+                                </ToolScp>
+                            </StartList>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="57899" Pos="-1306.81#154.98#-634.73" angle="150" genCount="1" maxStackCount="1" genTime="1000" genReadyTime="15000" objectKey="24" propList="&apos;SimpleAI&apos; &apos;F_TABLELAND_28_2_RAID_10_MINI_MON_AI&apos; " tendency="1">
+                        <SelfAI ActiveMessageMapInBattle="1">
+                            <List>
+                                <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+                                    <Num Num="1000"/>
+                                </ToolScp>
+                            </List>
+                            <StartList>
+                                <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+                                    <Num Num="1000"/>
+                                </ToolScp>
+                            </StartList>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="57899" Pos="-1335.19#154.98#-500.54" angle="-156" genCount="1" maxStackCount="1" genTime="1000" genReadyTime="15000" objectKey="25" propList="&apos;SimpleAI&apos; &apos;F_TABLELAND_28_2_RAID_10_MINI_MON_AI&apos; " tendency="1">
+                        <SelfAI ActiveMessageMapInBattle="1">
+                            <List>
+                                <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+                                    <Num Num="1000"/>
+                                </ToolScp>
+                            </List>
+                            <StartList>
+                                <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+                                    <Num Num="1000"/>
+                                </ToolScp>
+                            </StartList>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="57899" Pos="-1437.86#154.98#-383.89" angle="-136" genCount="1" maxStackCount="1" genTime="1000" genReadyTime="15000" objectKey="26" propList="&apos;SimpleAI&apos; &apos;F_TABLELAND_28_2_RAID_10_MINI_MON_AI&apos; " tendency="1">
+                        <SelfAI ActiveMessageMapInBattle="1">
+                            <List>
+                                <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+                                    <Num Num="1000"/>
+                                </ToolScp>
+                            </List>
+                            <StartList>
+                                <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+                                    <Num Num="1000"/>
+                                </ToolScp>
+                            </StartList>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="150211" Pos="-1580.67#154.98#-609.63" angle="-138" genCount="1" objectKey="27" propList="&apos;SimpleAI&apos; &apos;F_TABLELAND_28_2_RAID_10_CRU_MINI_AI_01&apos; "/>
+                    <Obj Type="Monster" MonType="153149" Pos="-1598.74#154.98#-618.57" genCount="1" objectKey="28" propList="&apos;Name&apos; &apos;수상한 조각&apos; ">
+                        <SelfAI ActiveMessageMapInBattle="1">
+                            <StartList>
+                                <ToolScp Scp="SAI_FUNC_DIRECT" Client="NO" UseSleep="NO">
+                                    <Str Str="F_TABLELAND_28_2_RAID_10_STONE_MINI_AI_01"/>
+                                </ToolScp>
+                            </StartList>
+                        </SelfAI>
+                    </Obj>
+                </ObjList>
+                <StageEvents>
+                    <Event eventName="stageclear">
+                        <condList>
+                            <ToolScp Scp="MGAME_EVT_COND_SCRIPT" Client="NO" UseSleep="NO">
+                                <Str Str="F_TABLELAND_28_2_RAID_10_MGAME_CLEARCHECK"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="GAME_EVT_ON_BYNAME" Client="NO" UseSleep="NO">
+                                <Str Str="aftertrack"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="aftertrack">
+                        <execList>
+                            <ToolScp Scp="MGAME_EVT_SCRIPT" Client="NO" UseSleep="NO">
+                                <Str Str="F_TABLELAND_28_2_RAID_10_MGAME_AFTER_TRACK"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                </StageEvents>
+            </Stage>
+        </StageList>
+    </Game>
+</GameList>

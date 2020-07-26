@@ -1931,6 +1931,12 @@ function HIDE_IN_QUEST_LIST(pc, questIES, State, abandonResult, subQuestZoneList
 	elseif IS_WORLDMAPPREOPEN(questIES.StartMap) == 'NO' then
 		return 1, subQuestZoneList
 	elseif sObj ~= nil and questIES.QuestMode == 'MAIN' and pc.Lv < 100 and questIES.QStartZone ~= 'None' and sObj.QSTARTZONETYPE ~= 'None' and questIES.QStartZone ~=  sObj.QSTARTZONETYPE and LINKZONECHECK(GetZoneName(pc), questIES.StartMap) == 'NO'  then
+		if questIES.QStartZone == 'StartLine2' then
+			local aObj = GetMyAccountObj();
+			if nil ~= aObj and TryGetProp(aObj, "Episode_Unlock_Orsha") == 1 then
+				return 0, subQuestZoneList;			
+			end
+		end
 		return 1, subQuestZoneList
 	elseif (questIES.QuestMode == 'MAIN' or questIES.QuestMode == 'REPEAT' or questIES.QuestMode == 'SUB') and LINKZONECHECK(GetZoneName(pc), questIES.StartMap) == 'NO' and QUEST_VIEWCHECK_LEVEL(pc, questIES) == 'NO' and SCR_ISFIRSTJOBCHANGEQUEST(questIES) == 'NO'  then
 		return 1, subQuestZoneList

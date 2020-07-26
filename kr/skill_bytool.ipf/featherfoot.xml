@@ -397,7 +397,7 @@ else
 return 'Common_Rotten'; 
 
 end"/>
-					<Num FuncTxt="1" Num="1" UseFunc="1" />
+                    <Num FuncTxt="return 1" Num="1" UseFunc="1" />
 					<Num Num="0" />
 					<Num FuncTxt=" return 10000 + skill.Level * 2000" Num="0" UseFunc="1" />
 					<Num Num="1" />
@@ -467,6 +467,9 @@ end"/>
 				<Str Str="voice_wiz_kurdaitcha_cast" />
 				<Num Num="0" />
 				<Str Str="voice_wiz_m_kurdaitcha_cast" />
+			</ToolScp>
+			<ToolScp Client="NO" Scp="SKL_RUN_SCRIPT" UseSleep="NO">
+				<Str Str="SCR_ITEM_GLACIER_STAFF_Kurdaitcha"/>
 			</ToolScp>
 		</KeyInputStart>
 		<KeyInputEnd>

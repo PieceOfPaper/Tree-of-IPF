@@ -4359,7 +4359,7 @@ end
 
 -- 데스모두스 흡혈 디버프와 네크로맨서 시독 디버프 대미지 증가 통합 적용
 function SCR_GET_SummonDamage_Ratio(skill)
-    local value = skill.Level * 84
+    local value = 210 + (skill.Level-1) * 10
 
     return value
 end
@@ -4458,14 +4458,10 @@ function SCR_GET_Ayin_sof_Ratio(skill)
 end
 
 function SCR_GET_Ayin_sof_Ratio2(skill)
-    local value = 15
+    
     local pc = GetSkillOwner(skill);
-    
-    local abil = GetAbility(pc, "Kabbalist6")
-    if abil ~= nil and 1 == abil.ActiveState then
-        value = value + abil.Level
-    end
-    
+    local value = get_hp_recovery_ratio(pc, TryGetProp(pc, "RHP", 0))
+
     return value
 end
 
@@ -7210,15 +7206,15 @@ end
 
 function SCR_GET_StoneSkin_Ratio(skill)
     local pc = GetSkillOwner(skill);
-    local value = skill.Level * 0.4
+    local value = skill.Level * 0.65
     local abilPaladin33 = GetAbility(pc, "Paladin33")
     if abilPaladin33 ~= nil and TryGetProp(abilPaladin33, "ActiveState", 0) == 1 then
-        value = skill.Level
+        value = skill.Level * 1.3
     end
 
     local abilPaladin34 = GetAbility(pc, "Paladin34")
     if abilPaladin34 ~= nil and TryGetProp(abilPaladin34, "ActiveState", 0) == 1 then
-        value = skill.Level
+        value = skill.Level * 1.3
     end
 
     value = value * SCR_REINFORCEABILITY_TOOLTIP(skill)
@@ -10847,9 +10843,9 @@ function SCR_GET_SPENDITEM_COUNT_PALADIN40(skill)
     local addCount = GetAbilityAddSpendValue(pc, skill.ClassName, "SpendItem");
     local abil = GetAbility(pc, "Paladin40")
     if abil ~= nil and abil.ActiveState == 1 then
-        addCount = addCount + 10
+        addCount = 1;
     end
-
+    
     return count + addCount;
 end
 
@@ -11834,7 +11830,7 @@ function SCR_GET_Engkrateia_Ratio2(skill)
 end
 
 function SCR_GET_TheTreeofSepiroth_Ratio(skill)
-    local value = 36 + (skill.Level - 1) * 16.9
+    local value = 45 + (skill.Level - 1) * 21.1
     value = math.floor(value * SCR_REINFORCEABILITY_TOOLTIP(skill))
     return value
 end
@@ -12221,8 +12217,15 @@ end
 
 function SCR_GET_Hallucination_Ratio(skill)
     local value = 25 + (skill.Level * 5)
-    value = math.floor(value * SCR_REINFORCEABILITY_TOOLTIP(skill))
-    
+    local pc = GetSkillOwner(skill)
+    local reinforceAbilName = TryGetProp(skill, "ReinforceAbility", "None");
+    if reinforceAbilName ~= "None" then
+        local reinforceAbil = GetAbility(pc, reinforceAbilName)
+        if reinforceAbil ~= nil then
+            local abilLevel = TryGetProp(reinforceAbil, "Level")
+            value = value * (1 + (reinforceAbil.Level * 0.005));
+        end
+    end
     return value
 end
 

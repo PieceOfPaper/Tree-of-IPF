@@ -73,9 +73,19 @@ function GET_LEGEND_PREFIX_NEED_MATERIAL_COUNT_BY_NEEDITEM(targetObj, needItemCl
             local cls = GetClassByIndexFromList(clsList, i);
             if string.find(cls.LegendGroup, legendGroup) ~= nil and targetObj.LegendPrefix ~= cls.ClassName and cls.NeedMaterial == needItemClsName then
                 if targetObj.GroupName == 'Armor' and targetObj.ClassType ~= 'Shield' then
-                    return cls.NeedMaterial_ArmorCnt;
+                    local count = cls.NeedMaterial_ArmorCnt
+                    -- PvP 전용 아이템 재료 1
+                    if TryGetProp(targetObj, 'StringArg', 'None') == 'FreePvP' then
+                        count = 1
+                    end
+                    return count;
                 else
-                    return cls.NeedMaterial_WeaponCnt;
+                    local count = cls.NeedMaterial_WeaponCnt;
+                    -- PvP 전용 아이템 재료 1
+                    if TryGetProp(targetObj, 'StringArg', 'None') == 'FreePvP' then
+                        count = 1
+                    end
+                    return count
                 end
 
 			end

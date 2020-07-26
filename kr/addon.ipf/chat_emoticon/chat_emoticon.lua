@@ -226,6 +226,12 @@ function CHAT_CHECK_EMOTICON_WITH_ENTER(originText)
 end
 
 function REPLACE_EMOTICON(originText)
+	local ret = ui.IsValidMacro(originText);
+	
+	if ret == 0 then
+		return ''
+	end
+
 	if string.find(originText, '/') == nil then		
 		return originText;
 	end

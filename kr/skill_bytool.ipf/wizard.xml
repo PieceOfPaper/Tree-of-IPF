@@ -1902,7 +1902,16 @@
                     <Num Num="100"/>
                     <Num Num="0"/>
                 </Scp>
-			</EtcList>
+			<Scp Scp="SKL_ADD_EVIL_BUFF" Client="NO" UseSleep="NO" Time="0">
+                    <Str Str="None" UseFunc="0" FuncTxt=""/>
+                    <Num Num="0" UseFunc="0" FuncTxt=""/>
+                    <Num Num="0"/>
+                    <Num Num="0"/>
+                    <Num Num="0"/>
+                    <Num Num="0"/>
+                    <Num Num="0"/>
+                </Scp>
+            </EtcList>
 		</MainSkl>
 		<ByCondSkills>
 			<SubSkl>
@@ -1921,6 +1930,15 @@
 							<Pos Angle="0" Dist="0" PosType="5" />
 							<Angle Angle="0" />
 							<Str Str="Wizard_reflect" />
+						</Scp>
+						<Scp Scp="SKL_ADD_EVIL_BUFF" Client="NO" UseSleep="NO" Time="0">
+							<Str Str="None" UseFunc="0" FuncTxt=""/>
+							<Num Num="0" UseFunc="0" FuncTxt=""/>
+							<Num Num="0"/>
+							<Num Num="0"/>
+							<Num Num="0"/>
+							<Num Num="0"/>
+							<Num Num="0"/>
 						</Scp>
 					</EtcList>
 				</Skill>

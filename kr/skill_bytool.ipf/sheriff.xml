@@ -205,7 +205,7 @@
                     <EtcList>
                         <Scp Scp="MONSKL_C_PLAY_ANIM" Client="YES" UseSleep="NO" Time="0">
                             <Str Str="SKL_PEACEMAKER"/>
-                            <Num Num="1"/>
+                            <Num Num="3"/>
                             <Num Num="1"/>
                             <Num Num="0"/>
                         </Scp>
@@ -216,7 +216,7 @@
                             <Str Str="voice_scout_m_peacemaker_cast"/>
                             <Str Str="voice_scout_f_peacemaker_cast"/>
                         </Scp>
-                        <Scp Scp="C_FORCE_EFT" Client="YES_Time" UseSleep="NO" Time="1000">
+                        <Scp Scp="C_FORCE_EFT" Client="YES_Time" UseSleep="NO" Time="400">
                             <Str_Arg Str="None" Arg="0.5"/>
                             <Str Str="arrow_cast"/>
                             <Str_Arg Str="None" Arg="1"/>

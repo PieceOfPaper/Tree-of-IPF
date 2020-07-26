@@ -207,3 +207,8 @@ function IS_ICORABLE_RANDOM_LEGEND_ITEM(item)
         return false
     end
 end
+function GET_ICOR_MULTIPLE_MAX_COUNT()
+    local max_count = 6
+    
+    return max_count
+end

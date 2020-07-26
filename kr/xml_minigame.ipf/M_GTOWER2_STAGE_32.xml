@@ -539,7 +539,7 @@
 			<Stage Name="CNT" AutoStart="0">
 				<StartScpList>
 					<ToolScp Scp="MGAME_SET_TIMEOUT" Client="NO" UseSleep="NO">
-						<Num Num="270"/>
+						<Num Num="30"/>
 					</ToolScp>
 					<ToolScp Scp="MGAME_SET_QUEST_NAME" Client="NO" UseSleep="NO">
 						<Str Str="대지의 저장소 보호"/>
@@ -569,7 +569,7 @@
 					<Event execCount="1" eventName="SUCC_Timmer">
 						<condList>
 							<ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
-								<Num Num="270"/>
+								<Num Num="30"/>
 							</ToolScp>
 						</condList>
 						<execList>

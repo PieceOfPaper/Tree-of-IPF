@@ -186,6 +186,19 @@ function GET_REINFORCE_PRICE(fromItem, moruItem, pc)
     if moruItem.StringArg == 'DIAMOND' and reinforcecount > 1 then
         value = value + (value_diamond * 2.1)
     end
+
+    -- 440레벨 장비 부터는 item_IncreaseCost.xml 테이블의 영향을 받아 비용 증가
+    local IncreaseRatio = nil
+    if lv >= 440 then
+        local Cls = GetClassByNumProp("IncreaseCost", "UseLv", lv)
+        if Cls ~= nil then
+            IncreaseRatio = TryGetProp(Cls, "ReinforcePriceRatio", 1)
+        end
+    end
+    if IncreaseRatio ~= nil then
+        value = value * IncreaseRatio
+    end
+    ---------------------
     
     -- EVENT_1903_WEEKEND
     --if SCR_EVENT_1903_WEEKEND_CHECK('REINFORCE', isServer) == 'YES' then
@@ -201,6 +214,14 @@ function GET_REINFORCE_PRICE(fromItem, moruItem, pc)
     -- if IsBuffApplied(pc, "Event_Steam_New_World_Buff") == "YES" then
     --     value = value/2
     -- end
+    
+    -- pvp템의 강화 비용 1/10로
+    if TryGetProp(fromItem, 'StringArg', 'None') == 'FreePvP' then
+        value = value * 0.1
+        if value < 1 then
+            value = 1
+        end
+    end
     
     return SyncFloor(value);
 

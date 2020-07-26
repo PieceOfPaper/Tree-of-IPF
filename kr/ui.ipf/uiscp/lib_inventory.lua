@@ -630,6 +630,9 @@ function UPDATE_ETC_ITEM_SLOTSET(slotset, etcType, tooltipType)
 		icon:SetTooltipArg(tooltipType, invItem.type, invItem:GetIESID());
 		SET_ITEM_TOOLTIP_TYPE(icon, itemCls.ClassID, itemCls, tooltipType);
 
+		-- 아이커 종류 표시	
+		SET_SLOT_ICOR_CATEGORY(slot, itemCls);
+
 		if invItem.hasLifeTime == true then
 			ICON_SET_ITEM_REMAIN_LIFETIME(icon, etcType);
 			slot:SetFrontImage('clock_inven');
@@ -974,4 +977,26 @@ function GET_FURNITURE_CLASS_BY_ITEM_CLASSID(classID)
 	end
 
 	return GET_FURNITURE_CLASS_BY_ITEM(itemClass.ClassName);
+end
+function SET_SLOT_ICOR_CATEGORY(slot, item_obj)
+	if item_obj.GroupName == 'Icor' then
+		local font = '{s14}{ol}{b}'
+		local item_name = TryGetProp(item_obj, 'InheritanceItemName', 'None')
+		local is_fix = false		
+		if item_name ~= 'None' then			
+			is_fix = true
+		end
+		if item_name == 'None' then
+			item_name = TryGetProp(item_obj, 'InheritanceRandomItemName', 'None')		
+		end		
+		if item_name ~= 'None' then		
+			local cls = GetClass('Item', item_name)			
+			local msg = font..ClMsg(cls.ClassType)
+			if is_fix == true then
+				msg = font .. ClMsg('FixOptionItem').. '{nl}' .. ClMsg(cls.ClassType)
+
+			end
+			slot:SetText(msg, 'quickiconfont', ui.CENTER_VERT, ui.CENTER_HORZ, -2, 1);
+		end
+	end	
 end

@@ -1465,6 +1465,11 @@ function SORT_BY_LEVEL_BASE_NAME(a, b)
         return false;
     end
 
+    -- Legend Raid Glacier : Easy / Noraml / Hard
+    if string.find(a.ClassName, "Legend_Raid_Glacier") ~= nil and string.find(b.ClassName, "Legend_Raid_Glacier") ~= nil then
+        return false;
+    end
+
     if tonumber(a.Level) < tonumber(b.Level) then
         return true
     elseif tonumber(a.Level) == tonumber(b.Level) then

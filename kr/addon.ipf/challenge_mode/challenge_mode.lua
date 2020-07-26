@@ -5,23 +5,35 @@ function CHALLENGE_MODE_ON_INIT(addon, frame)
 end
 
 function DIALOG_ACCEPT_CHALLENGE_MODE(handle)
-	ui.MsgBox(ClMsg("AcceptChallengeMode"), "ACCEPT_CHALLENGE_MODE(" .. tostring(handle) .. ")", "None");
+	local yes = "ACCEPT_CHALLENGE_MODE(" .. tostring(handle) .. ", 1)";
+	local no = "ACCEPT_CHALLENGE_MODE(" .. tostring(handle) .. ", 0)";
+	ui.MsgBox(ClMsg("AcceptChallengeMode"), yes, no);
 end
 
 function DIALOG_ACCEPT_CHALLENGE_MODE_RE_JOIN(handle)
-	ui.MsgBox(ClMsg("AcceptChallengeMode_ReJoin"), "ACCEPT_CHALLENGE_MODE(" .. tostring(handle) .. ")", "None");
+	local yes = "ACCEPT_CHALLENGE_MODE(" .. tostring(handle) .. ", 1)";
+	local no = "ACCEPT_CHALLENGE_MODE(" .. tostring(handle) .. ", 0)";
+	ui.MsgBox(ClMsg("AcceptChallengeMode_ReJoin"), yes, no);
 end
 
 function DIALOG_ACCEPT_CHALLENGE_MODE_PCBANG(handle)
-	ui.MsgBox(ClMsg("AcceptChallengeMode_PCBang"), "ACCEPT_CHALLENGE_MODE_BY_PCBANG(" .. tostring(handle) .. ")", "None");
+	local yes = "ACCEPT_CHALLENGE_MODE_BY_PCBANG(" .. tostring(handle) .. ", 1)";
+	local no = "ACCEPT_CHALLENGE_MODE_BY_PCBANG(" .. tostring(handle) .. ", 0)";
+	ui.MsgBox(ClMsg("AcceptChallengeMode_PCBang"), yes, no);
 end
 
-function ACCEPT_CHALLENGE_MODE(handle)
-	packet.AcceptChallengeMode(handle);
+function DIALOG_ACCEPT_CHALLENGE_MODE_HARD_MODE(handle)
+	local yes = "ACCEPT_CHALLENGE_MODE(" .. tostring(handle) .. ", 1)";
+	local no = "ACCEPT_CHALLENGE_MODE(" .. tostring(handle) .. ", 0)";
+	ui.MsgBox(ClMsg("AcceptChallengeMode_HardMode"), yes, no);
 end
 
-function ACCEPT_CHALLENGE_MODE_BY_PCBANG(handle)
-	packet.AcceptChallengeModeByPCBang(handle);
+function ACCEPT_CHALLENGE_MODE(handle, select)
+	packet.AcceptChallengeMode(handle, select);
+end
+
+function ACCEPT_CHALLENGE_MODE_BY_PCBANG(handle, select)
+	packet.AcceptChallengeModeByPCBang(handle, select);
 end
 
 function DIALOG_ACCEPT_NEXT_LEVEL_CHALLENGE_MODE(handle)
@@ -162,9 +174,13 @@ function CHALLENGE_MODE_TIMER(textTimer)
 	return 1;
 end
 
-function UPDATE_CHALLENGE_MODE_MINIMAP_MARK(x, y, z, isAlive)
+function UPDATE_CHALLENGE_MODE_MINIMAP_MARK(x, y, z, isAlive, isHardMode)
 	if isAlive == 1 then
-		session.minimap.AddIconInfo("ChallengeModePortalMark", "trasuremapmark", x, y, z, ClMsg("ChallengeModePortalMark"), true, nil, 1.5);
+		local msg = "ChallengeModePortalMark";
+		if isHardMode == 1 then
+			msg = "ChallengeModePortalMark_HardMode";
+		end
+		session.minimap.AddIconInfo("ChallengeModePortalMark", "trasuremapmark", x, y, z, ClMsg(msg), true, nil, 1.5);
 	else
 		session.minimap.RemoveIconInfo("ChallengeModePortalMark");
 	end

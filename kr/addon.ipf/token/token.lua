@@ -74,7 +74,7 @@ function BEFORE_APPLIED_TOKEN_OPEN(invItem)
 
 	local ctrlSet = gBox:CreateControlSet("tokenDetail", "CTRLSET_" .. 6,  ui.CENTER_HORZ, ui.TOP, 0, 0, 0, 0);
     local prop = ctrlSet:GetChild("prop");
-    local imag = string.format("{img paid_pose_image %d %d}", 55, 45)
+    local imag = string.format("{img Immediately_image %d %d}", 55, 45)
     prop:SetTextByKey("value", imag..ClMsg("CanGetMoneyByMarketImmediately")); 
     local value = GET_CHILD_RECURSIVELY(ctrlSet, "value");
     value:ShowWindow(0);
@@ -91,7 +91,14 @@ function BEFORE_APPLIED_TOKEN_OPEN(invItem)
     local imag = string.format("{img teamcabinet_image %d %d}", 55, 45)
     prop:SetTextByKey("value", imag..ClMsg("TeamWarehouseEnable")); 
     local value = GET_CHILD_RECURSIVELY(ctrlSet, "value");
-    value:ShowWindow(0);
+	value:ShowWindow(0);
+	
+	local ctrlSet = gBox:CreateControlSet("tokenDetail", "CTRLSET_" .. 9,  ui.CENTER_HORZ, ui.TOP, 0, 0, 0, 0);
+	local prop = ctrlSet:GetChild("prop");
+	local imag = string.format("{img dealok_image %d %d}", 55, 45)
+	prop:SetTextByKey("value", imag..ClMsg("CanUseIcorMultiple"));
+	local value = GET_CHILD_RECURSIVELY(ctrlSet, "value");
+	value:ShowWindow(0);
 
 --    local ctrlSet = gBox:CreateControlSet("tokenDetail", "CTRLSET_" .. 9,  ui.CENTER_HORZ, ui.TOP, 0, 0, 0, 0);
 --    local prop = ctrlSet:GetChild("prop");

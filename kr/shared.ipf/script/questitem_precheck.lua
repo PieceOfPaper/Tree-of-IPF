@@ -9155,3 +9155,21 @@ function SCR_PRE_ITEM_BuffStone_NewUser(self, argStr, arg1, arg2)
 
     return 1
 end
+
+function SCR_PRE_F_TABLELAND_28_2_RAID_09_ITEM(self, argstring, argnum1, argnum2)
+    local QCheck = SCR_QUEST_CHECK(self, 'F_TABLELAND_28_2_RAID_09')
+
+    if QCheck == 'PROGRESS' then
+        local MList, MCnt = SelectObjectByFaction(self, 100, 'Monster')
+        
+        for i = 1, MCnt do
+            if MList[i].ClassName == 'Siaulav_blue' or 
+            MList[i].ClassName == 'Siaulav_mage_blue' or 
+            MList[i].ClassName == 'Siaulav_bow_blue' or 
+            MList[i].ClassName == 'lapasape_blue' then
+                return 1
+            end
+        end
+    end
+    return 0
+end

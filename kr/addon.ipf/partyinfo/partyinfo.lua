@@ -356,8 +356,11 @@ function GIVE_PARTY_LEADER(name)
 		ui.SysMsg(ScpArgMsg("ThatMapCannotChangePartyLeader"));
 		return;
 	end
+	
+	ui.Chat("/partyleader " .. name);
 
-	ui.Chat("/partyleader " .. name);	
+	local contents_multiple = ui.GetFrame('contents_multiple')
+	contents_multiple:ShowWindow(0)
 end
 
 function OPEN_PARTY_MEMBER_INFO(handle)

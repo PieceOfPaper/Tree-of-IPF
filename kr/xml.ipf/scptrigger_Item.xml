@@ -12982,6 +12982,60 @@ end"/>
 			</Trigger>
 		</TriggerList>
 	</SpcItem>
+	<SpcItem Name="Ark_dispersion">
+		<TriggerList Act="Equip">
+			<Trigger>
+				<ExecList>
+					<ToolScp Scp="equip_Ark_dispersion" Client="NO" UseSleep="NO">            
+          </ToolScp>
+				</ExecList>
+			</Trigger>
+		</TriggerList>
+		<TriggerList Act="UnEquip">
+			<Trigger>
+				<ExecList>
+					<ToolScp Scp="unequip_Ark_dispersion" Client="NO" UseSleep="NO">            
+          </ToolScp>
+				</ExecList>
+			</Trigger>
+		</TriggerList>
+	</SpcItem>
+	<SpcItem Name="Ark_punishment">
+		<TriggerList Act="Equip">
+			<Trigger>
+				<ExecList>
+					<ToolScp Scp="equip_Ark_punishment" Client="NO" UseSleep="NO">            
+          </ToolScp>
+				</ExecList>
+			</Trigger>
+		</TriggerList>
+		<TriggerList Act="UnEquip">
+			<Trigger>
+				<ExecList>
+					<ToolScp Scp="unequip_Ark_punishment" Client="NO" UseSleep="NO">            
+          </ToolScp>
+				</ExecList>
+			</Trigger>
+		</TriggerList>
+	</SpcItem>
+	<SpcItem Name="Ark_overpower">
+		<TriggerList Act="Equip">
+			<Trigger>
+				<ExecList>
+					<ToolScp Scp="equip_Ark_overpower" Client="NO" UseSleep="NO">            
+          </ToolScp>
+				</ExecList>
+			</Trigger>
+		</TriggerList>
+		<TriggerList Act="UnEquip">
+			<Trigger>
+				<ExecList>
+					<ToolScp Scp="unequip_Ark_overpower" Client="NO" UseSleep="NO">            
+          </ToolScp>
+				</ExecList>
+			</Trigger>
+		</TriggerList>
+	</SpcItem>
 	<SpcItem Name="Effect_catagnan">
 		<TriggerList Act="UnEquip">
 			<Trigger>

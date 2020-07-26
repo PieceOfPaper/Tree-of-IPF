@@ -228,6 +228,11 @@ function GET_TRANSCEND_MATERIAL_COUNT(targetItem, Arg1)
     --     end
     -- end
 
+    -- PvP 아이템인 경우, 요구량 개수 1
+    if TryGetProp(targetItem, 'StringArg', 'None') == 'FreePvP' then
+        needMatCount = 1
+    end
+
     return SyncFloor(needMatCount);
 end
 
@@ -388,6 +393,8 @@ function IS_TRANSCEND_SCROLL_ITEM(scrollObj)
 		return 1;
 	elseif scrollType == "transcend_Set_430" then
 		return 1;
+	elseif scrollType == "transcend_Set_440" then
+		return 1;
 	elseif scrollType == "transcend_Add" then
 		return 1;
 	end
@@ -429,6 +436,13 @@ function IS_TRANSCEND_SCROLL_ABLE_ITEM(itemObj, scrollType, scrollTranscend)
             end
         return 0
         end
+    elseif scrollType == "transcend_Set_440" then
+        if SCR_TARGET_TRANSCEND_CHECK(itemObj, scrollTranscend) == 1 and IS_TRANSCEND_ABLE_ITEM(itemObj) == 1 then
+            if itemObj.UseLv <= 440 then -- Is item UseLv under 440 then
+                return 1;
+            end
+        return 0
+        end
     elseif scrollType == "transcend_Add" then
         if IS_TRANSCEND_ABLE_ITEM(itemObj) == 1 then
             return 1;
@@ -455,7 +469,7 @@ function GET_ANTICIPATED_TRANSCEND_SCROLL_SUCCESS(itemObj, scrollObj)
         return;
     end
     
-    if scrollType == "transcend_Set" or scrollType == "transcend_Set_380" or scrollType == "transcend_Set_400" or scrollType == "transcend_Set_420"  or scrollType == "transcend_Set_430" then
+    if scrollType == "transcend_Set" or scrollType == "transcend_Set_380" or scrollType == "transcend_Set_400" or scrollType == "transcend_Set_420"  or scrollType == "transcend_Set_430" or scrollType == "transcend_Set_440" then
         return transcend, percent;
     elseif scrollType == "transcend_Add" then
         local curTranscend = 0;

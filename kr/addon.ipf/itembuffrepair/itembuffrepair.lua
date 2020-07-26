@@ -10,8 +10,8 @@ function ITEMBUFF_REPAIR_UI_COMMON(groupName, sellType, handle)
 	SQIORE_BUFF_VIEW(frame);
 
 	-- 기본 탭은 "수리"
-	local tabObj		    = frame:GetChild('statusTab');
-	local itembox_tab		= tolua.cast(tabObj, "ui::CTabControl");
+	local tabObj = frame:GetChild('statusTab');
+	local itembox_tab = tolua.cast(tabObj, "ui::CTabControl");
 	itembox_tab:ChangeTab(0);
 	ITEMBUFF_SHOW_TAB(itembox_tab, handle);
 
@@ -28,7 +28,7 @@ function ITEMBUFF_REPAIR_UI_COMMON(groupName, sellType, handle)
 		local money = bodyBox:GetChild("reqitemMoney");
 		money:SetTextByKey("txt", groupInfo.price);
 	else
-		frame:SetUserValue("PRICE",groupInfo.price);
+		frame:SetUserValue("PRICE", groupInfo.price);
 		money:SetTextByKey("txt", "");
 	end
 
@@ -61,7 +61,6 @@ function ITEMBUFF_REPAIR_UI_COMMON(groupName, sellType, handle)
 	ITEMBUFF_SET_SKILLTYPE(frame, sklName, groupInfo.level);
 end
 
-
 function SQUIRE_ITEM_REPAIR_SUCCEED()
 	local frame = ui.GetFrame("itembuffrepair");
 	UPDATE_REPAIR140731_LIST(frame);
@@ -69,39 +68,38 @@ function SQUIRE_ITEM_REPAIR_SUCCEED()
 end
 
 function SCP_LBTDOWN_SQIOR_REPAIR(frame, ctrl)
-
 	ui.EnableSlotMultiSelect(1);
 
 	local slotSet = GET_CHILD_RECURSIVELY_AT_TOP(ctrl, "slotlist", "ui::CSlotSet")
-	local totalcont = 0;
-
-	for i = 0, slotSet:GetSelectedSlotCount() -1 do
-		local slot = slotSet:GetSelectedSlot(i)
+	local totalcount = 0;
+	for i = 0, slotSet:GetSelectedSlotCount() - 1 do
+		local slot = slotSet:GetSelectedSlot(i);
 		local Icon = slot:GetIcon();
 		local iconInfo = Icon:GetInfo();
 		local invitem = GET_ITEM_BY_GUID(iconInfo:GetIESID());
 		local itemobj = GetIES(invitem:GetObject());
 		local needItem, needCount = ITEMBUFF_NEEDITEM_Squire_Repair(GetMyPCObject(), itemobj);
-		totalcont = totalcont + needCount;
+		totalcount = totalcount + needCount;
 	end
 
 	slotSet:MakeSelectionList();
-	UPDATE_SQIOR_REPAIR_MONEY(frame, totalcont);
+	UPDATE_SQIOR_REPAIR_MONEY(frame, totalcount);
 end
 
-function UPDATE_SQIOR_REPAIR_MONEY(frame, totalcont)
-
+function UPDATE_SQIOR_REPAIR_MONEY(frame, totalcount)
 	local repair = frame:GetTopParentFrame();
 	local repairbox = repair:GetChild("repair");
 	local reqitembox = repairbox:GetChild("materialGbox");
 	local reqitemNeed= reqitembox:GetChild("reqitemNeedCount");
 
 	if repair:GetUserIValue("HANDLE") ==  session.GetMyHandle() then
-		reqitemNeed:SetTextByKey("txt", totalcont  ..ClMsg("CountOfThings"));
+		reqitemNeed:SetTextByKey("txt", totalcount..ClMsg("CountOfThings"));
 	else
 		local money = repairbox:GetChild("reqitemMoney");
-		local needMoneyStr = GET_COMMA_SEPARATED_STRING(totalcont*repair:GetUserIValue("PRICE"));
-		money:SetTextByKey("txt", needMoneyStr);
+		if money ~= nil then
+			local needMoneyStr = GET_COMMA_SEPARATED_STRING(totalcount * repair:GetUserIValue("PRICE"));
+			money:SetTextByKey("txt", needMoneyStr);
+		end
 	end
 end
 
@@ -223,7 +221,6 @@ function SQIORE_REPAIR_EXCUTE(parent)
 	end
 	
 	local money = targetbox:GetChild("reqitemMoney");
-	
 	local price = money:GetTextByKey("txt");
 	local yesScp = string.format("SQIORE_REPAIR_EXCUTE_RUN(%d, \"%s\")", handle, skillName);
 	ui.MsgBox(ScpArgMsg("ReallyRepair", 'Price', price), yesScp, "None");

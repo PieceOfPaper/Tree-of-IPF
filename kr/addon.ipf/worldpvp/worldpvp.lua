@@ -1,4 +1,4 @@
-function WORLDPVP_ON_INIT(addon, frame)
+﻿function WORLDPVP_ON_INIT(addon, frame)
 	addon:RegisterMsg("PVP_TIME_TABLE", "ON_PVP_TIME_TABLE");
 	addon:RegisterMsg("PVP_PC_INFO", "ON_PVP_PC_INFO");
 	addon:RegisterMsg("PVP_STATE_CHANGE", "ON_PVP_STATE_CHANGE");
@@ -13,7 +13,6 @@ end
 g_enablePVPExp = 1;
 
 function ON_PLAY_COUNT_MAX(frame, msg)	
-
 	local resetTime = RANK_RESET_HOUR % 12;
 	local isPM = RANK_RESET_HOUR / 2;
 
@@ -61,10 +60,8 @@ function WORLDPVP_FIRST_OPEN(frame)
 	local clsList, cnt = GetClassList("WorldPVPType");
 	for i = 0 , cnt - 1 do
 		local cls = GetClassByIndexFromList(clsList, i);
-		if cls.MatchType ~="Guild" then
-			droplist:AddItem(cls.ClassID, "{@st42}" .. cls.Name);
-			droplist_rank:AddItem(cls.ClassID, "{@st42}" .. cls.Name);		
-		end
+		droplist:AddItem(cls.ClassID, "{@st42}" .. cls.Name);
+		droplist_rank:AddItem(cls.ClassID, "{@st42}" .. cls.Name);
 	end
 
 	droplist:SelectItemByKey(1);
@@ -91,7 +88,6 @@ function CLOSE_WORLDPVP(frame)
 end
 
 function OPEN_WORLDPVP(frame)
-
 	local title = frame:GetChild("title");
 	title:SetTextByKey("value", ScpArgMsg("TeamBattleLeague"));
     
@@ -169,21 +165,9 @@ function ON_PVP_PC_INFO(frame)
 end
 
 function GET_PVP_OBJECT_FOR_TYPE(cls)
-	if cls.MatchType =="Guild" then
-		local pcparty = session.party.GetPartyInfo(PARTY_GUILD);
-
-		if pcparty == nil then -- dummyScore
-			local mySession = session.GetMySession();
-			local cid = mySession:GetCID();
-			return session.worldPVP.GetPVPObject(cid);
-		end
-		local partyID = pcparty.info:GetPartyID();	
-		return session.worldPVP.CreatePVPObject(partyID);
-	else
-		local mySession = session.GetMySession();
-		local cid = mySession:GetCID();
-		return session.worldPVP.GetPVPObject(cid);
-	end
+	local mySession = session.GetMySession();
+	local cid = mySession:GetCID();
+	return session.worldPVP.GetPVPObject(cid);
 end
 
 function UPDATE_WORLDPVP(frame)
@@ -202,8 +186,8 @@ function UPDATE_WORLDPVP(frame)
 	if cls == nil then
 		return;
 	end
-	local clsName = cls.ClassName;
 
+	local clsName = cls.ClassName;
 	local pvpObj = GET_PVP_OBJECT_FOR_TYPE(cls);
 	if nil == pvpObj then
 		return;
@@ -232,7 +216,7 @@ function UPDATE_WORLDPVP(frame)
 	local curDateString = imcTime.GetCurDateString();
 	local lastPointGetDateName = GetPVPPointPropName(clsName, "LastPointGetDate");
 	local todayGetShopPointName = GetPVPPointPropName(clsName, "TodayGetShopPoint");
-	local shopPointName = session.shop.GetShopPoint("uphill_defense_shoppoint")--GetPVPPointPropName(clsName, "ShopPoint");
+	local shopPointName = session.shop.GetShopPoint("uphill_defense_shoppoint");
     
 	local joinBtn = charinfo:GetChild("join");
 	local isPlaying = session.worldPVP.IsPlayingType(pvpType);
@@ -241,34 +225,10 @@ function UPDATE_WORLDPVP(frame)
 	else
 		joinBtn:SetEnable(0);
 	end
-
-	if cls.MatchType == "Guild" then
-		local isLeader = AM_I_LEADER(PARTY_GUILD);
-		if isLeader == 0 then
-			local pvpGuid = frame:GetUserIValue("GUILD_PVP_GUID_" .. pvpType);
-			if pvpGuid == 0 then
-				joinBtn:SetEnable(0);
-				joinBtn:SetTextTooltip("");
-			else										
-				local zonePCCount = frame:GetUserIValue("GUILD_PVP_PCCOUNT_" .. pvpType);
-				local tooltipString = string.format("(%d/%d)", zonePCCount, cls.MaxGuildPlayer);
-				joinBtn:SetTextTooltip(tooltipString);
-				joinBtn:SetEnable(1);
-			end
-		end
-		gbox_playcnt:ShowWindow(1);
-		SET_PVP_TYPE_PROP(gbox_playcnt, pvpObj, clsName, "todaycnt", "Cnt", 0);
-		GUILDBATTLE_LEAGUE_SET_GUILDPVP_TYPE_PROP(gbox_playcnt, "guildCnt", "Guild", "GuildBattleWeeklyJoinCnt");
-		GUILDBATTLE_LEAGUE_SET_GUILDPVP_TYPE_PROP(gbox_playcnt, "myCnt", "Account", "GuildBattleWeeklyPlayCnt");
-
-	end
-
 end
 
 function JOIN_WORLDPVP(parent, ctrl)
-
 	local accObj = GetMyAccountObj();
-
 	if IsBuffApplied(GetMyPCObject(), "TeamBattleLeague_Penalty_Lv1") == "YES" or IsBuffApplied(GetMyPCObject(), "TeamBattleLeague_Penalty_Lv2") == "YES" then
 		ui.SysMsg(ClMsg("HasTeamBattleLeaguePenalty"));
 		return;
@@ -287,105 +247,51 @@ function JOIN_WORLDPVP(parent, ctrl)
 	end
 
 	local curMapName = session.GetMapName();
-	local notAvailableJoinMapList = {
-					"guildhouse",
-					"guild_agit_1",
-					"guild_agit_extension",
-				};
+	local notAvailableJoinMapList = { "guildhouse", "guild_agit_1", "guild_agit_extension" };
 	for i, mapName in pairs(notAvailableJoinMapList) do
 		if curMapName == mapName then
 			ui.SysMsg(ScpArgMsg("CanNotJoinPVPFromMission"));
 			return;
 		end
 	end
-	
-	if cls.MatchType == "Guild" then
-		local pcparty = session.party.GetPartyInfo(PARTY_GUILD);
-		if pcparty == nil then
-			ui.SysMsg(ScpArgMsg("PleaseJoinGuild"));
-			return;
-		end
-	end
 
 	local isLeader = AM_I_LEADER(PARTY_GUILD);
-	
-	if cls.MatchType ~= "Guild" or isLeader == 0 then
-		JOIN_WORLDPVP_BY_TYPE(frame, pvpType);
-		return;
-	end
-
-	local pvpObj = GET_PVP_OBJECT_FOR_TYPE(cls);
-	if nullptr == pvpObj then
-		ui.SysMsg(ScpArgMsg("DonotOpenPVP"))
-		return;
-	end
-	
-	local myCnt = pvpObj:GetPropValue(cls.ClassName .. "_Cnt", 0);
-	local yesScp = string.format("NOTICE_AND_CHECK_PVP_COUNT(%d, %d)", pvpType, myCnt) 
-	
-	local state = session.worldPVP.GetState();
-	if state == PVP_STATE_PLAYING then
-		ui.MsgBox(ScpArgMsg("ExistsPlayingPVP"), yesScp, "None");	
-	elseif state == PVP_STATE_NONE then
-		local msg = ScpArgMsg("PVPEnter{COUNT}{MAX}",'COUNT',myCnt, 'MAX',cls.MaxPlayCount )
-		ui.MsgBox(msg, yesScp, "None");
-	elseif state == PVP_STATE_FINDING then
-		local msg = ScpArgMsg("AskPVPEnterCancel")
-		ui.MsgBox(msg, yesScp, "None");
-	end
+	JOIN_WORLDPVP_BY_TYPE(frame, pvpType);
+	return;
 end
 
 function NOTICE_AND_CHECK_PVP_COUNT(pvpType, playCnt)
-	local cls = GetClassByType("WorldPVPType", pvpType);
-	if nil == cls then
-		return;
-	end
-
-	if cls.MatchType ~= "Guild" then
-		return;
-	end
-
-	JOIN_WORLDPVP_BY_TYPE(ui.GetFrame('guildbattle_league'), pvpType);
+	return;
 end
 
 function JOIN_WORLDPVP_BY_TYPE(frame, pvpType)
-	local bg = frame:GetChild("bg");
-	local cls = GetClassByType("WorldPVPType", pvpType);
-    local join = nil;
-    if bg ~= nil then
-	    local charinfo = bg:GetChild("charinfo");
-	    join = charinfo:GetChild("join");
-    else
-        join = GET_CHILD_RECURSIVELY(frame, 'teamBattleMatchingBtn');
-    end
+	local join = nil;
+	local cls = nil;
+	if frame:GetClassString() == "ui::CFrame" then
+		local bg = frame:GetChild("bg");
+		cls = GetClassByType("WorldPVPType", pvpType);
+    	if bg ~= nil then
+	    	local charinfo = bg:GetChild("charinfo");
+	    	join = charinfo:GetChild("join");
+    	else
+        	join = GET_CHILD_RECURSIVELY(frame, 'teamBattleMatchingBtn');
+		end
+	else
+		cls = GET_TEAM_BATTLE_CLASS();
+		join = frame;
+	end
+
 	local state = session.worldPVP.GetState();
 	if state == PVP_STATE_NONE then
-
 		if cls.Party == 0 then
-			if GETMYPCLEVEL() < WORLDPVP_MIN_LEVEL and cls.MatchType ~= "Guild" then
+			if GETMYPCLEVEL() < WORLDPVP_MIN_LEVEL then
 				local msg = ScpArgMsg("OnlyAbleOver{LEVEL}", "LEVEL", WORLDPVP_MIN_LEVEL);
 				ui.MsgBox(msg);
 				 return;
 			end
 
-			if cls.MatchType == "Guild" then
-				local isLeader = AM_I_LEADER(PARTY_GUILD);
-				if isLeader == 1 then
-					worldPVP.ReqJoinPVP(pvpType, PVP_STATE_FINDING);
-					join:SetEnable(0);
-				else
-					local pvpGuid = frame:GetUserIValue("GUILD_PVP_GUID_" .. pvpType);
-					if pvpGuid > 0 then
-						worldPVP.ReqJoinGuildPVP(pvpType, pvpGuid)
-					else
-						ui.SysMsg(ScpArgMsg("DonotPlayGuildBattleYet"))
-						return;
-					end
-				end
-			else
-				worldPVP.ReqJoinPVP(pvpType, PVP_STATE_FINDING);
-				join:SetEnable(0);
-			end
+			worldPVP.ReqJoinPVP(pvpType, PVP_STATE_FINDING);
+			join:SetEnable(0);
 		else
 			local partyMemberList = session.party.GetPartyMemberList(PARTY_NORMAL);
 			local curCount = 0;
@@ -408,20 +314,11 @@ function JOIN_WORLDPVP_BY_TYPE(frame, pvpType)
 			worldPVP.ReqInvitePartyPVP(pvpType);
 			ui.MsgBox(ClMsg("InvitedPartyMembers_WaitAccept"));
 		end
-
 	elseif state == PVP_STATE_FINDING then
 		worldPVP.ReqJoinPVP(pvpType, PVP_STATE_NONE);
 		join:SetEnable(0);
 	elseif state == PVP_STATE_PLAYING then
-
-		if cls.MatchType == "Guild" then
-			local pvpGuid = frame:GetUserIValue("GUILD_PVP_GUID_" .. pvpType);
-			if pvpGuid > 0 then
-				worldPVP.ReqJoinGuildPVP(pvpType, pvpGuid);
-			end
-		end
 	end
-
 end
 
 function ON_PVP_STATE_CHANGE(frame, msg, pvpType)
@@ -450,15 +347,7 @@ function ON_PVP_STATE_CHANGE(frame, msg, pvpType)
 			UPDATE_WORLDPVP(frame);
 		end
 	elseif state == PVP_STATE_READY then
-		local cls = GetClassByType("WorldPVPType", pvpType);
-		if cls.MatchType ~= "Guild" then
-			return;
-		end
-		local isLeader = AM_I_LEADER(PARTY_GUILD);
-		if 1 ~= isLeader then
-			return;
-		end
-		ui.Chat("/sendMasterEnter");
+		return
 	end
 
 	if 1 == ui.IsFrameVisible("worldpvp_ready") then
@@ -477,16 +366,17 @@ function WORLDPVP_TYPE_SELECT(parent, ctrl)
 	if nil == bg_ranking then
 		return;
 	end
+
 	local droplist_rank = GET_CHILD(bg_ranking, "droplist");
 	if nil == droplist_rank then	
 		return;
 	end
+
 	droplist_rank:SelectItemByKey(droplist:GetSelItemKey());
 	local pvpCls = GetClassByType("WorldPVPType", droplist:GetSelItemKey());
 	if pvpCls.MatchType == "Guild" then
 		WORLDPVP_REQUEST_RANK(frame, 1, 1);
 	end
-	
 end
 
 function WORLDPVP_RANK_TYPE_SELECT(parent, ctrl)
@@ -495,7 +385,6 @@ function WORLDPVP_RANK_TYPE_SELECT(parent, ctrl)
 end
 
 function ON_PVP_TIME_TABLE(frame)
-
 	local bg = frame:GetChild("bg");
 	local timetable = bg:GetChild("timetable");
 	local tbg = timetable:GetChild("tbg");
@@ -522,11 +411,9 @@ function ON_PVP_TIME_TABLE(frame)
 	end
 
 	time_text:SetTextByKey("value", txt);
-	
 end
 
 function ON_PVP_HISTORY_UPDATE(frame)
-
 	local bg = frame:GetChild("bg");
 	local recent = bg:GetChild("recent");
 	local rbg = recent:GetChild("rbg");
@@ -564,11 +451,9 @@ function ON_PVP_HISTORY_UPDATE(frame)
 	end	
 
 	GBOX_AUTO_ALIGN(rbg, 35, 0, 10, true, false);
-
 end
 
 function WORLDPVP_REQUEST_RANK(frame, page, findMyRanking)
-
 	local bg = frame:GetChild("bg");
 	local bg_ranking = frame:GetChild("bg_ranking");
 	local droplist_rank = GET_CHILD(bg_ranking, "droplist", "ui::CDropList");
@@ -589,27 +474,22 @@ function WORLDPVP_REQUEST_RANK(frame, page, findMyRanking)
 
 	worldPVP.RequestPVPRanking(pvpType, 0, -1, page, findMyRanking, input_findname:GetText());
 	worldPVP.RequestGuildBattlePrevSeasonRanking(pvpType);
-
 end
 
 function WORLDPVP_OBSERVE_UI(parent, ctrl)
-
 	local frame = parent:GetTopParentFrame();
 	worldPVP.RequestPublicGameList();
 	WORLDPVP_SET_UI_MODE(frame, "observer");
-
-		end
+end
 				
 function REFRESH_PVP_OBSERVE_LIST()
 	worldPVP.RequestPublicGameList();
 end
 
 function WORLDPVP_SHOW_RANKING(parent, ctrl)
-
 	local frame = parent:GetTopParentFrame();
 	WORLDPVP_REQUEST_RANK(frame, 1, 1);
 	WORLDPVP_SET_UI_MODE(frame, "ranking");
-				
 end
 
 function SHOW_WORLDPVP_PAGE(parent)
@@ -630,8 +510,6 @@ function WORLDPVP_SET_UI_MODE(frame, uiType)
 		local openBG = frame:GetChild("bg_" .. uiType);
 		openBG:ShowWindow(1);
 	end
-	
-	
 end
 
 function UPDATE_PVP_RANK_CTRLSET(ctrlSet, info)
@@ -667,11 +545,9 @@ function UPDATE_PVP_RANK_CTRLSET(ctrlSet, info)
 
 	local txt_rank = ctrlSet:GetChild("txt_rank");
 	txt_rank:SetTextByKey("value", info.ranking + 1);
-
 end
 
 function ON_WORLDPVP_RANK_PAGE(frame)
-
 	local bg_ranking = frame:GetChild("bg_ranking");
 
 	local type = session.worldPVP.GetRankProp("Type");
@@ -685,20 +561,12 @@ function ON_WORLDPVP_RANK_PAGE(frame)
 	local gbox_ctrls = bg_ranking:GetChild("gbox_ctrls");
 	gbox_ctrls:RemoveAllChild();
 
-	if cls.MatchType == "Guild" then
-		OPEN_GUILDBATTLE_RANKING_FRAME(0);
-		return;
-	end
-
 	local rankPageFont = frame:GetUserConfig("RANK_PAGE_FONT");
 	for i = 0 , cnt - 1 do
 		local info = session.worldPVP.GetRankInfoByIndex(i);
 		local ctrlSet = gbox_ctrls:CreateControlSet("pvp_rank_ctrl", "CTRLSET_" .. i,  ui.CENTER_HORZ, ui.TOP, 0, 0, 0, 0);
-
 		UPDATE_PVP_RANK_CTRLSET(ctrlSet, info);
-
 	end
-
 	GBOX_AUTO_ALIGN(gbox_ctrls, 0, 0, 0, true, false);
 
 	local totalPage = math.floor((totalCount + WORLDPVP_RANK_PER_PAGE)/ WORLDPVP_RANK_PER_PAGE) ;
@@ -722,7 +590,6 @@ function ON_WORLDPVP_RANK_PAGE(frame)
 end
 
 function ON_WORLDPVP_RANK_ICON(frame, msg, cid, argNum, info)
-
 	local bg_ranking = frame:GetChild("bg_ranking");
 	local gbox_ctrls = bg_ranking:GetChild("gbox_ctrls");
 	local ctrlSet = GET_CHILD_BY_USERVALUE(gbox_ctrls, "CID", cid);
@@ -730,14 +597,9 @@ function ON_WORLDPVP_RANK_ICON(frame, msg, cid, argNum, info)
 		info = tolua.cast(info, "WORLD_PVP_RANK_INFO_C");
 		UPDATE_PVP_RANK_CTRLSET(ctrlSet, info);
 	end
-	
-	
-	
-
 end
 
 function WORLDPVP_RANK_SELECT_PREV(parent, ctrl)
-
 	local frame = parent:GetTopParentFrame();
 	local bg_ranking = frame:GetChild("bg_ranking");
 	local control = GET_CHILD(bg_ranking, "control", 'ui::CPageController')
@@ -745,11 +607,9 @@ function WORLDPVP_RANK_SELECT_PREV(parent, ctrl)
 	
 	WORLDPVP_REQUEST_RANK(frame, page - 1 );
 	ui.DisableForTime(control, 0.5);
-
 end
 
 function WORLDPVP_RANK_SELECT_NEXT(parent, ctrl)
-
 	local frame = parent:GetTopParentFrame();
 	local bg_ranking = frame:GetChild("bg_ranking");
 	local control = GET_CHILD(bg_ranking, "control", 'ui::CPageController')
@@ -757,22 +617,18 @@ function WORLDPVP_RANK_SELECT_NEXT(parent, ctrl)
 	
 	WORLDPVP_REQUEST_RANK(frame, page + 1);
 	ui.DisableForTime(control, 0.5);
-
 end
 
 function WORLDPVP_RANK_SELECT(parent, ctrl)
-
 	local frame = parent:GetTopParentFrame();
 	local bg_ranking = frame:GetChild("bg_ranking");
 	local control = GET_CHILD(bg_ranking, "control", 'ui::CPageController')
 	
 	WORLDPVP_REQUEST_RANK(frame, control:GetCurPage() + 1);
-
 end
 
 function WORLDPVP_GET_EXP(parent, ctrl)
 	local frame = parent:GetTopParentFrame();
-	
 	local mySession = session.GetMySession();
 	local cid = mySession:GetCID();
 	local pvpObj = session.worldPVP.GetPVPObject(cid);
@@ -786,13 +642,22 @@ function WORLDPVP_GET_EXP(parent, ctrl)
 	end
 
 	worldPVP.RequestGetExp(curExpPoint);
-		
 end
 
 function GET_PVP_POINT_C()
 	return session.shop.GetShopPoint("uphill_defense_shoppoint")
 end
 
+-- 팀배틀 포인트 관련 -- 
+function GET_TEAMBATTLE_POINT_C()
+	local mySession = session.GetMySession();
+	local cid = mySession:GetCID();
+	local pvpObj = session.worldPVP.GetPVPObject(cid);
+	if pvpObj == nil then
+		return 0;
+	end
+    return pvpObj:GetPropIValue("TeamBattle_ShopPoint", 0);
+end
 
 function GET_PVP_BATTLE_POINT_C()
 	local item = session.GetInvItemByName('EQUIP_RENTAL_POINT')
@@ -804,12 +669,10 @@ function GET_PVP_BATTLE_POINT_C()
 end
 
 function PVP_CARD_GET_ITEM_C()
-
 	local level = GETMYPCLEVEL();
 	local name, count = GetWorldPVPExpCard(level);
 	local text = ScpArgMsg("DifferentByPCLevel");
 	return name, count, text;
-
 end
 
 function WORLDPVP_READY_STATE_CHANGE(state, pvpType)
@@ -879,7 +742,6 @@ function PVP_READY_ACCEPT(parent, ctrl)
 end
 
 function WORLDPVP_INVITE_FROM_PARTY(inviterName, idx, pvpType, accountID)
-
 	local cls = GetClassByType("WorldPVPType", pvpType);
 	if cls == nil then
 		return;
@@ -890,13 +752,10 @@ function WORLDPVP_INVITE_FROM_PARTY(inviterName, idx, pvpType, accountID)
 	local yesScp = string.format("ACCEPT_PVP_PARTY(\"%s\", %d, 1)", accountID, idx);
 	local noScp = string.format("ACCEPT_PVP_PARTY(\"%s\", %d, 0)", accountID, idx);
 	ui.MsgBox(msgString, yesScp, noScp);
-
 end
 
 function ACCEPT_PVP_PARTY(accountID, idx, isAccept)
-
 	worldPVP.AcceptPVPPartyInvite(accountID, idx, isAccept);	
-	
 end
 
 
@@ -910,7 +769,6 @@ function WORLDPVP_OBSERVER_GET_TEAM_STR(teamName, jobID)
 end
 
 function WORLDPVP_PUBLIC_GAME_SET_PCTEAM(frame, gbox, teamVec, teamID)
-
 	local guildName = "None";
 	local count = teamVec:GetCount();
 	for i = 0 , count - 1 do
@@ -936,7 +794,6 @@ function WORLDPVP_PUBLIC_GAME_SET_PCTEAM(frame, gbox, teamVec, teamID)
 	end
 
 	GBOX_AUTO_ALIGN(gbox, 0, 0, 0, true, true);
-
 	return guildName;
 end
 
@@ -952,7 +809,6 @@ function WORLDPVP_PUBLIC_GAME_LIST_BY_TYPE(isGuildPVP)
 			gameIndexList[#gameIndexList + 1] = i;
 		end		
 	end
-
 	return gameIndexList;
 end
 
@@ -983,20 +839,15 @@ end;
 
 function MSG_OBSERVE_GAME(parent, ctrl)
 	local gameID = parent:GetUserIValue("GAME_ID");
-
 	local yesScp = string.format("EXECOBSERVE_GAME(%d)", gameID);
 	ui.MsgBox(ScpArgMsg("ReallyObserveThisGame?"), yesScp, "None");
-
 end
 
 function EXECOBSERVE_GAME(gameID)
-	
 	worldPVP.RequestObservePublicGame(gameID);
-
 end
 
 function UPDATE_GAMETIME_TXT(ctrl)
-
 	local startSec = ctrl:GetUserIValue("START_SEC");
 	local startAppTime = ctrl:GetUserIValue("START_TIME");
 	local addSec = imcTime.GetAppTime() - startAppTime;
@@ -1007,28 +858,25 @@ function UPDATE_GAMETIME_TXT(ctrl)
 	local timeStr = string.format("%02d:%02d", gameMin, gameSec);
 	ctrl:SetTextByKey("value", timeStr);
 	return 1;
-
 end
 
 function RUN_PVP_BY_PARTYEVENT()
-
 	local cls = GetClass("WorldPVPType", "Two_Party");
 	local frame = ui.GetFrame("worldpvp");
 -- 	frame:SetUserValue("BY_PARTY_QUEST", 1);
 	JOIN_WORLDPVP_BY_TYPE(frame, cls.ClassID);
-	
 end
 
 function PVP_OPEN_POINT_SHOP(parent, ctrl)
-
 	TOGGLE_PROPERTY_SHOP("PVPShop");
+end
 
+function TEAMBATTLE_OPEN_POINT_SHOP(parent, ctrl)
+	TOGGLE_PROPERTY_SHOP("TEAMBATTLEShop");
 end
 
 function MINE_OPEN_POINT_SHOP(parent, ctrl)
-
 	TOGGLE_PROPERTY_SHOP("MINEShop");
-
 end
 
 function MINE_BATTLE_OPEN_POINT_SHOP(frame, msg, argStr, argNum)
@@ -1038,12 +886,10 @@ end
 function PVP_REWARD(parent, ctrl)
 	local type = session.worldPVP.GetRankProp("Type");
 	local cls = GetClassByType("WorldPVPType", type);
-
 	worldPVP.RequestGetWorldPVPReward(type);
 end                    
 
 function WORLDPVP_TAB_CHANGE(parent, ctrl)
-
 	local frame = parent:GetTopParentFrame();
 	local tab = GET_CHILD(frame, "tab");
 	local index = tab:GetSelectItemIndex();
@@ -1054,11 +900,9 @@ function WORLDPVP_TAB_CHANGE(parent, ctrl)
 	elseif index == 2 then
 		WORLDPVP_OBSERVE_UI(frame);
 	end
-	
 end
 
 function GUILD_PVP_MISSION_CREATED(roomGuid, gameType, isCreated, zonePCCount)
-
 	local frame = ui.GetFrame("worldpvp");
 	if 0 == frame:IsVisible() then
 		frame = ui.GetFrame("guildbattle_league");
@@ -1075,16 +919,9 @@ function GUILD_PVP_MISSION_CREATED(roomGuid, gameType, isCreated, zonePCCount)
 	if isFrameOpened == 1 then
 		UPDATE_WORLDPVP(frame);
 	end
-
 end
 
 function GET_PVP_MINE_POINT_C()
---	local aObj = GetMyAccountObj();
---
---	if aObj == nil then
---		return 0;
---	end
---
     return 0
 end
 

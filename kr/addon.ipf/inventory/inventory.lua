@@ -2496,6 +2496,9 @@ function INV_ICON_SETINFO(frame, slot, invItem, customFunc, scriptArg, count)
         slot:SetFrontImage('clock_inven');
     end
 			
+	-- 아이커 종류 표시
+	SET_SLOT_ICOR_CATEGORY(slot, itemobj);
+
 	if invItem.isNew == true  then
 		slot:SetHeaderImage('new_inventory_icon');
 	elseif IS_EQUIPPED_WEAPON_SWAP_SLOT(invItem) then
