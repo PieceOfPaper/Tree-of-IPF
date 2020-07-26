@@ -17704,7 +17704,7 @@ return 3 + obj.Level * 0.5"/>
 			</ToolScp>
 		</updateEvent>
 	</PadSkill>
-    <PadSkill Name="TheTreeOfSepiroth_Pad" CheckerType="0" Range="80" UpdateTerm="1000" AllowOverlap="1">
+    <PadSkill Name="TheTreeOfSepiroth_Pad" CheckerType="0" Range="80" AllowOverlap="1">
 		<createEvent>
 			<ToolScp Scp="C_PAD_EFFECT_POS" Client="YES" UseSleep="NO">
 				<Str_Arg Str="F_cleric_TreeOfSephiroth_buff_loop" Arg="1.3"/>
