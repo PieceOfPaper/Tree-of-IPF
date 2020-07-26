@@ -14504,7 +14504,7 @@
 		<Class ClassID="815032" ClassName="GuildAssetLog_GuildLabLevelUp" Data="연구소 증축"/>
 		<Class ClassID="815033" ClassName="GuildAssetLog_GuildLabResearchLevelUp" Data="연구 강화"/>
 		<Class ClassID="815034" ClassName="GuildAssetLog_GuildHousingExtension" Data="아지트 확장"/>
-		<Class ClassID="815035" ClassName="GuildAssetLog_HousingRemoveFurniture" Data="가구 제거"/>
+		<Class ClassID="815035" ClassName="GuildAssetLog_HousingRemoveFurniture" Data="가구 철거"/>
 		<Class ClassID="815036" ClassName="GUILD_CONTRIBUTION_SHOP" Data="길드 상점"/>
 		<Class ClassID="815037" ClassName="YOU_PARTICIPATE_IN_GUILD_AGIT_RAID_ON_BOARD2" Data="현재 길드 아지트 레이드에 참가중이므로 길드 외부로 나갈 수 없습니다"/>
 		<Class ClassID="815038" ClassName="Guild_Housing_Has_Contribution" Data="보유 기여도"/>
@@ -14523,6 +14523,7 @@
 		<Class ClassID="815051" ClassName="Mileage_Name" Data="마일리지"/>
 		<Class ClassID="815056" ClassName="Weekly_Guild_Mileage_Reward_Msg{NowCount}{MaxCount}" Data="{#33FF33}(주간 획득 가능한 길드 마일리지 : {NowCount}/{MaxCount}){/}"/>
 		<Class ClassID="815057" ClassName="Guild_Housing_Tab_Landscape" Data="{@st66b}조경"/>
+		<Class ClassID="815058" ClassName="GuildAssetLog_HousingClearFurniture" Data="가구 철거"/>
 	</Category>
 	<Category Name="PersonalHousing">
 		<Class ClassID="815100" ClassName="PH_SEL_DLG_1" Data="개인 하우징 활성화"/>
