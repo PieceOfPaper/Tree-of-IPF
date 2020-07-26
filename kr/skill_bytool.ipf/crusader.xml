@@ -729,62 +729,8 @@ return &quot;F_cleric_Retaliation_ground_explosion_red&quot;, 1;
                     <Num Num="0"/>
                 </Scp>
                 <Scp Scp="C_VOICE_SOUND" Client="YES" UseSleep="NO" Time="0">
-                    <Str Str="voice_cleric_m_condemn_p_shot" UseFunc="1" FuncTxt="local abilBuff1 = info.GetBuffByName(self:GetHandleVal(), &quot;GoddessProtection_Buff&quot;)
-
-
-local abilBuff2 = info.GetBuffByName(self:GetHandleVal(), &quot;GoddessPunishment_Buff&quot;)
-
-
-local abilBuff3 = info.GetBuffByName(self:GetHandleVal(), &quot;GoddessBlessing_Buff&quot;)
-
-
-if abilBuff1 ~= nil then
-return &quot;voice_cleric_m_condemn_b_shot&quot;
-
-elseif abilBuff2 ~= nil then
-return &quot;voice_cleric_m_condemn_p_shot&quot;
-
-elseif abilBuff3 ~= nil then
-	local random = IMCRandom(1, 2)
-	if random == 1 then
-		return &quot;voice_cleric_m_condemn_b_shot&quot;
-	else
-		return &quot;voice_cleric_m_condemn_p_shot&quot;
-	end
-
-else 
-
-end
-
-"/>
-                    <Str Str="voice_cleric_f_condemn_p_shot" UseFunc="1" FuncTxt="local abilBuff1 = info.GetBuffByName(self:GetHandleVal(), &quot;GoddessProtection_Buff&quot;)
-
-
-local abilBuff2 = info.GetBuffByName(self:GetHandleVal(), &quot;GoddessPunishment_Buff&quot;)
-
-
-local abilBuff3 = info.GetBuffByName(self:GetHandleVal(), &quot;GoddessBlessing_Buff&quot;)
-
-
-if abilBuff1 ~= nil then
-return &quot;voice_cleric_f_condemn_b_shot&quot;
-
-elseif abilBuff2 ~= nil then
-return &quot;voice_cleric_f_condemn_p_shot&quot;
-
-elseif abilBuff3 ~= nil then
-	local random = IMCRandom(1, 2)
-	if random == 1 then
-		return &quot;voice_cleric_f_condemn_b_shot&quot;
-	else
-		return &quot;voice_cleric_f_condemn_p_shot&quot;
-	end
-
-else 
-
-end
-
-"/>
+                    <Str Str="voice_cleric_m_condemn_p_shot"/>
+                    <Str Str="voice_cleric_f_condemn_p_shot"/>
                 </Scp>
                 <Scp Scp="MONSKL_C_STOP_ANIM" Client="YES" UseSleep="NO" Time="450"/>
                 <Scp Scp="MONSKL_C_PLAY_ANIM" Client="YES" UseSleep="NO" Time="500">
@@ -796,10 +742,101 @@ end
                 <Scp Scp="MONSKL_CRE_PAD" Client="NO" UseSleep="NO" Time="800">
                     <Pos Angle="0" Dist="50"/>
                     <Angle Angle="1.5707964"/>
-                    <Str Str="Crusader_Condemn_Pad"/>
+                    <Str Str="Crusader_Condemn_Damage_Pad"/>
                 </Scp>
             </EtcList>
         </MainSkl>
+        <ByCondSkills>
+            <SubSkl>
+                <Cond>
+                    <ToolScp Scp="SKL_SELECT_BUFF" Client="NO" UseSleep="NO">
+                        <Str Str="GoddessProtection_Buff"/>
+                    </ToolScp>
+                </Cond>
+                <Skill ScrLock="None" JumpFlee="NO" MSPDToUsePos="0">
+                    <HitList>
+                        <Frame Type="SQUARE" Time="300" HitCount="1" TermMin="0" TermMax="0" PosType="0" Dist="0" RandDist="0" RandomPerHit="0" Angle="0" SklAngle="0.17453292" AniTime="500" RotAngle="0" ForceATK="0"/>
+                    </HitList>
+                    <EtcList>
+                        <Scp Scp="MONSKL_C_PLAY_ANIM" Client="YES" UseSleep="NO" Time="0">
+                            <Str Str="SKL_CONDEMN_LOOP"/>
+                            <Num Num="1"/>
+                            <Num Num="1"/>
+                            <Num Num="0"/>
+                        </Scp>
+                        <Scp Scp="C_VOICE_SOUND" Client="YES" UseSleep="NO" Time="0">
+                            <Str Str="voice_cleric_m_condemn_b_shot"/>
+                            <Str Str="voice_cleric_f_condemn_b_shot"/>
+                        </Scp>
+                        <Scp Scp="MONSKL_C_STOP_ANIM" Client="YES" UseSleep="NO" Time="450"/>
+                        <Scp Scp="MONSKL_C_PLAY_ANIM" Client="YES" UseSleep="NO" Time="500">
+                            <Str Str="SKL_CONDEMN_SHOT"/>
+                            <Num Num="1.5"/>
+                            <Num Num="1"/>
+                            <Num Num="0"/>
+                        </Scp>
+                        <Scp Scp="MONSKL_CRE_PAD" Client="NO" UseSleep="NO" Time="800">
+                            <Pos Angle="0" Dist="50"/>
+                            <Angle Angle="1.5707964"/>
+                            <Str Str="Crusader_Condemn_Heal_Pad"/>
+                        </Scp>
+                    </EtcList>
+                </Skill>
+            </SubSkl>
+            <SubSkl>
+                <Cond>
+                    <ToolScp Scp="SKL_SELECT_BUFF" Client="NO" UseSleep="NO">
+                        <Str Str="GoddessBlessing_Buff"/>
+                    </ToolScp>
+                </Cond>
+                <Skill ScrLock="None" JumpFlee="NO" MSPDToUsePos="0">
+                    <HitList>
+                        <Frame Type="SQUARE" Time="300" HitCount="1" TermMin="0" TermMax="0" PosType="0" Dist="0" RandDist="0" RandomPerHit="0" Angle="0" SklAngle="0.17453292" AniTime="500" RotAngle="0" ForceATK="0"/>
+                    </HitList>
+                    <EtcList>
+                        <Scp Scp="MONSKL_C_PLAY_ANIM" Client="YES" UseSleep="NO" Time="0">
+                            <Str Str="SKL_CONDEMN_LOOP"/>
+                            <Num Num="1"/>
+                            <Num Num="1"/>
+                            <Num Num="0"/>
+                        </Scp>
+                        <Scp Scp="C_VOICE_SOUND" Client="YES" UseSleep="NO" Time="0">
+                            <Str Str="voice_cleric_m_condemn_p_shot" UseFunc="1" FuncTxt="
+                            local random = IMCRandom(1, 2)
+                            if random == 1 then
+                                return &quot;voice_cleric_m_condemn_b_shot&quot;
+                            else
+                                return &quot;voice_cleric_m_condemn_p_shot&quot;
+                            end"/>
+                            <Str Str="voice_cleric_f_condemn_p_shot" UseFunc="1" FuncTxt="
+                            local random = IMCRandom(1, 2)
+                            if random == 1 then
+                                return &quot;voice_cleric_f_condemn_b_shot&quot;
+                            else
+                                return &quot;voice_cleric_f_condemn_p_shot&quot;
+                            end"/>
+                        </Scp>
+                        <Scp Scp="MONSKL_C_STOP_ANIM" Client="YES" UseSleep="NO" Time="450"/>
+                        <Scp Scp="MONSKL_C_PLAY_ANIM" Client="YES" UseSleep="NO" Time="500">
+                            <Str Str="SKL_CONDEMN_SHOT"/>
+                            <Num Num="1.5"/>
+                            <Num Num="1"/>
+                            <Num Num="0"/>
+                        </Scp>
+                        <Scp Scp="MONSKL_CRE_PAD" Client="NO" UseSleep="NO" Time="800">
+                            <Pos Angle="0" Dist="50"/>
+                            <Angle Angle="1.5707964"/>
+                            <Str Str="Crusader_Condemn_Damage_Pad"/>
+                        </Scp>
+                        <Scp Scp="MONSKL_CRE_PAD" Client="NO" UseSleep="NO" Time="800">
+                            <Pos Angle="0" Dist="50"/>
+                            <Angle Angle="1.5707964"/>
+                            <Str Str="Crusader_Condemn_Heal_Pad"/>
+                        </Scp>
+                    </EtcList>
+                </Skill>
+            </SubSkl>
+        </ByCondSkills>
     </Skill>
     <Skill Name="Crusader_RingOfLight">
 		<EnableScripts>

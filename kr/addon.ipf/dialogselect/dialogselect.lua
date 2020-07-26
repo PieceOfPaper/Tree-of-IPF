@@ -16,10 +16,29 @@ function DIALOGSELECT_ON_INIT(addon, frame)
 	addon:RegisterMsg('ESCAPE_PRESSED', 'DIALOGSELECT_ON_PRESS_ESCAPE');
 end
 
+function GET_DIALOGSELECT_ITEMBTN_COUNT(frame)
+	local itemBtnCnt = 0;
+	if frame ~= nil then
+		local count = frame:GetChildCount();
+		if count ~= nil and count ~= 0 then
+			for i = 0, count do
+				local ctrl = frame:GetChildByIndex(i);
+				if ctrl ~= nil then
+					local classString = ctrl:GetClassString();
+					if classString == "ui::CButton" and string.find(ctrl:GetName(), "item") ~= nil then
+						itemBtnCnt = itemBtnCnt + 1;
+					end
+				end
+			end
+		end
+	end
+	return itemBtnCnt;
+end
+
 function DIALOGSELECT_FIX_WIDTH(frame, width)
 	frame:SetUserConfig("MAX_WIDTH", width);
-
-	for i = 1, 11 do
+	local itemBtnCount = GET_DIALOGSELECT_ITEMBTN_COUNT(frame);
+	for i = 1, itemBtnCount do
 		local controlName = 'item' .. i .. 'Btn';
 		local ItemBtn = frame:GetChild(controlName);
 		local ItemBtnCtrl = tolua.cast(ItemBtn, 'ui::CButton');
@@ -41,37 +60,36 @@ function DIALOGSELECT_ITEM_ADD(frame, msg, argStr, argNum)
 			end
 		end
 	end
-
+	
 	local questRewardBox = frame:GetChild('questreward');
 	if questRewardBox ~= nil then
 		argNum = argNum - 1;
 	end
-	
+
 	local controlName = 'item' .. argNum .. 'Btn'
-	local ItemBtn = frame:GetChild(controlName);
+	local ItemBtn = GET_CHILD_RECURSIVELY(frame, controlName);
 	local ItemBtnCtrl = tolua.cast(ItemBtn, 'ui::CButton');
 	local locationUI = DialogSelect_offsetY - argNum * 37 - 10;
-	
+
 	ItemBtnCtrl:SetGravity(ui.CENTER_HORZ, ui.TOP);
     
 	if questRewardBox ~= nil then
 		local width  = questRewardBox:GetWidth();
 		local height = questRewardBox:GetHeight();
-		local offset = 10 + ((argNum-1) * 40);
+		local offset = 10 + ((argNum - 1) * 40);
 		local offsetEx = 20 + ((argNum) * 40);
 		local y = tonumber(frame:GetUserValue("QUESTFRAME_HEIGHT"));	
 		local frameHeight = offset + y + 50;
 		local maxHeight = ui.GetSceneHeight();
 		
 		questRewardBox:SetGravity(ui.CENTER_HORZ, ui.TOP);		
-				
 		questRewardBox:SetOffset(0, 50);
+
 		if frame:GetUserIValue("FIRSTORDER_MAXHEIGHT") == 1 then			
 			if (y + (maxHeight - frame:GetY())) > (maxHeight) then	
 				local frameMaxHeight = maxHeight/2;
 				frameHeight = offset + frameMaxHeight + 50;
 				frame:SetUserValue("IsScroll", "YES");		
-
 				ItemBtnCtrl:SetOffset(0, questRewardBox:GetY() + questRewardBox:GetHeight() + 10);	
 			else				
 				frame:SetUserValue("IsScroll", "NO");
@@ -151,11 +169,8 @@ function DIALOGSELECT_QUEST_REWARD_ADD(frame, argStr)
 	else
     	y = BOX_CREATE_RICHTEXT(questRewardBox, "title", y, 50, "{@st41}"..questName);
     end
-    
-    
-    
-    local pc = GetMyPCObject();
-    
+
+	local pc = GetMyPCObject();
     local repeat_reward_item = {}
     local repeat_reward_achieve = {}
     local repeat_reward_achieve_point = {}
@@ -163,13 +178,11 @@ function DIALOGSELECT_QUEST_REWARD_ADD(frame, argStr)
     local repeat_reward_npc_point = 0
     local repeat_reward_select = false
     local repeat_reward_select_use = false
-    
     local sObj = GetSessionObject(pc, 'ssn_klapeda')
     
     repeat_reward_item, repeat_reward_achieve, repeat_reward_achieve_point, repeat_reward_exp, repeat_reward_npc_point, repeat_reward_select, repeat_reward_select_use = SCR_REPEAT_REWARD_CHECK(pc, questCls, cls, sObj)
     
     y = MAKE_SELECT_REWARD_CTRL(questRewardBox, y, cls, 'DIALOGSELECT_QUEST_REWARD_ADD');
-    
 	y = y + 30;
     
     local reward_result = QUEST_REWARD_CHECK(argStr)
@@ -235,8 +248,9 @@ end
 
 function DIALOGSELECT_ON_MSG(frame, msg, argStr, argNum)
 	frame:SetMargin(0, 0, 0, 300);
-    if  msg == 'DIALOG_CHANGE_SELECT'  then
-		for i = 1, 11 do
+	if  msg == 'DIALOG_CHANGE_SELECT' then
+		local itemBtnCount = GET_DIALOGSELECT_ITEMBTN_COUNT(frame);
+		for i = 1, itemBtnCount do
 			local childName = 'item' .. i .. 'Btn'
 			local ItemBtn = frame:GetChild(childName);
 			ItemBtn:ShowWindow(0);
@@ -249,7 +263,6 @@ function DIALOGSELECT_ON_MSG(frame, msg, argStr, argNum)
 
 		DialogSelect_index = 0;
 		DialogSelect_count = 0;
-
 	elseif msg == 'DIALOG_NUMBER_RANGE' then
 		local numberHelp = frame:GetChild('numberHelp');
 		numberHelp:ShowWindow(1);
@@ -264,6 +277,7 @@ function DIALOGSELECT_ON_MSG(frame, msg, argStr, argNum)
         numberEdit:SetMaxLen(16)
 		numberEdit:AcquireFocus();
 		frame:Resize(400, 100);
+
 		DialogSelect_Type = 1;
 	elseif msg == 'DIALOG_TEXT_INPUT' then
 		local numberEdit = frame:GetChild('numberEdit');
@@ -275,6 +289,7 @@ function DIALOGSELECT_ON_MSG(frame, msg, argStr, argNum)
         numberEdit:SetMaxLen(32)
 		numberEdit:AcquireFocus();
 		frame:Resize(400, 100);
+
 		DialogSelect_Type = 2;
 		local questreward = frame:GetChild('questreward');
 		if questreward ~= nil then
@@ -286,12 +301,11 @@ function DIALOGSELECT_ON_MSG(frame, msg, argStr, argNum)
 
 		local ItemBtn = frame:GetChild('item1Btn');
 		local itemWidth = ItemBtn:GetWidth();
-		local x, y = GET_SCREEN_XY(ItemBtn,itemWidth/2.5);		
+		local x, y = GET_SCREEN_XY(ItemBtn, itemWidth / 2.5);		
 
 		local questRewardBox = frame:GetChild('questreward');
 		if questRewardBox ~= nil then
 			argNum = argNum - 1;
-			
 			-- questreward가 있는 경우, DIALOGSELECT_ITEM_ADD 함수에서 버튼의 layout_gravity가 ui.TOP으로 바뀌면서
 			-- GET_SCRREN_XY의 반환 값에 questreward가 반영되어 계산됨.
 			y = y - questRewardBox:GetY();
@@ -301,7 +315,6 @@ function DIALOGSELECT_ON_MSG(frame, msg, argStr, argNum)
 
 		mouse.SetPos(x,y);
 		mouse.SetHidable(0);
-
 	elseif  msg == 'DIALOG_CLOSE'  then
 		DIALOGSELECT_FIX_WIDTH(frame, 540);
 		frame:SetUserValue("QUESTFRAME_HEIGHT",  0);
@@ -311,21 +324,18 @@ function DIALOGSELECT_ON_MSG(frame, msg, argStr, argNum)
 		DialogSelect_index = 0;
 		DialogSelect_count = 0;
 		mouse.SetHidable(1);	
-
 	elseif msg == 'DIALOGSELECT_UP' then
 		DialogSelect_index = DialogSelect_index - 1;
 		if DialogSelect_index <= 0 then
 			DialogSelect_index = DialogSelect_count;
 		end
 		DIALOGSELECT_ITEM_SELECT(frame);
-
 	elseif msg == 'DIALOGSELECT_DOWN' then
 		DialogSelect_index = DialogSelect_index + 1;
 		if DialogSelect_index > DialogSelect_count then
 			DialogSelect_index = 1;
 		end
 		DIALOGSELECT_ITEM_SELECT(frame);
-
 	elseif msg == 'DIALOGSELECT_SELECT' then
 		if DialogSelect_index ~= 0 then
 			control.DialogSelect(DialogSelect_index);
@@ -390,7 +400,7 @@ function MAKE_REWARD_STEP_ITEM_CTRL(box, questCls, cls, y, state)
                 if table.find(lastReward, index) == 0 then
                     local stepRewardFuncList = TryGetProp(cls, 'StepRewardFunc'..index)
                     if stepRewardFuncList ~= nil and stepRewardFuncList ~= 'None' then
-                        stepRewardFuncList = SCR_STRING_CUT(stepRewardFuncList)
+						stepRewardFuncList = SCR_STRING_CUT(stepRewardFuncList)
                         local stepRewardFunc = _G[stepRewardFuncList[1]]
                         if stepRewardFunc ~= nil then
                             local result = stepRewardFunc(pc, stepRewardFuncList)
@@ -430,15 +440,12 @@ function MAKE_REWARD_STEP_ITEM_CTRL(box, questCls, cls, y, state)
 end
 
 function MAKE_REWARD_ITEM_CTRL(box, cls, y)
-
 	local MySession		= session.GetMyHandle();
 	local MyJobNum		= info.GetJob(MySession);
 	local JobName		= GetClassString('Job', MyJobNum, 'ClassName');
 	local job = SCR_JOBNAME_MATCHING(JobName)
 	local index = 0
 	local pc = GetMyPCObject();
-	
-
 	local isItem = 0;
 
 	if cls.Success_ItemName1 ~= "None" or cls.Success_JobItem_Name1 ~= "None" then
