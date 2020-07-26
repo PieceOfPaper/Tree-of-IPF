@@ -129,3 +129,19 @@ function SCP_GET_RANGE_Wugushi_JincanGu(className, range)
 
 	return range;
 end
+
+function SCP_GET_RANGE_Elementalist_StormDust(className, range)
+	if className == nil then 
+		return 0;
+	end
+
+	local abil = session.GetAbilityByName("Elementalist40");
+	if abil ~= nil then
+		local abilObj = GetIES(abil:GetObject());
+		if abilObj.ActiveState == 1 then
+			range = 45
+		end
+	end
+
+	return range;
+end

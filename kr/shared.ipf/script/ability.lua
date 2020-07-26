@@ -2755,3 +2755,14 @@ end
 function SCR_ABIL_Chaplain21_INACTIVE(self, ability)
 
 end
+
+function SCR_ABIL_Onmyoji28_ACTIVE(self, ability)
+
+end
+
+function SCR_ABIL_Onmyoji28_INACTIVE(self, ability)
+    RemoveBuff(self, "GenbuArmor_Abil_Buff")
+    RemoveBuff(self, "GenbuArmor_Earth_Abil_Buff")
+    RemoveBuff(self, "GenbuArmor_Soul_Abil_Buff")
+    RemoveBuff(self, "GenbuArmor_Melee_Abil_Buff")
+end
