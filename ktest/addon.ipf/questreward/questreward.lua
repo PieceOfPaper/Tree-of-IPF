@@ -1,6 +1,7 @@
 MAX_QUEST_TAKEITEM = 4;
 MAX_QUEST_SELECTITEM = 8;
 QUESTREWARD_SELECT = 1;
+MAX_SIZE_HEIGT_FRAME_EMPTY_VALUE = 100;
 
 function QUESTREWARD_ON_INIT(addon, frame)
 	addon:RegisterMsg("SHOW_QUEST_SEL_DLG", "ON_SHOW_QUEST_SEL_DLG");
@@ -11,9 +12,7 @@ function QUESTREWARD_ON_INIT(addon, frame)
 	addon:RegisterMsg('DIALOG_ITEM_SELECT', 'ON_QUEST_ITEM_SELECT');
 	addon:RegisterMsg('CHANGE_COUNTRY', 'QUESTREWARD_ON_LANGUAGECHANGE');
 
-	
-
-	local frame 	= ui.GetFrame('questreward');
+	local frame = ui.GetFrame('questreward');
 	frame:SetUserValue("QUEST_REWARD_PC_CON_LOCK", 0);
 end
 
@@ -123,7 +122,7 @@ function QUEST_REWARD_TEST(frame, questID)
     
 	y = MAKE_TAKEITEM_CTRL(box, cls, y);
 	y = MAKE_SELECT_REWARD_CTRL(box, y, cls);
-	
+
     local reward_result = QUEST_REWARD_CHECK(questCls.ClassName)
     if #reward_result > 0 then
         y = y + 20;
@@ -133,8 +132,8 @@ function QUEST_REWARD_TEST(frame, questID)
     	y = MAKE_BASIC_REWARD_HONOR_CTRL(box, cls, y);
     	y = MAKE_BASIC_REWARD_PCPROPERTY_CTRL(box, cls, y);
     	y = MAKE_BASIC_REWARD_JOURNEYSHOP_CTRL(box, cls, y);
-    end
-    
+	end
+	
 	local succExp = cls.Success_Exp;
 	local succJobExp = 0;
 	if repeat_reward_exp > 0 then
@@ -178,25 +177,23 @@ function QUEST_REWARD_TEST(frame, questID)
 	end
 
 	y = MAKE_BASIC_REWARD_ITEM_CTRL(box, cls, y);
-	
 	y = MAKE_BASIC_REWARD_RANDOM_CTRL(box, questCls, cls, y + 20)
     y = MAKE_REWARD_STEP_ITEM_CTRL(box, questCls, cls, y, 'SUCCESS')
     y = y + 10
 	
     if cls.Success_RepeatComplete ~= 'None' then
     	y = MAKE_BASIC_REWARD_REPE_CTRL(box, questCls, cls, y + 20);
---    	y = y + 20
     end
-
 	
 	local cancelBtn = frame:GetChild('CancelBtn');
 	local useBtn = frame:GetChild('UseBtn');
 
 	box:Resize(box:GetWidth(), y);
+
 	local maxSizeHeightFrame = box:GetY() + box:GetHeight() + 20;
 	local maxSizeHeightWnd = ui.GetSceneHeight();
-	if maxSizeHeightWnd < (maxSizeHeightFrame + 50) then 
-		local margin = maxSizeHeightWnd/2;
+	if maxSizeHeightWnd < (maxSizeHeightFrame + MAX_SIZE_HEIGT_FRAME_EMPTY_VALUE) then 
+		local margin = maxSizeHeightWnd / 2;
 		box:EnableScrollBar(1);
 		box:Resize(box:GetWidth() + 15, margin - useBtn:GetHeight() - 40);
 		box:SetScrollBar(margin - useBtn:GetHeight() - 40);
@@ -208,8 +205,8 @@ function QUEST_REWARD_TEST(frame, questID)
 		box:Resize(box:GetWidth(), y);
 		frame:Resize(frame:GetWidth() + 10, maxSizeHeightFrame);
 	end;
-	frame:ShowWindow(1);
 
+	frame:ShowWindow(1);
 	
 	local selectExist = 0;
 	local cnt = box:GetChildCount();
@@ -222,9 +219,7 @@ function QUEST_REWARD_TEST(frame, questID)
 	end    
     
     local flag = false
-    
     local dlgShowState = SCR_QUEST_SUCC_REWARD_DLG(pc, questCls, cls, sObj)
-    
     if dlgShowState == 'DlgBefore' then
         if questCls.QuestEndMode ~= 'SYSTEM' and cls.Success_Move == 'None' and ((cls.Possible_NextNPC == 'SUCCESS' and cls.Success_Dialog1 ~= 'None') or cls.Possible_NextNPC ~= 'SUCCESS' or cls.Possible_SelectDialog1 ~= 'None') and (cls.Progress_PCLoopAnim == 'None' or cls.Progress_NextNPC ~= 'SUCCESS' or (cls.Progress_NextNPC == 'SUCCESS' and cls.Success_Dialog1 ~= 'None')) then
             local index
@@ -233,11 +228,12 @@ function QUEST_REWARD_TEST(frame, questID)
                     flag = true
                     break
                 end
-            end
+			end
+			
             if repeat_reward_select == false or (repeat_reward_select == true and repeat_reward_select_use == true) then
                 for index = 1, MAX_QUEST_SELECTITEM do
                     if cls['Success_SelectItemName'..index] ~= 'None' then
-                        flag = true
+                        flag = true;
                         break
                     end
                 end
@@ -259,7 +255,6 @@ function QUEST_REWARD_TEST(frame, questID)
 		mouse.SetPos(x,y);
 		mouse.SetHidable(0);
 	end
-
 end
 
 function AUTO_CLOSE_QUESTREWARD_FRAME()
@@ -934,7 +929,7 @@ function CREATE_QUEST_REWARE_CTRL(box, y, index, ItemName, itemCnt, callFunc, tr
 	ctrlSet:SetValue(index);
 	
 	if callFunc == 'DIALOGSELECT_QUEST_REWARD_ADD' then
-	    ctrlSet:Resize(box:GetHeight() + 70,ctrlSet:GetHeight())
+	ctrlSet:Resize(box:GetHeight() + 70,ctrlSet:GetHeight())
 	end
 
 	local itemCls = GetClass("Item", ItemName);

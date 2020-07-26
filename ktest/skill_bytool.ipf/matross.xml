@@ -162,7 +162,7 @@
 	<Skill Name="Matross_CrouchingStrike">
         <MainSkl ScrLock="None" JumpFlee="NO" MSPDToUsePos="0">
 			<HitList>
-                <Frame Type="FAN" Time="9799" HitCount="1" TermMin="0" TermMax="0" PosType="0" Dist="0" RandDist="0" RandomPerHit="0" Angle="0" AniTime="9999" RotAngle="0" ForceATK="0"/>
+                <Frame Type="FAN" Time="9799" HitCount="1" TermMin="0" TermMax="0" PosType="0" Dist="0" RandDist="0" RandomPerHit="0" Angle="0" AniTime="9999" RotAngle="0" ForceATK="0" ScriptIndex="0" ScriptName="" SkillType="0"/>
 			</HitList>
 			<EtcList>
                 <Scp Scp="MONSKL_C_PLAY_ANIM" Client="YES" UseSleep="NO" Time="0">
@@ -175,8 +175,20 @@
 					<Str Str="skl_eff_matross_crouchingstrike" />
 				</Scp>
                 <Scp Scp="C_VOICE_SOUND" Client="YES" UseSleep="NO" Time="200">
-					<Str Str="voice_war_atk_long_cast" />
-					<Str Str="voice_atk_long_cast_f" />
+					<Str Str="voice_archer_m_crouchingstrike_shot" UseFunc="1" FuncTxt="local str = 'voice_archer_m_crouchingstrike_shot'
+                    local pc = GetMyPCObject()
+                    local abil = GetAbility(pc,&quot;Matross14&quot;)
+                    if abil ~= nil and abil.ActiveState == 1 then
+                    str = 'voice_archer_m_crouchingstrike_arts_shot'
+                    end
+                    return str"/>
+					<Str Str="voice_archer_f_crouchingstrike_shot" UseFunc="1" FuncTxt="local str = 'voice_archer_f_crouchingstrike_shot'
+                    local pc = GetMyPCObject()
+                    local abil = GetAbility(pc,&quot;Matross14&quot;)
+                    if abil ~= nil and abil.ActiveState == 1 then
+                    str = 'voice_archer_f_crouchingstrike_arts_shot'
+                    end
+                    return str"/>
 				</Scp>
                 <Scp Scp="C_EFFECT_POS" Client="YES" UseSleep="NO" Time="500">
                     <Str_Arg Str="F_archer_Matross_CrouchingStrike_rize_ground" Arg="1"/>

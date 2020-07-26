@@ -451,5 +451,29 @@
 				</Scp>
 			</EtcList>
 		</MainSkl>
+        <ByCondSkills>
+            <SubSkl>
+                <Cond>
+                    <ToolScp Scp="SKL_CHECK_EXPROP" Client="NO" UseSleep="NO">
+                        <Str Str="ITEM_VIBORA_THSTAFF_SHADOWTHORN"/>
+                        <Num Num="1"/>
+                    </ToolScp>
+                </Cond>
+                <Skill ScrLock="None" JumpFlee="NO" MSPDToUsePos="0">
+                    <HitList>
+                        <Frame Type="FAN" Time="99799" HitCount="1" TermMin="0" TermMax="0" PosType="0" Dist="0" RandDist="0" RandomPerHit="0" Angle="0" Width="30" Length="30" SklAngle="0.17453292" AniTime="99999" RotAngle="0" ForceATK="0" ScriptIndex="0" ScriptName=""/>
+                    </HitList>
+                    <EtcList>
+                        <Scp Scp="C_VOICE_SOUND" Client="YES" UseSleep="NO" Time="0">
+                            <Str Str="voice_wiz_m_ShadowThorn_cast"/>
+                            <Str Str="voice_wiz_f_ShadowThorn_cast"/>
+                        </Scp>
+                        <Scp Scp="SKL_RUN_SCRIPT" Client="NO" UseSleep="NO" Time="100">
+                            <Str Str="ATK_Shadowmancer_ShadowThorn_Lurker"/>
+                        </Scp>
+                    </EtcList>
+                </Skill>
+            </SubSkl>
+        </ByCondSkills>
 	</Skill>
 	</ToolSkill>

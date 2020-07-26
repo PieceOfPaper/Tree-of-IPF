@@ -96,8 +96,12 @@ function ABILITY_POINT_EXTRACTOR_UPDATE_MONEY(frame)
         expectAbilityPointStr = GET_COMMAED_STRING(expectAbilityPoint)
     end
     
+    -- if eventDiscount == 1 then
+    --     consumeMoneyStr = consumeMoneyStr..' '..ScpArgMsg('EVENT_1811_ABILITY_EXTRACTOR_MSG1','COUNT',100)
+    -- end
+
     if eventDiscount == 1 then
-        consumeMoneyStr = consumeMoneyStr..' '..ScpArgMsg('EVENT_1811_ABILITY_EXTRACTOR_MSG1','COUNT',100)
+        consumeMoneyStr = consumeMoneyStr..' '..ScpArgMsg('AbilityPointFreeExtract')
     end
     
     consumePointText:SetTextByKey('value', consumePointStr);
@@ -116,12 +120,18 @@ function ABILITY_POINT_EXTRACTOR_GET_CONSUME_MONEY(frame)
     end
     
     local eventDiscount = 0
-    -- EVENT_1811_ABILITY_EXTRACTOR
---    local useFlag = TryGetProp(sObj, 'EVENT_1811_ABILITY_EXTRACTOR_USE')
---    local exceptFlag = TryGetProp(sObj, 'EVENT_1811_ABILITY_EXTRACTOR_EXCEPT')
-    
-    
-    if exceptFlag == 0 and useFlag == 0 then
+
+    -- -- EVENT_1811_ABILITY_EXTRACTOR
+    -- local useFlag = TryGetProp(sObj, 'EVENT_1811_ABILITY_EXTRACTOR_USE')
+    -- local exceptFlag = TryGetProp(sObj, 'EVENT_1811_ABILITY_EXTRACTOR_EXCEPT')
+    -- if exceptFlag == 0 and useFlag == 0 then
+    --     consumeMoney = 0
+    --     eventDiscount = 1
+    -- end
+
+    -- ABILITY_EXTRACT_FREE_COUPON
+    local invItem = session.GetInvItemByName("Event_free_ap_return")
+    if invItem ~= nil then
         consumeMoney = 0
         eventDiscount = 1
     end
@@ -174,13 +184,17 @@ function ABILITY_POINT_EXTRACTOR(parent, ctrl)
     end
 	
     local consumePoint = ABILITY_POINT_EXTRACTOR_GET_CONSUME_POINT(topFrame);
-	
+    
+    --    local pointRateStr = GET_COMMAED_STRING(ABILITY_POINT_SCROLL_RATE);
     local consumeMoneyStr = GET_COMMAED_STRING(consumeMoney);
---    local pointRateStr = GET_COMMAED_STRING(ABILITY_POINT_SCROLL_RATE);
     local consumePointStr = GET_COMMAED_STRING(consumePoint);
 	
-	if eventDiscount == 1 then
-        consumeMoneyStr = consumeMoneyStr..' '..ScpArgMsg('EVENT_1811_ABILITY_EXTRACTOR_MSG1','COUNT',100)
+	-- if eventDiscount == 1 then
+    --     consumeMoneyStr = consumeMoneyStr..' '..ScpArgMsg('EVENT_1811_ABILITY_EXTRACTOR_MSG1','COUNT', 100)
+    -- end
+
+    if eventDiscount == 1 then
+        consumeMoneyStr = consumeMoneyStr..' '..ScpArgMsg('AbilityPointFreeExtract')
     end
 	
     local msg = ScpArgMsg("AskExtractAbilityPoint{Silver}{Scroll}{ConsumePoint}", "Silver", consumeMoneyStr, "Scroll", count, "ConsumePoint", consumePointStr);

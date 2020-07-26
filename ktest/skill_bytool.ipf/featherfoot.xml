@@ -118,25 +118,6 @@ end"/>
                 </Scp>
             </EtcList>
 		</MainSkl>
-		<ByCondSkills>
-			<SubSkl>
-				<Cond>
-					<ToolScp Client="NO" Scp="SKL_SELECT_BUFF" UseSleep="NO">
-						<Str Str="Levitation_Buff" />
-					</ToolScp>
-				</Cond>
-				<Skill JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
-					<HitList>
-						<Frame Angle="0" AniTime="10999" Dist="0" ForceATK="0" HitCount="1" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" TermMax="0" TermMin="0" Time="10799" Type="FAN" />
-					</HitList>
-					<EtcList>
-						<Scp Client="NO" Scp="SKL_BUFF_REMOVE" Time="0" UseSleep="NO">
-							<Str Str="Levitation_Buff" />
-						</Scp>
-					</EtcList>
-				</Skill>
-			</SubSkl>
-		</ByCondSkills>
 	</Skill>
 	<Skill Name="Featherfoot_KundelaSlash">
 		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">

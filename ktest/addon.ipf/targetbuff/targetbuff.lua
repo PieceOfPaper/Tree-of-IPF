@@ -1,7 +1,7 @@
 -- targetbuff.lua
 
 t_buff_ui = {};
-t_buff_ui["buff_group_cnt"] = 2;
+t_buff_ui["buff_group_cnt"] = 3;
 t_buff_ui["slotsets"] = {};
 t_buff_ui["slotlist"] = {};
 t_buff_ui["captionlist"] = {};

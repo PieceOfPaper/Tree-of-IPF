@@ -1295,6 +1295,17 @@ function DOLL_GABIA_BUFF_LEAVE(actor, obj, buff)
 	SCR_REMOVE_FAIRY(actor:GetHandleVal(), "doll_gabia");
 end
 
+function DOLL_HAUBERK_BUFF_ENTER(actor, obj, buff)
+end
+
+function DOLL_HAUBERK_BUFF_UPDATE(actor, obj, buff)
+	SCR_CREATE_FAIRY(actor:GetHandleVal(), "doll_hauberk");
+end
+
+function DOLL_HAUBERK_BUFF_LEAVE(actor, obj, buff)
+	SCR_REMOVE_FAIRY(actor:GetHandleVal(), "doll_hauberk");
+end
+
 function XMAS_EFFECT_2019_ENTER(actor, obj, buff)
     effect.AddActorEffectByOffset(actor, "E_effectitem_whitebird", 0.4, "BOT");
 end

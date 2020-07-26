@@ -275,6 +275,10 @@
                     <Str Str="Dummy_emitter"/>
                     <Num Num="0"/>
                 </Scp>
+                <Scp Scp="C_VOICE_SOUND" Client="YES" UseSleep="NO" Time="0">
+                    <Str Str="voice_archer_m_tracking_shot"/>
+                    <Str Str="voice_archer_f_tracking_shot"/>
+                </Scp>
             </EtcList>
         </MainSkl>
     </Skill>
@@ -319,7 +323,11 @@ return value + timeUp;"/>
                 <Scp Client="YES" Scp="C_SOUND" Time="0" UseSleep="NO">
                     <Str Str="skl_eff_Archer_HideBox_eff"/>
                 </Scp>
-                <Scp Client="YES" Scp="C_SOUND" Time="100" UseSleep="NO">
+                <Scp Scp="C_VOICE_SOUND" Client="YES" UseSleep="NO" Time="0">
+                    <Str Str="voice_archer_m_hideshot_shot"/>
+                    <Str Str="voice_archer_f_hideshot_shot"/>
+                </Scp>
+                <Scp Scp="C_SOUND" Client="YES" UseSleep="NO" Time="100">
                     <Str Str="skl_eff_zealot_blindfaith_shot"/>
                 </Scp>
                 <Scp Client="YES" Scp="C_EFFECT" Time="300" UseSleep="NO">
@@ -336,7 +344,7 @@ return value + timeUp;"/>
                     <Num Num="100"/>
                     <Num Num="0"/>
                 </Scp>
-                <Scp Client="NO" Scp="SKL_TGT_REMOVE_DEBUFF" Time="110" UseSleep="NO">
+            <Scp Client="NO" Scp="SKL_TGT_REMOVE_DEBUFF" Time="110" UseSleep="NO">
                     <Str FuncTxt="local func_name = 'get_remove_debuff_tooltip_' .. TryGetProp(obj, 'ClassName', 'None')
                local func = _G[func_name]
                if func == nil then return end

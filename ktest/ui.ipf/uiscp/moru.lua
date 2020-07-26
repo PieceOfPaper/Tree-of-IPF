@@ -212,6 +212,12 @@ function MORU_LBTN_CLICK(frame, invItem)
         return
         end
     end
+    
+    if moruObj.ClassName == 'Moru_Diamond_14d_Team_Lv430' then
+        if obj.UseLv > 430 then
+        return
+        end
+    end
 
 	upgradeitem_2:ShowWindow(1);
 	REINFORCE_131014_UPDATE_MORU_COUNT(upgradeitem_2);

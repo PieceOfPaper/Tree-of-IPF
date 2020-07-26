@@ -68,6 +68,10 @@
                     <Num Num="100"/>
                     <Num Num="0"/>
                 </Scp>
+                <Scp Client="NO" Scp="SKL_SET_IMMUNE_STATE_REMOVE" Time="500" UseSleep="YES">
+                    <Str Str="Skill_NoDamage_Buff"/>
+                    <Num Num="200"/>
+                </Scp>
 			</EtcList>
 			<ResultList>
 				<ToolScp Client="NO" Scp="S_R_TGTBUFF" UseSleep="NO">

@@ -4367,7 +4367,7 @@ return self.RSP;"/>
 				<ExecList>
 					<ToolScp Scp="SPCI_EQUIP_ADD_EXPROP_NUM" Client="NO" UseSleep="NO">
 						<Str Str="ITEM_VIBORA_ROD"/>
-<Num Num="-1"/>
+						<Num Num="-1"/>
 					</ToolScp>
 				</ExecList>
 			</Trigger>
@@ -10960,6 +10960,32 @@ end"/>
 			</Trigger>
 		</TriggerList>
 	</SpcItem>
+	<SpcItem Name="Doll_hauberk">
+		<TriggerList Act="Equip">
+			<Trigger>
+				<ExecList>
+					<ToolScp Scp="SPCI_BUFF_EQUIPITEM" Client="NO" UseSleep="NO">
+						<Str Str="DOLL_HAUBERK_BUFF"/>
+						<Num Num="1"/>
+						<Num Num="0"/>
+						<Num Num="0"/>
+						<Num Num="1"/>
+						<Num Num="100"/>
+						<Num Num="-1"/>
+					</ToolScp>
+				</ExecList>
+			</Trigger>
+		</TriggerList>
+		<TriggerList Act="UnEquip">
+			<Trigger>
+				<ExecList>
+					<ToolScp Scp="SPCI_REMOVE_BUFF_UNEQUIP" Client="NO" UseSleep="NO">
+						<Str Str="DOLL_HAUBERK_BUFF"/>
+					</ToolScp>
+				</ExecList>
+			</Trigger>
+		</TriggerList>
+	</SpcItem>
 	<SpcItem Name="Doll_gabia">
 		<TriggerList Act="Equip">
 			<Trigger>
@@ -11143,60 +11169,60 @@ end"/>
 			</Trigger>
 		</TriggerList>
 	</SpcItem>
-  <SpcItem Name="Ark_dex">
-    <TriggerList Act="Equip">
-      <Trigger>
-        <ExecList>
-          <ToolScp Scp="equip_Ark_dex" Client="NO" UseSleep="NO">
+	<SpcItem Name="Ark_dex">
+		<TriggerList Act="Equip">
+			<Trigger>
+				<ExecList>
+					<ToolScp Scp="equip_Ark_dex" Client="NO" UseSleep="NO">
           </ToolScp>
-        </ExecList>
-      </Trigger>
-    </TriggerList>
-    <TriggerList Act="UnEquip">
-      <Trigger>
-        <ExecList>
-          <ToolScp Scp="unequip_Ark_dex" Client="NO" UseSleep="NO">
+				</ExecList>
+			</Trigger>
+		</TriggerList>
+		<TriggerList Act="UnEquip">
+			<Trigger>
+				<ExecList>
+					<ToolScp Scp="unequip_Ark_dex" Client="NO" UseSleep="NO">
           </ToolScp>
-        </ExecList>
-      </Trigger>
-    </TriggerList>
-  </SpcItem>
-  <SpcItem Name="Ark_int">
-    <TriggerList Act="Equip">
-      <Trigger>
-        <ExecList>
-          <ToolScp Scp="equip_Ark_int" Client="NO" UseSleep="NO">
+				</ExecList>
+			</Trigger>
+		</TriggerList>
+	</SpcItem>
+	<SpcItem Name="Ark_int">
+		<TriggerList Act="Equip">
+			<Trigger>
+				<ExecList>
+					<ToolScp Scp="equip_Ark_int" Client="NO" UseSleep="NO">
           </ToolScp>
-        </ExecList>
-      </Trigger>
-    </TriggerList>
-    <TriggerList Act="UnEquip">
-      <Trigger>
-        <ExecList>
-          <ToolScp Scp="unequip_Ark_int" Client="NO" UseSleep="NO">
+				</ExecList>
+			</Trigger>
+		</TriggerList>
+		<TriggerList Act="UnEquip">
+			<Trigger>
+				<ExecList>
+					<ToolScp Scp="unequip_Ark_int" Client="NO" UseSleep="NO">
           </ToolScp>
-        </ExecList>
-      </Trigger>
-    </TriggerList>
-  </SpcItem>
-  <SpcItem Name="Ark_mna">
-    <TriggerList Act="Equip">
-      <Trigger>
-        <ExecList>
-          <ToolScp Scp="equip_Ark_mna" Client="NO" UseSleep="NO">
+				</ExecList>
+			</Trigger>
+		</TriggerList>
+	</SpcItem>
+	<SpcItem Name="Ark_mna">
+		<TriggerList Act="Equip">
+			<Trigger>
+				<ExecList>
+					<ToolScp Scp="equip_Ark_mna" Client="NO" UseSleep="NO">
           </ToolScp>
-        </ExecList>
-      </Trigger>
-    </TriggerList>
-    <TriggerList Act="UnEquip">
-      <Trigger>
-        <ExecList>
-          <ToolScp Scp="unequip_Ark_mna" Client="NO" UseSleep="NO">
+				</ExecList>
+			</Trigger>
+		</TriggerList>
+		<TriggerList Act="UnEquip">
+			<Trigger>
+				<ExecList>
+					<ToolScp Scp="unequip_Ark_mna" Client="NO" UseSleep="NO">
           </ToolScp>
-        </ExecList>
-      </Trigger>
-    </TriggerList>
-  </SpcItem>
+				</ExecList>
+			</Trigger>
+		</TriggerList>
+	</SpcItem>
 	<SpcItem Name="CAN04_118">
 		<TriggerList Act="UnEquip">
 			<Trigger>
@@ -11265,6 +11291,283 @@ end"/>
 			</Trigger>
 		</TriggerList>
 	</SpcItem>
+	<SpcItem Name="SWD04_126_1">
+		<TriggerList Act="UnEquip">
+			<Trigger>
+				<ExecList>
+					<ToolScp Scp="SPCI_EQUIP_ADD_EXPROP_NUM" Client="NO" UseSleep="NO">
+						<Str Str="ITEM_VIBORA_SWORD_MONTANO"/>
+						<Num Num="-1"/>
+					</ToolScp>
+					<ToolScp Scp="SPCI_JOB_ALL_SKILLUP" Client="NO" UseSleep="NO">
+						<Str Str="Rodelero"/>
+						<Num Num="-1"/>
+					</ToolScp>
+					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
+						<Str Str="Rodelero_Montano"/>
+						<Num Num="-2"/>
+					</ToolScp>
+				</ExecList>
+			</Trigger>
+		</TriggerList>
+		<TriggerList Act="Equip">
+			<Trigger>
+				<ExecList>
+					<ToolScp Scp="SPCI_EQUIP_ADD_EXPROP_NUM" Client="NO" UseSleep="NO">
+						<Str Str="ITEM_VIBORA_SWORD_MONTANO"/>
+						<Num Num="1"/>
+					</ToolScp>
+					<ToolScp Scp="SPCI_JOB_ALL_SKILLUP" Client="NO" UseSleep="NO">
+						<Str Str="Rodelero"/>
+						<Num Num="1"/>
+					</ToolScp>
+					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
+						<Str Str="Rodelero_Montano"/>
+						<Num Num="2"/>
+					</ToolScp>
+				</ExecList>
+			</Trigger>
+		</TriggerList>
+	</SpcItem>
+	<SpcItem Name="TSP04_128_1">
+		<TriggerList Act="UnEquip">
+			<Trigger>
+				<ExecList>
+					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
+						<Str Str="Rancer_Quintain"/>
+						<Num Num="-3"/>
+					</ToolScp>
+					<ToolScp Scp="SPCI_EQUIP_ADD_EXPROP_NUM" Client="NO" UseSleep="NO">
+						<Str Str="ITEM_VIBORA_THSPEAR_RUSH"/>
+						<Num Num="-1"/>
+					</ToolScp>
+				</ExecList>
+			</Trigger>
+		</TriggerList>
+		<TriggerList Act="Equip">
+			<Trigger>
+				<ExecList>
+					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
+						<Str Str="Rancer_Quintain"/>
+						<Num Num="3"/>
+					</ToolScp>
+					<ToolScp Scp="SPCI_EQUIP_ADD_EXPROP_NUM" Client="NO" UseSleep="NO">
+						<Str Str="ITEM_VIBORA_THSPEAR_RUSH"/>
+						<Num Num="1"/>
+					</ToolScp>
+				</ExecList>
+			</Trigger>
+		</TriggerList>
+	</SpcItem>
+	<SpcItem Name="TSF04_129_1">
+		<TriggerList Act="UnEquip">
+			<Trigger>
+				<ExecList>
+					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
+						<Str Str="Shadowmancer_ShadowThorn"/>
+						<Num Num="-2"/>
+					</ToolScp>
+					<ToolScp Scp="SPCI_EQUIP_ADD_EXPROP_NUM" Client="NO" UseSleep="NO">
+						<Str Str="ITEM_VIBORA_THSTAFF_SHADOWTHORN"/>
+						<Num Num="-1"/>
+					</ToolScp>
+				</ExecList>
+			</Trigger>
+		</TriggerList>
+		<TriggerList Act="Equip">
+			<Trigger>
+				<ExecList>
+					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
+						<Str Str="Shadowmancer_ShadowThorn"/>
+						<Num Num="2"/>
+					</ToolScp>
+					<ToolScp Scp="SPCI_EQUIP_ADD_EXPROP_NUM" Client="NO" UseSleep="NO">
+						<Str Str="ITEM_VIBORA_THSTAFF_SHADOWTHORN"/>
+						<Num Num="1"/>
+					</ToolScp>
+				</ExecList>
+			</Trigger>
+		</TriggerList>
+	</SpcItem>
+	<SpcItem Name="DAG04_123_1">
+		<TriggerList Act="Equip">
+			<Trigger>
+				<ExecList>
+					<ToolScp Scp="SPCI_JOB_ALL_SKILLUP" Client="NO" UseSleep="NO">
+						<Str Str="Shinobi"/>
+						<Num Num="1"/>
+					</ToolScp>
+					<ToolScp Scp="SPCI_BUFF_EQUIPITEM" Client="NO" UseSleep="NO">
+						<Str Str="VIBORA_DAGGER_SHINOBI"/>
+						<Num Num="1"/>
+						<Num Num="0"/>
+						<Num Num="0"/>
+						<Num Num="1"/>
+						<Num Num="100"/>
+						<Num Num="-1"/>
+					</ToolScp>
+				</ExecList>
+			</Trigger>
+		</TriggerList>
+		<TriggerList Act="UnEquip">
+			<Trigger>
+				<ExecList>
+					<ToolScp Scp="SPCI_REMOVE_BUFF_UNEQUIP" Client="NO" UseSleep="NO">
+						<Str Str="VIBORA_DAGGER_SHINOBI"/>
+					</ToolScp>
+					<ToolScp Scp="SPCI_JOB_ALL_SKILLUP" Client="NO" UseSleep="NO">
+						<Str Str="Shinobi"/>
+						<Num Num="-1"/>
+					</ToolScp>
+				</ExecList>
+			</Trigger>
+		</TriggerList>
+	</SpcItem>
+	<SpcItem Name="PST04_122_1">
+		<TriggerList Act="Equip">
+			<Trigger>
+				<ExecList>
+					<ToolScp Scp="SPCI_BUFF_EQUIPITEM" Client="NO" UseSleep="NO">
+						<Str Str="VIBORA_PISTOL_Pistol_Attack2"/>
+						<Num Num="1"/>
+						<Num Num="0"/>
+						<Num Num="0"/>
+						<Num Num="1"/>
+						<Num Num="100"/>
+						<Num Num="-1"/>
+					</ToolScp>
+				</ExecList>
+			</Trigger>
+		</TriggerList>
+		<TriggerList Act="UnEquip">
+			<Trigger>
+				<ExecList>
+					<ToolScp Scp="SPCI_REMOVE_BUFF_UNEQUIP" Client="NO" UseSleep="NO">
+						<Str Str="VIBORA_PISTOL_Pistol_Attack2"/>
+					</ToolScp>
+				</ExecList>
+			</Trigger>
+		</TriggerList>
+	</SpcItem>
+	<SpcItem Name="MAC04_129_1">
+		<TriggerList Act="UnEquip">
+			<Trigger>
+				<ExecList>
+					<ToolScp Scp="SPCI_JOB_ALL_SKILLUP" Client="NO" UseSleep="NO">
+						<Str Str="Sorcerer"/>
+						<Num Num="1"/>
+					</ToolScp>
+					<ToolScp Scp="SPCI_EQUIP_ADD_EXPROP_NUM" Client="NO" UseSleep="NO">
+						<Str Str="ITEM_VIBORA_MACE_BINATIO"/>
+						<Num Num="-1"/>
+					</ToolScp>
+				</ExecList>
+			</Trigger>
+		</TriggerList>
+		<TriggerList Act="Equip">
+			<Trigger>
+				<ExecList>
+					<ToolScp Scp="SPCI_JOB_ALL_SKILLUP" Client="NO" UseSleep="NO">
+						<Str Str="Sorcerer"/>
+						<Num Num="-1"/>
+					</ToolScp>
+					<ToolScp Scp="SPCI_EQUIP_ADD_EXPROP_NUM" Client="NO" UseSleep="NO">
+						<Str Str="ITEM_VIBORA_MACE_BINATIO"/>
+						<Num Num="1"/>
+					</ToolScp>
+				</ExecList>
+			</Trigger>
+		</TriggerList>
+	</SpcItem>
+	<SpcItem Name="TSF04_129_2">
+		<TriggerList Act="UnEquip">
+			<Trigger>
+				<ExecList>
+					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
+						<Str Str="Pyromancer_FirePillar"/>
+						<Num Num="-2"/>
+					</ToolScp>
+					<ToolScp Scp="SPCI_EQUIP_ADD_EXPROP_NUM" Client="NO" UseSleep="NO">
+						<Str Str="ITEM_VIBORA_STAFF_FIREPILLAR"/>
+						<Num Num="-1"/>
+					</ToolScp>
+				</ExecList>
+			</Trigger>
+		</TriggerList>
+		<TriggerList Act="Equip">
+			<Trigger>
+				<ExecList>
+					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
+						<Str Str="Pyromancer_FirePillar"/>
+						<Num Num="2"/>
+					</ToolScp>
+					<ToolScp Scp="SPCI_EQUIP_ADD_EXPROP_NUM" Client="NO" UseSleep="NO">
+						<Str Str="ITEM_VIBORA_STAFF_FIREPILLAR"/>
+						<Num Num="1"/>
+					</ToolScp>
+				</ExecList>
+			</Trigger>
+		</TriggerList>
+	</SpcItem>
+	<SpcItem Name="TMAC04_118_1">
+		<TriggerList Act="UnEquip">
+			<Trigger>
+				<ExecList>
+					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
+						<Str Str="Inquisitor_GodSmash"/>
+						<Num Num="-3"/>
+					</ToolScp>
+					<ToolScp Scp="SPCI_REMOVE_BUFF_UNEQUIP" Client="NO" UseSleep="NO">
+						<Str Str="ITEM_BUFF_VIBORA_THMACE_GODSMASH"/>
+					</ToolScp>
+					<ToolScp Scp="SPCI_EQUIP_ADD_EXPROP_NUM" Client="NO" UseSleep="NO">
+						<Str Str="ITEM_VIBORA_THMACE_GODSMASH"/>
+						<Num Num="-1"/>
+					</ToolScp>
+				</ExecList>
+			</Trigger>
+		</TriggerList>
+		<TriggerList Act="Equip">
+			<Trigger>
+				<ExecList>
+					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
+						<Str Str="Inquisitor_GodSmash"/>
+						<Num Num="3"/>
+					</ToolScp>
+					<ToolScp Scp="SPCI_EQUIP_ADD_EXPROP_NUM" Client="NO" UseSleep="NO">
+						<Str Str="ITEM_VIBORA_THMACE_GODSMASH"/>
+						<Num Num="1"/>
+					</ToolScp>
+				</ExecList>
+			</Trigger>
+		</TriggerList>
+	</SpcItem>
+	<SpcItem Name="STF04_127_1">
+		<TriggerList Act="Equip">
+			<Trigger>
+				<ExecList>
+					<ToolScp Scp="SPCI_BUFF_EQUIPITEM" Client="NO" UseSleep="NO">
+						<Str Str="VIBORA_STF_SORCERER"/>
+						<Num Num="1"/>
+						<Num Num="0"/>
+						<Num Num="0"/>
+						<Num Num="1"/>
+						<Num Num="100"/>
+						<Num Num="-1"/>
+					</ToolScp>
+				</ExecList>
+			</Trigger>
+		</TriggerList>
+		<TriggerList Act="UnEquip">
+			<Trigger>
+				<ExecList>
+					<ToolScp Scp="SPCI_REMOVE_BUFF_UNEQUIP" Client="NO" UseSleep="NO">
+						<Str Str="VIBORA_STF_SORCERER"/>
+					</ToolScp>
+				</ExecList>
+			</Trigger>
+		</TriggerList>
+	</SpcItem>
 	<SpcItem Name="Effect_12animal_halo">
 		<TriggerList Act="UnEquip">
 			<Trigger>
@@ -11317,7 +11620,7 @@ end"/>
 			</Trigger>
 		</TriggerList>
 	</SpcItem>
-<SpcItem Name="Effect_2020magical01">
+	<SpcItem Name="Effect_2020magical01">
 		<TriggerList Act="UnEquip">
 			<Trigger>
 				<ExecList>
@@ -11359,6 +11662,58 @@ end"/>
 					<ToolScp Scp="SPCI_BUFF_EQUIPITEM" Client="NO" UseSleep="NO">
 						<Str Str="20MAGICAL02_JUMP"/>
 						<Num Num="1"/>
+						<Num Num="0"/>
+						<Num Num="0"/>
+						<Num Num="1"/>
+						<Num Num="100"/>
+						<Num Num="-1"/>
+					</ToolScp>
+				</ExecList>
+			</Trigger>
+		</TriggerList>
+	</SpcItem>
+	<SpcItem Name="2020_ARBORDAY_NECK05">
+		<TriggerList Act="UnEquip">
+			<Trigger>
+				<ExecList>
+					<ToolScp Scp="SPCI_REMOVE_BUFF_UNEQUIP_ADDOVER" Client="NO" UseSleep="NO">
+						<Str Str="ITEM_BUFF_2020ArborDay_HPpotion"/>
+					</ToolScp>
+				</ExecList>
+			</Trigger>
+		</TriggerList>
+		<TriggerList Act="Equip">
+			<Trigger>
+				<ExecList>
+					<ToolScp Scp="SPCI_BUFF_EQUIPITEM_ADDOVER" Client="NO" UseSleep="NO">
+						<Str Str="ITEM_BUFF_2020ArborDay_HPpotion"/>
+						<Num Num="99"/>
+						<Num Num="0"/>
+						<Num Num="0"/>
+						<Num Num="1"/>
+						<Num Num="100"/>
+						<Num Num="-1"/>
+					</ToolScp>
+				</ExecList>
+			</Trigger>
+		</TriggerList>
+	</SpcItem>
+	<SpcItem Name="2020_ARBORDAY_BRC05">
+		<TriggerList Act="UnEquip">
+			<Trigger>
+				<ExecList>
+					<ToolScp Scp="SPCI_REMOVE_BUFF_UNEQUIP_ADDOVER" Client="NO" UseSleep="NO">
+						<Str Str="ITEM_BUFF_2020ArborDay_SPpotion"/>
+					</ToolScp>
+				</ExecList>
+			</Trigger>
+		</TriggerList>
+		<TriggerList Act="Equip">
+			<Trigger>
+				<ExecList>
+					<ToolScp Scp="SPCI_BUFF_EQUIPITEM_ADDOVER" Client="NO" UseSleep="NO">
+						<Str Str="ITEM_BUFF_2020ArborDay_SPpotion"/>
+						<Num Num="99"/>
 						<Num Num="0"/>
 						<Num Num="0"/>
 						<Num Num="1"/>

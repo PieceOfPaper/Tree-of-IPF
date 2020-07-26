@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by IMC (IMCGames Co., Ltd) -->
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by asdasd (IMCGames Co., Ltd) -->
 <PadSkills>
 	<PadSkill Name="Ancient_Gimmick_Pad_1" CheckerType="0" Range="60" UpdateTerm="1000" ApplyFlyMon="1" AllowOverlap="1" IsMagicType="0" IsMineType="0">
 		<createEvent>
@@ -173,8 +173,8 @@ return time;"/>
 	<PadSkill Name="Aqkrova_Pad" CheckerType="0" Range="80" AllowOverlap="1">
 		<createEvent>
 			<ToolScp Scp="PAD_ADD_LIFE" Client="NO" UseSleep="NO">
-				<Num Num="10000"/>
-				<Num Num="10000"/>
+                <Num Num="10000" UseFunc="1" FuncTxt="local value = 10000; local isDragonPower = GetExProp(self, 'ITEM_DRAGON_POWER') if tonumber(isDragonPower) >= 1 then value = 20000 end return value"/>
+                <Num Num="10000"/>
 			</ToolScp>
 			<ToolScp Scp="C_PAD_EFFECT_POS" Client="YES" UseSleep="NO">
 				<Str_Arg Str="F_buff_basic059_ground_red" Arg="2.5"/>
@@ -6401,52 +6401,52 @@ return value;"/>
 			<ToolScp Scp="PAD_TGT_BUFF_ABIL_OFF" Client="NO" UseSleep="NO">
 				<Str Str="ENEMY"/>
 				<Str Str="Daoshi28"/>
-                <Num Num="0"/>
+				<Num Num="0"/>
 				<Num Num="0"/>
 				<Str Str="StormCalling_Debuff"/>
 				<Num Num="0"/>
 				<Num Num="0"/>
 				<Num Num="1"/>
 				<Num Num="100"/>
-            </ToolScp>
-        </enterEvent>
-        <leaveEvent>
-            <ToolScp Scp="PAD_TGT_BUFF_REMOVE" Client="NO" UseSleep="NO">
-                <Str Str="ALL"/>
+			</ToolScp>
+		</enterEvent>
+		<leaveEvent>
+			<ToolScp Scp="PAD_TGT_BUFF_REMOVE" Client="NO" UseSleep="NO">
+				<Str Str="ALL"/>
 				<Num Num="0"/>
 				<Num Num="0"/>
-			<Str Str="StormCalling_Debuff"/>
-            </ToolScp>
+				<Str Str="StormCalling_Debuff"/>
+			</ToolScp>
 			<ToolScp Scp="PAD_TGT_BUFF_REMOVE" Client="NO" UseSleep="NO">
 				<Str Str="FRIEND"/>
 				<Num Num="0"/>
 				<Num Num="0"/>
 				<Str Str="StormCalling_Buff"/>
 				<Num Num="1"/>
-				</ToolScp>
-        </leaveEvent>
-        <updateEvent>
-            <ToolScp Scp="PAD_ADD_LIFE" Client="NO" UseSleep="NO">
-                <Num Num="-800"/>
-                <Num Num="0"/>
-				</ToolScp>
-        </updateEvent>
-    </PadSkill>
-    <PadSkill Name="Daoshi_StormCalling_Daoshi28" CheckerType="0" Range="100" UpdateTerm="800" ApplyFlyMon="1" IsMineType="0">
-        <createEvent>
-            <ToolScp Scp="C_PAD_EFFECT_POS" Client="YES" UseSleep="NO">
-                <Str_Arg Str="F_cleric_stormcalling_shot" Arg="0.69999999"/>
-                <Pos Angle="0" Dist="0"/>
-                <Num Num="0"/>
+			</ToolScp>
+		</leaveEvent>
+		<updateEvent>
+			<ToolScp Scp="PAD_ADD_LIFE" Client="NO" UseSleep="NO">
+				<Num Num="-800"/>
+				<Num Num="0"/>
+			</ToolScp>
+		</updateEvent>
+	</PadSkill>
+	<PadSkill Name="Daoshi_StormCalling_Daoshi28" CheckerType="0" Range="100" UpdateTerm="800" ApplyFlyMon="1" IsMineType="0">
+		<createEvent>
+			<ToolScp Scp="C_PAD_EFFECT_POS" Client="YES" UseSleep="NO">
+				<Str_Arg Str="F_cleric_stormcalling_shot" Arg="0.69999999"/>
+				<Pos Angle="0" Dist="0"/>
+				<Num Num="0"/>
 				<Str_Arg Str="None" Arg="0.60000002"/>
-            </ToolScp>
-            <ToolScp Scp="PAD_ADD_LIFE" Client="NO" UseSleep="NO">
-                <Num Num="10000" UseFunc="1" FuncTxt="return 3000 + obj.Level * 1000;"/>
-                <Num Num="1"/>
-				</ToolScp>
-            <ToolScp Scp="PAD_SET_ARG_NUMBER" Client="NO" UseSleep="NO">
-                <Num Num="0" UseFunc="1" FuncTxt="return obj.Level;"/>
-                <Num Num="0"/>
+			</ToolScp>
+			<ToolScp Scp="PAD_ADD_LIFE" Client="NO" UseSleep="NO">
+				<Num Num="10000" UseFunc="1" FuncTxt="return 3000 + obj.Level * 1000;"/>
+				<Num Num="1"/>
+			</ToolScp>
+			<ToolScp Scp="PAD_SET_ARG_NUMBER" Client="NO" UseSleep="NO">
+				<Num Num="0" UseFunc="1" FuncTxt="return obj.Level;"/>
+				<Num Num="0"/>
 				<Num Num="0"/>
 			</ToolScp>
 		</createEvent>
@@ -6456,17 +6456,17 @@ return value;"/>
 				<Num Num="0"/>
 				<Num Num="0"/>
 				<Str Str="StormCalling_Buff"/>
-                <Num Num="1"/>
-                <Num Num="0"/>
-                <Num Num="0"/>
-                <Num Num="1"/>
-                <Num Num="100"/>
-                <Num Num="0"/>
+				<Num Num="1"/>
+				<Num Num="0"/>
+				<Num Num="0"/>
+				<Num Num="1"/>
+				<Num Num="100"/>
+				<Num Num="0"/>
 			</ToolScp>
-			</enterEvent>
-        <leaveEvent>
-            <ToolScp Scp="PAD_TGT_BUFF_REMOVE" Client="NO" UseSleep="NO">
-				<Str Str="PARTY"/>
+		</enterEvent>
+		<leaveEvent>
+			<ToolScp Scp="PAD_TGT_BUFF_REMOVE" Client="NO" UseSleep="NO">
+                <Str Str="ALL"/>
 				<Num Num="0"/>
 				<Num Num="0"/>
 				<Str Str="StormCalling_Buff"/>
@@ -9360,7 +9360,7 @@ end"/>
 			</ToolScp>
 		</enterEvent>
 	</PadSkill>
-	<PadSkill Name="Inquisitor_BreakingWheel" CheckerType="0" Dist="170.13696" Angle="2.4871173" Range="45" UpdateTerm="300" ApplyFlyMon="1">
+	<PadSkill Name="Inquisitor_BreakingWheel" CheckerType="0" IsMagicType="0" Dist="170.13696" Angle="2.4871173" Range="45" UpdateTerm="300" ApplyFlyMon="1">
 		<createEvent>
 			<ToolScp Scp="PAD_CONCURRENT_USE_COUNT" Client="NO" UseSleep="NO">
 				<Num Num="10"/>
@@ -17575,7 +17575,7 @@ return 3 + obj.Level * 0.5"/>
 			</ToolScp>
 		</updateEvent>
 	</PadSkill>
-	<PadSkill Name="Toyou_Pad" CheckerType="0" Range="150" AllowOverlap="1">
+	<PadSkill Name="Toyou_Pad" CheckerType="0" Range="150" ApplyFlyMon="1" AllowOverlap="1">
 		<createEvent>
 			<ToolScp Scp="PAD_ADD_LIFE" Client="NO" UseSleep="NO">
 				<Num Num="3300"/>
@@ -17591,6 +17591,9 @@ return 3 + obj.Level * 0.5"/>
 			<ToolScp Scp="PAD_CONCURRENT_USE_COUNT" Client="NO" UseSleep="NO">
 				<Num Num="15"/>
 			</ToolScp>
+			<ToolScp Scp="PAD_USEABLE_FUNCNAME" Client="NO" UseSleep="NO">
+				<Str Str="SCR_PAD_USEABLE_TOYOU_ABIL_CHECK"/>
+			</ToolScp>
 		</createEvent>
 		<updateEvent>
 			<ToolScp Scp="PAD_ADD_LIFE" Client="NO" UseSleep="NO">
@@ -17605,6 +17608,9 @@ return 3 + obj.Level * 0.5"/>
 				<Num Num="0"/>
 				<Num Num="0"/>
 				<Str Str="None"/>
+			</ToolScp>
+			<ToolScp Scp="PAD_USEABLE_FUNCNAME" Client="NO" UseSleep="NO">
+				<Str Str="SCR_PAD_USEABLE_TOYOU_ABIL_CHECK"/>
 			</ToolScp>
 		</updateEvent>
 	</PadSkill>
@@ -18221,6 +18227,48 @@ end"/>
 			</ToolScp>
 		</updateEvent>
 	</PadSkill>
+	<PadSkill Name="Weekly_Lecifer_Pad" CheckerType="0" Dist="68.101173" Angle="0.014127267" Range="120" ApplyFlyMon="1" AllowOverlap="1" EnableSearch="0" IsMagicType="0" IsMineType="0">
+		<createEvent>
+			<ToolScp Scp="PAD_ADD_LIFE" Client="NO" UseSleep="NO">
+				<Num Num="10000"/>
+				<Num Num="99990"/>
+			</ToolScp>
+			<ToolScp Scp="C_PAD_EFFECT_POS" Client="YES" UseSleep="NO">
+				<Str_Arg Str="F_cleric_ogouveve_ground" Arg="2.4000001"/>
+				<Pos Angle="0" Dist="0"/>
+				<Num Num="0"/>
+				<Str_Arg Str="None" Arg="1"/>
+				<Num Num="0"/>
+			</ToolScp>
+		</createEvent>
+		<enterEvent>
+			<ToolScp Scp="PAD_TGT_BUFF_MON" Client="NO" UseSleep="NO">
+				<Str Str="ENEMY"/>
+				<Num Num="0"/>
+				<Num Num="0"/>
+				<Str Str="Weekly_Lecifer_Blind_Debuff"/>
+				<Num Num="1"/>
+				<Num Num="0"/>
+				<Num Num="0"/>
+				<Num Num="1"/>
+				<Num Num="100"/>
+			</ToolScp>
+		</enterEvent>
+		<leaveEvent>
+			<ToolScp Scp="PAD_TGT_BUFF_REMOVE_MON" Client="NO" UseSleep="NO">
+				<Str Str="ENEMY"/>
+				<Num Num="0"/>
+				<Num Num="0"/>
+				<Str Str="Weekly_Lecifer_Blind_Debuff"/>
+			</ToolScp>
+		</leaveEvent>
+		<updateEvent>
+			<ToolScp Scp="PAD_ADD_LIFE" Client="NO" UseSleep="NO">
+				<Num Num="-500"/>
+				<Num Num="0"/>
+			</ToolScp>
+		</updateEvent>
+	</PadSkill>
 	<PadSkill Name="Weekly_Meteor" CheckerType="0" Dist="64.792297" Angle="3.098685" Range="55" ApplyFlyMon="1" AllowOverlap="1" IsMagicType="0" IsMineType="0">
 		<createEvent>
 			<ToolScp Scp="PAD_ADD_LIFE" Client="NO" UseSleep="NO">
@@ -18825,7 +18873,12 @@ return obj.Level"/>
 				<Num Num="100"/>
 			</ToolScp>
 			<ToolScp Scp="PAD_DAMAGE_ENEMY" Client="NO" UseSleep="NO">
-				<Num Num="1"/>
+				<Num Num="1" UseFunc="1" FuncTxt='if GetExProp(self, "ITEM_VIBORA_STAFF_FIREPILLAR") ~= 0 then
+local skl = GetSkill(self, "Pyromancer_FirePillar")
+local x, y, z = GetPadPos(userData)
+RunScript("SCR_FIREPILLAR_VIBORASTAFF_SHOT", self, skl, x, y, z)
+end
+return 1'/>
 				<Num Num="0"/>
 				<Num Num="0"/>
 				<Str_Arg Str="None" Arg="1"/>

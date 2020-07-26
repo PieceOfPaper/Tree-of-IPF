@@ -56,4 +56,61 @@
 			</EtcList>
 		</MainSkl>
 	</Skill>
+    <Skill Name="Mon_event_gazer_Skill_2">
+        <MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+            <MoveList>
+                <Frame Accel="1" Angle="-0.0016855011" Dist="0" Gravity="600" Height="0" JumpPower="300" MoveType="0" Time="700" />
+                <Frame Accel="1" Angle="-3.0674963" Dist="23.637108" Gravity="600" Height="0" JumpPower="100" MoveType="0" Time="1200" />
+            </MoveList>
+            <HitList>
+                <Frame Angle="0" AniTime="800" Dist="0" ForceATK="0" HitCount="1" Length="120" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="333" Time="600" Type="SQUARE" Width="10" />
+            </HitList>
+            <EtcList>
+                <Anim Anim="skl" Speed="0.69999999" Time="0" />
+                <Scp Client="YES" Scp="C_SOUND" Time="0" UseSleep="NO">
+                    <Str Str="mon_sakmoli_falldown" />
+                </Scp>
+                <Scp Client="YES" Scp="C_SOUND" Time="500" UseSleep="NO">
+                    <Str Str="m_schlesien_darkmage_born" />
+                </Scp>
+                <Scp Client="YES" Scp="C_SOUND" Time="680" UseSleep="NO">
+                    <Str Str="skl_eff_whoosh_1" />
+                </Scp>
+                <Scp Client="YES" Scp="C_SOUND" Time="680" UseSleep="NO">
+                    <Str Str="skl_wiz_telekinesis_spell_1" />
+                </Scp>
+                <Scp Client="YES" Scp="C_EFFECT_ATTACH" Time="700" UseSleep="NO">
+                    <Str_Arg Arg="1" Str="I_laser015_red#Dummy_effect_eye" />
+                    <Num Num="2" />
+                    <Pos Angle="0" Dist="9.8090893e-45" />
+                    <Num Num="0" />
+                    <Num Num="0" />
+                </Scp>
+            </EtcList>
+        </MainSkl>
+    </Skill>
+    <Skill Name="Mon_event_gazer_Skill_1">
+        <MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+            <HitList>
+                <Frame Angle="0" AniTime="700" Dist="0" ForceATK="0" HitCount="1" Length="45" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" TermMax="0" TermMin="0" Time="500" Type="SQUARE" Width="15" />
+            </HitList>
+            <EtcList>
+                <Anim Anim="atk" Speed="0.85000002" Time="0" />
+                <Scp Client="YES" Scp="C_EFFECT" Time="0" UseSleep="NO">
+                    <Str_Arg Arg="1" Str="I_light004_orange2" />
+                    <Str Str="Dummy_effect_eye" />
+                    <Num Num="1" />
+                </Scp>
+                <Scp Client="YES" Scp="C_SOUND" Time="0" UseSleep="NO">
+                    <Str Str="m_new_desmodus_raiseup" />
+                </Scp>
+                <Scp Client="YES" Scp="C_SOUND" Time="500" UseSleep="NO">
+                    <Str Str="m_tontulia_atk2_shot" />
+                </Scp>
+                <Scp Client="YES" Scp="C_SOUND" Time="510" UseSleep="NO">
+                    <Str Str="skl_eff_body_atk_9" />
+                </Scp>
+            </EtcList>
+        </MainSkl>
+    </Skill>
 	</ToolSkill>

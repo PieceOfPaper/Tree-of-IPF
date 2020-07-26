@@ -322,7 +322,7 @@
 					<Num Num="70" />
 				</Scp>
 				<Scp Client="NO" Scp="SKL_CONSUME_HP" Time="2400" UseSleep="NO">
-					<Num FuncTxt=" return 7500 - (obj.Level * 500)" Num="15000" UseFunc="1" />
+                    <Num FuncTxt="if IsDummyPC(self) == 1 then return 0 else return 7500 - (obj.Level * 500) end" Num="15000" UseFunc="1" />
 				</Scp>
 				<Scp Client="YES" Scp="SKL_FAST_FALL" Time="3200" UseSleep="NO">
 					<Num Num="1" />

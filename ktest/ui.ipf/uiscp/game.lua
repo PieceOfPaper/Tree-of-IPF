@@ -3699,30 +3699,73 @@ function FADE_OUT(fadeTime)
 end
 
 function IS_EXIST_BRIQUETTING_OR_BEAUTYSHOP_ITEM(actor, spot, skillType, skillClassId, itemClassId)
+	if actor == nil then return false; end
 	if skillClassId == nil then return false; end
 	if itemClassId == nil then return false; end
 
-	local spotItem = session.GetEquipItemBySpot(item.GetEquipSpotNum(spot));
-	if spotItem ~= nil then
-		local obj = GetIES(spotItem:GetObject());
-		if obj ~= nil then
-			-- skill type / pistal attack
-			if skillType == "Pistol" and (skillClassId == 53 or skillClassId == 57) then	
-				-- inv item check
-				if obj.ClassID == itemClassId or obj.BriquettingIndex == itemClassId then
-					return true;
+	-- inv item check
+	local apc = actor:GetPCApc();
+	if actor:IsMyPC() == 1 then
+		local spotItem = session.GetEquipItemBySpot(item.GetEquipSpotNum(spot)); 
+		if spotItem ~= nil then
+			local obj = GetIES(spotItem:GetObject());
+			if obj ~= nil then
+				-- skill type / pistal attack
+				if skillType == "Pistol" then	
+					--  Limacon Buff Check
+					local handle = session.GetMyHandle();
+					local buff = info.GetBuff(handle, 3008);
+					if buff ~= nil then
+						if skillClassId == 57 then
+							if obj.ClassID == itemClassId or obj.BriquettingIndex == itemClassId then
+								return false;
+							end
+						end
+					else
+						if skillClassId == 53 or skillClassId == 57 then
+							-- inv item check
+							if obj.ClassID == itemClassId or obj.BriquettingIndex == itemClassId then
+								return true;
+							end
+						end
+					end
 				end
-
-				-- beauty shop check
-				local apc = actor:GetPCApc();
-				if apc ~= nil then
-					local classId = apc:GetDummyEquipItem(item.GetEquipSpotNum(spot));
-					if classId == itemClassId then
-						return true;
+			end
+		end
+	else
+		if apc ~= nil then
+			local classId = apc:GetEquipItem(item.GetEquipSpotNum(spot));
+			if skillType == "Pistol" then
+				local handle = actor:GetHandleVal();
+				local buff = info.GetBuff(handle, 3008);
+				if buff ~= nil then
+					if skillClassId == 57 then
+						if classId == itemClassId then
+							return false;
+						end
+					end
+				else
+					if skillClassId == 53 or skillClassId == 57 then
+						if classId == itemClassId then
+							return true;
+						end
 					end
 				end
 			end
 		end
 	end
+
+	-- beautyshop check
+	if apc ~= nil then
+		local classId = apc:GetDummyEquipItem(item.GetEquipSpotNum(spot));
+		if skillType == "Pistol" then
+			if skillClassId == 53 or skillClassId == 57 then
+				if classId == itemClassId then
+					return true;
+				end
+			end
+		end
+	end
+
 	return false;
 end

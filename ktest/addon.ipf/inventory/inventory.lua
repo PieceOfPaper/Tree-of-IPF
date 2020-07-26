@@ -289,7 +289,7 @@ function INSERT_ITEM_TO_TREE(frame, tree, invItem, itemCls, baseidcls)
 		local cnt = GET_SLOTSET_COUNT(tree, baseidcls);
 		-- 저장된 템의 최대 인덱스에 따라 자동으로 늘어나도록. 예를들어 해당 셋이 10000부터 시작하는데 10500 이 오면 500칸은 늘려야됨
 		while slotCount <= cnt  do 
-			slotset:ExpandRow()
+			slotset:ExpandRow(true)
 			slotCount = slotset:GetSlotCount();
 		end
 
@@ -337,7 +337,7 @@ function MAKE_INVEN_SLOTSET(tree, name)
 	newslotset:SetSpc(0,0)
 	newslotset:SetSkinName('invenslot')
 	newslotset:EnableSelection(0)
-	newslotset:CreateSlots()
+	newslotset:CreateSlots();
 	ui.inventory.AddInvenSlotSetName(name);
 	return newslotset;
 end

@@ -1,17 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
 <!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by MintPC (Mi) -->
-<uiframe name="buff" x="0" y="0" width="635" height="500">
-	<frame title="BuffWindow" layout_gravity="left top" margin="20 140 0 0" tooltipoverlap="true"/>
+<uiframe name="buff" x="0" y="0" width="490" height="210">
+	<frame title="BuffWindow" layout_gravity="left top" margin="20 130 0 0" tooltipoverlap="true"/>
 	<option visible="true" hideable="false" closebutton="false"/>
 	<draw drawtitlebar="false" drawframe="false"/>
 	<layer layerlevel="60"/>
 	<input hittestframe="false"/>
-	<userconfig DEFAULT_SLOT_Y_OFFSET="50" DEFAULT_BUFF_LOCK_OFFSET="8"/>
+	<userconfig BUFFCOUNT_OLDIMAGENAME="" BUFF_OLDIMAGENAME="" DEBUFF_OLDIMAGENAME="" CHANGE_IMAGENAME="dark_icon" DEFAULT_SLOT_Y_OFFSET="50" DEFAULT_BUFF_LOCK_OFFSET="8"/>
 	<controls>
-		<slotset name="buffcountslot" rect="0 0 40 40" margin="5 0 0 0" layout_gravity="left top" col="20" enabledrop="false" enablepop="false" row="1" size="35 35" skin="slot_empty" spc="2 15"/>
-		<slotset name="buffslot" rect="0 0 40 120" margin="5 45 0 0" layout_gravity="left top" col="20" enabledrop="false" enablepop="false" row="3" size="35 35" skin="slot_empty" spc="2 15"/>
-		<slotset name="debuffslot" rect="0 0 40 40" margin="5 200 0 0" layout_gravity="left top" col="20" enabledrop="false" enablepop="false" row="1" size="35 35" skin="slot_empty" spc="8 15"/>
-		<timer name="addontimer" rect="0 0 10 10" margin="10 0 0 0" layout_gravity="left center"/>
+		<slotset name="buffcountslot" rect="0 0 40 40" margin="10 5 0 0" layout_gravity="left top" col="12" enabledrop="false" enablepop="false" row="1" size="35 35" skin="slot_empty" spc="2 15"/>
+		<slotset name="buffcountslot_sub" rect="0 0 30 30" margin="10 55 0 0" layout_gravity="left top" col="18" enabledrop="false" enablepop="false" row="1" size="25 25" skin="slot_empty" spc="2 10"/>
+		<slotset name="buffslot" rect="0 0 40 40" margin="10 100 0 0" layout_gravity="left top" col="12" enabledrop="false" enablepop="false" row="1" size="35 35" skin="slot_empty" spc="2 15"/>
+		<slotset name="debuffslot" rect="0 0 40 40" margin="10 140 0 0" layout_gravity="left top" col="12" enabledrop="false" enablepop="false" row="1" size="35 35" skin="slot_empty" spc="8 15"/>
+		<timer name="addontimer" rect="0 0 10 10" margin="5 0 0 0" layout_gravity="center top"/>
 	</controls>
 </uiframe>

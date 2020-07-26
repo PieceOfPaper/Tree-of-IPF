@@ -89,7 +89,7 @@
                     <Str Str="Gymas_Party_Buff"/>
                     <Num Num="1"/>
                     <Num Num="0"/>
-                    <Num Num="20000"/>
+                    <Num FuncTxt="local value = 20000; local isDragonPower = GetExProp(self, 'ITEM_DRAGON_POWER') if tonumber(isDragonPower) >= 1 then value = 40000 end return value" Num="20000" UseFunc="1"/>
                     <Num Num="1"/>
                     <Num Num="100"/>
                     <Num Num="1"/>
@@ -114,7 +114,7 @@
                     <Str Str="Smugis_Buff"/>
                     <Num Num="1"/>
                     <Num Num="0"/>
-                    <Num Num="20000" UseFunc="1" FuncTxt="local value = 20000; local isDragonPower = GetExProp(self, 'ITEM_DRAGON_POWER') if tonumber(isDragonPower) >= 1 then value = value + 5000 end return value"/>
+                    <Num Num="25000" UseFunc="1" FuncTxt="local value = 25000; local isDragonPower = GetExProp(self, 'ITEM_DRAGON_POWER') if tonumber(isDragonPower) >= 1 then value = value * 2 end return value"/>
                     <Num Num="1"/>
                     <Num Num="100"/>
                     <Num Num="0"/>
@@ -149,7 +149,7 @@
                     <Str Str="Varna_SSet3_Buff"/>
                     <Num Num="1"/>
                     <Num Num="0"/>
-                    <Num Num="30000" UseFunc="1" FuncTxt="local value = 30000; local isDragonPower = GetExProp(self, 'ITEM_DRAGON_POWER') if tonumber(isDragonPower) >= 1 then value = 45000 end return value"/>
+                    <Num Num="30000" UseFunc="1" FuncTxt="local value = 30000; local isDragonPower = GetExProp(self, 'ITEM_DRAGON_POWER') if tonumber(isDragonPower) >= 1 then value = 60000 end return value"/>
                     <Num Num="1"/>
                     <Num Num="100"/>
                     <Num Num="0"/>

@@ -47,12 +47,8 @@ local function _ITEM_DECOMPOSE_ITEM_LIST(frame, itemGradeList)
             	end
 			end
 
-			if IS_EQUIPPED_WEAPON_SWAP_SLOT(invItem) == true then
-				return 'break';
-			end
-            
             if needToShow == true then
-				if itemobj.ItemType == 'Equip' and itemobj.DecomposeAble ~= nil and itemobj.DecomposeAble == "YES" and itemobj.ItemType == 'Equip' and itemobj.UseLv >= 75 and invItem.isLockState == false and itemGrade <= 4 then
+				if itemobj.ItemType == 'Equip' and itemobj.DecomposeAble ~= nil and itemobj.DecomposeAble == "YES" and IS_EQUIPPED_WEAPON_SWAP_SLOT(invItem) == false and itemobj.ItemType == 'Equip' and itemobj.UseLv >= 75 and invItem.isLockState == false and itemGrade <= 4 then
 					local itemSlotCnt = imcSlot:GetEmptySlotIndex(itemSlotSet);
 	    			local itemSlot = itemSlotSet:GetSlotByIndex(itemSlotCnt)
 	    			if itemSlot == nil then

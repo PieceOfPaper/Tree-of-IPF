@@ -2,9 +2,9 @@
 <!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
 <ToolSkill>
     <Skill Name="BlossomBlader_Flowering">
-        <MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+        <MainSkl ScrLock="None" JumpFlee="NO" MSPDToUsePos="0">
             <HitList>
-                <Frame Angle="0" AniTime="9999" Dist="0" ForceATK="0" HitCount="1" Length="30" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="9799" Type="FAN" Width="30"/>
+                <Frame Type="FAN" Time="9799" HitCount="1" TermMin="0" TermMax="0" PosType="0" Dist="0" RandDist="0" RandomPerHit="0" Angle="0" Width="30" Length="30" SklAngle="0.17453292" AniTime="9999" RotAngle="0" ForceATK="0" ScriptIndex="0" ScriptName="" SkillType="0"/>
             </HitList>
             <EtcList>
                 <Scp Scp="MONSKL_C_PLAY_ANIM" Client="YES" UseSleep="NO" Time="0">
@@ -13,7 +13,7 @@
                     <Num Num="1"/>
                     <Num Num="0"/>
                 </Scp>
-                <Scp Client="NO" Scp="SKL_SET_TARGET_CIRCLE" Time="0" UseSleep="NO">
+                <Scp Scp="SKL_SET_TARGET_CIRCLE" Client="NO" UseSleep="NO" Time="0">
                     <Pos Angle="0" Dist="50"/>
                     <Num Num="75"/>
                     <Num Num="5" UseFunc="1" FuncTxt="return obj.Level"/>
@@ -24,9 +24,13 @@
                     <Num Num="0"/>
                     <Num Num="0"/>
                 </Scp>
-                <Scp Client="NO" Scp="SKL_TGT_BUFF" Time="260" UseSleep="NO">
+                <Scp Scp="C_VOICE_SOUND" Client="YES" UseSleep="NO" Time="200">
+                    <Str Str="voice_war_m_flowering_shot"/>
+                    <Str Str="voice_war_f_flowering_shot"/>
+                </Scp>
+                <Scp Scp="SKL_TGT_BUFF" Client="NO" UseSleep="NO" Time="260">
                     <Str Str="Flowering_Debuff"/>
-                    <Num FuncTxt="return obj.Level" Num="1" UseFunc="1"/>
+                    <Num Num="1" UseFunc="1" FuncTxt="return obj.Level"/>
                     <Num Num="0"/>
                     <Num Num="30000"/>
                     <Num Num="1"/>
@@ -188,8 +192,8 @@
             </HitList>
             <EtcList>
                 <Scp Scp="C_VOICE_SOUND" Client="YES" UseSleep="NO" Time="0">
-                    <Str Str="voice_war_atk_medium"/>
-                    <Str Str="voice_atk_medium_war_f"/>
+                    <Str Str="voice_war_m_flash_arts_shot"/>
+                    <Str Str="voice_war_f_flash_shot"/>
                 </Scp>
                 <Scp Scp="C_SHOCKWAVE" Client="YES" UseSleep="NO" Time="50">
                     <Num Num="5"/>
@@ -262,6 +266,51 @@ return buff"/>
                 <Num Num="1"/>
             </ToolScp>
         </EndScripts>
+        <KeyInput>
+            <ToolScp Client="YES" Scp="SKL_KEY_DYNAMIC_CASTING" UseSleep="NO">
+                <Num Num="0"/>
+                <Num Num="0"/>
+                <Num FuncTxt="local value = 0 local self = GetMyPCObject() if IsPVPField(self) == 1 then value = 1 end return value" Num="1" UseFunc="1"/>
+                <Num Num="1"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+                <Num Num="1"/>
+                <Num Num="1"/>
+                <Str_Arg Arg="1" Str="None"/>
+                <Str Str="None"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+                <Num Num="5"/>
+                <Num Num="1"/>
+                <Num Num="45"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+            </ToolScp>
+        </KeyInput>
+        <KeyInputStart>
+            <ToolScp Scp="MONSKL_C_PLAY_ANIM" Client="YES" UseSleep="NO">
+                <Str Str="SKL_STARTUP_CAST"/>
+                <Num Num="1"/>
+                <Num Num="1"/>
+            </ToolScp>
+            <ToolScp Scp="SKL_PLAY_SOUND" Client="NO" UseSleep="NO">
+                <Str Str="voice_war_f_startup_cast"/>
+                <Num Num="0"/>
+                <Str Str="voice_war_m_startup_cast"/>
+            </ToolScp>
+            <ToolScp Scp="SKL_C_RESUME_ANI" Client="YES" UseSleep="NO"/>
+            <ToolScp Scp="MONSKL_C_PLAY_ANIM" Client="YES" UseSleep="NO">
+                <Str Str="SKL_STARTUP_LOOP"/>
+                <Num Num="1"/>
+                <Num Num="1"/>
+                <Num Num="0"/>
+            </ToolScp>
+        </KeyInputStart>
         <MainSkl ScrLock="None" JumpFlee="NO" MSPDToUsePos="0">
             <HitList>
                 <Frame Type="CIRCLE" Time="9999" HitCount="1" TermMin="0" TermMax="0" PosType="0" Dist="0" RandDist="0" RandomPerHit="0" Angle="0" Width="100" SklAngle="0.52359879" AniTime="10999" RotAngle="0" ForceATK="0"/>
@@ -320,35 +369,8 @@ return buff"/>
                     <Num Num="50"/>
                     <Num Num="999"/>
                 </Scp>
-                <Scp Scp="SKL_TGT_DMG" Client="NO" UseSleep="NO" Time="350">
-                    <Num Num="1"/>
-                    <Num Num="0"/>
-                    <Num Num="0"/>
-                </Scp>
-                <Scp Scp="SKL_TGT_DMG" Client="NO" UseSleep="NO" Time="500">
-                    <Num Num="1"/>
-                    <Num Num="0"/>
-                    <Num Num="0"/>
-                </Scp>
-                <Scp Scp="SKL_TGT_DMG" Client="NO" UseSleep="NO" Time="650">
-                    <Num Num="1"/>
-                    <Num Num="0"/>
-                    <Num Num="0"/>
-                </Scp>
-                <Scp Scp="SKL_TGT_DMG" Client="NO" UseSleep="NO" Time="800">
-                    <Num Num="1"/>
-                    <Num Num="0"/>
-                    <Num Num="0"/>
-                </Scp>
-                <Scp Scp="SKL_TGT_DMG" Client="NO" UseSleep="NO" Time="950">
-                    <Num Num="1"/>
-                    <Num Num="0"/>
-                    <Num Num="0"/>
-                </Scp>
-                <Scp Scp="SKL_TGT_DMG" Client="NO" UseSleep="NO" Time="1100">
-                    <Num Num="1"/>
-                    <Num Num="0"/>
-                    <Num Num="0"/>
+                <Scp Scp="SKL_RUN_SCRIPT" Client="NO" UseSleep="NO" Time="500">
+                    <Str Str="SCR_BLOSSOMSLASH"/>
                 </Scp>
                 <Scp Client="NO" Scp="SKL_TGT_REMOVE_BUFF" Time="500" UseSleep="NO">
                 <Str FuncTxt="local func_name = 'get_remove_buff_tooltip_' .. TryGetProp(obj, 'ClassName', 'None')

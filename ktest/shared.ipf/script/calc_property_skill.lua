@@ -1,4 +1,31 @@
-﻿--- calc_property_skill.lua
+--- calc_property_skill.lua
+
+function HAS_DRAGON_POWER(pc)
+    if pc == nil  then
+        return false
+    end
+
+    if IsServerSection() == 1 then
+        if pc ~= nil then
+            local isDragonPower = GetExProp(pc, 'ITEM_DRAGON_POWER')
+            if tonumber(isDragonPower) >= 1 then
+                return true
+            end
+        end
+    else
+        local seal  = GetEquipItem(pc, 'SEAL');
+        if seal == nil then 
+            return false
+        end
+        local option = TryGetProp(seal, 'SealOption_3', 'None')
+        if option == 'ITEM_DRAGON_POWER' then
+            return true
+        end
+    end
+
+    return false
+end
+
 function GET_SKL_VALUE(skill, startValue, maxValue)
     local maxLv = 100;
     local curLv = skill.Level;
@@ -180,17 +207,17 @@ function SCR_Get_SpendSP(skill)
     elseif IsBuffApplied(pc, "FIELD_SP_FULL_BUFF") == "YES" then
         decsp = SCR_FIELD_DUNGEON_CONSUME_DECREASE(pc, "SpendSP", value)
     else
-        if IsBuffApplied(pc, "Gymas_Buff") == "YES" then
-            local ratio = 0.25;
-            
-            local isDragonPower = GetExProp(pc, 'ITEM_DRAGON_POWER')
-            if tonumber(isDragonPower) >= 1 then
-                ratio = ratio + 0.25
-            end
-            
+        if IsBuffApplied(pc, "Gymas_Buff") == "YES" then -- 기마스
+            local ratio = 0.5;
             decsp = value * ratio
         end
     end
+
+    -- EVENT_2004_UPHILL
+    if IsBuffApplied(pc, "EVENT_2004_UPHILL_BUFF") == "YES" then
+        return 0
+    end
+
     ----------
     value = value - decsp;
     if value < 1 then
@@ -203,10 +230,6 @@ function SCR_Get_SpendSP(skill)
 
 	if IsBuffApplied(pc, "ManaAmplify_Buff") == "YES" then
         value = value * 1.5
-    end
-
-    if IsBuffApplied(pc, "TriDisaster_Buff") == "YES" then
-        SetExProp(pc, 'Daoshi27_SP', value)
     end
 
     return math.floor(value);
@@ -555,16 +578,6 @@ function SCR_GET_SKL_COOLDOWN(skill)
         end
     end
     
-    
-    
-    
-    local laimaCoolTime = GetExProp(pc, "LAIMA_BUFF_COOLDOWN")
-    if laimaCoolTime ~= 0 then
-        basicCoolDown = basicCoolDown * (1 - laimaCoolTime)
-    elseif IsBuffApplied(pc, 'CarveLaima_Debuff') == 'YES' then
-        basicCoolDown = basicCoolDown * 1.2;
-    end
-    
     if skill.ClassName == "Cleric_Cure" then
         local jobHistory = '';
         if IsServerObj(pc) == 1 then
@@ -587,31 +600,7 @@ function SCR_GET_SKL_COOLDOWN(skill)
         end
     end
     
-    --burning_event
-    if IsBuffApplied(pc, "Event_Cooldown_SPamount_Decrease") == "YES" then
-        basicCoolDown = SCR_COOLDOWN_SPAMOUNT_DECREASE(pc, "CoolDown", basicCoolDown)
-    elseif IsBuffApplied(pc, "FIELD_COOLDOWNREDUCE_BUFF") == "YES" or IsBuffApplied(pc, "FIELD_DEFAULTCOOLDOWN_BUFF") == "YES" or IsBuffApplied(pc, "FIELD_COOLDOWNREDUCE_MIN_BUFF") == "YES" then
-        basicCoolDown = SCR_FIELD_DUNGEON_CONSUME_DECREASE(pc, "CoolDown", basicCoolDown)
-    else
-        if IsBuffApplied(pc, 'GM_Cooldown_Buff') == 'YES' then
-            basicCoolDown = basicCoolDown * 0.9;
-        end
-        
-        if IsBuffApplied(pc, 'SpeForceFom_Buff') == 'YES' then
-            if skill.ClassName ~= "Centurion_SpecialForceFormation" then
-                basicCoolDown = basicCoolDown * 0.5;
-            end
-        end
-    end
-    -----------
-    --Mon_Buff--
-    local monCoolDownRate = GetExProp(pc, "MON_COOLDOWN_RATE")
-    if monCoolDownRate ~= 0 then
-        if monCoolDownRate <= -0.9 then
-            monCoolDownRate = -0.9
-        end
-        basicCoolDown = basicCoolDown + (basicCoolDown * monCoolDownRate)
-    end
+    basicCoolDown = SCR_COMMON_COOLDOWN_DECREASE(pc, basicCoolDown)
     
     local ret = math.floor(basicCoolDown) / 1000
     ret = math.floor(ret) * 1000;
@@ -663,38 +652,7 @@ function SCR_GET_SKL_COOLDOWN_ADD_LEVEL_BYGEM(skill)
         end
     end
     
-    local laimaCoolTime = GetExProp(pc, "LAIMA_BUFF_COOLDOWN")
-    if laimaCoolTime ~= 0 then
-        basicCoolDown = basicCoolDown * (1 - laimaCoolTime)
-    elseif IsBuffApplied(pc, 'CarveLaima_Debuff') == 'YES' then
-        basicCoolDown = basicCoolDown * 1.2;
-    end
-
-    --burning_event
-    if IsBuffApplied(pc, "Event_Cooldown_SPamount_Decrease") == "YES" then
-        basicCoolDown = SCR_COOLDOWN_SPAMOUNT_DECREASE(pc, "CoolDown", basicCoolDown)
-    elseif IsBuffApplied(pc, "FIELD_COOLDOWNREDUCE_BUFF") == "YES" or IsBuffApplied(pc, "FIELD_DEFAULTCOOLDOWN_BUFF") == "YES" or IsBuffApplied(pc, "FIELD_COOLDOWNREDUCE_MIN_BUFF") == "YES" then
-        basicCoolDown = SCR_FIELD_DUNGEON_CONSUME_DECREASE(pc, "CoolDown", basicCoolDown)
-    else
-        if IsBuffApplied(pc, 'GM_Cooldown_Buff') == 'YES' then
-            basicCoolDown = basicCoolDown * 0.9;
-        end
-        
-        if IsBuffApplied(pc, 'SpeForceFom_Buff') == 'YES' then
-            if skill.ClassName ~= "Centurion_SpecialForceFormation" then
-                basicCoolDown = basicCoolDown * 0.5;
-            end
-        end
-    end
-    -----------
-    --Mon_Buff--
-    local monCoolDownRate = GetExProp(pc, "MON_COOLDOWN_RATE")
-    if monCoolDownRate ~= 0 then
-        if monCoolDownRate <= -0.9 then
-            monCoolDownRate = -0.9
-        end
-        basicCoolDown = basicCoolDown + (basicCoolDown * monCoolDownRate)
-    end
+    basicCoolDown = SCR_COMMON_COOLDOWN_DECREASE(pc, basicCoolDown)
     
     local ret = math.floor(basicCoolDown) / 1000
     ret = math.floor(ret) * 1000;
@@ -713,32 +671,7 @@ function SCR_GET_SKL_COOLDOWN_KaguraDance(skill)
     local abilAddCoolDown = GetAbilityAddSpendValue(pc, skill.ClassName, "CoolDown");
     basicCoolDown = basicCoolDown + abilAddCoolDown;
     
-    local laimaCoolTime = GetExProp(pc, "LAIMA_BUFF_COOLDOWN")
-    if laimaCoolTime ~= 0 then
-        basicCoolDown = basicCoolDown * (1 - laimaCoolTime)
-    elseif IsBuffApplied(pc, 'CarveLaima_Debuff') == 'YES' then
-        basicCoolDown = basicCoolDown * 1.2;
-    end
-    
-    --burning_event
-    if IsBuffApplied(pc, "Event_Cooldown_SPamount_Decrease") == "YES" then
-        basicCoolDown = SCR_COOLDOWN_SPAMOUNT_DECREASE(pc, "CoolDown", basicCoolDown)
-    elseif IsBuffApplied(pc, "FIELD_COOLDOWNREDUCE_BUFF") == "YES" or IsBuffApplied(pc, "FIELD_DEFAULTCOOLDOWN_BUFF") == "YES" or IsBuffApplied(pc, "FIELD_COOLDOWNREDUCE_MIN_BUFF") == "YES" then
-        basicCoolDown = SCR_FIELD_DUNGEON_CONSUME_DECREASE(pc, "CoolDown", basicCoolDown)
-    else
-        if IsBuffApplied(pc, 'GM_Cooldown_Buff') == 'YES' then
-            basicCoolDown = basicCoolDown * 0.9;
-        end
-    end
-    -----------
-    --Mon_Buff--
-    local monCoolDownRate = GetExProp(pc, "MON_COOLDOWN_RATE")
-    if monCoolDownRate ~= 0 then
-        if monCoolDownRate <= -0.9 then
-            monCoolDownRate = -0.9
-        end
-        basicCoolDown = basicCoolDown + (basicCoolDown * monCoolDownRate)
-    end
+    basicCoolDown = SCR_COMMON_COOLDOWN_DECREASE(pc, basicCoolDown)
     
     local ret = math.floor(basicCoolDown) / 1000
     ret = math.floor(ret) * 1000;
@@ -759,37 +692,7 @@ function SCR_GET_SKL_COOLDOWN_BUNSIN(skill)
         end
     end
     
-    local laimaCoolTime = GetExProp(pc, "LAIMA_BUFF_COOLDOWN")
-    if laimaCoolTime ~= 0 then
-        basicCoolDown = basicCoolDown * (1 - laimaCoolTime)
-    elseif IsBuffApplied(pc, 'CarveLaima_Debuff') == 'YES' then
-        basicCoolDown = basicCoolDown * 1.2;
-    end
-    
-    --burning_event
-    if IsBuffApplied(pc, "Event_Cooldown_SPamount_Decrease") == "YES" then
-        basicCoolDown = SCR_COOLDOWN_SPAMOUNT_DECREASE(pc, "CoolDown", basicCoolDown)
-    elseif IsBuffApplied(pc, "FIELD_COOLDOWNREDUCE_BUFF") == "YES" or IsBuffApplied(pc, "FIELD_DEFAULTCOOLDOWN_BUFF") == "YES" or IsBuffApplied(pc, "FIELD_COOLDOWNREDUCE_MIN_BUFF") == "YES" then
-        basicCoolDown = SCR_FIELD_DUNGEON_CONSUME_DECREASE(pc, "CoolDown", basicCoolDown)
-    else
-        if IsBuffApplied(pc, 'GM_Cooldown_Buff') == 'YES' then
-            basicCoolDown = basicCoolDown * 0.9;
-        end
-        if IsBuffApplied(pc, 'SpeForceFom_Buff') == 'YES' then
-            if skill.ClassName ~= "Centurion_SpecialForceFormation" then
-                basicCoolDown = basicCoolDown * 0.5;
-            end
-        end
-    end
-    -------------
-    --Mon_Buff--
-    local monCoolDownRate = GetExProp(pc, "MON_COOLDOWN_RATE")
-    if monCoolDownRate ~= 0 then
-        if monCoolDownRate <= -0.9 then
-            monCoolDownRate = -0.9
-        end
-        basicCoolDown = basicCoolDown + (basicCoolDown * monCoolDownRate)
-    end
+    basicCoolDown = SCR_COMMON_COOLDOWN_DECREASE(pc, basicCoolDown)
 
     if IsBuffApplied(pc, "Bunshin_Debuff") == "YES" then
 --      local bunshinBuff = nil
@@ -808,6 +711,10 @@ function SCR_GET_SKL_COOLDOWN_BUNSIN(skill)
         basicCoolDown = basicCoolDown + (bunsinCount * 2000 + (basicCoolDown * (bunsinCount * 0.1)))
     end
     
+    if IsServerSection() == 1 and GetExProp(pc, "BUNSIN_VIBORA_DAGGER") ~= 0 then
+        basicCoolDown = 0
+    end
+
     local ret = math.floor(basicCoolDown) / 1000
     ret = math.floor(ret) * 1000;
     return math.floor(ret);
@@ -826,38 +733,7 @@ function SCR_GET_SKL_COOLDOWN_PrimeAndLoad(skill)
         basicCoolDown = basicCoolDown - (abilMusketeer29.Level * 1000);
     end
     
-    local laimaCoolTime = GetExProp(pc, "LAIMA_BUFF_COOLDOWN")
-    if laimaCoolTime ~= 0 then
-        basicCoolDown = basicCoolDown * (1 - laimaCoolTime)
-    elseif IsBuffApplied(pc, 'CarveLaima_Debuff') == 'YES' then
-        basicCoolDown = basicCoolDown * 1.2;
-    end
-
-    --burning_event
-    if IsBuffApplied(pc, "Event_Cooldown_SPamount_Decrease") == "YES" then
-        basicCoolDown = SCR_COOLDOWN_SPAMOUNT_DECREASE(pc, "CoolDown", basicCoolDown)
-    elseif IsBuffApplied(pc, "FIELD_COOLDOWNREDUCE_BUFF") == "YES" or IsBuffApplied(pc, "FIELD_DEFAULTCOOLDOWN_BUFF") == "YES" or IsBuffApplied(pc, "FIELD_COOLDOWNREDUCE_MIN_BUFF") == "YES" then
-        basicCoolDown = SCR_FIELD_DUNGEON_CONSUME_DECREASE(pc, "CoolDown", basicCoolDown)
-    else
-        if IsBuffApplied(pc, 'GM_Cooldown_Buff') == 'YES' then
-            basicCoolDown = basicCoolDown * 0.9;
-        end
-        
-        if IsBuffApplied(pc, 'SpeForceFom_Buff') == 'YES' then
-            if skill.ClassName ~= "Centurion_SpecialForceFormation" then
-                basicCoolDown = basicCoolDown * 0.5;
-            end
-        end
-    end
-    ----------------
-    --Mon_Buff--
-    local monCoolDownRate = GetExProp(pc, "MON_COOLDOWN_RATE")
-    if monCoolDownRate ~= 0 then
-        if monCoolDownRate <= -0.9 then
-            monCoolDownRate = -0.9
-        end
-        basicCoolDown = basicCoolDown + (basicCoolDown * monCoolDownRate)
-    end
+    basicCoolDown = SCR_COMMON_COOLDOWN_DECREASE(pc, basicCoolDown)
 
     local ret = math.floor(basicCoolDown) / 1000
     ret = math.floor(ret) * 1000;   
@@ -878,39 +754,7 @@ function SCR_GET_SKL_COOLDOWN_CounterSpell(skill)
         end
     end
     
-    local laimaCoolTime = GetExProp(pc, "LAIMA_BUFF_COOLDOWN")
-    if laimaCoolTime ~= 0 then
-        basicCoolDown = basicCoolDown * (1 - laimaCoolTime)
-    elseif IsBuffApplied(pc, 'CarveLaima_Debuff') == 'YES' then
-        basicCoolDown = basicCoolDown * 1.2;
-    end
-    
-    --burning_event
-    if IsBuffApplied(pc, "Event_Cooldown_SPamount_Decrease") == "YES" then
-        basicCoolDown = SCR_COOLDOWN_SPAMOUNT_DECREASE(pc, "CoolDown", basicCoolDown)
-    elseif IsBuffApplied(pc, "FIELD_COOLDOWNREDUCE_BUFF") == "YES" or IsBuffApplied(pc, "FIELD_DEFAULTCOOLDOWN_BUFF") == "YES" or IsBuffApplied(pc, "FIELD_COOLDOWNREDUCE_MIN_BUFF") == "YES" then
-        basicCoolDown = SCR_FIELD_DUNGEON_CONSUME_DECREASE(pc, "CoolDown", basicCoolDown)
-    else
-
-        if IsBuffApplied(pc, 'GM_Cooldown_Buff') == 'YES' then
-            basicCoolDown = basicCoolDown * 0.9;
-        end
-        
-        if IsBuffApplied(pc, 'SpeForceFom_Buff') == 'YES' then
-            if skill.ClassName ~= "Centurion_SpecialForceFormation" then
-                basicCoolDown = basicCoolDown * 0.5;
-            end
-        end
-    end
-    -----------------
-    --Mon_Buff--
-    local monCoolDownRate = GetExProp(pc, "MON_COOLDOWN_RATE")
-    if monCoolDownRate ~= 0 then
-        if monCoolDownRate <= -0.9 then
-            monCoolDownRate = -0.9
-        end
-        basicCoolDown = basicCoolDown + (basicCoolDown * monCoolDownRate)
-    end
+    basicCoolDown = SCR_COMMON_COOLDOWN_DECREASE(pc, basicCoolDown)
     
     local ret = math.floor(basicCoolDown) / 1000
     
@@ -939,38 +783,7 @@ function SCR_GET_SKL_CoolDown_BackSlide(skill)
         end
     end
     
-    local laimaCoolTime = GetExProp(pc, "LAIMA_BUFF_COOLDOWN")
-    if laimaCoolTime ~= 0 then
-        basicCoolDown = basicCoolDown * (1 - laimaCoolTime)
-    elseif IsBuffApplied(pc, 'CarveLaima_Debuff') == 'YES' then
-        basicCoolDown = basicCoolDown * 1.2;
-    end
-    
-    --burning_event
-    if IsBuffApplied(pc, "Event_Cooldown_SPamount_Decrease") == "YES" then
-        basicCoolDown = SCR_COOLDOWN_SPAMOUNT_DECREASE(pc, "CoolDown", basicCoolDown)
-    elseif IsBuffApplied(pc, "FIELD_COOLDOWNREDUCE_BUFF") == "YES" or IsBuffApplied(pc, "FIELD_DEFAULTCOOLDOWN_BUFF") == "YES" or IsBuffApplied(pc, "FIELD_COOLDOWNREDUCE_MIN_BUFF") == "YES" then
-        basicCoolDown = SCR_FIELD_DUNGEON_CONSUME_DECREASE(pc, "CoolDown", basicCoolDown)
-    else
-        if IsBuffApplied(pc, 'GM_Cooldown_Buff') == 'YES' then
-            basicCoolDown = basicCoolDown * 0.9;
-        end
-        
-        if IsBuffApplied(pc, 'SpeForceFom_Buff') == 'YES' then
-            if skill.ClassName ~= "Centurion_SpecialForceFormation" then
-                basicCoolDown = basicCoolDown * 0.5;
-            end
-        end
-    end
-    ----------------
-    --Mon_Buff--
-    local monCoolDownRate = GetExProp(pc, "MON_COOLDOWN_RATE")
-    if monCoolDownRate ~= 0 then
-        if monCoolDownRate <= -0.9 then
-            monCoolDownRate = -0.9
-        end
-        basicCoolDown = basicCoolDown + (basicCoolDown * monCoolDownRate)
-    end
+    basicCoolDown = SCR_COMMON_COOLDOWN_DECREASE(pc, basicCoolDown)
     
     local ret = math.floor(basicCoolDown) / 1000
     ret = math.floor(ret) * 1000;
@@ -991,38 +804,7 @@ function SCR_GET_SKL_CoolDown_Prevent(skill)
         end
     end
     
-    local laimaCoolTime = GetExProp(pc, "LAIMA_BUFF_COOLDOWN")
-    if laimaCoolTime ~= 0 then
-        basicCoolDown = basicCoolDown * (1 - laimaCoolTime)
-    elseif IsBuffApplied(pc, 'CarveLaima_Debuff') == 'YES' then
-        basicCoolDown = basicCoolDown * 1.2;
-    end
-    
-    --burning_event
-    if IsBuffApplied(pc, "Event_Cooldown_SPamount_Decrease") == "YES" then
-        basicCoolDown = SCR_COOLDOWN_SPAMOUNT_DECREASE(pc, "CoolDown", basicCoolDown)
-    elseif IsBuffApplied(pc, "FIELD_COOLDOWNREDUCE_BUFF") == "YES" or IsBuffApplied(pc, "FIELD_DEFAULTCOOLDOWN_BUFF") == "YES" or IsBuffApplied(pc, "FIELD_COOLDOWNREDUCE_MIN_BUFF") == "YES" then
-        basicCoolDown = SCR_FIELD_DUNGEON_CONSUME_DECREASE(pc, "CoolDown", basicCoolDown)
-    else
-        if IsBuffApplied(pc, 'GM_Cooldown_Buff') == 'YES' then
-            basicCoolDown = basicCoolDown * 0.9;
-        end
-        
-        if IsBuffApplied(pc, 'SpeForceFom_Buff') == 'YES' then
-            if skill.ClassName ~= "Centurion_SpecialForceFormation" then
-                basicCoolDown = basicCoolDown * 0.5;
-            end
-        end
-    end
-    ------------
-    --Mon_Buff--
-    local monCoolDownRate = GetExProp(pc, "MON_COOLDOWN_RATE")
-    if monCoolDownRate ~= 0 then
-        if monCoolDownRate <= -0.9 then
-            monCoolDownRate = -0.9
-        end
-        basicCoolDown = basicCoolDown + (basicCoolDown * monCoolDownRate)
-    end
+    basicCoolDown = SCR_COMMON_COOLDOWN_DECREASE(pc, basicCoolDown)
     
     local ret = math.floor(basicCoolDown) / 1000
     ret = math.floor(ret) * 1000;
@@ -1061,32 +843,7 @@ function SCR_GET_SKL_COOLDOWN_Golden_Bell_Shield(skill)
     
     basicCoolDown = basicCoolDown + abilAddCoolDown;
         
-    local laimaCoolTime = GetExProp(pc, "LAIMA_BUFF_COOLDOWN")
-    if laimaCoolTime ~= 0 then
-        basicCoolDown = basicCoolDown * (1 - laimaCoolTime)
-    elseif IsBuffApplied(pc, 'CarveLaima_Debuff') == 'YES' then
-        basicCoolDown = basicCoolDown * 1.2;
-    end
-    
-    --burning_event
-    if IsBuffApplied(pc, "Event_Cooldown_SPamount_Decrease") == "YES" then
-        basicCoolDown = SCR_COOLDOWN_SPAMOUNT_DECREASE(pc, "CoolDown", basicCoolDown)
-    elseif IsBuffApplied(pc, "FIELD_COOLDOWNREDUCE_BUFF") == "YES" or IsBuffApplied(pc, "FIELD_DEFAULTCOOLDOWN_BUFF") == "YES" or IsBuffApplied(pc, "FIELD_COOLDOWNREDUCE_MIN_BUFF") == "YES" then
-        basicCoolDown = SCR_FIELD_DUNGEON_CONSUME_DECREASE(pc, "CoolDown", basicCoolDown)
-    else
-        if IsBuffApplied(pc, 'GM_Cooldown_Buff') == 'YES' then
-            basicCoolDown = basicCoolDown * 0.9;
-        end
-    end
-    -----------------
-    --Mon_Buff--
-    local monCoolDownRate = GetExProp(pc, "MON_COOLDOWN_RATE")
-    if monCoolDownRate ~= 0 then
-        if monCoolDownRate <= -0.9 then
-            monCoolDownRate = -0.9
-        end
-        basicCoolDown = basicCoolDown + (basicCoolDown * monCoolDownRate)
-    end
+    basicCoolDown = SCR_COMMON_COOLDOWN_DECREASE(pc, basicCoolDown)
     
     if IsPVPServer(pc) == 1 then
         basicCoolDown = basicCoolDown + 10000;
@@ -1102,38 +859,7 @@ function SCR_GET_SKL_COOLDOWN_VisibleTalent(skill)
     local abilAddCoolDown = GetAbilityAddSpendValue(pc, skill.ClassName, "CoolDown");
     basicCoolDown = basicCoolDown + abilAddCoolDown  - ((skill.Level - 1) * 1000);
     
-    local laimaCoolTime = GetExProp(pc, "LAIMA_BUFF_COOLDOWN")
-    if laimaCoolTime ~= 0 then
-        basicCoolDown = basicCoolDown * (1 - laimaCoolTime)
-    elseif IsBuffApplied(pc, 'CarveLaima_Debuff') == 'YES' then
-        basicCoolDown = basicCoolDown * 1.2;
-    end
-    
-    --burning_event
-    if IsBuffApplied(pc, "Event_Cooldown_SPamount_Decrease") == "YES" then
-        basicCoolDown = SCR_COOLDOWN_SPAMOUNT_DECREASE(pc, "CoolDown", basicCoolDown)
-    elseif IsBuffApplied(pc, "FIELD_COOLDOWNREDUCE_BUFF") == "YES" or IsBuffApplied(pc, "FIELD_DEFAULTCOOLDOWN_BUFF") == "YES" or IsBuffApplied(pc, "FIELD_COOLDOWNREDUCE_MIN_BUFF") == "YES" then
-        basicCoolDown = SCR_FIELD_DUNGEON_CONSUME_DECREASE(pc, "CoolDown", basicCoolDown)
-    else
-        if IsBuffApplied(pc, 'GM_Cooldown_Buff') == 'YES' then
-            basicCoolDown = basicCoolDown * 0.9;
-        end
-        
-        if IsBuffApplied(pc, 'SpeForceFom_Buff') == 'YES' then
-            if skill.ClassName ~= "Centurion_SpecialForceFormation" then
-                basicCoolDown = basicCoolDown * 0.5;
-            end
-        end
-    end
-    ---------------
-    --Mon_Buff--
-    local monCoolDownRate = GetExProp(pc, "MON_COOLDOWN_RATE")
-    if monCoolDownRate ~= 0 then
-        if monCoolDownRate <= -0.9 then
-            monCoolDownRate = -0.9
-        end
-        basicCoolDown = basicCoolDown + (basicCoolDown * monCoolDownRate)
-    end
+    basicCoolDown = SCR_COMMON_COOLDOWN_DECREASE(pc, basicCoolDown)
     
     local ret = math.floor(basicCoolDown) / 1000
     
@@ -1149,38 +875,7 @@ function SCR_GET_SKL_COOLDOWN_Chronomancer_Stop(skill)
     local abilAddCoolDown = GetAbilityAddSpendValue(pc, skill.ClassName, "CoolDown");
     basicCoolDown = basicCoolDown + abilAddCoolDown  - ((skill.Level - 1) * 5000);
     
-    local laimaCoolTime = GetExProp(pc, "LAIMA_BUFF_COOLDOWN")
-    if laimaCoolTime ~= 0 then
-        basicCoolDown = basicCoolDown * (1 - laimaCoolTime)
-    elseif IsBuffApplied(pc, 'CarveLaima_Debuff') == 'YES' then
-        basicCoolDown = basicCoolDown * 1.2;
-    end
-    
-    --burning_event
-    if IsBuffApplied(pc, "Event_Cooldown_SPamount_Decrease") == "YES" then
-        basicCoolDown = SCR_COOLDOWN_SPAMOUNT_DECREASE(pc, "CoolDown", basicCoolDown)
-    elseif IsBuffApplied(pc, "FIELD_COOLDOWNREDUCE_BUFF") == "YES" or IsBuffApplied(pc, "FIELD_DEFAULTCOOLDOWN_BUFF") == "YES" or IsBuffApplied(pc, "FIELD_COOLDOWNREDUCE_MIN_BUFF") == "YES" then
-        basicCoolDown = SCR_FIELD_DUNGEON_CONSUME_DECREASE(pc, "CoolDown", basicCoolDown)
-    else
-        if IsBuffApplied(pc, 'GM_Cooldown_Buff') == 'YES' then
-            basicCoolDown = basicCoolDown * 0.9;
-        end
-        
-        if IsBuffApplied(pc, 'SpeForceFom_Buff') == 'YES' then
-            if skill.ClassName ~= "Centurion_SpecialForceFormation" then
-                basicCoolDown = basicCoolDown * 0.5;
-            end
-        end
-    end
-    ----------------
-    --Mon_Buff--
-    local monCoolDownRate = GetExProp(pc, "MON_COOLDOWN_RATE")
-    if monCoolDownRate ~= 0 then
-        if monCoolDownRate <= -0.9 then
-            monCoolDownRate = -0.9
-        end
-        basicCoolDown = basicCoolDown + (basicCoolDown * monCoolDownRate)
-    end
+    basicCoolDown = SCR_COMMON_COOLDOWN_DECREASE(pc, basicCoolDown)
     
     local ret = math.floor(basicCoolDown) / 1000
     
@@ -1219,32 +914,7 @@ function SCR_GET_SKL_COOLDOWN_WIZARD(skill)
     
     basicCoolDown = basicCoolDown + abilAddCoolDown;
     
-    local laimaCoolTime = GetExProp(pc, "LAIMA_BUFF_COOLDOWN")
-    if laimaCoolTime ~= 0 then
-        basicCoolDown = basicCoolDown * (1 - laimaCoolTime)
-    elseif IsBuffApplied(pc, 'CarveLaima_Debuff') == 'YES' then
-        basicCoolDown = basicCoolDown * 1.2;
-    end
-    
-    --burning_event
-    if IsBuffApplied(pc, "Event_Cooldown_SPamount_Decrease") == "YES" then
-        basicCoolDown = SCR_COOLDOWN_SPAMOUNT_DECREASE(pc, "CoolDown", basicCoolDown)
-    elseif IsBuffApplied(pc, "FIELD_COOLDOWNREDUCE_BUFF") == "YES" or IsBuffApplied(pc, "FIELD_DEFAULTCOOLDOWN_BUFF") == "YES" or IsBuffApplied(pc, "FIELD_COOLDOWNREDUCE_MIN_BUFF") == "YES" then
-        basicCoolDown = SCR_FIELD_DUNGEON_CONSUME_DECREASE(pc, "CoolDown", basicCoolDown)
-    else
-        if IsBuffApplied(pc, 'GM_Cooldown_Buff') == 'YES' then
-            basicCoolDown = basicCoolDown * 0.9;
-        end
-    end
-    ------------
-    --Mon_Buff--
-    local monCoolDownRate = GetExProp(pc, "MON_COOLDOWN_RATE")
-    if monCoolDownRate ~= 0 then
-        if monCoolDownRate <= -0.9 then
-            monCoolDownRate = -0.9
-        end
-        basicCoolDown = basicCoolDown + (basicCoolDown * monCoolDownRate)
-    end
+    basicCoolDown = SCR_COMMON_COOLDOWN_DECREASE(pc, basicCoolDown)
     
     if basicCoolDown < skill.MinCoolDown then
         return skill.MinCoolDown;
@@ -1266,33 +936,7 @@ function SCR_GET_SKL_COOLDOWN_Teleportation(skill)
     local abilAddCoolDown = GetAbilityAddSpendValue(pc, skill.ClassName, "CoolDown");
     
     basicCoolDown = (basicCoolDown - (TryGetProp(skill, "Level", 0) - 1) * 1000) + abilAddCoolDown;
-    
-    local laimaCoolTime = GetExProp(pc, "LAIMA_BUFF_COOLDOWN")
-    if laimaCoolTime ~= 0 then
-        basicCoolDown = basicCoolDown * (1 - laimaCoolTime)
-    elseif IsBuffApplied(pc, 'CarveLaima_Debuff') == 'YES' then
-        basicCoolDown = basicCoolDown * 1.2;
-    end
-    
-    --burning_event
-    if IsBuffApplied(pc, "Event_Cooldown_SPamount_Decrease") == "YES" then
-        basicCoolDown = SCR_COOLDOWN_SPAMOUNT_DECREASE(pc, "CoolDown", basicCoolDown)
-    elseif IsBuffApplied(pc, "FIELD_COOLDOWNREDUCE_BUFF") == "YES" or IsBuffApplied(pc, "FIELD_DEFAULTCOOLDOWN_BUFF") == "YES" or IsBuffApplied(pc, "FIELD_COOLDOWNREDUCE_MIN_BUFF") == "YES" then
-        basicCoolDown = SCR_FIELD_DUNGEON_CONSUME_DECREASE(pc, "CoolDown", basicCoolDown)
-    else
-        if IsBuffApplied(pc, 'GM_Cooldown_Buff') == 'YES' then
-            basicCoolDown = basicCoolDown * 0.9;
-        end
-    end
-    ------------
-    --Mon_Buff--
-    local monCoolDownRate = GetExProp(pc, "MON_COOLDOWN_RATE")
-    if monCoolDownRate ~= 0 then
-        if monCoolDownRate <= -0.9 then
-            monCoolDownRate = -0.9
-        end
-        basicCoolDown = basicCoolDown + (basicCoolDown * monCoolDownRate)
-    end
+    basicCoolDown = SCR_COMMON_COOLDOWN_DECREASE(pc, basicCoolDown)
     
     if basicCoolDown < skill.MinCoolDown then
         return skill.MinCoolDown;
@@ -1315,32 +959,7 @@ function SCR_GET_SKL_COOLDOWN_SummonFamiliar(skill)
     
     basicCoolDown = basicCoolDown + abilAddCoolDown;
     
-    local laimaCoolTime = GetExProp(pc, "LAIMA_BUFF_COOLDOWN")
-    if laimaCoolTime ~= 0 then
-        basicCoolDown = basicCoolDown * (1 - laimaCoolTime)
-    elseif IsBuffApplied(pc, 'CarveLaima_Debuff') == 'YES' then
-        basicCoolDown = basicCoolDown * 1.2;
-    end
-    
-    --burning_event
-    if IsBuffApplied(pc, "Event_Cooldown_SPamount_Decrease") == "YES" then
-        basicCoolDown = SCR_COOLDOWN_SPAMOUNT_DECREASE(pc, "CoolDown", basicCoolDown)
-    elseif IsBuffApplied(pc, "FIELD_COOLDOWNREDUCE_BUFF") == "YES" or IsBuffApplied(pc, "FIELD_DEFAULTCOOLDOWN_BUFF") == "YES" or IsBuffApplied(pc, "FIELD_COOLDOWNREDUCE_MIN_BUFF") == "YES" then
-        basicCoolDown = SCR_FIELD_DUNGEON_CONSUME_DECREASE(pc, "CoolDown", basicCoolDown)
-    else
-        if IsBuffApplied(pc, 'GM_Cooldown_Buff') == 'YES' then
-            basicCoolDown = basicCoolDown * 0.9;
-        end
-    end
-    -----------
-    --Mon_Buff--
-    local monCoolDownRate = GetExProp(pc, "MON_COOLDOWN_RATE")
-    if monCoolDownRate ~= 0 then
-        if monCoolDownRate <= -0.9 then
-            monCoolDownRate = -0.9
-        end
-        basicCoolDown = basicCoolDown + (basicCoolDown * monCoolDownRate)
-    end
+    basicCoolDown = SCR_COMMON_COOLDOWN_DECREASE(pc, basicCoolDown)
     
     if basicCoolDown < skill.MinCoolDown then
         return skill.MinCoolDown;
@@ -1359,38 +978,7 @@ function SCR_GET_SKL_COOLDOWN_Bloodletting(skill)
     
     basicCoolDown = basicCoolDown + abilAddCoolDown;
         
-    local laimaCoolTime = GetExProp(pc, "LAIMA_BUFF_COOLDOWN")
-    if laimaCoolTime ~= 0 then
-        basicCoolDown = basicCoolDown * (1 - laimaCoolTime)
-    elseif IsBuffApplied(pc, 'CarveLaima_Debuff') == 'YES' then
-        basicCoolDown = basicCoolDown * 1.2;
-    end
-    
-    --burning_event
-    if IsBuffApplied(pc, "Event_Cooldown_SPamount_Decrease") == "YES" then
-        basicCoolDown = SCR_COOLDOWN_SPAMOUNT_DECREASE(pc, "CoolDown", basicCoolDown)
-    elseif IsBuffApplied(pc, "FIELD_COOLDOWNREDUCE_BUFF") == "YES" or IsBuffApplied(pc, "FIELD_DEFAULTCOOLDOWN_BUFF") == "YES" or IsBuffApplied(pc, "FIELD_COOLDOWNREDUCE_MIN_BUFF") == "YES" then
-        basicCoolDown = SCR_FIELD_DUNGEON_CONSUME_DECREASE(pc, "CoolDown", basicCoolDown)
-    else
-        if IsBuffApplied(pc, 'GM_Cooldown_Buff') == 'YES' then
-            basicCoolDown = basicCoolDown * 0.9;
-        end
-        
-        if IsBuffApplied(pc, 'SpeForceFom_Buff') == 'YES' then
-            if skill.ClassName ~= "Centurion_SpecialForceFormation" then
-                basicCoolDown = basicCoolDown * 0.5;
-            end
-        end
-    end
-    -------------
-    --Mon_Buff--
-    local monCoolDownRate = GetExProp(pc, "MON_COOLDOWN_RATE")
-    if monCoolDownRate ~= 0 then
-        if monCoolDownRate <= -0.9 then
-            monCoolDownRate = -0.9
-        end
-        basicCoolDown = basicCoolDown + (basicCoolDown * monCoolDownRate)
-    end
+    basicCoolDown = SCR_COMMON_COOLDOWN_DECREASE(pc, basicCoolDown)
     
     if IsPVPServer(pc) == 1 then
         basicCoolDown = basicCoolDown + 20000;
@@ -1408,38 +996,7 @@ function SCR_GET_SKL_COOLDOWN_HealingFactor(skill)
     
     basicCoolDown = basicCoolDown + abilAddCoolDown;
         
-    local laimaCoolTime = GetExProp(pc, "LAIMA_BUFF_COOLDOWN")
-    if laimaCoolTime ~= 0 then
-        basicCoolDown = basicCoolDown * (1 - laimaCoolTime)
-    elseif IsBuffApplied(pc, 'CarveLaima_Debuff') == 'YES' then
-        basicCoolDown = basicCoolDown * 1.2;
-    end
-
-    --burning_event
-    if IsBuffApplied(pc, "Event_Cooldown_SPamount_Decrease") == "YES" then
-        basicCoolDown = SCR_COOLDOWN_SPAMOUNT_DECREASE(pc, "CoolDown", basicCoolDown)
-    elseif IsBuffApplied(pc, "FIELD_COOLDOWNREDUCE_BUFF") == "YES" or IsBuffApplied(pc, "FIELD_DEFAULTCOOLDOWN_BUFF") == "YES" or IsBuffApplied(pc, "FIELD_COOLDOWNREDUCE_MIN_BUFF") == "YES" then
-        basicCoolDown = SCR_FIELD_DUNGEON_CONSUME_DECREASE(pc, "CoolDown", basicCoolDown)
-    else
-        if IsBuffApplied(pc, 'GM_Cooldown_Buff') == 'YES' then
-            basicCoolDown = basicCoolDown * 0.9;
-        end
-        
-        if IsBuffApplied(pc, 'SpeForceFom_Buff') == 'YES' then
-            if skill.ClassName ~= "Centurion_SpecialForceFormation" then
-                basicCoolDown = basicCoolDown * 0.5;
-            end
-        end
-    end
-    ------------
-    --Mon_Buff--
-    local monCoolDownRate = GetExProp(pc, "MON_COOLDOWN_RATE")
-    if monCoolDownRate ~= 0 then
-        if monCoolDownRate <= -0.9 then
-            monCoolDownRate = -0.9
-        end
-        basicCoolDown = basicCoolDown + (basicCoolDown * monCoolDownRate)
-    end
+    basicCoolDown = SCR_COMMON_COOLDOWN_DECREASE(pc, basicCoolDown)
     
     if IsPVPServer(pc) == 1 then
         basicCoolDown = basicCoolDown + 20000;
@@ -1457,32 +1014,7 @@ function SCR_GET_SKL_COOLDOWN_GravityPole(skill)
     
     basicCoolDown = basicCoolDown + abilAddCoolDown;
         
-    local laimaCoolTime = GetExProp(pc, "LAIMA_BUFF_COOLDOWN")
-    if laimaCoolTime ~= 0 then
-        basicCoolDown = basicCoolDown * (1 - laimaCoolTime)
-    elseif IsBuffApplied(pc, 'CarveLaima_Debuff') == 'YES' then
-        basicCoolDown = basicCoolDown * 1.2;
-    end
-    
-    --burning_event
-    if IsBuffApplied(pc, "Event_Cooldown_SPamount_Decrease") == "YES" then
-        basicCoolDown = SCR_COOLDOWN_SPAMOUNT_DECREASE(pc, "CoolDown", basicCoolDown)
-    elseif IsBuffApplied(pc, "FIELD_COOLDOWNREDUCE_BUFF") == "YES" or IsBuffApplied(pc, "FIELD_DEFAULTCOOLDOWN_BUFF") == "YES" or IsBuffApplied(pc, "FIELD_COOLDOWNREDUCE_MIN_BUFF") == "YES" then
-        basicCoolDown = SCR_FIELD_DUNGEON_CONSUME_DECREASE(pc, "CoolDown", basicCoolDown)
-    else
-        if IsBuffApplied(pc, 'GM_Cooldown_Buff') == 'YES' then
-            basicCoolDown = basicCoolDown * 0.9;
-        end
-    end
-    ----------
-    --Mon_Buff--
-    local monCoolDownRate = GetExProp(pc, "MON_COOLDOWN_RATE")
-    if monCoolDownRate ~= 0 then
-        if monCoolDownRate <= -0.9 then
-            monCoolDownRate = -0.9
-        end
-        basicCoolDown = basicCoolDown + (basicCoolDown * monCoolDownRate)
-    end
+    basicCoolDown = SCR_COMMON_COOLDOWN_DECREASE(pc, basicCoolDown)
     
     if IsPVPServer(pc) == 1 then
         basicCoolDown = basicCoolDown + 15000;
@@ -3161,38 +2693,7 @@ function SCR_GET_SKL_COOLDOWN_MortalSlash(skill)
         end
     end
     
-    local laimaCoolTime = GetExProp(pc, "LAIMA_BUFF_COOLDOWN")
-    if laimaCoolTime ~= 0 then
-        basicCoolDown = basicCoolDown * (1 - laimaCoolTime)
-    elseif IsBuffApplied(pc, 'CarveLaima_Debuff') == 'YES' then
-        basicCoolDown = basicCoolDown * 1.2;
-    end
-    
-    --burning_event
-    if IsBuffApplied(pc, "Event_Cooldown_SPamount_Decrease") == "YES" then
-        basicCoolDown = SCR_COOLDOWN_SPAMOUNT_DECREASE(pc, "CoolDown", basicCoolDown)
-    elseif IsBuffApplied(pc, "FIELD_COOLDOWNREDUCE_BUFF") == "YES" or IsBuffApplied(pc, "FIELD_DEFAULTCOOLDOWN_BUFF") == "YES" or IsBuffApplied(pc, "FIELD_COOLDOWNREDUCE_MIN_BUFF") == "YES" then
-        basicCoolDown = SCR_FIELD_DUNGEON_CONSUME_DECREASE(pc, "CoolDown", basicCoolDown)
-    else
-        if IsBuffApplied(pc, 'GM_Cooldown_Buff') == 'YES' then
-            basicCoolDown = basicCoolDown * 0.9;
-        end
-        
-        if IsBuffApplied(pc, 'SpeForceFom_Buff') == 'YES' then
-            if skill.ClassName ~= "Centurion_SpecialForceFormation" then
-                basicCoolDown = basicCoolDown * 0.5;
-            end
-        end
-    end
-    ----------
-    --Mon_Buff--
-    local monCoolDownRate = GetExProp(pc, "MON_COOLDOWN_RATE")
-    if monCoolDownRate ~= 0 then
-        if monCoolDownRate <= -0.9 then
-            monCoolDownRate = -0.9
-        end
-        basicCoolDown = basicCoolDown + (basicCoolDown * monCoolDownRate)
-    end
+    basicCoolDown = SCR_COMMON_COOLDOWN_DECREASE(pc, basicCoolDown)
     
     if IsBuffApplied(pc, "Bunshin_Debuff") == "YES" then
         local bunshinBuff = nil
@@ -4379,38 +3880,7 @@ function SCR_GET_SKL_COOLDOWN_CannonBarrage(skill)
         basicCoolDown = basicCoolDown * abilCoolDownRate;
     end
     
-    local laimaCoolTime = GetExProp(pc, "LAIMA_BUFF_COOLDOWN")
-    if laimaCoolTime ~= 0 then
-        basicCoolDown = basicCoolDown * (1 - laimaCoolTime)
-    elseif IsBuffApplied(pc, 'CarveLaima_Debuff') == 'YES' then
-        basicCoolDown = basicCoolDown * 1.2;
-    end
-    
-    --burning_event
-    if IsBuffApplied(pc, "Event_Cooldown_SPamount_Decrease") == "YES" then
-        basicCoolDown = SCR_COOLDOWN_SPAMOUNT_DECREASE(pc, "CoolDown", basicCoolDown)
-    elseif IsBuffApplied(pc, "FIELD_COOLDOWNREDUCE_BUFF") == "YES" or IsBuffApplied(pc, "FIELD_DEFAULTCOOLDOWN_BUFF") == "YES" or IsBuffApplied(pc, "FIELD_COOLDOWNREDUCE_MIN_BUFF") == "YES" then
-        basicCoolDown = SCR_FIELD_DUNGEON_CONSUME_DECREASE(pc, "CoolDown", basicCoolDown)
-    else
-        if IsBuffApplied(pc, 'GM_Cooldown_Buff') == 'YES' then
-            basicCoolDown = basicCoolDown * 0.9;
-        end
-        
-        if IsBuffApplied(pc, 'SpeForceFom_Buff') == 'YES' then
-            if skill.ClassName ~= "Centurion_SpecialForceFormation" then
-                basicCoolDown = basicCoolDown * 0.5;
-            end
-        end
-    end
-    ----------
-    --Mon_Buff--
-    local monCoolDownRate = GetExProp(pc, "MON_COOLDOWN_RATE")
-    if monCoolDownRate ~= 0 then
-        if monCoolDownRate <= -0.9 then
-            monCoolDownRate = -0.9
-        end
-        basicCoolDown = basicCoolDown + (basicCoolDown * monCoolDownRate)
-    end
+    basicCoolDown = SCR_COMMON_COOLDOWN_DECREASE(pc, basicCoolDown)
 
     local ret = math.floor(basicCoolDown) / 1000
     ret = math.floor(ret) * 1000;   
@@ -11969,43 +11439,38 @@ function SCR_GET_Kraujas_Ratio(skill)
     return value;
 end
 
+-- 리쿠마
 function SCR_GET_Rykuma_Ratio(skill)
     local pc = GetSkillOwner(skill);
-    local value = 20
-    if pc ~= nil then
-        local isDragonPower = GetExProp(pc, 'ITEM_DRAGON_POWER')
-        if tonumber(isDragonPower) >= 1 then
-            value = 30
+    local value = 25
+    if pc ~= nil then        
+        if HAS_DRAGON_POWER(pc) == true then
+            value = 50
         end  
     end
     
     return value;
 end
 
+-- 앱사우가 - 지속시간
 function SCR_GET_Apsauga_Ratio(skill)
     local pc = GetSkillOwner(skill);
-    local value = 25
-    if pc ~= nil then
-        local isDragonPower = GetExProp(pc, 'ITEM_DRAGON_POWER')
-        if tonumber(isDragonPower) >= 1 then
-            value = value + 25
+    local value = 30
+    if pc ~= nil then        
+        if HAS_DRAGON_POWER(pc) == true then
+            value = value + 30
         end  
     end
     
     return value;
 end
 
-function SCR_GET_Bendrinti_Time(skill)
-    local value = 30
-    return value;
-end
-
-function SCR_GET_Bendrinti_Ratio(skill)
+-- 코르프
+function SCR_GET_Korup_Ratio(skill)
     local pc = GetSkillOwner(skill);
-    local value = 25
-    if pc ~= nil then
-        local isDragonPower = GetExProp(pc, 'ITEM_DRAGON_POWER')
-        if tonumber(isDragonPower) >= 1 then
+    local value = 15
+    if pc ~= nil then        
+        if HAS_DRAGON_POWER(pc) == true then
             value = value + 15
         end  
     end
@@ -12013,6 +11478,25 @@ function SCR_GET_Bendrinti_Ratio(skill)
     return value;
 end
 
+-- 밴드린티
+function SCR_GET_Bendrinti_Time(skill)
+    local pc = GetSkillOwner(skill);
+    local value = 30
+    if pc ~= nil then        
+        if HAS_DRAGON_POWER(pc) == true then
+            value = value + 20
+        end  
+    end
+    return value;
+end
+
+-- 밴드린티
+function SCR_GET_Bendrinti_Ratio(skill)    
+    local value = 35
+    return value;
+end
+
+-- 가드마
 function SCR_GET_Goduma_Ratio(skill)
     local pc = GetSkillOwner(skill)
     local casterMHP = TryGetProp(pc, "MHP", 0) - TryGetProp(pc, "MHP_BM", 0)
@@ -12021,22 +11505,87 @@ function SCR_GET_Goduma_Ratio(skill)
     return value
 end
 
-function SCR_GET_Gymas_Ratio(skill)
-    local pc = GetSkillOwner(skill);
-    local value = 25
-    if pc ~= nil then
-        local isDragonPower = GetExProp(pc, 'ITEM_DRAGON_POWER')
-        if tonumber(isDragonPower) >= 1 then
-            value = value + 25
+function SCR_GET_Goduma_Ratio2(skill)
+    local pc = GetSkillOwner(skill)
+    local value = 0.5
+    if pc ~= nil then        
+        if HAS_DRAGON_POWER(pc) == true then
+            value = 1
         end  
     end
     
+    return value
+end
+
+-- 기마스
+function SCR_GET_Gymas_Ratio(skill)
+    local pc = GetSkillOwner(skill);
+    local value = 50
     return value;
 end
 
-function SCR_GET_Smugis_Ratio(skill)
+-- 기마스
+function SCR_GET_Gymas_Ratio2(skill)    
+    local pc = GetSkillOwner(skill)
     local value = 20
+
+    if pc ~= nil then        
+        if HAS_DRAGON_POWER(pc) == true then
+            value = 40
+        end  
+    end
+
+    return value
+end
+
+-- 스무지
+function SCR_GET_Smugis_Ratio(skill)
+    local value = 25
+    local pc = GetSkillOwner(skill)
+    if pc ~= nil then        
+        if HAS_DRAGON_POWER(pc) == true then
+            value = value * 2
+        end  
+    end
+
     return value;
+end
+
+-- 앱크로바
+function SCR_GET_apkrova_Ratio(skill)
+    local value = 10
+    local pc = GetSkillOwner(skill)
+    if pc ~= nil then        
+        if HAS_DRAGON_POWER(pc) == true then
+            value = 20
+        end  
+    end
+
+    return value;
+end
+
+-- 아트갈
+function SCR_GET_Atagal_Ratio(skill)
+    local value = 100
+    local pc = GetSkillOwner(skill)
+    if pc ~= nil then        
+        if HAS_DRAGON_POWER(pc) == true then
+            value = 200
+        end  
+    end
+    return value
+end
+
+-- 리리스
+function SCR_GET_Liris_Ratio(skill)
+    local value = 30
+    local pc = GetSkillOwner(skill)
+    if pc ~= nil then        
+        if HAS_DRAGON_POWER(pc) == true then
+            value = 60
+        end  
+    end
+    return value
 end
 
 function SCR_GET_LatentVenom_Ratio(skill)
@@ -12638,32 +12187,7 @@ function SCR_GET_SKL_COOLDOWN_Preparation(skill)
     
     basicCoolDown = basicCoolDown + abilAddCoolDown;
         
-    local laimaCoolTime = GetExProp(pc, "LAIMA_BUFF_COOLDOWN")
-    if laimaCoolTime ~= 0 then
-        basicCoolDown = basicCoolDown * (1 - laimaCoolTime)
-    elseif IsBuffApplied(pc, 'CarveLaima_Debuff') == 'YES' then
-        basicCoolDown = basicCoolDown * 1.2;
-    end
-    
-    --burning_event
-    if IsBuffApplied(pc, "Event_Cooldown_SPamount_Decrease") == "YES" then
-        basicCoolDown = SCR_COOLDOWN_SPAMOUNT_DECREASE(pc, "CoolDown", basicCoolDown)
-    elseif IsBuffApplied(pc, "FIELD_COOLDOWNREDUCE_BUFF") == "YES" or IsBuffApplied(pc, "FIELD_DEFAULTCOOLDOWN_BUFF") == "YES" or IsBuffApplied(pc, "FIELD_COOLDOWNREDUCE_MIN_BUFF") == "YES" then
-        basicCoolDown = SCR_FIELD_DUNGEON_CONSUME_DECREASE(pc, "CoolDown", basicCoolDown)
-    else
-        if IsBuffApplied(pc, 'GM_Cooldown_Buff') == 'YES' then
-            basicCoolDown = basicCoolDown * 0.9;
-        end
-    end
-    --------------
-    --Mon_Buff--
-    local monCoolDownRate = GetExProp(pc, "MON_COOLDOWN_RATE")
-    if monCoolDownRate ~= 0 then
-        if monCoolDownRate <= -0.9 then
-            monCoolDownRate = -0.9
-        end
-        basicCoolDown = basicCoolDown + (basicCoolDown * monCoolDownRate)
-    end
+    basicCoolDown = SCR_COMMON_COOLDOWN_DECREASE(pc, basicCoolDown)
     
     return math.floor(basicCoolDown);
 end
@@ -12675,32 +12199,7 @@ function SCR_GET_SKL_COOLDOWN_KnifeThrowing(skill)
     
     basicCoolDown = basicCoolDown + abilAddCoolDown;
         
-    local laimaCoolTime = GetExProp(pc, "LAIMA_BUFF_COOLDOWN")
-    if laimaCoolTime ~= 0 then
-        basicCoolDown = basicCoolDown * (1 - laimaCoolTime)
-    elseif IsBuffApplied(pc, 'CarveLaima_Debuff') == 'YES' then
-        basicCoolDown = basicCoolDown * 1.2;
-    end
-    
-    --burning_event
-    if IsBuffApplied(pc, "Event_Cooldown_SPamount_Decrease") == "YES" then
-        basicCoolDown = SCR_COOLDOWN_SPAMOUNT_DECREASE(pc, "CoolDown", basicCoolDown)
-    elseif IsBuffApplied(pc, "FIELD_COOLDOWNREDUCE_BUFF") == "YES" or IsBuffApplied(pc, "FIELD_DEFAULTCOOLDOWN_BUFF") == "YES" or IsBuffApplied(pc, "FIELD_COOLDOWNREDUCE_MIN_BUFF") == "YES" then
-        basicCoolDown = SCR_FIELD_DUNGEON_CONSUME_DECREASE(pc, "CoolDown", basicCoolDown)
-    else
-        if IsBuffApplied(pc, 'GM_Cooldown_Buff') == 'YES' then
-            basicCoolDown = basicCoolDown * 0.9;
-        end
-    end
-    ---------------
-    --Mon_Buff--
-    local monCoolDownRate = GetExProp(pc, "MON_COOLDOWN_RATE")
-    if monCoolDownRate ~= 0 then
-        if monCoolDownRate <= -0.9 then
-            monCoolDownRate = -0.9
-        end
-        basicCoolDown = basicCoolDown + (basicCoolDown * monCoolDownRate)
-    end
+    basicCoolDown = SCR_COMMON_COOLDOWN_DECREASE(pc, basicCoolDown)
     
 
     return math.floor(basicCoolDown);
@@ -13178,38 +12677,7 @@ function SCR_GET_SKL_COOLDOWN_ControlBlade(skill)
         end
     end
     
-    local laimaCoolTime = GetExProp(pc, "LAIMA_BUFF_COOLDOWN")
-    if laimaCoolTime ~= 0 then
-        basicCoolDown = basicCoolDown * (1 - laimaCoolTime)
-    elseif IsBuffApplied(pc, 'CarveLaima_Debuff') == 'YES' then
-        basicCoolDown = basicCoolDown * 1.2;
-    end
-    
-    --burning_event
-    if IsBuffApplied(pc, "Event_Cooldown_SPamount_Decrease") == "YES" then
-        basicCoolDown = SCR_COOLDOWN_SPAMOUNT_DECREASE(pc, "CoolDown", basicCoolDown)
-    elseif IsBuffApplied(pc, "FIELD_COOLDOWNREDUCE_BUFF") == "YES" or IsBuffApplied(pc, "FIELD_DEFAULTCOOLDOWN_BUFF") == "YES" or IsBuffApplied(pc, "FIELD_COOLDOWNREDUCE_MIN_BUFF") == "YES" then
-        basicCoolDown = SCR_FIELD_DUNGEON_CONSUME_DECREASE(pc, "CoolDown", basicCoolDown)
-    else
-        if IsBuffApplied(pc, 'GM_Cooldown_Buff') == 'YES' then
-            basicCoolDown = basicCoolDown * 0.9;
-        end
-        
-        if IsBuffApplied(pc, 'SpeForceFom_Buff') == 'YES' then
-            if skill.ClassName ~= "Centurion_SpecialForceFormation" then
-                basicCoolDown = basicCoolDown * 0.5;
-            end
-        end
-    end
-    ---------------
-    --Mon_Buff--
-    local monCoolDownRate = GetExProp(pc, "MON_COOLDOWN_RATE")
-    if monCoolDownRate ~= 0 then
-        if monCoolDownRate <= -0.9 then
-            monCoolDownRate = -0.9
-        end
-        basicCoolDown = basicCoolDown + (basicCoolDown * monCoolDownRate)
-    end
+    basicCoolDown = SCR_COMMON_COOLDOWN_DECREASE(pc, basicCoolDown)
     
     
     local ret = math.floor(basicCoolDown) / 1000
@@ -13373,38 +12841,7 @@ function SCR_GET_SKL_COOLDOWN_SeptEtoiles(skill)
         end
     end
 
-    local laimaCoolTime = GetExProp(pc, "LAIMA_BUFF_COOLDOWN")
-    if laimaCoolTime > 0 then
-        basicCoolDown = basicCoolDown * (1 - laimaCoolTime)
-    elseif IsBuffApplied(pc, 'CarveLaima_Debuff') == 'YES' then
-        basicCoolDown = basicCoolDown * 1.2;
-    end
-    
-    --burning_event
-    if IsBuffApplied(pc, "Event_Cooldown_SPamount_Decrease") == "YES" then
-        basicCoolDown = SCR_COOLDOWN_SPAMOUNT_DECREASE(pc, "CoolDown", basicCoolDown)
-    elseif IsBuffApplied(pc, "FIELD_COOLDOWNREDUCE_BUFF") == "YES" or IsBuffApplied(pc, "FIELD_DEFAULTCOOLDOWN_BUFF") == "YES" or IsBuffApplied(pc, "FIELD_COOLDOWNREDUCE_MIN_BUFF") == "YES" then
-        basicCoolDown = SCR_FIELD_DUNGEON_CONSUME_DECREASE(pc, "CoolDown", basicCoolDown)
-    else
-        if IsBuffApplied(pc, 'GM_Cooldown_Buff') == 'YES' then
-            basicCoolDown = basicCoolDown * 0.9;
-        end
-        
-        if IsBuffApplied(pc, 'SpeForceFom_Buff') == 'YES' then
-            if skill.ClassName ~= "Centurion_SpecialForceFormation" then
-                basicCoolDown = basicCoolDown * 0.5;
-            end
-        end
-    end
-    -----------
-    --Mon_Buff--
-    local monCoolDownRate = GetExProp(pc, "MON_COOLDOWN_RATE")
-    if monCoolDownRate ~= 0 then
-        if monCoolDownRate <= -0.9 then
-            monCoolDownRate = -0.9
-        end
-        basicCoolDown = basicCoolDown + (basicCoolDown * monCoolDownRate)
-    end
+    basicCoolDown = SCR_COMMON_COOLDOWN_DECREASE(pc, basicCoolDown)
     
     local ret = math.floor(basicCoolDown) / 1000
     ret = math.floor(ret) * 1000;
@@ -13449,38 +12886,7 @@ function SCR_GET_SKL_COOLDOWN_Fleche(skill)
         end
     end
 
-    local laimaCoolTime = GetExProp(pc, "LAIMA_BUFF_COOLDOWN")
-    if laimaCoolTime > 0 then
-        basicCoolDown = basicCoolDown * (1 - laimaCoolTime)
-    elseif IsBuffApplied(pc, 'CarveLaima_Debuff') == 'YES' then
-        basicCoolDown = basicCoolDown * 1.2;
-    end
-    
-    --burning_event
-    if IsBuffApplied(pc, "Event_Cooldown_SPamount_Decrease") == "YES" then
-        basicCoolDown = SCR_COOLDOWN_SPAMOUNT_DECREASE(pc, "CoolDown", basicCoolDown)
-    elseif IsBuffApplied(pc, "FIELD_COOLDOWNREDUCE_BUFF") == "YES" or IsBuffApplied(pc, "FIELD_DEFAULTCOOLDOWN_BUFF") == "YES" or IsBuffApplied(pc, "FIELD_COOLDOWNREDUCE_MIN_BUFF") == "YES" then
-        basicCoolDown = SCR_FIELD_DUNGEON_CONSUME_DECREASE(pc, "CoolDown", basicCoolDown)
-    else
-        if IsBuffApplied(pc, 'GM_Cooldown_Buff') == 'YES' then
-            basicCoolDown = basicCoolDown * 0.9;
-        end
-        
-        if IsBuffApplied(pc, 'SpeForceFom_Buff') == 'YES' then
-            if skill.ClassName ~= "Centurion_SpecialForceFormation" then
-                basicCoolDown = basicCoolDown * 0.5;
-            end
-        end
-    end
-    -----------
-    --Mon_Buff--
-    local monCoolDownRate = GetExProp(pc, "MON_COOLDOWN_RATE")
-    if monCoolDownRate ~= 0 then
-        if monCoolDownRate <= -0.9 then
-            monCoolDownRate = -0.9
-        end
-        basicCoolDown = basicCoolDown + (basicCoolDown * monCoolDownRate)
-    end
+    basicCoolDown = SCR_COMMON_COOLDOWN_DECREASE(pc, basicCoolDown)
     
     local ret = math.floor(basicCoolDown) / 1000
     ret = math.floor(ret) * 1000;
@@ -13525,38 +12931,7 @@ function SCR_GET_SKL_COOLDOWN_HolySmash(skill)
         end
     end
 
-    local laimaCoolTime = GetExProp(pc, "LAIMA_BUFF_COOLDOWN")
-    if laimaCoolTime > 0 then
-        basicCoolDown = basicCoolDown * (1 - laimaCoolTime)
-    elseif IsBuffApplied(pc, 'CarveLaima_Debuff') == 'YES' then
-        basicCoolDown = basicCoolDown * 1.2;
-    end
-    
-    --burning_event
-    if IsBuffApplied(pc, "Event_Cooldown_SPamount_Decrease") == "YES" then
-        basicCoolDown = SCR_COOLDOWN_SPAMOUNT_DECREASE(pc, "CoolDown", basicCoolDown)
-    elseif IsBuffApplied(pc, "FIELD_COOLDOWNREDUCE_BUFF") == "YES" or IsBuffApplied(pc, "FIELD_DEFAULTCOOLDOWN_BUFF") == "YES" or IsBuffApplied(pc, "FIELD_COOLDOWNREDUCE_MIN_BUFF") == "YES" then
-        basicCoolDown = SCR_FIELD_DUNGEON_CONSUME_DECREASE(pc, "CoolDown", basicCoolDown)
-    else
-        if IsBuffApplied(pc, 'GM_Cooldown_Buff') == 'YES' then
-            basicCoolDown = basicCoolDown * 0.9;
-        end
-        
-        if IsBuffApplied(pc, 'SpeForceFom_Buff') == 'YES' then
-            if skill.ClassName ~= "Centurion_SpecialForceFormation" then
-                basicCoolDown = basicCoolDown * 0.5;
-            end
-        end
-    end
-    -----------
-    --Mon_Buff--
-    local monCoolDownRate = GetExProp(pc, "MON_COOLDOWN_RATE")
-    if monCoolDownRate ~= 0 then
-        if monCoolDownRate <= -0.9 then
-            monCoolDownRate = -0.9
-        end
-        basicCoolDown = basicCoolDown + (basicCoolDown * monCoolDownRate)
-    end
+    basicCoolDown = SCR_COMMON_COOLDOWN_DECREASE(pc, basicCoolDown)
     
     local ret = math.floor(basicCoolDown) / 1000
     ret = math.floor(ret) * 1000;
@@ -13601,38 +12976,7 @@ function SCR_GET_SKL_COOLDOWN_Condemn(skill)
         end
     end
 
-    local laimaCoolTime = GetExProp(pc, "LAIMA_BUFF_COOLDOWN")
-    if laimaCoolTime > 0 then
-        basicCoolDown = basicCoolDown * (1 - laimaCoolTime)
-    elseif IsBuffApplied(pc, 'CarveLaima_Debuff') == 'YES' then
-        basicCoolDown = basicCoolDown * 1.2;
-    end
-    
-    --burning_event
-    if IsBuffApplied(pc, "Event_Cooldown_SPamount_Decrease") == "YES" then
-        basicCoolDown = SCR_COOLDOWN_SPAMOUNT_DECREASE(pc, "CoolDown", basicCoolDown)
-    elseif IsBuffApplied(pc, "FIELD_COOLDOWNREDUCE_BUFF") == "YES" or IsBuffApplied(pc, "FIELD_DEFAULTCOOLDOWN_BUFF") == "YES" or IsBuffApplied(pc, "FIELD_COOLDOWNREDUCE_MIN_BUFF") == "YES" then
-        basicCoolDown = SCR_FIELD_DUNGEON_CONSUME_DECREASE(pc, "CoolDown", basicCoolDown)
-    else
-        if IsBuffApplied(pc, 'GM_Cooldown_Buff') == 'YES' then
-            basicCoolDown = basicCoolDown * 0.9;
-        end
-        
-        if IsBuffApplied(pc, 'SpeForceFom_Buff') == 'YES' then
-            if skill.ClassName ~= "Centurion_SpecialForceFormation" then
-                basicCoolDown = basicCoolDown * 0.5;
-            end
-        end
-    end
-    -----------
-    --Mon_Buff--
-    local monCoolDownRate = GetExProp(pc, "MON_COOLDOWN_RATE")
-    if monCoolDownRate ~= 0 then
-        if monCoolDownRate <= -0.9 then
-            monCoolDownRate = -0.9
-        end
-        basicCoolDown = basicCoolDown + (basicCoolDown * monCoolDownRate)
-    end
+    basicCoolDown = SCR_COMMON_COOLDOWN_DECREASE(pc, basicCoolDown)
     
     local ret = math.floor(basicCoolDown) / 1000
     ret = math.floor(ret) * 1000;
@@ -13676,38 +13020,7 @@ function SCR_GET_SKL_COOLDOWN_BlossomSlash(skill)
         end
     end
 
-    local laimaCoolTime = GetExProp(pc, "LAIMA_BUFF_COOLDOWN")
-    if laimaCoolTime > 0 then
-        basicCoolDown = basicCoolDown * (1 - laimaCoolTime)
-    elseif IsBuffApplied(pc, 'CarveLaima_Debuff') == 'YES' then
-        basicCoolDown = basicCoolDown * 1.2;
-    end
-    
-    --burning_event
-    if IsBuffApplied(pc, "Event_Cooldown_SPamount_Decrease") == "YES" then
-        basicCoolDown = SCR_COOLDOWN_SPAMOUNT_DECREASE(pc, "CoolDown", basicCoolDown)
-    elseif IsBuffApplied(pc, "FIELD_COOLDOWNREDUCE_BUFF") == "YES" or IsBuffApplied(pc, "FIELD_DEFAULTCOOLDOWN_BUFF") == "YES" or IsBuffApplied(pc, "FIELD_COOLDOWNREDUCE_MIN_BUFF") == "YES" then
-        basicCoolDown = SCR_FIELD_DUNGEON_CONSUME_DECREASE(pc, "CoolDown", basicCoolDown)
-    else
-        if IsBuffApplied(pc, 'GM_Cooldown_Buff') == 'YES' then
-            basicCoolDown = basicCoolDown * 0.9;
-        end
-        
-        if IsBuffApplied(pc, 'SpeForceFom_Buff') == 'YES' then
-            if skill.ClassName ~= "Centurion_SpecialForceFormation" then
-                basicCoolDown = basicCoolDown * 0.5;
-            end
-        end
-    end
-    -----------
-    --Mon_Buff--
-    local monCoolDownRate = GetExProp(pc, "MON_COOLDOWN_RATE")
-    if monCoolDownRate ~= 0 then
-        if monCoolDownRate <= -0.9 then
-            monCoolDownRate = -0.9
-        end
-        basicCoolDown = basicCoolDown + (basicCoolDown * monCoolDownRate)
-    end
+    basicCoolDown = SCR_COMMON_COOLDOWN_DECREASE(pc, basicCoolDown)
     local ret = math.floor(basicCoolDown) / 1000
     ret = math.floor(ret) * 1000;
     if coolDownClassify == "Fix" then
@@ -13750,6 +13063,57 @@ function SCR_GET_Tracking_Ratio2(skill)
     return value
 end
 
+function SCR_COMMON_COOLDOWN_DECREASE(pc, basicCoolDown)
+
+    -- Laima CoolTime Buff
+    local laimaCoolTime = GetExProp(pc, "LAIMA_BUFF_COOLDOWN")
+    if laimaCoolTime ~= 0 then
+        basicCoolDown = basicCoolDown * (1 - laimaCoolTime)
+    end
+
+    -- Laima CoolTime Debuff
+    if laimaCoolTime == 0 and IsBuffApplied(pc, 'CarveLaima_Debuff') == 'YES' then
+        basicCoolDown = basicCoolDown * 1.2;
+    end
+
+    -- Burning Event
+    if IsBuffApplied(pc, "Event_Cooldown_SPamount_Decrease") == "YES" then
+        basicCoolDown = SCR_COOLDOWN_SPAMOUNT_DECREASE(pc, "CoolDown", basicCoolDown)
+    end
+
+    -- Field Dungeon
+    if IsBuffApplied(pc, "FIELD_COOLDOWNREDUCE_BUFF") == "YES" or IsBuffApplied(pc, "FIELD_DEFAULTCOOLDOWN_BUFF") == "YES" or IsBuffApplied(pc, "FIELD_COOLDOWNREDUCE_MIN_BUFF") == "YES" then
+        basicCoolDown = SCR_FIELD_DUNGEON_CONSUME_DECREASE(pc, "CoolDown", basicCoolDown)
+    end
+
+    -- (WEEKLY BOSS RAID) Star Pall
+    local monCoolDownRate = math.max(-0.9, GetExProp(pc, "MON_COOLDOWN_RATE"))
+    if monCoolDownRate ~= 0 then
+        basicCoolDown = basicCoolDown + (basicCoolDown * monCoolDownRate)
+    end
+
+    -- GM Buff
+    if IsBuffApplied(pc, 'GM_Cooldown_Buff') == 'YES' then
+        basicCoolDown = basicCoolDown * 0.9;
+    end
+
+    -- EVENT_2004_UPHILL
+    if IsBuffApplied(pc, 'EVENT_2004_UPHILL_USER_BUFF') == 'YES' then
+        basicCoolDown = basicCoolDown * 0.1;
+    elseif IsBuffApplied(pc, 'EVENT_2004_UPHILL_TREE_BUFF_2') == 'YES' then
+        basicCoolDown = basicCoolDown * 0.7;
+    end
+    
+    -- -- Centurion Buff (Removed)
+    -- if IsBuffApplied(pc, 'SpeForceFom_Buff') == 'YES' then
+    --     if skill.ClassName ~= "Centurion_SpecialForceFormation" then
+    --         basicCoolDown = basicCoolDown * 0.5;
+    --     end
+    -- end
+
+    return basicCoolDown
+end
+
 function SCR_GET_Judgment_Ratio(skill)
     local value = 10 + skill.Level * 2
     
@@ -13777,4 +13141,50 @@ function SCR_GET_SnipersSerenitySPD_Ratio(skill)
     end
         
     return value;
+end
+function SCR_GET_SKL_COOLDOWN_ShadowThorn(skill)
+    local pc = GetSkillOwner(skill);
+    local basicCoolDown = skill.BasicCoolDown;
+    local abilAddCoolDown = GetAbilityAddSpendValue(pc, skill.ClassName, "CoolDown");
+    basicCoolDown = basicCoolDown + abilAddCoolDown;
+    
+
+    local VTS = GetExProp(pc, 'ITEM_VIBORA_THSTAFF_SHADOWTHORN')
+    if VTS ~= 0 then
+        basicCoolDown = basicCoolDown - 5000 
+    end
+
+    local cls = GetClassList("SkillRestrict");
+    local sklCls = GetClassByNameFromList(cls, skill.ClassName);
+    local coolDownClassify = nil;
+    local zoneAddCoolDown = 0;
+    
+    if sklCls ~= nil then
+        local isKeyword = TryGetProp(sklCls, "Keyword", nil)
+        if IsRaidField(pc) == 1 then
+            if string.find(isKeyword, "IsRaidField") == 1 then
+                local addCoolDown = TryGetProp(sklCls, "Raid_CoolDown", nil)
+                addCoolDown = StringSplit(addCoolDown, "/");
+                coolDownClassify, zoneAddCoolDown = addCoolDown[1], addCoolDown[2]
+            end
+        elseif IsPVPField(pc) == 1 then
+            if string.find(isKeyword, "IsPVPField") == 1 then
+                local addCoolDown = TryGetProp(sklCls, "PVP_CoolDown", nil)
+                addCoolDown = StringSplit(addCoolDown, "/");
+                coolDownClassify, zoneAddCoolDown = addCoolDown[1], addCoolDown[2]
+            end
+        end
+    end
+
+    basicCoolDown = SCR_COMMON_COOLDOWN_DECREASE(pc, basicCoolDown)
+    
+    local ret = math.floor(basicCoolDown) / 1000
+    ret = math.floor(ret) * 1000;
+    if coolDownClassify == "Fix" then
+        ret = zoneAddCoolDown;
+    elseif coolDownClassify == "Add" then
+        ret = zoneAddCoolDown + ret
+    end
+    
+    return math.floor(ret);
 end

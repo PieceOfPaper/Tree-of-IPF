@@ -87,7 +87,7 @@
 		<groupbox name="rankbox" parent="rank_gb" rect="0 0 487 434" margin="52 58 0 0" layout_gravity="left top" skin="test_frame_midle" draw="true" hittestbox="false"/>
 		<groupbox name="rankboxTitle" parent="rank_gb" rect="0 0 486 41" margin="52 58 0 0" layout_gravity="left top" skin="market_listbase" draw="true" hittestbox="false"/>
 		<richtext name="rankTitle" parent="rankboxTitle" rect="0 0 30 40" margin="30 0 0 0" layout_gravity="left center" caption="{@st66b}{s16}순위"/>
-		<richtext name="rankTeamName" parent="rankboxTitle" rect="0 0 30 40" margin="150 0 0 0" layout_gravity="left center" caption="{@st66b}{s16}팀명"/>
+		<richtext name="rankTeamName" parent="rankboxTitle" rect="0 0 30 40" margin="130 0 0 0" layout_gravity="left center" caption="{@st66b}{s16}팀명"/>
 		<richtext name="rankDamage" parent="rankboxTitle" rect="0 0 30 40" margin="0 0 20 0" layout_gravity="right center" caption="{@st66b}{s16}1회 최고 대미지"/>
 		<groupbox name="rankListBox" parent="rankbox" rect="0 0 487 393" margin="0 36 0 0" layout_gravity="left top" draw="false" hittest="true"/>
 		<tab name="season_tab" parent="rank_gb" rect="0 0 52 300" margin="0 58 0 0" itemspc="16" layout_gravity="left top" vertical="true" LBtnDownScp="WEEKLY_BOSS_DATA_REUQEST" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" clicksound="inven_arrange" fixwidth="true" oversound="button_cursor_over_2" skin="tab2"/>

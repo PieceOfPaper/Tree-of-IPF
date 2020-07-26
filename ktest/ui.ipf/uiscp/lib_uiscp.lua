@@ -79,14 +79,15 @@ function ENABLE_BUTTON_DOUBLECLICK(framename, buttonname)
 end
 
 function INIT_BUFF_UI(frame, buff_ui, updatescp)
-
     local slotcountSetPt = frame:GetChild('buffcountslot');
     local slotSetPt = frame:GetChild('buffslot');
     local deslotSetPt = frame:GetChild('debuffslot');
+    local slotcountsubSetPt = frame:GetChild("buffcountslot_sub");
 
     buff_ui["slotsets"][0] = tolua.cast(slotcountSetPt, 'ui::CSlotSet');
     buff_ui["slotsets"][1] = tolua.cast(slotSetPt, 'ui::CSlotSet');
     buff_ui["slotsets"][2] = tolua.cast(deslotSetPt, 'ui::CSlotSet');
+    buff_ui["slotsets"][3] = tolua.cast(slotcountsubSetPt, "ui::CSlotSet");
 
     for i = 0, buff_ui["buff_group_cnt"] do
         buff_ui["slotcount"][i] = 0;
@@ -107,26 +108,26 @@ function INIT_BUFF_UI(frame, buff_ui, updatescp)
             local icon = CreateIcon(slot);
             icon:SetDrawCoolTimeText(0);
 
-
             local x = buff_ui["slotsets"][i]:GetX() + slot:GetX() + buff_ui["txt_x_offset"];
             local y = buff_ui["slotsets"][i]:GetY() + slot:GetY() + slot:GetHeight() + buff_ui["txt_y_offset"];
 
-            local capt = frame:CreateOrGetControl('richtext', "_t_" .. i .. "_" .. buff_ui["slotcount"][i], x, y, 50, 20);
-            -- capt:SetTextAlign("center", "top");
+            local captWidth, captHeight = 50, 20;
+            if i == 3 then
+                captWidth = 0;
+                captHeight = 0;
+            end
+
+            local capt = frame:CreateOrGetControl('richtext', "_t_" .. i .. "_" .. buff_ui["slotcount"][i], x, y, captWidth, captHeight);
             capt:SetFontName("yellow_13");
             buff_ui["captionlist"][i][buff_ui["slotcount"][i]] = capt;
-
             buff_ui["slotcount"][i] = buff_ui["slotcount"][i] + 1;
         end
-
     end
-
 
     local timer = frame:GetChild("addontimer");
     tolua.cast(timer, "ui::CAddOnTimer");
     timer:SetUpdateScript(updatescp);
     timer:Start(0.45);
-
 end
 
 function IS_STATE_PRINT(state)

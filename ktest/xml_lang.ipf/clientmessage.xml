@@ -373,6 +373,7 @@
 		<Class ClassID="2329" ClassName="StackOverItemExist" Data="인벤토리에 여신의 축복의 상품 중 최대 수량을 가진 아이템이 존재합니다."/>
 		<Class ClassID="2330" ClassName="StackOverItemExist1" Data="인벤토리에 여신의 가호의 상품 중 최대 수량을 가진 아이템이 존재합니다."/>
 		<Class ClassID="2331" ClassName="RequireInactiveJobArts" Data="습득한 직업 아츠를 모두 비활성화 해야 합니다."/>
+		<Class ClassID="2333" ClassName="AbilityPointFreeExtract" Data="[무료 회수권 사용]"/>
 	</Category>
 	<Category Name="ClassContents">
 		<Class ClassID="2500" ClassName="FullWeeklyGainClassResetExp" Data="주간 획득 가능한 클래스 변경 포인트를 모두 달성하였습니다."/>
@@ -897,6 +898,7 @@
 		<Class ClassID="8106" ClassName="UnsummonCompanion" Data="컴패니언 역소환"/>
 		<Class ClassID="8107" ClassName="Pet_Aready_Summoned" Data="컴패니언이 이미 소환되어 있습니다. {nl}보이지 않는 경우 컴패니언 정보창에서 활성상태를 확인해 주세요."/>
 		<Class ClassID="8108" ClassName="Can_Not_Summoned_Yet" Data="아직 소환할 수 없습니다."/>
+		<Class ClassID="8109" ClassName="SummonedLandPetDoesNotExist" Data="소환된 지상형 컴패니언이 없습니다."/>
 	</Category>
 	<Category Name="RestMode">
 		<Class ClassID="9001" ClassName="WhereToMakeCampFire?" Data="어디에 모닥불을 피워볼까?"/>
@@ -9105,6 +9107,17 @@
 		<Class ClassID="90255" ClassName="WEEKLYRAID_OVERCHARGE_MSG4" Data="북쪽 지역이 활성화되어 충전을 시작합니다."/>
 		<Class ClassID="90256" ClassName="WEEKLYRAID_OVERCHARGE_MSG5" Data="{ol}{img icon_Weekly_Warning 40 40}{/}활성화 지역이 과충전 되었습니다.{nl}용량이 초과하여 보스 몬스터로부터 에너지를 방출됩니다."/>
 		<Class ClassID="90257" ClassName="WhiteDayShop2003" Data="화이트데이 이벤트 상점"/>
+		<Class ClassID="90270" ClassName="430lvupCard_MSG" Data="{nl} {nl}사용 시 1레벨에서 430레벨 도달까지 필요한 만큼의 경험치를 얻습니다.{nl} {nl}{@st66d_y}경험치 카드를 사용하시겠습니까?"/>
+		<Class ClassID="90260" ClassName="2004_UPHILL_SEL_MSG1" Data="이벤트 설명"/>
+		<Class ClassID="90261" ClassName="2004_UPHILL_SEL_MSG2" Data="이벤트 던전 입장"/>
+		<Class ClassID="90262" ClassName="2004_UPHILL_TREE_SEL_MSG1" Data="충격 버프를 받는다."/>
+		<Class ClassID="90263" ClassName="2004_UPHILL_TREE_SEL_MSG2" Data="신속 버프를 받는다."/>
+		<Class ClassID="90264" ClassName="2004_UPHILL_TREE_SEL_MSG3" Data="파동 버프를 받는다."/>
+		<Class ClassID="90265" ClassName="2004_UPHILL_TREE_ALREADY_HAVE" Data="이미 동일한 버프 효과를 가지고 있습니다."/>
+		<Class ClassID="90266" ClassName="2004_UPHILL_CHECK_MSG{POUCH1}{POUCH2}{POUCH3}{INDUNBOX}{TIMEBOX}" Data="[이벤트 던전 보상 일일 획득량]{nl}나무의 선물 주머니 1{#ff6d00}({POUCH1}){/}{nl}나무의 선물 주머니 2{#ff6d00}({POUCH2}){/}{nl}나무의 선물 주머니 3{#ff6d00}({POUCH3}){/}{nl}나무의 선물 상자{#ff6d00}({INDUNBOX}){/}{nl}ㅤ{nl}[접속 보상]{nl}나무의 선물 상자{#ff6d00}({TIMEBOX}){/}"/>
+		<Class ClassID="90267" ClassName="2004_UPHILL_SEL_MSG3" Data="특성 포인트 1회 무료 회수권 수령하기"/>
+		<Class ClassID="90268" ClassName="EVENT_2004_UPHILL_ABUSE_MSG1" Data="일정 시간 몬스터를 공격하지 않으면 보상을 획득할 수 없습니다."/>
+		<Class ClassID="90269" ClassName="EVENT_2004_UPHILL_ABUSE_MSG2" Data="일정 시간 몬스터를 공격하지 않아 이번 웨이브의 보상을 획득하실 수 없습니다."/>
 	</Category>
 	<Category Name="BattleText">
 		<Class ClassID="100001" ClassName="ADD_DAMAGE_{Auto_1}!" Data="추가 대미지 {Auto_1}!"/>
