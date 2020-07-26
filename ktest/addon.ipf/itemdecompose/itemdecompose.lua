@@ -25,7 +25,7 @@ local function _ITEM_DECOMPOSE_ITEM_LIST(frame, itemGradeList)
 	end
 	
 	local invItemList = session.GetInvItemList();
-	FOR_EACH_INVENTORY(invItemList, function(invItemList, invItem, itemGradeList, itemSlotSet)		
+	FOR_EACH_INVENTORY(invItemList, function(invItemList, invItem, itemGradeList, itemSlotSet)	
 		if invItem ~= nil then
     		local itemobj = GetIES(invItem:GetObject());
     		local itemGrade = TryGetProp(itemobj, 'ItemGrade');
@@ -40,12 +40,16 @@ local function _ITEM_DECOMPOSE_ITEM_LIST(frame, itemGradeList)
             		break;
 				end
 				
-            	--가공된 장비 체크 추가 --
+				--가공된 장비 체크 추가 --
 				if itemGradeList[5] == 0 and itemGrade == j and IS_MECHANICAL_ITEM(itemobj) == true then					
         	        needToShow = false;
         	        break;
             	end
-            end
+			end
+
+			if IS_EQUIPPED_WEAPON_SWAP_SLOT(invItem) == true then
+				return 'break';
+			end
             
             if needToShow == true then
 				if itemobj.ItemType == 'Equip' and itemobj.DecomposeAble ~= nil and itemobj.DecomposeAble == "YES" and itemobj.ItemType == 'Equip' and itemobj.UseLv >= 75 and invItem.isLockState == false and itemGrade <= 4 then
@@ -53,8 +57,8 @@ local function _ITEM_DECOMPOSE_ITEM_LIST(frame, itemGradeList)
 	    			local itemSlot = itemSlotSet:GetSlotByIndex(itemSlotCnt)
 	    			if itemSlot == nil then
 	    				return 'break';
-	    			end
-				
+					end
+					
 	    			local icon = CreateIcon(itemSlot);
 	    			icon:Set(itemobj.Icon, 'Item', invItem.type, itemSlotCnt, invItem:GetIESID());
 	    			local class = GetClassByType('Item', invItem.type);

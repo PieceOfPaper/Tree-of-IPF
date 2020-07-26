@@ -2104,7 +2104,9 @@ function SCR_Get_MSPD(self)
     end
     
     if IsBuffApplied(self, 'SnipersSerenity_Buff') == 'YES' then
-    	return 10;
+        local value = GetExProp(self, 'SniperSPD')
+
+    	return value;
     end
     
     if IsBuffApplied(self, 'HideShot_Buff') == 'YES' then

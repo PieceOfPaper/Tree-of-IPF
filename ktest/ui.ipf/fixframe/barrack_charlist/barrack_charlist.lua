@@ -673,7 +673,7 @@ function UPDATE_SELECT_CHAR_SCROLL(frame)
 			local petCnt = GET_CHILD_CNT_BYNAME(child, "attached_pet_");
 
 			if CUR_SELECT_GUID == guid then
-				local addY = petCnt * 25;
+				local addY = (petCnt * 30);
 				detail:SetOffset(detail:GetOriginalX(), detail:GetOriginalY()+addY); 
 				child:Resize(child:GetWidth(), CHAR_LIST_OPEN_HEIGHT + addY);					
 				detail:ShowWindow(1);
@@ -683,7 +683,7 @@ function UPDATE_SELECT_CHAR_SCROLL(frame)
 				if petCnt == 0 then
 					child:Resize(child:GetWidth(), CHAR_LIST_CLOSE_HEIGHT - 20);
 				elseif petCnt >= 1 then
-					local height = CHAR_LIST_CLOSE_HEIGHT + ((petCnt-1) * 30);
+					local height = CHAR_LIST_CLOSE_HEIGHT + ((petCnt-1) * 35) + 5;
 					child:Resize(child:GetWidth(), height);
 				end
 				detail:ShowWindow(0);
@@ -1234,10 +1234,14 @@ function UPDATE_BARRACK_PET_BTN_LIST()
 			local charCtrl = scrollBox:GetChild("char_" .. pcID);
 			if charCtrl ~= nil then
 				
-				local bpcPetCount = charCtrl:GetUserValue("PET_COUNT");
+				local bpcPetCount = charCtrl:GetUserIValue("PET_COUNT");
 				charCtrl:SetUserValue("PET_COUNT", bpcPetCount + 1);
+				local addtionalY = 0;
+				if bpcPetCount > 0 then
+				 	addtionalY = 5;
+				end
 				local height = ui.GetControlSetAttribute("barrack_pet_mini", "height") / 2;
-				local petCtrl = charCtrl:CreateOrGetControlSet('barrack_pet_mini', 'attached_pet_'..pet:GetStrGuid(), 50, 70 + (height * bpcPetCount));
+				local petCtrl = charCtrl:CreateOrGetControlSet('barrack_pet_mini', 'attached_pet_'..pet:GetStrGuid(), 50, 75 + (height * bpcPetCount) + addtionalY );
 				
 				UPDATE_PET_BTN(petCtrl, pet, true);
 			end

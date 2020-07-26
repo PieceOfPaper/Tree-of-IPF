@@ -127,7 +127,7 @@ function SCR_Get_SpendSP_BUNSIN(skill)
         
         value = value + (value * (Bunshin.Level * 0.1))
     end
-    
+
     return math.floor(value);
 end
 
@@ -205,6 +205,9 @@ function SCR_Get_SpendSP(skill)
         value = value * 1.5
     end
 
+    if IsBuffApplied(pc, "TriDisaster_Buff") == "YES" then
+        SetExProp(pc, 'Daoshi27_SP', value)
+    end
 
     return math.floor(value);
 end
@@ -286,9 +289,6 @@ function SCR_Get_SpendSP_Magic(skill)
     if skill.ClassName == "Oracle_TwistOfFate" and 
         (GetZoneName(pc) == "guild_agit_1" or GetZoneName(pc) == "guild_agit_extension") then
         return 0
-    end
-    if GetAbility(pc,'Daoshi27') ~= nil then
-        SetExProp(pc, 'Daoshi27_SP', value)
     end
     return math.floor(value);
 end
@@ -372,7 +372,7 @@ function SCR_Get_SpendSP_FanaticIllusion(skill)
     if value < 1 then
         value = 0
     end
-    
+
     return math.floor(value);
 end
 
@@ -13766,4 +13766,15 @@ function SCR_GET_FanwiseShots_Ratio(skill)
     local value = 2 * skill.Level
 
     return value
+end
+
+function SCR_GET_SnipersSerenitySPD_Ratio(skill)
+    local pc = GetSkillOwner(skill);
+    local value = 10
+        
+    if IsPVPServer(pc) ~= 1 or IsPVPField(pc) ~= 1 then
+        value = 10 + TryGetProp(skill, 'Level', '1')
+    end
+        
+    return value;
 end

@@ -10255,7 +10255,7 @@ end"/>
 			<Trigger>
 				<ExecList>
 					<ToolScp Scp="SPCI_REMOVE_BUFF_UNEQUIP_ADDOVER" Client="NO" UseSleep="NO">
-						<Str Str="item_ignas_regard"/>
+						<Str Str="item_ignas_blow"/>
 					</ToolScp>
 				</ExecList>
 			</Trigger>
@@ -10264,7 +10264,7 @@ end"/>
 			<Trigger>
 				<ExecList>
 					<ToolScp Scp="SPCI_BUFF_EQUIPITEM_ADDOVER" Client="NO" UseSleep="NO">
-						<Str Str="item_ignas_regard"/>
+						<Str Str="item_ignas_blow"/>
 						<Num Num="99"/>
 						<Num Num="0"/>
 						<Num Num="0"/>

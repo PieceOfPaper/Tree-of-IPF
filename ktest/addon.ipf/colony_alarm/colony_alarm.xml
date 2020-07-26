@@ -3,13 +3,14 @@
 <uiframe name="colony_alarm" x="0" y="0" width="1048" height="282" create="open">
 	<frame titlepos="0 0" layout_gravity="center top" margin="0 100 0 0"/>
 	<option margin="-100 -100 0 0" closebutton="false" hideable="true"/>
+    <input hittestframe="false"/>
 	<sound opensound="win_open" closesound="win_close" margin="-100 -100 0 0"/>
 	<skin frameskin="None"/>
 	<draw drawframe="true" drawtitlebar="false"/>
 	<animation frameOpenAnim="chat_balloon_start" frameCloseAnim="chat_balloon_end" margin="-100 -100 0 0"/>
 	<layer layerlevel="102" margin="-100 -100 0 0"/>
 	<controls>
-		<picture name="image" rect="0 0 1048 282" margin="0 0 0 0" layout_gravity="center center" image="colonymessage" fixwidth="true" alpha="60"/>
-		<richtext name="text" rect="0 0 1048 150" margin="0 -42 0 0" layout_gravity="center center" caption="콜로니전 알람 메세지" fontname="white_18_b_ol" textalign="center center" fixwidth="true"/>
+		<picture name="image" rect="0 0 1048 282" margin="0 0 0 0" layout_gravity="center center" image="colonymessage" fixwidth="true" alpha="60" hittest="false"/>
+		<richtext name="text" rect="0 0 1048 150" margin="0 -42 0 0" layout_gravity="center center" caption="콜로니전 알람 메세지" fontname="white_18_b_ol" textalign="center center" fixwidth="true" hittest="false"/>
 	</controls>
 </uiframe>

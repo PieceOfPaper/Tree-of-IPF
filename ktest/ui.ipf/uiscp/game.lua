@@ -3707,7 +3707,7 @@ function IS_EXIST_BRIQUETTING_OR_BEAUTYSHOP_ITEM(actor, spot, skillType, skillCl
 		local obj = GetIES(spotItem:GetObject());
 		if obj ~= nil then
 			-- skill type / pistal attack
-			if skillType == "Pistol" and skillClassId == 53 then	
+			if skillType == "Pistol" and (skillClassId == 53 or skillClassId == 57) then	
 				-- inv item check
 				if obj.ClassID == itemClassId or obj.BriquettingIndex == itemClassId then
 					return true;

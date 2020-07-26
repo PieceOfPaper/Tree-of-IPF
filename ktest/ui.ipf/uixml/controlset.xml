@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by My (IMCGames Co., Ltd) -->
 <controlsetlist>
-	<controlset name="barrack_pet_mini" toggle="false" hittest="true" width="400" height="60" skin="">
+	<controlset name="barrack_pet_mini" toggle="false" hittestbox="false" hittest="true" width="350" height="60" skin="">
 		<controls>
-			<groupbox name="mainBox" margin="0 0 0 0" rect="0 0 335 100" draw="false" hittestbox="false" layout_gravity="left top" resizebyparent="false" image="none" scrollbar="false"/>
-			<groupbox name="mainBox1" margin="20 20 0 0" rect="0 0 262 34" draw="false" hittestbox="false" layout_gravity="center top" resizebyparent="false" parent="mainBox" image="barrack_pet_skin" scrollbar="false"/>
-			<picture name="char_icon_" margin="18 0 0 0" rect="0 0 60 60" draw="true" hittestbox="false" layout_gravity="left top" stretch="true" mask="barrack_pet_profile_skin" parent="mainBox"/>
-			<picture name="char_icon" margin="23 5 0 0" rect="0 0 49 49" draw="true" hittestbox="false" layout_gravity="left top" stretch="true" mask="barrack_pet_profile_skin" parent="mainBox"/>
-			<button name="detach_btn" layout_gravity="right top" rect="0 0 100 100" margin="0 14 1 0" clicksound="button_click_big" oversound="button_over" parent="mainBox"/>
+			<groupbox name="mainBox" margin="0 0 0 0" rect="0 0 335 60" draw="false" hittestbox="false" layout_gravity="left center" resizebyparent="false" image="none" scrollbar="false"/>
+			<groupbox name="mainBox1" margin="20 0 0 0" rect="0 0 262 34" draw="false" hittestbox="false" layout_gravity="center center" resizebyparent="false" parent="mainBox" image="barrack_pet_skin" scrollbar="false"/>
+			<picture name="char_icon_" margin="18 0 10 0" rect="0 0 60 60" draw="true" hittestbox="false" layout_gravity="left top" stretch="true" mask="barrack_pet_profile_skin" parent="mainBox"/>
+			<picture name="char_icon" margin="23 5 10 0" rect="0 0 49 49" draw="true" hittestbox="false" layout_gravity="left top" stretch="true" mask="barrack_pet_profile_skin" parent="mainBox"/>
+			<button name="detach_btn" layout_gravity="right center" rect="0 0 100 100" margin="0 0 0 0" clicksound="button_click_big" oversound="button_over" parent="mainBox"/>
 			<richtext name="level" rect="0 0 50 24" parent="mainBox1" layout_gravity="left top" margin="23 7 0 0" hittest="false" fontname="white_16" textalign="center center" format="{@st42b}Lv.%s" param1="value" fixwidth="false" param1_def="13"/>
 			<richtext name="name" rect="0 0 135 24" parent="mainBox1" layout_gravity="center top" margin="15 7 0 0" hittest="false" fontname="white_16" textalign="center center" format="{@st42b}%s" param1="value" fixwidth="true" param1_def="ASDASASD"/>
 		</controls>
