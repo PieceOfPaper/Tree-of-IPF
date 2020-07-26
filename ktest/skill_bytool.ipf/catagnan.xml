@@ -14,13 +14,16 @@
 					<Num Num="0"/>
 				</Scp>
 				<Scp Client="YES" Scp="C_SOUND" Time="0" UseSleep="NO">
-					<Str Str="skl_fgt_champion"/>
+					<Str Str="skl_eff_transform_cat"/>
 				</Scp>
-				<Scp Client="YES" Scp="C_SOUND" Time="200" UseSleep="NO">
-					<Str Str="skl_eff_pistol_cat_shot"/>
+				<Scp Client="YES" Scp="C_SOUND" Time="0" UseSleep="NO">
+					<Str Str="skl_eff_looting_buff_1"/>
+				</Scp>
+                                <Scp Client="YES" Scp="C_SOUND" Time="500" UseSleep="NO">
+					<Str Str="skl_eff_transform_result"/>
 				</Scp>
 				<Scp Client="YES" Scp="C_SOUND" Time="1000" UseSleep="NO">
-					<Str Str="skl_fgt_light_cast_2"/>
+					<Str Str="rap_attack_special_2"/>
 				</Scp>
 				<Scp Client="NO" Scp="SKL_BUFF" Time="0" UseSleep="NO">
 					<Str Str="ITEM_BUFF_Catagnan_Transform"/>

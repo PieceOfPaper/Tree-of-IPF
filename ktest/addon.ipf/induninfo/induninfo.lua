@@ -1465,6 +1465,11 @@ function SORT_BY_LEVEL_BASE_NAME(a, b)
         return false;
     end
 
+    -- Legend Raid Glacier : Easy / Noraml / Hard
+    if string.find(a.ClassName, "Legend_Raid_Glacier") ~= nil and string.find(b.ClassName, "Legend_Raid_Glacier") ~= nil then
+        return false;
+    end
+
     if tonumber(a.Level) < tonumber(b.Level) then
         return true
     elseif tonumber(a.Level) == tonumber(b.Level) then
@@ -1541,6 +1546,14 @@ function INDUNINFO_MOVE_TO_ENTER_NPC(frame, ctrl)
     if mapType == 'Dungeon' then
         ui.SysMsg(ScpArgMsg('ThisLocalUseNot'));
         return;
+    end
+
+    -- 레이드 지역에서 이용 불가
+    local zoneKeyword = TryGetProp(curMap, 'Keyword', 'None')
+    local keywordTable = StringSplit(zoneKeyword, ';')
+    if table.find(keywordTable, 'IsRaidField') > 0 or table.find(keywordTable, 'WeeklyBossMap') > 0 then
+        ui.SysMsg(ScpArgMsg('ThisLocalUseNot'))
+        return
     end
 
     local indunClsID = ctrl:GetUserValue('MOVE_INDUN_CLASSID');
@@ -2329,7 +2342,7 @@ function BORUTA_RANKING_UI_UPDATE()
 
     local now_week_num = session.boruta_ranking.GetNowWeekNum()
     local reward_btn = GET_CHILD_RECURSIVELY(frame, 'boruta_reward_btn')
-    if week_num < now_week_num and session.boruta_ranking.RewardAccepted(week_num) == 0 then
+    if week_num < now_week_num and guild_rank > 0 and session.boruta_ranking.RewardAccepted(week_num) == 0 then
         reward_btn:SetEnable(1)
     else
         reward_btn:SetEnable(0)
@@ -2507,6 +2520,14 @@ function _BORUTA_ZONE_MOVE_CLICK(indunClsID)
     if mapType == 'Dungeon' then
         ui.SysMsg(ScpArgMsg('ThisLocalUseNot'))
         return;
+    end
+
+    -- 레이드 지역에서 이용 불가
+    local zoneKeyword = TryGetProp(curMap, 'Keyword', 'None')
+    local keywordTable = StringSplit(zoneKeyword, ';')
+    if table.find(keywordTable, 'IsRaidField') > 0 or table.find(keywordTable, 'WeeklyBossMap') > 0 then
+        ui.SysMsg(ScpArgMsg('ThisLocalUseNot'))
+        return
     end
     
     control.CustomCommand('MOVE_TO_ENTER_NPC', indunClsID, 1, 0);

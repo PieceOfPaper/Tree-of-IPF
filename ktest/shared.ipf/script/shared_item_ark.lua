@@ -35,9 +35,9 @@ end
 -- 축석 개수, 신비한 서 낱장, 시에라 스톤 순으로 반환
 shared_item_ark.get_require_count_for_next_lv = function(goal_lv, max_lv)    
     if max_lv == nil or max_lv == 0 then
-        max_lv = 5
+        max_lv = 7
     else
-        max_lv = 5
+        max_lv = 7
     end
 
     local multiple = tonumber(string.format('%.2f',math.floor(goal_lv * (goal_lv * item_ark_grow_ratio))))    
@@ -57,8 +57,8 @@ shared_item_ark.get_require_count_for_next_lv = function(goal_lv, max_lv)
     base_siera_count = math.max(math.floor(base_siera_count * multiple * low_lv_adventage), 1)
 
     base_transcend_count = math.min(base_transcend_count, 200)
-    base_arcane_count = math.min(base_arcane_count, 100)
-    base_siera_count = math.min(base_siera_count, 100)
+    base_arcane_count = math.min(base_arcane_count, 200)
+    base_siera_count = math.min(base_siera_count, 200)
 
     return base_transcend_count, base_arcane_count, base_siera_count
 end
@@ -271,4 +271,56 @@ end
 -- 세번째 옵션 폭풍 계수는 5레벨당 x씩 오른다. 총 16회, 1200 + (10 * 250) = 3700%
 function get_tooltip_Ark_storm_arg3()
     return 3, 'ARK_STORM_ATTACK', 5, 250, 1200
+end
+
+-------------- 아크 - 분산 ----------------
+-- 첫번째 옵션 체력은 1레벨당 20씩 오른다.
+function get_tooltip_Ark_dispersion_arg1()
+    return 1, 'CON_BM', 1, 20
+end
+
+-- 두번째 옵션, 분산 시간 3레벨당 x씩  (정수로 해야 함), 총 10회, 5 + (1 * 10) = 15초
+function get_tooltip_Ark_dispersion_arg2()
+    return 3, 'ARK_DISPERSION_TIME', 3, 1, 5, 'ArkDispersionOptionText{Option}{interval}{addvalue}', ScpArgMsg('UI_Sec')
+end
+
+-- 세번째 옵션, 분산 시킬 피해 비율 5레벨당 5%씩 오른다. 총 6회, 25 + (6 * 5) = 55%, 최대 30레벨로 기획
+function get_tooltip_Ark_dispersion_arg3()
+    return 3, 'ARK_DISPERSION_RATIO', 5, 5, 25
+end
+
+-------------- 아크 - 천벌 ----------------
+-- 첫번째 옵션 힘, 지능은 1레벨당 20씩 오른다.
+function get_tooltip_Ark_punishment_arg1()
+    return 1, 'STR_INT_BM', 1, 20
+end
+
+-- 두번째 옵션, 천벌 발동 확률 3레벨당 x씩 (정수로 해야 함), 총 16회, 30 + (2 * 16) = 62%
+function get_tooltip_Ark_punishment_arg2()
+    return 3, 'ARK_PUNISHMENT_RATIO', 3, 2, 30
+end
+
+-- 세번째 옵션, 천벌 계수 5레벨당 5%씩 오른다. 총 10회, 20 + (6 * 5) = 50%
+function get_tooltip_Ark_punishment_arg3()
+    return 3, 'ARK_PUNISHMENT_ATTACK', 5, 5, 30
+end
+
+-------------- 아크 - 제압 ----------------
+-- 첫번째 옵션 힘 지능은 1레벨당 20씩 오른다.
+function get_tooltip_Ark_overpower_arg1()
+    return 1, 'STR_INT_BM', 1, 20
+end
+
+-- 두번째 옵션, 명중, 블록관통은 3레벨당 50씩 오른다, 16회 200 + (16 * 100) = 1800
+function get_tooltip_Ark_overpower_arg2()
+    return 3, 'HR_BLK_BREAK_BM', 3, 100, 200, 'ArkOverpowerOptionText{Option}{interval}{addvalue}', ''
+end
+
+-- 세번째 옵션, 연체이자 비율은 5레벨당 6%씩 오른다. 총 10회, 10 + (10 * 4) = 50%
+function get_tooltip_Ark_overpower_arg3()
+    -- tooltip option 4는, 3번째 옵션의 base가 1개인 경우
+    -- 적에게 거는 exprop : ARK_OVERPOWER_OVERDUE_PENALTY
+    -- 마지막 걸린 시간 : ARK_OVERPOWER_OVERDUE_PENALTY_TIME
+    
+    return 4, 'ARK_OVERPOWER_OVERDUE', 5, 4, 10, 'Ark_overpower_desc{base1}'
 end

@@ -50,10 +50,16 @@ function LEGENDDECOMPOSE_EXECUTE(parent, ctrl)
         return;
     end
 	local rewardCls = GetClass('LegendDecompose', targetObj.LegendGroup);	
-	local matCls = GetClass('Item', rewardCls.MaterialClassName);	
+	local matCls = GetClass('Item', rewardCls.MaterialClassName);
 	local yesScp = string.format('_LEGENDDECOMPOSE_EXECUTE("%s")', targetGuid);
-	if TryGetProp(targetObj, 'UseLv', 1) >= 430 then
-	    ui.MsgBox(ScpArgMsg('ReallyDecomposeLEgendItemFor{ITEM}?_LV430_UPPER'), yesScp, 'None');
+	if TryGetProp(targetObj, 'UseLv', 1) >= 440 then
+	    local legendRecipeCls = GetClass('legendrecipe', targetObj.ClassName)
+	    local matCls440 = GetClass('Item', legendRecipeCls.DecomposeItem)
+	    if matCls440 == nil then
+	        ui.SysMsg(ClMsg('decomposeCant'));
+		    return;
+		end
+	    ui.MsgBox(ScpArgMsg('ReallyDecomposeLEgendItemFor{ITEM}?_LV430_UPPER','ITEM', matCls440.Name), yesScp, 'None');
 	else
 	    ui.MsgBox(ScpArgMsg('ReallyDecomposeLEgendItemFor{ITEM}?', 'ITEM', matCls.Name), yesScp, 'None');
     end

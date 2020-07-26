@@ -367,7 +367,7 @@
 		<Class ClassID="2319" ClassName="ReallyArkRelocation" Data="이전 하시겠습니까?"/>
 		<Class ClassID="2320" ClassName="ItemOptionRelocate_Check_Message_Enchant" Data="옵션을 이전할 아이템의 {#fe7e00}인챈트 옵션{/}이 {nl} 이전받을 아이템에게 옮겨갑니다."/>
 		<Class ClassID="2321" ClassName="ItemArkReturnExtraExp{count}" Data="아크 아이템 레벨 확장으로 인해 여분의 경험치에 따른 재화가 {count} 만큼 [마켓 수령함]으로 지급되었습니다."/>
-		<Class ClassID="2322" ClassName="ReallyDecomposeLEgendItemFor{ITEM}?_LV430_UPPER" Data="해당 아이템을 분해할 경우{nl}레전드 아이템은 사라지며 100% 확률로 '레전드 쥬얼' 아이템이 지급됩니다.{nl}분해하시겠습니까?"/>
+		<Class ClassID="2322" ClassName="ReallyDecomposeLEgendItemFor{ITEM}?_LV430_UPPER" Data="해당 아이템을 분해할 경우{nl}확률적으로 일정 개수의 [{ITEM}] 아이템이 지급됩니다.{nl}분해하시겠습니까?"/>
 		<Class ClassID="2323" ClassName="EnchantOptionRelocateDestItemLvHigh" Data="이전 받을 아이템의 레벨이 더 높아야 합니다."/>
 		<Class ClassID="2324" ClassName="EnchantOptionRelocateDestItemLvMin100" Data="100레벨 이상의 장비만 등록 가능합니다."/>
 		<Class ClassID="2325" ClassName="EP12_PRE_REWARDS_FIX_MSG_1" Data="[초월]400레벨 케도란 장비(무기, 방패)를 초월한다"/>
@@ -721,7 +721,7 @@
 		<Class ClassID="4256" ClassName="CanUseGreaterThan430" Data="430레벨 이상 랜덤 옵션 아이템에만 사용할 수 있습니다."/>
 		<Class ClassID="4257" ClassName="Ark" Data="아크"/>
 		<Class ClassID="4258" ClassName="LegendMaterial" Data="레전드 재료"/>
-		<Class ClassID="4259" ClassName="CanUseLV430" Data="430레벨 랜덤 옵션 아이템에만 사용할 수 있습니다."/>
+		<Class ClassID="4259" ClassName="CanUseLV430" Data="430 혹은 440레벨 랜덤 옵션 아이템에만 사용할 수 있습니다."/>
 		<Class ClassID="4260" ClassName="MYSTIC_SAVIOR_CHAGE_CLOVER" Data="위기를 넘는 지혜를 담아!{nl}매지컬 세이비어 클로버!"/>
 		<Class ClassID="4261" ClassName="MYSTIC_SAVIOR_CHAGE_SPADE" Data="악을 처단하는 힘을 담아!{nl} 매지컬 세이비어 스페이드!"/>
 		<Class ClassID="4262" ClassName="MYSTIC_SAVIOR_CHAGE_ACE" Data="은혜로운 사랑을 담아!{nl}매지컬 세이비어 프로페서!"/>
@@ -738,6 +738,8 @@
 		<Class ClassID="4273" ClassName="GET_MISC_PVP_MINE2{count}" Data="+{count} 용병단 증표"/>
 		<Class ClassID="4274" ClassName="RESULT_MISC_PVP_MINE2" Data="용병단 증표 : {count1} -> {count2}"/>
 		<Class ClassID="4275" ClassName="ITEM_COUNT_SYS_MSG" Data="{#33FF33}[{itemName}]보유량: {count}{/}"/>
+    	    <Class ClassID="4277" ClassName="CantEquipNotYet{second}" Data="{second}초 후 아이템을 장착할 수 있습니다."/>    
+		<Class ClassID="4278" ClassName="FixOptionItem" Data="[고정]"/>    
 	</Category>
 	<Category Name="ItemTooltip">
 		<Class ClassID="5001" ClassName="CoolDown : {Sec} Sec" Data="재사용 대기시간 : {Sec}초"/>
@@ -801,8 +803,10 @@
 		<Class ClassID="5059" ClassName="ArkOptionText3{Option}{interval}{addvalue}" Data="{@st41b}{s16}{#ffc500}{interval}{/} 레벨당 {#ffc500}{Option} {addvalue}%{/} 증가"/>
 		<Class ClassID="5060" ClassName="ArkOptionText4{Option}{interval}{addvalue}" Data="{@st41b}{s16}{#ffc500}{interval}{/} 레벨당 {#ffc500}{Option} {addvalue}%{/} 발생"/>
 		<Class ClassID="5061" ClassName="ArkOptionText3{Option}{interval}{addvalue}{basic}" Data="{@st41b}{s16}{#ffc500}{interval}{/} 기본({basic}%){nl}     레벨당 {#ffc500}{Option} {addvalue}%{/} 증가"/>
+		<Class ClassID="5062" ClassName="ArkDispersionOptionText{Option}{interval}{addvalue}" Data="{@st41b}{s16}{#ffc500}{interval}{/} 레벨당 {#ffc500}{Option} {addvalue}초{/} 증가"/>
 		<Class ClassID="5063" ClassName="slotcount{All}{Max}" Data="슬롯 : {All}/{Max}"/>
 		<Class ClassID="5064" ClassName="slotcount{Rate}" Data="슬롯 ({Rate}%)"/>
+		<Class ClassID="5065" ClassName="ArkOverpowerOptionText{Option}{interval}{addvalue}" Data="{@st41b}{s16}{#ffc500}{interval}{/} 레벨당 {#ffc500}{Option} {addvalue}{/} 증가"/>
 	</Category>
 	<Category Name="PeriodicTitle">
 		<Class ClassID="6001" ClassName="TournamentChampion" Data="토너먼트 챔피언"/>
@@ -1357,6 +1361,9 @@
 		<Class ClassID="10555" ClassName="YouAreNotTableOwner" Data="해당 배식대의 주인이 아닙니다."/>
 		<Class ClassID="10552" ClassName="Goddess_Roulette_SSSGradeItemGetMessage{TEAMNAME}{ITEM}" Data="[{TEAMNAME}] 님이 여신의 룰렛에서 SSS등급 [{ITEM}]을(를) 획득하였습니다!"/>
 		<Class ClassID="10562" ClassName="NoticeInventoryOverSlotCount" Data="아이템이 너무 많습니다."/>
+		<Class ClassID="10571" ClassName="KOR_MaxSilverLimitOverDaily" Data="넥슨 ID 보안서비스에 가입하지 않아, 더 이상 사냥을 통해 실버를 획득할 수 없습니다. 넥슨 ID 보안 서비스에 가입하여 주세요."/>
+		<Class ClassID="10572" ClassName="GLOBAL_MaxSilverLimitOverDaily" Data="번역문장를 넣어주세요."/>
+		<Class ClassID="10573" ClassName="GLOBAL_JP_MaxSilverLimitOverDaily" Data="번역문장를 넣어주세요."/>
 	</Category>
 	<Category Name="FoodTable">
 		<Class ClassID="20001" ClassName="IncreaseHP{Value}For{Time}Minute" Data="{Time}분 동안 HP가 {Value}% 증가합니다."/>
@@ -9204,6 +9211,14 @@
 		<Class ClassID="91020" ClassName="CommonGamble_GET_ALLMSG" Data="{PC} 님이 [{DESC}]을 통해{nl}{ITEMNAME} 를(을) {count}개 획득하셨습니다!"/>
 		<Class ClassID="91021" ClassName="C_REQUEST_1_NPC_MSG_01" Data="필요하신 게 있으신가요?"/>
 		<Class ClassID="91022" ClassName="C_REQUEST_1_NPC_MSG_02" Data="젖은 신발로 돌아다니지 마세요."/>
+		<Class ClassID="91030" ClassName="F_TABLELAND_28_2_NPC_CRU_14" Data="마족이 겁에 질려 도망갑니다."/>
+		<Class ClassID="91027" ClassName="Legend_Boss_Glacier_Easy" Data="하얀 마녀의 숲 : 레전드 레이드 (Easy)"/>
+		<Class ClassID="91028" ClassName="Legend_Boss_Glacier_Normal" Data="하얀 마녀의 숲 : 레전드 레이드 (Normal)"/>
+		<Class ClassID="91029" ClassName="Legend_Boss_Glacier_Hard" Data="하얀 마녀의 숲 : 레전드 레이드 (Hard)"/>
+		<Class ClassID="91031" ClassName="F_TABLELAND_28_2_NPC_CRU_15" Data="끼익!"/>
+		<Class ClassID="91032" ClassName="F_TABLELAND_28_2_NPC_CRU_16" Data="끽!"/>
+		<Class ClassID="91033" ClassName="F_TABLELAND_28_2_NPC_CRU_17" Data="끼익끽!"/>
+		<Class ClassID="91034" ClassName="F_TABLELAND_28_2_NPC_CRU_18" Data="떨어져 있는 주머니에서 의문의 지령서를 발견했습니다."/>
 	</Category>
 	<Category Name="BattleText">
 		<Class ClassID="100001" ClassName="ADD_DAMAGE_{Auto_1}!" Data="추가 대미지 {Auto_1}!"/>
@@ -9442,6 +9457,7 @@
 		<Class ClassID="101144" ClassName="WorldEventReceivableItemNotice" Data="수령 가능한 {#ff0000}월드 이벤트 보상 아이템{#000000}이 있습니다.{nl}{#0000ff}[마켓 수령함]{#000000}에서 수령 가능합니다."/>
 		<Class ClassID="101145" ClassName="WorldEventReceivableSilverNotice" Data="수령 가능한 {#ff0000}월드 이벤트 보상 실버{#000000}가 있습니다.{nl}{#0000ff}[마켓 수령함]{#000000}에서 수령 가능합니다."/>
 		<Class ClassID="101146" ClassName="firstPartyLeaderEnter" Data="파티장이 먼저 입장해야 합니다."/>
+		<Class ClassID="101147" ClassName="PartyLeaderOnly" Data="파티장만 사용 가능합니다."/>
 	</Category>
 	<Category Name="Guild">
 		<Class ClassID="102001" ClassName="GuildMember{Cur}/{Max}People,OnLine{On}People" Data="길드원 ( {Cur} / {Max} 명, 온라인 {On} 명 )"/>
@@ -10219,8 +10235,8 @@
 		<Class ClassID="111266" ClassName="ARK_STORM_ATTACK" Data="폭풍 계수"/>
 		<Class ClassID="111267" ClassName="ARK_STORM_RATIO" Data="최대 폭풍 발동확률"/>
 		<Class ClassID="111268" ClassName="Ark_wind_desc{base1}{base2}" Data="[질풍] 근접 기본 공격시 3연타 / 원거리 기본 공격시 2연타{nl}3레벨 달성시 기본 공격 대미지 +{base1}%{nl}5레벨 달성시 질풍 발동확률 +{base2}%"/>
-		<Class ClassID="111269" ClassName="Ark_storm_desc{base1}{base2}" Data="[폭풍] 최대 7명의 대상에게 전기 속성 광역 피해{nl}[폭풍 발동] 입힌 피해에 비례하여 최대 발동확률까지 증가{nl}3레벨 달성시 최대 폭풍 발동 확률 +{base1}%{nl}3레벨 달성시 폭풍 계수 +{base2}%"/>
-		<Class ClassID="111270" ClassName="Ark_thunderbolt_desc{base1}{base2}" Data="[낙뢰] 단일 대상에게 전기 속성 피해{nl}[낙뢰 발동] 입힌 피해에 비례하여 최대 발동확률까지 증가{nl}3레벨 달성시 최대 낙뢰 발동 확률 +{base1}%{nl}3레벨 달성시 낙뢰 계수 +{base2}%"/>
+		<Class ClassID="111269" ClassName="Ark_storm_desc{base1}{base2}" Data="[폭풍] 최대 7명의 대상에게 전기 속성 광역 피해{nl}[폭풍 발동] 입힌 피해 또는 스킬 계수에 비례하여 최대 발동확률까지 증가{nl}3레벨 달성시 최대 폭풍 발동 확률 +{base1}%{nl}3레벨 달성시 폭풍 계수 +{base2}%"/>
+		<Class ClassID="111270" ClassName="Ark_thunderbolt_desc{base1}{base2}" Data="[낙뢰] 단일 대상에게 전기 속성 피해{nl}[낙뢰 발동] 입힌 피해 또는 스킬 계수에 비례하여 최대 발동확률까지 증가{nl}3레벨 달성시 최대 낙뢰 발동 확률 +{base1}%{nl}3레벨 달성시 낙뢰 계수 +{base2}%"/>
 		<Class ClassID="111272" ClassName="Arrow_Atk" Data="활 공격력"/>
 		<Class ClassID="111273" ClassName="Cannon_Atk" Data="캐논 공격력"/>
 		<Class ClassID="111274" ClassName="Gun_Atk" Data="총 공격력"/>
@@ -10233,6 +10249,15 @@
 		<Class ClassID="111281" ClassName="Magic_Dark_Atk" Data="어둠 속성 마법 공격력"/>
 		<Class ClassID="111282" ClassName="Magic_Holy_Atk" Data="신성 속성 마법 공격력"/>
 		<Class ClassID="111283" ClassName="Magic_Soul_Atk" Data="염 속성 마법 공격력"/>
+		<Class ClassID="111284" ClassName="ARK_DISPERSION_TIME" Data="피해 분산 시간"/>
+		<Class ClassID="111285" ClassName="ARK_DISPERSION_RATIO" Data="받는 피해 분산 비율"/>
+		<Class ClassID="111286" ClassName="Ark_dispersion_desc{base1}{base2}" Data="[분산] 받는 피해의 일정 비율을 일정 시차에 걸쳐 나누어 받음{nl}3레벨 달성시 분산 시간 +{base1}초{nl}3레벨 달성시 받는 피해 +{base2}%만큼 분산"/>
+		<Class ClassID="111287" ClassName="ARK_PUNISHMENT_RATIO" Data="최대 천벌효과 발동확률"/>
+		<Class ClassID="111288" ClassName="ARK_PUNISHMENT_ATTACK" Data="천벌공격 계수"/>
+		<Class ClassID="111289" ClassName="Ark_punishment_desc{base1}{base2}" Data="[천벌효과] 10초내 다음 3회의 공격은 입힌 피해의 천벌공격 계수 만큼의 추가 물리피해를 발생시킴(천벌효과중엔 천벌효과가 발생하지 않음, 맵 이동시에 사라짐){nl}[천벌 발동] 공격 스킬 계수에 비례하여 최대 발동확률까지 증가{nl}3레벨 달성시 최대 천벌효과 발동 확률 +{base1}%{nl}3레벨 달성시 천벌공격 계수 +{base2}%"/>
+		<Class ClassID="111290" ClassName="HR_BLK_BREAK_BM" Data="명중, 블럭 관통"/>
+		<Class ClassID="111291" ClassName="ARK_OVERPOWER_OVERDUE" Data="연체이자 비율"/>
+		<Class ClassID="111292" ClassName="Ark_overpower_desc{base1}{base2}" Data="[연체이자 부여] 3레벨 달성시 방패를 착용한 캐릭터를 대상으로 블록 관통을 성공하면 대상에게 입힌 피해의 연체이자 비율만큼 연체이자 부여{nl}[연체이자] 먼저 갚아야할 대미지(빚)을 의미합니다. 연체이자가 누적되어 있는 동안 적에게 입히는 피해의 50%는 연체이자부터 차감하여 피해를 가함(연체이자를 부여 받은 시점으로부터 20초가 경과하거나, 맵 이동시에 사라짐, 연체이자를 부여받을때마다 연체이자의 자동 소멸시점이 20초 후로 연기됨){nl}3레벨 달성시 명중/블록 관통 +{base1}{nl}3레벨 달성시 연체이자 비율 +{base2}%"/>
 		<Class ClassID="111293" ClassName="MaxWeight_BM" Data="휴대 가능무게"/>
 	</Category>
 	<Category Name="Quest">
@@ -12170,7 +12195,7 @@
 		<Class ClassID="137363" ClassName="Auto_{@st43}JeonJig_ilJa_:_" Data="{@st42b}전직 일자 : "/>
 		<Class ClassID="137364" ClassName="Auto_{@st43}PeulLei_Taim_:_" Data="{@st42b}플레이 타임 : "/>
 		<Class ClassID="137365" ClassName="Auto_{@st41}DanChugKi" Data="{@st41}단축키"/>
-		<Class ClassID="137366" ClassName="Auto_{@st41}JeSeuChyeo" Data="{@st41}제스쳐"/>
+		<Class ClassID="137366" ClassName="Auto_{@st41}JeSeuChyeo" Data="{@st41}제스처"/>
 		<Class ClassID="137367" ClassName="Auto_{@st41}DaeHwa_MunKu" Data="{@st41}대화 문구"/>
 		<Class ClassID="137368" ClassName="Auto_{@st41}KomBo_KuSeong" Data="{@st41}콤보 구성"/>
 		<Class ClassID="137369" ClassName="Auto_{@st41}BaeTeul_KeuLai" Data="{@st41}배틀 크라이"/>
@@ -12183,7 +12208,7 @@
 		<Class ClassID="137376" ClassName="Auto_LeonSeuKeuLipTeu" Data="런스크립트"/>
 		<Class ClassID="137377" ClassName="Auto_iLeum_ipLyeog" Data="이름 입력"/>
 		<Class ClassID="137378" ClassName="Auto_JeogeoDo_1KaeLeul_SeonTaegHaeJuSeyo" Data="적어도 1개를 선택해주세요"/>
-		<Class ClassID="137379" ClassName="Auto_{@st41}JeSeuChyeoList" Data="{@st41}제스쳐 목록"/>
+		<Class ClassID="137379" ClassName="Auto_{@st41}JeSeuChyeoList" Data="{@st41}제스처 목록"/>
 		<Class ClassID="137380" ClassName="Auto_[Mein]_" Data="[메인] "/>
 		<Class ClassID="137381" ClassName="Auto_{@st55_b}{b}BoSang{/}" Data="{@st55_b}{b}보상{/}"/>
 		<Class ClassID="137382" ClassName="Auto_{@st55_c}KyeongHeomChi_:_" Data="{@st55_c}경험치 : "/>
@@ -12283,7 +12308,7 @@
 		<Class ClassID="137478" ClassName="Auto_KuMaeyoCheong" Data="구매요청"/>
 		<Class ClassID="137479" ClassName="Auto_MulPumKeoLae" Data="물품거래"/>
 		<Class ClassID="137480" ClassName="Auto_yongByeongKyeyag" Data="헬퍼계약"/>
-		<Class ClassID="137481" ClassName="Auto_JeSeuChyeo" Data="제스쳐"/>
+		<Class ClassID="137481" ClassName="Auto_JeSeuChyeo" Data="제스처"/>
 		<Class ClassID="137482" ClassName="Auto_MoDu_BoKi" Data="모두 보기"/>
 		<Class ClassID="137483" ClassName="Auto_{s14}{b}{ds}KuMae_SuLyang" Data="{s14}{b}{ds}구매 수량"/>
 		<Class ClassID="137484" ClassName="Auto_Chong_KaKyeog_:_" Data="총 가격 : "/>
@@ -13690,7 +13715,7 @@
 		<Class ClassID="300044" ClassName="PremiumToken_6h" Data="토큰:6시간[증정용]"/>
 		<Class ClassID="300045" ClassName="PremiumToken_12h" Data="토큰:12시간[증정용]"/>
 		<Class ClassID="300046" ClassName="PremiumToken_3d" Data="토큰:3일[증정용]"/>
-		<Class ClassID="300047" ClassName="AllowPremiumPose" Data="프리미엄 제스쳐 사용 가능"/>
+		<Class ClassID="300047" ClassName="AllowPremiumPose" Data="프리미엄 제스처 사용 가능"/>
 		<Class ClassID="300048" ClassName="Premium_indunFreeEnter" Data="인던 무한입장권"/>
 		<Class ClassID="300049" ClassName="IsAppliedIndunFreeEnter" Data="이미 인던 무한입장권 아이템이 활성화 중에 있습니다."/>
 		<Class ClassID="300050" ClassName="Premium_indunReset" Data="인던 입장 횟수 초기화권"/>
@@ -14504,7 +14529,7 @@
 		<Class ClassID="815032" ClassName="GuildAssetLog_GuildLabLevelUp" Data="연구소 증축"/>
 		<Class ClassID="815033" ClassName="GuildAssetLog_GuildLabResearchLevelUp" Data="연구 강화"/>
 		<Class ClassID="815034" ClassName="GuildAssetLog_GuildHousingExtension" Data="아지트 확장"/>
-		<Class ClassID="815035" ClassName="GuildAssetLog_HousingRemoveFurniture" Data="가구 제거"/>
+		<Class ClassID="815035" ClassName="GuildAssetLog_HousingRemoveFurniture" Data="가구 철거"/>
 		<Class ClassID="815036" ClassName="GUILD_CONTRIBUTION_SHOP" Data="길드 상점"/>
 		<Class ClassID="815037" ClassName="YOU_PARTICIPATE_IN_GUILD_AGIT_RAID_ON_BOARD2" Data="현재 길드 아지트 레이드에 참가중이므로 길드 외부로 나갈 수 없습니다"/>
 		<Class ClassID="815038" ClassName="Guild_Housing_Has_Contribution" Data="보유 기여도"/>
@@ -14523,6 +14548,7 @@
 		<Class ClassID="815051" ClassName="Mileage_Name" Data="마일리지"/>
 		<Class ClassID="815056" ClassName="Weekly_Guild_Mileage_Reward_Msg{NowCount}{MaxCount}" Data="{#33FF33}(주간 획득 가능한 길드 마일리지 : {NowCount}/{MaxCount}){/}"/>
 		<Class ClassID="815057" ClassName="Guild_Housing_Tab_Landscape" Data="{@st66b}조경"/>
+		<Class ClassID="815058" ClassName="GuildAssetLog_HousingClearFurniture" Data="가구 철거"/>
 	</Category>
 	<Category Name="PersonalHousing">
 		<Class ClassID="815100" ClassName="PH_SEL_DLG_1" Data="개인 하우징 활성화"/>
@@ -14654,6 +14680,13 @@
 		<Class ClassID="1000018" ClassName="AcceptChallengeMode_ReJoin" Data="도전중인 챌린지 단계가 있습니다. 재입장 하시겠습니까?"/>
 		<Class ClassID="1000019" ClassName="ChallengeModeReJoinPossibleTimeOut" Data="도전 중인 챌린지 모드의 재입장 가능한 시간을 초과하여 재입장 하실 수 없습니다."/>
 		<Class ClassID="1000020" ClassName="AcceptChallengeMode_PCBang" Data="PC방 기회를 사용하여 챌린지 모드에 참여하시겠습니까?"/>
+		<Class ClassID="1000021" ClassName="Challenge_Mode_Select_Level" Data="{StartLevel}~{EndLevel} 레벨"/>
+		<Class ClassID="1000022" ClassName="ChallengeMode_Not_Exists" Data="생성된 챌린지 모드가 없습니다.{nl}파티 리더만 생성 가능합니다."/>
+		<Class ClassID="1000023" ClassName="AcceptChallengeMode_HardMode" Data="챌린지 모드 {#ff0000}하드모드{/}에 참여하시겠습니까?"/>
+		<Class ClassID="1000024" ClassName="Challenge_Mode_HardMode_Creating" Data="다른 파티원이 챌린지 모드 "/>
+		<Class ClassID="1000025" ClassName="Challenge_Mode_HardMode_Not_Enough_EnableEntryCount" Data="챌린지 모드 하드모드 입장 가능 횟수가 부족합니다."/>
+		<Class ClassID="1000026" ClassName="CompleteChallengeModeHardMode" Data="챌린지 모드 {#ff0000}하드모드{/}를 정복하셨습니다. 보상을 받으시겠습니까?"/>
+		<Class ClassID="1000027" ClassName="ChallengeModePortalMark_HardMode" Data="  챌린지 모드{nl}하드 모드 포탈"/>
 	</Category>
 	<Category Name="RankReset">
 		<Class ClassID="1001000" ClassName="CannotChangeJobBecauseJobLevel" Data="클래스 레벨이 최대 레벨일 때에만 가능합니다."/>
@@ -14885,6 +14918,7 @@
 		<Class ClassID="514044" ClassName="GLACIER_COLD_BLAST_MSG" Data="눈보라가 생성됩니다."/>
 		<Class ClassID="514045" ClassName="Glacier_Obj_Dlg" Data="크루비나의 힘이 들어있는 장치입니다.{nl}작동시키겠습니까?"/>
 		<Class ClassID="514046" ClassName="Glacier_Obj_Dlg_1" Data="몬스터를 모두 처치해야 합니다."/>
+		<Class ClassID="514053" ClassName="Glacier_ColdBlast_Obj_Dlg" Data="5초 후 [한기 폭파]가 발동됩니다."/>
 	</Category>
 	<Category Name="SoloDungeon">
 		<Class ClassID="513001" ClassName="SoloDungeonStageMSG" Data="스테이지의 몬스터가 몰려옵니다. 모두 처치해 주세요!"/>
@@ -15107,12 +15141,18 @@
 		<Class ClassID="560021" ClassName="malsuns_emotion95" Data="{nl} {nl}사용한 캐릭터가 채팅 이모티콘을 흭득합니다.{nl} {nl}{#FF0000}사용 후 복구가 불가능합니다.{nl} {nl}{@st66d_y}이모티콘을 습득하시겠습니까?"/>
 		<Class ClassID="560022" ClassName="Rozaliia_emotion01" Data="{nl} {nl}사용한 캐릭터가 채팅 이모티콘을 흭득합니다.{nl} {nl}{#FF0000}사용 후 복구가 불가능합니다.{nl} {nl}{@st66d_y}이모티콘을 습득하시겠습니까?"/>
 		<Class ClassID="560023" ClassName="Boruble_emotion01" Data="{nl} {nl}사용한 캐릭터가 채팅 이모티콘을 흭득합니다.{nl} {nl}{#FF0000}사용 후 복구가 불가능합니다.{nl} {nl}{@st66d_y}이모티콘을 습득하시겠습니까?"/>
+		<Class ClassID="560024" ClassName="motion_bakarine_emotion55" Data="{nl} {nl}사용한 캐릭터가 채팅 이모티콘을 흭득합니다.{nl} {nl}{#FF0000}사용 후 복구가 불가능합니다.{nl} {nl}{@st66d_y}이모티콘을 습득하시겠습니까?"/>
+		<Class ClassID="560025" ClassName="motion_bakarine_emotion58" Data="{nl} {nl}사용한 캐릭터가 채팅 이모티콘을 흭득합니다.{nl} {nl}{#FF0000}사용 후 복구가 불가능합니다.{nl} {nl}{@st66d_y}이모티콘을 습득하시겠습니까?"/>
+		<Class ClassID="560026" ClassName="motion_bakarine_emotion56" Data="{nl} {nl}사용한 캐릭터가 채팅 이모티콘을 흭득합니다.{nl} {nl}{#FF0000}사용 후 복구가 불가능합니다.{nl} {nl}{@st66d_y}이모티콘을 습득하시겠습니까?"/>
 	</Category>
 	<Category Name="Gesture">
-		<Class ClassID="570000" ClassName="Already_Gesture" Data="이미 보유한 제스쳐입니다."/>
-		<Class ClassID="570001" ClassName="Gesture_WAVE" Data="{nl} {nl}모든 캐릭터가 제스쳐를 흭득합니다.{nl} {nl}{@st66d_y}제스쳐를 습득하시겠습니까?"/>
-		<Class ClassID="570002" ClassName="Gesture_CHEERUP" Data="{nl} {nl}모든 캐릭터가 제스쳐를 흭득합니다.{nl} {nl}{@st66d_y}제스쳐를 습득하시겠습니까?"/>
-		<Class ClassID="570003" ClassName="Gesture_UNBELIEVABLE" Data="{nl} {nl}모든 캐릭터가 제스쳐를 흭득합니다.{nl} {nl}{@st66d_y}제스쳐를 습득하시겠습니까?"/>
+		<Class ClassID="570000" ClassName="Already_Gesture" Data="이미 보유한 제스처입니다."/>
+		<Class ClassID="570001" ClassName="Gesture_WAVE" Data="{nl} {nl}모든 캐릭터가 제스처를 흭득합니다.{nl} {nl}{@st66d_y}제스처를 습득하시겠습니까?"/>
+		<Class ClassID="570002" ClassName="Gesture_CHEERUP" Data="{nl} {nl}모든 캐릭터가 제스처를 흭득합니다.{nl} {nl}{@st66d_y}제스처를 습득하시겠습니까?"/>
+		<Class ClassID="570003" ClassName="Gesture_UNBELIEVABLE" Data="{nl} {nl}모든 캐릭터가 제스처를 흭득합니다.{nl} {nl}{@st66d_y}제스처를 습득하시겠습니까?"/>
+		<Class ClassID="570009" ClassName="Gesture_PULLUP" Data="{nl} {nl}모든 캐릭터가 제스처를 흭득합니다.{nl} {nl}{@st66d_y}제스처를 습득하시겠습니까?"/>
+		<Class ClassID="570010" ClassName="Gesture_SQUAT" Data="{nl} {nl}모든 캐릭터가 제스처를 흭득합니다.{nl} {nl}{@st66d_y}제스처를 습득하시겠습니까?"/>
+		<Class ClassID="570011" ClassName="Gesture_SPOTLIGHT" Data="{nl} {nl}모든 캐릭터가 제스처를 흭득합니다.{nl} {nl}{@st66d_y}제스처를 습득하시겠습니까?"/>
 	</Category>
 	<Category Name="ChatBalloon">
 		<Class ClassID="580000" ClassName="ChatBalloon_YESSCP_message1" Data="{nl} {nl}모든 캐릭터가 말풍선 스킨을 획득하며, 캐릭터 설정에서 말풍선 스킨을 변경할 수 있습니다.{nl}"/>
@@ -15144,6 +15184,12 @@
 		<Class ClassID="591012" ClassName="Rift_Dungeon_Created" Data="차원 붕괴 지점이 생성 되었습니다."/>
 		<Class ClassID="591013" ClassName="Rift_Dungeon_Not_Exists" Data="생성된 차원 붕괴 지점이 없습니다.{nl}파티 리더만 생성 가능합니다."/>
 		<Class ClassID="591014" ClassName="Rift_Dungeon_Really2" Data="{Level} 단계를 선택하셨습니다. 입장 하시겠습니까?{nl}{Color}용병단 증표 소지량 : {HasCount} / {MaxCount}{/}"/>
+		<Class ClassID="591015" ClassName="ContentsMultipleNPC" Data="{#0000ff}{Name}{/} 아이템을 사용하여 모든 파티원이 각각 남은 입장 횟수만큼의 보상을 획득할 수 있습니다."/>
+		<Class ClassID="591016" ClassName="UseContentsMultiple" Data="{#0000ff}{Name}{/} 아이템 사용"/>
+		<Class ClassID="591017" ClassName="HaveNoContentsMultiple" Data="인벤토리에 {#0000ff}{Name}{/} 아이템이 존재하지 않습니다."/>
+		<Class ClassID="591018" ClassName="ReallyUseContentsMultiple" Data="{#0000ff}{Name}{/} 아이템을 사용하시겠습니까?"/>
+		<Class ClassID="591019" ClassName="SomePartyMembersAreNotExists" Data="자리에 없는 파티원이 존재합니다.{nl}그래도 {#0000ff}{Name}{/} 아이템을 사용하시겠습니까?"/>
+		<Class ClassID="591020" ClassName="Rift_Dungeon_Sec_Left" Data="종료까지 {sec}초 남았습니다."/>
 	</Category>
 	<Category Name="UIItemRead">
 		<Class ClassID="592000" ClassName="ShowBookItemFirstPage" Data="첫 페이지입니다."/>
@@ -15163,5 +15209,8 @@
 		<Class ClassID="593010" ClassName="EVENT_2006_SUMMER_REGEN" Data="10초마다 HP 및 SP가 {ARG}만큼 회복됩니다."/>
 		<Class ClassID="593011" ClassName="EVENT_2006_SUMMER_STA" Data="5초마다 스태미나가 {ARG}만큼 회복됩니다."/>
 		<Class ClassID="593012" ClassName="EVENT_2006_SUMMER_ATK" Data="물리, 마법 공격력이 각각 {ARG}만큼 증가합니다."/>
+	</Category>
+	<Category Name="GlobalEventDialog">
+		<Class ClassID="597000" ClassName="EVENT_2004_NEWUSER_SEL_MSG1_GLOBAL" Data="{#003399}[트린이날]{/} 이벤트"/>
 	</Category>
 </idspace>

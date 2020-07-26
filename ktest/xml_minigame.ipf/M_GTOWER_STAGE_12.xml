@@ -97,15 +97,15 @@
 							</ToolScp>
 						</execList>
 					</Event>
-				<Event execCount="1" eventName="Set_value">
-                        <execList>
-                            <ToolScp Scp="GAME_ST_EVT_EXEC_VALUE" Client="NO" UseSleep="NO">
-                                <Str Str="CLEAR_12"/>
-                                <Num Num="0"/>
-                            </ToolScp>
-                        </execList>
-                    </Event>
-                </StageEvents>
+					<Event execCount="1" eventName="Set_value">
+						<execList>
+							<ToolScp Scp="GAME_ST_EVT_EXEC_VALUE" Client="NO" UseSleep="NO">
+								<Str Str="CLEAR_12"/>
+								<Num Num="0"/>
+							</ToolScp>
+						</execList>
+					</Event>
+				</StageEvents>
 			</Stage>
 			<Stage Name="SUCCESS" AutoStart="0">
 				<StartScpList>
@@ -184,13 +184,13 @@
 							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
 								<Str Str="CNT"/>
 							</ToolScp>
-						<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DESTROY" Client="NO" UseSleep="NO">
-                                <Str Str="SETTING"/>
-                            </ToolScp>
-                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DESTROY" Client="NO" UseSleep="NO">
-                                <Str Str="STAGE_1_PROG"/>
-                            </ToolScp>
-                        </execList>
+							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DESTROY" Client="NO" UseSleep="NO">
+								<Str Str="SETTING"/>
+							</ToolScp>
+							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DESTROY" Client="NO" UseSleep="NO">
+								<Str Str="STAGE_1_PROG"/>
+							</ToolScp>
+						</execList>
 					</Event>
 				</StageEvents>
 			</Stage>
@@ -609,7 +609,7 @@
 			<Stage Name="CNT" AutoStart="0">
 				<StartScpList>
 					<ToolScp Scp="MGAME_SET_TIMEOUT" Client="NO" UseSleep="NO">
-						<Num Num="270"/>
+						<Num Num="30"/>
 					</ToolScp>
 					<ToolScp Scp="MGAME_SET_QUEST_NAME" Client="NO" UseSleep="NO">
 						<Str Str="천체구 보호"/>
@@ -639,7 +639,7 @@
 					<Event execCount="1" eventName="SUCC_Timmer">
 						<condList>
 							<ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
-								<Num Num="270"/>
+								<Num Num="30"/>
 							</ToolScp>
 						</condList>
 						<execList>
@@ -655,14 +655,14 @@
 							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
 								<Str Str="CNT"/>
 							</ToolScp>
-						<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DESTROY" Client="NO" UseSleep="NO">
-                                <Str Str="SETTING"/>
-                            </ToolScp>
-                            <ToolScp Scp="GAME_ST_EVT_EXEC_VALUE" Client="NO" UseSleep="NO">
-                                <Str Str="CLEAR_12"/>
-                                <Num Num="1"/>
-                            </ToolScp>
-                        </execList>
+							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DESTROY" Client="NO" UseSleep="NO">
+								<Str Str="SETTING"/>
+							</ToolScp>
+							<ToolScp Scp="GAME_ST_EVT_EXEC_VALUE" Client="NO" UseSleep="NO">
+								<Str Str="CLEAR_12"/>
+								<Num Num="1"/>
+							</ToolScp>
+						</execList>
 					</Event>
 					<Event execCount="1" eventName="Fail_npcCNT">
 						<condList>
@@ -670,12 +670,12 @@
 								<MGameObj List="SETTING/0"/>
 								<Num Num="0"/>
 							</ToolScp>
-						<ToolScp Scp="GAME_ST_EVT_COND_VALUE" Client="NO" UseSleep="NO">
-                                <Str Str="CLEAR_12"/>
-                                <Str Str="=="/>
-                                <Num Num="0"/>
-                            </ToolScp>
-                        </condList>
+							<ToolScp Scp="GAME_ST_EVT_COND_VALUE" Client="NO" UseSleep="NO">
+								<Str Str="CLEAR_12"/>
+								<Str Str="=="/>
+								<Num Num="0"/>
+							</ToolScp>
+						</condList>
 						<execList>
 							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
 								<Str Str="FAIL"/>

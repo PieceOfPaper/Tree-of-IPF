@@ -2233,6 +2233,11 @@ function SCR_Get_MSPD(self)
         isDashRun = 0
         --return value;
     end
+    
+    if IsBuffApplied(self, 'ITEM_LEGEND_SVIRTI_BUFF') == 'YES' then
+        isDashRun = 0
+    end
+    
     if isDashRun > 0 then    -- 대시 런 --
         local dashRunAddValue = 10
         

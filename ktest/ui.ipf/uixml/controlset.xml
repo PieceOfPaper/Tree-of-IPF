@@ -4224,7 +4224,7 @@
 	</controlset>
 	<controlset name="tooltip_extract_option" hittest="true" width="410" height="335">
 		<controls>
-			<richtext name="nameText" rect="0 0 330 30" margin="0 10 0 0" layout_gravity="center top" caption="name" fontname="white_18_b_ol"/>
+			<richtext name="nameText" rect="0 0 410 30" margin="0 10 0 0" layout_gravity="center top" caption="name" fontname="white_18_b_ol" autofontsizebywidth="410" textalign="left center"/>
 			<picture name="item_bg" image="testgemston_item_bg" layout_gravity="center top" stretch="true" rect="0 0 250 230" margin="0 60 0 0" updateparent="true"/>
 			<picture name="itemPic" rect="0 0 200 200" margin="0 55 0 0" layout_gravity="center top" image="ok_button" stretch="true"/>
 			<richtext name="groupText" rect="0 0 100 30" margin="10 260 0 0" layout_gravity="left top" caption="group" fontname="brown_18_b"/>
@@ -5120,7 +5120,7 @@
 			<picture name="bg" rect="0 0 546 230" margin="0 0 0 0" layout_gravity="center center" image="stamp_tour_list" stretch="true" draw="true" hittest="false"/>
 			<groupbox name="title_gb" rect="0 0 550 40" margin="0 12 0 0" layout_gravity="center top" skin="stamp_tour_list_title" draw="true" scrollbar="false" hittest="true"/>
 			<richtext name="levet_text" parent="title_gb" rect="0 0 150 20" margin="-2 0 0 0" layout_gravity="center center" format="{@st42b}{s20}%s" param1="value" param1_def="난이도" hittest="false"/>
-			<richtext name="desc" rect="0 0 450 40" margin="0 60 0 0" layout_gravity="center top" format="{@st66b}{s18}%s" param1="value" param1_def="미션 내용" resizebytext="true" textalign="center center" hittest="false" fixwidth="true"/>
+			<richtext name="desc" rect="0 0 450 45" margin="0 60 0 0" layout_gravity="center top" format="{@st66b}{s18}%s" param1="value" param1_def="미션 내용" resizebytext="false" textalign="center center" hittest="false" fixwidth="true"/>
 			<gauge name="gauge" rect="0 0 400 20" margin="0 110 0 0" layout_gravity="center top" skin="test_gauge_barrack_defence" text1="{@st42b}{s14}%v/%m" textoffset1="0 -1" textfont1="white_14_ol" textalign1="center top" inverse="false" hittest="false"/>
 			<richtext name="reward" rect="0 0 100 30" margin="34 140 0 0" layout_gravity="left top" format="%s" param1="value" param1_def="보상" fontname="black_16_b" hittest="false"/>
 			<groupbox name="reward_bg" rect="0 0 440 85" margin="0 144 32 0" layout_gravity="right top" scrollbar="false" draw="false" hittest="false"/>

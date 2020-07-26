@@ -12982,6 +12982,60 @@ end"/>
 			</Trigger>
 		</TriggerList>
 	</SpcItem>
+	<SpcItem Name="Ark_dispersion">
+		<TriggerList Act="Equip">
+			<Trigger>
+				<ExecList>
+					<ToolScp Scp="equip_Ark_dispersion" Client="NO" UseSleep="NO">            
+          </ToolScp>
+				</ExecList>
+			</Trigger>
+		</TriggerList>
+		<TriggerList Act="UnEquip">
+			<Trigger>
+				<ExecList>
+					<ToolScp Scp="unequip_Ark_dispersion" Client="NO" UseSleep="NO">            
+          </ToolScp>
+				</ExecList>
+			</Trigger>
+		</TriggerList>
+	</SpcItem>
+	<SpcItem Name="Ark_punishment">
+		<TriggerList Act="Equip">
+			<Trigger>
+				<ExecList>
+					<ToolScp Scp="equip_Ark_punishment" Client="NO" UseSleep="NO">            
+          </ToolScp>
+				</ExecList>
+			</Trigger>
+		</TriggerList>
+		<TriggerList Act="UnEquip">
+			<Trigger>
+				<ExecList>
+					<ToolScp Scp="unequip_Ark_punishment" Client="NO" UseSleep="NO">            
+          </ToolScp>
+				</ExecList>
+			</Trigger>
+		</TriggerList>
+	</SpcItem>
+	<SpcItem Name="Ark_overpower">
+		<TriggerList Act="Equip">
+			<Trigger>
+				<ExecList>
+					<ToolScp Scp="equip_Ark_overpower" Client="NO" UseSleep="NO">            
+          </ToolScp>
+				</ExecList>
+			</Trigger>
+		</TriggerList>
+		<TriggerList Act="UnEquip">
+			<Trigger>
+				<ExecList>
+					<ToolScp Scp="unequip_Ark_overpower" Client="NO" UseSleep="NO">            
+          </ToolScp>
+				</ExecList>
+			</Trigger>
+		</TriggerList>
+	</SpcItem>
 	<SpcItem Name="Effect_catagnan">
 		<TriggerList Act="UnEquip">
 			<Trigger>
@@ -13055,6 +13109,24 @@ end"/>
 					<ToolScp Scp="SPCI_JOB_ALL_SKILLUP" Client="NO" UseSleep="NO">
 						<Str Str="Rogue"/>
 						<Num Num="-1"/>
+					</ToolScp>
+				</ExecList>
+			</Trigger>
+		</TriggerList>
+		<TriggerList Act="UnEquip">
+			<Trigger>
+				<ExecList>
+					<ToolScp Scp="SPCI_REMOVE_BUFF_UNEQUIP" Client="NO" UseSleep="NO">
+						<Str Str="ITEM_BUFF_VIBORA_KNIFETHROW"/>
+					</ToolScp>
+				</ExecList>
+			</Trigger>
+		</TriggerList>
+		<TriggerList Act="UnEquip">
+			<Trigger>
+				<ExecList>
+					<ToolScp Scp="SPCI_REMOVE_BUFF_UNEQUIP" Client="NO" UseSleep="NO">
+						<Str Str="ITEM_BUFF_VIBORA_KNIFETHROW_DMG"/>
 					</ToolScp>
 				</ExecList>
 			</Trigger>
@@ -13250,6 +13322,15 @@ end"/>
 				</ExecList>
 			</Trigger>
 		</TriggerList>
+		<TriggerList Act="UnEquip">
+			<Trigger>
+				<ExecList>
+					<ToolScp Scp="SPCI_REMOVE_BUFF_UNEQUIP" Client="NO" UseSleep="NO">
+						<Str Str="ITEM_BUFF_VIBORA_SPEAR_THROW"/>
+					</ToolScp>
+				</ExecList>
+			</Trigger>
+		</TriggerList>
 		<TriggerList Act="SkillUsed">
 			<Trigger>
 				<CondList>
@@ -13289,6 +13370,50 @@ end"/>
 						<Str Str="ITEM_VIBORA_MUSKET_TIGERHUNTER"/>
 						<Num Num="-1"/>
 					</ToolScp>
+				</ExecList>
+			</Trigger>
+		</TriggerList>
+	</SpcItem>
+        <SpcItem Name="TMAC04_118_2">
+		<TriggerList Act="Equip">
+			<Trigger>
+				<ExecList>
+					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
+						<Str Str="Exorcist_Katadikazo"/>
+						<Num Num="2"/>
+					</ToolScp>
+					<ToolScp Scp="SPCI_EQUIP_ADD_EXPROP_NUM" Client="NO" UseSleep="NO">
+						<Str Str="ITEM_VIBORA_THMACE_KATADIKAZO"/>
+						<Num Num="1"/>
+						<Num Num="0"/>
+					</ToolScp>
+				</ExecList>
+			</Trigger>
+		</TriggerList>
+		<TriggerList Act="UnEquip">
+			<Trigger>
+				<ExecList>
+					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
+						<Str Str="Exorcist_Katadikazo"/>
+						<Num Num="-2"/>
+					</ToolScp>
+					<ToolScp Scp="SPCI_EQUIP_ADD_EXPROP_NUM" Client="NO" UseSleep="NO">
+						<Str Str="ITEM_VIBORA_THMACE_KATADIKAZO"/>
+						<Num Num="-1"/>
+						<Num Num="0"/>
+					</ToolScp>
+				</ExecList>
+			</Trigger>
+		</TriggerList>
+		<TriggerList Act="SkillUsed">
+			<Trigger>
+				<CondList>
+					<ToolScp Scp="SPCI_CHECK_SKILL_SPLIT" Client="NO" UseSleep="NO">
+						<Str Str="Exorcist_Katadikazo"/>
+					</ToolScp>
+				</CondList>
+				<ExecList>
+					<ToolScp Scp="SCR_VIBORA_THMACE_KATADIKAZO" Client="NO" UseSleep="NO"/>
 				</ExecList>
 			</Trigger>
 		</TriggerList>

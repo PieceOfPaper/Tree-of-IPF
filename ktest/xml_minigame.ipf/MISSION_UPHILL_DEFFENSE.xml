@@ -2658,7 +2658,9 @@
                         <Str Str="미션 성공 : 60초 후 돌아갑니다."/>
                     </ToolScp>
                 </StartScpList>
-                <ObjList/>
+                <ObjList>
+                    <Obj Type="Monster" MonType="156163" Pos="271.01#80.12#-216.08" genCount="1" genTime="1000" objectKey="0" UseAiOutOfPc="1" propList="&apos;Dialog&apos; &apos;NPC_CONTENTS_MULTIPLE&apos; "/>
+                </ObjList>
                 <StageEvents>
                     <Event execCount="1" eventName="msg">
                         <condList>
@@ -2677,7 +2679,7 @@
                             </ToolScp>
                         </execList>
                     </Event>
-                    <Event eventName="60sec">
+                    <Event eventName="RETURN_ZONE">
                         <condList>
                             <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
                                 <Num Num="60"/>
@@ -2721,6 +2723,48 @@
                             <ToolScp Scp="MGAME_RANK_RESET_POINT_SETTING" Client="NO" UseSleep="NO">
                                 <Num Num="10"/>
                                 <Str Str="UphillDefense"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event eventName="30sec">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="30"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_MSG_ICON" Client="YES" UseSleep="NO">
+                                <Str Str="30초 후 원래 존으로 돌아갑니다"/>
+                                <Str Str="scroll"/>
+                                <Num Num="5"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="10sec">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="50"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_MSG_ICON" Client="YES" UseSleep="NO">
+                                <Str Str="10초 후 원래 존으로 돌아갑니다"/>
+                                <Str Str="scroll"/>
+                                <Num Num="5"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event eventName="20sec">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="40"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_MSG_ICON" Client="YES" UseSleep="NO">
+                                <Str Str="20초 후 원래 존으로 돌아갑니다"/>
+                                <Str Str="scroll"/>
+                                <Num Num="5"/>
                             </ToolScp>
                         </execList>
                     </Event>

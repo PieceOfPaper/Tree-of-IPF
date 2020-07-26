@@ -218,7 +218,7 @@ function RECYCLE_DRAW_ITEM_DETAIL(obj, itemobj, itemcset, type, itemguid)
 			
 	local icon = slot:GetIcon();
 	icon:SetTooltipType('wholeitem');
-	icon:SetTooltipArg('', itemclsID, 0);
+	icon:SetTooltipArg('recycleshop', itemclsID, itemguid);
 
 	local desc = GET_CHILD_RECURSIVELY(itemcset,"desc")
 	local tradeable = GET_CHILD_RECURSIVELY(itemcset,"tradeable")

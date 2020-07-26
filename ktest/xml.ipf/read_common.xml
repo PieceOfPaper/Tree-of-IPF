@@ -11,7 +11,8 @@
 	<ReadXml Name="cell"/>
 	<ReadXml Name="item"/>
 	<ReadXml Name="item_Equip_EP12"/>
-	<ReadXml Name="item_colorspray"/>
+  <ReadXml Name="item_EP12"/>
+  <ReadXml Name="item_colorspray"/>
 	<ReadXml Name="item_Equip"/>  
 	<ReadXml Name="item_HiddenAbility"/>
 	<ReadXml Name="item_event"/>
@@ -274,5 +275,6 @@
 	<ReadXml Name="Beauty_Shop_Designcut"/>
 	<ReadXml Name="Beauty_Shop_Designcut_Dye"/>	
 	<ReadXml Name="housing_furniture_group"/>
-	<ReadXml Name="gamble_list"/>		
+	<ReadXml Name="gamble_list"/>
+	<ReadXml Name="item_IncreaseCost"/>		
 </Category>

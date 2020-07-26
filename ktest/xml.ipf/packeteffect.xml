@@ -9,6 +9,11 @@
         <Effect Name="F_ground180_snow_loop"/>
         <Effect Name="F_cleric_zemina_buff_blue"/>
         <Effect Name="std_loop"/>
+        <Effect Name="F_TABLELAND_28_2_RAID_10_MINI01"/>
+        <Effect Name="F_smoke180_dark"/>
+        <Effect Name="LEGEND_RAID_GLACIER_EASY"/>
+        <Effect Name="LEGEND_RAID_GLACIER_HARD"/>
+        <Effect Name="LEGEND_RAID_GLACIER_NORMAL"/>
     </Category>
     <Category ID="132">
         <Effect Name="I_arrow005_mash2_red#Dummy_back_arrow04"/>
@@ -72,6 +77,7 @@
         <Effect Name="guild_agit_extension"/>
         <Effect Name="F_buff_basic050_circle"/>
         <Effect Name="skl_eff_finger_flick"/>
+        <Effect Name="F_cleric_Retaliation_ground_line_violet_blue"/>        
     </Category>
     <Category ID="14">
         <Effect Name="GUILD_COLONY_F_REMAINS_37_1"/>
@@ -627,6 +633,7 @@
         <Effect Name="I_archer_FocusFire_arrow_trail#Bip01 Spine2"/>
         <Effect Name="SKL_KATADIKAZO_CAST"/>
         <Effect Name="SKL_KATADIKAZO_LOOP"/>
+	<Effect Name="E_cleric_katadikazo"/>
         <Effect Name="SKL_KATADIKAZO_SHOT"/>
         <Effect Name="SKL_RUBRIC_CAST"/>
         <Effect Name="SKL_RUBRIC_SHOT"/>
@@ -741,6 +748,8 @@
         <Effect Name="I_arrow020_ignas_mon_mesh2#Bip001 Spine1"/>
         <Effect Name="I_spiral003_mesh#Bip001 Spine1"/>
         <Effect Name="I_cleric_katadikazo_mesh#Bip001 Spine1"/>
+	<Effect Name="I_cleric_katadikazo_mesh"/>
+	<Effect Name="F_cleric_ground_katadikazo"/>
         <Effect Name="I_wizard_DemonScratch_mesh2#Bip001 Spine1"/>
         <Effect Name="F_spread_out026_dark_low"/>
         <Effect Name="I_wizard_DemonScratch_mesh2"/>
@@ -2355,6 +2364,8 @@
         <Effect Name="F_explosion033_blue"/>
         <Effect Name="F_explosion033_darkblue"/>
         <Effect Name="I_force018_trail_ice2_800"/>
+    <Effect Name="Cataphract_SteedCharge"/>
+        <Effect Name="F_explosion134_ice"/>
     </Category>
     <Category ID="197">
         <Effect Name="F_burstup030_fire1"/>
@@ -2708,6 +2719,7 @@
         <Effect Name="F_hit021_thin"/>
         <Effect Name="F_wizard_Empowering_buff"/>
         <Effect Name="F_spread_out028_blue"/>
+        <Effect Name="Appraiser_Blindside_HiddenAbil"/>
     </Category>
     <Category ID="84">
         <Effect Name="M_PAST_FLIBRARY_1"/>
@@ -5369,9 +5381,19 @@
         <Effect Name="Unique_Glacier_Area"/>
         <Effect Name="Unique_Pbeta_Breath_IceRink"/>
         <Effect Name="F_ground190_circle_crack_ice_blue"/>
-        <Effect Name="ISA_CAST"/>
-        <Effect Name="ISA_SHOT"/>
-        <Effect Name="TIWAZ_SHOT"/>
+        <Effect Name="LEGEND_RAID_GLACIER"/>
+        <Effect Name="F_explosion007_blue2"/>
+        <Effect Name="LEGEND_RAID_GLACIER_NORMAL"/>
+        <Effect Name="LEGEND_RAID_GLACIER_HARD"/>
+        <Effect Name="LEGEND_RAID_GLACIER_EASY"/>
+        <Effect Name="Legend_Glacier_SnowCloud"/>
+        <Effect Name="I_smoke013_dark_glow2_water##0.5"/>
+        <Effect Name="I_smoke013_dark_glow2_water##0.3"/>
+        <Effect Name="I_smoke013_dark_glow2_water##0.1"/>
+        <Effect Name="I_smoke013_dark_glow2_water##0.2"/>
+        <Effect Name="I_smoke013_dark_blue##0.5"/>
+        <Effect Name="I_smoke013_blue_smoke"/>
+        <Effect Name="Legend_Pbeta_shot"/>
     </Category>
     <Category ID="45">
         <Effect Name="Cleric_Barrier"/>
@@ -6596,6 +6618,10 @@
         <Effect Name="F_ground113_ice3##2.5"/>
         <Effect Name="I_ground012_ice5_loop2"/>
         <Effect Name="I_shield005_ice_mesh##1"/>
+    <Effect Name="LEGEND_RAID_GLACIER_EASY"/>
+        <Effect Name="LEGEND_RAID_GLACIER_HARD"/>
+        <Effect Name="LEGEND_RAID_GLACIER_NORMAL"/>
+        <Effect Name="F_ground207_crack_explosion_blue"/>
     </Category>
     <Category ID="27">
         <Effect Name="SAPPER_TRAP_Sapper_BroomTrap"/>
@@ -7257,6 +7283,8 @@
         <Effect Name="RootCrystal"/>
         <Effect Name="RUN_INTE_WARP"/>
         <Effect Name="LEGEND_RAID_MORINGPONIA_HARD"/>
+		<Effect Name="Disnai_Svirti_PAD_ENEMY"/>
+		<Effect Name="Disnai_Svirti_PAD_PARTY"/>
     </Category>
     <Category ID="177">
         <Effect Name="KATYN10_SECTOR2_OWL01_MINI"/>
@@ -8465,6 +8493,24 @@
         <Effect Name="F_summon_ground_green"/>
         <Effect Name="F_summon_ground_blue"/>
         <Effect Name="F_summon_ground_red_attach"/>
+        <Effect Name="Pbeta_Legend_Obj_Pad"/>
+        <Effect Name="Pbeta_Legend_Obj_Dmg_Pad"/>
+        <Effect Name="Pbeta_Legend_KruvinaMist"/>
+        <Effect Name="Legend_Pbeta_BattleField"/>
+        <Effect Name="Legend_Pbeta_contaminate"/>
+        <Effect Name="Legend_Pbeta_Battle_Second_Victory_Pad"/>
+        <Effect Name="Legend_Pbeta_AntiMagic"/>
+        <Effect Name="Legend_Glacier_ColdBlast"/>
+        <Effect Name="Legend_Glacier_SnowStorm"/>
+        <Effect Name="GLACIER_WITCH_MADNESS"/>
+        <Effect Name="GLACIER_SNOW_CLOUD"/>
+        <Effect Name="I_skillrange_90_yellow"/>
+        <Effect Name="F_wizard_BloodSucking_cast_ground_loop"/>
+        <Effect Name="Legend_Glacier_IceSpear"/>
+        <Effect Name="F_little_dionys_ground001"/>
+        <Effect Name="Three_WINPOINT"/>
+        <Effect Name="mon_voice_glacier_skl15_script"/>
+        <Effect Name="mon_voice_glacier_dead_script"/>
     </Category>
     <Category ID="19">
         <Effect Name="I_fallen_statue_atk002_mash"/>

@@ -190,7 +190,7 @@
 			<Stage Name="STAGE_1_PROG" AutoStart="0">
 				<StartScpList>
 					<ToolScp Scp="MGAME_SET_RAID_ICON" Client="NO" UseSleep="NO">
-						<Str Str="첫 번째 목표가 시작되었습니다{nl}270초 동안 큐폴 루타를 보호하세요"/>
+						<Str Str="첫 번째 목표가 시작되었습니다{nl}30초 동안 큐폴 루타를 보호하세요"/>
 						<Str Str="stage_start"/>
 						<Num Num="20"/>
 					</ToolScp>
@@ -888,7 +888,7 @@
 			<Stage Name="CNT" AutoStart="0">
 				<StartScpList>
 					<ToolScp Scp="MGAME_SET_TIMEOUT" Client="NO" UseSleep="NO">
-						<Num Num="270"/>
+						<Num Num="30"/>
 					</ToolScp>
 					<ToolScp Scp="MGAME_SET_QUEST_NAME" Client="NO" UseSleep="NO">
 						<Str Str="큐폴 루타 보호"/>
@@ -918,7 +918,7 @@
 					<Event execCount="1" eventName="SUCC_Timmer">
 						<condList>
 							<ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
-								<Num Num="270"/>
+								<Num Num="30"/>
 							</ToolScp>
 						</condList>
 						<execList>

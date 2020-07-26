@@ -215,12 +215,15 @@ function ON_MARKET_ITEM_LIST(frame, msg, argStr, argNum)
 	end
 end
 
-local function MARKET_CTRLSET_SET_ICON(ctrlSet, itemObj, marketItem)
+local function MARKET_CTRLSET_SET_ICON(ctrlSet, itemObj, marketItem)	
 	local pic = GET_CHILD_RECURSIVELY(ctrlSet, "pic");
 	SET_SLOT_ITEM_CLS(pic, itemObj)
-	SET_ITEM_TOOLTIP_ALL_TYPE(pic:GetIcon(), marketItem, itemObj.ClassName, "market", marketItem.itemType, marketItem:GetMarketGuid());
+	SET_ITEM_TOOLTIP_ALL_TYPE(pic:GetIcon(), marketItem, itemObj.ClassName, "market", marketItem.itemType, marketItem:GetMarketGuid());	
+	SET_SLOT_STYLESET(pic, itemObj)
 
-    SET_SLOT_STYLESET(pic, itemObj)
+	-- 아이커 종류 표시	
+	SET_SLOT_ICOR_CATEGORY(pic, itemObj);
+	
 	if itemObj.MaxStack > 1 then
 		local font = '{s16}{ol}{b}';
 		if 100000 <= marketItem.count then	-- 6자리 수 폰트 크기 조정

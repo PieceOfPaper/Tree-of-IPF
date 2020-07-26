@@ -208,7 +208,7 @@
                     </HitList>
                     <EtcList>
                         <Scp Client="NO" Scp="MONSKL_CRE_PAD" Time="0" UseSleep="NO">
-                            <Pos Angle="0" Dist="0"/>
+                            <Pos Angle="0" Dist="0" PosType="1"/>
                             <Angle Angle="0"/>
                             <Str Str="Appraiser_Blindside_HiddenAbil"/>
                         </Scp>
@@ -234,12 +234,6 @@
                         </Scp>
                         <Scp Client="NO" Scp="SKL_CHECK_LOOPING_COUNT_INIT" Time="250" UseSleep="NO">
                             <Num Num="4"/>
-                        </Scp>
-                        <Scp Client="YES" Scp="C_EFFECT_POS" Time="350" UseSleep="NO">
-                            <Str_Arg Arg="0.85" Str="F_archer_blindside_arts"/>
-                            <Pos Angle="0" Dist="0" Option="1" PosType="1"/>
-                            <Num Num="0"/>
-                            <Str Str="None"/>
                         </Scp>
                         <Scp Client="NO" LoopTime="500" Scp="SKL_TGT_DMG" Time="500" UseSleep="NO">
                             <Num Num="1"/>

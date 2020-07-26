@@ -116,6 +116,11 @@ function IS_ENABLE_EXTRACT_JEWELL(item)
 		return false;
 	end
 	
+	-- 440레벨 이상 레전드 장비는 쥬얼 지급 안함
+	if TryGetProp(item, "UseLv", 1) >= 440 and TryGetProp(item, "ItemGrade", 1) >= 5 then
+	    return false;
+	end
+	
 	local classType = TryGetProp(item, 'ClassType');
 	local enableClassType = {'Sword', 'THSword', 'Staff', 'THBow', 'Bow', 'Mace', 'THMace', 'Spear', 'THSpear', 'Dagger', 'THStaff', 'Pistol', 'Rapier', 'Cannon', 'Musket', 'Shirt', 'Pants', 'Boots', 'Gloves', 'Shield', 'Neck','Ring', 'Trinket'};
 	for i = 1, #enableClassType do
@@ -265,6 +270,7 @@ revertrandomitemlist = {'itemrandomreset', 'itemrevertrandom', 'itemunrevertrand
 -- 산드라의 완벽한 돋보기 사용 가능 아이템 확인
 function IS_ENABLE_4LINE_REVERT_RANDOM_ITEM(itemObj)
 	local icor = TryGetProp(itemObj, 'GroupName', 'None')
+    local Lv = TryGetProp(itemObj, 'UseLv', 1)
 
 	if icor == 'Icor' then
 		local item_name = TryGetProp(itemObj, 'InheritanceRandomItemName', 'None')
@@ -274,7 +280,7 @@ function IS_ENABLE_4LINE_REVERT_RANDOM_ITEM(itemObj)
 				return false, 'None'
 			end
 
-			if TryGetProp(cls, 'UseLv', 1) ~= 430 then
+		    if Lv < 430 then
 				return false, 'Level';
 			end
 			
@@ -285,7 +291,7 @@ function IS_ENABLE_4LINE_REVERT_RANDOM_ITEM(itemObj)
 			return false, 'NoRandom'
 		end		
 	else
-		if TryGetProp(itemObj, 'UseLv', 1) ~= 430 then
+		if Lv < 430 then
 			return false, 'Level';
 		end
 	
@@ -300,7 +306,8 @@ end
 -- 산드라의 궁극의 돋보기 사용 가능 아이템 확인
 function IS_ENABLE_6LINE_REVERT_RANDOM_ITEM(itemObj)
 	local icor = TryGetProp(itemObj, 'GroupName', 'None')
-
+    local Lv = TryGetProp(itemObj, 'UseLv', 1)
+    
 	if icor == 'Icor' then
 		local item_name = TryGetProp(itemObj, 'InheritanceRandomItemName', 'None')
 		if item_name ~= 'None' then
@@ -308,8 +315,8 @@ function IS_ENABLE_6LINE_REVERT_RANDOM_ITEM(itemObj)
 			if cls == nil then 
 				return false, 'None'
 			end
-
-			if TryGetProp(cls, 'UseLv', 1) ~= 430 then				
+            
+			if Lv < 430 then				
 				return false, 'Level';
 			end
 			
@@ -320,7 +327,7 @@ function IS_ENABLE_6LINE_REVERT_RANDOM_ITEM(itemObj)
 			return false, 'NoRandom'
 		end		
 	else		
-		if TryGetProp(itemObj, 'UseLv', 1) ~= 430 then
+		if Lv < 430 then
 			return false, 'Level';
 		end
 		

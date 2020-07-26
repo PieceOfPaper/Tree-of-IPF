@@ -131,7 +131,7 @@
 			<Stage Name="STAGE_1_PROG" AutoStart="0">
 				<StartScpList>
 					<ToolScp Scp="MGAME_SET_RAID_ICON" Client="NO" UseSleep="NO">
-						<Str Str="첫 번째 목표가 시작되었습니다{nl}몬스터들로부터 270초 동안 대지의 제단을 보호하세요"/>
+						<Str Str="첫 번째 목표가 시작되었습니다{nl}몬스터들로부터 30초 동안 대지의 제단을 보호하세요"/>
 						<Str Str="stage_start"/>
 						<Num Num="20"/>
 					</ToolScp>
@@ -603,7 +603,7 @@
 						<Str Str="대지의 제단 보호"/>
 					</ToolScp>
 					<ToolScp Scp="MGAME_SET_TIMEOUT" Client="NO" UseSleep="NO">
-						<Num Num="270"/>
+						<Num Num="30"/>
 					</ToolScp>
 				</StartScpList>
 				<ObjList/>
@@ -630,7 +630,7 @@
 					<Event execCount="1" eventName="Succl_Timmer">
 						<condList>
 							<ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
-								<Num Num="270"/>
+								<Num Num="30"/>
 							</ToolScp>
 						</condList>
 						<execList>

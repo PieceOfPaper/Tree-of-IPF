@@ -72,6 +72,22 @@ function SWITCHGENDER_DRAW_MATERAIL(frame, isTargetMode)
 	SWITCHGENDER_UPDATE_NEED_MATERIAL_CNT(frame, isTargetMode);
 end
 
+
+function SWITCHGENDER_GET_HAIR_CLASS_C(hairIndex, gender)
+   
+	local PartClass = imcIES.GetClass("CreatePcInfo", "Hair");
+	local GenderList = PartClass:GetSubClassList();
+	local Selectclass   = GenderList:GetClass(gender);
+	local Selectclasslist = Selectclass:GetSubClassList();
+
+	local hairCls = Selectclasslist:GetClass(hairIndex); 
+	if hairCls ~= nil then
+		return hairCls;
+	end
+
+    return nil;
+end
+
 function SWITCHGENDER_DRAW_CHANGE_STATE(frame)
 	local bg_mid = frame:GetChild("bg_mid");
 	local repair = frame:GetChild("repair");
@@ -92,8 +108,16 @@ function SWITCHGENDER_DRAW_CHANGE_STATE(frame)
     local etc = GetMyEtcObject();
     if changeGender == 2 then -- 여자로 바꾸는 경우는, 기본헤어가 다를 수도 있어
         local startFemaleHairType = TryGetProp(etc, 'StartFemaleHairType');
-        if startFemaleHairType ~= nil and startFemaleHairType > 0 then
-            changeHeadIndex = startFemaleHairType + 1;
+		if startFemaleHairType ~= nil and startFemaleHairType > 0 then
+			changeHeadIndex = startFemaleHairType ;
+			-- 여성 헤어 기준 남성의 Hair정보 가져옴.
+			local hairCls = SWITCHGENDER_GET_HAIR_CLASS_C(changeHeadIndex, 1 ); 
+			if hairCls ~= nil then
+				if imcIES.GetString(hairCls, 'UseableBarrack') ~= 'YES' then
+					-- changeHeadIndex 헤어가 기본헤어가 아닌경우 0번 헤어로 변경
+					changeHeadIndex = 1; -- ShortCut
+				end
+			end
         end
     end
 

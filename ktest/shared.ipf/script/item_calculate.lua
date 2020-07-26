@@ -297,7 +297,7 @@ end
 function GET_BASIC_ATK(item)
     local lv = TryGetProp(item,"UseLv");
     if lv == nil then
-        return 0;
+        return 0, 0;
     end
     
     local hiddenLv = TryGetProp(item,"ItemLv");        
@@ -320,7 +320,7 @@ function GET_BASIC_ATK(item)
     end
     local itemstring = TryGetProp(item, 'StringArg')
     if itemstring == nil then
-        return;
+        return 0, 0;
     end
     
     if itemstring == 'Growth_Item' then
@@ -332,7 +332,7 @@ function GET_BASIC_ATK(item)
     
     local grade = TryGetProp(item, "ItemGrade");
     if grade == nil then
-        return 0;
+        return 0, 0;
     end
     
     -- 팀 배틀 리그에서는 가상의 무기 등급과 무기 레벨을 받아 오도록 설정 --
@@ -346,35 +346,40 @@ function GET_BASIC_ATK(item)
 
     local slot = TryGetProp(item,"DefaultEqpSlot");
     if slot == nil then
-        return 0;
+        return 0, 0;
     end
     
     local classType = TryGetProp(item,"ClassType");
     if classType == nil then
-        return 0;
+        return 0, 0;
     end
     
     
     
     local itemGradeClass = GetClassList('item_grade')
     if itemGradeClass == nil then
-        return 0;
+        return 0, 0;
     end
     
     local weaponClass = GetClassByNameFromList(itemGradeClass,'WeaponClassTypeRatio')
     if weaponClass == nil then
-        return 0;
+        return 0, 0;
     end
     
     local weaponDamageClass = GetClassByNameFromList(itemGradeClass,'WeaponDamageRange')
     if weaponDamageClass == nil then
-        return 0;
+        return 0, 0;
     end
     
     if itemGradeClass ~= nil and weaponClass[classType] > 0 then
         itemATK = itemATK * weaponClass[classType];
     end
 
+    local Upper440BonusRatio = GetClassByNameFromList(itemGradeClass,'440LevelUpperClassTypeRatioIncrease')
+    if Upper440BonusRatio ~= nil and lv >= 440 then
+        itemATK = itemATK * Upper440BonusRatio[classType]
+    end
+    
     local ChangeBasicProp = TryGetProp(item, "ChangeBasicPropValue", 0)
     if ChangeBasicProp > 0 then
         itemATK = ChangeBasicProp
@@ -382,11 +387,12 @@ function GET_BASIC_ATK(item)
     
     local damageRange = weaponDamageClass[classType]
     if damageRange == nil then
-        return 0;
+        return 0, 0;
     end
     
     local maxAtk = itemATK * damageRange;
     local minAtk = itemATK * (2 - damageRange);
+
     return maxAtk, minAtk;
 end
 
@@ -455,6 +461,11 @@ function GET_BASIC_MATK(item)
         itemATK = itemATK * weaponClass[classType];
     end
     
+    local Upper440BonusRatio = GetClassByNameFromList(itemGradeClass,'440LevelUpperClassTypeRatioIncrease')
+    if Upper440BonusRatio ~= nil and lv >= 440 then
+        itemATK = itemATK * Upper440BonusRatio[classType]
+    end
+
     local ChangeBasicProp = TryGetProp(item, "ChangeBasicPropValue", 0)
     if ChangeBasicProp > 0 then
         itemATK = ChangeBasicProp
@@ -631,6 +642,11 @@ function SCR_REFRESH_ARMOR(item, enchantUpdate, ignoreReinfAndTranscend, reinfBo
 
         basicDef = ((40 + lv * 8) * armorClassTypeRatio[classType]) * gradeRatio;
         
+        local Upper440BonusRatio = GetClassByNameFromList(itemGradeClass,'440LevelUpperClassTypeRatioIncrease')
+        if Upper440BonusRatio ~= nil and lv >= 440 then
+            basicDef = basicDef * Upper440BonusRatio[classType]
+        end
+
         local ChangeBasicProp = TryGetProp(item, "ChangeBasicPropValue", 0)
         if ChangeBasicProp > 0 then
             basicDef = ChangeBasicProp
@@ -1273,7 +1289,22 @@ function GET_REPAIR_PRICE(item, fillValue, taxRate)
     local transcendRatio = (0.1 * transcendCount);
     
     value = value * priceRatio * (1 + (item.ItemGrade - 1) * 0.1) * (1 + reinforceRatio + transcendRatio);
+
+    -- 440레벨 장비 부터는 item_IncreaseCost.xml 테이블의 영향을 받아 비용 증가
+    local IncreaseRatio = nil
+    if lv >= 440 then
+        local Cls = GetClassByNumProp("IncreaseCost", "UseLv", lv)
+        if Cls ~= nil then
+            IncreaseRatio = TryGetProp(Cls, "RepairPriceRatio", 1)
+        end
+    end
+    if IncreaseRatio ~= nil then
+        value = value * IncreaseRatio
+    end
+    ---------------------
+    
     value = math.floor(value)
+
     if taxRate ~= nil then
         value = tonumber(CALC_PRICE_WITH_TAX_RATE(value, taxRate))
     end

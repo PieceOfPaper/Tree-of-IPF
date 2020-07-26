@@ -276,7 +276,7 @@ return obj.Level;"/>
                 </Scp>
                 <Scp Scp="SKL_TGT_BUFF_ABIL" Client="NO" UseSleep="NO" Time="650">
                     <Str Str="Inquisitor15"/>
-                    <Str Str="Judgment_Provoke_Debuff" UseFunc="1" FuncTxt="local target = GetSkillTarget(self) if IsBuffApplied(target, &quot;ProvocationImmunity_Debuff&quot;) == &quot;YES&quot; then     return end return &quot;Judgment_Provoke_Debuff&quot;"/>
+                    <Str Str="Judgment_Provoke_Debuff" UseFunc="1" FuncTxt="local target = GetSkillTarget(self) if target ~= nil and IsBuffApplied(target, &quot;ProvocationImmunity_Debuff&quot;) == &quot;NO&quot; then     return &quot;Judgment_Provoke_Debuff&quot; end return &quot;None&quot;"/>
                     <Num Num="1"/>
                     <Num Num="-1"/>
                     <Num Num="5000"/>

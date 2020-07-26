@@ -79,6 +79,8 @@ function MARKET_SELL_UPDATE_SLOT_ITEM(frame)
 	else
 		itemObj = GetIES(slotItem:GetObject());
 		itemname:SetTextByKey("name", GET_FULL_NAME(itemObj));
+		-- 아이커 종류 표시	
+		SET_SLOT_ICOR_CATEGORY(slot_item, itemObj);
 	end
 
 end
@@ -158,6 +160,9 @@ function ON_MARKET_SELL_LIST(frame, msg, argStr, argNum)
 		feeValueStrCtrl:SetTextByKey("value", feeValueStr);
 
 		SET_ITEM_TOOLTIP_ALL_TYPE(ctrlSet, marketItem, itemObj.ClassName, "market", marketItem.itemType, marketItem:GetMarketGuid());
+		
+		-- 아이커 종류 표시	
+		SET_SLOT_ICOR_CATEGORY(pic, itemObj);
 
 		local btn = GET_CHILD(ctrlSet, "btn");
 		btn:SetTextByKey("value", ClMsg("Cancel"));

@@ -70,14 +70,15 @@
 		<Item Script="None" Name="GuildQuestEnterCount_1add" Count="1" Price="5000" DailyBuyLimit="0"/>
 	</Shop>
 	<Shop Name="CONTENTS_TOTAL_SHOP" PointScript="GET_CONTENTS_TOTAL_POINT">
-		<Item Script="None" Name="egg_003_ContentsTotalShop" Count="1" Price="4000" DailyBuyLimit="0" AccountNeedProperty="ContentsTotalShop_2002_1"/>
-		<Item Script="None" Name="Gesture_Cheerup" Count="1" Price="3000" DailyBuyLimit="0" AccountNeedProperty="ContentsTotalShop_2002_2"/>
-		<Item Script="None" Name="Gesture_Unbelievable" Count="1" Price="3000" DailyBuyLimit="0" AccountNeedProperty="ContentsTotalShop_2002_3"/>
-		<Item Script="None" Name="Chat_Balloon_tiny_badge_90d" Count="1" Price="1200" DailyBuyLimit="0" AccountNeedProperty="ContentsTotalShop_2002_4"/>
-		<Item Script="None" Name="Chat_Balloon_poporion_badge_90d" Count="1" Price="1200" DailyBuyLimit="0" AccountNeedProperty="ContentsTotalShop_2002_5"/>
-		<Item Script="None" Name="Chat_Balloon_kepa_badge_90d" Count="1" Price="1200" DailyBuyLimit="0" AccountNeedProperty="ContentsTotalShop_2002_6"/>
-		<Item Script="None" Name="motion_kupole_emotion01" Count="1" Price="700" DailyBuyLimit="0" AccountNeedProperty="ContentsTotalShop_2002_7"/>
-		<Item Script="None" Name="motion_kupole_emotion02" Count="1" Price="700" DailyBuyLimit="0" AccountNeedProperty="ContentsTotalShop_2002_8"/>
-		<Item Script="None" Name="motion_kupole_emotion03" Count="1" Price="700" DailyBuyLimit="0" AccountNeedProperty="ContentsTotalShop_2002_9"/>
+		<Item Script="None" Name="balloon_skin_icecream_01_90d" Count="1" Price="1200" DailyBuyLimit="0" AccountNeedProperty="ContentsTotalShop_2006_1"/>
+		<Item Script="None" Name="balloon_skin_icecream_02_90d" Count="1" Price="1200" DailyBuyLimit="0" AccountNeedProperty="ContentsTotalShop_2006_2"/>
+		<Item Script="None" Name="Gesture_PULLUP" Count="1" Price="3000" DailyBuyLimit="0" AccountNeedProperty="ContentsTotalShop_2006_5"/>
+		<Item Script="None" Name="Gesture_SQUAT" Count="1" Price="3000" DailyBuyLimit="0" AccountNeedProperty="ContentsTotalShop_2006_4"/>
+		<Item Script="None" Name="Gesture_SPOTLIGHT" Count="1" Price="3000" DailyBuyLimit="0" AccountNeedProperty="ContentsTotalShop_2006_11"/>
+		<Item Script="None" Name="Nyang_Piano_Box_Do_Black" Count="1" Price="3000" DailyBuyLimit="0" AccountNeedProperty="ContentsTotalShop_2006_6"/>
+		<Item Script="None" Name="Nyang_Piano_Box_Do_White" Count="1" Price="6000" DailyBuyLimit="0" AccountNeedProperty="ContentsTotalShop_2006_7"/>
+		<Item Script="None" Name="motion_dionyscon01" Count="1" Price="700" DailyBuyLimit="0" AccountNeedProperty="ContentsTotalShop_2006_8"/>
+		<Item Script="None" Name="motion_dionyscon02" Count="1" Price="700" DailyBuyLimit="0" AccountNeedProperty="ContentsTotalShop_2006_9"/>
+		<Item Script="None" Name="motion_dionyscon03" Count="1" Price="700" DailyBuyLimit="0" AccountNeedProperty="ContentsTotalShop_2006_10"/>
 	</Shop>
 </PropertyShop>

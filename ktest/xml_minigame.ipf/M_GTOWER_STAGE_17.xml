@@ -886,7 +886,7 @@
 			<Stage Name="CNT" AutoStart="0">
 				<StartScpList>
 					<ToolScp Scp="MGAME_SET_TIMEOUT" Client="NO" UseSleep="NO">
-						<Num Num="270"/>
+						<Num Num="30"/>
 					</ToolScp>
 					<ToolScp Scp="MGAME_SET_QUEST_NAME" Client="NO" UseSleep="NO">
 						<Str Str="불완전한 별의 수정 보호"/>
@@ -918,7 +918,7 @@
 					<Event execCount="1" eventName="SUCC_Timmer">
 						<condList>
 							<ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
-								<Num Num="270"/>
+								<Num Num="30"/>
 							</ToolScp>
 						</condList>
 						<execList>

@@ -10098,6 +10098,32 @@
 			</ToolScp>
 		</EnterList>
 	</AI>
+    <AI Name="F_TABLELAND_28_2_RAID_10_CRU_MINI_AI_01" UpdateMS="3000" ActiveMessageMapInBattle="1">
+        <List>
+            <ToolScp Scp="S_AI_EFFECT" Client="NO" UseSleep="NO">
+                <Num Num="0"/>
+                <Str_Arg Str="F_smoke180_dark" Arg="1"/>
+                <Str Str="TOP"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_EFFECT" Client="NO" UseSleep="NO">
+                <Num Num="0"/>
+                <Str_Arg Str="F_explosion001_dark_Low" Arg="1"/>
+                <Str Str="TOP"/>
+            </ToolScp>
+        </List>
+        <StartList>
+            <ToolScp Scp="SAI_FUNC_DIRECT" Client="NO" UseSleep="NO">
+                <Str Str="F_TABLELAND_28_2_RAID_10_CRU_MINI_AI_01"/>
+            </ToolScp>
+        </StartList>
+    </AI>
+    <AI Name="F_TABLELAND_28_2_RAID_10_MINI_MON_AI" ActiveMessageMapInBattle="1">
+        <StartList>
+            <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO" CondFunc="">
+                <Num Num="1000"/>
+            </ToolScp>
+        </StartList>
+    </AI>
 	<AI Name="FieldRift_Ballist_Atk" ActiveMessageMapInBattle="1">
 		<List>
 			<ToolScp Scp="S_AI_ATTACK_NEAR_MAXHATECOUNT_CHECK" Client="NO" UseSleep="NO">
@@ -11076,7 +11102,7 @@
 			</ToolScp>
 		</StartList>
 	</AI>
-	<AI Name="GT_STAGE_7_PAD_AI" UpdateMS="5000" ActiveMessageMapInBattle="1">
+	<AI Name="GT_STAGE_7_PAD_AI" UpdateMS="1000" ActiveMessageMapInBattle="1">
 		<List>
 			<ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
 				<Str Str="GT_STAGE_7_PAD_CNT"/>
@@ -11089,7 +11115,7 @@
 			<ToolScp Scp="S_AI_GTOWER_D_DM" Client="NO" UseSleep="NO">
 				<Str Str="M_GTOWER_STAGE_7"/>
 				<Str Str="GT_STAGE_7_PAD"/>
-				<Num Num="150"/>
+				<Num Num="30"/>
 				<Str Str="진행도"/>
 				<Str Str="scroll"/>
 				<Num Num="6"/>

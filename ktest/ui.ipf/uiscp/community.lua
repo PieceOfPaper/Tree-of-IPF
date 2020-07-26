@@ -146,7 +146,7 @@ function SHOW_PC_CONTEXT_MENU(handle)
 		local mapprop = session.GetCurrentMapProp();
     	local mapCls = GetClassByType("Map", mapprop.type);	
 		if IS_TOWN_MAP(mapCls) == true then
-			ui.AddContextMenuItem(context, "{img context_personal_housing 18 17} "..ScpArgMsg("PH_SEL_DLG_2"), string.format("REQUEST_PERSONAL_HOUSING_WARP(\"%d\")", pcObj:GetPCApc():GetAID()));
+			ui.AddContextMenuItem(context, "{img context_personal_housing 18 17} "..ScpArgMsg("PH_SEL_DLG_2"), string.format("REQUEST_PERSONAL_HOUSING_WARP(\"%s\")", pcObj:GetPCApc():GetAID()));
 		end
 
 		local familyname = pcObj:GetPCApc():GetFamilyName()

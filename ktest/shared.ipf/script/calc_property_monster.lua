@@ -380,7 +380,14 @@ function SCR_Get_MON_DEF(self)
     end
 
     local debuffRank = TryGetProp(self, "DebuffRank");
-    if debuffRank == "LegendRaidBoss" or debuffRank == "WorldRaid" or debuffRank == "FieldBoss" or debuffRank == "WeeklyBoss" then
+    if IsBuffApplied(self, "Tenacity_Buff") == "YES" then
+        local reduceDefLimit = math.floor(originDef * 0.85);
+        if originDef == 0 then
+            SetExProp(self, "MON_ORIGIN_DEF", math.floor(value));
+        elseif value < reduceDefLimit then
+            value = reduceDefLimit;
+        end
+    elseif debuffRank == "LegendRaidBoss" or debuffRank == "WorldRaid" or debuffRank == "FieldBoss" or debuffRank == "WeeklyBoss" then
         local reduceDefLimit = math.floor(originDef * 0.75);
         if originDef == 0 then
             SetExProp(self, "MON_ORIGIN_DEF", math.floor(value));
@@ -462,7 +469,14 @@ function SCR_Get_MON_MDEF(self)
     end
 
     local debuffRank = TryGetProp(self, "DebuffRank");
-    if debuffRank == "LegendRaidBoss" or debuffRank == "WorldRaid" or debuffRank == "FieldBoss" or debuffRank == "WeeklyBoss" then
+    if IsBuffApplied(self, "Tenacity_Buff") == "YES" then
+        local reduceDefLimit = math.floor(originDef * 0.85);
+        if originDef == 0 then
+            SetExProp(self, "MON_ORIGIN_MDEF", math.floor(value));
+        elseif value < reduceDefLimit then
+            value = reduceDefLimit;
+        end
+    elseif debuffRank == "LegendRaidBoss" or debuffRank == "WorldRaid" or debuffRank == "FieldBoss" or debuffRank == "WeeklyBoss" then
         local reduceDefLimit = math.floor(originDef * 0.75);
         if originDef == 0 then
             SetExProp(self, "MON_ORIGIN_MDEF", math.floor(value));
@@ -604,7 +618,7 @@ function SCR_Get_MON_CRTDR(self)
     end
     
     if IsBuffApplied(self, "Tenacity_Buff") == "YES" then
-        local reduceCrtDrLimit = math.floor(originCrtDR * 0.9);
+        local reduceCrtDrLimit = math.floor(originCrtDR * 0.85);
         if originCrtDR == 0 then
             SetExProp(self, "MON_ORIGIN_CRTDR", math.floor(value));
         elseif value < reduceCrtDrLimit then

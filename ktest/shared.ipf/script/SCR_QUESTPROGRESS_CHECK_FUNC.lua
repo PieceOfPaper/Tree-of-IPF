@@ -933,3 +933,25 @@ function SCR_CQ_06_ITEM_RE(pc, tx)
         return
     end
 end
+
+function SCR_CQ_11_ITEM_RE(pc, tx)
+    local aObj
+    
+    if IsServerSection(pc) == 1 then
+        aObj = GetAccountObj(pc);
+    else
+        aObj = GetMyAccountObj();
+    end
+    
+    
+    if aObj == nil then
+        return
+    end
+    
+    local itemcnt = GetInvItemCount(pc, 'SNOW_RAID_BOOK_02')
+    if itemcnt ~= 0 then
+        TxTakeItem(tx, 'SNOW_RAID_BOOK_02', itemcnt,  'F_TABLELAND_28_2_RAID_11')
+    else
+        return
+    end
+end

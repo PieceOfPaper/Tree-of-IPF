@@ -64,7 +64,7 @@ function DRAW_ETC_COMMON_TOOLTIP(tooltipframe, invitem, mainframename, from)
 	SET_GRADE_TOOLTIP(CSet, invitem, GRADE_FONT_SIZE);
 
 	-- 아이템 이름 세팅
-	local fullname = GET_FULL_NAME(invitem, true);
+	local fullname = TranslateDicID(GET_FULL_NAME(invitem, true));
 	local nameChild = GET_CHILD(CSet, "name", "ui::CRichText");
 	
 	--EVENT_1909_ANCIENT

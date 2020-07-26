@@ -6349,10 +6349,21 @@
     <Skill Name="Mon_weekly_boss_mirtis_Skill_1">
         <MainSkl ScrLock="None" JumpFlee="NO" MSPDToUsePos="0">
             <HitList>
-                <Frame Type="FAN" Time="1300" HitCount="1" TermMin="0" TermMax="0" PosType="0" Dist="0" RandDist="0" RandomPerHit="0" Angle="0" Width="50" Length="80" SklAngle="0.87266469" AniTime="1500" RotAngle="0" ForceATK="0"/>
+                <Frame Type="FAN" Time="99799" HitCount="1" TermMin="0" TermMax="0" PosType="0" Dist="0" RandDist="0" RandomPerHit="0" Angle="0" Width="30" Length="30" SklAngle="0.17453292" AniTime="99999" RotAngle="0" ForceATK="0"/>
             </HitList>
             <EtcList>
                 <Anim Time="0" Anim="ATK_CAST" Speed="1"/>
+                <Scp Scp="EFT_AND_HIT" Client="NO" UseSleep="YES" Time="800">
+                    <Pos Angle="-0.051873948" Dist="40.916061" Height="1"/>
+                    <Str_Arg Str="F_sys_target_boss##0.5" Arg="2.5"/>
+                    <Num Num="1000"/>
+                    <Str_Arg Str="None" Arg="0.5"/>
+                    <Num Num="40"/>
+                    <Num Num="100"/>
+                    <Num Num="0"/>
+                    <Num Num="1"/>
+                    <Num Num="1000"/>
+                </Scp>
                 <Anim Time="1300" Anim="ATK_SHOT" Speed="1"/>
                 <Scp Scp="C_EFFECT_POS" Client="YES" UseSleep="NO" Time="1500">
                     <Str_Arg Str="F_explosion002_violet" Arg="3"/>
@@ -8074,8 +8085,8 @@
             <EtcList>
                 <Anim Time="0" Anim="atk2" Speed="1"/>
                 <Scp Scp="MSL_THROW" Client="NO" UseSleep="YES" Time="500">
-                    <Str_Arg Str="I_force071_mintdark#Bip001 R Finger0" Arg="3"/>
-                    <Str_Arg Str="F_burstup004_dark" Arg="3"/>
+                    <Str_Arg Str="I_force071_mintdark#Bip001 R Finger0" Arg="1.5"/>
+                    <Str_Arg Str="F_burstup004_dark" Arg="1.5"/>
                     <Str_Arg Str="None" Arg="5"/>
                     <Pos Angle="0" Dist="10"/>
                     <Num Num="100"/>
@@ -8096,7 +8107,7 @@
                     <Num Num="0.0099999998"/>
                     <Num Num="0.1"/>
                     <Num Num="1000"/>
-                    <Str_Arg Str="F_rize009##0.1" Arg="1"/>
+                    <Str_Arg Str="F_rize009##0.1" Arg="0.5"/>
                     <Num Num="40"/>
                     <Num Num="100"/>
                     <Num Num="0"/>
@@ -8113,7 +8124,7 @@
                     <Num Num="0.0099999998"/>
                     <Num Num="0.1"/>
                     <Num Num="1000"/>
-                    <Str_Arg Str="F_rize009##0.1" Arg="1"/>
+                    <Str_Arg Str="F_rize009##0.1" Arg="0.5"/>
                     <Num Num="40"/>
                     <Num Num="100"/>
                     <Num Num="0"/>
@@ -8130,7 +8141,7 @@
                     <Num Num="0.0099999998"/>
                     <Num Num="0.1"/>
                     <Num Num="1000"/>
-                    <Str_Arg Str="F_rize009##0.1" Arg="1"/>
+                    <Str_Arg Str="F_rize009##0.1" Arg="0.5"/>
                     <Num Num="40"/>
                     <Num Num="100"/>
                     <Num Num="0"/>
@@ -8147,7 +8158,7 @@
                     <Num Num="0.0099999998"/>
                     <Num Num="0.1"/>
                     <Num Num="1000"/>
-                    <Str_Arg Str="F_rize009##0.1" Arg="1"/>
+                    <Str_Arg Str="F_rize009##0.1" Arg="0.5"/>
                     <Num Num="40"/>
                     <Num Num="100"/>
                     <Num Num="0"/>
@@ -8164,7 +8175,7 @@
                     <Num Num="0.0099999998"/>
                     <Num Num="0.1"/>
                     <Num Num="1000"/>
-                    <Str_Arg Str="F_rize009##0.1" Arg="1"/>
+                    <Str_Arg Str="F_rize009##0.1" Arg="0.5"/>
                     <Num Num="40"/>
                     <Num Num="100"/>
                     <Num Num="0"/>
@@ -8181,7 +8192,7 @@
                     <Num Num="0.0099999998"/>
                     <Num Num="0.1"/>
                     <Num Num="1000"/>
-                    <Str_Arg Str="F_rize009##0.1" Arg="1"/>
+                    <Str_Arg Str="F_rize009##0.1" Arg="0.5"/>
                     <Num Num="40"/>
                     <Num Num="100"/>
                     <Num Num="0"/>
@@ -8198,7 +8209,7 @@
                     <Num Num="0.0099999998"/>
                     <Num Num="0.1"/>
                     <Num Num="1000"/>
-                    <Str_Arg Str="F_rize009##0.1" Arg="1"/>
+                    <Str_Arg Str="F_rize009##0.1" Arg="0.5"/>
                     <Num Num="40"/>
                     <Num Num="100"/>
                     <Num Num="0"/>
@@ -8215,7 +8226,7 @@
                     <Num Num="0.0099999998"/>
                     <Num Num="0.1"/>
                     <Num Num="1000"/>
-                    <Str_Arg Str="F_rize009##0.1" Arg="1"/>
+                    <Str_Arg Str="F_rize009##0.1" Arg="0.5"/>
                     <Num Num="40"/>
                     <Num Num="100"/>
                     <Num Num="0"/>
@@ -8232,8 +8243,8 @@
                 </Scp>
                 <Anim Time="2500" Anim="atk2" Speed="1"/>
                 <Scp Scp="MSL_THROW" Client="NO" UseSleep="YES" Time="3000">
-                    <Str_Arg Str="I_force071_mintdark#Bip001 R Finger0" Arg="3"/>
-                    <Str_Arg Str="F_burstup004_dark" Arg="3"/>
+                    <Str_Arg Str="I_force071_mintdark#Bip001 R Finger0" Arg="1.5"/>
+                    <Str_Arg Str="F_burstup004_dark" Arg="1.5"/>
                     <Str_Arg Str="None" Arg="5"/>
                     <Pos Angle="0" Dist="10"/>
                     <Num Num="100"/>
@@ -8254,7 +8265,7 @@
                     <Num Num="0.0099999998"/>
                     <Num Num="0.1"/>
                     <Num Num="1000"/>
-                    <Str_Arg Str="F_rize009##0.1" Arg="1"/>
+                    <Str_Arg Str="F_rize009##0.1" Arg="0.5"/>
                     <Num Num="40"/>
                     <Num Num="100"/>
                     <Num Num="0"/>
@@ -8271,7 +8282,7 @@
                     <Num Num="0.0099999998"/>
                     <Num Num="0.1"/>
                     <Num Num="1000"/>
-                    <Str_Arg Str="F_rize009##0.1" Arg="1"/>
+                    <Str_Arg Str="F_rize009##0.1" Arg="0.5"/>
                     <Num Num="40"/>
                     <Num Num="100"/>
                     <Num Num="0"/>
@@ -8288,7 +8299,7 @@
                     <Num Num="0.0099999998"/>
                     <Num Num="0.1"/>
                     <Num Num="1000"/>
-                    <Str_Arg Str="F_rize009##0.1" Arg="1"/>
+                    <Str_Arg Str="F_rize009##0.1" Arg="0.5"/>
                     <Num Num="40"/>
                     <Num Num="100"/>
                     <Num Num="0"/>
@@ -8305,7 +8316,7 @@
                     <Num Num="0.0099999998"/>
                     <Num Num="0.1"/>
                     <Num Num="1000"/>
-                    <Str_Arg Str="F_rize009##0.1" Arg="1"/>
+                    <Str_Arg Str="F_rize009##0.1" Arg="0.5"/>
                     <Num Num="40"/>
                     <Num Num="100"/>
                     <Num Num="0"/>
@@ -8322,7 +8333,7 @@
                     <Num Num="0.0099999998"/>
                     <Num Num="0.1"/>
                     <Num Num="1000"/>
-                    <Str_Arg Str="F_rize009##0.1" Arg="1"/>
+                    <Str_Arg Str="F_rize009##0.1" Arg="0.5"/>
                     <Num Num="40"/>
                     <Num Num="100"/>
                     <Num Num="0"/>
@@ -8339,7 +8350,7 @@
                     <Num Num="0.0099999998"/>
                     <Num Num="0.1"/>
                     <Num Num="1000"/>
-                    <Str_Arg Str="F_rize009##0.1" Arg="1"/>
+                    <Str_Arg Str="F_rize009##0.1" Arg="0.5"/>
                     <Num Num="40"/>
                     <Num Num="100"/>
                     <Num Num="0"/>
@@ -8356,7 +8367,7 @@
                     <Num Num="0.0099999998"/>
                     <Num Num="0.1"/>
                     <Num Num="1000"/>
-                    <Str_Arg Str="F_rize009##0.1" Arg="1"/>
+                    <Str_Arg Str="F_rize009##0.1" Arg="0.5"/>
                     <Num Num="40"/>
                     <Num Num="100"/>
                     <Num Num="0"/>
@@ -8373,7 +8384,7 @@
                     <Num Num="0.0099999998"/>
                     <Num Num="0.1"/>
                     <Num Num="1000"/>
-                    <Str_Arg Str="F_rize009##0.1" Arg="1"/>
+                    <Str_Arg Str="F_rize009##0.1" Arg="0.5"/>
                     <Num Num="40"/>
                     <Num Num="100"/>
                     <Num Num="0"/>
@@ -8468,780 +8479,780 @@
                     <Num Num="0"/>
                 </Scp>
                 <Scp Scp="MSL_FALL" Client="NO" UseSleep="YES" TooltipScp="TOOLTIP_MSL_FALL" Time="500">
-                    <Str_Arg Str="I_force019_mint" Arg="3"/>
-                    <Str_Arg Str="F_explosion098_dark_mint" Arg="0.40000001"/>
+                    <Str_Arg Str="I_force019_mint" Arg="1.5"/>
+                    <Str_Arg Str="None" Arg="0.40000001"/>
                     <Str_Arg Str="None" Arg="1"/>
                     <Pos Angle="0" Dist="0" Rand="130"/>
                     <Num Num="15"/>
                     <Num Num="1"/>
-                    <Num Num="0.69999999"/>
+                    <Num Num="1"/>
                     <Num Num="300"/>
                     <Num Num="2"/>
                     <Num Num="1000"/>
                     <Num Num="1"/>
                     <Num Num="0"/>
                     <Num Num="0"/>
-                    <Str_Arg Str="None" Arg="1"/>
+                    <Str_Arg Str="F_sys_target_boss" Arg="1"/>
                     <Num Num="0"/>
                     <Num Num="1"/>
                     <Num Num="0"/>
                 </Scp>
                 <Scp Scp="MSL_FALL" Client="NO" UseSleep="YES" TooltipScp="TOOLTIP_MSL_FALL" Time="540">
-                    <Str_Arg Str="I_force019_mint" Arg="3"/>
-                    <Str_Arg Str="F_explosion098_dark_mint" Arg="0.40000001"/>
+                    <Str_Arg Str="I_force019_mint" Arg="1.5"/>
+                    <Str_Arg Str="None" Arg="0.40000001"/>
                     <Str_Arg Str="None" Arg="1"/>
                     <Pos Angle="0" Dist="0" Rand="130"/>
                     <Num Num="15"/>
                     <Num Num="1"/>
-                    <Num Num="0.69999999"/>
+                    <Num Num="1"/>
                     <Num Num="300"/>
                     <Num Num="2"/>
                     <Num Num="1000"/>
                     <Num Num="1"/>
                     <Num Num="0"/>
                     <Num Num="0"/>
-                    <Str_Arg Str="None" Arg="1"/>
+                    <Str_Arg Str="F_sys_target_boss" Arg="1"/>
                     <Num Num="0"/>
                     <Num Num="1"/>
                     <Num Num="0"/>
                 </Scp>
                 <Scp Scp="MSL_FALL" Client="NO" UseSleep="YES" TooltipScp="TOOLTIP_MSL_FALL" Time="580">
-                    <Str_Arg Str="I_force019_mint" Arg="3"/>
-                    <Str_Arg Str="F_explosion098_dark_mint" Arg="0.40000001"/>
+                    <Str_Arg Str="I_force019_mint" Arg="1.5"/>
+                    <Str_Arg Str="None" Arg="0.40000001"/>
                     <Str_Arg Str="None" Arg="1"/>
                     <Pos Angle="0" Dist="0" Rand="130"/>
                     <Num Num="15"/>
                     <Num Num="1"/>
-                    <Num Num="0.69999999"/>
+                    <Num Num="1"/>
                     <Num Num="300"/>
                     <Num Num="2"/>
                     <Num Num="1000"/>
                     <Num Num="1"/>
                     <Num Num="0"/>
                     <Num Num="0"/>
-                    <Str_Arg Str="None" Arg="1"/>
+                    <Str_Arg Str="F_sys_target_boss" Arg="1"/>
                     <Num Num="0"/>
                     <Num Num="1"/>
                     <Num Num="0"/>
                 </Scp>
                 <Scp Scp="MSL_FALL" Client="NO" UseSleep="YES" TooltipScp="TOOLTIP_MSL_FALL" Time="620">
-                    <Str_Arg Str="I_force019_mint" Arg="3"/>
-                    <Str_Arg Str="F_explosion098_dark_mint" Arg="0.40000001"/>
+                    <Str_Arg Str="I_force019_mint" Arg="1.5"/>
+                    <Str_Arg Str="None" Arg="0.40000001"/>
                     <Str_Arg Str="None" Arg="1"/>
                     <Pos Angle="0" Dist="0" Rand="130"/>
                     <Num Num="15"/>
                     <Num Num="1"/>
-                    <Num Num="0.69999999"/>
+                    <Num Num="1"/>
                     <Num Num="300"/>
                     <Num Num="2"/>
                     <Num Num="1000"/>
                     <Num Num="1"/>
                     <Num Num="0"/>
                     <Num Num="0"/>
-                    <Str_Arg Str="None" Arg="1"/>
+                    <Str_Arg Str="F_sys_target_boss" Arg="1"/>
                     <Num Num="0"/>
                     <Num Num="1"/>
                     <Num Num="0"/>
                 </Scp>
                 <Scp Scp="MSL_FALL" Client="NO" UseSleep="YES" TooltipScp="TOOLTIP_MSL_FALL" Time="660">
-                    <Str_Arg Str="I_force019_mint" Arg="3"/>
-                    <Str_Arg Str="F_explosion098_dark_mint" Arg="0.40000001"/>
+                    <Str_Arg Str="I_force019_mint" Arg="1.5"/>
+                    <Str_Arg Str="None" Arg="0.40000001"/>
                     <Str_Arg Str="None" Arg="1"/>
                     <Pos Angle="0" Dist="0" Rand="130"/>
                     <Num Num="15"/>
                     <Num Num="1"/>
-                    <Num Num="0.69999999"/>
+                    <Num Num="1"/>
                     <Num Num="300"/>
                     <Num Num="2"/>
                     <Num Num="1000"/>
                     <Num Num="1"/>
                     <Num Num="0"/>
                     <Num Num="0"/>
-                    <Str_Arg Str="None" Arg="1"/>
+                    <Str_Arg Str="F_sys_target_boss" Arg="1"/>
                     <Num Num="0"/>
                     <Num Num="1"/>
                     <Num Num="0"/>
                 </Scp>
                 <Scp Scp="MSL_FALL" Client="NO" UseSleep="YES" TooltipScp="TOOLTIP_MSL_FALL" Time="700">
-                    <Str_Arg Str="I_force019_mint" Arg="3"/>
-                    <Str_Arg Str="F_explosion098_dark_mint" Arg="0.40000001"/>
+                    <Str_Arg Str="I_force019_mint" Arg="1.5"/>
+                    <Str_Arg Str="None" Arg="0.40000001"/>
                     <Str_Arg Str="None" Arg="1"/>
                     <Pos Angle="0" Dist="0" Rand="130"/>
                     <Num Num="15"/>
                     <Num Num="1"/>
-                    <Num Num="0.69999999"/>
+                    <Num Num="1"/>
                     <Num Num="300"/>
                     <Num Num="2"/>
                     <Num Num="1000"/>
                     <Num Num="1"/>
                     <Num Num="0"/>
                     <Num Num="0"/>
-                    <Str_Arg Str="None" Arg="1"/>
+                    <Str_Arg Str="F_sys_target_boss" Arg="1"/>
                     <Num Num="0"/>
                     <Num Num="1"/>
                     <Num Num="0"/>
                 </Scp>
                 <Scp Scp="MSL_FALL" Client="NO" UseSleep="YES" TooltipScp="TOOLTIP_MSL_FALL" Time="740">
-                    <Str_Arg Str="I_force019_mint" Arg="3"/>
-                    <Str_Arg Str="F_explosion098_dark_mint" Arg="0.40000001"/>
+                    <Str_Arg Str="I_force019_mint" Arg="1.5"/>
+                    <Str_Arg Str="None" Arg="0.40000001"/>
                     <Str_Arg Str="None" Arg="1"/>
                     <Pos Angle="0" Dist="0" Rand="130"/>
                     <Num Num="15"/>
                     <Num Num="1"/>
-                    <Num Num="0.69999999"/>
+                    <Num Num="1"/>
                     <Num Num="300"/>
                     <Num Num="2"/>
                     <Num Num="1000"/>
                     <Num Num="1"/>
                     <Num Num="0"/>
                     <Num Num="0"/>
-                    <Str_Arg Str="None" Arg="1"/>
+                    <Str_Arg Str="F_sys_target_boss" Arg="1"/>
                     <Num Num="0"/>
                     <Num Num="1"/>
                     <Num Num="0"/>
                 </Scp>
                 <Scp Scp="MSL_FALL" Client="NO" UseSleep="YES" TooltipScp="TOOLTIP_MSL_FALL" Time="780">
-                    <Str_Arg Str="I_force019_mint" Arg="3"/>
-                    <Str_Arg Str="F_explosion098_dark_mint" Arg="0.40000001"/>
+                    <Str_Arg Str="I_force019_mint" Arg="1.5"/>
+                    <Str_Arg Str="None" Arg="0.40000001"/>
                     <Str_Arg Str="None" Arg="1"/>
                     <Pos Angle="0" Dist="0" Rand="130"/>
                     <Num Num="15"/>
                     <Num Num="1"/>
-                    <Num Num="0.69999999"/>
+                    <Num Num="1"/>
                     <Num Num="300"/>
                     <Num Num="2"/>
                     <Num Num="1000"/>
                     <Num Num="1"/>
                     <Num Num="0"/>
                     <Num Num="0"/>
-                    <Str_Arg Str="None" Arg="1"/>
+                    <Str_Arg Str="F_sys_target_boss" Arg="1"/>
                     <Num Num="0"/>
                     <Num Num="1"/>
                     <Num Num="0"/>
                 </Scp>
                 <Scp Scp="MSL_FALL" Client="NO" UseSleep="YES" TooltipScp="TOOLTIP_MSL_FALL" Time="820">
-                    <Str_Arg Str="I_force019_mint" Arg="3"/>
-                    <Str_Arg Str="F_explosion098_dark_mint" Arg="0.40000001"/>
+                    <Str_Arg Str="I_force019_mint" Arg="1.5"/>
+                    <Str_Arg Str="None" Arg="0.40000001"/>
                     <Str_Arg Str="None" Arg="1"/>
                     <Pos Angle="0" Dist="0" Rand="130"/>
                     <Num Num="15"/>
                     <Num Num="1"/>
-                    <Num Num="0.69999999"/>
+                    <Num Num="1"/>
                     <Num Num="300"/>
                     <Num Num="2"/>
                     <Num Num="1000"/>
                     <Num Num="1"/>
                     <Num Num="0"/>
                     <Num Num="0"/>
-                    <Str_Arg Str="None" Arg="1"/>
+                    <Str_Arg Str="F_sys_target_boss" Arg="1"/>
                     <Num Num="0"/>
                     <Num Num="1"/>
                     <Num Num="0"/>
                 </Scp>
                 <Scp Scp="MSL_FALL" Client="NO" UseSleep="YES" TooltipScp="TOOLTIP_MSL_FALL" Time="860">
-                    <Str_Arg Str="I_force019_mint" Arg="3"/>
-                    <Str_Arg Str="F_explosion098_dark_mint" Arg="0.40000001"/>
+                    <Str_Arg Str="I_force019_mint" Arg="1.5"/>
+                    <Str_Arg Str="None" Arg="0.40000001"/>
                     <Str_Arg Str="None" Arg="1"/>
                     <Pos Angle="0" Dist="0" Rand="130"/>
                     <Num Num="15"/>
                     <Num Num="1"/>
-                    <Num Num="0.69999999"/>
+                    <Num Num="1"/>
                     <Num Num="300"/>
                     <Num Num="2"/>
                     <Num Num="1000"/>
                     <Num Num="1"/>
                     <Num Num="0"/>
                     <Num Num="0"/>
-                    <Str_Arg Str="None" Arg="1"/>
+                    <Str_Arg Str="F_sys_target_boss" Arg="1"/>
                     <Num Num="0"/>
                     <Num Num="1"/>
                     <Num Num="0"/>
                 </Scp>
                 <Scp Scp="MSL_FALL" Client="NO" UseSleep="YES" TooltipScp="TOOLTIP_MSL_FALL" Time="900">
-                    <Str_Arg Str="I_force019_mint" Arg="3"/>
-                    <Str_Arg Str="F_explosion098_dark_mint" Arg="0.40000001"/>
+                    <Str_Arg Str="I_force019_mint" Arg="1.5"/>
+                    <Str_Arg Str="None" Arg="0.40000001"/>
                     <Str_Arg Str="None" Arg="1"/>
                     <Pos Angle="0" Dist="0" Rand="130"/>
                     <Num Num="15"/>
                     <Num Num="1"/>
-                    <Num Num="0.69999999"/>
+                    <Num Num="1"/>
                     <Num Num="300"/>
                     <Num Num="2"/>
                     <Num Num="1000"/>
                     <Num Num="1"/>
                     <Num Num="0"/>
                     <Num Num="0"/>
-                    <Str_Arg Str="None" Arg="1"/>
+                    <Str_Arg Str="F_sys_target_boss" Arg="1"/>
                     <Num Num="0"/>
                     <Num Num="1"/>
                     <Num Num="0"/>
                 </Scp>
                 <Scp Scp="MSL_FALL" Client="NO" UseSleep="YES" TooltipScp="TOOLTIP_MSL_FALL" Time="940">
-                    <Str_Arg Str="I_force019_mint" Arg="3"/>
-                    <Str_Arg Str="F_explosion098_dark_mint" Arg="0.40000001"/>
+                    <Str_Arg Str="I_force019_mint" Arg="1.5"/>
+                    <Str_Arg Str="None" Arg="0.40000001"/>
                     <Str_Arg Str="None" Arg="1"/>
                     <Pos Angle="0" Dist="0" Rand="130"/>
                     <Num Num="15"/>
                     <Num Num="1"/>
-                    <Num Num="0.69999999"/>
+                    <Num Num="1"/>
                     <Num Num="300"/>
                     <Num Num="2"/>
                     <Num Num="1000"/>
                     <Num Num="1"/>
                     <Num Num="0"/>
                     <Num Num="0"/>
-                    <Str_Arg Str="None" Arg="1"/>
+                    <Str_Arg Str="F_sys_target_boss" Arg="1"/>
                     <Num Num="0"/>
                     <Num Num="1"/>
                     <Num Num="0"/>
                 </Scp>
                 <Scp Scp="MSL_FALL" Client="NO" UseSleep="YES" TooltipScp="TOOLTIP_MSL_FALL" Time="980">
-                    <Str_Arg Str="I_force019_mint" Arg="3"/>
-                    <Str_Arg Str="F_explosion098_dark_mint" Arg="0.40000001"/>
+                    <Str_Arg Str="I_force019_mint" Arg="1.5"/>
+                    <Str_Arg Str="None" Arg="0.40000001"/>
                     <Str_Arg Str="None" Arg="1"/>
                     <Pos Angle="0" Dist="0" Rand="130"/>
                     <Num Num="15"/>
                     <Num Num="1"/>
-                    <Num Num="0.69999999"/>
+                    <Num Num="1"/>
                     <Num Num="300"/>
                     <Num Num="2"/>
                     <Num Num="1000"/>
                     <Num Num="1"/>
                     <Num Num="0"/>
                     <Num Num="0"/>
-                    <Str_Arg Str="None" Arg="1"/>
+                    <Str_Arg Str="F_sys_target_boss" Arg="1"/>
                     <Num Num="0"/>
                     <Num Num="1"/>
                     <Num Num="0"/>
                 </Scp>
                 <Scp Scp="MSL_FALL" Client="NO" UseSleep="YES" TooltipScp="TOOLTIP_MSL_FALL" Time="1020">
-                    <Str_Arg Str="I_force019_mint" Arg="3"/>
-                    <Str_Arg Str="F_explosion098_dark_mint" Arg="0.40000001"/>
+                    <Str_Arg Str="I_force019_mint" Arg="1.5"/>
+                    <Str_Arg Str="None" Arg="0.40000001"/>
                     <Str_Arg Str="None" Arg="1"/>
                     <Pos Angle="0" Dist="0" Rand="130"/>
                     <Num Num="15"/>
                     <Num Num="1"/>
-                    <Num Num="0.69999999"/>
+                    <Num Num="1"/>
                     <Num Num="300"/>
                     <Num Num="2"/>
                     <Num Num="1000"/>
                     <Num Num="1"/>
                     <Num Num="0"/>
                     <Num Num="0"/>
-                    <Str_Arg Str="None" Arg="1"/>
+                    <Str_Arg Str="F_sys_target_boss" Arg="1"/>
                     <Num Num="0"/>
                     <Num Num="1"/>
                     <Num Num="0"/>
                 </Scp>
                 <Scp Scp="MSL_FALL" Client="NO" UseSleep="YES" TooltipScp="TOOLTIP_MSL_FALL" Time="1060">
-                    <Str_Arg Str="I_force019_mint" Arg="3"/>
-                    <Str_Arg Str="F_explosion098_dark_mint" Arg="0.40000001"/>
+                    <Str_Arg Str="I_force019_mint" Arg="1.5"/>
+                    <Str_Arg Str="None" Arg="0.40000001"/>
                     <Str_Arg Str="None" Arg="1"/>
                     <Pos Angle="0" Dist="0" Rand="130"/>
                     <Num Num="15"/>
                     <Num Num="1"/>
-                    <Num Num="0.69999999"/>
+                    <Num Num="1"/>
                     <Num Num="300"/>
                     <Num Num="2"/>
                     <Num Num="1000"/>
                     <Num Num="1"/>
                     <Num Num="0"/>
                     <Num Num="0"/>
-                    <Str_Arg Str="None" Arg="1"/>
+                    <Str_Arg Str="F_sys_target_boss" Arg="1"/>
                     <Num Num="0"/>
                     <Num Num="1"/>
                     <Num Num="0"/>
                 </Scp>
                 <Scp Scp="MSL_FALL" Client="NO" UseSleep="YES" TooltipScp="TOOLTIP_MSL_FALL" Time="1100">
-                    <Str_Arg Str="I_force019_mint" Arg="3"/>
-                    <Str_Arg Str="F_explosion098_dark_mint" Arg="0.40000001"/>
+                    <Str_Arg Str="I_force019_mint" Arg="1.5"/>
+                    <Str_Arg Str="None" Arg="0.40000001"/>
                     <Str_Arg Str="None" Arg="1"/>
                     <Pos Angle="0" Dist="0" Rand="130"/>
                     <Num Num="15"/>
                     <Num Num="1"/>
-                    <Num Num="0.69999999"/>
+                    <Num Num="1"/>
                     <Num Num="300"/>
                     <Num Num="2"/>
                     <Num Num="1000"/>
                     <Num Num="1"/>
                     <Num Num="0"/>
                     <Num Num="0"/>
-                    <Str_Arg Str="None" Arg="1"/>
+                    <Str_Arg Str="F_sys_target_boss" Arg="1"/>
                     <Num Num="0"/>
                     <Num Num="1"/>
                     <Num Num="0"/>
                 </Scp>
                 <Scp Scp="MSL_FALL" Client="NO" UseSleep="YES" TooltipScp="TOOLTIP_MSL_FALL" Time="1140">
-                    <Str_Arg Str="I_force019_mint" Arg="3"/>
-                    <Str_Arg Str="F_explosion098_dark_mint" Arg="0.40000001"/>
+                    <Str_Arg Str="I_force019_mint" Arg="1.5"/>
+                    <Str_Arg Str="None" Arg="0.40000001"/>
                     <Str_Arg Str="None" Arg="1"/>
                     <Pos Angle="0" Dist="0" Rand="130"/>
                     <Num Num="15"/>
                     <Num Num="1"/>
-                    <Num Num="0.69999999"/>
+                    <Num Num="1"/>
                     <Num Num="300"/>
                     <Num Num="2"/>
                     <Num Num="1000"/>
                     <Num Num="1"/>
                     <Num Num="0"/>
                     <Num Num="0"/>
-                    <Str_Arg Str="None" Arg="1"/>
+                    <Str_Arg Str="F_sys_target_boss" Arg="1"/>
                     <Num Num="0"/>
                     <Num Num="1"/>
                     <Num Num="0"/>
                 </Scp>
                 <Scp Scp="MSL_FALL" Client="NO" UseSleep="YES" TooltipScp="TOOLTIP_MSL_FALL" Time="1180">
-                    <Str_Arg Str="I_force019_mint" Arg="3"/>
-                    <Str_Arg Str="F_explosion098_dark_mint" Arg="0.40000001"/>
+                    <Str_Arg Str="I_force019_mint" Arg="1.5"/>
+                    <Str_Arg Str="None" Arg="0.40000001"/>
                     <Str_Arg Str="None" Arg="1"/>
                     <Pos Angle="0" Dist="0" Rand="130"/>
                     <Num Num="15"/>
                     <Num Num="1"/>
-                    <Num Num="0.69999999"/>
+                    <Num Num="1"/>
                     <Num Num="300"/>
                     <Num Num="2"/>
                     <Num Num="1000"/>
                     <Num Num="1"/>
                     <Num Num="0"/>
                     <Num Num="0"/>
-                    <Str_Arg Str="None" Arg="1"/>
+                    <Str_Arg Str="F_sys_target_boss" Arg="1"/>
                     <Num Num="0"/>
                     <Num Num="1"/>
                     <Num Num="0"/>
                 </Scp>
                 <Scp Scp="MSL_FALL" Client="NO" UseSleep="YES" TooltipScp="TOOLTIP_MSL_FALL" Time="1220">
-                    <Str_Arg Str="I_force019_mint" Arg="3"/>
-                    <Str_Arg Str="F_explosion098_dark_mint" Arg="0.40000001"/>
+                    <Str_Arg Str="I_force019_mint" Arg="1.5"/>
+                    <Str_Arg Str="None" Arg="0.40000001"/>
                     <Str_Arg Str="None" Arg="1"/>
                     <Pos Angle="0" Dist="0" Rand="130"/>
                     <Num Num="15"/>
                     <Num Num="1"/>
-                    <Num Num="0.69999999"/>
+                    <Num Num="1"/>
                     <Num Num="300"/>
                     <Num Num="2"/>
                     <Num Num="1000"/>
                     <Num Num="1"/>
                     <Num Num="0"/>
                     <Num Num="0"/>
-                    <Str_Arg Str="None" Arg="1"/>
+                    <Str_Arg Str="F_sys_target_boss" Arg="1"/>
                     <Num Num="0"/>
                     <Num Num="1"/>
                     <Num Num="0"/>
                 </Scp>
                 <Scp Scp="MSL_FALL" Client="NO" UseSleep="YES" TooltipScp="TOOLTIP_MSL_FALL" Time="1260">
-                    <Str_Arg Str="I_force019_mint" Arg="3"/>
-                    <Str_Arg Str="F_explosion098_dark_mint" Arg="0.40000001"/>
+                    <Str_Arg Str="I_force019_mint" Arg="1.5"/>
+                    <Str_Arg Str="None" Arg="0.40000001"/>
                     <Str_Arg Str="None" Arg="1"/>
                     <Pos Angle="0" Dist="0" Rand="130"/>
                     <Num Num="15"/>
                     <Num Num="1"/>
-                    <Num Num="0.69999999"/>
+                    <Num Num="1"/>
                     <Num Num="300"/>
                     <Num Num="2"/>
                     <Num Num="1000"/>
                     <Num Num="1"/>
                     <Num Num="0"/>
                     <Num Num="0"/>
-                    <Str_Arg Str="None" Arg="1"/>
+                    <Str_Arg Str="F_sys_target_boss" Arg="1"/>
                     <Num Num="0"/>
                     <Num Num="1"/>
                     <Num Num="0"/>
                 </Scp>
                 <Scp Scp="MSL_FALL" Client="NO" UseSleep="YES" TooltipScp="TOOLTIP_MSL_FALL" Time="1300">
-                    <Str_Arg Str="I_force019_mint" Arg="3"/>
-                    <Str_Arg Str="F_explosion098_dark_mint" Arg="0.40000001"/>
+                    <Str_Arg Str="I_force019_mint" Arg="1.5"/>
+                    <Str_Arg Str="None" Arg="0.40000001"/>
                     <Str_Arg Str="None" Arg="1"/>
                     <Pos Angle="0" Dist="0" Rand="130"/>
                     <Num Num="15"/>
                     <Num Num="1"/>
-                    <Num Num="0.69999999"/>
+                    <Num Num="1"/>
                     <Num Num="300"/>
                     <Num Num="2"/>
                     <Num Num="1000"/>
                     <Num Num="1"/>
                     <Num Num="0"/>
                     <Num Num="0"/>
-                    <Str_Arg Str="None" Arg="1"/>
+                    <Str_Arg Str="F_sys_target_boss" Arg="1"/>
                     <Num Num="0"/>
                     <Num Num="1"/>
                     <Num Num="0"/>
                 </Scp>
                 <Scp Scp="MSL_FALL" Client="NO" UseSleep="YES" TooltipScp="TOOLTIP_MSL_FALL" Time="1340">
-                    <Str_Arg Str="I_force019_mint" Arg="3"/>
-                    <Str_Arg Str="F_explosion098_dark_mint" Arg="0.40000001"/>
+                    <Str_Arg Str="I_force019_mint" Arg="1.5"/>
+                    <Str_Arg Str="None" Arg="0.40000001"/>
                     <Str_Arg Str="None" Arg="1"/>
                     <Pos Angle="0" Dist="0" Rand="130"/>
                     <Num Num="15"/>
                     <Num Num="1"/>
-                    <Num Num="0.69999999"/>
+                    <Num Num="1"/>
                     <Num Num="300"/>
                     <Num Num="2"/>
                     <Num Num="1000"/>
                     <Num Num="1"/>
                     <Num Num="0"/>
                     <Num Num="0"/>
-                    <Str_Arg Str="None" Arg="1"/>
+                    <Str_Arg Str="F_sys_target_boss" Arg="1"/>
                     <Num Num="0"/>
                     <Num Num="1"/>
                     <Num Num="0"/>
                 </Scp>
                 <Scp Scp="MSL_FALL" Client="NO" UseSleep="YES" TooltipScp="TOOLTIP_MSL_FALL" Time="1380">
-                    <Str_Arg Str="I_force019_mint" Arg="3"/>
-                    <Str_Arg Str="F_explosion098_dark_mint" Arg="0.40000001"/>
+                    <Str_Arg Str="I_force019_mint" Arg="1.5"/>
+                    <Str_Arg Str="None" Arg="0.40000001"/>
                     <Str_Arg Str="None" Arg="1"/>
                     <Pos Angle="0" Dist="0" Rand="130"/>
                     <Num Num="15"/>
                     <Num Num="1"/>
-                    <Num Num="0.69999999"/>
+                    <Num Num="1"/>
                     <Num Num="300"/>
                     <Num Num="2"/>
                     <Num Num="1000"/>
                     <Num Num="1"/>
                     <Num Num="0"/>
                     <Num Num="0"/>
-                    <Str_Arg Str="None" Arg="1"/>
+                    <Str_Arg Str="F_sys_target_boss" Arg="1"/>
                     <Num Num="0"/>
                     <Num Num="1"/>
                     <Num Num="0"/>
                 </Scp>
                 <Scp Scp="MSL_FALL" Client="NO" UseSleep="YES" TooltipScp="TOOLTIP_MSL_FALL" Time="1420">
-                    <Str_Arg Str="I_force019_mint" Arg="3"/>
-                    <Str_Arg Str="F_explosion098_dark_mint" Arg="0.40000001"/>
+                    <Str_Arg Str="I_force019_mint" Arg="1.5"/>
+                    <Str_Arg Str="None" Arg="0.40000001"/>
                     <Str_Arg Str="None" Arg="1"/>
                     <Pos Angle="0" Dist="0" Rand="130"/>
                     <Num Num="15"/>
                     <Num Num="1"/>
-                    <Num Num="0.69999999"/>
+                    <Num Num="1"/>
                     <Num Num="300"/>
                     <Num Num="2"/>
                     <Num Num="1000"/>
                     <Num Num="1"/>
                     <Num Num="0"/>
                     <Num Num="0"/>
-                    <Str_Arg Str="None" Arg="1"/>
+                    <Str_Arg Str="F_sys_target_boss" Arg="1"/>
                     <Num Num="0"/>
                     <Num Num="1"/>
                     <Num Num="0"/>
                 </Scp>
                 <Scp Scp="MSL_FALL" Client="NO" UseSleep="YES" TooltipScp="TOOLTIP_MSL_FALL" Time="1460">
-                    <Str_Arg Str="I_force019_mint" Arg="3"/>
-                    <Str_Arg Str="F_explosion098_dark_mint" Arg="0.40000001"/>
+                    <Str_Arg Str="I_force019_mint" Arg="1.5"/>
+                    <Str_Arg Str="None" Arg="0.40000001"/>
                     <Str_Arg Str="None" Arg="1"/>
                     <Pos Angle="0" Dist="0" Rand="130"/>
                     <Num Num="15"/>
                     <Num Num="1"/>
-                    <Num Num="0.69999999"/>
+                    <Num Num="1"/>
                     <Num Num="300"/>
                     <Num Num="2"/>
                     <Num Num="1000"/>
                     <Num Num="1"/>
                     <Num Num="0"/>
                     <Num Num="0"/>
-                    <Str_Arg Str="None" Arg="1"/>
+                    <Str_Arg Str="F_sys_target_boss" Arg="1"/>
                     <Num Num="0"/>
                     <Num Num="1"/>
                     <Num Num="0"/>
                 </Scp>
                 <Scp Scp="MSL_FALL" Client="NO" UseSleep="YES" TooltipScp="TOOLTIP_MSL_FALL" Time="1500">
-                    <Str_Arg Str="I_force019_mint" Arg="3"/>
-                    <Str_Arg Str="F_explosion098_dark_mint" Arg="0.40000001"/>
+                    <Str_Arg Str="I_force019_mint" Arg="1.5"/>
+                    <Str_Arg Str="None" Arg="0.40000001"/>
                     <Str_Arg Str="None" Arg="1"/>
                     <Pos Angle="0" Dist="0" Rand="130"/>
                     <Num Num="15"/>
                     <Num Num="1"/>
-                    <Num Num="0.69999999"/>
+                    <Num Num="1"/>
                     <Num Num="300"/>
                     <Num Num="2"/>
                     <Num Num="1000"/>
                     <Num Num="1"/>
                     <Num Num="0"/>
                     <Num Num="0"/>
-                    <Str_Arg Str="None" Arg="1"/>
+                    <Str_Arg Str="F_sys_target_boss" Arg="1"/>
                     <Num Num="0"/>
                     <Num Num="1"/>
                     <Num Num="0"/>
                 </Scp>
                 <Scp Scp="MSL_FALL" Client="NO" UseSleep="YES" TooltipScp="TOOLTIP_MSL_FALL" Time="1540">
-                    <Str_Arg Str="I_force019_mint" Arg="3"/>
-                    <Str_Arg Str="F_explosion098_dark_mint" Arg="0.40000001"/>
+                    <Str_Arg Str="I_force019_mint" Arg="1.5"/>
+                    <Str_Arg Str="None" Arg="0.40000001"/>
                     <Str_Arg Str="None" Arg="1"/>
                     <Pos Angle="0" Dist="0" Rand="130"/>
                     <Num Num="15"/>
                     <Num Num="1"/>
-                    <Num Num="0.69999999"/>
+                    <Num Num="1"/>
                     <Num Num="300"/>
                     <Num Num="2"/>
                     <Num Num="1000"/>
                     <Num Num="1"/>
                     <Num Num="0"/>
                     <Num Num="0"/>
-                    <Str_Arg Str="None" Arg="1"/>
+                    <Str_Arg Str="F_sys_target_boss" Arg="1"/>
                     <Num Num="0"/>
                     <Num Num="1"/>
                     <Num Num="0"/>
                 </Scp>
                 <Scp Scp="MSL_FALL" Client="NO" UseSleep="YES" TooltipScp="TOOLTIP_MSL_FALL" Time="1580">
-                    <Str_Arg Str="I_force019_mint" Arg="3"/>
-                    <Str_Arg Str="F_explosion098_dark_mint" Arg="0.40000001"/>
+                    <Str_Arg Str="I_force019_mint" Arg="1.5"/>
+                    <Str_Arg Str="None" Arg="0.40000001"/>
                     <Str_Arg Str="None" Arg="1"/>
                     <Pos Angle="0" Dist="0" Rand="130"/>
                     <Num Num="15"/>
                     <Num Num="1"/>
-                    <Num Num="0.69999999"/>
+                    <Num Num="1"/>
                     <Num Num="300"/>
                     <Num Num="2"/>
                     <Num Num="1000"/>
                     <Num Num="1"/>
                     <Num Num="0"/>
                     <Num Num="0"/>
-                    <Str_Arg Str="None" Arg="1"/>
+                    <Str_Arg Str="F_sys_target_boss" Arg="1"/>
                     <Num Num="0"/>
                     <Num Num="1"/>
                     <Num Num="0"/>
                 </Scp>
                 <Scp Scp="MSL_FALL" Client="NO" UseSleep="YES" TooltipScp="TOOLTIP_MSL_FALL" Time="1620">
-                    <Str_Arg Str="I_force019_mint" Arg="3"/>
-                    <Str_Arg Str="F_explosion098_dark_mint" Arg="0.40000001"/>
+                    <Str_Arg Str="I_force019_mint" Arg="1.5"/>
+                    <Str_Arg Str="None" Arg="0.40000001"/>
                     <Str_Arg Str="None" Arg="1"/>
                     <Pos Angle="0" Dist="0" Rand="130"/>
                     <Num Num="15"/>
                     <Num Num="1"/>
-                    <Num Num="0.69999999"/>
+                    <Num Num="1"/>
                     <Num Num="300"/>
                     <Num Num="2"/>
                     <Num Num="1000"/>
                     <Num Num="1"/>
                     <Num Num="0"/>
                     <Num Num="0"/>
-                    <Str_Arg Str="None" Arg="1"/>
+                    <Str_Arg Str="F_sys_target_boss" Arg="1"/>
                     <Num Num="0"/>
                     <Num Num="1"/>
                     <Num Num="0"/>
                 </Scp>
                 <Scp Scp="MSL_FALL" Client="NO" UseSleep="YES" TooltipScp="TOOLTIP_MSL_FALL" Time="1660">
-                    <Str_Arg Str="I_force019_mint" Arg="3"/>
-                    <Str_Arg Str="F_explosion098_dark_mint" Arg="0.40000001"/>
+                    <Str_Arg Str="I_force019_mint" Arg="1.5"/>
+                    <Str_Arg Str="None" Arg="0.40000001"/>
                     <Str_Arg Str="None" Arg="1"/>
                     <Pos Angle="0" Dist="0" Rand="130"/>
                     <Num Num="15"/>
                     <Num Num="1"/>
-                    <Num Num="0.69999999"/>
+                    <Num Num="1"/>
                     <Num Num="300"/>
                     <Num Num="2"/>
                     <Num Num="1000"/>
                     <Num Num="1"/>
                     <Num Num="0"/>
                     <Num Num="0"/>
-                    <Str_Arg Str="None" Arg="1"/>
+                    <Str_Arg Str="F_sys_target_boss" Arg="1"/>
                     <Num Num="0"/>
                     <Num Num="1"/>
                     <Num Num="0"/>
                 </Scp>
                 <Scp Scp="MSL_FALL" Client="NO" UseSleep="YES" TooltipScp="TOOLTIP_MSL_FALL" Time="1700">
-                    <Str_Arg Str="I_force019_mint" Arg="3"/>
-                    <Str_Arg Str="F_explosion098_dark_mint" Arg="0.40000001"/>
+                    <Str_Arg Str="I_force019_mint" Arg="1.5"/>
+                    <Str_Arg Str="None" Arg="0.40000001"/>
                     <Str_Arg Str="None" Arg="1"/>
                     <Pos Angle="0" Dist="0" Rand="130"/>
                     <Num Num="15"/>
                     <Num Num="1"/>
-                    <Num Num="0.69999999"/>
+                    <Num Num="1"/>
                     <Num Num="300"/>
                     <Num Num="2"/>
                     <Num Num="1000"/>
                     <Num Num="1"/>
                     <Num Num="0"/>
                     <Num Num="0"/>
-                    <Str_Arg Str="None" Arg="1"/>
+                    <Str_Arg Str="F_sys_target_boss" Arg="1"/>
                     <Num Num="0"/>
                     <Num Num="1"/>
                     <Num Num="0"/>
                 </Scp>
                 <Scp Scp="MSL_FALL" Client="NO" UseSleep="YES" TooltipScp="TOOLTIP_MSL_FALL" Time="1740">
-                    <Str_Arg Str="I_force019_mint" Arg="3"/>
-                    <Str_Arg Str="F_explosion098_dark_mint" Arg="0.40000001"/>
+                    <Str_Arg Str="I_force019_mint" Arg="1.5"/>
+                    <Str_Arg Str="None" Arg="0.40000001"/>
                     <Str_Arg Str="None" Arg="1"/>
                     <Pos Angle="0" Dist="0" Rand="130"/>
                     <Num Num="15"/>
                     <Num Num="1"/>
-                    <Num Num="0.69999999"/>
+                    <Num Num="1"/>
                     <Num Num="300"/>
                     <Num Num="2"/>
                     <Num Num="1000"/>
                     <Num Num="1"/>
                     <Num Num="0"/>
                     <Num Num="0"/>
-                    <Str_Arg Str="None" Arg="1"/>
+                    <Str_Arg Str="F_sys_target_boss" Arg="1"/>
                     <Num Num="0"/>
                     <Num Num="1"/>
                     <Num Num="0"/>
                 </Scp>
                 <Scp Scp="MSL_FALL" Client="NO" UseSleep="YES" TooltipScp="TOOLTIP_MSL_FALL" Time="1780">
-                    <Str_Arg Str="I_force019_mint" Arg="3"/>
-                    <Str_Arg Str="F_explosion098_dark_mint" Arg="0.40000001"/>
+                    <Str_Arg Str="I_force019_mint" Arg="1.5"/>
+                    <Str_Arg Str="None" Arg="0.40000001"/>
                     <Str_Arg Str="None" Arg="1"/>
                     <Pos Angle="0" Dist="0" Rand="130"/>
                     <Num Num="15"/>
                     <Num Num="1"/>
-                    <Num Num="0.69999999"/>
+                    <Num Num="1"/>
                     <Num Num="300"/>
                     <Num Num="2"/>
                     <Num Num="1000"/>
                     <Num Num="1"/>
                     <Num Num="0"/>
                     <Num Num="0"/>
-                    <Str_Arg Str="None" Arg="1"/>
+                    <Str_Arg Str="F_sys_target_boss" Arg="1"/>
                     <Num Num="0"/>
                     <Num Num="1"/>
                     <Num Num="0"/>
                 </Scp>
                 <Scp Scp="MSL_FALL" Client="NO" UseSleep="YES" TooltipScp="TOOLTIP_MSL_FALL" Time="1820">
-                    <Str_Arg Str="I_force019_mint" Arg="3"/>
-                    <Str_Arg Str="F_explosion098_dark_mint" Arg="0.40000001"/>
+                    <Str_Arg Str="I_force019_mint" Arg="1.5"/>
+                    <Str_Arg Str="None" Arg="0.40000001"/>
                     <Str_Arg Str="None" Arg="1"/>
                     <Pos Angle="0" Dist="0" Rand="130"/>
                     <Num Num="15"/>
                     <Num Num="1"/>
-                    <Num Num="0.69999999"/>
+                    <Num Num="1"/>
                     <Num Num="300"/>
                     <Num Num="2"/>
                     <Num Num="1000"/>
                     <Num Num="1"/>
                     <Num Num="0"/>
                     <Num Num="0"/>
-                    <Str_Arg Str="None" Arg="1"/>
+                    <Str_Arg Str="F_sys_target_boss" Arg="1"/>
                     <Num Num="0"/>
                     <Num Num="1"/>
                     <Num Num="0"/>
                 </Scp>
                 <Scp Scp="MSL_FALL" Client="NO" UseSleep="YES" TooltipScp="TOOLTIP_MSL_FALL" Time="1860">
-                    <Str_Arg Str="I_force019_mint" Arg="3"/>
-                    <Str_Arg Str="F_explosion098_dark_mint" Arg="0.40000001"/>
+                    <Str_Arg Str="I_force019_mint" Arg="1.5"/>
+                    <Str_Arg Str="None" Arg="0.40000001"/>
                     <Str_Arg Str="None" Arg="1"/>
                     <Pos Angle="0" Dist="0" Rand="130"/>
                     <Num Num="15"/>
                     <Num Num="1"/>
-                    <Num Num="0.69999999"/>
+                    <Num Num="1"/>
                     <Num Num="300"/>
                     <Num Num="2"/>
                     <Num Num="1000"/>
                     <Num Num="1"/>
                     <Num Num="0"/>
                     <Num Num="0"/>
-                    <Str_Arg Str="None" Arg="1"/>
+                    <Str_Arg Str="F_sys_target_boss" Arg="1"/>
                     <Num Num="0"/>
                     <Num Num="1"/>
                     <Num Num="0"/>
                 </Scp>
                 <Scp Scp="MSL_FALL" Client="NO" UseSleep="YES" TooltipScp="TOOLTIP_MSL_FALL" Time="1900">
-                    <Str_Arg Str="I_force019_mint" Arg="3"/>
-                    <Str_Arg Str="F_explosion098_dark_mint" Arg="0.40000001"/>
+                    <Str_Arg Str="I_force019_mint" Arg="1.5"/>
+                    <Str_Arg Str="None" Arg="0.40000001"/>
                     <Str_Arg Str="None" Arg="1"/>
                     <Pos Angle="0" Dist="0" Rand="130"/>
                     <Num Num="15"/>
                     <Num Num="1"/>
-                    <Num Num="0.69999999"/>
+                    <Num Num="1"/>
                     <Num Num="300"/>
                     <Num Num="2"/>
                     <Num Num="1000"/>
                     <Num Num="1"/>
                     <Num Num="0"/>
                     <Num Num="0"/>
-                    <Str_Arg Str="None" Arg="1"/>
+                    <Str_Arg Str="F_sys_target_boss" Arg="1"/>
                     <Num Num="0"/>
                     <Num Num="1"/>
                     <Num Num="0"/>
                 </Scp>
                 <Scp Scp="MSL_FALL" Client="NO" UseSleep="YES" TooltipScp="TOOLTIP_MSL_FALL" Time="1940">
-                    <Str_Arg Str="I_force019_mint" Arg="3"/>
-                    <Str_Arg Str="F_explosion098_dark_mint" Arg="0.40000001"/>
+                    <Str_Arg Str="I_force019_mint" Arg="1.5"/>
+                    <Str_Arg Str="None" Arg="0.40000001"/>
                     <Str_Arg Str="None" Arg="1"/>
                     <Pos Angle="0" Dist="0" Rand="130"/>
                     <Num Num="15"/>
                     <Num Num="1"/>
-                    <Num Num="0.69999999"/>
+                    <Num Num="1"/>
                     <Num Num="300"/>
                     <Num Num="2"/>
                     <Num Num="1000"/>
                     <Num Num="1"/>
                     <Num Num="0"/>
                     <Num Num="0"/>
-                    <Str_Arg Str="None" Arg="1"/>
+                    <Str_Arg Str="F_sys_target_boss" Arg="1"/>
                     <Num Num="0"/>
                     <Num Num="1"/>
                     <Num Num="0"/>
                 </Scp>
                 <Scp Scp="MSL_FALL" Client="NO" UseSleep="YES" TooltipScp="TOOLTIP_MSL_FALL" Time="1980">
-                    <Str_Arg Str="I_force019_mint" Arg="3"/>
-                    <Str_Arg Str="F_explosion098_dark_mint" Arg="0.40000001"/>
+                    <Str_Arg Str="I_force019_mint" Arg="1.5"/>
+                    <Str_Arg Str="None" Arg="0.40000001"/>
                     <Str_Arg Str="None" Arg="1"/>
                     <Pos Angle="0" Dist="0" Rand="130"/>
                     <Num Num="15"/>
                     <Num Num="1"/>
-                    <Num Num="0.69999999"/>
+                    <Num Num="1"/>
                     <Num Num="300"/>
                     <Num Num="2"/>
                     <Num Num="1000"/>
                     <Num Num="1"/>
                     <Num Num="0"/>
                     <Num Num="0"/>
-                    <Str_Arg Str="None" Arg="1"/>
+                    <Str_Arg Str="F_sys_target_boss" Arg="1"/>
                     <Num Num="0"/>
                     <Num Num="1"/>
                     <Num Num="0"/>
                 </Scp>
                 <Scp Scp="MSL_FALL" Client="NO" UseSleep="YES" TooltipScp="TOOLTIP_MSL_FALL" Time="2020">
-                    <Str_Arg Str="I_force019_mint" Arg="3"/>
-                    <Str_Arg Str="F_explosion098_dark_mint" Arg="0.40000001"/>
+                    <Str_Arg Str="I_force019_mint" Arg="1.5"/>
+                    <Str_Arg Str="None" Arg="0.40000001"/>
                     <Str_Arg Str="None" Arg="1"/>
                     <Pos Angle="0" Dist="0" Rand="130"/>
                     <Num Num="15"/>
                     <Num Num="1"/>
-                    <Num Num="0.69999999"/>
+                    <Num Num="1"/>
                     <Num Num="300"/>
                     <Num Num="2"/>
                     <Num Num="1000"/>
                     <Num Num="1"/>
                     <Num Num="0"/>
                     <Num Num="0"/>
-                    <Str_Arg Str="None" Arg="1"/>
+                    <Str_Arg Str="F_sys_target_boss" Arg="1"/>
                     <Num Num="0"/>
                     <Num Num="1"/>
                     <Num Num="0"/>
                 </Scp>
                 <Scp Scp="MSL_FALL" Client="NO" UseSleep="YES" TooltipScp="TOOLTIP_MSL_FALL" Time="2060">
-                    <Str_Arg Str="I_force019_mint" Arg="3"/>
-                    <Str_Arg Str="F_explosion098_dark_mint" Arg="0.40000001"/>
+                    <Str_Arg Str="I_force019_mint" Arg="1.5"/>
+                    <Str_Arg Str="None" Arg="0.40000001"/>
                     <Str_Arg Str="None" Arg="1"/>
                     <Pos Angle="0" Dist="0" Rand="130"/>
                     <Num Num="15"/>
                     <Num Num="1"/>
-                    <Num Num="0.69999999"/>
+                    <Num Num="1"/>
                     <Num Num="300"/>
                     <Num Num="2"/>
                     <Num Num="1000"/>
                     <Num Num="1"/>
                     <Num Num="0"/>
                     <Num Num="0"/>
-                    <Str_Arg Str="None" Arg="1"/>
+                    <Str_Arg Str="F_sys_target_boss" Arg="1"/>
                     <Num Num="0"/>
                     <Num Num="1"/>
                     <Num Num="0"/>
                 </Scp>
                 <Scp Scp="MSL_FALL" Client="NO" UseSleep="YES" TooltipScp="TOOLTIP_MSL_FALL" Time="2100">
-                    <Str_Arg Str="I_force019_mint" Arg="3"/>
-                    <Str_Arg Str="F_explosion098_dark_mint" Arg="0.40000001"/>
+                    <Str_Arg Str="I_force019_mint" Arg="1.5"/>
+                    <Str_Arg Str="None" Arg="0.40000001"/>
                     <Str_Arg Str="None" Arg="1"/>
                     <Pos Angle="0" Dist="0" Rand="130"/>
                     <Num Num="15"/>
                     <Num Num="1"/>
-                    <Num Num="0.69999999"/>
+                    <Num Num="1"/>
                     <Num Num="300"/>
                     <Num Num="2"/>
                     <Num Num="1000"/>
                     <Num Num="1"/>
                     <Num Num="0"/>
                     <Num Num="0"/>
-                    <Str_Arg Str="None" Arg="1"/>
+                    <Str_Arg Str="F_sys_target_boss" Arg="1"/>
                     <Num Num="0"/>
                     <Num Num="1"/>
                     <Num Num="0"/>
@@ -9269,9 +9280,9 @@
                 </Scp>
                 <Scp Scp="EFT_AND_HIT" Client="NO" UseSleep="YES" Time="1150">
                     <Pos Angle="0" Dist="0" Rand="150" PosType="8"/>
-                    <Str_Arg Str="I_force071_mintdark2##0.5" Arg="3"/>
+                    <Str_Arg Str="I_force071_mintdark2##0.5" Arg="1.5"/>
                     <Num Num="1400"/>
-                    <Str_Arg Str="F_rize009" Arg="1.3"/>
+                    <Str_Arg Str="F_rize009" Arg="0.7"/>
                     <Num Num="45"/>
                     <Num Num="100"/>
                     <Num Num="0"/>
@@ -9284,9 +9295,9 @@
                 </Scp>
                 <Scp Scp="EFT_AND_HIT" Client="NO" UseSleep="YES" Time="1350">
                     <Pos Angle="0" Dist="0" Rand="150" PosType="8"/>
-                    <Str_Arg Str="I_force071_mintdark2##0.5" Arg="3"/>
+                    <Str_Arg Str="I_force071_mintdark2##0.5" Arg="1.5"/>
                     <Num Num="1400"/>
-                    <Str_Arg Str="F_rize009" Arg="1.3"/>
+                    <Str_Arg Str="F_rize009" Arg="0.7"/>
                     <Num Num="45"/>
                     <Num Num="100"/>
                     <Num Num="0"/>
@@ -9297,9 +9308,9 @@
                 </Scp>
                 <Scp Scp="EFT_AND_HIT" Client="NO" UseSleep="YES" Time="1550">
                     <Pos Angle="0" Dist="0" Rand="150" PosType="8"/>
-                    <Str_Arg Str="I_force071_mintdark2##0.5" Arg="3"/>
+                    <Str_Arg Str="I_force071_mintdark2##0.5" Arg="1.5"/>
                     <Num Num="1400"/>
-                    <Str_Arg Str="F_rize009" Arg="1.3"/>
+                    <Str_Arg Str="F_rize009" Arg="0.7"/>
                     <Num Num="45"/>
                     <Num Num="100"/>
                     <Num Num="0"/>
@@ -9310,9 +9321,9 @@
                 </Scp>
                 <Scp Scp="EFT_AND_HIT" Client="NO" UseSleep="YES" Time="1750">
                     <Pos Angle="0" Dist="0" Rand="150" PosType="8"/>
-                    <Str_Arg Str="I_force071_mintdark2##0.5" Arg="3"/>
+                    <Str_Arg Str="I_force071_mintdark2##0.5" Arg="1"/>
                     <Num Num="1400"/>
-                    <Str_Arg Str="F_rize009" Arg="1.3"/>
+                    <Str_Arg Str="F_rize009" Arg="0.7"/>
                     <Num Num="45"/>
                     <Num Num="100"/>
                     <Num Num="0"/>
@@ -9323,9 +9334,9 @@
                 </Scp>
                 <Scp Scp="EFT_AND_HIT" Client="NO" UseSleep="YES" Time="1900">
                     <Pos Angle="0" Dist="0" Rand="150" PosType="8"/>
-                    <Str_Arg Str="I_force071_mintdark2##0.5" Arg="3"/>
+                    <Str_Arg Str="I_force071_mintdark2##0.5" Arg="1.5"/>
                     <Num Num="1400"/>
-                    <Str_Arg Str="F_rize009" Arg="1.3"/>
+                    <Str_Arg Str="F_rize009" Arg="0.7"/>
                     <Num Num="45"/>
                     <Num Num="100"/>
                     <Num Num="0"/>
@@ -9341,17 +9352,11 @@
                     <Num Num="999"/>
                 </Scp>
                 <Anim Time="3000" Anim="skl1" Speed="0.69999999"/>
-                <Scp Scp="C_EFFECT_ATTACH" Client="YES" UseSleep="NO" Time="3500">
-                    <Str_Arg Str="I_smoke045_spread_in_loop#Bip01 Spine1" Arg="4"/>
-                    <Num Num="1.8"/>
-                    <Pos Angle="0" Dist="0" Height="40"/>
-                    <Num Num="1"/>
-                </Scp>
                 <Scp Scp="EFT_AND_HIT" Client="NO" UseSleep="YES" Time="4400">
                     <Pos Angle="0" Dist="0" Rand="200" PosType="8" Height="1"/>
-                    <Str_Arg Str="I_force071_mintdark2##0.5" Arg="3"/>
+                    <Str_Arg Str="I_force071_mintdark2##0.5" Arg="1.5"/>
                     <Num Num="1400"/>
-                    <Str_Arg Str="F_rize009" Arg="1.3"/>
+                    <Str_Arg Str="F_rize009" Arg="0.7"/>
                     <Num Num="45"/>
                     <Num Num="100"/>
                     <Num Num="0"/>
@@ -9362,9 +9367,9 @@
                 </Scp>
                 <Scp Scp="EFT_AND_HIT" Client="NO" UseSleep="YES" Time="4400">
                     <Pos Angle="0" Dist="0" Rand="200" PosType="8" Height="1"/>
-                    <Str_Arg Str="I_force071_mintdark2##0.5" Arg="3"/>
+                    <Str_Arg Str="I_force071_mintdark2##0.5" Arg="1.5"/>
                     <Num Num="1400"/>
-                    <Str_Arg Str="F_rize009" Arg="1.3"/>
+                    <Str_Arg Str="F_rize009" Arg="0.7"/>
                     <Num Num="45"/>
                     <Num Num="100"/>
                     <Num Num="0"/>
@@ -9375,9 +9380,9 @@
                 </Scp>
                 <Scp Scp="EFT_AND_HIT" Client="NO" UseSleep="YES" Time="4500">
                     <Pos Angle="0" Dist="0" Rand="200" PosType="8" Height="1"/>
-                    <Str_Arg Str="I_force071_mintdark2##0.5" Arg="3"/>
+                    <Str_Arg Str="I_force071_mintdark2##0.5" Arg="1.5"/>
                     <Num Num="1400"/>
-                    <Str_Arg Str="F_rize009" Arg="1.3"/>
+                    <Str_Arg Str="F_rize009" Arg="0.7"/>
                     <Num Num="45"/>
                     <Num Num="100"/>
                     <Num Num="0"/>
@@ -9388,9 +9393,9 @@
                 </Scp>
                 <Scp Scp="EFT_AND_HIT" Client="NO" UseSleep="YES" Time="4600">
                     <Pos Angle="0" Dist="0" Rand="200" PosType="8" Height="1"/>
-                    <Str_Arg Str="I_force071_mintdark2##0.5" Arg="3"/>
+                    <Str_Arg Str="I_force071_mintdark2##0.5" Arg="1.5"/>
                     <Num Num="1400"/>
-                    <Str_Arg Str="F_rize009" Arg="1.3"/>
+                    <Str_Arg Str="F_rize009" Arg="0.7"/>
                     <Num Num="45"/>
                     <Num Num="100"/>
                     <Num Num="0"/>
@@ -9401,9 +9406,9 @@
                 </Scp>
                 <Scp Scp="EFT_AND_HIT" Client="NO" UseSleep="YES" Time="4700">
                     <Pos Angle="0" Dist="0" Rand="200" PosType="8" Height="1"/>
-                    <Str_Arg Str="I_force071_mintdark2##0.5" Arg="3"/>
+                    <Str_Arg Str="I_force071_mintdark2##0.5" Arg="1.5"/>
                     <Num Num="1400"/>
-                    <Str_Arg Str="F_rize009" Arg="1.3"/>
+                    <Str_Arg Str="F_rize009" Arg="0.7"/>
                     <Num Num="45"/>
                     <Num Num="100"/>
                     <Num Num="0"/>
@@ -9414,9 +9419,9 @@
                 </Scp>
                 <Scp Scp="EFT_AND_HIT" Client="NO" UseSleep="YES" Time="4800">
                     <Pos Angle="0" Dist="0" Rand="200" PosType="8" Height="1"/>
-                    <Str_Arg Str="I_force071_mintdark2##0.5" Arg="3"/>
+                    <Str_Arg Str="I_force071_mintdark2##0.5" Arg="1.5"/>
                     <Num Num="1400"/>
-                    <Str_Arg Str="F_rize009" Arg="1.3"/>
+                    <Str_Arg Str="F_rize009" Arg="0.7"/>
                     <Num Num="45"/>
                     <Num Num="100"/>
                     <Num Num="0"/>
@@ -9427,9 +9432,9 @@
                 </Scp>
                 <Scp Scp="EFT_AND_HIT" Client="NO" UseSleep="YES" Time="4900">
                     <Pos Angle="0" Dist="0" Rand="200" PosType="8" Height="1"/>
-                    <Str_Arg Str="I_force071_mintdark2##0.5" Arg="3"/>
+                    <Str_Arg Str="I_force071_mintdark2##0.5" Arg="1.5"/>
                     <Num Num="1400"/>
-                    <Str_Arg Str="F_rize009" Arg="1.3"/>
+                    <Str_Arg Str="F_rize009" Arg="0.7"/>
                     <Num Num="45"/>
                     <Num Num="100"/>
                     <Num Num="0"/>
@@ -9440,9 +9445,9 @@
                 </Scp>
                 <Scp Scp="EFT_AND_HIT" Client="NO" UseSleep="YES" Time="5000">
                     <Pos Angle="0" Dist="0" Rand="200" PosType="8" Height="1"/>
-                    <Str_Arg Str="I_force071_mintdark2##0.5" Arg="3"/>
+                    <Str_Arg Str="I_force071_mintdark2##0.5" Arg="1.5"/>
                     <Num Num="1400"/>
-                    <Str_Arg Str="F_rize009" Arg="1.3"/>
+                    <Str_Arg Str="F_rize009" Arg="0.7"/>
                     <Num Num="45"/>
                     <Num Num="100"/>
                     <Num Num="0"/>
@@ -9453,9 +9458,9 @@
                 </Scp>
                 <Scp Scp="EFT_AND_HIT" Client="NO" UseSleep="YES" Time="5100">
                     <Pos Angle="0" Dist="0" Rand="200" PosType="8" Height="1"/>
-                    <Str_Arg Str="I_force071_mintdark2##0.5" Arg="3"/>
+                    <Str_Arg Str="I_force071_mintdark2##0.5" Arg="1.5"/>
                     <Num Num="1400"/>
-                    <Str_Arg Str="F_rize009" Arg="1.3"/>
+                    <Str_Arg Str="F_rize009" Arg="0.7"/>
                     <Num Num="45"/>
                     <Num Num="100"/>
                     <Num Num="0"/>
@@ -9466,9 +9471,9 @@
                 </Scp>
                 <Scp Scp="EFT_AND_HIT" Client="NO" UseSleep="YES" Time="5200">
                     <Pos Angle="0" Dist="0" Rand="200" PosType="8" Height="1"/>
-                    <Str_Arg Str="I_force071_mintdark2##0.5" Arg="3"/>
+                    <Str_Arg Str="I_force071_mintdark2##0.5" Arg="1.5"/>
                     <Num Num="1400"/>
-                    <Str_Arg Str="F_rize009" Arg="1.3"/>
+                    <Str_Arg Str="F_rize009" Arg="0.7"/>
                     <Num Num="45"/>
                     <Num Num="100"/>
                     <Num Num="0"/>
@@ -9479,9 +9484,9 @@
                 </Scp>
                 <Scp Scp="EFT_AND_HIT" Client="NO" UseSleep="YES" Time="5300">
                     <Pos Angle="0" Dist="0" Rand="200" PosType="8" Height="1"/>
-                    <Str_Arg Str="I_force071_mintdark2##0.5" Arg="3"/>
+                    <Str_Arg Str="I_force071_mintdark2##0.5" Arg="1.5"/>
                     <Num Num="1400"/>
-                    <Str_Arg Str="F_rize009" Arg="1.3"/>
+                    <Str_Arg Str="F_rize009" Arg="0.7"/>
                     <Num Num="45"/>
                     <Num Num="100"/>
                     <Num Num="0"/>
@@ -9492,9 +9497,9 @@
                 </Scp>
                 <Scp Scp="EFT_AND_HIT" Client="NO" UseSleep="YES" Time="5400">
                     <Pos Angle="0" Dist="0" Rand="200" PosType="8" Height="1"/>
-                    <Str_Arg Str="I_force071_mintdark2##0.5" Arg="3"/>
+                    <Str_Arg Str="I_force071_mintdark2##0.5" Arg="1.5"/>
                     <Num Num="1400"/>
-                    <Str_Arg Str="F_rize009" Arg="1.3"/>
+                    <Str_Arg Str="F_rize009" Arg="0.7"/>
                     <Num Num="45"/>
                     <Num Num="100"/>
                     <Num Num="0"/>
@@ -14370,12 +14375,15 @@ return anlgeList[IMCRandom(1,3)]"/>
         </EndScripts>
         <MainSkl ScrLock="None" JumpFlee="NO" MSPDToUsePos="0">
             <HitList>
-                <Frame Type="FAN" Time="999799" HitCount="1" TermMin="0" TermMax="0" PosType="0" Dist="0" RandDist="0" RandomPerHit="0" Angle="0" Width="30" Length="30" SklAngle="0.17453292" AniTime="999999" RotAngle="0" ForceATK="0"/>
+                <Frame Type="FAN" Time="999799" HitCount="1" TermMin="0" TermMax="0" PosType="0" Dist="0" RandDist="0" RandomPerHit="0" Angle="0" Width="30" Length="30" SklAngle="0.17453292" AniTime="999999" RotAngle="0" ForceATK="0" ScriptIndex="0" ScriptName="" SkillType="0"/>
             </HitList>
             <EtcList>
+                <Scp Scp="SKL_RUN_SCRIPT" Client="NO" UseSleep="NO" Time="0">
+                    <Str Str="SCR_WEERKL_PATTERN_TARGET_SET"/>
+                </Scp>
                 <Scp Scp="MONSKL_RANDEOM_CRE_MON_CNT_RANGE_USE_AFTERSKL" Client="NO" UseSleep="NO" Time="800">
                     <Str Str="weekly_brest_monster"/>
-                    <Pos Angle="0" Dist="0" Rand="160" Height="1"/>
+                    <Pos Angle="0" Dist="0" Rand="100" PosType="8" Height="1"/>
                     <Str Str="UnvisibleName"/>
                     <Str Str="None"/>
                     <Num Num="0"/>
@@ -14402,12 +14410,15 @@ return anlgeList[IMCRandom(1,3)]"/>
                 </Cond>
                 <Skill ScrLock="None" JumpFlee="NO" MSPDToUsePos="0">
                     <HitList>
-                        <Frame Type="FAN" Time="999799" HitCount="1" TermMin="0" TermMax="0" PosType="0" Dist="0" RandDist="0" RandomPerHit="0" Angle="0" Width="30" Length="30" SklAngle="0.17453292" AniTime="999999" RotAngle="0" ForceATK="0"/>
+                        <Frame Type="FAN" Time="999799" HitCount="1" TermMin="0" TermMax="0" PosType="0" Dist="0" RandDist="0" RandomPerHit="0" Angle="0" Width="30" Length="30" SklAngle="0.17453292" AniTime="999999" RotAngle="0" ForceATK="0" ScriptIndex="0" ScriptName="" SkillType="0"/>
                     </HitList>
                     <EtcList>
+                        <Scp Scp="SKL_RUN_SCRIPT" Client="NO" UseSleep="NO" Time="0">
+                            <Str Str="SCR_WEERKL_PATTERN_TARGET_SET"/>
+                        </Scp>
                         <Scp Scp="MONSKL_RANDEOM_CRE_MON_CNT_RANGE_USE_AFTERSKL" Client="NO" UseSleep="NO" Time="800">
                             <Str Str="weekly_brest_monster"/>
-                            <Pos Angle="0" Dist="0" Rand="160" Height="1"/>
+                            <Pos Angle="2.3939183" Dist="62.85936" Rand="100" PosType="9" Height="1"/>
                             <Str Str="UnvisibleName"/>
                             <Str Str="None"/>
                             <Num Num="0"/>
@@ -14424,7 +14435,7 @@ return anlgeList[IMCRandom(1,3)]"/>
                         </Scp>
                         <Scp Scp="MONSKL_RANDEOM_CRE_MON_CNT_RANGE_USE_AFTERSKL" Client="NO" UseSleep="NO" Time="800">
                             <Str Str="weekly_brest_monster"/>
-                            <Pos Angle="0" Dist="0" Rand="160" Height="1"/>
+                            <Pos Angle="-0.70168024" Dist="56.848392" Rand="100" PosType="9" Height="3"/>
                             <Str Str="UnvisibleName"/>
                             <Str Str="None"/>
                             <Num Num="0"/>
@@ -14451,12 +14462,15 @@ return anlgeList[IMCRandom(1,3)]"/>
                 </Cond>
                 <Skill ScrLock="None" JumpFlee="NO" MSPDToUsePos="0">
                     <HitList>
-                        <Frame Type="FAN" Time="999799" HitCount="1" TermMin="0" TermMax="0" PosType="0" Dist="0" RandDist="0" RandomPerHit="0" Angle="0" Width="30" Length="30" SklAngle="0.17453292" AniTime="999999" RotAngle="0" ForceATK="0"/>
+                        <Frame Type="FAN" Time="999799" HitCount="1" TermMin="0" TermMax="0" PosType="0" Dist="0" RandDist="0" RandomPerHit="0" Angle="0" Width="30" Length="30" SklAngle="0.17453292" AniTime="999999" RotAngle="0" ForceATK="0" ScriptIndex="0" ScriptName="" SkillType="0"/>
                     </HitList>
                     <EtcList>
+                        <Scp Scp="SKL_RUN_SCRIPT" Client="NO" UseSleep="NO" Time="0">
+                            <Str Str="SCR_WEERKL_PATTERN_TARGET_SET"/>
+                        </Scp>
                         <Scp Scp="MONSKL_RANDEOM_CRE_MON_CNT_RANGE_USE_AFTERSKL" Client="NO" UseSleep="NO" Time="800">
                             <Str Str="weekly_brest_monster"/>
-                            <Pos Angle="0" Dist="0" Rand="160" Height="1"/>
+                            <Pos Angle="2.991262" Dist="63.671482" Rand="100" PosType="9" Height="1"/>
                             <Str Str="UnvisibleName"/>
                             <Str Str="None"/>
                             <Num Num="0"/>
@@ -14473,7 +14487,7 @@ return anlgeList[IMCRandom(1,3)]"/>
                         </Scp>
                         <Scp Scp="MONSKL_RANDEOM_CRE_MON_CNT_RANGE_USE_AFTERSKL" Client="NO" UseSleep="NO" Time="800">
                             <Str Str="weekly_brest_monster"/>
-                            <Pos Angle="0" Dist="0" Rand="160" Height="1"/>
+                            <Pos Angle="-0.85588109" Dist="67.243614" Rand="100" PosType="9" Height="3"/>
                             <Str Str="UnvisibleName"/>
                             <Str Str="None"/>
                             <Num Num="0"/>
@@ -14490,7 +14504,7 @@ return anlgeList[IMCRandom(1,3)]"/>
                         </Scp>
                         <Scp Scp="MONSKL_RANDEOM_CRE_MON_CNT_RANGE_USE_AFTERSKL" Client="NO" UseSleep="NO" Time="800">
                             <Str Str="weekly_brest_monster"/>
-                            <Pos Angle="0" Dist="0" Rand="160" Height="1"/>
+                            <Pos Angle="0.96427375" Dist="83.06279" Rand="100" PosType="9" Height="1"/>
                             <Str Str="UnvisibleName"/>
                             <Str Str="None"/>
                             <Num Num="0"/>
@@ -15019,7 +15033,7 @@ return anlgeList[IMCRandom(1,3)]"/>
     <Skill Name="Mon_weekly_pattern_Skill_8">
         <MainSkl ScrLock="None" JumpFlee="NO" MSPDToUsePos="0">
             <HitList>
-                <Frame Type="FAN" Time="999799" HitCount="1" TermMin="0" TermMax="0" PosType="0" Dist="0" RandDist="0" RandomPerHit="0" Angle="0" Width="30" Length="30" SklAngle="0.17453292" AniTime="999999" RotAngle="0" ForceATK="0"/>
+                <Frame Type="FAN" Time="999799" HitCount="1" TermMin="0" TermMax="0" PosType="0" Dist="0" RandDist="0" RandomPerHit="0" Angle="0" Width="30" Length="30" SklAngle="0.17453292" AniTime="999999" RotAngle="0" ForceATK="0" ScriptIndex="0" ScriptName="" SkillType="0"/>
             </HitList>
             <EtcList>
                 <Scp Scp="C_EFFECT" Client="YES" UseSleep="NO" Time="0">
@@ -15029,7 +15043,7 @@ return anlgeList[IMCRandom(1,3)]"/>
                 </Scp>
                 <Scp Scp="SKL_SET_TARGET_CIRCLE" Client="NO" UseSleep="NO" Time="0">
                     <Pos Angle="0" Dist="0"/>
-                    <Num Num="300"/>
+                    <Num Num="600"/>
                     <Num Num="5"/>
                     <Num Num="2"/>
                     <Num Num="0"/>

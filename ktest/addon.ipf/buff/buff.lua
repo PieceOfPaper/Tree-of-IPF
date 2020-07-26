@@ -640,9 +640,11 @@ function PULL_BUFF_SLOT_LIST(slotlist, captionlist, index, slotcount, colcnt, Ap
 		if bslot:IsVisible() == 1 then
 			COPY_BUFF_SLOT_INFO(bslot, aslot, btext, atext);
 			if j+1 <= slotcount-1 and "NO" == ApplyLimitCountBuff then
-				local actor = GetMyActor();	
 				local bicon = bslot:GetIcon();
-				actor:GetBuff():InvalidateLastBuff(bicon:GetTooltipNumArg(), bicon:GetUserIValue("BuffIndex"));
+				local actor = GetMyActor();
+				if actor ~= nil then
+					actor:GetBuff():InvalidateLastBuff(bicon:GetTooltipNumArg(), bicon:GetUserIValue("BuffIndex"));
+				end
 			end
 		end
 	end

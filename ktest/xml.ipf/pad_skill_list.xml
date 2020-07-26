@@ -278,7 +278,37 @@
 			</ToolScp>
 		</updateEvent>
 	</PadSkill>
-	<PadSkill Name="Appraiser_Devaluation" CheckerType="0" Range="100" UpdateTerm="100" EnableSearch="0">
+	<PadSkill Name="Appraiser_Blindside_HiddenAbil" CheckerType="0" Range="80" ApplyFlyMon="1">
+        <createEvent>
+            <ToolScp Scp="PAD_ADD_LIFE" Client="NO" UseSleep="NO">
+                <Num Num="2200"/>
+                <Num Num="99999"/>
+            </ToolScp>
+            <ToolScp Scp="PAD_USEABLE_RELATION_ENEMY" Client="NO" UseSleep="NO"/>
+            <ToolScp Scp="PAD_CONCURRENT_USE_COUNT" Client="NO" UseSleep="NO">
+                <Num Num="10"/>
+            </ToolScp>
+            <ToolScp Scp="C_PAD_EFFECT_POS" Client="YES" UseSleep="NO">
+                <Str_Arg Str="F_archer_blindside_arts" Arg="0.85"/>
+                <Pos Angle="0" Dist="0"/>
+                <Num Num="0"/>
+                <Str_Arg Str="None" Arg="1"/>
+                <Num Num="0"/>
+            </ToolScp>            
+        </createEvent>
+        <destroyEvent>
+            <ToolScp Scp="PAD_FUNC_UPDATE_RUNSCRIPT" Client="NO" UseSleep="NO">
+                <Str Str="SCR_APPRAISER_BLINDSIDE_DEBUFF"/>
+            </ToolScp>
+        </destroyEvent>
+        <updateEvent>
+            <ToolScp Scp="PAD_ADD_LIFE" Client="NO" UseSleep="NO">
+                <Num Num="-500"/>
+                <Num Num="1"/>
+            </ToolScp>
+        </updateEvent>
+    </PadSkill>
+    <PadSkill Name="Appraiser_Devaluation" CheckerType="0" Range="100" UpdateTerm="100" EnableSearch="0">
 		<createEvent>
 			<ToolScp Scp="C_PAD_EFFECT_POS" Client="YES" UseSleep="NO">
 				<Str_Arg Str="None" Arg="0.40000001"/>
@@ -841,30 +871,7 @@ end"/>
 			</ToolScp>
 		</updateEvent>
 	</PadSkill>
-    <PadSkill Name="Appraiser_Blindside_HiddenAbil" CheckerType="0" Range="80" ApplyFlyMon="1">
-        <createEvent>
-            <ToolScp Scp="PAD_ADD_LIFE" Client="NO" UseSleep="NO">
-                <Num Num="2200"/>
-                <Num Num="99999"/>
-            </ToolScp>
-            <ToolScp Scp="PAD_USEABLE_RELATION_ENEMY" Client="NO" UseSleep="NO"/>
-            <ToolScp Scp="PAD_CONCURRENT_USE_COUNT" Client="NO" UseSleep="NO">
-                <Num Num="10"/>
-            </ToolScp>
-        </createEvent>
-        <destroyEvent>
-            <ToolScp Scp="PAD_FUNC_UPDATE_RUNSCRIPT" Client="NO" UseSleep="NO">
-                <Str Str="SCR_APPRAISER_BLINDSIDE_DEBUFF"/>
-            </ToolScp>
-        </destroyEvent>
-        <updateEvent>
-            <ToolScp Scp="PAD_ADD_LIFE" Client="NO" UseSleep="NO">
-                <Num Num="-500"/>
-                <Num Num="1"/>
-            </ToolScp>
-        </updateEvent>
-    </PadSkill>
-	<PadSkill Name="Assassin_HallucinationSmoke" CheckerType="0" Range="55" ApplyFlyMon="1">
+    <PadSkill Name="Assassin_HallucinationSmoke" CheckerType="0" Range="55" ApplyFlyMon="1">
 		<createEvent>
 			<ToolScp Scp="C_PAD_EFFECT_POS" Client="YES" UseSleep="NO">
 				<Str_Arg Str="F_archer_lachrymator_smoke" Arg="1"/>
@@ -991,7 +998,7 @@ end"/>
 		<createEvent>
 			<ToolScp Scp="PAD_USEABLE_PC" Client="NO" UseSleep="NO"/>
 			<ToolScp Scp="PAD_ADD_LIFE" Client="NO" UseSleep="NO">
-				<Num Num="10000"/>
+				<Num Num="100"/>
 				<Num Num="1"/>
 			</ToolScp>
 			<ToolScp Scp="C_PAD_EFFECT_FORCE" Client="YES" UseSleep="NO">
@@ -1011,16 +1018,12 @@ end"/>
 			<ToolScp Scp="PAD_FUNC_UPDATE_DIRECT" Client="NO" UseSleep="NO">
 				<Str Str="GM_MGAME_BORUTA_REVENGE_FEVER_UPDATE"/>
 			</ToolScp>
-			<ToolScp Scp="PAD_ADD_LIFE" Client="NO" UseSleep="NO">
-				<Num Num="-40"/>
-				<Num Num="0"/>
-			</ToolScp>
-		</updateEvent>
+			</updateEvent>
 	</PadSkill>
-	<PadSkill Name="BK_MGAME_FEVER_REVERSE" CheckerType="0" Dist="165.70114" Angle="-0.83180231" Range="250" UpdateTerm="2000" AllowOverlap="1" EnableSearch="0">
+    <PadSkill Name="BK_MGAME_FEVER_REVERSE" CheckerType="0" Dist="165.70114" Angle="-0.83180231" Range="250" UpdateTerm="5000" AllowOverlap="1" EnableSearch="0">
 		<createEvent>
 			<ToolScp Scp="PAD_ADD_LIFE" Client="NO" UseSleep="NO">
-				<Num Num="12000"/>
+                <Num Num="12"/>
 				<Num Num="1"/>
 			</ToolScp>
 		</createEvent>
@@ -1029,7 +1032,7 @@ end"/>
 				<Str Str="GM_MGAME_BORUTA_REVENGE_FEVER_REVERSE_UPDATE"/>
 			</ToolScp>
 			<ToolScp Scp="PAD_ADD_LIFE" Client="NO" UseSleep="NO">
-				<Num Num="-200"/>
+                <Num Num="-1"/>
 				<Num Num="0"/>
 			</ToolScp>
 		</updateEvent>
@@ -6995,6 +6998,105 @@ return value;"/>
 			</ToolScp>
 		</updateEvent>
 	</PadSkill>
+    <PadSkill Name="Disnai_Svirti_PAD_ENEMY" CheckerType="0" PadHeight="0" Range="150" UpdateTerm="1000" AutoPos="1" AutoDir="1" ApplyFlyMon="1" AllowOverlap="1" EnableSearch="0" IsMagicType="0" IsMineType="0">
+        <createEvent>
+            <ToolScp Scp="PAD_ADD_LIFE" Client="NO" UseSleep="NO">
+                <Num Num="999999"/>
+                <Num Num="1"/>
+            </ToolScp>
+            <ToolScp Scp="C_PAD_EFFECT_POS" Client="YES" UseSleep="NO">
+                <Str_Arg Str="F_summon_ground_red_attach" Arg="6"/>
+                <Pos Angle="0" Dist="0" PosType="5"/>
+                <Num Num="0"/>
+                <Str_Arg Str="None" Arg="1"/>
+                <Num Num="0"/>
+            </ToolScp>
+            <ToolScp Scp="PAD_USEABLE_RELATION_ENEMY" Client="NO" UseSleep="NO"/>
+            <ToolScp Scp="PAD_CONCURRENT_USE_COUNT" Client="NO" UseSleep="NO">
+                <Num Num="20"/>
+            </ToolScp>
+        </createEvent>
+        <destroyEvent>
+            <ToolScp Scp="PAD_REMOVEBUFF" Client="NO" UseSleep="NO">
+                <Str Str="ALL"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+                <Str Str="ITEM_LEGEND_SVIRTI_DEBUFF"/>
+            </ToolScp>
+        </destroyEvent>
+        <enterEvent>
+            <ToolScp Scp="PAD_TGT_BUFF" Client="NO" UseSleep="NO">
+                <Str Str="ENEMY"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+                <Str Str="ITEM_LEGEND_SVIRTI_DEBUFF"/>
+                <Num Num="99"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+                <Num Num="1"/>
+                <Num Num="100"/>
+                <Num Num="0"/>
+            </ToolScp>
+        </enterEvent>
+        <leaveEvent>
+            <ToolScp Scp="PAD_REMOVEBUFF" Client="NO" UseSleep="NO">
+                <Str Str="ALL"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+                <Str Str="ITEM_LEGEND_SVIRTI_DEBUFF"/>
+            </ToolScp>
+        </leaveEvent>
+    </PadSkill>
+    <PadSkill Name="Disnai_Svirti_PAD_PARTY" CheckerType="0" PadHeight="0" Range="150" UpdateTerm="1000" AutoPos="1" AutoDir="1" ApplyFlyMon="1" AllowOverlap="1" EnableSearch="0" IsMagicType="0" IsMineType="0">
+        <createEvent>
+            <ToolScp Scp="PAD_ADD_LIFE" Client="NO" UseSleep="NO">
+                <Num Num="999999"/>
+                <Num Num="1"/>
+            </ToolScp>
+            <ToolScp Scp="C_PAD_EFFECT_POS" Client="YES" UseSleep="NO">
+                <Str_Arg Str="F_summon_ground_red_attach" Arg="6"/>
+                <Pos Angle="0" Dist="0" PosType="5"/>
+                <Num Num="0"/>
+                <Str_Arg Str="None" Arg="1"/>
+                <Num Num="0"/>
+            </ToolScp>
+            <ToolScp Scp="PAD_CONCURRENT_USE_COUNT" Client="NO" UseSleep="NO">
+                <Num Num="5"/>
+            </ToolScp>
+            <ToolScp Scp="PAD_USEABLE_RELATION_FRIEND" Client="NO" UseSleep="NO"/>
+        </createEvent>
+        <destroyEvent>
+            <ToolScp Scp="PAD_REMOVEBUFF" Client="NO" UseSleep="NO">
+                <Str Str="ALL"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+                <Str Str="ITEM_LEGEND_SVIRTI_BUFF_DMG"/>
+            </ToolScp>
+        </destroyEvent>
+        <enterEvent>
+            <ToolScp Scp="PAD_TGT_BUFF" Client="NO" UseSleep="NO">
+                <Str Str="PARTY"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+                <Str Str="ITEM_LEGEND_SVIRTI_BUFF_DMG"/>
+                <Num Num="99"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+                <Num Num="1"/>
+                <Num Num="100"/>
+                <Num Num="1"/>
+            </ToolScp>
+        </enterEvent>
+        <leaveEvent>
+            <ToolScp Scp="PAD_TGT_BUFF_REMOVE" Client="NO" UseSleep="NO">
+                <Str Str="ALL"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+                <Str Str="ITEM_LEGEND_SVIRTI_BUFF_DMG"/>
+                <Num Num="0"/>
+            </ToolScp>
+        </leaveEvent>
+    </PadSkill>
 	<PadSkill Name="Dragoon_Gae_Bulg_atkabil" CheckerType="1" Range="45" InnerRange="45">
 		<createEvent>
 			<ToolScp Scp="PAD_ADD_LIFE" Client="NO" UseSleep="NO">
@@ -7746,6 +7848,73 @@ return obj.Level"/>
 			<ToolScp Scp="PAD_ADD_LIFE" Client="NO" UseSleep="NO">
 				<Num Num="-500"/>
 				<Num Num="0"/>
+			</ToolScp>
+		</updateEvent>
+	</PadSkill>
+	<PadSkill Name="Exorcist_Katadikazo_Vibora" CheckerType="0" PadHeight="0" Range="150" UpdateTerm="1000" ApplyFlyMon="1" ObjType="2" Relation="1" AllowOverlap="1">
+		<createEvent>
+			<ToolScp Scp="PAD_ADD_LIFE" Client="NO" UseSleep="NO">
+				<Num Num="20000"/>
+				<Num Num="1"/>
+			</ToolScp>
+			<ToolScp Scp="PAD_USEABLE_RELATION_FRIEND" Client="NO" UseSleep="NO"/>
+			<ToolScp Scp="PAD_CONCURRENT_USE_COUNT" Client="NO" UseSleep="NO">
+				<Num Num="5"/>
+			</ToolScp>
+		</createEvent>
+		<destroyEvent>
+			<ToolScp Scp="PAD_FUNC_UPDATE_RUNSCRIPT" Client="NO" UseSleep="NO">
+				<Str Str="SCR_VIBORA_THMACE_KATADIKAZO_DESTROY"/>
+			</ToolScp>
+			<ToolScp Scp="PAD_REMOVEBUFF" Client="NO" UseSleep="NO">
+				<Str Str="PARTY"/>
+				<Num Num="0"/>
+				<Num Num="0"/>
+				<Str Str="ITEM_BUFF_VIBORA_THMACE_KATADIKAZO"/>
+			</ToolScp>
+		</destroyEvent>
+		<enterEvent>
+			<ToolScp Scp="PAD_TGT_BUFF" Client="NO" UseSleep="NO">
+				<Str Str="PARTY"/>
+				<Num Num="0"/>
+				<Num Num="0"/>
+				<Str Str="ITEM_BUFF_VIBORA_THMACE_KATADIKAZO"/>
+				<Num Num="99"/>
+				<Num Num="0"/>
+				<Num Num="0"/>
+				<Num Num="1"/>
+				<Num Num="100"/>
+				<Num Num="0"/>
+			</ToolScp>
+		</enterEvent>
+		<leaveEvent>
+			<ToolScp Scp="PAD_TGT_BUFF_REMOVE" Client="NO" UseSleep="NO">
+				<Str Str="PARTY"/>
+				<Num Num="0"/>
+				<Num Num="0"/>
+				<Str Str="ITEM_BUFF_VIBORA_THMACE_KATADIKAZO"/>
+				<Num Num="1"/>
+			</ToolScp>
+		</leaveEvent>
+		<updateEvent>
+			<ToolScp Scp="PAD_ADD_LIFE" Client="NO" UseSleep="NO">
+				<Num Num="-1000"/>
+				<Num Num="0"/>
+			</ToolScp>
+			<ToolScp Scp="PAD_FUNC_UPDATE_RUNSCRIPT" Client="NO" UseSleep="NO">
+				<Str Str="SCR_VIBORA_THMACE_KATADIKAZO_UPDATE"/>
+			</ToolScp>
+			<ToolScp Scp="PAD_BUFF_CHECK_BUFF_ENEMY" Client="NO" UseSleep="NO">
+				<Str Str="PARTY"/>
+				<Num Num="0"/>
+				<Num Num="0"/>
+				<Str Str="ITEM_BUFF_VIBORA_THMACE_KATADIKAZO"/>
+				<Str Str="ITEM_BUFF_VIBORA_THMACE_KATADIKAZO"/>
+				<Num Num="99"/>
+				<Num Num="0"/>
+				<Num Num="0"/>
+				<Num Num="1"/>
+				<Num Num="100"/>
 			</ToolScp>
 		</updateEvent>
 	</PadSkill>
@@ -10349,6 +10518,304 @@ return value"/>
 			</ToolScp>
 		</updateEvent>
 	</PadSkill>
+    <PadSkill Name="Legend_Glacier_ColdBlast" CheckerType="0" Range="150" UpdateTerm="1000" AutoPos="1" ApplyFlyMon="1" AllowOverlap="1" EnableSearch="0" IsMineType="0">
+        <createEvent>
+            <ToolScp Scp="C_PAD_EFFECT_POS" Client="YES" UseSleep="NO">
+                <Str_Arg Str="F_circle033_spread_ou_blue" Arg="1.7"/>
+                <Pos Angle="0" Dist="1.4930156e-36" PosType="5"/>
+                <Num Num="0"/>
+                <Str_Arg Str="None" Arg="1"/>
+                <Num Num="1"/>
+            </ToolScp>
+            <ToolScp Scp="PAD_ADD_LIFE" Client="NO" UseSleep="NO">
+                <Num Num="3000"/>
+                <Num Num="1"/>
+            </ToolScp>
+        </createEvent>
+        <destroyEvent>
+            <ToolScp Scp="PAD_SELECT_SPECIFIC_PADKILL" Client="NO" UseSleep="NO">
+                <Str Str="Legend_Glacier_SnowStorm;Legend_Glacier_SnowCloud"/>
+                <Str Str="Legend_boss_Glacier"/>
+                <Num Num="150"/>
+            </ToolScp>
+            <ToolScp Scp="C_PAD_EFFECT_POS" Client="YES" UseSleep="NO">
+                <Str_Arg Str="F_explosion092_ice##1" Arg="3"/>
+                <Pos Angle="0" Dist="0"/>
+                <Num Num="1"/>
+                <Str_Arg Str="None" Arg="1"/>
+                <Num Num="1"/>
+            </ToolScp>
+            <ToolScp Scp="PAD_FUNC_UPDATE_RUNSCRIPT" Client="NO" UseSleep="NO">
+                <Str Str="SCR_LEGEND_GLACIER_COLD_BLAST_EXEC"/>
+            </ToolScp>
+        </destroyEvent>
+    </PadSkill>
+    <PadSkill Name="Legend_Glacier_IceSpear" CheckerType="0" Range="15" AutoPos="1" AutoDir="1" ApplyFlyMon="1" AllowOverlap="1" EnableSearch="0" IsMineType="0">
+        <createEvent>
+            <ToolScp Scp="PAD_ADD_LIFE" Client="NO" UseSleep="NO">
+                <Num Num="999999"/>
+                <Num Num="999999"/>
+            </ToolScp>
+        </createEvent>
+        <destroyEvent>
+            <ToolScp Scp="PAD_FUNC_UPDATE_DIRECT" Client="NO" UseSleep="NO">
+                <Str Str="SCR_LEGEND_GLACIER_ICE_SPEAR_DESTROY"/>
+            </ToolScp>
+        </destroyEvent>
+        <enterEvent>
+            <ToolScp Scp="PAD_TGT_SCRIPT" Client="NO" UseSleep="NO">
+                <Str Str="SCR_LEGEND_GLACIER_ICE_SPEAR_ENTER"/>
+            </ToolScp>
+        </enterEvent>
+    </PadSkill>
+    <PadSkill Name="Legend_Glacier_SnowCloud" CheckerType="0" Range="60" ApplyFlyMon="1" AllowOverlap="1" IsMagicType="0" IsMineType="0">
+        <createEvent>
+            <ToolScp Scp="C_PAD_EFFECT_POS" Client="YES" UseSleep="NO">
+                <Str_Arg Str="F_ground206_ice_loop_red" Arg="0.69999999"/>
+                <Pos Angle="0" Dist="0"/>
+                <Num Num="0"/>
+                <Str_Arg Str="None" Arg="1"/>
+                <Num Num="1"/>
+            </ToolScp>
+            <ToolScp Scp="PAD_ADD_LIFE" Client="NO" UseSleep="NO">
+                <Num Num="60000"/>
+                <Num Num="1"/>
+            </ToolScp>
+            <ToolScp Scp="PAD_SET_SPECIFIC_OPTION" Client="NO" UseSleep="NO">
+                <Num Num="1"/>
+            </ToolScp>
+        </createEvent>
+        <destroyEvent>
+            <ToolScp Scp="PAD_FUNC_UPDATE_DIRECT" Client="NO" UseSleep="NO">
+                <Str Str="SCR_LEGEND_GLACIER_SNOW_CLOUD_DESTROY"/>
+            </ToolScp>
+        </destroyEvent>
+        <enterEvent>
+            <ToolScp Scp="PAD_TGT_SCRIPT" Client="NO" UseSleep="NO">
+                <Str Str="SCR_LEGEND_GLACIER_SNOW_CLOUD_ENTER"/>
+            </ToolScp>
+        </enterEvent>
+        <leaveEvent>
+            <ToolScp Scp="PAD_TGT_SCRIPT" Client="NO" UseSleep="NO">
+                <Str Str="SCR_LEGEND_GLACIER_SNOW_CLOUD_LEAVE"/>
+            </ToolScp>
+        </leaveEvent>
+        <updateEvent>
+            <ToolScp Scp="PAD_ADD_LIFE" Client="NO" UseSleep="NO">
+                <Num Num="-500"/>
+                <Num Num="99999"/>
+            </ToolScp>
+            <ToolScp Scp="PAD_MOVE_NEAR_ENEMY" Client="NO" UseSleep="NO">
+                <Str Str="ENEMY"/>
+                <Num Num="100"/>
+                <Num Num="75"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+                <Num Num="1"/>
+            </ToolScp>
+        </updateEvent>
+    </PadSkill>
+    <PadSkill Name="Legend_Glacier_SnowStorm" CheckerType="0" Range="100" ApplyFlyMon="1" AllowOverlap="1">
+        <createEvent>
+            <ToolScp Scp="PAD_ADD_LIFE" Client="NO" UseSleep="NO">
+                <Num Num="40000"/>
+                <Num Num="99999"/>
+            </ToolScp>
+            <ToolScp Scp="C_PAD_EFFECT_POS" Client="YES" UseSleep="NO">
+                <Str_Arg Str="F_ground205_rotate_ice_loop" Arg="1.2"/>
+                <Pos Angle="0" Dist="0"/>
+                <Num Num="0"/>
+                <Str_Arg Str="None" Arg="1"/>
+                <Num Num="1"/>
+            </ToolScp>
+            <ToolScp Scp="PAD_SET_SPECIFIC_OPTION" Client="NO" UseSleep="NO">
+                <Num Num="1"/>
+            </ToolScp>
+        </createEvent>
+        <destroyEvent>
+            <ToolScp Scp="PAD_FUNC_UPDATE_DIRECT" Client="NO" UseSleep="NO">
+                <Str Str="SCR_LEGEND_GLACIER_SNOW_STORM_DESTROY"/>
+            </ToolScp>
+        </destroyEvent>
+        <updateEvent>
+            <ToolScp Scp="PAD_FUNC_UPDATE_RUNSCRIPT" Client="NO" UseSleep="NO">
+                <Str Str="SCR_LEGEND_GLACIER_SNOW_STORM_UPDATE"/>
+            </ToolScp>
+            <ToolScp Scp="PAD_DAMAGE_ENEMY_BY_HPRATIO" Client="NO" UseSleep="NO">
+                <Num Num="0.050000001"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+                <Str Str="ENEMY"/>
+                <Num Num="1"/>
+                <Num Num="1"/>
+            </ToolScp>
+            <ToolScp Scp="PAD_ADD_LIFE" Client="NO" UseSleep="NO">
+                <Num Num="-500"/>
+                <Num Num="99999"/>
+            </ToolScp>
+        </updateEvent>
+    </PadSkill>
+    <PadSkill Name="Legend_Pbeta_AntiMagic" CheckerType="0" Range="40" UpdateTerm="1000" ApplyFlyMon="1" AllowOverlap="1" EnableSearch="0" IsMagicType="0">
+        <createEvent>
+            <ToolScp Scp="C_PAD_EFFECT_POS" Client="YES" UseSleep="NO">
+                <Str_Arg Str="F_spread_in032_dark_loop3_violet" Arg="0.80000001"/>
+                <Pos Angle="0" Dist="1.4012985e-45"/>
+                <Num Num="0"/>
+                <Str_Arg Str="None" Arg="1"/>
+                <Num Num="1"/>
+            </ToolScp>
+            <ToolScp Scp="PAD_ADD_LIFE" Client="NO" UseSleep="NO">
+                <Num Num="5000"/>
+                <Num Num="1"/>
+            </ToolScp>
+            <ToolScp Scp="PAD_FUNC_UPDATE_DIRECT" Client="NO" UseSleep="NO">
+                <Str Str="SCR_LEGEND_PBETA_SUMMON_TRAP_SETTING"/>
+            </ToolScp>
+        </createEvent>
+        <enterEvent>
+            <ToolScp Scp="PAD_TGT_SCRIPT" Client="NO" UseSleep="NO">
+                <Str Str="SCR_LEGEND_PBETA_SUMMON_TRAP_ENTER"/>
+            </ToolScp>
+        </enterEvent>
+        <updateEvent>
+            <ToolScp Scp="PAD_ADD_LIFE" Client="NO" UseSleep="NO">
+                <Num Num="-1000"/>
+                <Num Num="99999"/>
+            </ToolScp>
+        </updateEvent>
+    </PadSkill>
+    <PadSkill Name="Legend_Pbeta_BattleField" CheckerType="0" Range="150" AutoPos="1" ApplyFlyMon="1" AllowOverlap="1" EnableSearch="0" IsMineType="0">
+        <createEvent>
+            <ToolScp Scp="C_PAD_EFFECT_POS" Client="YES" UseSleep="NO">
+                <Str_Arg Str="F_ground203_red#Pbeta" Arg="1.7"/>
+                <Pos Angle="0" Dist="0"/>
+                <Num Num="0"/>
+                <Str_Arg Str="None" Arg="1"/>
+                <Num Num="1"/>
+            </ToolScp>
+            <ToolScp Scp="PAD_ADD_LIFE" Client="NO" UseSleep="NO">
+                <Num Num="80000"/>
+                <Num Num="1"/>
+            </ToolScp>
+        </createEvent>
+        <enterEvent>
+            <ToolScp Scp="PAD_TGT_SCRIPT" Client="NO" UseSleep="NO">
+                <Str Str="SCR_LEGEND_PBETA_BATTLE_FIELD_ENTER"/>
+            </ToolScp>
+        </enterEvent>
+        <leaveEvent>
+            <ToolScp Scp="PAD_TGT_SCRIPT" Client="NO" UseSleep="NO">
+                <Str Str="SCR_LEGEND_PBETA_BATTLE_FIELD_LEAVE"/>
+            </ToolScp>
+        </leaveEvent>
+        <updateEvent>
+            <ToolScp Scp="PAD_ADD_LIFE" Client="NO" UseSleep="NO">
+                <Num Num="-500"/>
+                <Num Num="1"/>
+            </ToolScp>
+            <ToolScp Scp="PAD_FUNC_UPDATE_RUNSCRIPT" Client="NO" UseSleep="NO">
+                <Str Str="SCR_LEGEND_PBETA_BATTLE_FIELD_UPDATE"/>
+            </ToolScp>
+        </updateEvent>
+    </PadSkill>
+    <PadSkill Name="Legend_Pbeta_Battle_Second_Victory_Pad" CheckerType="4" Range="120" InnerRange="55" UpdateTerm="1000" AutoPos="1" AutoDir="1" ApplyFlyMon="1" AllowOverlap="1" EnableSearch="0" IsMineType="0">
+        <createEvent>
+            <ToolScp Scp="C_PAD_EFFECT_POS" Client="YES" UseSleep="NO">
+                <Str_Arg Str="F_ground208_red" Arg="2.8"/>
+                <Pos Angle="0" Dist="0"/>
+                <Num Num="0"/>
+                <Str_Arg Str="None" Arg="1"/>
+                <Num Num="1"/>
+            </ToolScp>
+            <ToolScp Scp="PAD_ADD_LIFE" Client="NO" UseSleep="NO">
+                <Num Num="300000"/>
+                <Num Num="1"/>
+            </ToolScp>
+        </createEvent>
+        <enterEvent>
+            <ToolScp Scp="PAD_TGT_SCRIPT" Client="NO" UseSleep="NO">
+                <Str Str="SCR_LEGEND_PBETA_BATTLE_FIELD_VICTORY_DAMAGE_PAD_ENTER"/>
+            </ToolScp>
+        </enterEvent>
+        <leaveEvent>
+            <ToolScp Scp="PAD_TGT_SCRIPT" Client="NO" UseSleep="NO">
+                <Str Str="SCR_LEGEND_PBETA_BATTLE_FIELD_VICTORY_DAMAGE_PAD_LEAVE"/>
+            </ToolScp>
+        </leaveEvent>
+        <updateEvent>
+            <ToolScp Scp="PAD_ADD_LIFE" Client="NO" UseSleep="NO">
+                <Num Num="-1000"/>
+                <Num Num="1"/>
+            </ToolScp>
+        </updateEvent>
+    </PadSkill>
+    <PadSkill Name="Legend_Pbeta_contaminate" CheckerType="0" Range="80" UpdateTerm="1000" ApplyFlyMon="1" AllowOverlap="1" EnableSearch="0" IsMineType="0">
+        <createEvent>
+            <ToolScp Scp="PAD_ADD_LIFE" Client="NO" UseSleep="NO">
+                <Num Num="40000"/>
+                <Num Num="1"/>
+            </ToolScp>
+            <ToolScp Scp="C_PAD_EFFECT_POS" Client="YES" UseSleep="NO">
+                <Str_Arg Str="F_ground179_bubble_green_loop" Arg="2.5"/>
+                <Pos Angle="0" Dist="0"/>
+                <Num Num="0"/>
+                <Str_Arg Str="None" Arg="3"/>
+                <Num Num="1"/>
+            </ToolScp>
+            <ToolScp Scp="C_PAD_EFFECT_POS" Client="YES" UseSleep="NO">
+                <Str_Arg Str="F_buff_basic059_ground_green" Arg="2.5"/>
+                <Pos Angle="0" Dist="1.4012985e-45"/>
+                <Num Num="0"/>
+                <Str_Arg Str="None" Arg="1"/>
+                <Num Num="1"/>
+            </ToolScp>
+        </createEvent>
+        <enterEvent>
+            <ToolScp Scp="PAD_TGT_SCRIPT" Client="NO" UseSleep="NO">
+                <Str Str="SCR_LEGEND_PBETA_CONTAMINATE_ENTER"/>
+            </ToolScp>
+        </enterEvent>
+        <leaveEvent>
+            <ToolScp Scp="PAD_TGT_SCRIPT" Client="NO" UseSleep="NO">
+                <Str Str="SCR_LEGEND_PBETA_CONTAMINATE_LEAVE"/>
+            </ToolScp>
+        </leaveEvent>
+        <updateEvent>
+            <ToolScp Scp="PAD_ADD_LIFE" Client="NO" UseSleep="NO">
+                <Num Num="-1000"/>
+                <Num Num="99999"/>
+            </ToolScp>
+        </updateEvent>
+    </PadSkill>
+    <PadSkill Name="Legend_Pbeta_shot" CheckerType="1" Range="40" InnerRange="100" AutoPos="1" AutoDir="1" ApplyFlyMon="1" AllowOverlap="1" EnableSearch="0" IsMagicType="0" IsMineType="0">
+        <createEvent>
+            <ToolScp Scp="PAD_ADD_LIFE" Client="NO" UseSleep="NO">
+                <Num Num="10000"/>
+                <Num Num="99999"/>
+            </ToolScp>
+            <ToolScp Scp="C_PAD_EFFECT_POS" Client="YES" UseSleep="NO">
+                <Str_Arg Str="I_force095_trail_slash4_blue" Arg="0.60000002"/>
+                <Pos Angle="0" Dist="0"/>
+                <Num Num="0"/>
+                <Str_Arg Str="None" Arg="0"/>
+                <Num Num="0"/>
+            </ToolScp>
+        </createEvent>
+        <enterEvent>
+            <ToolScp Scp="PAD_TGT_DAMAGE" Client="NO" UseSleep="NO">
+                <Str Str="ENEMY"/>
+                <Num Num="1"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+            </ToolScp>
+        </enterEvent>
+        <updateEvent>
+            <ToolScp Scp="PAD_ADD_LIFE" Client="NO" UseSleep="NO">
+                <Num Num="-500"/>
+                <Num Num="99999"/>
+            </ToolScp>
+        </updateEvent>
+    </PadSkill>
 	<PadSkill Name="Legend_Tantaliser_Pad1" CheckerType="0" Dist="247.63501" Angle="-3.1249766" Range="60" AllowOverlap="1" EnableSearch="0" IsMagicType="0" IsMineType="0">
 		<createEvent>
 			<ToolScp Scp="C_PAD_EFFECT_POS" Client="YES" UseSleep="NO">
@@ -11069,8 +11536,8 @@ return value"/>
 	<PadSkill Name="Mergen_ArrowRain3" CheckerType="0" Range="100" UpdateTerm="500">
 		<createEvent>
 			<ToolScp Scp="PAD_ADD_LIFE" Client="NO" UseSleep="NO">
-				<Num Num="5000"/>
-				<Num Num="5000"/>
+				<Num Num="3000"/>
+				<Num Num="3000"/>
 			</ToolScp>
 		</createEvent>
 		<updateEvent>
@@ -11585,8 +12052,8 @@ return 5000 + obj.Level *  1000"/>
 				<Num Num="0"/>
 				<Num Num="0"/>
 				<Str Str="UC_poison"/>
-				<Num Num="1" UseFunc="1" FuncTxt="0"/>
 				<Num Num="0"/>
+                <Num Num="0"/>
 				<Num Num="10000"/>
 				<Num Num="1"/>
 				<Num Num="30"/>
@@ -11827,7 +12294,7 @@ return 5000 + obj.Level *  1000"/>
 				<Num Num="0"/>
 				<Num Num="0"/>
 				<Str Str="Mon_FirePilla"/>
-				<Num Num="1" UseFunc="1" FuncTxt="1"/>
+				<Num Num="1" UseFunc="1" FuncTxt="return 1"/>
 				<Num Num="0"/>
 				<Num Num="0"/>
 				<Num Num="1"/>
@@ -13521,7 +13988,38 @@ return lv;"/>
 			</ToolScp>
 		</updateEvent>
 	</PadSkill>
-	<PadSkill Name="Pbeta_Obj_Dmg_Pad" CheckerType="0" Range="150" UpdateTerm="1000" AutoPos="1" ApplyFlyMon="1" AllowOverlap="1" EnableSearch="0" IsMagicType="0">
+    <PadSkill Name="Pbeta_Legend_KruvinaMist" CheckerType="0" Range="200" UpdateTerm="1000" ApplyFlyMon="1" AllowOverlap="1" EnableSearch="0" IsMagicType="0">
+        <createEvent>
+            <ToolScp Scp="C_PAD_EFFECT_POS" Client="YES" UseSleep="NO">
+                <Str_Arg Str="F_smoke027_dark_loop3" Arg="4"/>
+                <Pos Angle="0" Dist="0"/>
+                <Num Num="0"/>
+                <Str_Arg Str="None" Arg="0.60000002"/>
+                <Num Num="0"/>
+            </ToolScp>
+            <ToolScp Scp="PAD_ADD_LIFE" Client="NO" UseSleep="NO">
+                <Num Num="30000"/>
+                <Num Num="1"/>
+            </ToolScp>
+        </createEvent>
+        <enterEvent>
+            <ToolScp Scp="PAD_TGT_SCRIPT" Client="NO" UseSleep="NO">
+                <Str Str="SCR_LEGEND_PBETA_KRUVINA_MIST_PAD_ENTER"/>
+            </ToolScp>
+        </enterEvent>
+        <leaveEvent>
+            <ToolScp Scp="PAD_TGT_SCRIPT" Client="NO" UseSleep="NO">
+                <Str Str="SCR_LEGEND_PBETA_KRUVINA_MIST_PAD_LEAVE"/>
+            </ToolScp>
+        </leaveEvent>
+        <updateEvent>
+            <ToolScp Scp="PAD_ADD_LIFE" Client="NO" UseSleep="NO">
+                <Num Num="-1000"/>
+                <Num Num="0"/>
+            </ToolScp>
+        </updateEvent>
+    </PadSkill>
+    <PadSkill Name="Pbeta_Legend_Obj_Dmg_Pad" CheckerType="0" Range="150" UpdateTerm="1000" AutoPos="1" ApplyFlyMon="1" AllowOverlap="1" EnableSearch="0" IsMagicType="0">
 		<createEvent>
 			<ToolScp Scp="C_PAD_EFFECT_POS" Client="YES" UseSleep="NO">
 				<Str_Arg Str="F_pattern013_ground_red" Arg="2.5"/>
@@ -13536,18 +14034,50 @@ return lv;"/>
 			</ToolScp>
 			<ToolScp Scp="PAD_USEABLE_PC" Client="NO" UseSleep="NO"/>
 		</createEvent>
-		<destroyEvent>
-			<ToolScp Scp="PAD_FUNC_UPDATE_DIRECT" Client="NO" UseSleep="NO">
-				<Str Str="SCR_UNIQUE_PBETA_KRUVINA_SPIRIT_DMG_PAD_DESTROY"/>
+        <enterEvent>
+            <ToolScp Scp="PAD_TGT_SCRIPT" Client="NO" UseSleep="NO">
+                <Str Str="SCR_LEGEND_PBETA_KRUVINA_SPIRIT_DMG_PAD_ENTER"/>
 			</ToolScp>
-		</destroyEvent>
+        </enterEvent>
+        <leaveEvent>
+            <ToolScp Scp="PAD_TGT_SCRIPT" Client="NO" UseSleep="NO">
+                <Str Str="SCR_LEGEND_PBETA_KRUVINA_SPIRIT_DMG_PAD_LEAVE"/>
+            </ToolScp>
+        </leaveEvent>
 		<updateEvent>
+            <ToolScp Scp="PAD_FUNC_UPDATE_RUNSCRIPT" Client="NO" UseSleep="NO">
+                <Str Str="SCR_LEGEND_PBETA_KRUVINA_SPIRIT_DMG_PAD_UPDATE"/>
+            </ToolScp>
+        </updateEvent>
+    </PadSkill>
+    <PadSkill Name="Pbeta_Legend_Obj_Pad" CheckerType="0" Range="70" UpdateTerm="1000" AutoPos="1" ApplyFlyMon="1" AllowOverlap="1" EnableSearch="0" IsMagicType="0" IsMineType="0">
+        <createEvent>
+            <ToolScp Scp="C_PAD_EFFECT_POS" Client="YES" UseSleep="NO">
+                <Str_Arg Str="F_pattern013_ground_violet" Arg="1.1"/>
+                <Pos Angle="0" Dist="1.4012985e-45"/>
+                <Num Num="0"/>
+                <Str_Arg Str="None" Arg="1"/>
+                <Num Num="1"/>
+            </ToolScp>
 			<ToolScp Scp="PAD_ADD_LIFE" Client="NO" UseSleep="NO">
-				<Num Num="-1000"/>
+                <Num Num="99999"/>
 				<Num Num="99999"/>
 			</ToolScp>
+            <ToolScp Scp="PAD_USEABLE_PC" Client="NO" UseSleep="NO"/>
+        </createEvent>
+        <enterEvent>
+            <ToolScp Scp="PAD_TGT_SCRIPT" Client="NO" UseSleep="NO">
+                <Str Str="SCR_LEGEND_PBETA_KRUVINA_SPIRIT_CORROSION_BUFF_ENTER"/>
+            </ToolScp>
+        </enterEvent>
+        <leaveEvent>
+            <ToolScp Scp="PAD_TGT_SCRIPT" Client="NO" UseSleep="NO">
+                <Str Str="SCR_LEGEND_PBETA_KRUVINA_SPIRIT_CORROSION_BUFF_LEAVE"/>
+            </ToolScp>
+        </leaveEvent>
+        <updateEvent>
 			<ToolScp Scp="PAD_FUNC_UPDATE_RUNSCRIPT" Client="NO" UseSleep="NO">
-				<Str Str="SCR_UNIQUE_PBETA_KRUVINA_SPIRIT_DMG_PAD_UPDATE"/>
+                <Str Str="SCR_LEGEND_PBETA_KRUVINA_SPIRIT_COUNT_PAD_UPDATE"/>
 			</ToolScp>
 		</updateEvent>
 	</PadSkill>
@@ -18285,6 +18815,7 @@ return 3 + obj.Level * 0.5"/>
 		<destroyEvent>
 			<ToolScp Scp="PAD_SELECT_SPECIFIC_PADKILL" Client="NO" UseSleep="NO">
 				<Str Str="Unique_Glacier_SnowStorm"/>
+                <Str Str="Unique_boss_Glacier"/>
 				<Num Num="150"/>
 			</ToolScp>
 			<ToolScp Scp="C_PAD_EFFECT_POS" Client="YES" UseSleep="NO">
