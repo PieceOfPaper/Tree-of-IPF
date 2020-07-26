@@ -238,7 +238,7 @@ function CREATE_GODDESS_ROULETTE_COIN_STAMP_TOUR_LIST(starty, listgb, isClear)
 
 	local y = starty;
 	local clsList, clsCnt = GetClassList("note_eventlist");
-	for i = 0, clsCnt - 1 do
+	for i = 0, clsCnt - 3 do	-- 주간(1), 주간(2)는 룰렛코인 주지 않아 clsCnt - 3
 		local missionCls = GetClassByIndexFromList(clsList, i);
 		for j = 1, 3 do
 			local clearprop = TryGetProp(missionCls, "ClearProp"..j, 'None');
