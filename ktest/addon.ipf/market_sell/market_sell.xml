@@ -4,7 +4,7 @@
 	<frame title="{@st43}{s22}판매 등록" titlepos="0 0" layout_gravity="left center" scale_align="center top" margin="0 -20 0 0" fasthide="true"/>
 	<option closebutton="false"/>
 	<draw drawframe="false" drawtitlebar="false" drawnotitlebar="false"/>
-	<script OpenScp="MARKET_SELL_OPEN"/>
+	<script OpenScp="MARKET_SELL_OPEN" CloseScp="MARKET_SELL_FILTER_RESET"/>
 	<sound opensound="sys_popup_open_1" closesound="character_item_window_close"/>
 	<layer layerlevel="99"/>
 	<userconfig ITEM_NAME_DEF="아이템을 등록해주세요."/>
@@ -13,7 +13,7 @@
 		<groupbox name="market_midle3" rect="0 0 1015 831" margin="10 153 0 0" layout_gravity="left top" draw="true" hittestbox="false" resizebyparent="false" skin="test_frame_midle_light"/>
 		<groupbox name="market_minititle" rect="0 0 1425 99" margin="0 0 0 0" layout_gravity="center top" draw="true" hittestbox="false" resizebyparent="false" skin="market_title"/>
 		<richtext name="title" rect="0 0 100 30" margin="0 33 0 0" layout_gravity="center top" caption="{@st43}{s24}마켓{/}" drawbackground="false" fixwidth="false" fontname="white_16_ol" maxwidth="0" resizebytext="true" slideshow="false" spacey="0" textalign="center center" updateparent="false"/>
-		<groupbox name="groupbox" rect="0 0 390 750" margin="0 153 5 0" layout_gravity="right top" hittestbox="false" draw="false"/>
+		<groupbox name="groupbox" rect="0 0 390 800" margin="0 153 5 0" layout_gravity="right top" hittestbox="false" draw="false"/>
 		<button name="button_1" rect="0 0 200 45" margin="10 105 0 0" layout_gravity="left top" LBtnUpScp="MARKET_BUYMODE" caption="{@st66b18}구매" clicksound="button_click" oversound="button_over" skin="tab2_btn"/>
 		<button name="close" rect="0 0 44 44" margin="0 0 0 0" layout_gravity="right top" LBtnUpScp="ui.CloseFrame(&apos;market_sell&apos;)" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" clicksound="button_click_big" image="testclose_button" oversound="button_over" texttooltip="{@st59}마켓 창을 닫습니다{/}"/>
 		<groupbox name="sellPriceGbox" margin="0 50 0 0" rect="0 0 390 200" hittestbox="false" layout_gravity="left top" draw="false" parent="groupbox" scrollbar="false"/>
@@ -22,7 +22,7 @@
 		<picture name="headerLine2" rect="0 0 290 2" margin="0 96 0 0" layout_gravity="right top" image="guild_line_h" parent="sellPriceGbox" stretch="true"/>
 		<picture name="headerLine" rect="0 0 290 2" margin="0 28 0 0" layout_gravity="right top" image="guild_line_h" parent="sellPriceGbox" stretch="true"/>
 		<SpinePicture name="itemSellTitleBg" margin="0 0 0 0" hittestbox="false" layout_gravity="left top" image="market_sell_updown" fixwidth="false" parent="groupbox"/>
-		<groupbox name="line_h" margin="0 0 0 0" rect="0 0 390 67" hittestbox="false" layout_gravity="center bottom" skin="cutting_line_h" parent="sellPriceGbox"/>		
+		<groupbox name="line_h" margin="0 0 0 0" rect="0 0 390 67" hittestbox="false" layout_gravity="center bottom" skin="cutting_line_h" parent="sellPriceGbox"/>
 		<richtext name="itemSellTitle" margin="0 0 0 0" rect="0 0 375 30" parent="itemSellTitleGbox" caption="{@st66d}아이템 등록" layout_gravity="center center" param1="name" textalign="center center" fixwidth="false" resizebytext="false" spacey="0" maxwidth="0" fontname="white_16_ol" updateparent="false" drawbackground="false" slideshow="false"/>
 		<richtext name="itemname" margin="110 3 0 0" rect="0 0 275 30" parent="sellPriceGbox" format="{@st66b}{s18}%s{/}" layout_gravity="left top" param1="name" param1_def="아이템을 등록해주세요." textalign="left center" omitbywidth="true" fixwidth="true" resizebytext="true" spacey="0" maxwidth="0" fontname="white_16_ol" updateparent="false" drawbackground="false" slideshow="false"/>
 		<richtext name="maxPriceText" margin="130 33 0 0" rect="0 0 120 24" parent="sellPriceGbox" caption="{@st66b}상한가▲{/}" layout_gravity="left top" textalign="left center" fixwidth="false" resizebytext="true" spacey="0" maxwidth="0" fontname="black_16" updateparent="false" drawbackground="false" slideshow="false"/>
@@ -51,7 +51,7 @@
 		<richtext name="finalRecieveValue" margin="0 79 0 0" rect="0 0 140 24" parent="feeGbox" format="{@st66}%s{/}" param1="value" param1_def="0" fixwidth="true" textalign="right center" layout_gravity="right top" resizebytext="false" spacey="0" maxwidth="0" fontname="white_16_ol" updateparent="false" drawbackground="false" slideshow="false"/>
 		<labelline name="labelline" parent="feeGbox" rect="0 0 235 2" margin="0 24 0 0" layout_gravity="right top" skin="labelline2"/>
 		<labelline name="labelline2" parent="feeGbox" rect="0 0 235 2" margin="0 77 0 0" layout_gravity="right top" skin="labelline2"/>
-		<button name="button_1_1" parent="groupbox" rect="0 0 180 50" margin="0 0 0 50" layout_gravity="center bottom" LBtnUpScp="MARKET_SELL_REGISTER" caption="{@st41b}등록" clicksound="button_click" oversound="button_over" skin="test_red_button"/>
+		<button name="button_1_1" parent="groupbox" rect="0 0 180 50" margin="0 0 0 100" layout_gravity="center bottom" LBtnUpScp="MARKET_SELL_REGISTER" caption="{@st41b}등록" clicksound="button_click" oversound="button_over" skin="test_red_button"/>
 		<button name="button_1_2" rect="0 0 200 45" margin="210 105 0 0" layout_gravity="left top" caption="{@st66b18}판매" clicksound="button_click" oversound="button_over" skin="tab2_btn_2"/>
 		<button name="button_1_2_1" rect="0 0 200 45" margin="410 105 0 0" layout_gravity="left top" LBtnUpScp="MARKET_CABINET_MODE" caption="{@st66b18}수령함" clicksound="button_click" oversound="button_over" skin="tab2_btn"/>
 		<button name="refresh_sell_button" rect="0 0 48 48" margin="985 109 0 0" stretch="true" layout_gravity="left top" clicksound="button_click_big" oversound="button_over" image="button_view_info_big" hittest="true" LBtnUpScp="REFRESH_SELL_LIST" texttooltip="판매목록 갱신"/>
@@ -68,7 +68,8 @@
 		<richtext name="richtext_5_1_1_1" margin="620 0 0 0" rect="0 0 120 24" caption="{@st66b}{s18}수수료{/}" textalign="left center" resizebytext="true" spacey="0" maxwidth="0" fontname="white_16_ol" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left center" parent="groupbox_1"/>
 		<richtext name="richtext_5_1_1" margin="785 0 0 0" rect="0 0 120 24" caption="{@st66b}{s18}남은 시간{/}" textalign="left center" resizebytext="true" spacey="0" maxwidth="0" fontname="white_16_ol" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left center" parent="groupbox_1"/>
 		<detaillist name="itemlist" rect="0 0 1015 792" margin="-195 190 0 0" layout_gravity="center top" skin=""/>
-		<richtext name="limitStaticText" parent="groupbox" rect="0 0 200 30" margin="10 0 0 0" layout_gravity="left bottom" caption="거래 한도" fontname="brown_16_b"/>
-		<richtext name="limitAmountText" parent="groupbox" rect="0 0 200 30" margin="0 0 20 0" layout_gravity="right bottom" format="%s/%s" param1="cur" param1_def="0" param2="max" param2_def="0" fontname="brown_16"/>
+		<richtext name="limitStaticText" parent="groupbox" rect="0 0 200 30" margin="10 0 0 50" layout_gravity="left bottom" caption="거래 한도" fontname="brown_16_b"/>
+		<richtext name="limitAmountText" parent="groupbox" rect="0 0 200 30" margin="0 0 20 50" layout_gravity="right bottom" format="%s/%s" param1="cur" param1_def="0" param2="max" param2_def="0" fontname="brown_16"/>
+		<checkbox name="marketfilter" parent="groupbox" rect="0 0 250 40" margin="10 0 0 0" layout_gravity="left bottom" LBtnUpScp="MARKET_SELL_FILTER" format="{@st66b}{s16}%s{/}" param1="option_name" param1_def="필터 적용" resizebytext="false" omitbywidth="true" ellipsistexttooltip="true" clicksound="button_click_big" oversound="button_over"/>
 	</controls>
 </uiframe>

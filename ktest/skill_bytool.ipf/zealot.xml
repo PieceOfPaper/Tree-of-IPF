@@ -142,7 +142,7 @@
 				<Str Str="BeadyEyed_Buff" />
 				<Num FuncTxt="return obj.Level" Num="0" UseFunc="1" />
 				<Num Num="0" />
-				<Num Num="5000" />
+				<Num Num="10000"/>
 				<Num Num="1" />
 				<Num Num="100" />
 				<Num Num="0" />
@@ -168,7 +168,7 @@
 					<Str_Arg Arg="1" Str="None" />
 					<Num Num="135" />
 					<Num Num="20" />
-					<Num FuncTxt="return 100 + obj.Level * 5" Num="0" UseFunc="1" />
+					<Num FuncTxt="return 140 + obj.Level * 8" Num="0" UseFunc="1" />
 				</Scp>
 				<Scp Client="YES" Scp="MONSKL_C_PLAY_ANIM" Time="300" UseSleep="NO">
 					<Str Str="SKL_BEADYEYED_SHOT" />
@@ -189,7 +189,7 @@
 					<Str Str="Fanaticism_Buff" />
 					<Num FuncTxt="return obj.Level;" Num="0" UseFunc="1" />
 					<Num Num="0" />
-					<Num Num="15000" />
+					<Num Num="1800000"/>
 					<Num Num="1" />
 					<Num Num="100" />
 					<Num Num="0" />

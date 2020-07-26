@@ -98,7 +98,7 @@ function ACCOUNTWAREHOUSE_OPEN(frame)
 	custom_title_name = {}
 
     ACCOUNT_WAREHOUSE_MAKE_TAB(frame);
-
+    ACCOUNT_WAREHOUSE_OPTIONCTRL_INIT(frame);
 end
    
 function ACCOUNTWAREHOUSE_CLOSE(frame)
@@ -108,6 +108,15 @@ function ACCOUNTWAREHOUSE_CLOSE(frame)
     TRADE_DIALOG_CLOSE();
     new_add_item = { }
     new_stack_add_item = { }
+    ACCOUNT_WAREHOUSE_FILTER_RESET(frame);
+end
+
+function ACCOUNT_WAREHOUSE_OPTIONCTRL_INIT(frame)
+    if frame == nil then return; end
+    local filterOption = GET_CHILD_RECURSIVELY(frame, "accountwarehousefilter");
+    if filterOption ~= nil then
+        filterOption:SetTextByKey("option_name", ClMsg("ApplyFilter"));
+    end
 end
 
 function ON_ACCOUNT_WAREHOUSE_UPDATE_COLONY_TAX_RATE_SET(frame)
@@ -249,6 +258,11 @@ function PUT_ACCOUNT_ITEM_TO_WAREHOUSE_BY_INVITEM_MSG_YESSCP(guid, count)
     end
     
     local obj = GetIES(invItem:GetObject());
+    
+    if _CHECK_ACCOUNT_WAREHOUSE_SLOT_COUNT_TO_PUT(obj) == false then
+        return;
+    end
+    
     if CHECK_EMPTYSLOT(frame, obj) == 1 then
         return
     end
@@ -863,4 +877,20 @@ function ACCOUNT_WAREHOUSE_TAB_UNFREEZE()
     local frame = ui.GetFrame("accountwarehouse");
     local tab = GET_CHILD(frame, "accountwarehouse_tab");
     tab:EnableHitTest(1);
+end
+
+-- 팀 창고 필터 옵션
+function ACCOUNT_WAREHOUSE_FILTER(frame, ctrl)
+    if frame == nil or ctrl == nil then return; end
+    local isCheck = ctrl:IsChecked();
+    ui.inventory.ApplyInventoryFilter("inventory", IVF_ACCOUNT_WAREHOUSE_TRADE, isCheck);
+end
+
+function ACCOUNT_WAREHOUSE_FILTER_RESET(frame)
+    if frame == nil then return; end
+	local option = GET_CHILD_RECURSIVELY(frame, "accountwarehousefilter", "ui::CCheckBox");
+	if option ~= nil then
+		option:SetCheck(0);
+	end
+	ui.inventory.ApplyInventoryFilter("inventory", IVF_ACCOUNT_WAREHOUSE_TRADE, 0);
 end

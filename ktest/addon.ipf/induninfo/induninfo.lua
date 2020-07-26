@@ -1972,12 +1972,25 @@ function RAID_RANKING_INFO_DETAIL(y, rank, time, member)
     
     local membery = 20;
     for i = 1, memberCnt do
-        local memberCtrl = membergb:CreateOrGetControl("richtext", "member_"..i, 500, 30, ui.RIGHT, ui.TOP, 0, membery, 40, 0);
-        memberCtrl:SetText(memberstrlist[i]);
-        memberCtrl:SetFontName("black_18");
+        local infostrlist = StringSplit(memberstrlist[i], ' ');
+        local teamname = "";
+        local guildname = "";
+        local memberCtrl = membergb:CreateOrGetControlSet("raid_ranking_info_member", "member_"..i, 0, membery);
+        if 1 < #infostrlist then
+            guildname = infostrlist[1];
+            teamname = infostrlist[2];
+
+            local guildCtrl = GET_CHILD(memberCtrl, "guild");
+            guildCtrl:SetText(guildname);
+        else
+            teamname = infostrlist[1];
+        end
+        
+        local teamCtrl = GET_CHILD(memberCtrl, "team");
+        teamCtrl:SetText(teamname);
 
         local myHandle = session.GetMyHandle();
-        if memberstrlist[i] == info.GetFamilyName(myHandle) then
+        if teamname == info.GetFamilyName(myHandle) then
             myParty = true;
         end
 

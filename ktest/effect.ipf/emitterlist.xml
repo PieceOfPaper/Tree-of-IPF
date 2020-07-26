@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
 <EmitterList>
+	<battle name="E_toy_camera02" filename="E_toy_camera02" loop="false" nodecount="4" xml="E_toy_camera02.xml" paused="NO" is2D="FALSE" softParticleFactor="20" useReverse="0" preScale="1" useAttach="FALSE" preScaleXYZ="1.0/1.0/1.0" attachNodeName="None"/>
+	<battle name="E_toy_camera01" filename="E_toy_camera01" loop="false" nodecount="4" xml="E_toy_camera01.xml" paused="NO" is2D="FALSE" softParticleFactor="20" useReverse="0" preScale="1" useAttach="FALSE" preScaleXYZ="1.0/1.0/1.0" attachNodeName="None"/>
+	<battle name="E_pc_effectitem_hiphop" filename="E_pc_effectitem_hiphop" loop="true" nodecount="4" xml="E_pc_effectitem_hiphop.xml" paused="NO" is2D="FALSE" softParticleFactor="20" useReverse="0" preScale="1" useAttach="FALSE" preScaleXYZ="1.0/1.0/1.0" attachNodeName="None"/>
+	<battle name="E_pc_item_accessory_hiphop05" filename="E_pc_item_accessory_hiphop05" loop="false" nodecount="3" xml="E_pc_item_accessory_hiphop05.xml" paused="NO" is2D="FALSE" softParticleFactor="20" useReverse="0" preScale="1" useAttach="FALSE" preScaleXYZ="1.0/1.0/1.0" attachNodeName="None"/>
 	<battle name="E_effectitem_mirtis" filename="E_effectitem_mirtis" loop="true" nodecount="9" xml="E_effectitem_mirtis.xml" paused="NO" is2D="FALSE" softParticleFactor="20" useReverse="0" preScale="1" useAttach="FALSE" preScaleXYZ="1.0/1.0/1.0" attachNodeName="None"/>
 	<battle name="E_effectitem_whitebird" filename="E_effectitem_whitebird" loop="true" nodecount="9" xml="E_effectitem_whitebird.xml" paused="NO" is2D="FALSE" softParticleFactor="20" useReverse="0" preScale="1" useAttach="FALSE" preScaleXYZ="1.0/1.0/1.0" attachNodeName="None"/>
 	<battle name="E_cleric_ProtectionOfGoddess_ground_end_red" filename="E_cleric_ProtectionOfGoddess_ground_end_red" loop="false" nodecount="9" xml="E_cleric_ProtectionOfGoddess_ground_end_red.xml" paused="NO" is2D="FALSE" softParticleFactor="20" useReverse="0" preScale="1" useAttach="FALSE" preScaleXYZ="1.0/1.0/1.0" attachNodeName="None"/>

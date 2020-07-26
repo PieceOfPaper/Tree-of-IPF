@@ -5,6 +5,7 @@ function PET_INFO_ON_INIT(addon, frame)
 	addon:RegisterOpenOnlyMsg("PET_NAME_CHANGED", "ON_PET_NAME_CHANGED");
 	addon:RegisterMsg("COMPANION_UI_OPEN", "COMPANION_UI_OPEN_DO");
 	addon:RegisterMsg("COMPANION_AUTO_ATK", "COMPANION_UI_AUTO_ATK");
+	addon:RegisterMsg("COMPANION_REFRESH", "ON_SUMMONED_PET_INFO_UPDATE");
 	addon:RegisterOpenOnlyMsg("UPDATE_COLONY_TAX_RATE_SET", "ON_COMPANION_UI_UPDATE_COLONY_TAX_RATE_SET");
 	
 	local frame = ui.GetFrame("pet_info");
@@ -25,14 +26,23 @@ function COMPANION_UI_OPEN_DO(frame)
 	end	
 
 	local summonedPet = GET_SUMMONED_PET();
-	if summonedPet == nil then
-		ui.SysMsg(ClMsg("SummonedPetDoesNotExist"));
+	local hawk = GET_SUMMONED_PET_HAWK();
+	if summonedPet == nil and hawk == nil then
+		-- 소환된 컴패니언이 없다면 컴패니언 리스트를 연다.
+		local companionlist_frame = ui.GetFrame("companionlist");
+		if companionlist_frame:IsVisible() == 0 then
+			ON_OPEN_COMPANIONLIST();
+			companionlist_frame:ShowWindow(1);
+		else
+			-- 펫 목록이 열려있는데 한번 더 누르는 경우
+			ui.SysMsg(ClMsg("SummonedPetDoesNotExist")); 
+		end	
 		return;
 	end
 
 	frame:SetUserValue("IS_OPEN_BY_NPC","YES")
 
-	PET_INFO_SHOW(summonedPet:GetStrGuid());
+	SETUP_PET_INFO(summonedPet, hawk)
 	PET_INFO_CANCEL_TRAIN(frame)	
 end
 
@@ -74,6 +84,163 @@ function PET_INFO_CLOSE(frame)
 	ui.CloseFrame("inventory");
 	frame:SetUserValue("IS_OPEN_BY_NPC","NO")
 	--ui.CloseFrame("pet_list");
+
+	local frame = ui.GetFrame("companionlist");
+	if frame:IsVisible() == 1 then
+		frame:ShowWindow(0);
+	end
+end
+
+function OPEN_PET_LIST(parent,ctrl,argStr,argNum)
+
+	local frame = ui.GetFrame("companionlist");
+	if frame:IsVisible() == 0 then
+		COMPANIONLIST_OPEN(parent:GetTopParentFrame());
+		frame:ShowWindow(1);
+	else 
+		frame:ShowWindow(0);
+	end	
+end
+
+function ON_SUMMONED_PET_INFO_UPDATE(frame,msg,argStr,argNum)
+	if frame == nil then
+		return
+	end
+
+	if frame:IsVisible() == 0 then
+		return
+	end
+
+	local summonedPet = GET_SUMMONED_PET();
+	local hawk = GET_SUMMONED_PET_HAWK();
+	if summonedPet == nil and hawk == nil then
+		PET_INFO_CLOSE(frame)
+		ui.CloseFrame("pet_info");
+		return;
+	end
+
+	SETUP_PET_INFO(summonedPet, hawk)
+end
+
+-- 펫/매 정보를 받아서 이미지를 설정한다.
+function SETUP_PET_INFO(pet, hawk)
+
+	if pet == nil and hawk == nil then
+		return
+	end
+
+	local guid = "0";
+	if pet ~= nil then
+		guid = pet:GetStrGuid()
+	elseif hawk ~= nil then 
+		guid = hawk:GetStrGuid()
+	end
+
+	local frame = ui.GetFrame("pet_info");
+	frame:SetUserValue("PET_GUID", guid);
+
+	PET_INFO_SHOW(guid)
+end
+
+function DRAW_PET_INFO(petGuidList)
+
+	local frame = ui.GetFrame("pet_info");
+	if frame == nil then
+		return;
+	end
+
+	if petGuidList == nil or #petGuidList == 0 then
+		return;
+	end
+
+	local bgCtrl = frame:GetChild("bg_icon");
+	if bgCtrl == nil then
+		return 
+	end
+	
+	
+	bgCtrl:RemoveAllChild();
+	local count = #petGuidList;
+	local bg_width = bgCtrl:GetWidth();
+	
+	local width = bg_width / count;	
+	local ctrlSetWidth = ui.GetControlSetAttribute("petinfo_item", "width");
+	local centerOffsetX = (width / 2) - (ctrlSetWidth / 2);
+
+	local bg_height = bgCtrl:GetHeight();
+	local ctrlSetHeight = ui.GetControlSetAttribute("petinfo_item", "height");
+	local centerOffsetY = (bg_height / 2) - (ctrlSetHeight / 2);
+	
+	for i = 0, count-1 do
+		local data  = petGuidList[i+1];
+	
+		local offsetX = (i * width) + centerOffsetX;
+		local ctrlSet = bgCtrl:CreateOrGetControlSet('petinfo_item', "item_"..i , offsetX, centerOffsetY );
+		if ctrlSet ~= nil then
+			local petInfo = session.pet.GetPetByGUID(data.guid);
+			if petInfo ~= nil then
+				local obj = petInfo:GetObject();
+				if obj == nil then
+					return;
+				end
+
+				obj = GetIES(obj);
+				local icon = ctrlSet:GetChild('icon');
+				icon = tolua.cast(icon, 'ui::CPicture');
+				icon:SetImage(obj.Icon);	
+				icon:SetUserValue("COMPANION_GUID", data.guid)
+				icon:SetEventScript(ui.LBUTTONDOWN, "SELECT_PET_INFO");
+				icon:SetEventScriptArgString(ui.LBUTTONDOWN, data.guid); -- guidStr
+				icon:SetEventScriptArgNumber(ui.LBUTTONDOWN, i); -- index
+			end
+		end
+	end
+
+end
+
+function PET_SELECTED_INFO_SHOW(guidStr)
+
+	local frame = ui.GetFrame("pet_info");
+	if frame == nil then
+		return;
+	end
+
+	local bgCtrl = frame:GetChild("bg_icon");
+	if bgCtrl == nil then
+		return 
+
+	end
+	
+	local cnt = GET_CHILD_CNT_BYNAME(bgCtrl,"item_" )
+	for i = 0, cnt-1 do
+		local ctrlset = bgCtrl:GetChild("item_"..i)
+		ctrlset = tolua.cast(ctrlset, 'ui::CControlSet');
+		if ctrlset ~= nil then
+			local icon = ctrlset:GetChild('icon');
+			icon = tolua.cast(icon, 'ui::CPicture');
+			if icon ~= nil then
+				local petGuid  = icon:GetUserValue("COMPANION_GUID");
+				if petGuid == guidStr then 
+					-- 활성화
+					local ENABLED_COLOR = ctrlset:GetUserConfig("ENABLED_COLOR");
+					icon:SetColorTone(ENABLED_COLOR);
+				else
+					-- 음영처리
+					local DISABLED_COLOR = ctrlset:GetUserConfig("DISABLED_COLOR");
+					icon:SetColorTone(DISABLED_COLOR);
+				
+				end
+			end
+		end
+	end
+
+end
+
+function SELECT_PET_INFO(parent,ctrl,guidStr, index)
+	local frame = ui.GetFrame("pet_info");
+	frame:SetUserValue("PET_GUID", guidStr);
+
+	PET_INFO_SHOW(guidStr) 
 end
 
 function SET_PET_XP_GAUGE(gauge, point, xpType)
@@ -88,8 +255,14 @@ function SET_PET_XP_GAUGE(gauge, point, xpType)
 end
 
 function PET_INFO_SHOW(petGuid)
-	local list = session.pet.GetPetInfoVec();
 
+	-- 아이콘 그리기.
+	DRAW_PET_INFO(GET_SUMMONED_PET_GUID_LIST());
+
+	-- 해당 guid 선택 (나머지 음영처리)
+	PET_SELECTED_INFO_SHOW(petGuid)
+
+	local list = session.pet.GetPetInfoVec();
 	local petInfo = session.pet.GetPetByGUID(petGuid);
 	if petInfo == nil then
 		return;
@@ -99,18 +272,13 @@ function PET_INFO_SHOW(petGuid)
 	local cid = mySession:GetCID();
 
 	local frame = ui.GetFrame("pet_info");
-	frame:SetUserValue("PET_GUID", petInfo:GetStrGuid());
 	local obj = petInfo:GetObject();
 	if obj == nil then
 		return;
 	end
 
 	obj = GetIES(obj);
-	
-	local bg_Icon = frame:GetChild("bg_icon");
-	local icon = GET_CHILD(bg_Icon, "icon", "ui::CPicture");
-	icon:SetImage(obj.Icon);
-	
+
 	local bg = frame:GetChild("bg");
 	local name = bg:GetChild("name");
 	local pettype = bg:GetChild("pettype");
@@ -361,7 +529,7 @@ function TOGGLE_PET_ACTIVITY(parent, ctrl)
 		world.Leave(petInfo:GetHandle(), 0);
 	end
 
-	control.CustomCommand("PET_ACTIVATE", 0);	
+	control.CustomCommand("PET_ACTIVATE", 0, petInfo:GetNeedJobID());
 end
 
 function PET_INFO_BUILD_EQUIP(frame, newslotset, petInfo, type)

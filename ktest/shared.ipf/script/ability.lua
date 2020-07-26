@@ -1115,8 +1115,8 @@ function SCR_ABIL_MUSKETEER30_ACTIVE(self, ability)
     local maxPATK = TryGetProp(self, "MAXPATK")
     local addATK = 0
     local addMSPD = 1
-    addATK = ((minPATK + maxPATK)/2 - self.PATK_BM) * (ability.Level * 0.01)
-    
+    addATK = ((minPATK + maxPATK)/2) * (ability.Level * 0.01)
+
     self.MSPD_BM = self.MSPD_BM - addMSPD
     
     SetExProp(self, "add_Musketeer30_ATK", addATK)
@@ -1359,6 +1359,7 @@ function SCR_ABIL_Doppelsoeldner27_ACTIVE(self, ability)
     local skill = GetSkill(self, "Doppelsoeldner_Zornhau");
     if skill ~= nil then
         SetSkillOverHeat(self, skill.ClassName, 3, 1);
+        RequestResetOverHeat(self, "Zornhau_OH")
     end
 end
 
@@ -1366,6 +1367,7 @@ function SCR_ABIL_Doppelsoeldner27_INACTIVE(self, ability)
     local skill = GetSkill(self, "Doppelsoeldner_Zornhau");
     if skill ~= nil then
         SetSkillOverHeat(self, skill.ClassName, 0, 1);
+        RequestResetOverHeat(self, "Zornhau_OH")
     end
 end
 
@@ -1861,4 +1863,54 @@ end
 function SCR_ABIL_SPEARMASTERY_Dagger_INACTIVE(self, ability)
     local addATK = GetExProp(ability, "ABIL_ADD_ATK");
     self.PATK_MAIN_BM = self.PATK_MAIN_BM - addATK;
+end
+
+function SCR_ABIL_Chaplain20_ACTIVE(self, ability)
+    local skill = GetSkill(self, "Chaplain_BuildCappella");
+    if skill ~= nil then
+        local shoottime = TryGetProp(skill, "ShootTime");
+        skill.ShootTime = 500
+        InvalidateSkill(self, skill.ClassName);
+        SendSkillProperty(self, skill);
+        SetExProp(ability, "Chaplain20_shoottime", shoottime);
+    end
+end
+
+function SCR_ABIL_Chaplain20_INACTIVE(self, ability)
+	local skill = GetSkill(self, "Chaplain_BuildCappella");
+    if skill ~= nil then
+        local shoottime = GetExProp(ability, "Chaplain20_shoottime");
+        skill.ShootTime = shoottime;
+        InvalidateSkill(self, skill.ClassName);
+        SendSkillProperty(self, skill);
+    end
+end
+
+function SCR_ABIL_Inquisitor28_ACTIVE(self, ability)
+    if IsBuffApplied(self, 'IMD_Buff') ~= 'YES' then
+        AddBuff(self, self, 'IMD_Buff', 1, 0, 0, 1)
+    end
+end
+
+function SCR_ABIL_Inquisitor28_INACTIVE(self, ability)
+    RemoveBuff(self, 'IMD_Buff')
+    RemoveBuff(self, 'InquisitorMagicDrain_Buff')
+end
+
+function SCR_ABIL_Daoshi27_ACTIVE(self, ability)
+
+end
+
+function SCR_ABIL_Daoshi27_INACTIVE(self, ability)
+    RemoveBuff(self, 'TriDisaster_Buff')
+end
+
+function SCR_ABIL_Terramancer18_ACTIVE(self, ability)
+    if IsBuffApplied(self, 'Terramancer18_Buff') ~= 'YES' then
+        AddBuff(self, self, 'Terramancer18_Buff', 1, 0, 0, 1)
+    end
+end
+
+function SCR_ABIL_Terramancer18_INACTIVE(self, ability)
+    RemoveBuff(self, 'Terramancer18_Buff')
 end

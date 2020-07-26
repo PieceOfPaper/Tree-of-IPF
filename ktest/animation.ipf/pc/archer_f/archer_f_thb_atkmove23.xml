@@ -3,6 +3,6 @@
 <ActionDesc>
     <AttachModel frame="0" XAC="archer_f_arrow_01" node="Dummy_arrow" isAttach="true" autoDetach="false" index="0" anim="None"/>
     <Sound frame="0.00" soundFile="arrow_cast"/>
-    <Sound frame="3.81" soundFile="voice_archer_f_atk"/>
     <Sound frame="3.81" soundFile="arrow_shot"/>
+    <Particle frame="4" attachNode="Dummy_arrowstart" particleName="F_null" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.1" pause="true" use2DEffect="true" targetPos="false"/>
 </ActionDesc>

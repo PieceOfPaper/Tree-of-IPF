@@ -230,6 +230,8 @@ function ICON_USE(object, reAction)
 		elseif iconInfo:GetCategory() == 'MONCREATE' then
 			local msg = '//mon ' .. iconInfo.type .. ' 1';
 			ui.Chat(msg);	
+		elseif iconInfo:GetCategory() == 'Companion' then
+			HOTKEY_SUMMON_COMPANION(iconInfo.type, iconInfo:GetIESID())
 		end
 	end	
 end
@@ -433,6 +435,21 @@ function ICON_UPDATE_SKILL_COOLDOWN(icon)
 		return ret;
 	end
 end
+
+-- companion Cooldown Update
+function ICON_UPDATE_COMPANION_COOLDOWN(icon)
+
+	local totalTime = 0;
+	local curTime = 0;
+	local iconInfo = icon:GetInfo();
+	
+	local petInfo = session.pet.GetPetByGUID(iconInfo:GetIESID())
+	if petInfo ~= nil then
+		curTime = petInfo:GetCurrentCoolDownTime();
+		totalTime = petInfo:GetTotalCoolDownTime();
+	end
+	return curTime, totalTime;
+ end
 
  function MONSTER_ICON_UPDATE_SKILL_ENABLE(icon)		
 	local iconInfo = icon:GetInfo();

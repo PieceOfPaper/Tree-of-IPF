@@ -121,8 +121,9 @@
 		<groupbox name="raidrankinglistBox" parent="raidrankingBox" rect="0 0 720 450" margin="353 0 0 0" layout_gravity="left top" skin="test_frame_midle" fixheight="true" scrollbar="true" hittest="true" draw="true"/>
 		<groupbox name="raidrankingtitle" parent="raidrankinglistBox" rect="0 0 720 41" margin="0 0 0 0" layout_gravity="center top" skin="market_listbase" draw="true" hittestbox="false"/>
 		<richtext name="raidranking_rank" parent="raidrankingtitle" rect="0 0 30 40" margin="40 0 0 0" layout_gravity="left center" caption="{@st66b}{s16}순위"/>
-		<richtext name="raidranking_time" parent="raidrankingtitle" rect="0 0 30 40" margin="150 0 0 0" layout_gravity="left center" caption="{@st66b}{s16}클리어 시간"/>
-		<richtext name="raidranking_name" parent="raidrankingtitle" rect="0 0 30 40" margin="0 0 60 0" layout_gravity="right center" caption="{@st66b}{s16}파티원 명"/>		
+		<richtext name="raidranking_time" parent="raidrankingtitle" rect="0 0 30 40" margin="130 0 0 0" layout_gravity="left center" caption="{@st66b}{s16}클리어 시간"/>
+		<richtext name="raidranking_guild" parent="raidrankingtitle" rect="0 0 30 40" margin="330 0 0 0" layout_gravity="left center" caption="{@st66b}{s16}길드 명"/>
+		<richtext name="raidranking_name" parent="raidrankingtitle" rect="0 0 30 40" margin="500 0 0 0" layout_gravity="left center" caption="{@st66b}{s16}파티원 명"/>		
 		<groupbox name="raidrankinglist" parent="raidrankinglistBox" rect="0 0 720 400" margin="0 40 0 0" layout_gravity="left top" fixheight="true" scrollbar="true" hittest="true" draw="false"/>
 	</controls>
 </uiframe>

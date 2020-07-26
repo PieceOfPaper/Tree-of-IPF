@@ -856,21 +856,8 @@
                 <Scp Scp="C_SOUND" Client="YES" UseSleep="NO" Time="4000">
                     <Str Str="skl_eff_matador_ole"/>
                 </Scp>
-                <Scp Scp="EFT_AND_HIT" Client="NO" UseSleep="YES" TooltipScp="TOOLTIP_EFT_AND_HIT" Time="4500">
-                    <Pos Angle="0" Dist="100"/>
-                    <Str_Arg Str="None" Arg="8"/>
-                    <Num Num="1000"/>
-                    <Str_Arg Str="None" Arg="1"/>
-                    <Num Num="150"/>
-                    <Num Num="250"/>
-                    <Num Num="0"/>
-                    <Num Num="1"/>
-                    <Num Num="1000"/>
-                    <Str_Arg Str="None" Arg="1"/>
-                    <Str Str="None"/>
-                    <Num Num="4"/>
-                    <Num Num="60"/>
-                    <Num Num="0"/>
+                <Scp Scp="SKL_RUN_SCRIPT" Client="NO" UseSleep="NO" Time="4500">
+                    <Str Str="SCR_MORINGPONIA_HARD_PETRIFY_TAKEDAMAE"/>
                 </Scp>
                 <Scp Scp="C_SOUND" Client="YES" UseSleep="NO" Time="4800">
                     <Str Str="mon_voice_succubus_atk_2"/>
@@ -2153,189 +2140,6 @@
                 </Scp>
             </EtcList>
         </MainSkl>
-        <ByCondSkills>
-            <SubSkl>
-                <Cond>
-                    <ToolScp Scp="COND_SKL_BUFF_OVER" Client="NO" UseSleep="NO">
-                        <Str Str="TANTALISER_HARD_PHASE_BUFF"/>
-                        <Num Num="2"/>
-                        <Num Num="1"/>
-                    </ToolScp>
-                </Cond>
-                <Skill ScrLock="None" JumpFlee="NO" MSPDToUsePos="0">
-                    <HitList>
-                        <Frame Type="FAN" Time="9999" HitCount="1" TermMin="0" TermMax="0" PosType="0" Dist="0" RandDist="0" RandomPerHit="0" Angle="0" Width="30" Length="30" SklAngle="0.17453292" AniTime="10199" RotAngle="0" ForceATK="0"/>
-                    </HitList>
-                    <EtcList>
-                        <Anim Time="0" Anim="skl2" Speed="0.80000001"/>
-                        <Scp Scp="C_SOUND" Client="YES" UseSleep="NO" Time="0">
-                            <Str Str="mon_voice_naktis_atk_shot_2"/>
-                        </Scp>
-                        <Scp Scp="C_SOUND" Client="YES" UseSleep="NO" Time="0">
-                            <Str Str="mon_move_lecifer_skl2"/>
-                        </Scp>
-                        <Scp Scp="C_SOUND" Client="YES" UseSleep="NO" Time="100">
-                            <Str Str="m_harpeia_skl_1"/>
-                        </Scp>
-                        <Scp Scp="EFT_AND_HIT" Client="NO" UseSleep="YES" TooltipScp="TOOLTIP_EFT_AND_HIT" Time="500">
-                            <Pos Angle="-0.25324753" Dist="197.15169"/>
-                            <Str_Arg Str="None" Arg="1"/>
-                            <Num Num="1000"/>
-                            <Str_Arg Str="F_explosion026_rize_violet" Arg="1.3"/>
-                            <Num Num="70"/>
-                            <Num Num="100"/>
-                            <Num Num="0"/>
-                            <Num Num="1"/>
-                            <Num Num="1000"/>
-                            <Str_Arg Str="None" Arg="1"/>
-                            <Str Str="None"/>
-                            <Num Num="1"/>
-                            <Num Num="0"/>
-                            <Num Num="0"/>
-                        </Scp>
-                        <Scp Scp="EFT_AND_HIT" Client="NO" UseSleep="YES" TooltipScp="TOOLTIP_EFT_AND_HIT" Time="700">
-                            <Pos Angle="1.0350883" Dist="163.82988"/>
-                            <Str_Arg Str="None" Arg="1"/>
-                            <Num Num="1000"/>
-                            <Str_Arg Str="F_explosion026_rize_violet" Arg="1.3"/>
-                            <Num Num="70"/>
-                            <Num Num="100"/>
-                            <Num Num="0"/>
-                            <Num Num="1"/>
-                            <Num Num="1000"/>
-                            <Str_Arg Str="None" Arg="1"/>
-                            <Str Str="None"/>
-                            <Num Num="1"/>
-                            <Num Num="0"/>
-                            <Num Num="0"/>
-                        </Scp>
-                        <Scp Scp="EFT_AND_HIT" Client="NO" UseSleep="YES" TooltipScp="TOOLTIP_EFT_AND_HIT" Time="900">
-                            <Pos Angle="2.1800642" Dist="149.21843"/>
-                            <Str_Arg Str="None" Arg="1"/>
-                            <Num Num="1000"/>
-                            <Str_Arg Str="F_explosion026_rize_violet" Arg="1.3"/>
-                            <Num Num="70"/>
-                            <Num Num="100"/>
-                            <Num Num="0"/>
-                            <Num Num="1"/>
-                            <Num Num="1000"/>
-                            <Str_Arg Str="None" Arg="1"/>
-                            <Str Str="None"/>
-                            <Num Num="1"/>
-                            <Num Num="0"/>
-                            <Num Num="0"/>
-                        </Scp>
-                        <Scp Scp="EFT_AND_HIT" Client="NO" UseSleep="YES" TooltipScp="TOOLTIP_EFT_AND_HIT" Time="1100">
-                            <Pos Angle="-2.7496862" Dist="142.92827"/>
-                            <Str_Arg Str="None" Arg="1"/>
-                            <Num Num="1000"/>
-                            <Str_Arg Str="F_explosion026_rize_violet" Arg="1.3"/>
-                            <Num Num="70"/>
-                            <Num Num="100"/>
-                            <Num Num="0"/>
-                            <Num Num="1"/>
-                            <Num Num="1000"/>
-                            <Str_Arg Str="None" Arg="1"/>
-                            <Str Str="None"/>
-                            <Num Num="1"/>
-                            <Num Num="0"/>
-                            <Num Num="0"/>
-                        </Scp>
-                        <Scp Scp="EFT_AND_HIT" Client="NO" UseSleep="YES" TooltipScp="TOOLTIP_EFT_AND_HIT" Time="1300">
-                            <Pos Angle="-1.5270145" Dist="169.82198"/>
-                            <Str_Arg Str="None" Arg="1"/>
-                            <Num Num="1000"/>
-                            <Str_Arg Str="F_explosion026_rize_violet" Arg="1.3"/>
-                            <Num Num="70"/>
-                            <Num Num="100"/>
-                            <Num Num="0"/>
-                            <Num Num="1"/>
-                            <Num Num="1000"/>
-                            <Str_Arg Str="None" Arg="1"/>
-                            <Str Str="None"/>
-                            <Num Num="1"/>
-                            <Num Num="0"/>
-                            <Num Num="0"/>
-                        </Scp>
-                        <Scp Scp="SKL_RUN_SCRIPT" Client="NO" UseSleep="NO" Time="1400">
-                            <Str Str="SCR_TANTALISER_SET_DIR"/>
-                        </Scp>
-                        <Scp Scp="MONSKL_CHAIN_GENERATION_PAD" Client="NO" UseSleep="NO" Time="1500">
-                            <Str Str="Legend_Tantaliser_Pad1"/>
-                            <Pos Angle="-0.2532475" Dist="157.15169"/>
-                            <Num Num="100"/>
-                            <Num Num="4"/>
-                            <Num Num="110"/>
-                            <Num Num="500"/>
-                            <Num Num="500"/>
-                            <Num Num="0"/>
-                            <Num Num="0" UseFunc="1" FuncTxt="local monDir = GetExProp(self, &quot;SKL_6_DIR&quot;)
-return monDir - 14.5"/>
-                        </Scp>
-                        <Scp Scp="C_SOUND" Client="YES" UseSleep="NO" Time="1500">
-                            <Str Str="skl_eff_lightning_3"/>
-                        </Scp>
-                        <Scp Scp="C_SOUND" Client="YES" UseSleep="NO" Time="1700">
-                            <Str Str="skl_eff_lightning_3"/>
-                        </Scp>
-                        <Scp Scp="MONSKL_CHAIN_GENERATION_PAD" Client="NO" UseSleep="NO" Time="1900">
-                            <Str Str="Legend_Tantaliser_Pad1"/>
-                            <Pos Angle="2.180064" Dist="109.21843"/>
-                            <Num Num="100"/>
-                            <Num Num="4"/>
-                            <Num Num="110"/>
-                            <Num Num="500"/>
-                            <Num Num="500"/>
-                            <Num Num="0"/>
-                            <Num Num="132" UseFunc="1" FuncTxt="local monDir = GetExProp(self, &quot;SKL_6_DIR&quot;)
-return monDir + 125
-
-"/>
-                        </Scp>
-                        <Scp Scp="C_SOUND" Client="YES" UseSleep="NO" Time="1900">
-                            <Str Str="skl_eff_lightning_3"/>
-                        </Scp>
-                        <Scp Scp="C_SOUND" Client="YES" UseSleep="NO" Time="2100">
-                            <Str Str="skl_eff_lightning_3"/>
-                        </Scp>
-                        <Scp Scp="MONSKL_CHAIN_GENERATION_PAD" Client="NO" UseSleep="NO" Time="2300">
-                            <Str Str="Legend_Tantaliser_Pad1"/>
-                            <Pos Angle="-1.5270145" Dist="129.82198"/>
-                            <Num Num="125"/>
-                            <Num Num="4"/>
-                            <Num Num="110"/>
-                            <Num Num="500"/>
-                            <Num Num="500"/>
-                            <Num Num="0"/>
-                            <Num Num="275" UseFunc="1" FuncTxt="local monDir = GetExProp(self, &quot;SKL_6_DIR&quot;)
-return monDir -87.5"/>
-                        </Scp>
-                        <Scp Scp="C_SOUND" Client="YES" UseSleep="NO" Time="2500">
-                            <Str Str="skl_eff_bloodcurse_boom"/>
-                        </Scp>
-                        <Scp Scp="C_SOUND" Client="YES" UseSleep="NO" Time="2900">
-                            <Str Str="skl_eff_gotsmash_boom"/>
-                        </Scp>
-                        <Scp Scp="EFT_AND_HIT" Client="NO" UseSleep="YES" TooltipScp="TOOLTIP_EFT_AND_HIT" Time="3200">
-                            <Pos Angle="0" Dist="0"/>
-                            <Str_Arg Str="None" Arg="1"/>
-                            <Num Num="0"/>
-                            <Str_Arg Str="F_ground139_light_violet" Arg="2.5"/>
-                            <Num Num="165"/>
-                            <Num Num="100"/>
-                            <Num Num="0"/>
-                            <Num Num="3"/>
-                            <Num Num="500"/>
-                            <Str_Arg Str="None" Arg="1"/>
-                            <Str Str="None"/>
-                            <Num Num="1"/>
-                            <Num Num="0"/>
-                            <Num Num="0"/>
-                        </Scp>
-                    </EtcList>
-                </Skill>
-            </SubSkl>
-        </ByCondSkills>
     </Skill>
     <Skill Name="Mon_Legend_Boss_Tantaliser_Hard_Skill_7">
         <MainSkl ScrLock="None" JumpFlee="YES" MSPDToUsePos="0">
@@ -5516,10 +5320,10 @@ return monDir -87.5"/>
                     <Str Str="mon_voice_lapene_skl2_cast"/>
                 </Scp>
                 <Scp Scp="SKL_RUN_SCRIPT" Client="NO" UseSleep="NO" Time="1500">
-                    <Str Str="SCR_MORINGPONIA_HARD_PETRIFY_TARGET_EFFECT"/>
+                    <Str Str="SCR_MORINGPONIA_PETRIFY_TARGET_EFFECT"/>
                 </Scp>
                 <Scp Scp="SKL_RUN_SCRIPT" Client="NO" UseSleep="NO" Time="2500">
-                    <Str Str="SCR_MORINGPONIA_HARD_PETRIFY_TARGET_SET"/>
+                    <Str Str="SCR_MORINGPONIA_PETRIFY_TARGET_SET"/>
                 </Scp>
                 <Scp Scp="SKL_TGT_BUFF" Client="NO" UseSleep="NO" Time="2500">
                     <Str Str="F_BOSS_MORINGPONIA_HOLD"/>
@@ -5549,21 +5353,8 @@ return monDir -87.5"/>
                 <Scp Scp="C_SOUND" Client="YES" UseSleep="NO" Time="4000">
                     <Str Str="skl_eff_matador_ole"/>
                 </Scp>
-                <Scp Scp="EFT_AND_HIT" Client="NO" UseSleep="YES" TooltipScp="TOOLTIP_EFT_AND_HIT" Time="4500">
-                    <Pos Angle="0" Dist="50"/>
-                    <Str_Arg Str="None" Arg="8"/>
-                    <Num Num="1000"/>
-                    <Str_Arg Str="None" Arg="1"/>
-                    <Num Num="60"/>
-                    <Num Num="250"/>
-                    <Num Num="0"/>
-                    <Num Num="1"/>
-                    <Num Num="1000"/>
-                    <Str_Arg Str="None" Arg="1"/>
-                    <Str Str="None"/>
-                    <Num Num="4"/>
-                    <Num Num="60"/>
-                    <Num Num="0"/>
+                <Scp Scp="SKL_RUN_SCRIPT" Client="NO" UseSleep="NO" Time="4500">
+                    <Str Str="SCR_MORINGPONIA_PETRIFY_TAKEDAMAGE"/>
                 </Scp>
                 <Scp Scp="C_SOUND" Client="YES" UseSleep="NO" Time="4800">
                     <Str Str="mon_voice_succubus_atk_2"/>

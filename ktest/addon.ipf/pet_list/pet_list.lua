@@ -15,13 +15,7 @@ end
 function GET_SUMMONED_PET()
 
 	local needJobID = 0;
-
 	local summonedPet = session.pet.GetSummonedPet(needJobID);
-	if summonedPet == nil then
-		needJobID = 3014;
-		summonedPet = session.pet.GetSummonedPet(needJobID);
-	end
-
 	return summonedPet;
 end
 
@@ -29,6 +23,30 @@ function GET_SUMMONED_PET_HAWK()
 	local needJobID = 3014;
 	local summonedPet = session.pet.GetSummonedPet(needJobID);
 	return summonedPet;
+end
+
+function GET_SUMMONED_PET_GUID_LIST()
+
+	local petGuidList = {}
+
+	local pet = GET_SUMMONED_PET()
+	if pet ~= nil then
+		local index = #petGuidList;
+		petGuidList[index+1] = {
+			guid = pet:GetStrGuid()
+		}
+	end
+
+	local hawk = GET_SUMMONED_PET_HAWK();
+	if hawk ~= nil then 
+		local index = #petGuidList;
+		petGuidList[index+1] = {
+			guid = hawk:GetStrGuid()
+		}
+	end
+
+	return petGuidList;
+
 end
 
 function UI_TOGGLE_PETLIST()
@@ -46,13 +64,28 @@ function UI_TOGGLE_PETLIST()
 		return;
 	end
 	
-	local summonedPet = GET_SUMMONED_PET();
-	if summonedPet == nil then
-		ui.SysMsg(ClMsg("SummonedPetDoesNotExist"));
+	local pet = GET_SUMMONED_PET();
+	local hawk = GET_SUMMONED_PET_HAWK();
+	if pet == nil and hawk == nil then
+		-- 소환된 컴패니언이 없다면 컴패니언 리스트를 연다.
+		local companionlist_frame = ui.GetFrame("companionlist");
+		if companionlist_frame:IsVisible() == 0 then
+			ON_OPEN_COMPANIONLIST();
+			companionlist_frame:ShowWindow(1);
+		else
+			-- 펫 목록이 열려있는데 한번 더 누르는 경우
+			ui.SysMsg(ClMsg("SummonedPetDoesNotExist")); 
+		end	
 		return;		
 	end
 
-	PET_INFO_SHOW(summonedPet:GetStrGuid());
+	-- 펫 목록이 열려 있다면 닫기.
+	local companionlist_frame = ui.GetFrame("companionlist");	
+	if companionlist_frame:IsVisible() == 1 then
+		companionlist_frame:ShowWindow(0);
+	end
+	
+	SETUP_PET_INFO(pet, hawk)
 
 end
 

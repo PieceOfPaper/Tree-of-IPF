@@ -260,7 +260,7 @@
                     <Str Str="Tracking_Buff"/>
                     <Num FuncTxt="return obj.Level" Num="1" UseFunc="1"/>
                     <Num Num="0"/>
-                    <Num FuncTxt="local value = 10000 + obj.Level * 4000; local abil = GetAbility(self, &quot;TigerHunter2&quot;); if abil ~= nil and abil.ActiveState == 1 then value = value + 10000; end return value;" Num="0" UseFunc="1"/>
+                    <Num FuncTxt="local value = 20000 + obj.Level * 6000; local abil = GetAbility(self, &quot;TigerHunter2&quot;); if abil ~= nil and abil.ActiveState == 1 then value = value + 10000; end return value;" Num="0" UseFunc="1"/>
                     <Num Num="1"/>
                     <Num Num="100"/>
                     <Num Num="0"/>
@@ -297,8 +297,8 @@
                     <Num Num="1" UseFunc="1" FuncTxt="
 return obj.Level;"/>
                     <Num Num="0"/>
-                    <Num Num="10000" UseFunc="1" FuncTxt="local timeUp = GetExProp(self, 'ITEM_EYEOFBEAST_TIMEUP');
-return 10000 + timeUp;"/>
+                    <Num Num="10000" UseFunc="1" FuncTxt="local value = 20000 + obj.Level * 8000;   local timeUp = GetExProp(self, 'ITEM_EYEOFBEAST_TIMEUP');
+return value + timeUp;"/>
                     <Num Num="1"/>
                     <Num Num="100"/>
                     <Num Num="0"/>

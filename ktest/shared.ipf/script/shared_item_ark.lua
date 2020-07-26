@@ -35,21 +35,30 @@ end
 -- 축석 개수, 신비한 서 낱장, 시에라 스톤 순으로 반환
 shared_item_ark.get_require_count_for_next_lv = function(goal_lv, max_lv)    
     if max_lv == nil or max_lv == 0 then
-        max_lv = 100
+        max_lv = 5
+    else
+        max_lv = 5
     end
+
     local multiple = tonumber(string.format('%.2f',math.floor(goal_lv * (goal_lv * item_ark_grow_ratio))))    
     local base_transcend_count = 20  -- 축석 수
     local base_arcane_count = 7     -- 신비한 서 낱장
     local base_siera_count = 2      -- 시에라 스톤
 
-    local low_lv_adventage = shared_item_ark.get_low_lv_adventage(goal_lv, max_lv)    
+    local low_lv_adventage = shared_item_ark.get_low_lv_adventage(goal_lv, max_lv)
+    if goal_lv > max_lv then
+        low_lv_adventage = math.min(low_lv_adventage, 0.8)
+    else
+        low_lv_adventage = math.min(low_lv_adventage, 1)
+    end
+    
     base_transcend_count = math.max(math.floor(base_transcend_count * multiple * low_lv_adventage), 1)
     base_arcane_count = math.max(math.floor(base_arcane_count * multiple * low_lv_adventage), 1)
     base_siera_count = math.max(math.floor(base_siera_count * multiple * low_lv_adventage), 1)
 
     base_transcend_count = math.min(base_transcend_count, 200)
     base_arcane_count = math.min(base_arcane_count, 100)
-    base_siera_count = math.min(base_siera_count, 500)
+    base_siera_count = math.min(base_siera_count, 100)
 
     return base_transcend_count, base_arcane_count, base_siera_count
 end
@@ -57,10 +66,18 @@ end
 -- 렙업에 필요한 뉴클 가루 수
 shared_item_ark.get_require_count_for_exp_up = function(goal_lv, max_lv)    
     if max_lv == nil or max_lv == 0 then
-        max_lv = 100
+        max_lv = 5
+    else
+        max_lv = 5
     end
 
     local low_lv_adventage = shared_item_ark.get_low_lv_adventage(goal_lv, max_lv)
+    if goal_lv > max_lv then
+        low_lv_adventage = math.min(low_lv_adventage, 0.8)
+    else
+        low_lv_adventage = math.min(low_lv_adventage, 1)
+    end
+
     local multiple = goal_lv * (goal_lv * item_ark_grow_ratio_exp_up)
     multiple = tonumber(string.format('%.2f', multiple))
     local base = 100 -- float 연산 오류때문에 분리함 200 * 1000    

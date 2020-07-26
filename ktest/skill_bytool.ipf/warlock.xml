@@ -273,18 +273,8 @@
 					<Str Str="voice_wiz_m_darktheurge_cast" />
 					<Str Str="voice_wiz_darktheurge_cast" />
 				</Scp>
-				<Scp Client="NO" Scp="MONSKL_CRE_MON_CNT_SCR" Time="450" UseSleep="NO">
-					<Str Str="pcskill_Warlock_DarkTheurge" />
-					<Pos Angle="0" Dist="0" />
-					<Angle Angle="0" />
-					<Str Str="" />
-					<Str Str="" />
-					<Num Num="0" />
-					<Num Num="30" />
-					<Str Str="None" />
-					<MonProp />
-					<Num Num="5" />
-					<Str Str="DARKTHUERGE_HOVER" />
+                <Scp Client="NO" Scp="SKL_RUN_SCRIPT" Time="450" UseSleep="NO">
+                    <Str Str="RUN_DARKTHUERGE_HOVER" />
 				</Scp>
 			</EtcList>
 		</MainSkl>

@@ -1,7 +1,5 @@
 ---- - game.lua --
-
 ---------------- DEFINED GLOBAL VARIABLES ------------------------------
-
 COLOR_LEADER_NAME = '{#EE2222}'
 COLOR_MY_NAME = '{#22EE22}'
 COLOR_GRAY = '{#AAAAAA}'
@@ -33,40 +31,15 @@ function GET_ITEM_IMG_BY_CLS(cls, size)
 end
 
 function GET_MON_CAPTION(class, level, name, uniquename)
-
-	--[[
-	if uniquename ~= "None" then
-		return SofS(class.Name, uniquename);
-	end
-	]]
-
 	if name ~= 'None' then
 		return name;
 	end
 
 	return class.Name;
-
 end
 
 function CREATE_ITEM_TEMP()
-
 	local clslist, cnt  = GetClassList("Item");
-	--[[
-	local lowweightcnt = 0
-	for i = 0 , cnt do
-		local cls = GetClassByIndexFromList(clslist, i);
-		if cls ~= nil and IS_NO_EQUIPITEM(cls) == 0 and cls.Weight < 10 then
-			lowweightcnt = lowweightcnt + 1
-		end
-		
-	end
-	]]
-	--print(lowweightcnt)
---[[	
-	for i = 0, 500 do
-		ui.Chat("//item 221481")
-	end]]
-	
 	for i = 0 , 2000 do
 		local cls = GetClassByIndexFromList(clslist, i);
 
@@ -74,9 +47,7 @@ function CREATE_ITEM_TEMP()
 			local key = cls.ClassID;
 			ui.Chat("//item ".. key)
 		end
-		
 	end
-	
 end
 
 
@@ -94,28 +65,23 @@ end
 
 
 function UI_LOAD_SERVER_LIST(frame, control, arg1, arg2)
-
 	LoadServerList();
 	UpdateData("login");
  end
 
 function UI_EXIP_APP(frame, control, arg1, arg2)
-
 	ExitApp();
  end
 
 function UI_NEW_ACCOUNT(frame, control, arg1, arg2)
-
 	NewAccount();
  end
 
 function UI_CHEAT(frame, control, arg1, arg2)
-
 	local uiframe = Getframe(frame);
 	local cheatIndex = GetNumber(uiframe, "select cheat");
 	Cheat(cheatIndex);
  end
- 
 
 function CONS()
 	assert(1 == 0);
@@ -138,40 +104,22 @@ function MIN(a , b)
 end
 
 function TEST_MAPMAKE()
-
 	local frame = OPENNEW("mapmake");
 	frame:ShowWindow(1);
 	UPDATE_MAP_MAKE_TOOL(frame);
-
 end
-
-
-	
-function TEST_AYASE2(x,y)
-
-
-end
-
-	
 
 function MAKE_NPC_LIST_TO_HTML()
-					
 	local file = io.open("mon_image_list.html","w+")
 	local retstring = "<table>\n"
 
 	local clsList, cnt  = GetClassList("Map");
-
 	for i = 0 , cnt - 1 do
-
 		local mapcls = GetClassByIndexFromList(clsList, i);
 		local gentypeclsname = "GenType_"..mapcls.ClassName
-
 		local GenclsList, Gencnt  = GetClassList(gentypeclsname);
-		
 		for j = 0 , Gencnt - 1 do
 			local gentypecls = GetClassByIndexFromList(GenclsList, j);
-
-
 			if gentypecls.Name ~= "UnvisibleName" and gentypecls.Name ~= "None" then
 				retstring = retstring .. "<tr>\n"
 				retstring = retstring .. "<td>" .. mapcls.Name .. "</td>\n"
@@ -179,68 +127,41 @@ function MAKE_NPC_LIST_TO_HTML()
 				retstring = retstring .. "<td><img src=\"images/" .. gentypecls.ClassType .. ".jpg\"></td>\n"
 				retstring = retstring .. "</tr>\n"
 			end
-
 		end
-		
-		
 	end
-
-
-
 	retstring = retstring .. "</table>"
 
 	file:write(retstring)
 	file:close()
-
-
 end
 
 function MAKE_ALL_DEFAULT_HAIR()
-
 	local PartClass = imcIES.GetClass("CreatePcInfo", "Hair");
 	local GenderList = PartClass:GetSubClassList();
 
 	for gender = 1 , 2 do
-
 		local Selectclass   = GenderList:GetClass(gender);
 		local Selectclasslist = Selectclass:GetSubClassList();
 
 		for i = 1, Selectclasslist:Count() do
-
 			local name = ui.CaptureModelHeadImageByHairtype(gender,i)
-			
 		end
-
 	end
-
-	
 end
-
 	
 function TEST_AYASE()
-    print("friend ui test");    
-    session.friends.TestAddManyFriend(FRIEND_LIST_COMPLETE, 200);
-    session.friends.TestAddManyFriend(FRIEND_LIST_BLOCKED, 100);
-end
-
-function JOB_COMMAND()
-		TEST_PARTY();
+	debug.TestMannequin();
 end
 
 function TEST_DIALOG_CALLBACK(frame, ack)
-
 	print(ack);
-
 end
 
 function TEST_PARTY()
-
 	ui.ToggleFrame("spray");
-	
 end
 
 function CLOSE_BOSS_UI()
-
 	local frame = ui.GetFrame("targetinfotoboss");
 	ui.CloseFrame(frame);
 end
@@ -258,13 +179,10 @@ function TEST_TOS()
 	f:MoveFrame(w, h);
 	f = ui.GetFrame("minimap");
 	f:MoveFrame(w, h);
-
 	f = ui.GetFrame("chatwiki");
 	f:MoveFrame(w, h);
-
 	f = ui.GetFrame("chat");
 	f:MoveFrame(w, h);
-
 end
 
 function TEST_FOCUS()
@@ -272,7 +190,6 @@ function TEST_FOCUS()
 end
 
 function HIDE_UI_TEST()
-
 	local w = option.GetClientWidth() + 300;
 	local h = option.GetClientHeight() + 300;
 	local f = ui.GetFrame("quickslotnexpbar");
@@ -283,278 +200,186 @@ function HIDE_UI_TEST()
 	f:MoveFrame(w, h);
 	f = ui.GetFrame("questinfoset_2");
 	f:MoveFrame(w, h);
-
 end
 
--- ==    SELECT_FIELDEVENT_TOOL_ITEM
-
+-- SELECT_FIELDEVENT_TOOL_ITEM
 function TEST_GROUPGEN()
 	TEST_UI("groupgentool");
 end
 
 function TEST_UI(uiName)
-
 	local frame = OPENNEW(uiName);
 	frame:ShowWindow(1);
-
 end
 
 function TEST_MAPNAME()
 	local frame = OPENNEW("mapname");
 	frame:ShowWindow(1);
-
 end
 
 function TEST_SELCOLOR()
-
 	local frame = OPENNEW("selectcolor");
 	frame:ShowWindow(1);
-
 end
 
 function TEST_CHATMAKE()
-
 	local frame = OPENNEW("createchat");
-	--local frame = ui.GetFrame("config");
 	frame:ShowWindow(1);
 	MAKE_CHECKBOX_COLBOXES(frame);
-
 end
 
 function TEST_CONFIG()
-
 	local frame = OPENNEW("config");
-	--local frame = ui.GetFrame("config");
 	frame:ShowWindow(1);
-
 end
 
 function TEST_WAREHOUSE()
-
-	--local frame = OPENNEW("warehouse");
 	local frame = ui.GetFrame("warehouse");
 	frame:ShowWindow(1);
-
 end
 
 function TEST_TRACK_T()
-
 	local frame = OPENNEW("tracktool");
 	frame:ShowWindow(1);
-
 end
 
 function TEST_ITEMSEL_POPUP()
-
 	local frame = OPENNEW("itemselpopup");
-	--local frame = ui.GetFrame("itemselpopup");
 	frame:ShowWindow(1);
 	ITEMSELPOPUP_FIRST_OPEN(frame);
-
 end
 
 function TEST_QLOCTOOL()
-
 	local frame = OPENNEW("questloctool");
 	frame:ShowWindow(1);
 
 	local mapName = session.GetMapName();
 	QLOCTOOL_SETMAP(frame, mapName);
 	QLOCTOOL_INIT(frame);
-
 end
 
 function TEST_QREWARDTOOL()
-
-	--local frame = OPENNEW("questrewardtool");
 	local frame = ui.GetFrame("questrewardtool");
 	frame:ShowWindow(1);
-
 end
 
 function TEST_QREWARD()
-
 	local frame = OPENNEW("questreward");
 	frame:ShowWindow(1);
 	QUEST_REWARD_TEST(frame);
-
 end
 
 function TEST_DLGEDIT()
-
 	local frame = ui.GetFrame("dialogedit");
-	--local frame = OPENNEW("dialogedit");
 	frame:ShowWindow(1);
 	DIALOGEDIT_UPDATE(frame);
-
 end
 
 function TEST_MONGEN()
-
-
 	local frame = OPENNEW("mongenman");
 	frame:ShowWindow(1);
 	UPDATE_ALL_MONGEN(frame);
-
-
 end
 
 
 function TEST_BTN_BLINK()
-
 	local frame = ui.GetFrame("sysmenu");
 	local focus_ui = GET_CHILD(frame, "quest", "ui::CObject");
 	focus_ui:Emphasize("focus_ui", 0, 1.0, "AAFF0000");
-
 end
 
 function TEST_MONDEAD()
-
-	--local frame = OPENNEW('mondeadtest');
 	local frame = ui.GetFrame('mondeadtest');
 	frame:ShowWindow(1);
 	SET_TEST_MONSTER_TYPE(frame, 11120);
-
-
 end
 
 function TEST_IESLIST()
-
 	local frame = OPENNEW('iesmanagerlist');
 	frame:ShowWindow(1);
 	IESMANAGERLIST_UPDATE(frame);
-
-
 end
 
 function TEST_XMLCONVERT()
-
-	--[[local list = iesman.GetIESHistory();
-	local index = list:FirstInorder();
-	while 1 do
-		if index == list:InvalidIndex() then
-			break;
-		end
-
-		local key = list:Key(index);
-		index = list:NextInorder(index);
-	end
-	]]
-
 	local frame = OPENNEW('iesmanagertoxml');
 	frame:ShowWindow(1);
 	TOXML_UPDATE(frame);
-
-
 end
 
 function TEST_IES()
-
-	--ui.ToggleFrame("iesmanager");
 	local frame = OPENNEW('iesmanager');
 	frame:ShowWindow(1);
-
 end
 
 function TEST_CLONETEX()
-
 	local frame = ui.GetFrame("map");
 	local picture = GET_CHILD(frame, "map", "ui::CPicture");
 
 	picture:ClonePicture();
-	--picture:ShowWindow(1);
 	picture:Invalidate();
-
 end
 
 function TEST_MAP()
-
 	geMapTable.ReInit();
 
 	local frame = ui.GetFrame("map");
-	UPDATE_MAP(frame);
+	REQUEST_MAP_UPDATE(frame);
 
 	frame = ui.GetFrame("minimap");
-	UPDATE_MINIMAP(frame)
+	REQUEST_UPDATE_MINIMAP(frame)
 end
 
 function TEST_MAPFOG()
-
 	local frame = ui.GetFrame('mapfog');
 	frame:ShowWindow(1);
 	MAPFOG_SET_CUR_MAP(frame);
-	--ui.ToggleFrame("mapfog");
 end
 
 
 function TEST_SETITEM()
-
 	local frame = OPENNEW('setitemalarm');
-	--ui.ToggleFrame('setitemalarm');
 	frame:ShowWindow(1);
 	UPDATE_SETITEMALARM(frame);
-
 end
 
 function TEST_SKILLVAN_()
---TEST_SKILLVAN();
-
 	local frame = ui.GetFrame("skillvan");
 	SKILLVAN_SET_CENTER_POSITION(500, 500, frame);
-
 end
 
 function TEST_SELECTITEM()
-
 	local frame= ui.GetFrame("selectitem");
-	--local frame = OPENNEW("selectitem");
 	SELECTITEM_UPDATE(frame);
 	frame:ShowWindow(1);
-	--ui.ToggleFrame("selectitem");
-
-
 end
 
 function OPENNEW(frameName)
-
 	local newframe = ui.CreateNewFrame(frameName);
 	newframe:ShowWindow(1);
 	return newframe;
-
 end
 
 function TEST_LAYER()
-
 	local frame = OPENNEW("layerscore");
 	LAYERSCORE_ADVBOX_INIT(frame);
-
 end
 
 function TEST_FIELDEVENT()
-
 	ui.ToggleFrame("fieldevent");
-	--local frame = OPENNEW("fieldevent");
-	--TEST_FIELDEVENT_FRAME(frame);
-
 end
 
 function RELOAD_HALL()
-
 	local frame = ui.GetFrame("halloffame");
 	ui.ToggleFrame("halloffame");
-
 end
 
 function RELOAD_ACHIEVE()
-
 	local frame = ui.GetFrame("achieve");
 	UPDATE_ACHIEVE_LIST(frame);
 	ui.ToggleFrame("achieve");
-
 end
 
 function RELOAD_MAP()
-
 	debug.RM();
 
 	local map = ui.GetFrame("map");
@@ -562,18 +387,14 @@ function RELOAD_MAP()
 
 	local minimap = ui.GetFrame("minimap");
 	MINIMAP_FIRST_OPEN(minimap);
-
 end
 
 function OPEN_CHAT_MENU(frame, control, commname, text, x, y)
-
 	OPEN_CHAT_CONTEXT(commname);
-
 end
 
 
 function OPEN_CHAT_CONTEXT(commname)
-
 	if commname == "" then
 		return;
 	end
@@ -581,7 +402,6 @@ function OPEN_CHAT_CONTEXT(commname)
 	if GetMyName() == commname then
 		return;
 	end
-
 
 	local ScpBuf = "";
 	local context = ui.CreateContextMenu(commname, commname, 0, 0, 100, 100);
@@ -601,19 +421,7 @@ function GETMYFAMILYNAME()
 	return acc:GetFamilyName();
 end
 
-function GET_MAP_NAME(mapid)
-
-	if mapid == 0 then
-		return "";
-	end
-
-	return GetClassString('Map',mapid ,'Name');
-
-end
-
-
 function GET_ENDURE_COLOR(invitem)
-
 	local percent = 0;
 	local dur = invitem.Dur;
 	if dur >0 then
@@ -625,7 +433,6 @@ function GET_ENDURE_COLOR(invitem)
 	end
 
 	return "";
-
 end
 
 
@@ -642,29 +449,25 @@ function GET_ITEM_BY_GUID(guid, equipfirst)
 		end
 
 		return nil;
-
 	end
 
-		local pitem = session.GetInvItemByGuid(guid);
-		if pitem ~= nil then
-			return pitem;
-		end
+	local pitem = session.GetInvItemByGuid(guid);
+	if pitem ~= nil then
+		return pitem;
+	end
 
-		pitem = session.GetEquipItemByGuid(guid);
-		if pitem ~= nil then
-			return pitem;
-		end
+	pitem = session.GetEquipItemByGuid(guid);
+	if pitem ~= nil then
+		return pitem;
+	end
 
-		return nil;
-
-
+	return nil;
 end
 
 function UPDATE_TXT_TOOLTIP(frame, strArg, num, arg2)
 	local caption = frame:GetChild("caption");
 	caption:SetText(strArg);
 	if num > 0 then
-
 		local txt = caption:GetText();
 		caption:Resize(num, caption:GetHeight());
 		caption:SetText(txt);
@@ -678,22 +481,17 @@ function UPDATE_TXT_TOOLTIP(frame, strArg, num, arg2)
 end
 
 function GET_QUEST_TOOLTIP_TXT(clsID)
-
 	local cls = GetClassByType("QuestProgressCheck", clsID);
-
 	local mylevel = info.GetLevel(session.GetMyHandle());
 	local MonsterConditionTxt = GET_QUEST_INFO_TXT(cls);
 	local color = GET_LEVEL_COLOR(mylevel, cls.Level);
-	return color .. cls.Name .. "{/}" .. MonsterConditionTxt;
-
+	local ret = color .. cls.Name .. "{/}" .. MonsterConditionTxt;
+	return ret
 end
 
 function UPDATE_MINI_QUEST_TOOLTIP(frame, strarg, numarg1, numarg2)
-
 	local cls = GetClassByType("QuestProgressCheck", numarg1);
-
 	local txt = GET_QUEST_TOOLTIP_TXT(numarg1);
-
 	local GroupCtrl = frame:GetChild("gbox");
 	tolua.cast(GroupCtrl, "ui::CGroupBox");
 	GroupCtrl:DeleteAllControl();
@@ -709,12 +507,10 @@ function UPDATE_MINI_QUEST_TOOLTIP(frame, strarg, numarg1, numarg2)
 	frame:Resize(frameWidth, y + 5);
 	GroupCtrl:Resize(frameWidth, y);
 	GroupCtrl:UpdateData();
-
 	return 1;
 end
 
 function CREATE_NUMBER_PICTURES(gbox, ypos, text, name)
-
 	local picWidth = 25;
 	local picHeight = 35;
 	local len = string.len(text);
@@ -738,7 +534,6 @@ function CREATE_NUMBER_PICTURES(gbox, ypos, text, name)
 			pic:ShowWindow(1);
 		end
 
-
 		if i == len then
 			ypos = GET_END_POS(pic);
 		end
@@ -748,7 +543,6 @@ function CREATE_NUMBER_PICTURES(gbox, ypos, text, name)
 end
 
 function CREATE_GBOX_TEXT(gbox, x, ypos, ctrlName, text, isCenterAlign)
-
 	if isCenterAlign == 1 then
 		x = 0;
 	end
@@ -765,11 +559,9 @@ function CREATE_GBOX_TEXT(gbox, x, ypos, ctrlName, text, isCenterAlign)
 
 	ypos = GET_END_POS(txt);
 	return ypos;
-
 end
 
 function DRAW_OPTION_TOOLTIP(tooltipframe, invitem, strarg, ypos)
-
 	local OptionCnt = GET_OPTION_CNT(invitem);
 
 	if OptionCnt == 0 then
@@ -793,7 +585,6 @@ function DRAW_OPTION_TOOLTIP(tooltipframe, invitem, strarg, ypos)
 end
 
 function ADD_EX_LABEL_LINE_TOOLTIP(GroupCtrl, xPos, yPos, width, height)
-
 	if GroupCtrl == nil then
 		return yPos;
 	end
@@ -825,12 +616,8 @@ function ADD_EX_PIC_TOOLTIP(GroupCtrl, txt, atkup, angleup, yPos)
 		local angleTextTemp = tostring(angleup);
 		angleText:SetFontName(ITEM_TOOLTIP_TEXT_FONT);
 		angleText:SetText("{#003300}"..angleTextTemp);
-
-		--angleText:SetOffset(xPos + anglePic:GetWidth(), angleText:GetY());
-
 		anglePic:ShowWindow(1);
 		angleText:ShowWindow(1);
-
 		xPos = ControlSetCtrl:GetWidth() / 2;
 	else
 		anglePic:ShowWindow(0);
@@ -841,9 +628,6 @@ function ADD_EX_PIC_TOOLTIP(GroupCtrl, txt, atkup, angleup, yPos)
 		local atkTextTemp = tostring(atkup);
 		atkText:SetFontName(ITEM_TOOLTIP_TEXT_FONT);
 		atkText:SetText("{#003300}"..atkTextTemp);
-		--atkPic:SetOffset(xPos, atkPic:GetY());
-		--atkText:SetOffset(xPos + atkPic:GetWidth(), atkText:GetY());
-
 		atkPic:ShowWindow(1);
 		atkText:ShowWindow(1);
 	else
@@ -857,15 +641,13 @@ function ADD_EX_PIC_TOOLTIP(GroupCtrl, txt, atkup, angleup, yPos)
 end
 
 function ADD_EX_TOOLTIP(GroupCtrl, txt, yPos, ySize)
-
 	if GroupCtrl == nil then
 		return 0;
 	end
 
 	local cnt = GroupCtrl:GetChildCount();
-	
-	local ControlSetObj			= GroupCtrl:CreateControlSet('richtxt', "EX" .. cnt , ySize, yPos);
-	local ControlSetCtrl		= tolua.cast(ControlSetObj, 'ui::CControlSet');
+	local ControlSetObj = GroupCtrl:CreateControlSet('richtxt', "EX" .. cnt , ySize, yPos);
+	local ControlSetCtrl = tolua.cast(ControlSetObj, 'ui::CControlSet');
 	local richText = GET_CHILD(ControlSetCtrl, "text", "ui::CRichText");
 	GroupCtrl:SetGravity(ui.LEFT, ui.TOP);
 	ControlSetCtrl:SetGravity(ui.LEFT, ui.TOP);
@@ -875,11 +657,9 @@ function ADD_EX_TOOLTIP(GroupCtrl, txt, yPos, ySize)
 	ControlSetCtrl:SetTextByKey('text', txt);
 	GroupCtrl:ShowWindow(1)
 	return ControlSetCtrl:GetHeight() + ControlSetCtrl:GetOffsetY();
-
 end
 
 function ADD_TXT_GROUP_C(frame, name, txt, x, ypos, height, fixsize)
-
 	local width = frame:GetWidth() - x;
 	local item = frame:CreateOrGetControl("richtext", name, x, ypos, width, height);
 	tolua.cast(item, "ui::CRichText");
@@ -916,15 +696,12 @@ function MAKE_OPTION_UI(GroupCtrl, name, x, ypos, index, invitem)
 end
 
 function GET_CHILD_GROUPBOX(frame, name)
-
 	local obj = frame:GetChild(name);
 	tolua.cast(obj, "ui::CGroupBox");
 	return obj;
-
 end
 
 function INIT_ITEM_TOOLTIP_GROUPBOX(frame, groupbox, ypos)
-
 	groupbox:DeleteAllControl();
 	groupbox:EnableResizeByParent(0);
 	groupbox:ShowWindow(1);
@@ -934,22 +711,17 @@ function INIT_ITEM_TOOLTIP_GROUPBOX(frame, groupbox, ypos)
 end
 
 function DRAW_TOOLTIP_LINE(frame, name, ypos)
-
 	local label = frame:GetChild(name);
 	label:SetOffset(8, ypos);
 	label:ShowWindow(1);
 	ypos = label:GetY() + label:GetHeight();
 	return ypos;
-
 end
 
 function GET_ITEM_SET_TITLE_TEXT(set)
-
 	local cnt =	set:GetItemCount();
 	local curCnt = GET_TOTALHAVE_SET_COUNT(set);
-
 	return string.format(" %s (%d/%d)", set:GetSetName(), curCnt, cnt );
-
 end
 
 function GET_ITEM_SET_TITLE_TEXT_EQP(set)
@@ -996,7 +768,6 @@ function GET_END_POS(ctrl)
 end
 
 function DRAW_SET_LIST_TOOLTIP_OLD(GroupCtrl, set, x, y)
-
 	local cnt =	set:GetItemCount();
 	local xPos = 0;
 	local xSpace = 0;
@@ -1054,7 +825,6 @@ function DRAW_SET_LIST_TOOLTIP_OLD(GroupCtrl, set, x, y)
 
 	y = y + 45;
 	y = GET_ITEM_SET_EFFECT_TEXT(set, 1, GroupCtrl, y);
-
 	return y;
 end
 
@@ -1068,7 +838,6 @@ function CREATE_GROUP_CHILD(groupctrl, type, name, x, y, height)
 end
 
 function GET_ITEM_SET_LIST_TEXT(set, onlyEquip)
-
 	local haveFormat = "";
 	local noHaveFormat = "";
 	local checkScp = nil;
@@ -1101,15 +870,12 @@ function GET_ITEM_SET_LIST_TEXT(set, onlyEquip)
 end
 
 function EXTEND_BY_CHILD(parent, ctrl)
-
 	local width = MAX(parent:GetWidth(), ctrl:GetX() + ctrl:GetWidth() );
 	local height = MAX(parent:GetHeight(), ctrl:GetY() + ctrl:GetHeight() ) + 5;
 	parent:Resize(width, height);
-
 end
 
 function GET_EQUIPED_SET_COUNT(set)
-
 	local haveCnt = 0;
 	local cnt =	set:GetItemCount();
 
@@ -1121,11 +887,9 @@ function GET_EQUIPED_SET_COUNT(set)
 	end
 
 	return haveCnt;
-
 end
 
 function GET_TOTALHAVE_SET_COUNT(set)
-
 	local haveCnt = 0;
 	local cnt =	set:GetItemCount();
 
@@ -1138,7 +902,6 @@ function GET_TOTALHAVE_SET_COUNT(set)
 	end
 
 	return haveCnt;
-
 end
 
 
@@ -1170,7 +933,6 @@ end
 
 
 function HIDE_EX_INFO(tooltipframe)
-
 	HIDE_CHILD_BYNAME(tooltipframe, "OPTION_");
 	HIDE_CHILD_BYNAME(tooltipframe, "SET_LIST_");
 
@@ -1193,13 +955,10 @@ function HIDE_EX_INFO(tooltipframe)
 	CLEAR_GROUPBOX(tooltipframe, 'item_2');
 	CLEAR_GROUPBOX(tooltipframe, 'item_3');
 	HIDE_CHILD(tooltipframe, "tabtext");
-
 end
 
 function HIDE_EX_INFO_COMPARITION(tooltipframe)
-
 	HIDE_EX_INFO(tooltipframe);
-
 end
 
 function HIDE_EX_INFO_CHANGEVALUE(tooltipframe)
@@ -1207,7 +966,6 @@ function HIDE_EX_INFO_CHANGEVALUE(tooltipframe)
 end
 
 function GET_ITEM_FONT_COLOR(rank)
-
 	if rank == 0 then
 		return "{#FFFFFF}";
 	elseif rank == 1 then
@@ -1226,7 +984,6 @@ function GET_ITEM_FONT_COLOR(rank)
 end
 
 function GET_ITEM_TOOLTIP_SKIN(cls)
-
 	if cls.ToolTipScp == "WEAPON" or cls.ToolTipScp == "ARMOR" then
 		return "test_Item_tooltip_equip";
 	elseif cls.ToolTipScp == "ETC" and cls.GroupName == "Drug" then
@@ -1243,7 +1000,6 @@ function GET_ITEM_TOOLTIP_SKIN(cls)
 end
 
 function GET_ITEM_BG_PICTURE_BY_GRADE(rank, needAppraisal, needRandomOption)
-
 	local pic = 'None'
 	local flag = 3
 	
@@ -1268,7 +1024,6 @@ function GET_ITEM_BG_PICTURE_BY_GRADE(rank, needAppraisal, needRandomOption)
 end
 
 function GET_ITEM_BG_PICTURE_BY_ITEMLEVEL(itemlv) 
-
 	local clslist, cnt  = GetClassList("item_bg_image_level_table");
 
 	for i = 0 , cnt - 1 do
@@ -1281,11 +1036,9 @@ function GET_ITEM_BG_PICTURE_BY_ITEMLEVEL(itemlv)
 	end
 
 	return 'None';
-
 end
 
 function GET_ITEM_PICTURE_RANK(cls)
-
 	if cls == nil then
 		return "None";
 	end
@@ -1382,14 +1135,6 @@ function GET_FULL_NAME(item, useNewLine, isEquiped)
 		end
 	end
 
---	if IS_100PERCENT_SUCCESS_EXTRACT_ICOR_ITEM(item) == true then
-----		if TryGetProp(item, 'KeyWord') == 'RandomOption' then
-----			return ownName..string.format(': %s', ClMsg('RandomOption'));
-----		else
-----			return ownName..string.format(': %s', ClMsg('Auto_JeJag'));
-----		end		
---	end
-
 	return ownName;
 end
 
@@ -1420,7 +1165,6 @@ function GET_NAME_OWNED(item)
 	end
 
 	return itemName;
-
 end
 
 function GET_REQ_TOOLTIP(invitem)
@@ -1465,11 +1209,8 @@ function GET_EQUIPABLE_JOB(cls)
 end
 
 function IS_RECIPE_ITEM(itemCls)
-
 	local clslist, cnt  = GetClassList("Recipe");
-
 	for i = 0 , cnt - 1 do
-
 		local cls = GetClassByIndexFromList(clslist, i);
 		if itemCls == nil then
 			return 0
@@ -1492,25 +1233,22 @@ function IS_RECIPE_ITEM(itemCls)
 	end
 
 	return 0
-
 end
 
 function SCR_MAGICAMULET_EQUIP(fromitem, toitem)
 	if nil == fromitem or nil == toitem then
 		return;
 	end
+
 	local fromobj = GetIES(fromitem:GetObject());
 	local toobj = GetIES(toitem:GetObject());
-
 	local potential = toobj.PR;
-
 	if potential <= 0 then
 		ITEM_MSG(ScpArgMsg("NotEnoughReinforcePotential"));
 		return;
 	end
 	
 	local socketCnt = GET_MAGICAMULET_EMPTY_SOCKET_INDEX(toobj);
-
 	if socketCnt == -1 then
 		ITEM_MSG(ScpArgMsg("NOT_HAVE_MAGIC_AMULET_SOCKET_SPACE"));
 		return;
@@ -1520,7 +1258,6 @@ function SCR_MAGICAMULET_EQUIP(fromitem, toitem)
 	local remaincountstr = ScpArgMsg('RemainMagicAmuletSocket','Remain',toobj.MaxSocket_MA - socketCnt);
 	local msg = "["..fromobj.Name..ScpArgMsg("Auto_]_KaDeuLeul_[")..toobj.Name..ScpArgMsg("Auto_]_e_JangChagHaSiKessSeupNiKka?")..remaincountstr;
 	ui.MsgBox(msg, strscp, "None");
-
 end
 
 local function _GET_GEM_SOCKET_CNT(invitem, itemObj)
@@ -1538,7 +1275,6 @@ local function _GET_GEM_SOCKET_CNT(invitem, itemObj)
 end
 
 function SCR_GEM_EQUIP(fromitem, toitem)
-
 	local fromobj = GetIES(fromitem:GetObject());
 	local toobj = GetIES(toitem:GetObject());
 
@@ -1558,7 +1294,6 @@ function SCR_GEM_EQUIP(fromitem, toitem)
 	local strscp = string.format( "LUMIN_EXECUTE(\"%s\", \"%s\")", fromitem:GetIESID(), toitem:GetIESID());
 	local msg = "["..fromobj.Name..ScpArgMsg("Auto_]_KaDeuLeul_[")..toobj.Name..ScpArgMsg("Auto_]_e_JangChagHaSiKessSeupNiKka?");
 	ui.MsgBox(msg, strscp, "None");
-
 end
 
 function LUMIN_EXECUTE(fromIESID, toIESID)
@@ -1590,14 +1325,12 @@ function SHOW_NEW_TOOLTIP(invitem, tipname)
 	ui.ToCenter(tframe);
 
     tframe:ShowWindow(1);
-
 end
 
 function UPDATE_NEW_TIP(tframe)
 end
 
 function LUMIN_DROP(frame, control, argStr, argNum)
-
 	local liftIcon 		= ui.GetLiftIcon();
 	local frominfo 		= liftIcon:GetInfo();
 	local slot 	   		= tolua.cast(control, 'ui::CSlot');
@@ -1609,7 +1342,6 @@ function LUMIN_DROP(frame, control, argStr, argNum)
 	if fromobj.Script ~= "SCR_RUNE_EQUIP" then
 		return;
 	end
-
 end
 
 function LUMIN_DROP_EXECUTE(iesID, framName, argStr, argNum)
@@ -1622,13 +1354,10 @@ function LUMIN_DROP_EXECUTE(iesID, framName, argStr, argNum)
 end
 
 function ITEM_MSG(msg)
-	--logger.SysMsg(msg);
 	ui.SysMsg(msg);
-
 end
 
 function GET_QUEST_STATE_TXT(state)
-
 	if state == 'COMPLETE' then
 		return "[" .. ScpArgMsg(state) .. "]";
 	end
@@ -1638,9 +1367,7 @@ end
 
 
 function SHOW_MONSTER_HELP(monsterID)
-
 	local moncls = GetClassByType("Monster",  numarg1);
-
 	local txt = tooltipframe:GetChild("name");
 	txt:SetText(strarg);
 
@@ -1656,26 +1383,20 @@ function SHOW_MONSTER_HELP(monsterID)
 	else
 		tooltipframe:Resize(txt:GetWidth() + 20 , txt:GetHeight() + 10);
 	end
-
 end
 
 function SCR_ITEM_MIXER_CLIENT(invitem)
-
 	local uiframe = ui.GetFrame('mixer');
 	MIXER_TEST(uiframe, invitem);
-
 end
 
 function SCR_ITEM_COLOR_SPRAY_CLIENT(invItem)
-
 	local uiFrame = ui.GetFrame("spray");
 	uiFrame:ShowWindow(1);
 	ui.CloseFrame("inventory");
-
 end
 
 function CONVERT_STATE(state)
-
 	if state == 'PROGRESS' then
 		return 'Prog';
 	elseif state == 'SUCCESS' then
@@ -1686,7 +1407,6 @@ function CONVERT_STATE(state)
 end
 
 function STATE_NUMBER(state)
-
 	if state == 'POSSIBLE' then
 		return 0;
 	elseif state == 'PROGRESS' then
@@ -1709,7 +1429,6 @@ function GET_NPCNAME_BY_QUEST(maptype, dialog)
 end
 
 function FIND_STRING(str, startPos, findStr)
-
 	local cap = string.sub(str, startPos, string.len(str));
 	local pos = string.find(cap, findStr);
 	if pos == nil then
@@ -1720,18 +1439,15 @@ function FIND_STRING(str, startPos, findStr)
 end
 
 function SCR_SKILLITEM(invItem)
-
 	local obj = GetIES(invItem:GetObject());
 	local skilCls = GetClass("Skill", obj.StringArg);
 	local sklType = skilCls.ClassID;
 
 	spcitem.CreateVirtualSkill(sklType, invItem:GetIESID(), obj.Level);
 	control.Skill(sklType,  obj.Level);
-
 end
 
 function SCR_SKILLSCROLL(invItem)
-
 	if world.IsPVPMap() then
 		return;
 	end
@@ -1768,20 +1484,17 @@ function SCR_SKILLSCROLL(invItem)
 end
 
 function SCR_MONGWANGGA_CLIENT(invItem)
-
 	local obj = GetIES(invItem:GetObject());
 	local skilCls = GetClass("Skill", obj.StringArg);
 	control.ItemSkillCast(skilCls.ClassID, invItem:GetIESID(), "SCR_EXEC_MONWANGGA");
-
 end
 
 function SCR_EXEC_MONWANGGA(guid, x, y, z)
-
 	item.UseItemToGround(guid, x, y, z);
-
 end
 
-function GET_TOTAL_MONEY_STR() -- int로 잘리지 않고 싶으면 이걸 쓰도록하되, 밖에서 계산할 때는 tonumber하거나 BigNumber 전용 함수들 사용 권장
+function GET_TOTAL_MONEY_STR() 
+	-- int로 잘리지 않고 싶으면 이걸 쓰도록하되, 밖에서 계산할 때는 tonumber하거나 BigNumber 전용 함수들 사용 권장
 	local silver = '0';
 	local invItem = session.GetInvItemByName('Vis');
 	if invItem ~= nil then
@@ -1795,30 +1508,18 @@ function TRADE_DIALOG_CLOSE()
 end
 
 function UI_TOGGLE_QUIT()
-
 	ui.ToggleFrame('apps');
-	--[[
-	if world.IsSingleMode() == 0 then
-		ui.ToggleFrame('apps');
-	else
-		ui.ToggleFrame('quitsingle');
-	end
-	]]
-
 end
 
 -- ?? ctrl + y
 function UI_KEYDOWN_OKAY()
-
 end
 
 -- ?? ctrl + n
 function UI_KEYDOWN_CANCEL()
-
 end
 
 function SCR_CELL_TOGGLE()
-
 	if true == session.IsGM() then
 		debug.ToggleCell()
 	end
@@ -1826,35 +1527,26 @@ end
 
 function SCR_IESMANAGER_TOGGLE()
 	ui.ToggleFrame('iesmanager')
-
 end
 
 function SCR_UIDEBUG_TOGGLE()
-	--if true == session.IsGM() then
-		debug.ToggleUIDebug()
-	--end
-
+	debug.ToggleUIDebug()
 end
 
 function SCR_RELOAD_EFFECT()
 	if true == session.IsGM() then
 		debug.ReloadEffect()
 	end
-
 end
 
 function SCR_DEBUG_RC()
 	if true == session.IsGM() then
 		debug.RC()
 	end
-
 end
-
-
 
 -- ON_WORLD_MSG_%d (WORLD_MESSAGE_ACHIEVE_ADD == 0)
 function ON_WORLD_MSG_0(name, type, pointType, point)
-
 	local list = session.party.GetPartyMemberList(PARTY_NORMAL);
 
 	local count = list:Count();
@@ -1869,25 +1561,17 @@ function ON_WORLD_MSG_0(name, type, pointType, point)
 	end
 	
 	if nil ~= session.friends.GetFriendByFamilyName(FRIEND_LIST_COMPLETE, name) or ispartymesmbers == true then
-		
 		local achiName = geAchieveTable.GetName(type);	
-
 		local msg = ScpArgMsg("Auto_{#FFFF00}[{Auto_1}]Nimi_<{Auto_2}>eopJeogeul_DalSeongHayeossSeupNiDa.","Auto_1", name, "Auto_2",achiName);
 		ui.AddText("SystemMsgFrame", msg);
-
-		--msg = ScpArgMsg("Auto_{#FFFF00}{a_SEARCH_FAME_RANK_{Auto_1}_{Auto_2}}[{Auto_3}]Nimi_<{Auto_4}>eopJeogeul_DalSeongHayeossSeupNiDa.","Auto_1", name,"Auto_2", pointType,"Auto_3", name,"Auto_4", achiName);
-		--logger.SysMsg(msg);
 	end
 end
 
 function SEARCH_FAME_RANK(name, pointType)
-
 	FAME_SEARCH_POINT_NAME(pointType, name);
-
 end
 
 function GET_PORTRAIT_NAME(job, gender)
-
 	local jobcls = GetClassByType("Job", job);
 	local GenderName = "M";
 	if gender == 2 then
@@ -1895,31 +1579,22 @@ function GET_PORTRAIT_NAME(job, gender)
 	end
 
 	return jobcls.ClassName .. "_" .. GenderName;
-
 end
 
 function ITEM_EQUIP(index, slotName)
-
 	ITEM_EQUIP_MSG(session.GetInvItem(index), slotName);
-
 end
 
 function ITEM_EQUIP_BY_TYPE(type)
-
 	ITEM_EQUIP_MSG(session.GetInvItemByType(type));
-
 end
 
 function ITEM_EQUIP_BY_ID(iesID)
-
 	ITEM_EQUIP_MSG(session.GetInvItemByGuid(iesID));
-
 end
 
 function GETMYPCLEVEL()
-
 	return info.GetLevel(session.GetMyHandle());
-
 end
 
 function GETMYPCJOB()
@@ -1936,8 +1611,8 @@ function GETMYICON()
 end
 
 function GETMYPCNAME()
-	local MySession		= session.GetMyHandle()
-	local CharName		= info.GetName(MySession);
+	local MySession	= session.GetMyHandle()
+	local CharName = info.GetName(MySession);
 	return CharName;
 end
 
@@ -2022,7 +1697,6 @@ function ITEM_EQUIP_MSG(item, slotName)
 end
 
 function GET_ITEM_EQUIP_INDEX(item)
-
 	if 1 ~= ITEM_EQUIP_EXCEPTION(item) then
 		return 0;
 	end
@@ -2050,20 +1724,15 @@ function ITEM_REASON_MSG(msg)
 end
 
 function GUILD_PTS_TEXT(point, pointName)
-
 	return ScpArgMsg("Auto_uiLoe_KiyeoDo_:_")  .. point;
-
 end
 
 function GET_ICON_BY_NAME(name)
-
 	local cls = GetClass("Item", name);
 	return cls.Icon;
-
 end
 
 function MAKE_HAVE_ITEM_TOOLTIP(control, itemType)
-
 	local invItem = session.GetInvItemByType(itemType);
 	if invItem ~= nil then
 		ICON_SET_INVENTORY_TOOLTIP(control, invItem);
@@ -2080,7 +1749,6 @@ function MAKE_HAVE_ITEM_TOOLTIP(control, itemType)
 end
 
 function EXEC_CHATMACRO(index)
-
 	local macro = GET_CHAT_MACRO(index);
 	if macro == nil then
 		return;
@@ -2103,7 +1771,6 @@ function EXEC_CHATMACRO(index)
 end
 
 function GET_CHAT_MACRO(index)
-
 	local list = session.GetChatMacroList();
 	local cnt = list:Count();
 	for i = 0 , cnt - 1 do
@@ -2117,22 +1784,17 @@ function GET_CHAT_MACRO(index)
 end
 
 function SET_BUFF_TOOLTIP_BY_NAME(ctrl, name)
-
 	local cls = GetClass("Buff", name);
 	ctrl:SetTooltipType('buff');
 	ctrl:SetTooltipArg(0, cls.ClassID, "");
-
 end
 
 function SET_ITEM_TOOLTIP_BY_NAME(ctrl, name)
-
 	local cls = GetClass("Item", name);
 	SET_ITEM_TOOLTIP_BY_TYPE(ctrl, cls.ClassID)
-
 end
 
 function SET_ITEM_TOOLTIP_BY_TYPE(ctrl, type)
-
 	SET_ITEM_TOOLTIP_TYPE(ctrl, type);
 	ctrl:SetTooltipArg('inven', type, "");
 end
@@ -2162,14 +1824,12 @@ function SET_ITEM_TOOLTIP_BY_TRADESELECTITEM(ctrl, tradeselectitemClassName, typ
 end
 
 function ON_RULLET_LIST()
-
 	local list = session.GetRulletList();
 	local cnt = list:Count();
 
 	for i = 0 , cnt - 1 do
 		SHOW_RULLET_INFO(list:Element(i), i, cnt);
 	end
-
 end
 
 function UI_CHECK_NOT_PVP_MAP()
@@ -2181,14 +1841,12 @@ function UI_CHECK_NOT_PVP_MAP()
 end
 
 function UI_CHECK_PROP(propname, propvalue)
-
 	local pc = GetMyPCObject();
 	if pc[propname] == propvalue then
 		return 1;
 	end
 
 	return 0;
-
 end
 
 function UI_CHECK_GRIMOIRE_UI_OPEN(propname, propvalue)
@@ -2203,17 +1861,14 @@ function UI_CHECK_GRIMOIRE_UI_OPEN(propname, propvalue)
 end
 
 function UI_CHECK_PARTY()
-
 	local party = session.party.GetPartyInfo();
 	if party == nil then
 		return 0;
 	end
 	return 1;
-
 end
 
 function COPY_TOOLTIP_INFO(a, b)
-
 	local type = a:GetTooltipType();
 	local strArg = a:GetTooltipStrArg();
 	local numArg = a:GetTooltipNumArg();
@@ -2221,29 +1876,24 @@ function COPY_TOOLTIP_INFO(a, b)
 
 	b:SetTooltipType(type);
 	b:SetTooltipArg(strArg, numArg, iesID);
-
 end
 
 function LIMIT_TXT(text, maxLen)
-
 	local strLen = string.len(text);
 	if strLen < maxLen then
 		return text;
 	end
 
 	return string.sub(text, 1, maxLen) .. "..";
-
 end
 
 function UP_SUB_STRING(str, s, e)
-
 	local strLen = string.len(str);
 	local a = string.sub(str, 1, s - 1);
 	local b = string.sub(str, s, e);
 	local c = string.sub(str, e + 1, strLen);
 	b = string.upper(b);
 	return a .. b .. c;
-
 end
 
 function ST()
@@ -2251,14 +1901,11 @@ function ST()
 end
 
 function PRINT_TIME(name, time, totaltime)
-
 	local st = ST();
 	return time;
-
 end
 
 function SET_ADVBOX_BTN(advBox, key, col, text)
-
 	local width = advBox:GetColWidth(col) - 10;
 	local height = advBox:GetHeightperrow();
 	local item = advBox:SetItemByType(key, col, "button",  width, height, 0);
@@ -2294,20 +1941,16 @@ function FIXWIDTH_ADVBOX_ITEM(advBox, col, item)
 end
 
 function ADVBOX_OMIT_TEXT(advBox, col, item)
-
 	local width = advBox:GetColWidth(col);
 	tolua.cast(item, "ui::CRichText");
 	item:Resize(width, 	advBox:GetHeightperrow());
-
 end
 
 function GET_LEN(a, b)
 	return math.pow( math.pow(a, 2) + math.pow(b, 2), 0.5);
 end
 
-
 function FIND_ADVBOX_ITEM(advBox, findText, col)
-
 	local currow = advBox:GetNumber();
 	if currow  < 0 then
 		currow = 1;
@@ -2317,7 +1960,6 @@ function FIND_ADVBOX_ITEM(advBox, findText, col)
 	local row = currow + 1;
 
 	while 1 do
-
 		if row == currow then
 			break;
 		end
@@ -2333,7 +1975,6 @@ function FIND_ADVBOX_ITEM(advBox, findText, col)
 		if row >= cnt then
 			row = 1;
 		end
-
 	end
 
 	return 0;
@@ -2348,14 +1989,11 @@ function SET_SELECT_PARENT_ADVBOX(item, key)
 end
 
 function SELECT_ADVBOX_BY_KEY(advBox, ctrl, propName, num)
-
 	tolua.cast(advBox, "ui::CAdvListBox");
 	advBox:SelectItemByKey(propName);
-
 end
 
 function MSGBOX_EDIT_PROP_ITEM(advBox, ctrl, propName, num)
-
 	local idSpace = advBox:GetSValue();
 	local clsID = advBox:GetValue();
 	local cls = GetClassByType(idSpace, clsID);
@@ -2375,7 +2013,6 @@ end
 
 
 function APPLY_MSGBOX_EDIT_PROP(inputframe, ctrl)
-
 	if ctrl:GetName() == "inputstr" then
 		inputframe = ctrl;
 	end
@@ -2397,7 +2034,6 @@ function APPLY_MSGBOX_EDIT_PROP(inputframe, ctrl)
 	end
 
 	local cls = GetClassByType(idSpace, clsID);
-
 	local item = advBox:GetObjectByKey(propName, 1);
 	item:SetText(txt);
 
@@ -2408,13 +2044,11 @@ function APPLY_MSGBOX_EDIT_PROP(inputframe, ctrl)
 	advBox:UpdateAdvBox();
 
 	return idSpace, clsID;
-
 end
 
 
 
 function FIND_ITEM_BY_NAME(frame, edit, str, num)
-
 	tolua.cast(edit, "ui::CEditControl");
 	if edit:IsHaveFocus() == 0 then
 		return;
@@ -2424,18 +2058,14 @@ function FIND_ITEM_BY_NAME(frame, edit, str, num)
 	local input = edit:GetText();
 
 	FIND_ADVBOX_ITEM(advBox, input, num);
-
 end
 
 function GET_MONEY_TAG_TXT(itemCnt)
-
 	itemCnt = math.abs(itemCnt);
 	return ScpArgMsg("Auto_{ol}{@st45}BatKe_Doel_SilBeo_:_{Auto_1}_{img_Zeny_20_20}","Auto_1", GetCommaedText(itemCnt))
-
 end
 
 function GET_BUFF_TAG_TXT(buffName)
-
 	local cls = GetClass("Buff", buffName);
 	if cls == nil then
 		ui.SysMsg(buffName .. " Buff Not Exist");
@@ -2444,8 +2074,8 @@ function GET_BUFF_TAG_TXT(buffName)
 	local icon = cls.Icon;
 
 	return ScpArgMsg("Auto_{img_{Auto_1}_20_20}{ol}{@st45}_{Auto_2}_BeoPeu","Auto_1", 'icon_'..cls.Icon,"Auto_2", cls.Name)
-
 end
+
 function GET_PCPROPERTY_TAG_TXT(propertyName, value)
     local ret, propertyTxt
     if propertyName == 'STR' then
@@ -2478,7 +2108,6 @@ function GET_PCPROPERTY_TAG_TXT(propertyName, value)
 end
 
 function GET_HONOR_TAG_TXT(honor, point_value, prop)
-
 	local cls = GetClass("AchievePoint", honor);
 	local ret
 	point_value = tonumber(point_value)
@@ -2515,23 +2144,18 @@ function GET_HONOR_TAG_TXT(honor, point_value, prop)
 			break
 		end
 	end
-	
 	return ret
-
 end
 
 function GET_ITEM_TAG_TXT(itemName, itemCnt)
-
 	local cls = GetClass("Item", itemName);
 	local icon = cls.Icon;
 
 	itemCnt = math.abs(itemCnt);
 	return string.format("{img %s 20 20}{ol}{@st45} %d", cls.Icon, itemCnt)
-
 end
 
 function FILL_ALL_ITEM_ADV_BOX(frame, boxName)
-
 	local advBox = GET_CHILD(frame, boxName, "ui::CAdvListBox");
 	advBox:ClearUserItems();
 
@@ -2543,20 +2167,15 @@ function FILL_ALL_ITEM_ADV_BOX(frame, boxName)
 	end
 
 	advBox:UpdateAdvBox();
-
 end
 
 function SET_ADVBOX_ITEM_INFO(advBox, key, col, cls)
-
 	local txt = GET_ITEM_TAG_TXT(cls.ClassName, 1);
 	local item = SET_ADVBOX_ITEM(advBox, key, col, txt, "white_12_ol");
 	item:EnableHitTest(1);
-	--SET_ITEM_TOOLTIP_BY_NAME(item, cls.ClassName);
-
 	item:SetDragFrame("textdrag");
 	item:SetDragScp("START_DRAG_ITEM");
 	item:SetTooltipNumArg(key);
-
 end
 
 function SET_FRAME_ARGSTR(frame, advBox, str, num)
@@ -2570,14 +2189,11 @@ function SET_FRAME_ARGNUM(frame, advBox, str, num)
 end
 
 function POPUP_ITEM_SEL(scpName)
-
 	local frame = ui.GetFrame("itemselpopup");
 	ITEM_SEL_INIT(frame, scpName);
-
 end
 
 function GET_POPUP_SEL_ITEM()
-
 	local frame = ui.GetFrame("itemselpopup");
 	local ItemList = GET_CHILD(frame, "ItemList", "ui::CAdvListBox");
 	local clsID = tonumber(ItemList:GetSelectedKey());
@@ -2586,7 +2202,6 @@ function GET_POPUP_SEL_ITEM()
 	end
 
 	return GetClassByType("Item", clsID);
-
 end
 
 function IS_CLEAR_SLOT_ITEM_INFO(slot)
@@ -2604,7 +2219,6 @@ function GET_SOLDITEM_BY_INDEX(guid)
 end
 
 function ADD_QUEST_CHECK_MONSTER(questID, monname)
-
 	if questID == -1 then
 		-- GuildQuest
 		return;
@@ -2644,7 +2258,6 @@ function FIELD_EVENT_JOIN(frame)
 end
 
 function UPDATE_TARGET_ITEM_TOOLTIP(tooltipframe, strarg, numarg1, numarg2)
-
 end
 
 function DESTROY_FRAME(name)
@@ -2652,7 +2265,6 @@ function DESTROY_FRAME(name)
 end
 
 function START_RESIZE_PARENT(frame, ctrl, str, num)
-
 	local tframe = frame:GetTopParentFrame();
 	if tframe == nil then
 		return;
@@ -2660,11 +2272,9 @@ function START_RESIZE_PARENT(frame, ctrl, str, num)
 
 	tolua.cast(tframe, "ui::CFrame");
 	tframe:StartResize(6);
-
 end
 
 function OPEN_COLORSELECT_DLG(targetScp, initColor, x, y)
-
 	local frame = ui.GetFrame("selectcolor");
 	frame:SetSValue(targetScp);
 
@@ -2676,11 +2286,9 @@ function OPEN_COLORSELECT_DLG(targetScp, initColor, x, y)
 	if x ~= nil then
 		frame:MoveIntoClientRegion(x, y);
 	end
-
 end
 
 function GET_SELECTED_COL()
-
 	local frame = ui.GetFrame("selectcolor");
 	local selectedColor = GET_CHILD(frame, "selectedColor", "ui::CPicture");
 	local curColor = selectedColor:GetPixelColor(1, 1);
@@ -2688,10 +2296,8 @@ function GET_SELECTED_COL()
 end
 
 function GET_MOUSE_POS()
-
 	local x = mouse.GetX();
 	local y = mouse.GetY();
-
 	return x, y;
 end
 
@@ -2764,12 +2370,10 @@ function ITEM_ENTER_COMMON_EFFECT(invitem, equipItem, strarg)
 --			return 'item_effect_red';
 --		end
 --	end
-
     return 'F_item_drop_violet';
 end
 
 function SCR_ITEM_FIELD_TOOLTIP(itemObj, handle, itemType)
-	-- ????
 end
 
 function USE_ITEMTARGET_ICON(frame, itemobj, argNum)
@@ -2790,6 +2394,7 @@ function USE_ITEMTARGET_ICON(frame, itemobj, argNum)
 					local socketCnt = GET_NEXT_SOCKET_SLOT_INDEX(invitem);
 					local maxcnt = 0;
 					if invitem.ItemType == 'Equip' then
+                        if invitem.MaxSocket > 100 then invitem.MaxSocket = 0 end
 						maxcnt = invitem.MaxSocket;
 					end
 					if invitem.ToolTipScp ~= 'WEAPON' and invitem.ToolTipScp ~= 'ARMOR' or socketCnt == maxcnt then
@@ -2814,6 +2419,7 @@ function USE_ITEMTARGET_ICON(frame, itemobj, argNum)
 					if  equipItem.type ~= item.GetNoneItem(equipItem.equipSpot)  then
 						local equipItemObj = GetIES(equipItem:GetObject());
 						local socketCnt = GET_NEXT_SOCKET_SLOT_INDEX(equipItemObj);
+                        if equipItemObj.MaxSocket > 100 then equipItemObj.MaxSocket = 0 end
 						local maxcnt = equipItemObj.MaxSocket;
 
 						if equipItemObj.ToolTipScp ~= 'WEAPON' and equipItemObj.ToolTipScp ~= 'ARMOR' or socketCnt == maxcnt then
@@ -3066,52 +2672,43 @@ function GEM_EQUIP_TRY()
 end
 
 function ENABLE_CTRL(ctrl, isEnable)
-
 	ctrl:SetEnable(isEnable);
 	if isEnable == 0 then
 		ctrl:SetGrayStyle(1);
 	else
 		ctrl:SetGrayStyle(0);
 	end
-
 end
 
 function PUSH_CHAT_FRAME(eftName)
-
 	ui.ShowUnFocusedChatFrames(0);
+
 	local chatFrame = GET_CHATFRAME();
 	chatFrame:ShowWindow(1);
 	chatFrame:EndEffect(5);
-	--chatFrame:SetEffect(eftName, 5);
-	--chatFrame:StartEffect(5);
-	--chatFrame:SetEffect('ringcommandMove', 6);
+
 	local pullEffect = chatFrame:GetEffectByIndex(6);
 	pullEffect:SetDestMovePos(chatFrame:GetX(), chatFrame:GetY(), 1.0, 0.0);
 end
 
 function PULL_CHAT_FRAME(eftName)
-
 	local chatFrame = GET_CHATFRAME();
 	chatFrame:EndEffect(5);
 	chatFrame:StartEffect(6);
 	ui.ShowChatFrames(1);
-
 end
 
 function IS_VISIBLE(name)
-
 	local fr = ui.GetFrame(name);
 	if fr == nil then
 		return 0;
 	end
-
 	return fr:IsVisible();
-
 end
 
 function GET_MY_PCNAME()
-	local MySession		= session.GetMyHandle()
-	local CharName		= info.GetName(MySession);
+	local MySession	= session.GetMyHandle()
+	local CharName = info.GetName(MySession);
 	return CharName;
 end
 
@@ -3123,17 +2720,13 @@ function WIKI_ALLTROPHY_SLOT_HIDE(frame)
 	HIDE_CHILD_BYNAME(frame, 'WIKI_SLOT');
 end
 
-
 function OPEN_FILE_FIND(dirName, scpName, isSaveMode, findStr)
-
 	local frame = ui.GetFrame("filefind");
 	FILE_FIND_BINDIR(frame, dirName, scpName, isSaveMode, findStr);
 	frame:ShowWindow(1);
-
 end
 
 function CREATE_TIMER_CTRLS(frame, creX, creY)
-
 	local getset = frame:GetChild("SET");
 	if getset ~= nil then
 		return getset;
@@ -3157,11 +2750,9 @@ function CREATE_TIMER_CTRLS(frame, creX, creY)
 	m1time:SetImage("time_0");
 
 	return ctrlset;
-
 end
 
 function TIMER_SET_EVENTTIMER(frame, remainSec)
-
 	local timer = frame:GetChild("addontimer");
 	tolua.cast(timer, "ui::CAddOnTimer");
 
@@ -3171,9 +2762,7 @@ function TIMER_SET_EVENTTIMER(frame, remainSec)
 end
 
 function EVENT_UPDATE_TIME(frame, ctrl, str, totalSec, elapsedSec)
-
 	local remainSec = totalSec - elapsedSec;
-
 	if remainSec < 0 then
 		ctrl:Stop();
 		frame:ShowWindow(0);
@@ -3192,10 +2781,7 @@ function EVENT_UPDATE_TIME(frame, ctrl, str, totalSec, elapsedSec)
 		local min, sec = GET_QUEST_MIN_SEC(remainSec);
 		SET_QUESTINFO_TIME_TO_SET(min, sec, ctrlset);
 	end
-
-
 	ctrlset:Invalidate();
-
 end
 
 function SCR_QUEST_CHECK_T(pc, questname)
@@ -3209,6 +2795,12 @@ function SCR_QUEST_CHECK_T(pc, questname)
 			end
 		end
 	end
+    if reasonString == nil then
+        reasonString = ''
+    end
+    if result == nil then        
+        result = ''
+    end
     
 	return result, reasonString;
 end
@@ -3228,20 +2820,16 @@ function SCR_QUEST_CHECK_C(pc, questname)
 	return questState;
 end
 
-
 function OPEN_SHOPUI_COMMON()
-
 	HIDE_LEFTBASE_UI();
 
 	local invenFrame = ui.GetFrame('inventory');
 	if invenFrame:IsVisible() == 0 then
 		invenFrame:ShowWindow(1);
 	end
-
 end
 
 function HIDE_LEFTBASE_UI()
-
 	local statusFrame = ui.GetFrame('status');
 	if statusFrame:IsVisible() == 1 then
 		statusFrame:ShowWindow(0);
@@ -3251,29 +2839,19 @@ function HIDE_LEFTBASE_UI()
 	if questFrame:IsVisible() == 1 then
 		questFrame:ShowWindow(0);
 	end
-
 end
 
 function HIDE_RIGHTBASE_UI()
 	local minimapFrame = ui.GetFrame('minimap');
-
 	minimapFrame:ShowWindow(0);
 
 	local statusFrame = ui.GetFrame('status');
-
 	if statusFrame:IsVisible() == 0 then
 		local questInfoFrame = ui.GetFrame('questinfoset_2');
-
-		--questInfoFrame:EndEffect(5);
-		--questInfoFrame:SetEffect('questInfoSkillMoving', 5);
-		--questInfoFrame:StartEffect(5);
 	end
-
 end
 
-
 function SHOW_RIGHTBASE_UI()
-
 	local minimapFrame = ui.GetFrame('minimap');
 	minimapFrame:ShowWindow(1);
 
@@ -3307,14 +2885,12 @@ function ACHIEVE_EQUIP(frame, ctrl, argStr, argNum)
 	session.EquipAchieve(argNum);
 end
 
-
 function HAVE_ACHIEVE_FIND(achieveType)
 	local list = session.GetAchieveList();
 	local cnt = list:Count();
 
 	for i = 0 , cnt - 1 do
 		local type = list:Element(i);
-
 		if type == achieveType then
 			return 1;
 		end
@@ -3331,7 +2907,6 @@ function GET_ACHIEVE_COUNT(exceptPeriodAchieve)
 	for i = 0 , cnt - 1 do
 		local classID = list:Element(i)
 		local cls = GetClassByType("Achieve", classID)
-
 		if cls.PeriodAchieve == 'NO' then
 			noPeriodAchieveCnt = noPeriodAchieveCnt + 1
 		end
@@ -3345,7 +2920,6 @@ function GET_ACHIEVE_COUNT(exceptPeriodAchieve)
 end
 
 function CLEAR_ITEM_SLOTSET(slots, overSound)
-
 	local cnt = slots:GetSlotCount();
 	for i = 0 , cnt - 1 do
 		local slot = slots:GetSlotByIndex(i);
@@ -3355,54 +2929,42 @@ function CLEAR_ITEM_SLOTSET(slots, overSound)
 			slot:SetOverSound(overSound);
 		end
 	end
-
 end
 
 function INTO_CLIENT(frame)
-
 	frame:MoveIntoClientRegion(frame:GetX(), frame:GetY());
-
 end
 
 function SET_GAUGE_PERCENT_STAT(g)
-
 	g:SetStatFont(0, "white_16_ol");
 	g:SetStatAlign(0, ui.CENTER_HORZ, ui.TOP);
-
 end
 
 function GET_MAP_NAME(mapID)
-
 	local mapName = geMapTable.GetMapName(mapID);
 	if mapName == "None" then
 		return ClMsg("Logout");
 	end
-
 	return mapName;
 end
 
 function GET_MEMBER_TIP_TXT(name, memberInfo)
-
 	local info = memberInfo:GetInst();
 	local mapID = memberInfo:GetMapID();
 	local mapName = GET_MAP_NAME(mapID);
 	local txt = string.format("{ol}{s16}%s (%s:%d){nl}%s:%s{nl}HP : (%d/%d){nl}SP : (%d/%d){nl}", name, ClMsg("Level"), memberInfo:GetLevel(),
 	ClMsg("Area"), mapName	, info.hp, info.maxhp, info.sp, info.maxsp);
 	return txt;
-
 end
 
 function GET_MAP_TIP_TXT(name, memberInfo)
-
 	local info = memberInfo:GetInst();
 	local txt = string.format("{ol}{s16}%s (%s:%d){nl}HP : (%d/%d){nl}SP : (%d/%d){nl}", name, ClMsg("Level"), memberInfo:GetLevel(),
 		info.hp, info.maxhp, info.sp, info.maxsp);
 	return txt;
-
 end
 
 function UPDATE_PARTY_TOOLTIP(frame, name, type, funcName)
-
 	frame = tolua.cast(frame, "ui::CTooltipFrame");
 	if name == "" then
 		frame:HoldProcess(1);
@@ -3423,25 +2985,20 @@ function UPDATE_PARTY_TOOLTIP(frame, name, type, funcName)
 	local txt = func(name, memberInfo);
 
 	nameCtrl:SetText(txt);
-
 end
 
 function UPDATE_MEMBER_TOOLTIP(frame, name, type)
-
 	UPDATE_PARTY_TOOLTIP(frame, name, type, "GET_MEMBER_TIP_TXT");
 	local nameCtrl = frame:GetChild("caption");
 	nameCtrl:Resize(nameCtrl:GetWidth(), nameCtrl:GetHeight() + 30);
 	frame:Resize(nameCtrl:GetWidth() + 20, nameCtrl:GetHeight() + 30);
-
 end
 
 function UPDATE_MEMBER_MAP_TOOLTIP(frame, name, type)
-
 	UPDATE_PARTY_TOOLTIP(frame, name, type, "GET_MAP_TIP_TXT");
 	local nameCtrl = frame:GetChild("caption");
 	nameCtrl:Resize(nameCtrl:GetWidth(), nameCtrl:GetHeight() + 20);
 	frame:Resize(nameCtrl:GetWidth() + 20, nameCtrl:GetHeight() + 20);
-
 end
 
 function CHATTAGET_MENU(frame, ctrl, argStr, argNum)
@@ -3449,7 +3006,6 @@ function CHATTAGET_MENU(frame, ctrl, argStr, argNum)
 	frame:SetAlive();
 
 	local context = ui.CreateContextMenu(frame:GetName(), ctrl:GetText(), 0, 0, 140, 100);
-
 	local strWhisperScp = string.format("ui.WhisperTo('%s')", ctrl:GetText());
 	ui.AddContextMenuItem(context, ClMsg("WHISPER"), strWhisperScp);
 	ui.AddContextMenuItem(context, ClMsg("Cancel"), "None");
@@ -3457,13 +3013,11 @@ function CHATTAGET_MENU(frame, ctrl, argStr, argNum)
 end
 
 function GET_OPT_TEXT(item, index)
-
 	local optionValue = item["Option_" .. index];
 	local opttype = OPT_TYPE(optionValue);
 	local optvalue = OPT_VALUE(optionValue);
 	local class = GetClassByType('Option', opttype);
 	return string.format(class.Desc, optvalue);
-
 end
 
 function SCR_TREASURE_MARK_BYMAP(zoneClassName, xPos, yPos, zPos)
@@ -3513,7 +3067,6 @@ function SCR_TREASURE_MARK_BYMAP(zoneClassName, xPos, yPos, zPos)
 end
 
 function SCR_TREASURE_MARK_LIST_MAP(zoneClassName, posVec)
-
 	local newframe = ui.CreateNewFrame('map', 'Map_TreasureMark');
 	newframe:ShowWindow(1);
 	newframe:EnableHide(1);
@@ -3568,10 +3121,9 @@ function SCR_TREASURE_MARK_LIST_MAP(zoneClassName, posVec)
 		treasureMarkPic:SetOffset(x, y);
 	end
 end
+
 function GET_MY_STAT()
-
 	return info.GetStat(session.GetMyHandle());
-
 end
 
 function UPDATE_QUEST_TALK_TOOLTIP(tooltipframe, strarg, numarg1, numarg2)
@@ -3605,7 +3157,6 @@ function GET_SHOP_SSN()
 end
 
 function GET_SHOP_PROP_POINT(pointName)
-
 	local ssn = GET_SHOP_SSN();
 	local availCnt = 0;
 	if ssn ~= nil then
@@ -3614,16 +3165,13 @@ function GET_SHOP_PROP_POINT(pointName)
 	end
 
 	return availCnt;
-
 end
 
 function GUIDE_MSG(msg)
 	addon.BroadMsg("NOTICE_Dm_!", msg, 2);
 end
 
-
 function GET_JARISU(cnt)
-
 	local result = 1;
 	while 1 do
 		if cnt < 10 then
@@ -3632,11 +3180,8 @@ function GET_JARISU(cnt)
 		cnt = math.floor(cnt / 10);
 		result = result + 1;
 	end
-
 	return result;
-
 end
-
 
 function DIALOG_TEXT_VOICE(flowTextObj)
 	--imcSound.StopAllVoiceSound();
@@ -3648,7 +3193,6 @@ function DIALOG_TEXT_VOICE(flowTextObj)
 		else
 			local voiceName = string.sub(voiceFileName, 1, sStart - 1);
 			--game.PlayVoice(string.format("%s", voiceName), 255);
-
 			local nextvoiceName = string.sub(voiceFileName, sEnd+1, string.len(voiceFileName));
 			flowTextObj:SetVoiceName(string.format("%s", nextvoiceName));
 		end
@@ -3656,27 +3200,21 @@ function DIALOG_TEXT_VOICE(flowTextObj)
 end
 
 function GET_RADIOBTN_NUMBER(radioBtn)
-
 	radioBtn = tolua.cast(radioBtn, "ui::CRadioButton");
 	radioBtn = radioBtn:GetSelectedButton();
 	return AtoI_N(radioBtn:GetName(), string.len(radioBtn:GetName()) - 1);
-
 end
 
 function QUICK_RING_EXECUTE(ringIndex)
-
 	local frame = ui.GetFrame("quickslotnexpbar");
 	QUICK_RING_USE(frame, nil, nil, ringIndex)
 end
 
-
 function CHEAT_LIST_OPEN()
-
 	local frame = ui.GetFrame('cheatlist')
 	if 1 == session.IsGM() and frame ~= nil then
 		ui.ToggleFrame('cheatlist')
 	end
-
 end
 
 function ON_RIDING_VEHICLE(onoff)
@@ -3686,7 +3224,7 @@ function ON_RIDING_VEHICLE(onoff)
     end
 	
 	local isRidingOnly = 'NO';
-    local summonedCompanion = session.pet.GetSummonedPet(0);	-- Riding Companion Only / Not Hawk --
+    local summonedCompanion = session.pet.GetSummonedPet(0); -- Riding Companion Only / Not Hawk --
     if summonedCompanion ~= nil then
 		local companionObj = summonedCompanion:GetObject();
 		local companionIES = GetIES(companionObj);
@@ -3738,12 +3276,9 @@ function ON_RIDING_VEHICLE(onoff)
 end
 
 function COMPANION_INTERACTION(index)
-	
 	if ui.IsFrameVisible("petcommand") == 1 then
-		
 		RINGCOMMAND_ALT_NUMKEY(index)
 	end
-	
 end
 
 function UPDATE_MON_TITLE_VISIBLE(frame, handle)
@@ -3771,17 +3306,11 @@ function UPDATE_MON_TITLE_VISIBLE(frame, handle)
 	else
 		hpGauge:ShowWindow(1);
 	end
-	
 end
 
-
-
 function UPDATE_COMPANION_TITLE(frame, handle)
-	
 	frame = tolua.cast(frame, "ui::CObject");
-
 	local petguid  = session.pet.GetPetGuidByHandle(handle);
-
 	local mycompinfoBox = GET_CHILD_RECURSIVELY(frame, "mycompinfo");
 	if mycompinfoBox == nil then
 		return;
@@ -3799,7 +3328,6 @@ function UPDATE_COMPANION_TITLE(frame, handle)
 
 		local othernameTxt = GET_CHILD_RECURSIVELY(frame, "othername");
 		othernameTxt:SetText(targetinfo.name)
-
 	else
 		local myActor = GetMyPCObject();
 		if myActor ~= nil and IsBuffApplied(myActor, "RidingCompanion") == "YES" then 
@@ -3822,65 +3350,54 @@ function UPDATE_COMPANION_TITLE(frame, handle)
 		local petInfo = info.GetStat(handle);
 		gauge_HP:SetPoint(petInfo.HP, petInfo.maxHP);		
 	end
-
 	frame:Invalidate()
-
 end
 
 function SCR_QUEST_TAB_CHECK(mode)
     if mode == 'MAIN' then
         return 'MAIN'
     end
-    
     return 'SUB'
 end
-
 
 function UI_ONLY_NAME(onoff)
 	ui.UiOnlyName()
 end
 
-
 function R1_PERF()
-
 	local frame = ui.GetFrame('perfman')
 	OPEN_PERFMAN(frame)
 	frame:ShowWindow(1);
 end
 
-
 function TEST_TIARUA()
+	ReloadHotKey()
+	--ui.OpenFrame("joystickrestquickslot");
+	--[[
+	local quickFrame = ui.GetFrame('quickslotnexpbar')
+		local joystickQuickFrame = ui.GetFrame('joystickquickslot')
+		local Set1 = GET_CHILD(joystickQuickFrame,'Set1','ui::CGroupBox');
+		local Set2 = GET_CHILD(joystickQuickFrame,'Set2','ui::CGroupBox');
 
-ReloadHotKey()
---ui.OpenFrame("joystickrestquickslot");
---[[
-local quickFrame = ui.GetFrame('quickslotnexpbar')
-	local joystickQuickFrame = ui.GetFrame('joystickquickslot')
-	local Set1 = GET_CHILD(joystickQuickFrame,'Set1','ui::CGroupBox');
-	local Set2 = GET_CHILD(joystickQuickFrame,'Set2','ui::CGroupBox');
-
-	if IsJoyStickMode() == 1 then
-		quickFrame:ShowWindow(0);
-		joystickQuickFrame:ShowWindow(1);
-		Set1:ShowWindow(1);
-		Set2:ShowWindow(0);	
-	elseif IsJoyStickMode() == 0 then
-		quickFrame:ShowWindow(1);
-		joystickQuickFrame:ShowWindow(0);
-		Set1:ShowWindow(0);
-		Set2:ShowWindow(0);	
-	end
-]]--
+		if IsJoyStickMode() == 1 then
+			quickFrame:ShowWindow(0);
+			joystickQuickFrame:ShowWindow(1);
+			Set1:ShowWindow(1);
+			Set2:ShowWindow(0);	
+		elseif IsJoyStickMode() == 0 then
+			quickFrame:ShowWindow(1);
+			joystickQuickFrame:ShowWindow(0);
+			Set1:ShowWindow(0);
+			Set2:ShowWindow(0);	
+		end
+	]]--
 end
 
 function TEST_TIA()
-	
 --	debug.TestEffectAllocatedCount(0, 3);
 end
 
-
 function UI_MODE_CHANGE(index)
-
 	local quickFrame = ui.GetFrame('quickslotnexpbar')
 	local restquickslot = ui.GetFrame('restquickslot')
 	local joystickQuickFrame = ui.GetFrame('joystickquickslot')
@@ -4087,7 +3604,6 @@ function JOYSTICK_INPUT()
 end
 
 function BLOCK_MSG(blockName, sysTime)
-
 	sysTime = tolua.cast(sysTime, "SYSTEMTIME");
 	local dateText = GET_DATE_TXT(sysTime);
 
@@ -4102,7 +3618,6 @@ function BLOCK_MSG(blockName, sysTime)
 
 	local msgStr = ScpArgMsg(msgClassName, "Time", dateText);
 	ui.SysMsg(msgStr);
-	
 end
 
 function UI_CHECK_NOT_EVENT_MAP()
@@ -4113,7 +3628,6 @@ function UI_CHECK_NOT_EVENT_MAP()
 end
 
 function TEST_CLIENT_SCRIPT()
-
 	local frame = ui.GetFrame("beautyshop_test");
 	if frame ~= nil then
 		if frame:IsVisible() == 1 then
@@ -4122,15 +3636,6 @@ function TEST_CLIENT_SCRIPT()
 			frame:ShowWindow(1)
 		end
 	end 
-	
-
-	--[[
-	local pc = GetMyActor();
-	local pos = pc:GetPos();
- 
-  	print("TEST_CLIENT_SCRIPT xyz", pos.x, pos.y, pos.z);
-	TEST_CAMERA_CHANGE(pc, 1, pos.x , pos.y, pos.z, 180)
-	]]
 end
 
 function TEST_UI_OBJECT_INFO()
@@ -4172,12 +3677,10 @@ function REMOVE_QUEST_CHECK_MONSTER_CUSTOM_EXEC(questID, monName)
 	else
         quest.RemoveCheckQuestMonsterList(questID, monName)
 	end
-
 end
 
 function FADE_OUT_IN(fadeDuration)
 	FADE_OUT();
-
 	AddLuaTimerFuncWithLimitCount("FADE_IN", 1000, 1);
 end
 
@@ -4193,4 +3696,33 @@ function FADE_OUT(fadeTime)
 		fadeTime = 0.3;
 	end
 	normalview.FadeOut(fadeTime);
+end
+
+function IS_EXIST_BRIQUETTING_OR_BEAUTYSHOP_ITEM(actor, spot, skillType, skillClassId, itemClassId)
+	if skillClassId == nil then return false; end
+	if itemClassId == nil then return false; end
+
+	local spotItem = session.GetEquipItemBySpot(item.GetEquipSpotNum(spot));
+	if spotItem ~= nil then
+		local obj = GetIES(spotItem:GetObject());
+		if obj ~= nil then
+			-- skill type / pistal attack
+			if skillType == "Pistol" and skillClassId == 53 then	
+				-- inv item check
+				if obj.ClassID == itemClassId or obj.BriquettingIndex == itemClassId then
+					return true;
+				end
+
+				-- beauty shop check
+				local apc = actor:GetPCApc();
+				if apc ~= nil then
+					local classId = apc:GetDummyEquipItem(item.GetEquipSpotNum(spot));
+					if classId == itemClassId then
+						return true;
+					end
+				end
+			end
+		end
+	end
+	return false;
 end

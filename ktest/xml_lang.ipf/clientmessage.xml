@@ -47,6 +47,7 @@
 		<Class ClassID="45" ClassName="CantConnectChatServer{port}" Data="채팅 서버에 연결할 수 없습니다 문제가 지속된다면, 응답 Network port의 가용 여부를 확인해주시기 바랍니다."/>
 		<Class ClassID="46" ClassName="CantLoadChatServerInfo" Data="채팅 서버정보를 로드할 수 없습니다. 재 접속 이후에도 문제 발생시 게임 고객센터에 문의해주세요."/>
 		<Class ClassID="47" ClassName="CantCreateTeamCuzExisting" Data="Cannot create a team due to the existing team in the other world."/>
+    <Class ClassID="48" ClassName="CantConnectChatServer{error}" Data="ErrorCode[{error}] 채팅 서버에 연결할 수 없습니다."/>
 	</Category>
 	<Category Name="ChatMsg">
 		<Class ClassID="300" ClassName="TemporarilyUnavailable_1" Data="일시적으로 중지된 기능입니다."/>
@@ -371,6 +372,7 @@
 		<Class ClassID="2328" ClassName="AlearyIcorAdded" Data="아이커 장착 해제를 통해 아이커 장착 해제 후 아이커 장착이 가능합니다."/>
 		<Class ClassID="2329" ClassName="StackOverItemExist" Data="인벤토리에 여신의 축복의 상품 중 최대 수량을 가진 아이템이 존재합니다."/>
 		<Class ClassID="2330" ClassName="StackOverItemExist1" Data="인벤토리에 여신의 가호의 상품 중 최대 수량을 가진 아이템이 존재합니다."/>
+		<Class ClassID="2331" ClassName="RequireInactiveJobArts" Data="습득한 직업 아츠를 모두 비활성화 해야 합니다."/>
 	</Category>
 	<Category Name="ClassContents">
 		<Class ClassID="2500" ClassName="FullWeeklyGainClassResetExp" Data="주간 획득 가능한 클래스 변경 포인트를 모두 달성하였습니다."/>
@@ -892,6 +894,9 @@
 		<Class ClassID="8103" ClassName="{layer}LayerFull" Data="현재 [숙소{layer}]가 가득차 더 이상 캐릭터를 생성할 수 없습니다. 숙소를 변경하여 시도해 주세요."/>
 		<Class ClassID="8104" ClassName="CanNotUseWarpDuringFeeding" Data="컴패니언 먹이주기 중 워프하거나 게임을 종료할 수 없습니다."/>
 		<Class ClassID="8105" ClassName="LevelRestricrion" Data="{Lv} 레벨 이상 캐릭터는 사용할 수 없습니다."/>
+		<Class ClassID="8106" ClassName="UnsummonCompanion" Data="컴패니언 역소환"/>
+		<Class ClassID="8107" ClassName="Pet_Aready_Summoned" Data="컴패니언이 이미 소환되어 있습니다. {nl}보이지 않는 경우 컴패니언 정보창에서 활성상태를 확인해 주세요."/>
+		<Class ClassID="8108" ClassName="Can_Not_Summoned_Yet" Data="아직 소환할 수 없습니다."/>
 	</Category>
 	<Category Name="RestMode">
 		<Class ClassID="9001" ClassName="WhereToMakeCampFire?" Data="어디에 모닥불을 피워볼까?"/>
@@ -1222,7 +1227,7 @@
 		<Class ClassID="10445" ClassName="BarrackCharMenuBtn" Data="메뉴"/>
 		<Class ClassID="10446" ClassName="BarrackMoveLayerCharBtn" Data="캐릭터 숙소 이동"/>
 		<Class ClassID="10447" ClassName="BarrackDeleteCharBtn" Data="캐릭터 삭제"/>
-		<Class ClassID="10448" ClassName="CurChar{CharCnt}CurSlot{SlotCnt}" Data="이용가능한 슬롯이 없습니다.{nl}(현재 캐릭터 수:{CharCnt}, 현재 슬롯수:{SlotCnt})"/>
+		<Class ClassID="10448" ClassName="CurChar{CharCnt}CurSlot{SlotCnt}" Data="컴패니언은 현재 보유한 캐릭터 슬롯수만큼 분양이 가능합니다.{nl}캐릭터 슬롯이 부족합니다.{nl}(현재 슬롯수:{SlotCnt})"/>
 		<Class ClassID="10449" ClassName="SeasonServerNotBuySlot" Data="해당 서버에서는 캐릭터 슬롯을 늘릴 수 없습니다."/>
 		<Class ClassID="10450" ClassName="SeasonServerNotEatCardLv280" Data="시즌 서버에서는 280 레벨 이상으로 올릴 수 없습니다."/>
 		<Class ClassID="10451" ClassName="InvalidGender" Data="착용할 수 있는 성별이 아닙니다."/>
@@ -1311,6 +1316,7 @@
 		<Class ClassID="10539" ClassName="6lineRevertRandomItemEnableRandomOptionCount" Data="옵션 개수가 6개 이하인 랜덤 옵션 아이템에만 사용 가능합니다."/>
 		<Class ClassID="10540" ClassName="DoSandra6LineRandomResetOptionCountNoReset" Data="산드라의 궁극의 돋보기는 소모됩니다.{nl} {nl}선택한 랜덤 옵션 아이템에 적용된 옵션 수치를 모두 최대치로 변경합니다.{nl} {nl}변경된 수치는 즉시 적용되며 이전으로 돌아갈 수 없습니다. 진행하시겠습니까?"/>
 		<Class ClassID="10541" ClassName="LackOfSandra6LineRevertRandomMaterial" Data="산드라의 궁극의 돋보기가 부족합니다."/>
+		<Class ClassID="10542" ClassName="TeamnameResetByTime" Data="장기간 미접속으로 팀이름이 초기화되었습니다. 팀이름을 설정한 후에 기존의 캐릭터를 이용할 수 있습니다."/>
 		<Class ClassID="10543" ClassName="OnlyUseRandomIcor" Data="랜덤 아이커에만 사용할 수 있습니다."/>
 		<Class ClassID="10544" ClassName="SeasonServerCannotUse" Data="시즌 서버에서는 사용할 수 없습니다."/>
 		<Class ClassID="10545" ClassName="CannotUseNewUserBuffStoneByType" Data="신규/복귀 유저가 아니어서 사용하실 수 없습니다."/>
@@ -1690,6 +1696,7 @@
 		<Class ClassID="21369" ClassName="Attendance_infoText_4" Data="{#0000FF}* 각 마을의 '바이보라의 날개' NPC에게 신규/복귀 전용 버프 스크롤을 지급 받으실 수 있습니다.{/}"/>
     	<Class ClassID="21370" ClassName="LEGEND_RAID_MORINGPONIA_HARD" Data="나비목 접선지 : 레전드(Hard)"/>
 		<Class ClassID="21371" ClassName="rift_dungeon_11" Data="차원 붕괴 지점(11단계)"/>
+		<Class ClassID="21372" ClassName="ApplyFilter" Data="필터 적용"/>
   </Category>
 	<Category Name="ChatText">
 		<Class ClassID="22001" ClassName="Guard" Data="방어"/>
@@ -10221,7 +10228,7 @@
 		<Class ClassID="118005" ClassName="TheTeamNameAlreadyExist" Data="해당 팀 이름이 이미 존재합니다."/>
 		<Class ClassID="118006" ClassName="IsApplied" Data="적용중"/>
 		<Class ClassID="118007" ClassName="IsHaved" Data="보유중"/>
-		<Class ClassID="118008" ClassName="{TP}ReqSlotBuy" Data="{TP}TP를 사용해 캐릭터/컴패니언 슬롯을{nl}구입하시겠습니까?"/>
+		<Class ClassID="118008" ClassName="{TP}ReqSlotBuy" Data="{TP}TP를 사용해 캐릭터 슬롯을{nl}구입하시겠습니까?"/>
 		<Class ClassID="118009" ClassName="{TP}ReqChangeFamilyName" Data="{TP}TP를 사용해 팀명을 변경하도록 하시겠습니까?"/>
 		<Class ClassID="118010" ClassName="DontHaveSlot" Data="캐릭터/컴패니언 슬롯이 부족합니다.{nl}"/>
 		<Class ClassID="118011" ClassName="{TP}ReqChangeCharName" Data="{TP}TP를 사용해 캐릭터명을 변경하도록 하시겠습니까?"/>
@@ -13782,6 +13789,7 @@
 		<Class ClassID="302088" ClassName="EVENT_NEW_SEASON_SERVER_COIN_CHECK_STATE_5" Data="룰렛 사용 횟수"/>
 		<Class ClassID="302089" ClassName="EVENT_NEW_SEASON_SERVER_stamp_tour_tip_text" Data="* 스탬프 투어 진행률은 해당 미션 보상을 받아야 적용됩니다."/>
 		<Class ClassID="302090" ClassName="EVENT_NEW_SEASON_SERVER_stamp_tour_tip_text2" Data="마법 협회 npc를 찾아가 이벤트에 참여하세요"/>
+		<Class ClassID="302091" ClassName="REGULAR_BURNING_EVENT_CHALLENGE_RESET_SUCCESS" Data="성공적으로 챌린지 모드 입장횟수를 초기화했습니다!"/>
 	</Category>
 	<Category Name="Account">
 		<Class ClassID="303001" ClassName="MaxAccountWarehouseCount" Data="팀 창고"/>
@@ -13902,13 +13910,14 @@
 		<Class ClassID="501247" ClassName="EVENT_2003_WHITEDAY_CANDY_SEL1" Data="이벤트 안내"/>
 		<Class ClassID="501248" ClassName="EVENT_2003_WHITEDAY_CANDY_SEL2" Data="화이트데이 이벤트 상점 열기"/>
 		<Class ClassID="501249" ClassName="EVENT_2003_WHITEDAY_CANDY_SEL3" Data="사탕 세트 교환 하기"/>
-		<Class ClassID="501250" ClassName="EVENT_2003_WHITEDAY_CANDY_SEL4" Data="딸기 사탕 2개 소다 사탕 2개 레몬 사탕 2개 후르츠 사탕 2개로 케도라 상단의 사탕 세트 1개와 교환할 수 있어요!{nl} 교환 가능 개수 [1~{MAX}]"/>
+		<Class ClassID="501250" ClassName="EVENT_2003_WHITEDAY_CANDY_SEL4" Data="딸기 사탕 2개, 소다 사탕 2개, 레몬 사탕 2개, 후르츠 사탕 2개로 케도라 상단의 사탕 세트 1개와 교환할 수 있어요!{nl} 교환 가능 개수 [1~{MAX}]"/>
 		<Class ClassID="501251" ClassName="EVENT_2003_WHITEDAY_CANDY_CHECK{CANDY1}{CANDY2}{CANDY3}{CANDY4}{HEART_CARD}{CANDY_CARD}" Data="[이벤트 아이템 획득 정보]{nl}딸기 사탕 {#ff6d00}({CANDY1}/40){/}{nl}소다 사탕 {#ff6d00}({CANDY2}/40){/}{nl}레몬 사탕{#ff6d00}({CANDY3}/40){/}{nl}후르츠 사탕{#ff6d00}({CANDY4}/40){/}{nl} {#00BFFF}[화이트데이]하트 카드 획득량{/}{#ff6d00}({HEART_CARD}){/}{nl}{#00BFFF}[화이트데이]캔디 카드 획득량{/}{#ff6d00}({CANDY_CARD}){/}{nl}{#ff0000}※매일 오전 6시에 초기화 됩니다.{/}"/>
 		<Class ClassID="501252" ClassName="EVENT_2003_WHITEDAY_CANDY_PRESENT_OVER" Data="해당 NPC에게는 더 이상 사탕을 줄 수 없습니다. 다른 NPC에게 선물해보세요."/>
 		<Class ClassID="501253" ClassName="EVENT_2003_WHITEDAY_CANDY_PRESENT_CHECK{npc_SCT_master}{npc_ORC_master}{npc_RAG_master}{wizardmaster}{peltasta}{npc_healer}" Data="클라페다 상단 사탕 세트 전달 횟수{nl}스카우트 마스터({npc_SCT_master}/50){nl}오라클 마스터({npc_ORC_master}/50){nl}레인저 마스터({npc_RAG_master}/50){nl}위저드 마스터({wizardmaster}/50){nl}펠타스타 마스터({peltasta}/50){nl}클레릭 마스터({npc_healer}/50)"/>
 		<Class ClassID="501254" ClassName="EVENT_2003_WHITEDAY_CANDY_TRADE_OVER" Data="오늘 교환 가능한 사탕 세트를 모두 교환 하셨어요.{nl}{#ff0000}※ 사탕 세트 교환 횟수는 매일 오전 6시 초기화 됩니다."/>
 		<Class ClassID="501255" ClassName="EVENT_2003_WHITEDAY_CANDY_PRESENT_CHECK{npc_ROG_master}{npc_OLW_female_master}{npc_DRU_master}{npc_SQR_master}{npc_Appraiser}" Data="페디미안 상단 사탕 세트 전달 횟수{nl}로그 마스터({npc_ROG_master}/50){nl}아웃로 마스터({npc_OLW_female_master}/50){nl}드루이드 마스터({npc_DRU_master}/50){nl}스콰이어 마스터({npc_SQR_master}/50){nl}감정사 마스터({npc_Appraiser}/50)"/>
 		<Class ClassID="501256" ClassName="EVENT_2003_WHITEDAY_CANDY_PRESENT_CHECK{npc_LIN_master}{npc_WUG_master}{Inesa_Hamondail}" Data="오르샤 상단 사탕 세트 전달 횟수{nl}링커 마스터({npc_LIN_master}/50){nl}무고사 마스터({npc_WUG_master}/50){nl}오르샤 영주({Inesa_Hamondail}/50)"/>
+		<Class ClassID="501267" ClassName="EXPCARD_COMPANION_FAIL_LVMAX" Data="함께하고 있는 컴패니언이 이미 최대 레벨입니다."/>
 	</Category>
 	<Category Name="GEM_GACHA">
 		<Class ClassID="510001" ClassName="GEM_GACHA_SEL1" Data="젬 1회 뽑기"/>
@@ -14494,6 +14503,7 @@
 		<Class ClassID="1002051" ClassName="BEAUTY_SHOP_ONLY_ONE_SKIN" Data="스킨은 한 번에 하나만 구매할 수 있습니다.{nl}선택하신 스킨으로 변경하시겠습니까?"/>
 		<Class ClassID="1002052" ClassName="BEAUTY_SHOP_NO_DUPLICATE_DISCOUNT" Data="할인이 중복적용된 품목이 있습니다.{nl}할인 중인 물품에는 100% 쿠폰외에 적용이 불가능 합니다."/>
 		<Class ClassID="1002053" ClassName="BEAUTY_SHOP_SAME_SKIN_UNABLE_PURCHASE" Data="현재 적용 중인 스킨과 같은 스킨은 미리보기를 할 수 없으며, 구입할 수 없습니다."/>
+		<Class ClassID="1002054" ClassName="NotVisibleHairAcc_Hair" Data="해당 헤어 구매 시 {nl}일부 {@st66d_y}헤어 코스튬 아이템이{nl} 보이지 않거나 위치가 어긋날 수 있습니다.{/}{nl}그래도 구매하시겠습니까?"/>
 	</Category>
 	<Category Name="WebService">
 		<Class ClassID="1999998" ClassName="WebService_" Data="서버에 접속이 원활하지 않습니다."/>

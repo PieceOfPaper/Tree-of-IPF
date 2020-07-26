@@ -54,21 +54,6 @@ function ADVENTURE_BOOK_GROW.FILL_CHAR_LIST()
         ADVENTURE_BOOK_GROW_SET_JOB_HISTORY_TOOLTIP(icon, char_info_table["name"]);
         yPos = yPos + ctrlSet:GetHeight();
 	end
-
-    -- companion list
-    local petCount = session.pet.GetPetCount();    
-    for i = 0, petCount - 1 do    
-        local petInfo = session.pet.GetPetInfoByIndex(i);
-        if petInfo ~= nil then
-            local ctrlSet = gbox:CreateOrGetControlSet("adventure_book_grow_elem", "list_char_pet_"..i , ui.LEFT, ui.TOP, 0, yPos, 0, 0);
-		    local icon = GET_CHILD(ctrlSet, "icon_pic", "ui::CPicture");
-            local monCls = GetClass('Monster', petInfo:GetClassName());
-		    icon:SetImage(GET_MON_ILLUST(monCls));
-		    SET_TEXT(ctrlSet, "name_text", "value", petInfo:GetName());
-		    SET_TEXT(ctrlSet, "level_text", "value", petInfo:GetLevel());
-            yPos = yPos + ctrlSet:GetHeight();
-        end
-    end
 end
 
 function ADVENTURE_BOOK_GROW.FILL_CTRL_TYPES()

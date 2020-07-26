@@ -2401,7 +2401,10 @@
 		<Effect Name="F_pc_effectitem_12animal_jump"/>
 		<Effect Name="F_pc_effectitem_2020magical_jump01"/>
 		<Effect Name="F_pc_effectitem_2020magical_jump02"/>
-	</Category>
+	<Effect Name="voice_archer_m_shinngburst_cast"/>
+        <Effect Name="voice_war_m_startup_cast"/>
+        <Effect Name="voice_archer_f_shinngburst_cast"/>
+    </Category>
 	<Category ID="171">
 		<Effect Name="MISSION_UPHILL_DEFFENSE_EVENT2"/>
 		<Effect Name="MISSION_UPHILL_DEFFENSE_EVENT1"/>
@@ -3384,6 +3387,12 @@
 		<Effect Name="F_cleric_RingOfLight_circle_explosion_end_red"/>
 		<Effect Name="F_cleric_holyenchant_ground"/>
 		<Effect Name="RubricSpear_pad"/>
+        <Effect Name="F_cleric_Golden_Bell_Shield_hit"/>
+        <Effect Name="I_wizard_InfernalShadow_abil"/>
+        <Effect Name="F_cleric_ogouveve_ground"/>
+        <Effect Name="Shadowmancer_ShadowCondensationBuffPad"/>
+        <Effect Name="F_cleric_stormcalling_shot"/> 
+        <Effect Name="Daoshi_StormCalling_Daoshi28"/>
 	</Category>
 	<Category ID="60">
 		<Effect Name="SETPOS"/>

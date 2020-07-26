@@ -33,6 +33,47 @@
                 </Scp>
             </EtcList>
         </MainSkl>
+        <ByCondSkills>
+            <SubSkl>
+                <Cond>
+                    <ToolScp Scp="SKL_SELECT_BUFF" Client="NO" UseSleep="NO">
+                        <Str Str="Golden_Bell_limit_Buff"/>
+                    </ToolScp>
+                </Cond>
+                <Skill ScrLock="None" JumpFlee="NO" MSPDToUsePos="0">
+                    <HitList>
+                        <Frame Type="FAN" Time="99799" HitCount="1" TermMin="0" TermMax="0" PosType="0" Dist="0" RandDist="0" RandomPerHit="0" Angle="0" AniTime="99999" RotAngle="0" ForceATK="0"/>
+                    </HitList>
+                    <EtcList>
+                        <Scp Scp="C_VOICE_SOUND" Client="YES" UseSleep="NO" Time="0">
+                            <Str Str="voice_cleric_m_goldenbellshield_shot"/>
+                            <Str Str="voice_cleric_goldenbellshield_shot"/>
+                        </Scp>
+                        <Scp Scp="MONSKL_C_PLAY_ANIM" Client="YES" UseSleep="NO" Time="0">
+                            <Str Str="SKL_GOLDEN_BELL_SHIELD_READY"/>
+                            <Num Num="1"/>
+                            <Num Num="1"/>
+                            <Num Num="0"/>
+                        </Scp>
+                        <Scp Scp="SKL_BUFF" Client="NO" UseSleep="NO" Time="500">
+                            <Str Str="Golden_Bell_Boom_Buff"/>
+                            <Num Num="1" UseFunc="1" FuncTxt="return obj.Level"/>
+                            <Num Num="0"/>
+                            <Num Num="30000"/>
+                            <Num Num="1"/>
+                            <Num Num="100"/>
+                            <Num Num="0"/>
+                        </Scp>
+                        <Scp Scp="C_SHOCKWAVE" Client="YES" UseSleep="NO" Time="500">
+                            <Num Num="2"/>
+                            <Num Num="0.30000001"/>
+                            <Num Num="45"/>
+                            <Num Num="999"/>
+                        </Scp>
+                    </EtcList>
+                </Skill>
+            </SubSkl>
+        </ByCondSkills>
     </Skill>
     <Skill Name="Monk_God_Finger_Flicking">
         <MainSkl ScrLock="None" JumpFlee="NO" MSPDToUsePos="0">
@@ -43,6 +84,16 @@
                 <Scp Scp="C_VOICE_SOUND" Client="YES" UseSleep="NO" Time="0">
                     <Str Str="voice_cleric_m_godfingerflicking_shot"/>
                     <Str Str="voice_cleric_godfingerflicking_shot"/>
+                </Scp>
+                <Scp Scp="SKL_BUFF" Client="NO" UseSleep="NO" Time="0">
+                    <Str Str="God_Finger_Buff"/>
+                    <Num Num="1" UseFunc="1" FuncTxt="
+return obj.Level;"/>
+                    <Num Num="0"/>
+                    <Num Num="15000"/>
+                    <Num Num="1"/>
+                    <Num Num="100"/>
+                    <Num Num="0"/>
                 </Scp>
                 <Scp Scp="C_FORCE_EFT" Client="YES_Time" UseSleep="NO" Time="200">
                     <Str_Arg Str="I_cleric_God_Finger_Flicking_shot_coin_mash#Dummy_effect_FingerFlickir" Arg="0.30000001"/>
@@ -73,17 +124,6 @@
                     <Str Str="skl_eff_godfingerflicking"/>
                 </Scp>
             </EtcList>
-            <ResultList>
-                <ToolScp Scp="S_R_TGTBUFF" Client="NO" UseSleep="NO">
-                    <Str Str="God_Finger_Debuff"/>
-                    <Num Num="1" UseFunc="1" FuncTxt="return skill.Level;"/>
-                    <Num Num="0"/>
-                    <Num Num="10000"/>
-                    <Num Num="1"/>
-                    <Num Num="100"/>
-                    <Num Num="-1"/>
-                </ToolScp>
-            </ResultList>
         </MainSkl>
     </Skill>
     <Skill Name="Monk_HandKnife">

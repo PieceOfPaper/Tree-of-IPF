@@ -1905,6 +1905,12 @@
 		<image name="ability_Wizard_terramancer17" file="\icon\icon_ability_wizard08.tga" imgrect="512 128 128 128" CMM_Caption="테라맨서: 석화 무시"/>
 		<image name="ability_Wizard_Sorcerer23" file="\icon\icon_ability_wizard08.tga" imgrect="640 128 128 128" CMM_Caption="데스모두스:광역화"/>
 		<image name="ability_Wizard_Necromancer36" file="\icon\icon_ability_wizard08.tga" imgrect="768 128 128 128" CMM_Caption="게더 콥스:광역화"/>
+		<image name="ability_Wizard_Featerfoot33" file="\icon\icon_ability_wizard08.tga" imgrect="896 128 128 128" CMM_Caption="레비테이션:제어"/>
+		<image name="ability_Wizard_Elementalist39" file="\icon\icon_ability_wizard08.tga" imgrect="0 256 128 128" CMM_Caption="엘리멘탈 : 증폭"/>
+		<image name="ability_Wizard_Elementalist40" file="\icon\icon_ability_wizard08.tga" imgrect="128 256 128 128" CMM_Caption="스태프 마스터리 : 엘리멘탈"/>
+		<image name="ability_Wizard_Daoshi27" file="\icon\icon_ability_wizard08.tga" imgrect="256 256 128 128" CMM_Caption="삼재부 : 흡수"/>
+		<image name="ability_Wizard_Daoshi29" file="\icon\icon_ability_wizard08.tga" imgrect="384 256 128 128" CMM_Caption="스태프 마스터리 : 전기"/>
+		<image name="ability_Wizard_terramancer18" file="\icon\icon_ability_wizard08.tga" imgrect="512 256 128 128" CMM_Caption="스태프 마스터리: 땅"/>
 	</imagelist>
 	<imagelist category="abilityicon_archer">
 		<image name="ability_archer_Mark" file="\icon\icon_ability_archer01.tga" imgrect="0 0 128 128" CMM_Caption="멀티샷_치명타"/>
@@ -2407,6 +2413,9 @@
 		<image name="ability_archer_Hunter20" file="\icon\icon_ability_archer08.tga" imgrect="512 640 128 128" CMM_Caption="[아츠] 러쉬 도그 : 맹공격"/>
 		<image name="ability_archer_arbalester16" file="\icon\icon_ability_archer08.tga" imgrect="640 640 128 128" CMM_Caption="아발리스터: 파괴"/>
 		<image name="ability_archer_arbalester17" file="\icon\icon_ability_archer08.tga" imgrect="768 640 128 128" CMM_Caption="아발리스터: 정밀"/>
+		<image name="ability_archer_QuarrelShooter31" file="\icon\icon_ability_archer08.tga" imgrect="896 640 128 128" CMM_Caption="철거: 재설치"/>
+		<image name="ability_archer_QuarrelShooter32" file="\icon\icon_ability_archer08.tga" imgrect="0 768 128 128" CMM_Caption="파비스 설치: 준비"/>
+		<image name="ability_archer_QuarrelShooter33" file="\icon\icon_ability_archer08.tga" imgrect="128 768 128 128" CMM_Caption="파비스 설치: 크로스보우"/>
 	</imagelist>
 	<imagelist category="abilityicon_cleric">
 		<image name="ability_cleric_Cleric1" file="\icon\icon_ability_cleric01.tga" imgrect="0 0 128 128" CMM_Caption="큐어-도트시간감소"/>
@@ -2856,6 +2865,8 @@
 		<image name="ability_cleric_crusader18" file="\icon\icon_ability_cleric07.tga" imgrect="640 896 128 128" CMM_Caption="프로텍션 오브 가디스 : 회개"/>
 		<image name="ability_cleric_crusader19" file="\icon\icon_ability_cleric07.tga" imgrect="768 896 128 128" CMM_Caption="프로텍션 오브 가디스 : 보호"/>
 		<image name="ability_cleric_crusader20" file="\icon\icon_ability_cleric07.tga" imgrect="896 896 128 128" CMM_Caption="링 오브 라이트: 아군 회복"/>
+		<image name="ability_cleric_Chaplain20" file="\icon\icon_ability_cleric08.tga" imgrect="0 0 128 128" CMM_Caption="카펠라 설치 : 회개"/>
+		<image name="ability_cleric_Inquisitor28" file="\icon\icon_ability_cleric08.tga" imgrect="128 0 128 128" CMM_Caption="인퀴지터 : 마력설치"/>
 	</imagelist>
 	<imagelist category="abilityicon_common">
 		<image name="ability_common_DaggerMastery" file="\icon\icon_ability_common.tga" imgrect="0 0 128 128" CMM_Caption="단검 마스터리"/>
@@ -3067,5 +3078,6 @@
 		<image name="icon_compa_vit" file="\icon\icon_ability_companion.tga" imgrect="100 0 100 100" CMM_Caption="컴패니언_체력증가"/>
 		<image name="icon_compa_dex" file="\icon\icon_ability_companion.tga" imgrect="200 0 100 100" CMM_Caption="컴패니언_민첩증가"/>
 		<image name="icon_compa_defens" file="\icon\icon_ability_companion.tga" imgrect="300 0 100 100" CMM_Caption="컴패니언_방어증가"/>
+                <image name="ability_Wizard_Daoshi28" file="\icon\icon_ability_archer04.tga" imgrect="896 384 128 128" CMM_Caption="호풍환우부:아군"/>
 	</imagelist>
 </skinset>

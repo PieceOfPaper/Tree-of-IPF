@@ -91,7 +91,17 @@
 					<Str Str="Levitation_Buff" />
 					<Num Num="1" />
 					<Num Num="0" />
-					<Num Num="30000" />
+					<Num Num="60000" UseFunc="1" FuncTxt="local abilLevel = GET_ABIL_LEVEL(self, 'Featherfoot33');
+
+if abilLevel ~= 0 then 
+
+return 60000;
+
+else 
+
+return 30000; 
+
+end"/>
 					<Num Num="1" />
 					<Num Num="100" />
 					<Num Num="0" />
@@ -395,8 +405,18 @@
                return func(skill.Level)" Str="0" UseFunc="1"/>
               </ToolScp>
                 <ToolScp Client="NO" Scp="S_R_TGTBUFF" UseSleep="NO">
-					<Str Str="Common_Rotten" />
-					<Num FuncTxt=" return skill.Level" Num="1" UseFunc="1" />
+					<Str Str="Common_Rotten" UseFunc="1" FuncTxt="local abilLevel = GET_ABIL_LEVEL(self, 'Featherfoot32');
+
+if abilLevel ~= 0 then 
+
+return 'Hexing_Debuff';
+
+else 
+
+return 'Common_Rotten'; 
+
+end"/>
+					<Num FuncTxt="1" Num="1" UseFunc="1" />
 					<Num Num="0" />
 					<Num FuncTxt=" return 10000 + skill.Level * 2000" Num="0" UseFunc="1" />
 					<Num Num="1" />

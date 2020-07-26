@@ -514,7 +514,7 @@
             <Stage Name="Stage_03(Moringponia)" AutoStart="0">
                 <ObjList>
                     <Obj Type="Monster" MonType="160008" Pos="-2277.31#292.69#-244.98" genCount="1" genTime="20000" objectKey="0" propList="&apos;UseAiOutOfPC&apos; &apos;1&apos; &apos;SimpleAI&apos; &apos;MORINGPONIA_HARD_POISON_AI&apos; &apos;Name&apos; &apos;UnvisibleName&apos; "/>
-                    <Obj Type="Monster" MonType="59438" Pos="-2318.66#292.69#-251.43" genCount="1" genTime="20000" autoGen="0" objectKey="4" propList="&apos;DropItemList&apos; &apos;None&apos; "/>
+                    <Obj Type="Monster" MonType="59438" Pos="-2318.66#292.69#-251.43" genCount="1" genTime="20000" autoGen="0" objectKey="4"/>
                     <Obj Type="Monster" MonType="20026" Pos="-1749.98#291.79#-299.71" genCount="1" genTime="20000" objectKey="5" propList="&apos;Range&apos; &apos;50&apos; &apos;Enter&apos; &apos;MORINGPONIA_HARD_STAGE_03_START&apos; &apos;Name&apos; &apos;UnvisibleName&apos; "/>
                     <Obj Type="Monster" MonType="147448" Pos="-2546.19#292.69#-171.45" angle="-80" genCount="1" genTime="20000" autoGen="0" objectKey="6" propList="&apos;Dialog&apos; &apos;CHRONO_MASTER&apos; "/>
                     <Obj Type="Monster" MonType="20026" Pos="-2622.39#292.69#-103.88" genCount="1" genTime="20000" objectKey="2"/>
@@ -1342,7 +1342,7 @@
                                 <Num Num="1"/>
                             </ToolScp>
                             <ToolScp Scp="MGAME_EXEC_GIVE_BUFF" Client="NO" UseSleep="NO">
-                                <Str Str="MORINGPONIA_HARD_TOXICOSIS_DEBUFF"/>
+                                <Str Str="MORINGPONIA_HARD_FRENZY_TOXICOSIS_DEBUFF"/>
                                 <Num Num="1"/>
                                 <Num Num="0"/>
                                 <Num Num="0"/>

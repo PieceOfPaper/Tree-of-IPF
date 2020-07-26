@@ -287,7 +287,9 @@ function SCR_Get_SpendSP_Magic(skill)
         (GetZoneName(pc) == "guild_agit_1" or GetZoneName(pc) == "guild_agit_extension") then
         return 0
     end
-    
+    if GetAbility(pc,'Daoshi27') ~= nil then
+        SetExProp(pc, 'Daoshi27_SP', value)
+    end
     return math.floor(value);
 end
 
@@ -1608,6 +1610,17 @@ function SCR_Get_SkillFactor_Reinforce_Ability(skill)
     end
     
     return math.floor(value)
+end
+
+function SCR_Get_SkillFactor_Arbalester_Missile(skill)
+    local pc = GetSkillOwner(skill);
+    local value = 468 
+    local GuidedShotSkill = GetSkill(pc, 'Arbalester_GuidedShot');
+    if GuidedShotSkill ~= nil then
+        value = TryGetProp(GuidedShotSkill, "SkillFactor", 468) * 0.3
+    end
+
+    return value
 end
 
 function SCR_Get_SkillFactor_Molich_4(skill)
@@ -6020,7 +6033,7 @@ function SCR_GET_IronMaiden_Time(skill)
 end
 
 function SCR_GET_Judgment_Bufftime(skill)
-    local value = 15 + skill.Level
+    local value = 30 + skill.Level * 6
     
     return value
 end
@@ -6069,6 +6082,12 @@ function SCR_GET_Binatio_Ratio(skill)
     return math.floor(value)
 end
 
+function SCR_GET_Binatio_Ratio2(skill)
+    local value = skill.Level * 800;
+    value = value * SCR_REINFORCEABILITY_TOOLTIP(skill)
+    return math.floor(value)
+end
+
 function SCR_GET_Binatio_Time(skill)
     local value = 30;
     return value
@@ -6076,6 +6095,11 @@ end
 
 function SCR_GET_ParaclitusTime_Time(skill)
     local value = 10 + skill.Level * 2
+    return value
+end
+
+function SCR_GET_ParaclitusTime_Ratio(skill)
+    local value = skill.Level * 5
     return value
 end
 
@@ -6650,7 +6674,7 @@ function SCR_GET_Immolation_Ratio2(skill)
 end
 
 function SCR_GET_Fanaticism_Ratio(skill)
-    local value = 10 + ((skill.Level - 1) * 5)
+    local value = 20 + skill.Level * 4
     
     return value
 end
@@ -8298,7 +8322,7 @@ function SCR_Get_IronSkin_Ratio(skill)
 end
 
 function SCR_Get_Golden_Bell_Shield_Ratio(skill)
-    local value = 10 * skill.Level;
+    local value = 5 * skill.Level + 25;
     return value
 end
 
@@ -8559,7 +8583,7 @@ function SCR_GET_Forecast_Ratio(skill)
 end
 
 function SCR_GET_BeadyEyed_Time(skill)
-    local value = 100 + (skill.Level * 5);
+    local value = 140 + (skill.Level * 8);
     
     return value
 end
@@ -12515,7 +12539,7 @@ function SCR_GET_Immolation_Ratio(skill)
 end
 
 function SCR_GET_BeadyEyed_Ratio(skill)
-    local value = skill.Level * 3
+    local value = 15 + skill.Level * 2
     
     return value
 end
@@ -12792,7 +12816,7 @@ end
 -- TigerHunter_Tracking
 function SCR_GET_Tracking_Time(skill)
     local pc = GetSkillOwner(skill)
-    local value = 10 + skill.Level * 4
+    local value = 20 + skill.Level * 6
     
     local abil = GetAbility(pc, "TigerHunter2");
     if abil ~= nil and abil.ActiveState == 1 then
@@ -12815,7 +12839,7 @@ end
 
 -- TigerHunter_EyeofBeast
 function SCR_GET_EyeofBeast_Time(skill)
-    local value = 10
+    local value = 20 + skill.Level * 8
     return value
 end
 
@@ -13718,5 +13742,28 @@ end
 
 function SCR_GET_ShadowFatter_Ratio(skill)
     local value = 20 + skill.Level * 2
+    return value
+end
+
+function SCR_GET_Tracking_Ratio2(skill)
+    local value = 20 + skill.Level * 6
+    return value
+end
+
+function SCR_GET_Judgment_Ratio(skill)
+    local value = 10 + skill.Level * 2
+    
+    return value
+end
+
+function SCR_GET_Zealot_Invulnerable(skill)
+    local value = 15 + (skill.Level-1) * 2.5
+    
+    return value
+end
+
+function SCR_GET_FanwiseShots_Ratio(skill)
+    local value = 2 * skill.Level
+
     return value
 end

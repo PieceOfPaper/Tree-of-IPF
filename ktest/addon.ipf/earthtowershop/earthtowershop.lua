@@ -36,7 +36,11 @@ function EARTHTOWERSHOP_BUY_ITEM(itemName,itemCount)
 	
 	if recipecls.AccountNeedProperty ~= 'None' then
 	    local aObj = GetMyAccountObj()
-		local sCount = TryGetProp(aObj, recipecls.AccountNeedProperty); 
+        local sCount = TryGetProp(aObj, recipecls.AccountNeedProperty); 
+        --EVENT_2003_WHITEDAY
+        if recipecls.ClassName == 'WhiteDayShop2003_14' then
+            sCount = sCount + 1
+        end
 --        --EVENT_1906_SUMMER_FESTA
 --        local time = geTime.GetServerSystemTime()
 --        time = time.wYear..time.wMonth..time.wDay
@@ -418,6 +422,10 @@ function EXCHANGE_COUNT_CHECK(cls)
     if recipecls.AccountNeedProperty ~= 'None' then
         local aObj = GetMyAccountObj()
         local sCount = TryGetProp(aObj, recipecls.AccountNeedProperty);
+        --EVENT_2003_WHITEDAY
+        if recipecls.ClassName == 'WhiteDayShop2003_14' then
+            sCount = sCount + 1
+        end
         return sCount;
     end
 
@@ -640,6 +648,10 @@ function EXCHANGE_CREATE_TREE_PAGE(tree, slotHeight, groupName, classType, cls, 
     if recipecls.AccountNeedProperty ~= 'None' then
         local aObj = GetMyAccountObj()
         local sCount = TryGetProp(aObj, recipecls.AccountNeedProperty); 
+        --EVENT_2003_WHITEDAY
+        if recipecls.ClassName == 'WhiteDayShop2003_14' then
+            sCount = sCount + 1
+        end
         local cntText = ScpArgMsg("Excnaged_AccountCount_Remind","COUNT",string.format("%d", sCount))
         local tradeBtn = GET_CHILD(ctrlset, "tradeBtn");
         if sCount <= 0 then
@@ -1055,6 +1067,10 @@ function EARTHTOWERSHOP_CHANGECOUNT_NUM_CHANGE(ctrlset,change)
     if recipecls.AccountNeedProperty ~= 'None' then
         local aObj = GetMyAccountObj()
         local sCount = TryGetProp(aObj, recipecls.AccountNeedProperty); 
+        --EVENT_2003_WHITEDAY
+        if recipecls.ClassName == 'WhiteDayShop2003_14' then
+            sCount = sCount + 1
+        end
 --        --EVENT_1906_SUMMER_FESTA
 --        local time = geTime.GetServerSystemTime()
 --        time = time.wYear..time.wMonth..time.wDay
@@ -1074,6 +1090,7 @@ end
 function CRAFT_ITEM_CANCEL(eachSet, slot, stringArg)
     if eachSet~=nil then
         eachSet:SetUserValue("MATERIAL_IS_SELECTED", 'nonselected');
+        eachSet:SetUserValue(eachSet:GetName(), 'None');
 
         local slot = GET_CHILD_RECURSIVELY(eachSet, "slot");
         if slot ~= nil then

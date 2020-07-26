@@ -235,13 +235,13 @@ end
 function DESC_FOOD_BBQ(skillType, skillLevel, abilLevel)
     local value = 0.5 + (skillLevel - 5) * 0.5;
     value = math.floor(value)
-	return ScpArgMsg("IncreaseSR{Value}For{Time}Minute", "Value", value, "Time", 30 + abilLevel);
+	return ScpArgMsg("IncreaseSR{Value}For{Time}Minute", "Value", value, "Time", 40);
 end
 
 function DESC_FOOD_champagne(skillType, skillLevel, abilLevel)
     local value = 0.5 + (skillLevel - 5) * 0.5;
     value = math.floor(value)
-	return ScpArgMsg("IncreaseSDR{Value}For{Time}Minute", "Value", value, "Time", 30 + abilLevel);
+	return ScpArgMsg("IncreaseSDR{Value}For{Time}Minute", "Value", value, "Time", 40);
 end
 
 function FOODTABLE_UI_CLOSE_FRAME(handle)

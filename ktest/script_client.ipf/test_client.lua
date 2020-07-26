@@ -11,13 +11,16 @@ function SCR_OPER_RELOAD_HOTKEY(handle)
 end
 
 function TEST_CLIENT_CHAT_PET_EXP()
-    local summonedPet = GET_SUMMONED_PET();
-    if summonedPet == nil then
-	ui.SysMsg(ClMsg("SummonedPetDoesNotExist"));
-	return;
+    local pet = GET_SUMMONED_PET()
+    if pet == nil then
+        pet = GET_SUMMONED_PET_HAWK()
     end
 
-    local pet = GET_SUMMONED_PET()
+    if pet == nil then
+        ui.SysMsg(ClMsg("SummonedPetDoesNotExist"));
+        return;
+    end
+
     local petInfo = session.pet.GetPetByGUID(summonedPet:GetStrGuid());
     local curTotalExp = petInfo:GetExp();
     local xpInfo = gePetXP.GetXPInfo(gePetXP.EXP_PET, curTotalExp);
