@@ -1,13 +1,12 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by IMCGames Co., Ltd (IMCGames Co., Ltd) -->
+<?xml version='1.0' encoding='utf-8'?>
 <ToolSkill>
 	<Skill Name="Pistol_Attack2">
-		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+		<MainSkl ScrLock="None" JumpFlee="NO" MSPDToUsePos="0" >
 			<EtcList>
-				<Scp Client="YES_Time" Scp="C_FORCE_EFT" Time="100" UseSleep="NO">
-					<Str_Arg Arg="0.5" Str="None"/>
+				<Scp Scp="C_FORCE_EFT" Client="YES_Time" UseSleep="NO" Time="100" >
+					<Str_Arg Str="None" Arg="0.5" />
 					<Str Str="None"/>
-					<Str_Arg Arg="1" Str="I_archer_pistol_atk_smoke"/>
+					<Str_Arg Str="I_archer_pistol_atk_smoke" Arg="1" />
 					<Str Str="arrow_blow"/>
 					<Str Str="DEAD"/>
 					<Num Num="300"/>
@@ -21,8 +20,8 @@
 					<Num Num="1"/>
 					<Num Num="1"/>
 				</Scp>
-				<Scp Client="YES" Scp="C_EFFECT" Time="200" UseSleep="NO">
-					<Str_Arg Arg="2" Str="I_archer_pistol_atk"/>
+				<Scp Scp="C_EFFECT" Client="YES" UseSleep="NO" Time="200" >
+					<Str_Arg Str="I_archer_pistol_atk" Arg="2" />
 					<Str Str="Dummy_effect_pistol_pet" UseFunc="1" FuncTxt="if self == nil then
 return 'Dummy_effect_pistol_pet'
 end
@@ -34,28 +33,31 @@ return 'Dummy_effect_pns_bow_atk';
 end"/>
 					<Num Num="0"/>
 				</Scp>
-				<Scp Client="YES" Scp="C_EFFECT" Time="300" UseSleep="NO">
-					<Str_Arg Arg="1" Str="I_archer_pistol_atk_smoke"/>
+				<Scp Scp="C_EFFECT" Client="YES" UseSleep="NO" Time="300" >
+					<Str_Arg Str="I_archer_pistol_atk_smoke" Arg="1" />
 					<Str Str="Dummy_effect_pistol_R"/>
 					<Num Num="0"/>
 				</Scp>
+			<Scp Scp="SKL_RUN_SCRIPT" Client="NO" UseSleep="NO" Time="0">
+					<Str Str="SCR_VIBORA_PISTOL_Pistol_Attack2"/>
+				</Scp>
 			</EtcList>
 			<ResultList>
-				<ToolScp Client="NO" Scp="S_R_SPEND_SP" UseSleep="NO">
-					<Num FuncTxt="local value = 12; local lv = self.Lv local bylvCorrect = lv - 300 if bylvCorrect &lt; 0 then     bylvCorrect = bylvCorrect * 2.75 / 1000 elseif bylvCorrect &gt;= 0 then     bylvCorrect = bylvCorrect * 1.25 / 1000 end value = value * (1 + bylvCorrect) local abilSchwarzereiter18 = GetAbility(self, 'Schwarzereiter18'); if abilSchwarzereiter18 ~= nil then value = value + 5; end return math.floor(value)" Num="0" UseFunc="1"/>
+				<ToolScp Scp="S_R_SPEND_SP" Client="NO" UseSleep="NO">
+					<Num Num="0" UseFunc="1"FuncTxt="local value = 12; local lv = self.Lv local bylvCorrect = lv - 300 if bylvCorrect &lt; 0 then     bylvCorrect = bylvCorrect * 2.75 / 1000 elseif bylvCorrect >= 0 then     bylvCorrect = bylvCorrect * 1.25 / 1000 end value = value * (1 + bylvCorrect) local abilSchwarzereiter18 = GetAbility(self, 'Schwarzereiter18'); if abilSchwarzereiter18 ~= nil then value = value + 5; end return math.floor(value)"/>
 					<Str Str="None"/>
 					<Str Str="SCR_LIMACON_SPEND_SP"/>
 				</ToolScp>
-				<ToolScp Client="NO" Scp="S_R_COND_ABILITY" UseSleep="NO">
+				<ToolScp Scp="S_R_COND_ABILITY" Client="NO" UseSleep="NO">
 					<Str Str="Schwarzereiter18"/>
 				</ToolScp>
-				<ToolScp Client="NO" Scp="S_R_SET_FORCE_DAMAGE" UseSleep="NO">
+				<ToolScp Scp="S_R_SET_FORCE_DAMAGE" Client="NO" UseSleep="NO">
 					<Num Num="1"/>
 					<Num Num="1"/>
 					<Num Num="2"/>
-					<Str_Arg Arg="1" Str="I_archer_pistol_atk_wildshot"/>
+					<Str_Arg Str="I_archer_pistol_atk_wildshot" Arg="1" />
 					<Str Str="arrow_cast"/>
-					<Str_Arg Arg="1" Str="I_archer_pistol_hit"/>
+					<Str_Arg Str="I_archer_pistol_hit" Arg="1" />
 					<Str Str="arrow_blow"/>
 					<Str Str="SLOW"/>
 					<Num Num="800"/>
@@ -75,12 +77,12 @@ end"/>
 		</MainSkl>
 	</Skill>
 	<Skill Name="Pistol_Attack">
-		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+		<MainSkl ScrLock="None" JumpFlee="NO" MSPDToUsePos="0" >
 			<EtcList>
-				<Scp Client="YES_Time" Scp="C_FORCE_EFT" Time="100" UseSleep="NO">
-					<Str_Arg Arg="0.5" Str="None"/>
+				<Scp Scp="C_FORCE_EFT" Client="YES_Time" UseSleep="NO" Time="100" >
+					<Str_Arg Str="None" Arg="0.5" />
 					<Str Str="None"/>
-					<Str_Arg Arg="1" Str="I_archer_pistol_atk_smoke"/>
+					<Str_Arg Str="I_archer_pistol_atk_smoke" Arg="1" />
 					<Str Str="arrow_blow"/>
 					<Str Str="DEAD"/>
 					<Num Num="300"/>
@@ -94,13 +96,13 @@ end"/>
 					<Num Num="1"/>
 					<Num Num="1"/>
 				</Scp>
-				<Scp Client="YES" Scp="C_EFFECT" Time="200" UseSleep="NO">
-					<Str_Arg Arg="2" Str="I_archer_pistol_atk2"/>
-					<Str FuncTxt="if SKL_CHECK_RIDING_COMPANION_C(self, obj) == 0 then           return 'Dummy_effect_pns_bow_atk'           else           return 'Dummy_effect_pistol_pet';           end" Str="None" UseFunc="1"/>
+				<Scp Scp="C_EFFECT" Client="YES" UseSleep="NO" Time="200" >
+					<Str_Arg Str="I_archer_pistol_atk2" Arg="2" />
+					<Str Str="None" UseFunc="1"FuncTxt="if SKL_CHECK_RIDING_COMPANION_C(self, obj) == 0 then           return 'Dummy_effect_pns_bow_atk'           else           return 'Dummy_effect_pistol_pet';           end"/>
 					<Num Num="0"/>
 				</Scp>
-				<Scp Client="YES" Scp="C_EFFECT" Time="300" UseSleep="NO">
-					<Str_Arg Arg="1" Str="I_archer_pistol_atk_smoke"/>
+				<Scp Scp="C_EFFECT" Client="YES" UseSleep="NO" Time="300" >
+					<Str_Arg Str="I_archer_pistol_atk_smoke" Arg="1" />
 					<Str Str="Dummy_effect_pistol_R"/>
 					<Num Num="0"/>
 				</Scp>

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by IMCGames Co., Ltd (IMCGames Co., Ltd) -->
+<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by IMC (IMCGames Co., Ltd) -->
 <PadSkills>
 	<PadSkill Name="Ancient_Gimmick_Pad_1" CheckerType="0" Range="60" UpdateTerm="1000" ApplyFlyMon="1" AllowOverlap="1" IsMagicType="0" IsMineType="0">
 		<createEvent>
@@ -6398,40 +6398,75 @@ return value;"/>
 			</ToolScp>
 		</createEvent>
 		<enterEvent>
-			<ToolScp Scp="PAD_TGT_BUFF" Client="NO" UseSleep="NO">
+			<ToolScp Scp="PAD_TGT_BUFF_ABIL_OFF" Client="NO" UseSleep="NO">
 				<Str Str="ENEMY"/>
-				<Num Num="0"/>
+				<Str Str="Daoshi28"/>
+                <Num Num="0"/>
 				<Num Num="0"/>
 				<Str Str="StormCalling_Debuff"/>
-				<Num Num="1" UseFunc="1" FuncTxt="return obj.Level"/>
 				<Num Num="0"/>
 				<Num Num="0"/>
 				<Num Num="1"/>
 				<Num Num="100"/>
+            </ToolScp>
+        </enterEvent>
+        <leaveEvent>
+            <ToolScp Scp="PAD_TGT_BUFF_REMOVE" Client="NO" UseSleep="NO">
+                <Str Str="ALL"/>
 				<Num Num="0"/>
-			</ToolScp>
-			<ToolScp Scp="PAD_TGT_BUFF" Client="NO" UseSleep="NO">
+				<Num Num="0"/>
+			<Str Str="StormCalling_Debuff"/>
+            </ToolScp>
+			<ToolScp Scp="PAD_TGT_BUFF_REMOVE" Client="NO" UseSleep="NO">
 				<Str Str="FRIEND"/>
 				<Num Num="0"/>
 				<Num Num="0"/>
 				<Str Str="StormCalling_Buff"/>
 				<Num Num="1"/>
-				<Num Num="0"/>
-				<Num Num="0"/>
-				<Num Num="1"/>
-				<Num Num="100"/>
+				</ToolScp>
+        </leaveEvent>
+        <updateEvent>
+            <ToolScp Scp="PAD_ADD_LIFE" Client="NO" UseSleep="NO">
+                <Num Num="-800"/>
+                <Num Num="0"/>
+				</ToolScp>
+        </updateEvent>
+    </PadSkill>
+    <PadSkill Name="Daoshi_StormCalling_Daoshi28" CheckerType="0" Range="100" UpdateTerm="800" ApplyFlyMon="1" IsMineType="0">
+        <createEvent>
+            <ToolScp Scp="C_PAD_EFFECT_POS" Client="YES" UseSleep="NO">
+                <Str_Arg Str="F_cleric_stormcalling_shot" Arg="0.69999999"/>
+                <Pos Angle="0" Dist="0"/>
+                <Num Num="0"/>
+				<Str_Arg Str="None" Arg="0.60000002"/>
+            </ToolScp>
+            <ToolScp Scp="PAD_ADD_LIFE" Client="NO" UseSleep="NO">
+                <Num Num="10000" UseFunc="1" FuncTxt="return 3000 + obj.Level * 1000;"/>
+                <Num Num="1"/>
+				</ToolScp>
+            <ToolScp Scp="PAD_SET_ARG_NUMBER" Client="NO" UseSleep="NO">
+                <Num Num="0" UseFunc="1" FuncTxt="return obj.Level;"/>
+                <Num Num="0"/>
 				<Num Num="0"/>
 			</ToolScp>
-		</enterEvent>
-		<leaveEvent>
-			<ToolScp Scp="PAD_TGT_BUFF_REMOVE" Client="NO" UseSleep="NO">
-				<Str Str="ALL"/>
+		</createEvent>
+		<enterEvent>
+			<ToolScp Scp="PAD_TGT_BUFF" Client="NO" UseSleep="NO">
+				<Str Str="PARTY"/>
 				<Num Num="0"/>
 				<Num Num="0"/>
-				<Str Str="StormCalling_Debuff"/>
+				<Str Str="StormCalling_Buff"/>
+                <Num Num="1"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+                <Num Num="1"/>
+                <Num Num="100"/>
+                <Num Num="0"/>
 			</ToolScp>
-			<ToolScp Scp="PAD_TGT_BUFF_REMOVE" Client="NO" UseSleep="NO">
-				<Str Str="FRIEND"/>
+			</enterEvent>
+        <leaveEvent>
+            <ToolScp Scp="PAD_TGT_BUFF_REMOVE" Client="NO" UseSleep="NO">
+				<Str Str="PARTY"/>
 				<Num Num="0"/>
 				<Num Num="0"/>
 				<Str Str="StormCalling_Buff"/>
@@ -13834,6 +13869,110 @@ return time"/>
 			</ToolScp>
 		</updateEvent>
 	</PadSkill>
+	<PadSkill Name="Pavise_ReinforceSkill_Buff_Pad" CheckerType="0" Range="30" UpdateTerm="1000" ApplyFlyMon="1" AllowOverlap="1" EnableSearch="0" IsMagicType="0" IsMineType="0">
+		<createEvent>
+			<ToolScp Scp="PAD_ADD_LIFE" Client="NO" UseSleep="NO">
+				<Num Num="15000" UseFunc="1" FuncTxt="local time = 30000
+if IsPVPServer(self) == 1 then
+time = 900000
+end
+local abil = GetAbility(self, &apos;QuarrelShooter24&apos;)
+if abil ~= nil and abil.ActiveState == 1 then
+time = time * 0.5
+end
+return time"/>
+				<Num Num="99999"/>
+			</ToolScp>
+		</createEvent>
+		<destroyEvent>
+			<ToolScp Scp="PAD_REMOVEBUFF_ENEMY" Client="NO" UseSleep="NO">
+				<Str Str="ALL"/>
+				<Num Num="0"/>
+				<Num Num="0"/>
+				<Str Str="DeployPavise_ReinforceSkill_Buff"/>
+			</ToolScp>
+		</destroyEvent>
+		<enterEvent>
+			<ToolScp Scp="PAD_TGT_BUFF" Client="NO" UseSleep="NO">
+				<Str Str="PARTY"/>
+				<Num Num="0"/>
+				<Num Num="0"/>
+				<Str Str="DeployPavise_ReinforceSkill_Buff"/>
+				<Num Num="1"/>
+				<Num Num="0"/>
+				<Num Num="0"/>
+				<Num Num="1"/>
+				<Num Num="100"/>
+			</ToolScp>
+		</enterEvent>
+		<leaveEvent>
+			<ToolScp Scp="PAD_TGT_BUFF_REMOVE" Client="NO" UseSleep="NO">
+				<Str Str="ALL"/>
+				<Num Num="0"/>
+				<Num Num="0"/>
+				<Str Str="DeployPavise_ReinforceSkill_Buff"/>
+				<Num Num="0"/>
+			</ToolScp>
+		</leaveEvent>
+		<updateEvent>
+			<ToolScp Scp="PAD_ADD_LIFE" Client="NO" UseSleep="NO">
+				<Num Num="-1000"/>
+				<Num Num="0"/>
+			</ToolScp>
+		</updateEvent>
+	</PadSkill>
+	<PadSkill Name="Pavise_Crossbow_Buff_Pad" CheckerType="0" Range="80" UpdateTerm="1000" ApplyFlyMon="1" AllowOverlap="1" EnableSearch="0" IsMagicType="0" IsMineType="0">
+		<createEvent>
+			<ToolScp Scp="PAD_ADD_LIFE" Client="NO" UseSleep="NO">
+				<Num Num="15000" UseFunc="1" FuncTxt="local time = 30000
+if IsPVPServer(self) == 1 then
+time = 900000
+end
+local abil = GetAbility(self, &apos;QuarrelShooter24&apos;)
+if abil ~= nil and abil.ActiveState == 1 then
+time = time * 0.5
+end
+return time"/>
+				<Num Num="99999"/>
+			</ToolScp>
+		</createEvent>
+		<destroyEvent>
+			<ToolScp Scp="PAD_REMOVEBUFF_ENEMY" Client="NO" UseSleep="NO">
+				<Str Str="ALL"/>
+				<Num Num="0"/>
+				<Num Num="0"/>
+				<Str Str="DeployPavise_Crossbow_Buff"/>
+			</ToolScp>
+		</destroyEvent>
+		<enterEvent>
+			<ToolScp Scp="PAD_TGT_BUFF" Client="NO" UseSleep="NO">
+				<Str Str="PARTY"/>
+				<Num Num="0"/>
+				<Num Num="0"/>
+				<Str Str="DeployPavise_Crossbow_Buff"/>
+				<Num Num="1"/>
+				<Num Num="0"/>
+				<Num Num="0"/>
+				<Num Num="1"/>
+				<Num Num="100"/>
+			</ToolScp>
+		</enterEvent>
+		<leaveEvent>
+			<ToolScp Scp="PAD_TGT_BUFF_REMOVE" Client="NO" UseSleep="NO">
+				<Str Str="ALL"/>
+				<Num Num="0"/>
+				<Num Num="0"/>
+				<Str Str="DeployPavise_Crossbow_Buff"/>
+				<Num Num="0"/>
+			</ToolScp>
+		</leaveEvent>
+		<updateEvent>
+			<ToolScp Scp="PAD_ADD_LIFE" Client="NO" UseSleep="NO">
+				<Num Num="-1000"/>
+				<Num Num="0"/>
+			</ToolScp>
+		</updateEvent>
+	</PadSkill>
 	<PadSkill Name="Rajatoad_bubble" CheckerType="0" Range="30" IsMagicType="0">
 		<createEvent>
 			<ToolScp Scp="PAD_ADD_LIFE" Client="NO" UseSleep="NO">
@@ -15133,8 +15272,8 @@ return 30000 + obj.Level * 5000"/>
 	<PadSkill Name="Shootpad_RapidFire" CheckerType="0" Range="15" ApplyFlyMon="1" AllowOverlap="1" EnableSearch="0">
 		<createEvent>
 			<ToolScp Scp="PAD_ADD_LIFE" Client="NO" UseSleep="NO">
-				<Num Num="1000"/>
-				<Num Num="99990"/>
+				<Num Num="1200"/>
+				<Num Num="10"/>
 			</ToolScp>
 			<ToolScp Scp="C_PAD_EFFECT_FORCE" Client="YES" UseSleep="NO">
 				<Str_Arg Str="I_archer_RapidFire_arrow2" Arg="0.60000002"/>
@@ -15145,10 +15284,16 @@ return 30000 + obj.Level * 5000"/>
 			<ToolScp Scp="PAD_TGT_DAMAGE" Client="NO" UseSleep="NO">
 				<Str Str="ENEMY"/>
 				<Num Num="1"/>
-				<Num Num="-1000"/>
 				<Num Num="0"/>
+				<Num Num="-1"/>
 			</ToolScp>
 		</enterEvent>
+		<updateEvent>
+			<ToolScp Scp="PAD_ADD_LIFE" Client="NO" UseSleep="NO">
+				<Num Num="-500"/>
+				<Num Num="0"/>
+			</ToolScp>
+		</updateEvent>
 	</PadSkill>
 	<PadSkill Name="Skiaclipse_pad_1" CheckerType="0" Dist="13.071997" Angle="-0.28712228" Range="45" UpdateTerm="100" ApplyFlyMon="1" AllowOverlap="1" EnableSearch="0" IsMineType="0">
 		<createEvent>
@@ -15896,7 +16041,7 @@ return value;"/>
 	<PadSkill Name="Tantaliser_Hard_Debuff_Pad" CheckerType="0" Dist="1597.9393" Angle="-0.11581345" Range="80" ApplyFlyMon="1" AllowOverlap="1" EnableSearch="0" IsMagicType="0" IsMineType="0">
 		<createEvent>
 			<ToolScp Scp="PAD_ADD_LIFE" Client="NO" UseSleep="NO">
-                <Num Num="600000"/>
+				<Num Num="600000"/>
 				<Num Num="1"/>
 			</ToolScp>
 			<ToolScp Scp="C_PAD_EFFECT_POS" Client="YES" UseSleep="NO">

@@ -543,6 +543,12 @@ function SET_QUICK_SLOT(frame, slot, category, type, iesID, makeLog, sendSavePac
 		icon:SetTooltipType("ability");
 		icon:ClearText();
 		SET_ABILITY_TOGGLE_COLOR(icon, type)
+	elseif category == 'Companion' then
+		local monClass = GetClassByType("Monster", type)
+		imageName = monClass.Icon;
+		icon:SetOnCoolTimeUpdateScp('ICON_UPDATE_COMPANION_COOLDOWN');
+		icon:SetColorTone("FFFFFFFF");
+		icon:ClearText();
 	elseif category == 'Item' then
 		QUICKSLOT_SET_GAUGE_VISIBLE(slot, 0);	-- 퀵슬롯에 놓는 것이 아이템이면 게이지를 무조건 안보이게 함
 		local itemIES = GetClassByType('Item', type);
@@ -870,6 +876,11 @@ function QUICKSLOTNEXPBAR_SLOT_USE(frame, slot, argStr, argNum)
 		ICON_USE(icon);
 		return;
 	end
+
+	if iconInfo:GetCategory() == 'Companion' and joystickquickslotRestFrame:IsVisible() == 0 then
+		ICON_USE(icon);
+		return;
+	end
 	
 	if icon:GetStringColorTone() == "FFFF0000" then
 		return;
@@ -1000,6 +1011,9 @@ function QUICKSLOTNEXPBAR_ON_DROP(frame, control, argStr, argNum)
 	elseif iconParentFrame:GetName() == "skillability" then
 		local joystickFrame = ui.GetFrame("joystickquickslot");
 		QUICKSLOT_REGISTER(joystickFrame, iconType, slot:GetSlotIndex() + 1, iconCategory, true);        
+	elseif iconParentFrame:GetName() == "companionlist" then
+		local joystickFrame = ui.GetFrame("joystickquickslot");
+		QUICKSLOT_REGISTER(joystickFrame, iconType, slot:GetSlotIndex() + 1, iconCategory, true); 
     else
         local joystickFrame = ui.GetFrame("joystickquickslot");
 		QUICKSLOT_REGISTER(joystickFrame, iconType, slot:GetSlotIndex() + 1, iconCategory, true);        

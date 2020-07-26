@@ -39,6 +39,11 @@ end
 function MARKET_CLOSE(frame)
 	TRADE_DIALOG_CLOSE();
 	RESET_MARKET_OPTION(frame);
+
+	local marketSellFrame = ui.GetFrame("market_sell");
+	if marketSellFrame ~= nil then
+		MARKET_SELL_FILTER_RESET(marketSellFrame);
+	end
 end
 
 function RECIPE_SEARCH_FIND_PAGE(frame, page)

@@ -1,11 +1,15 @@
 <?xml version='1.0' encoding='utf-8'?>
-<ToolSkill><Skill Name="Bow_Attack">
-		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+<ToolSkill>    <Skill Name="Bow_Attack">
+		<MainSkl ScrLock="None" JumpFlee="NO" MSPDToUsePos="0" >
 			<EtcList>
-				<Scp Client="YES_Time" Scp="C_FORCE_EFT" Time="220" UseSleep="NO">
-					<Str_Arg Arg="0.69999999" Str="I_arrow009#Dummy_Force" />
+				<Scp Scp="C_VOICE_SOUND" Client="YES" UseSleep="NO" Time="100">
+                    <Str Str="voice_archer_m_atk"/>
+                    <Str Str="voice_archer_f_atk"/>
+                </Scp>
+                <Scp Scp="C_FORCE_EFT" Client="YES_Time" UseSleep="NO" Time="220" >
+					<Str_Arg Str="I_arrow009#Dummy_Force" Arg="0.69999999" />
 					<Str Str="arrow_cast" />
-					<Str_Arg Arg="1" Str="None" />
+					<Str_Arg Str="None" Arg="1" />
 					<Str Str="arrow_blow" />
 					<Str Str="DEAD" />
 					<Num Num="800" />
@@ -28,14 +32,14 @@
 		<ByCondSkills>
 			<SubSkl>
 				<Cond>
-					<ToolScp Client="NO" Scp="SKL_SELECT_EQUIP_SH_WEAPON" UseSleep="NO" />
+					<ToolScp Scp="SKL_SELECT_EQUIP_SH_WEAPON" Client="NO" UseSleep="NO" />
 				</Cond>
-				<Skill JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+				<Skill ScrLock="None" JumpFlee="NO" MSPDToUsePos="0" >
 					<EtcList>
-						<Scp Client="YES_Time" Scp="C_FORCE_EFT" Time="220" UseSleep="NO">
-							<Str_Arg Arg="0.75" Str="I_arrow009_1#Dummy_q_Force" />
+						<Scp Scp="C_FORCE_EFT" Client="YES_Time" UseSleep="NO" Time="220" >
+							<Str_Arg Str="I_arrow009_1#Dummy_q_Force" Arg="0.75" />
 							<Str Str="arrow_cast" />
-							<Str_Arg Arg="1" Str="None" />
+							<Str_Arg Str="None" Arg="1" />
 							<Str Str="arrow_blow" />
 							<Str Str="DEAD" />
 							<Num Num="800" />
@@ -117,4 +121,4 @@
 			</SubSkl>
 		</ByCondSkills>
 	</Skill>
-	</ToolSkill>
+</ToolSkill>

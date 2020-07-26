@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ActionDesc>
     <Sound frame="0.00" soundFile="arrow_cast"/>
-    <Sound frame="2.74" soundFile="voice_archer_f_atk"/>
+    <Particle frame="4" attachNode="Dummy_arrowstart" particleName="F_null" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.1" pause="true" use2DEffect="true" targetPos="false"/>
     <Sound frame="4.67" soundFile="arrow_shot"/>
 </ActionDesc>

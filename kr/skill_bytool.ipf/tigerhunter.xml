@@ -260,7 +260,7 @@
                     <Str Str="Tracking_Buff"/>
                     <Num FuncTxt="return obj.Level" Num="1" UseFunc="1"/>
                     <Num Num="0"/>
-                    <Num FuncTxt="local value = 10000 + obj.Level * 4000; local abil = GetAbility(self, &quot;TigerHunter2&quot;); if abil ~= nil and abil.ActiveState == 1 then value = value + 10000; end return value;" Num="0" UseFunc="1"/>
+                    <Num FuncTxt="local value = 20000 + obj.Level * 6000; local abil = GetAbility(self, &quot;TigerHunter2&quot;); if abil ~= nil and abil.ActiveState == 1 then value = value + 10000; end return value;" Num="0" UseFunc="1"/>
                     <Num Num="1"/>
                     <Num Num="100"/>
                     <Num Num="0"/>
@@ -274,6 +274,10 @@
                     <Str_Arg Arg="6" Str="F_smoke179"/>
                     <Str Str="Dummy_emitter"/>
                     <Num Num="0"/>
+                </Scp>
+                <Scp Scp="C_VOICE_SOUND" Client="YES" UseSleep="NO" Time="0">
+                    <Str Str="voice_archer_m_tracking_shot"/>
+                    <Str Str="voice_archer_f_tracking_shot"/>
                 </Scp>
             </EtcList>
         </MainSkl>
@@ -297,8 +301,8 @@
                     <Num Num="1" UseFunc="1" FuncTxt="
 return obj.Level;"/>
                     <Num Num="0"/>
-                    <Num Num="10000" UseFunc="1" FuncTxt="local timeUp = GetExProp(self, 'ITEM_EYEOFBEAST_TIMEUP');
-return 10000 + timeUp;"/>
+                    <Num Num="10000" UseFunc="1" FuncTxt="local value = 20000 + obj.Level * 8000;   local timeUp = GetExProp(self, 'ITEM_EYEOFBEAST_TIMEUP');
+return value + timeUp;"/>
                     <Num Num="1"/>
                     <Num Num="100"/>
                     <Num Num="0"/>
@@ -319,7 +323,11 @@ return 10000 + timeUp;"/>
                 <Scp Client="YES" Scp="C_SOUND" Time="0" UseSleep="NO">
                     <Str Str="skl_eff_Archer_HideBox_eff"/>
                 </Scp>
-                <Scp Client="YES" Scp="C_SOUND" Time="100" UseSleep="NO">
+                <Scp Scp="C_VOICE_SOUND" Client="YES" UseSleep="NO" Time="0">
+                    <Str Str="voice_archer_m_hideshot_shot"/>
+                    <Str Str="voice_archer_f_hideshot_shot"/>
+                </Scp>
+                <Scp Scp="C_SOUND" Client="YES" UseSleep="NO" Time="100">
                     <Str Str="skl_eff_zealot_blindfaith_shot"/>
                 </Scp>
                 <Scp Client="YES" Scp="C_EFFECT" Time="300" UseSleep="NO">
@@ -336,7 +344,7 @@ return 10000 + timeUp;"/>
                     <Num Num="100"/>
                     <Num Num="0"/>
                 </Scp>
-                <Scp Client="NO" Scp="SKL_TGT_REMOVE_DEBUFF" Time="110" UseSleep="NO">
+            <Scp Client="NO" Scp="SKL_TGT_REMOVE_DEBUFF" Time="110" UseSleep="NO">
                     <Str FuncTxt="local func_name = 'get_remove_debuff_tooltip_' .. TryGetProp(obj, 'ClassName', 'None')
                local func = _G[func_name]
                if func == nil then return end

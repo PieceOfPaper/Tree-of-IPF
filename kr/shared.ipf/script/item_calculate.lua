@@ -101,8 +101,8 @@ function GET_COMMON_PROP_LIST()
         'MiddleSize_Def',
         'Leather_Def',
         'Cloth_Def',
-        'Iron_Def'
-        
+        'Iron_Def',
+	'ADD_BOSS_ATK'        
     };
 end
 

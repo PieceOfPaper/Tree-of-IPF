@@ -18,7 +18,7 @@ function ON_DELETE_PET(frame, msg, guid)
 	local barrackName = ui.GetFrame("barrack_charlist");
 	local pccount = barrackName:GetChild("pccount");
 	local buySlot = session.loginInfo.GetBuySlotCount();
-	local myCharCont = myaccount:GetPCCount() + myaccount:GetPetCount();
+	local myCharCont = myaccount:GetPCCount();
 	local barrackCls = GetClass("BarrackMap", myaccount:GetThemaName());
 	pccount:SetTextByKey("curpc", tostring(myCharCont));
 	pccount:SetTextByKey("maxpc", tostring(barrackCls.BaseSlot + buySlot));
@@ -86,7 +86,4 @@ function UPDATE_PET_LIST(barrackMode)
 	end
 
 	GBOX_AUTO_ALIGN(bg, 30, 10, 10, true, false);
-	
-
 end
-

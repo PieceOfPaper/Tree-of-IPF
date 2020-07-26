@@ -208,9 +208,9 @@ function REQ_EVENT_2001_NEWYEAR_SHOP_OPEN()
 end
 
 function REQ_EVENT_2002_FISHING_SHOP_OPEN()
-    local frame = ui.GetFrame("earthtowershop");
-    frame:SetUserValue("SHOP_TYPE", 'FishingShop2002');
-    ui.OpenFrame('earthtowershop');
+    -- local frame = ui.GetFrame("earthtowershop");
+    -- frame:SetUserValue("SHOP_TYPE", 'FishingShop2002');
+    -- ui.OpenFrame('earthtowershop');
 end
 
 function REQ_EVENT_SHOP_OPEN_COMMON(shopType)
@@ -329,8 +329,8 @@ function EARTH_TOWER_INIT(frame, shopType)
         title:SetText('{@st43}'..ScpArgMsg("EVENT_2001_NEWYEAR_SHOP"));
         close:SetTextTooltip(ScpArgMsg('CloseUI{NAME}', 'NAME', ScpArgMsg("EventShop")));
     elseif shopType == 'FishingShop2002' then
-        title:SetText('{@st43}'..ScpArgMsg("EVENT_2002_FISHING_SHOP"));
-        close:SetTextTooltip(ScpArgMsg('CloseUI{NAME}', 'NAME', ScpArgMsg("EventShop")));
+        -- title:SetText('{@st43}'..ScpArgMsg("EVENT_2002_FISHING_SHOP"));
+        -- close:SetTextTooltip(ScpArgMsg('CloseUI{NAME}', 'NAME', ScpArgMsg("EventShop")));
     elseif shopType == "EarthTower2" then
         title:SetText('{@st43}'..ScpArgMsg("EarthTowerShop"));
         close:SetTextTooltip(ScpArgMsg('CloseUI{NAME}', 'NAME', ScpArgMsg("EventShop")));
@@ -875,7 +875,7 @@ function EARTH_TOWER_SHOP_TRADE_ENTER()
     elseif shopType == 'NewYearShop' then
         item.DialogTransaction("EVENT_2001_NEWYEAR_SHOP_1_THREAD1", resultlist, cntText);
     elseif shopType == 'FishingShop2002' then
-        item.DialogTransaction("EVENT_2002_FISHING_SHOP_1_THREAD1", resultlist, cntText);
+        -- item.DialogTransaction("EVENT_2002_FISHING_SHOP_1_THREAD1", resultlist, cntText);
     else
         local strArgList = NewStringList();
         strArgList:Add(shopType);

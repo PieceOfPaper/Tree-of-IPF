@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<uiframe name="companionlist" x="0" y="0" width="305" height="335">
+	<frame fullheight="false" fasthide="true" layout_gravity="right bottom" margin="0 0 350 70" />
+	<draw drawframe="false" drawtitlebar="false"/>
+	<input moveable="true"/>
+	<option visible="false" hideable="true" closebutton="false" moveable="true" alwaysVisible="false" exceptionUpdateUiMode="true"/>
+	<sound opensound="skill_window_open" closesound="skill_window_close"/>
+	<animation frameOpenAnim="chat_balloon_start" frameCloseAnim="chat_balloon_end" margin="-100 -100 0 0"/>
+	<layer layerlevel="92"/>
+	<userconfig TEST_CONFIG="1"/>
+	<controls>
+		<groupbox name="title_bg" rect="0 0 305 333" margin="0 0 0 0" layout_gravity="center top" draw="true" hittestbox="false" resizebyparent="false" resizebyresolution="false" scrollbar="false" skin="collection_complete"/>
+		<richtext name="title" parent="title_bg" rect="0 0 200 30" margin="0 7 0 0" layout_gravity="center top" caption="{@st43b}{s20}컴패니언 목록" fontname="brown_16_b" spacey="0"/>
+		<button name="close" parent="title_bg" rect="0 0 40 40" margin="0 2 5 0" layout_gravity="right top" LBtnUpArgNum="" LBtnUpScp="ui.CloseFrame(&apos;companionlist&apos;)" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" clicksound="button_click_big" image="testclose_button" oversound="button_over"/>
+	    <groupbox name="gb_petlist" rect="0 0 276 272" margin="14 45 0 0" layout_gravity="left top" skin="test_frame_midle" scrollbar="true"/>
+	</controls>
+</uiframe>

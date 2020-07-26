@@ -141,13 +141,12 @@ function INIT_BARRACK_NAME(frame)
 		return;
 	end
 
-	local myCharCont = barrackOwner:GetPCCount() + barrackOwner:GetPetCount();
+	local myCharCont = barrackOwner:GetPCCount();
 	local buySlot = barrackOwner:GetBuySlotCount();
 	local barrackCls = GetClass("BarrackMap", barrackOwner:GetThemaName());
 	pccount:SetTextByKey("curpc", tostring(myCharCont));
 	local maxpcCount = barrackCls.BaseSlot + buySlot;
 	pccount:SetTextByKey("maxpc", tostring(maxpcCount));
-
 
 	local totalBarrackSlotCount = barrackOwner:GetTotalSlotCount();
 	local layercount = GET_CHILD(frame, "layercount", "ui::CRichText");
@@ -216,7 +215,7 @@ function SELECTTEAM_NEW_CTRL(frame, actor)
 
 	teamlevel:SetTextByKey("value", account:GetTeamLevel());
 	local buySlot = myaccount:GetBuySlotCount();
-	local myCharCont = myaccount:GetPCCount() + myaccount:GetPetCount();
+	local myCharCont = myaccount:GetPCCount();
 	local barrackCls = GetClass("BarrackMap", myaccount:GetThemaName());
 	local maxpcCount = barrackCls.BaseSlot + buySlot;
 
@@ -351,7 +350,7 @@ function SELECT_CHARINFO_CHANGE_TARGET_LAYER_CHARACTER(frame, target, inputframe
         return
     end
 
-	barrack.ChangeBarrackTargetLayer(cid, target);
+	barrack.ChangeBarrackTargetLayer(cid, target, false);
 	local frame = ui.GetFrame("barrack_charlist");
 	local scrollBox = frame:GetChild("scrollBox");
 	scrollBox:RemoveAllChild();
@@ -370,7 +369,7 @@ function SELECT_CHARINFO_CHANGE_TARGET_LAYER_COMPANION(frame, target, inputframe
         return
     end
 
-	barrack.ChangeBarrackTargetLayer(cid, target);
+	barrack.ChangeBarrackTargetLayer(cid, target, true);
 	local frame = ui.GetFrame("barrack_charlist");
 	local scrollBox = frame:GetChild("scrollBox");
 	scrollBox:RemoveAllChild();
@@ -671,17 +670,21 @@ function UPDATE_SELECT_CHAR_SCROLL(frame)
 			local detail = GET_CHILD(child,'detailBox','ui::CGroupBox');
 			local mainBox = GET_CHILD(child,'mainBox','ui::CGroupBox');
 			local btn = mainBox:GetChild("btn");
+			local petCnt = GET_CHILD_CNT_BYNAME(child, "attached_pet_");
 
 			if CUR_SELECT_GUID == guid then
-				child:Resize(child:GetWidth(), CHAR_LIST_OPEN_HEIGHT);				
+				local addY = (petCnt * 30);
+				detail:SetOffset(detail:GetOriginalX(), detail:GetOriginalY()+addY); 
+				child:Resize(child:GetWidth(), CHAR_LIST_OPEN_HEIGHT + addY);					
 				detail:ShowWindow(1);
 				btn:SetSkinName('character_on');
 
 			elseif child:GetName() ~= 'char_add' then
-				if GET_CHILD_CNT_BYNAME(child, "attached_pet_") == 0 then
-					child:Resize(child:GetWidth(), CHAR_LIST_CLOSE_HEIGHT-20);
-				else
-					child:Resize(child:GetWidth(), CHAR_LIST_CLOSE_HEIGHT);
+				if petCnt == 0 then
+					child:Resize(child:GetWidth(), CHAR_LIST_CLOSE_HEIGHT - 20);
+				elseif petCnt >= 1 then
+					local height = CHAR_LIST_CLOSE_HEIGHT + ((petCnt-1) * 35) + 5;
+					child:Resize(child:GetWidth(), height);
 				end
 				detail:ShowWindow(0);
 				btn:SetSkinName('character_off');
@@ -887,7 +890,6 @@ function SELECTTEAM_ON_MSG(frame, msg, argStr, argNum, ud)
 		DRAW_BARRACK_MEDAL_COUNT(frame);
 	end
 	SELECTCHAR_RE_ALIGN(frame);
-	--frame:Invalidate();	
 end
 
 function BARRACK_GO_CREATE()
@@ -961,7 +963,7 @@ function SELECTCHARINFO_DELETE_CTRL(frame, obj, argStr, argNum)
 	local pccount = barrackName:GetChild("pccount");
 	pccount:ShowWindow(1);
 	local buySlot = myaccount:GetBuySlotCount();
-	local myCharCont = myaccount:GetPCCount() + myaccount:GetPetCount();
+	local myCharCont = myaccount:GetPCCount();
 	local barrackCls = GetClass("BarrackMap", myaccount:GetThemaName());
 	pccount:SetTextByKey("curpc", tostring(myCharCont));
 	local maxpcCount = barrackCls.BaseSlot + buySlot;
@@ -1182,8 +1184,7 @@ function BARRACK_TO_GAME()
 	if nil == myaccount then
 		return;
 	end
-	local myCharCount = myaccount:GetTotalSlotCount();
-	
+	local myCharCount = myaccount:GetTotalSlotCount();	
 	local buySlot = myaccount:GetBuySlotCount();
 	local barrackCls = GetClass("BarrackMap", myaccount:GetThemaName());
 	local maxCharCount = barrackCls.BaseSlot + buySlot;
@@ -1233,10 +1234,15 @@ function UPDATE_BARRACK_PET_BTN_LIST()
 			local charCtrl = scrollBox:GetChild("char_" .. pcID);
 			if charCtrl ~= nil then
 				
-				local bpcPetCount = charCtrl:GetUserValue("PET_COUNT");
-				
+				local bpcPetCount = charCtrl:GetUserIValue("PET_COUNT");
 				charCtrl:SetUserValue("PET_COUNT", bpcPetCount + 1);
-				local petCtrl = charCtrl:CreateOrGetControlSet('barrack_pet_mini', 'attached_pet_'..pet:GetStrGuid(), 50, 70);
+				local addtionalY = 0;
+				if bpcPetCount > 0 then
+				 	addtionalY = 5;
+				end
+				local height = ui.GetControlSetAttribute("barrack_pet_mini", "height") / 2;
+				local petCtrl = charCtrl:CreateOrGetControlSet('barrack_pet_mini', 'attached_pet_'..pet:GetStrGuid(), 50, 75 + (height * bpcPetCount) + addtionalY );
+				
 				UPDATE_PET_BTN(petCtrl, pet, true);
 			end
 		end

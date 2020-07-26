@@ -1310,3 +1310,10 @@ end
 function WEEKLY_MIRTIS_EFFECT_LEAVE(actor, obj, buff)
     effect.DetachActorEffect(actor, "E_effectitem_mirtis", 0.0);
 end
+
+function HiphopEffect_pre_ENTER(actor, obj, buff)
+end
+
+function HiphopEffect_pre_LEAVE(actor, obj, buff)
+    effect.DetachActorEffect(actor, "E_pc_effectitem_hiphop", 0);
+end

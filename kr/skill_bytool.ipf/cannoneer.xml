@@ -950,10 +950,6 @@
 					<Num Num="100" />
 					<Num Num="0" />
 				</Scp>
-				<Scp Client="NO" Scp="SKL_CHANGE_SKLSUBANIM" Time="0" UseSleep="NO">
-					<Str Str="Cannon_Normal_Attack" />
-					<Str Str="SKL_BAZOOCA_ATK" />
-				</Scp>
 				<Scp Client="NO" Scp="SKL_RESET_COOLTIME" Time="0" UseSleep="NO">
 					<Str Str="Cannoneer_Bazooka" />
 				</Scp>
@@ -978,10 +974,6 @@
 						</Scp>
 						<Scp Client="NO" Scp="SKL_BUFF_REMOVE" Time="0" UseSleep="NO">
 							<Str Str="Bazooka_Buff" />
-						</Scp>
-						<Scp Client="NO" Scp="SKL_CHANGE_SKLSUBANIM" Time="0" UseSleep="NO">
-							<Str Str="Cannon_Normal_Attack" />
-							<Str Str="None" />
 						</Scp>
 					</EtcList>
 				</Skill>

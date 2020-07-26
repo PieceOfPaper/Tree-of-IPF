@@ -94,7 +94,7 @@ function EXEC_MOVE_LAYER_COMPANION(frame, ret, inputframe)
     
     local frame = ui.GetFrame("selectcompanioninfo");
 	local petGuid = frame:GetUserValue("PET_GUID");
-	barrack.ChangeBarrackTargetLayer(petGuid, tonumber(ret))
+	barrack.ChangeBarrackTargetLayer(petGuid, tonumber(ret), true)
 	--parent:ShowWindow(0);
 	ui.SysMsg(ClMsg("MoveBarrackLayer"));
 end

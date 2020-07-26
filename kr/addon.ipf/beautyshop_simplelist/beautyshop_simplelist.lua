@@ -56,10 +56,24 @@ function BEAUTYSHOP_SIMPLELIST_SMALLMODE_REMOVE(parent, control, argStr, argNum)
   local itemCls = GetClass("Item", itemClassName);
   local checkTwoHandWeapon = false;
 	if itemCls ~= nil then
-		checkTwoHandWeapon = BEAUTYSHOP_CHECK_TWOHAND_WEAPON(itemCls)
-		if checkTwoHandWeapon == true then
-			BEAUTYSHOP_RESET_TWOHAND_WEAPON_SLOT(slot)
-		end
+      checkTwoHandWeapon = BEAUTYSHOP_CHECK_TWOHAND_WEAPON(itemCls)
+      if checkTwoHandWeapon == true then
+        BEAUTYSHOP_RESET_TWOHAND_WEAPON_SLOT(slot)
+      end
+
+      local pcSession = session.GetMySession();
+      if pcSession ~= nil then
+      local apc = pcSession:GetPCDummyApc();
+          if previewSlotName == "slotPreview_lh" then
+              gereinforceeffect.SetBeautyShopPreviewEquipItem(apc:GetName(), ES_LH, 0);
+          elseif previewSlotName == "slotPreview_rh" then
+              local eqpType = TryGetProp(itemCls, "EqpType");
+              if eqpType ~= nil and eqpType == "SH" then
+                  gereinforceeffect.SetBeautyShopPreviewEquipItem(apc:GetName(), ES_LH, 0);
+              end
+              gereinforceeffect.SetBeautyShopPreviewEquipItem(apc:GetName(), ES_RH, 0);
+          end
+      end
 	end
   BEAUTYSHOP_CLEAR_SLOT(slot);
   

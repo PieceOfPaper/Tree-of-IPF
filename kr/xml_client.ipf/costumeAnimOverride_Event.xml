@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by IMCGames Co., Ltd (IMCGames Co., Ltd) -->
 <Category>
 	<Gender Name="Male">
 		<Class Costume="shadowmancer01_sp">
@@ -1946,6 +1946,47 @@
 						<Particle frame="5" attachNode="dummy002" particleName="I_fire_wing002" useAttach="true" hiddenObj="false" scale="0.4" pause="true" use2DEffect="true" soft2DValue="20"/>
 						<Particle frame="5" attachNode="dummy003" particleName="I_fire_wing002_1" useAttach="true" hiddenObj="false" scale="0.25" pause="true" use2DEffect="true" soft2DValue="20"/>
 						<Particle frame="5" attachNode="dummy004" particleName="I_fire_wing002_1" useAttach="true" hiddenObj="false" scale="0.25" pause="true" use2DEffect="true" soft2DValue="20"/>
+					</Event>
+				</Job>
+			</Motion>
+		</Class>
+		<Class Costume="accessory_hiphop05">
+			<Motion Name="KNOCKDOWN">
+				<Job Name="All" LoopTime="500">
+					<Event>
+						<Particle frame="0" attachNode="Dummy_emitter" particleName="E_pc_item_accessory_hiphop05" useAttach="true" hiddenObj="false" scale="0.85" pause="true" use2DEffect="true" soft2DValue="20"/>
+					</Event>
+				</Job>
+			</Motion>
+			<Motion Name="Default">
+				<Job Name="All" LoopTime="500">
+					<Event>
+						<Particle frame="0" attachNode="Dummy_emitter" particleName="E_pc_item_accessory_hiphop05" useAttach="true" hiddenObj="false" scale="0.85" pause="true" use2DEffect="true" soft2DValue="20"/>
+					</Event>
+				</Job>
+			</Motion>
+		</Class>
+		<Class Costume="hiphop_pistol">
+			<Motion Name="PNSATK">
+				<Job Name="All" LoopTime="0">
+					<Event>
+						<Particle frame="2" attachNode="Dummy_effect_pistol" particleName="I_pc_item_money_gun_mesh" useAttach="false" hiddenObj="false" scale="1.5" pause="true" use2DEffect="true" soft2DValue="20"/>
+					</Event>
+				</Job>
+			</Motion>
+			<Motion Name="PNSATK_RIDE">
+				<Job Name="All" LoopTime="0">
+					<Event>
+						<Particle frame="2" attachNode="Dummy_effect_pistol_pet" particleName="I_pc_item_money_gun_mesh" useAttach="false" hiddenObj="false" scale="1.5" pause="true" use2DEffect="true" soft2DValue="20"/>
+					</Event>
+				</Job>
+			</Motion>
+		</Class>
+		<Class Costume="hiphop_cannon">
+			<Motion Name="ATK">
+				<Job Name="All" LoopTime="0">
+					<Event>
+						<Particle frame="2" attachNode="Dummy_effect_can_atk" particleName="F_hiphop_cannon_atk01" useAttach="false" hiddenObj="false" scale="0.7" pause="true" use2DEffect="false" soft2DValue="20"/>
 					</Event>
 				</Job>
 			</Motion>
@@ -4209,6 +4250,47 @@
 					<Event>
 						<Particle frame="5" attachNode="dummy001" particleName="I_fire_wing002" useAttach="true" hiddenObj="false" scale="0.4" pause="true" use2DEffect="true" soft2DValue="20"/>
 						<Particle frame="5" attachNode="dummy002" particleName="I_fire_wing002" useAttach="true" hiddenObj="false" scale="0.4" pause="true" use2DEffect="true" soft2DValue="20"/>
+					</Event>
+				</Job>
+			</Motion>
+		</Class>
+		<Class Costume="accessory_hiphop05">
+			<Motion Name="KNOCKDOWN">
+				<Job Name="All" LoopTime="500">
+					<Event>
+						<Particle frame="0" attachNode="Dummy_emitter" particleName="E_pc_item_accessory_hiphop05" useAttach="true" hiddenObj="false" scale="0.85" pause="true" use2DEffect="true" soft2DValue="20"/>
+					</Event>
+				</Job>
+			</Motion>
+			<Motion Name="Default">
+				<Job Name="All" LoopTime="500">
+					<Event>
+						<Particle frame="0" attachNode="Dummy_emitter" particleName="E_pc_item_accessory_hiphop05" useAttach="true" hiddenObj="false" scale="0.85" pause="true" use2DEffect="true" soft2DValue="20"/>
+					</Event>
+				</Job>
+			</Motion>
+		</Class>
+		<Class Costume="hiphop_pistol">
+			<Motion Name="PNSATK">
+				<Job Name="All" LoopTime="0">
+					<Event>
+						<Particle frame="2" attachNode="Dummy_effect_pistol" particleName="I_pc_item_money_gun_mesh" useAttach="false" hiddenObj="false" scale="1.5" pause="true" use2DEffect="true" soft2DValue="20"/>
+					</Event>
+				</Job>
+			</Motion>
+			<Motion Name="PNSATK_RIDE">
+				<Job Name="All" LoopTime="0">
+					<Event>
+						<Particle frame="2" attachNode="Dummy_effect_pistol_pet" particleName="I_pc_item_money_gun_mesh" useAttach="false" hiddenObj="false" scale="1.5" pause="true" use2DEffect="true" soft2DValue="20"/>
+					</Event>
+				</Job>
+			</Motion>
+		</Class>
+		<Class Costume="hiphop_cannon">
+			<Motion Name="ATK">
+				<Job Name="All" LoopTime="0">
+					<Event>
+						<Particle frame="2" attachNode="Dummy_effect_can_atk" particleName="F_hiphop_cannon_atk01" useAttach="false" hiddenObj="false" scale="0.7" pause="true" use2DEffect="false" soft2DValue="20"/>
 					</Event>
 				</Job>
 			</Motion>

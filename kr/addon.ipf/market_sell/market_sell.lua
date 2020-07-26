@@ -56,6 +56,15 @@ function MARKET_SELL_OPEN(frame)
 
 	MARKET_SELL_ITEM_POP_BY_SLOT(frame, nil);
 	CLEAR_SELL_INFO(frame)
+	MARKET_SELL_OPTIONCTRL_INIT(frame);
+end
+
+function MARKET_SELL_OPTIONCTRL_INIT(frame)
+	if frame == nil then return; end
+	local marketFilter = GET_CHILD_RECURSIVELY(frame, "marketfilter");
+	if marketFilter ~= nil then
+		marketFilter:SetTextByKey("option_name", ClMsg("ApplyFilter"));
+	end
 end
 
 function MARKET_SELL_UPDATE_SLOT_ITEM(frame)
@@ -834,4 +843,19 @@ end
 
 function callback_SUCCESS_LOAD_REGISTERED_ITEM_LIST(msg)
 	RequestMarketSellList()
+end
+
+function MARKET_SELL_FILTER(frame, ctrl)
+	if frame == nil or ctrl == nil then return; end
+    local isCheck = ctrl:IsChecked();
+    ui.inventory.ApplyInventoryFilter("inventory", IVF_MARKET_TRADE, isCheck);
+end
+
+function MARKET_SELL_FILTER_RESET(frame)
+	if frame == nil then return; end
+	local option = GET_CHILD_RECURSIVELY(frame, "marketfilter", "ui::CCheckBox");
+	if option ~= nil then
+		option:SetCheck(0);
+	end
+	ui.inventory.ApplyInventoryFilter("inventory", IVF_MARKET_TRADE, 0);
 end

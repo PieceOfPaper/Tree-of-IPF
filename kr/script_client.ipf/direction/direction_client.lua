@@ -1,7 +1,5 @@
-
-
-function DRT_C_PLAY_ANIM(actor, cmd, animName, fixAnim, duplicationPlay, delayTime, passedTime, resetAfterPlay)
-
+﻿
+function DRT_C_PLAY_ANIM(actor, cmd, animName, fixAnim, duplicationPlay, delayTime, passedTime)
 	if fixAnim == nil then
 		fixAnim = 1;
 	end
@@ -19,17 +17,13 @@ function DRT_C_PLAY_ANIM(actor, cmd, animName, fixAnim, duplicationPlay, delayTi
 		startTime = passedTime;
 	end
 
-	if resetAfterPlay ~= nil and resetAfterPlay == 1 then
-		actor:GetAnimation():ResetAnim();
-	end
-
-	local isPubUsePoseActor = customizing_ui.IsPubUsePoseByActor(actor:GetHandleVal());
-	if isPubUsePoseActor == true then
-		local pubUsePoseName = customizing_ui.GetUsePoseName();
-		if pubUsePoseName ~= "None" then
-			animName = pubUsePoseName;
+		local isPubUsePoseActor = customizing_ui.IsPubUsePoseByActor(actor:GetHandleVal());
+		if isPubUsePoseActor == true then
+			local pubUsePoseName = customizing_ui.GetUsePoseName();
+			if pubUsePoseName ~= "None" then
+				animName = pubUsePoseName;
+			end
 		end
-	end
 
 	actor:GetAnimation():PlayFixAnim(animName, 1.0, fixAnim, 1, delayTime, skipIfExist, false, startTime);
 end

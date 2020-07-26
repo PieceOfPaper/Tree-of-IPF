@@ -3,7 +3,7 @@
 <uiframe name="minepvpscoreboard" x="10" y="30" width="700" height="200" hud="true">
 	<frame layout_gravity="center top" scale_align="center top" margin="-30 30 0 0" keyboardselectframe="false"/>
 	<input maxwidth="1080" moveable="false" hittestframe="false" moveintitlebar="false"/>
-	<layer layerlevel="60"/>
+	<layer layerlevel="39"/>
 	<option visible="false" hideable="false" closebutton="false" alwaysVisible="false"/>
 	<draw drawnotitlebar="false" drawtitlebar="false" drawframe="false"/>
 	<script LBtnUpScp="MINEPVP_LBTN_UP"/>

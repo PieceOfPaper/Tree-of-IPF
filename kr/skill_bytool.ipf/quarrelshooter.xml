@@ -73,7 +73,7 @@
 					<Num Num="0" />
 				</Scp>
 				<Scp Client="NO" Scp="SKL_CANCEL_IF_NOTARGET" Time="300" UseSleep="NO" />
-				<Scp Client="NO" Scp="TGT_SKL_KILL" Time="300" UseSleep="NO" />
+                <Scp Client="NO" Scp="TGT_TEARDOWN_SKL_KILL" Time="300" UseSleep="NO" />
 				<Scp Client="YES" Scp="C_SHOCKWAVE" Time="350" UseSleep="NO">
 					<Num Num="5" />
 					<Num Num="1" />
@@ -83,8 +83,8 @@
 				<Scp Client="NO" Scp="SKL_TARGET_RESET" Time="400" UseSleep="NO" />
 				<Scp Client="NO" Scp="SKL_SET_TARGET_FAN" Time="400" UseSleep="NO">
 					<Pos Angle="0" Dist="0" />
-					<Num Num="30" />
-					<Num Num="100" />
+                    <Num Num="50" />
+                    <Num Num="140" />
 					<Num Num="50" />
 					<Num Num="2" />
 					<Num Num="0" />
@@ -158,26 +158,6 @@
                     <MonProp />
                     <Str Str="SCR_SUMMON_PAVISE" />
                 </Scp>
-				<Scp Client="NO" Scp="SKL_CHANGE_SKLSUBANIM" Time="0" UseSleep="NO">
-					<Str Str="Bow_Attack" />
-					<Str Str="SKL_KNEELINGSHOT_ATK" />
-				</Scp>
-				<Scp Client="NO" Scp="SKL_CHANGE_SKLSUBANIM" Time="0" UseSleep="NO">
-					<Str Str="CrossBow_Attack" />
-					<Str Str="SKL_KNEELINGSHOT_ATK" />
-				</Scp>
-				<Scp Client="NO" Scp="SKL_CHANGE_SKLSUBANIM" Time="0" UseSleep="NO">
-					<Str Str="Pistol_Attack" />
-					<Str Str="SKL_KNEELINGSHOT_ATK" />
-				</Scp>
-				<Scp Client="NO" Scp="SKL_CHANGE_SKLSUBANIM" Time="0" UseSleep="NO">
-					<Str Str="Musket_Attack" />
-					<Str Str="SKL_KNEELINGSHOT_ATK" />
-				</Scp>
-				<Scp Client="NO" Scp="SKL_CHANGE_SKLSUBANIM" Time="0" UseSleep="NO">
-					<Str Str="Cannon_Normal_Attack" />
-					<Str Str="SKL_KNEELINGSHOT_ATK" />
-				</Scp>
 				<Scp Client="NO" Scp="SKL_RESET_COOLTIME" Time="0" UseSleep="NO">
 					<Str Str="QuarrelShooter_Kneelingshot" />
 				</Scp>
@@ -201,26 +181,6 @@
 						</Scp>
 						<Scp Client="NO" Scp="SKL_BUFF_REMOVE" Time="0" UseSleep="NO">
 							<Str Str="Archer_Kneelingshot" />
-						</Scp>
-						<Scp Client="NO" Scp="SKL_CHANGE_SKLSUBANIM" Time="0" UseSleep="NO">
-							<Str Str="Bow_Attack" />
-							<Str Str="None" />
-						</Scp>
-						<Scp Client="NO" Scp="SKL_CHANGE_SKLSUBANIM" Time="0" UseSleep="NO">
-							<Str Str="CrossBow_Attack" />
-							<Str Str="None" />
-						</Scp>
-						<Scp Client="NO" Scp="SKL_CHANGE_SKLSUBANIM" Time="0" UseSleep="NO">
-							<Str Str="Pistol_Attack" />
-							<Str Str="None" />
-						</Scp>
-						<Scp Client="NO" Scp="SKL_CHANGE_SKLSUBANIM" Time="0" UseSleep="NO">
-							<Str Str="Musket_Attack" />
-							<Str Str="None" />
-						</Scp>
-						<Scp Client="NO" Scp="SKL_CHANGE_SKLSUBANIM" Time="0" UseSleep="NO">
-							<Str Str="Cannon_Normal_Attack" />
-							<Str Str="None" />
 						</Scp>
 					</EtcList>
 				</Skill>
@@ -297,6 +257,17 @@
 					<Num Num="0" />
 				</Scp>
 			</EtcList>
+            <ResultList>
+                <ToolScp Client="NO" Scp="S_R_TGTBUFF" UseSleep="NO">
+                    <Str Str="RapidFire_Debuff" />
+                    <Num FuncTxt="return skill.Level" Num="1" UseFunc="1" />
+                    <Num Num="0" />
+                    <Num Num="10000" />
+                    <Num Num="1" />
+                    <Num Num="100" />
+                    <Num Num="-1" />
+                </ToolScp>
+            </ResultList>
 		</MainSkl>
 	</Skill>
 	<Skill Name="QuarrelShooter_ScatterCaltrop">

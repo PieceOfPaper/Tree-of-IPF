@@ -1,4 +1,5 @@
 ClassID,UnlockArgNum,MaxLevel,Price1,Time1,Price2,Time2,Price3,Time3,Price4,Time4,Price5,Time5,Price6,Time6,Price7,Time7,Price8,Time8,Price9,Time9,Price10,Time10,ClassName,UnlockScr,UnlockArgStr,UnlockDesc,ScrCalcPrice
+1,1,3,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,"Daoshi29","UNLOCK_BASE_LEVEL","","캐릭터 1레벨 이상","ABIL_COMMON_PRICE_1LV"
 101,1,100,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,"Daoshi9","UNLOCK_ABIL_SKILL","Daoshi_BegoneDemon","급급여율령 1레벨 이상","ABIL_REINFORCE_PRICE"
 601,1,100,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,"Daoshi11","UNLOCK_ABIL_SKILL","Daoshi_DivinePunishment","천형부 1레벨 이상","ABIL_REINFORCE_PRICE"
 602,300,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,"Daoshi14","UNLOCK_BASE_LEVEL","","캐릭터 300레벨 이상","ABIL_COMMON_PRICE_300LV"
@@ -6,8 +7,10 @@ ClassID,UnlockArgNum,MaxLevel,Price1,Time1,Price2,Time2,Price3,Time3,Price4,Time
 901,1,100,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,"Daoshi15","UNLOCK_ABIL_SKILL","Daoshi_LightningCharm","취전부 1레벨 이상","ABIL_REINFORCE_PRICE"
 1001,1,100,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,"Daoshi16","UNLOCK_ABIL_SKILL","Daoshi_StormCalling","호풍환우부 1레벨 이상","ABIL_REINFORCE_PRICE"
 1002,350,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,"Daoshi17","UNLOCK_BASE_LEVEL","","캐릭터 350레벨 이상","ABIL_COMMON_PRICE_350LV"
+1003,350,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,"Daoshi28","UNLOCK_BASE_LEVEL","","캐릭터 350레벨 이상","ABIL_COMMON_PRICE_350LV"
 1101,1,100,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,"Daoshi18","UNLOCK_ABIL_SKILL","Daoshi_CreepingDeath","파사부 1레벨 이상","ABIL_REINFORCE_PRICE"
 1201,1,100,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,"Daoshi19","UNLOCK_ABIL_SKILL","Daoshi_TriDisaster","삼재부 1레벨 이상","ABIL_REINFORCE_PRICE"
+1202,10,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,"Daoshi27","UNLOCK_ABIL_SKILL","Daoshi_TriDisaster","삼재부 10레벨 이상","ABIL_REINFORCE_PRICE"
 1301,45,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,"Daoshi20","UNLOCK_ABIL_JOB_LEVEL","Char2_21","도사 클래스 45 레벨 달성","HIDDENABIL_PRICE_COND_JOBLEVEL"
 1401,45,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,"Daoshi21","UNLOCK_ABIL_JOB_LEVEL","Char2_21","도사 클래스 45 레벨 달성","HIDDENABIL_PRICE_COND_JOBLEVEL"
 1402,65,20,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,"Daoshi22","UNLOCK_ABIL_OTHERABILITY","Daoshi16","[호풍환우부: 강화] 특성 65 레벨 달성","HIDDENABIL_PRICE_COND_REINFORCE"

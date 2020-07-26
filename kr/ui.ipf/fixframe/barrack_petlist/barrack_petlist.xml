@@ -10,6 +10,6 @@
         <labelline name="LL" margin="-10 40 0 0" rect="0 0 350 4" skin="None" layout_gravity="center top"/>
         <groupbox name="bg" margin="-25 20 0 0" rect="0 0 390 880" hittestbox="false" skin="bg" layout_gravity="left top" draw="false" resizebyresolution="true"/>
         <picture name="signboard" rect="0 0 346 50" margin="-19 0 0 0" layout_gravity="center top" image="barrack_ace"/>
-        <richtext name="richtext_1" margin="-19 18 0 0" rect="0 0 200 24" caption="{@st41}컴패니언{/}" layout_gravity="center top" textalign="center center" resizebytext="true" spacey="0" maxwidth="0" fontname="white_16_ol" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false"/>
+        <richtext name="richtext_1" margin="-19 18 0 0" rect="0 0 200 24" format="{@st41}컴패니언{/}" layout_gravity="center top" textalign="center center" resizebytext="true" spacey="0" maxwidth="0" fontname="white_16_ol" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false"/>
     </controls>
 </uiframe>
