@@ -300,9 +300,9 @@ function get_tooltip_Ark_punishment_arg2()
     return 3, 'ARK_PUNISHMENT_RATIO', 3, 2, 30
 end
 
--- 세번째 옵션, 천벌 계수 5레벨당 5%씩 오른다. 총 10회, 20 + (6 * 5) = 50%
+-- 세번째 옵션, 천벌 계수 5레벨당 5%씩 오른다. 총 10회, 70 + (6 * 5) = 100%
 function get_tooltip_Ark_punishment_arg3()
-    return 3, 'ARK_PUNISHMENT_ATTACK', 5, 5, 30
+    return 3, 'ARK_PUNISHMENT_ATTACK', 5, 5, 70
 end
 
 -------------- 아크 - 제압 ----------------

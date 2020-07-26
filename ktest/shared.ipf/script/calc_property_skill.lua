@@ -7206,15 +7206,15 @@ end
 
 function SCR_GET_StoneSkin_Ratio(skill)
     local pc = GetSkillOwner(skill);
-    local value = skill.Level * 0.4
+    local value = skill.Level * 0.65
     local abilPaladin33 = GetAbility(pc, "Paladin33")
     if abilPaladin33 ~= nil and TryGetProp(abilPaladin33, "ActiveState", 0) == 1 then
-        value = skill.Level
+        value = skill.Level * 1.3
     end
 
     local abilPaladin34 = GetAbility(pc, "Paladin34")
     if abilPaladin34 ~= nil and TryGetProp(abilPaladin34, "ActiveState", 0) == 1 then
-        value = skill.Level
+        value = skill.Level * 1.3
     end
 
     value = value * SCR_REINFORCEABILITY_TOOLTIP(skill)

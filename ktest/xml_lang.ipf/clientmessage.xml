@@ -10257,7 +10257,7 @@
 		<Class ClassID="111289" ClassName="Ark_punishment_desc{base1}{base2}" Data="[천벌효과] 10초내 다음 3회의 공격은 입힌 피해의 천벌공격 계수 만큼의 추가 물리피해를 발생시킴(천벌효과중엔 천벌효과가 발생하지 않음, 맵 이동시에 사라짐){nl}[천벌 발동] 공격 스킬 계수에 비례하여 최대 발동확률까지 증가{nl}3레벨 달성시 최대 천벌효과 발동 확률 +{base1}%{nl}3레벨 달성시 천벌공격 계수 +{base2}%"/>
 		<Class ClassID="111290" ClassName="HR_BLK_BREAK_BM" Data="명중, 블럭 관통"/>
 		<Class ClassID="111291" ClassName="ARK_OVERPOWER_OVERDUE" Data="연체이자 비율"/>
-		<Class ClassID="111292" ClassName="Ark_overpower_desc{base1}{base2}" Data="[연체이자 부여] 3레벨 달성시 방패를 착용한 캐릭터를 대상으로 블록 관통을 성공하면 대상에게 입힌 피해의 연체이자 비율만큼 연체이자 부여{nl}[연체이자] 먼저 갚아야할 대미지(빚)을 의미합니다. 연체이자가 누적되어 있는 동안 적에게 입히는 피해의 50%는 연체이자부터 차감하여 피해를 가함(연체이자를 부여 받은 시점으로부터 20초가 경과하거나, 맵 이동시에 사라짐, 연체이자를 부여받을때마다 연체이자의 자동 소멸시점이 20초 후로 연기됨){nl}3레벨 달성시 명중/블록 관통 +{base1}{nl}3레벨 달성시 연체이자 비율 +{base2}%"/>
+		<Class ClassID="111292" ClassName="Ark_overpower_desc{base1}{base2}" Data="3레벨 달성시, 방패를 착용한 캐릭터에게 블록 관통을 성공할 때마다 대상에게 20초간 [연체이자] 부여{nl}3레벨 달성시 명중/블록 관통 +{base1}{nl}3레벨 달성시 연체이자 비율 +{base2}%{nl}[연체이자] 적에게 가하는 피해의 50%가 연체이자만큼 감소하며, 감소한 양만큼 연체이자가 차감됩니다. 연체이자는 20초가 지나거나 맵을 이동하면 사라지지만, 사라지기 이전에 연체이자가 쌓이게 되면 이전 누적분의 지속시간이 갱신됩니다."/>
 		<Class ClassID="111293" ClassName="MaxWeight_BM" Data="휴대 가능무게"/>
 	</Category>
 	<Category Name="Quest">
