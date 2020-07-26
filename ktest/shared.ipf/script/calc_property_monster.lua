@@ -469,6 +469,10 @@ function SCR_Get_MON_HR(self)
     local raceTypeRate = SCR_RACE_TYPE_RATE(self, "HR");
     
     local value = byLevel * raceTypeRate;
+    --Statbase_monster_type--
+    local statTypeRate = SCR_MON_STAT_RATE(self, "HR")
+    statTypeRate = statTypeRate / 100;
+    value = value * statTypeRate;
     
     local byBuff = TryGetProp(self, "HR_BM", 0);
     
@@ -499,6 +503,10 @@ function SCR_Get_MON_DR(self)
     local raceTypeRate = SCR_RACE_TYPE_RATE(self, "DR");
     
     local value = byLevel * raceTypeRate;
+    --Statbase_monster_type--
+    local statTypeRate = SCR_MON_STAT_RATE(self, "DR")
+    statTypeRate = statTypeRate / 100;
+    value = value * statTypeRate;
     
     local byBuff = TryGetProp(self, "DR_BM", 0);
     
@@ -530,6 +538,10 @@ function SCR_Get_MON_CRTHR(self)
     local raceTypeRate = SCR_RACE_TYPE_RATE(self, "CRTHR");
     
     local value = byLevel * raceTypeRate;
+    --Statbase_monster_type--
+    local statTypeRate = SCR_MON_STAT_RATE(self, "CRTHR")
+    statTypeRate = statTypeRate / 100;
+    value = value * statTypeRate;
     
     local byBuff = TryGetProp(self, "CRTHR_BM", 0);
     
@@ -556,6 +568,10 @@ function SCR_Get_MON_CRTDR(self)
     local raceTypeRate = SCR_RACE_TYPE_RATE(self, "CRTDR");
     
     local value = byLevel * raceTypeRate;
+    --Statbase_monster_type--
+    local statTypeRate = SCR_MON_STAT_RATE(self, "CRTDR")
+    statTypeRate = statTypeRate / 100;
+    value = value * statTypeRate;
     
     local byBuff = TryGetProp(self, "CRTDR_BM", 0);
 	
@@ -903,6 +919,10 @@ function SCR_Get_MON_BLK(self)
     local raceTypeRate = SCR_RACE_TYPE_RATE(self, "BLK");
     
     local value = byLevel * raceTypeRate;
+    --Statbase_monster_type--
+    local statTypeRate = SCR_MON_STAT_RATE(self, "BLK")
+    statTypeRate = statTypeRate / 100;
+    value = value * statTypeRate;
     
     local byBuff = TryGetProp(self, "BLK_BM", 0);
 	
@@ -929,6 +949,10 @@ function SCR_Get_MON_BLK_BREAK(self)
     local raceTypeRate = SCR_RACE_TYPE_RATE(self, "BLK_BREAK");
     
     local value = byLevel * raceTypeRate;
+    --Statbase_monster_type--
+    local statTypeRate = SCR_MON_STAT_RATE(self, "BLK_BREAK")
+    statTypeRate = statTypeRate / 100;
+    value = value * statTypeRate;
     
     local byBuff = TryGetProp(self, "BLK_BREAK_BM", 0);
     

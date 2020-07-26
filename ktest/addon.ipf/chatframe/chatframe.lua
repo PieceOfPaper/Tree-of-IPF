@@ -382,8 +382,38 @@ function DRAW_CHAT_MSG(groupboxname, startindex, chatframe, removeChatIDList)
 
 			local fontSize = GET_CHAT_FONT_SIZE();
 			local tempfontSize = string.format("{s%s}", fontSize);
+			local spinePic = nil;
 			
-			chatCtrl = groupbox:CreateOrGetControlSet('chatTextVer', clustername, ui.LEFT, ui.TOP, marginLeft, ypos , marginRight, 1);
+			local tempMsg = clusterinfo:GetMsg()
+			if config.GetXMLConfig("EnableChatFrameMotionEmoticon") == 1 and string.find(tempMsg, "{spine motion_") ~= nil then
+				chatCtrl = groupbox:CreateOrGetControlSet('chatSpineVer', clustername, ui.LEFT, ui.TOP, marginLeft, ypos , marginRight, 1);
+				
+				local strlist = StringSplit(tempMsg, ' ');
+				local emoCls = GetClass('chat_emoticons', strlist[2]);
+				if emoCls == nil then
+					return;
+				end
+				
+				local spineToolTip = emoCls.IconSpine;
+				local spineInfo = geSpine.GetSpineInfo(spineToolTip);
+				
+				spinePic = GET_CHILD(chatCtrl, "spinePic");
+				spinePic:SetIsDurationTime(true);
+				spinePic:SetDurationTime(emoCls.IconSpineDurationTime);
+				spinePic:SetScaleFactor(emoCls.IconSpineScale);
+				spinePic:SetOffsetX(spineInfo:GetOffsetX());
+				spinePic:SetOffsetY(spineInfo:GetOffsetY());
+				spinePic:CreateSpineActor(spineInfo:GetRoot(), spineInfo:GetAtlas(), spineInfo:GetJson(), "", spineInfo:GetAnimation());
+				spinePic:SetUserValue("EMOTICON_CLASSNAME", strlist[2]);
+				if startindex == 0 and size ~= 0 then
+					spinePic:SetIsStopAnim(true);	-- 존 이동 시 이전 모션 이모티콘 들은 정지 상태로 변경		
+				end
+								
+				chatframe:RunUpdateScript("CHAT_FRAME_UPDATE");
+			else
+				chatCtrl = groupbox:CreateOrGetControlSet('chatTextVer', clustername, ui.LEFT, ui.TOP, marginLeft, ypos , marginRight, 1);
+			end
+
 
 			chatCtrl:EnableHitTest(1);
 			chatCtrl:EnableAutoResize(true,false);
@@ -496,9 +526,8 @@ function DRAW_CHAT_MSG(groupboxname, startindex, chatframe, removeChatIDList)
 				end
 
 				msgFront = string.format("[%s]", ScpArgMsg("ChatType_7"));			
-			end	
+			end
 
-			local tempMsg = clusterinfo:GetMsg()
 			if msgType == "friendmem" or  msgType == "guildmem" or msgType == "partymem" then
 				msgString = string.format("{%s}%s{nl}",msgFront, tempMsg);		
 			else			
@@ -507,11 +536,14 @@ function DRAW_CHAT_MSG(groupboxname, startindex, chatframe, removeChatIDList)
 
 			msgString = string.format("%s{/}", msgString);	
 			txt:SetTextByKey("font", fontStyle);				
-			txt:SetTextByKey("size", fontSize);				
+			txt:SetTextByKey("size", fontSize);
 			txt:SetTextByKey("text", CHAT_TEXT_LINKCHAR_FONTSET(mainchatFrame, msgString));
 			timeCtrl:SetTextByKey("time", clusterinfo:GetTimeStr());
 			
 			txt:EnableHitTest(1);
+			if spinePic ~= nil then
+				spinePic:SetMargin(txt:GetWidth() - 110, 0, 0, 0);
+			end
 		
 			RESIZE_CHAT_CTRL(groupbox, chatCtrl, label, txt, timeCtrl, offsetX);
 		end																									
@@ -738,7 +770,8 @@ function CHAT_TEXT_LINKCHAR_FONTSET(frame, msg)
 	
 	local fontStyle = frame:GetUserConfig("TEXTCHAT_FONTSTYLE_LINK");
 	local resultStr = string.gsub(msg, "({#%x+}){img", fontStyle .. "{img");
-	if string.find(resultStr, "{spine motion_") ~= nil then
+	-- 모션 이모티콘 채팅창에서는 이미지 이모티콘으로 출력
+	if config.GetXMLConfig("EnableChatFrameMotionEmoticon") == 0 and string.find(resultStr, "{spine motion_") ~= nil then
 		resultStr = string.gsub(msg, "{spine motion_", "{img ");
 	end
 
@@ -1079,4 +1112,21 @@ function CHAT_SET_CHAT_FRAME_OPACITY(chatFrame, colorToneStr)
 		end
 	end
 
+end
+
+function CHAT_FRAME_UPDATE(parent, ctrl)
+	parent:Invalidate();
+	return 1;
+end
+
+-- 모션 이모티콘 클릭시 다시 동작
+function MOTION_EMOTICON_ON(parent, ctrl)
+	local classname = ctrl:GetUserValue("EMOTICON_CLASSNAME");
+	local emoCls = GetClass('chat_emoticons', classname);
+	if emoCls == nil then
+		return;
+	end
+
+	ctrl:SetIsStopAnim(false);
+	ctrl:SetDurationTime(emoCls.IconSpineDurationTime);
 end

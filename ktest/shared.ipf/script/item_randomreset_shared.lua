@@ -164,6 +164,38 @@ function IS_ENABLE_APPLY_JEWELL(jewell, targetItem)
 	return true;
 end
 
+-- 아이템 툴팁 인챈트 불가 표시
+function IS_ENABLE_APPLY_JEWELL_TOOLTIPTEXT(targetItem)
+
+	local itemStarCheck = TryGetProp(targetItem , 'ItemStar')
+	if itemStarCheck < 0 then
+	    return false, 'Type';
+	end
+	
+	if IS_NEED_APPRAISED_ITEM(targetItem) == true or IS_NEED_RANDOM_OPTION_ITEM(targetItem) == true then 
+		return false, 'NeedRandomOption';
+	end
+	
+	local woodCarvingCheck = TryGetProp(targetItem , 'StringArg')
+	if woodCarvingCheck == 'WoodCarving' then
+	    return false, 'WoodCarving';
+	end
+	
+	if targetItem.ItemLifeTimeOver > 0 or tonumber(targetItem.LifeTime) > 0 then
+		return false, 'LimitTime';
+	end
+		
+    local classType = TryGetProp(targetItem, 'ClassType');
+    local classList = {'Seal', 'Ark','Ring' , 'Neck'}
+    for i = 1, #classList do
+        if classList[i] == classType then
+	        return false, 'Type';
+	    end
+	end
+	
+end
+
+
 function CHECK_NEED_RANDOM_OPTION(item)
 	if item == nil then
 		return false;

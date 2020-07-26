@@ -1,6 +1,23 @@
 -- toolskill_input.lua
 
-function SKL_KEY_DYNAMIC_CASTING(actor, obj, dik, movable, rangeChargeTime, maxChargeTime, autoShot, rotateAble, loopingCharge, gotoSkillUse, execByKeyDown, upAbleSec, useDynamicLevel, isVisivle, isFullCharge, effectName, scale, nodeName, lifeTime, shockwave, intensity, time, frequency, angle, quickCast, checkState, hitCancel)
+function SKL_KEY_DYNAMIC_CASTING(actor, obj, dik, movable, rangeChargeTime, maxChargeTime, autoShot, rotateAble, loopingCharge, gotoSkillUse, execByKeyDown, upAbleSec, useDynamicLevel, isVisivle, isFullCharge, effectName, scale, nodeName, lifeTime, shockwave, intensity, time, frequency, angle, quickCast, hitCancel, buffName, abilName)
+
+	if buffName ~= nil and type(buffName) == 'string' and buffName ~= 'None' then
+		local buff = info.GetBuffByName(session.GetMyHandle(), buffName);
+		if buff ~= nil then
+			return 0, 1;
+		end
+	end
+
+	if abilName ~= nil and type(abilName) == 'string' and abilName ~= 'None' then
+		local abil = session.GetAbilityByName(abilName);
+		if abil ~= nil then
+			local obj = GetIES(abil:GetObject());
+			if obj.ActiveState == 1 then
+				return 0, 1;
+			end
+		end
+	end
 
 	if isVisivle == nil then
 		isVisivle = 1;
@@ -80,7 +97,24 @@ function SKL_KEY_SELECT_CELL(actor, obj, dik, cellCount, cellSize, chargeTime, a
 	return 1;
 end
 
-function SKL_KEY_GROUND_EVENT(actor, obj, dik, chargeTime, autoShot, shotCasting, lookTargetPos, selRange, upAbleSec, useDynamicLevel, isVisivle, isFullCharge, effectName, scale, nodeName, lifeTime, shockWave, shockPower, shockTime, shockFreq, shockAngle, onlyMouseMode, quickCast, hitCancel, buffName, abilName, isScroll)
+function SKL_KEY_GROUND_EVENT(actor, obj, dik, chargeTime, autoShot, shotCasting, lookTargetPos, selRange, upAbleSec, useDynamicLevel, isVisivle, isFullCharge, effectName, scale, nodeName, lifeTime, shockWave, shockPower, shockTime, shockFreq, shockAngle, onlyMouseMode, quickCast, hitCancel, buffName, abilName)
+
+	if buffName ~= nil and type(buffName) == 'string' and buffName ~= 'None' then
+		local buff = info.GetBuffByName(session.GetMyHandle(), buffName);
+		if buff ~= nil then
+			return 0, 1;
+		end
+	end
+
+	if abilName ~= nil and type(abilName) == 'string' and abilName ~= 'None' then
+		local abil = session.GetAbilityByName(abilName);
+		if abil ~= nil then
+			local obj = GetIES(abil:GetObject());
+			if obj.ActiveState == 1 then
+				return 0, 1;
+			end
+		end
+	end
 
 	if onlyMouseMode == 1 and session.config.IsMouseMode() == false then
 		geSkillControl.SendGizmoPosByCurrentTarget(actor, obj.type);
@@ -141,25 +175,7 @@ function SKL_KEY_GROUND_EVENT(actor, obj, dik, chargeTime, autoShot, shotCasting
 	    quickCast = 0;
 	end
 
-	if isScroll == nil or isScroll == 0 then
-		isScroll = false;
-	end
-
-	if abilName ~= nil then
-		local abil = session.GetAbilityByName(abilName);
-		if abil ~= nil then
-			local obj = GetIES(abil:GetObject());
-			if obj.ActiveState == 1 then
-				return 0, 1;
-			end
-		end
-	end
-
-	if isScroll == nil or isScroll == 0 then
-		isScroll = false;
-	end
-
-	geSkillControl.GroundSelecting(actor, obj.type, dik, chargeTime, autoShot, shotCasting, lookTargetPos, selRange, upAbleSec, isVisivle, useDynamicLevel, isFullCharge, effectName, nodeName, lifeTime, scale,1,1,1, shockwave, intensity, time, frequency, angle, nil, quickCast, isScroll);
+	geSkillControl.GroundSelecting(actor, obj.type, dik, chargeTime, autoShot, shotCasting, lookTargetPos, selRange, upAbleSec, isVisivle, useDynamicLevel, isFullCharge, effectName, nodeName, lifeTime, scale,1,1,1, shockwave, intensity, time, frequency, angle, nil, quickCast);
 
 	if nil ~= hitCancel and hitCancel == 1 then
 		actor:SetHitCancelCast(true)
@@ -168,8 +184,7 @@ function SKL_KEY_GROUND_EVENT(actor, obj, dik, chargeTime, autoShot, shotCasting
 	return 1, 0;
 end
 
-function SKL_KEY_SNIPE(actor, obj, dik, chargeTime, autoShot, shotCasting, lookTargetPos, selRange, upAbleSec, useDynamicLevel, isVisivle, isFullCharge, effectName, scale, nodeName, lifeTime, shockWave, shockPower, 
-shockTime, shockFreq, shockAngle, onlyMouseMode, hitCancel)
+function SKL_KEY_SNIPE(actor, obj, dik, chargeTime, autoShot, shotCasting, lookTargetPos, selRange, upAbleSec, useDynamicLevel, isVisivle, isFullCharge, effectName, scale, nodeName, lifeTime, shockWave, shockPower, shockTime, shockFreq, shockAngle, onlyMouseMode, hitCancel)
 
 	local time = 0;
 	local frequency = 0;
@@ -221,57 +236,23 @@ function SKL_SKILL_REUSE_ON_BTN_UP(actor, obj, dik, buffName)
 	return 0;
 end
 
-function SKL_PARTY_TARGET_BY_KEY(actor, obj, dik, showHPGauge, isScroll)
-
-	local abil = session.GetAbilityByName("Cleric30");
-	if abil ~= nil then
-		local obj = GetIES(abil:GetObject());
-		if obj ~= nil and obj.ActiveState == 1 then
-			return 0, 1;
+function SKL_PARTY_TARGET_BY_KEY(actor, obj, dik, showHPGauge)
+	
+	if obj.type == 40001 then
+		local abil = session.GetAbilityByName("Cleric30");
+		if abil ~= nil then
+			local abil_obj = GetIES(abil:GetObject());
+			if abil_obj ~= nil and abil_obj.ActiveState == 1 then
+				return 0, 1;
+			end
 		end
 	end
 
 	if showHPGauge == nil then
 		showHPGauge = 0;
 	end
-	geSkillControl.SelectTargetFromPartyList(actor, obj.type, showHPGauge, isScroll);
+	geSkillControl.SelectTargetFromPartyList(actor, obj.type, showHPGauge);
 	return 1, 0;
-end
-
-function SKL_KEY_DYNAMIC_CASTING_PUNJI(actor, obj, dik, movable, rangeChargeTime, maxChargeTime, autoShot, rotateAble, loopingCharge, gotoSkillUse, execByKeyDown, upAbleSec, useDynamicLevel, isVisivle, isFullCharge, effectName, scale, nodeName, lifeTime, shockwave, intensity, time, frequency, angle, quickCast, checkState, hitCancel)
-	local abil = session.GetAbilityByName("Sapper42");
-	if abil ~= nil then
-		local obj = GetIES(abil:GetObject());
-		if obj.ActiveState == 1 then
-			return 0, 1;
-		end
-	end
-
-	local ret1, ret2 = SKL_KEY_DYNAMIC_CASTING(actor, obj, dik, movable, rangeChargeTime, maxChargeTime, autoShot, rotateAble, loopingCharge, gotoSkillUse, execByKeyDown, upAbleSec, useDynamicLevel, isVisivle, isFullCharge, effectName, scale, nodeName, lifeTime, shockwave, intensity, time, frequency, angle, quickCast, checkState, hitCancel);
-	
-	return ret1, ret2;
-end
-
-function SKL_KEY_GROUND_EVENT_METEOR(actor, obj, dik, chargeTime, autoShot, shotCasting, lookTargetPos, selRange, upAbleSec, useDynamicLevel, isVisivle, isFullCharge, effectName, scale, nodeName, lifeTime, shockWave, shockPower, shockTime, shockFreq, shockAngle, onlyMouseMode, quickCast, hitCancel, isScroll, abilName)
-	local buff = info.GetBuffByName(session.GetMyHandle(), "Meteor_FireBall_Buff");
-	if buff ~= nil then
-		return 0, 1;
-	end
-
-	local ret1, ret2 = SKL_KEY_GROUND_EVENT(actor, obj, dik, chargeTime, autoShot, shotCasting, lookTargetPos, selRange, upAbleSec, useDynamicLevel, isVisivle, isFullCharge, effectName, scale, nodeName, lifeTime, shockWave, shockPower, shockTime, shockFreq, shockAngle, onlyMouseMode, quickCast, hitCancel, isScroll, abilName)
-
-	return ret1, ret2;
-end
-
-function SKL_KEY_GROUND_EVENT_OOBE(actor, obj, dik, chargeTime, autoShot, shotCasting, lookTargetPos, selRange, upAbleSec, useDynamicLevel, isVisivle, isFullCharge, effectName, scale, nodeName, lifeTime, shockWave, shockPower, shockTime, shockFreq, shockAngle, onlyMouseMode, quickCast, hitCancel, isScroll, abilName)
-	local buff = info.GetBuffByName(session.GetMyHandle(), "OOBE_Debuff");
-	if buff ~= nil then
-		return 0, 1;
-	end
-
-	local ret1, ret2 = SKL_KEY_GROUND_EVENT(actor, obj, dik, chargeTime, autoShot, shotCasting, lookTargetPos, selRange, upAbleSec, useDynamicLevel, isVisivle, isFullCharge, effectName, scale, nodeName, lifeTime, shockWave, shockPower, shockTime, shockFreq, shockAngle, onlyMouseMode, quickCast, hitCancel, isScroll, abilName)
-
-	return ret1, ret2;
 end
 
 function SKL_SUMMON_TARGET_BY_KEY(actor, obj, dik)

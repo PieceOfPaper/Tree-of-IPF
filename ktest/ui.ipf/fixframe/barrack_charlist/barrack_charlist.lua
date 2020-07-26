@@ -1019,9 +1019,8 @@ function SELECTTEAM_OPEN_CHAT(frame)
 end
 
 function UPDATE_BARRACK_MODE(frame)
-
 	local argStr = frame:GetUserValue("BarrackMode");
-
+	
 	if argStr == "Barrack" then
 		SELECTCHAR_RE_ALIGN(frame);
 		SHOW_BTNS(frame, 1)
@@ -1031,26 +1030,28 @@ function UPDATE_BARRACK_MODE(frame)
 		SHOW_BTNS(frame, 0)
 
 		local barrack_nameUI = ui.GetFrame("barrack_name");
-		local tp = barrack_nameUI:GetChild("gbox_tp_all");
-		tp:RemoveAllChild();
-		barrack_nameUI:RemoveChild("gbox_tp_all");
-		barrack_nameUI:RemoveChild("upgrade");
-		barrack_nameUI:RemoveChild("teaminfo");
-		barrack_nameUI:RemoveChild("postbox");
-		barrack_nameUI:RemoveChild("postbox_new");
+		local gbox_tp_all = barrack_nameUI:GetChild("gbox_tp_all");
+		if gbox_tp_all ~= nil then
+			gbox_tp_all:RemoveAllChild();
+			barrack_nameUI:RemoveChild("gbox_tp_all");
+			barrack_nameUI:RemoveChild("upgrade");
+			barrack_nameUI:RemoveChild("teaminfo");
+			barrack_nameUI:RemoveChild("postbox");
+			barrack_nameUI:RemoveChild("postbox_new");
+		end;
 
 		local pccount = frame:GetChild("pccount");
 		pccount:ShowWindow(0);
 
-		local barrack_exit = ui.GetFrame("barrack_exit");
-		local postbox = barrack_exit:GetChild("postbox");
-		if nil == postbox then
-			return;
-		end
+		-- local barrack_exit = ui.GetFrame("barrack_exit");
+		-- local postbox = barrack_exit:GetChild("postbox");
+		-- if nil == postbox then
+		-- 	return;
+		-- end
 
-		local postbox_new = GET_CHILD(barrack_exit, "postbox_new");
-		postbox:ShowWindow(0);
-		postbox_new:ShowWindow(0);
+		-- local postbox_new = GET_CHILD(barrack_exit, "postbox_new");
+		-- postbox:ShowWindow(0);
+		-- postbox_new:ShowWindow(0);
 	end
 end
 
@@ -1080,7 +1081,7 @@ function DRAW_SELECT_LAYER_BUTTON_ACTIVITY(frame, layer)
     current_layer = layer  
 end
 
-function SET_BARRACK_MODE(frame, argStr, layer)    
+function SET_BARRACK_MODE(frame, argStr, layer)
 	frame:SetUserValue("BarrackMode", argStr);
 	UPDATE_BARRACK_MODE(frame);
 	if argStr == "Preview" then
@@ -1116,6 +1117,7 @@ function SET_BARRACK_MODE(frame, argStr, layer)
 		zone:ShowWindow(0);
 		channels:ShowWindow(0);
 	end
+	
 	DRAW_SELECT_LAYER_BUTTON_ACTIVITY(frame, layer)
 	frame:SetUserValue("MovingBarrackLayer", 0);
 end
@@ -1190,16 +1192,17 @@ function BARRACK_TO_GAME()
 		ui.SysMsg(ScpArgMsg("Many{CharCount}Than{CharSlot}CantStartGame", "CharCount", myCharCount, "CharSlot", maxCharCount));
 	else
 		local bpc = barrack.GetGameStartAccount();
-		local apc = bpc:GetApc();
+		if bpc ~= nil then
+			local apc = bpc:GetApc();
 
-		local jobid	= apc:GetJob();
-		local level = apc:GetLv();
-	
-		local JobCtrlType = GetClassString('Job', jobid, 'CtrlType');
+			local jobid	= apc:GetJob();
+			local level = apc:GetLv();
+		
+			local JobCtrlType = GetClassString('Job', jobid, 'CtrlType');
 
-		config.SetConfig("LastJobCtrltype", JobCtrlType);
-		config.SetConfig("LastPCLevel", level);
-
+			config.SetConfig("LastJobCtrltype", JobCtrlType);
+			config.SetConfig("LastPCLevel", level);
+		end
 		local frame = ui.GetFrame("barrack_gamestart")
 		local channels = GET_CHILD(frame, "channels", "ui::CDropList");
 		local key = channels:GetSelItemIndex();
@@ -1244,7 +1247,7 @@ function UPDATE_BARRACK_PET_BTN_LIST()
 	UPDATE_SELECT_CHAR_SCROLL(frame)
 end
 
-function UPDATE_PET_BTN_SELECTED()	
+function UPDATE_PET_BTN_SELECTED()
 	local frame = ui.GetFrame("barrack_petlist");
 	local bg = frame:GetChild("bg");
 	for i = 0 , bg:GetChildCount() - 1 do
@@ -1259,7 +1262,6 @@ function UPDATE_PET_BTN_SELECTED()
 				btn:SetSkinName('companion_off');
 			end		
 		end
-
 	end
 end
 
@@ -1305,18 +1307,18 @@ function UPDATE_PET_BTN(petCtrl, petInfo, useDetachBtn)
 			return;
 		end
 
-			detach_btn:SetImage('barrack_delete_btn');
-			detach_btn:SetEventScript(ui.LBUTTONUP, "REQUEST_DELETE_PET");
-			if obj.OverDate == 10 then
-				if revive_btn ~= nil then
-					revive_btn:ShowWindow(1);
-					revive_btn:SetEventScript(ui.LBUTTONUP, "REQUEST_PET_REVIVE");
-				end
-			end		
+		detach_btn:SetImage('barrack_delete_btn');
+		detach_btn:SetEventScript(ui.LBUTTONUP, "REQUEST_DELETE_PET");
+		
+		if obj.OverDate == 10 then
+			if revive_btn ~= nil then
+				revive_btn:ShowWindow(1);
+				revive_btn:SetEventScript(ui.LBUTTONUP, "REQUEST_PET_REVIVE");
+			end
+		end
 			
 	elseif useDetachBtn == true then
 
-		
 		local iconName = 'test_companion_01';
 		
 		if obj ~= nil then

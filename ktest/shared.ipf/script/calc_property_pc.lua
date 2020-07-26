@@ -2167,12 +2167,13 @@ function SCR_Get_MSPD(self)
                 maxWeight = 8000;
             end
             
-            if nowWeight >= maxWeight then
+            local mapCls = GetMapProperty(self);
+            if (mapCls == nil or 'City' ~= mapCls.MapType) and nowWeight >= maxWeight then
                 value = value / 3;
             end
         else
             local pc = GetMyPCObject();
-            
+
             nowWeight = TryGetProp(pc, "NowWeight");
             if nowWeight == nil then
                 nowWeight = 0;
@@ -2182,8 +2183,10 @@ function SCR_Get_MSPD(self)
             if maxWeight == nil then
                 maxWeight = 8000;
             end
-            
-            if nowWeight >= maxWeight then
+
+            local mymapname = session.GetMapName();
+            local map = GetClass("Map", mymapname);
+            if (map == nil or map.isVillage ~= "YES") and nowWeight >= maxWeight then
                 value = value / 3;
             end
         end

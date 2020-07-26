@@ -622,4 +622,7 @@
   <Code Code="INFO_TRACE_GUILD_MISSION" Team="tos_team" Category="INFO" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="개발용 정보"/>
   <Code Code="ERROR_TRACE_FACTION" Team="tos_team" Category="ERROR" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="개발용 정보"/>
   <Code Code="INFO_TRACE_TEAMBATTLE" Team="tos_team" Category="INFO" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="개발용 정보"/>
+<Code Code="ERROR_RAID_RANKING_ADD_FAIL" Team="tos_team" Category="ERROR" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="개발용 정보"/>  
+  <Code Code="ERROR_TX_LEAK" Team="tos_team" Category="ERROR" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="TX 릭입니다. tx는 반드시 TxBegin 과 TxCommit 또는 TxRollBack 이 한쌍을 이뤄야합니다."/>
+  <Code Code="INFO_TRACE_CHATSERVER" Team="tos_team" Category="INFO" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="개발용 정보"/>
 </imcErrorCode>

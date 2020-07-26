@@ -1480,7 +1480,7 @@ ClassID,ActiveState,Level,Hidden,ClassName,Name,Icon,Job,SkillCategory,AddSpend,
 401024,1,1,1,"Cleric25","[아츠] 천 마스터리: 치유력","ability_cleric_Cleric25","Char4_1","All","","* [천] 계열 방어구 4개 착용 시, 공격력이 5% 감소하는 대신 감소된 공격력 수치만큼 치유력이 증가합니다.{nl}* [아츠] 천 마스터리: 교감 아츠와 중복으로 활성화되지 않음","","Cleric_Armor_Arts","NO","","SCR_ABIL_Cleric25","YES","",""
 401025,1,1,1,"Cleric26","[아츠] 힐: 상급 강화","ability_cleric_Cleric26","Char4_1","Cleric_Heal","","* [힐]의 스킬 계수가 특성 레벨당 1.25% 증가","","","YES","","SCR_ABIL_NONE","NO","",""
 401026,1,1,1,"Cleric27","[아츠] 스마이트: 상급 강화","ability_cleric_Cleric27","Char4_1","Cleric_Smite","","* [스마이트]의 스킬 계수가 특성 레벨당 1.25% 증가","","","YES","","SCR_ABIL_NONE","NO","",""
-401027,1,1,0,"Cleric28","페이드: 시프트","ability_cleric_Druid4","Char4_1","Cleric_Fade","","* 기존 [페이드] 효과 대신 아주 잠시동안 무적상태가 됨. 또한 12초 동안 적에게 받는 피해가 15% 감소하고, 자신이 받는 치유량이 15% 증가함.{nl}* 자신에게만 적용됨","","","NO","","SCR_ABIL_NONE","NO","",""
+401027,1,1,0,"Cleric28","페이드: 시프트","ability_cleric_Druid4","Char4_1","Cleric_Fade","","* 기존 [페이드] 효과 대신 0.5초 동안 무적상태가 됨. 또한 12초 동안 적에게 받는 피해가 15% 감소하고, 자신이 받는 치유량이 15% 증가함.{nl}* 자신에게만 적용됨","","","NO","","SCR_ABIL_NONE","NO","",""
 401028,1,1,0,"Cleric29","수호성인: 신념","ability_cleric_Miko6","Char4_1","Cleric_PatronSaint","","* [수호성인]의 치유력 증가 효과 대신, 30초 동안 적에게 주는 마법 대미지가 20% 증가하는 효과로 변경됨","","","NO","","SCR_ABIL_NONE","NO","",""
 401029,1,1,0,"Cleric30","힐: 타겟팅 제거","ability_cleric_Priest6","Char4_1","Cleric_Heal","","* [힐] 스킬 사용 즉시 자신에게만 힐이 적용됨","","","NO","","SCR_ABIL_NONE","NO","",""
 402001,1,1,0,"Kriwi11","자이바스: 강화","ability_cleric_Kriwi11","Char4_3","Kriwi_Zaibas","","* [자이바스]의 스킬 계수가 특성 레벨당 0.5% 증가{nl} * 최고 레벨 마스터 시 10% 추가로 증가","","","YES","","SCR_ABIL_NONE","NO","",""

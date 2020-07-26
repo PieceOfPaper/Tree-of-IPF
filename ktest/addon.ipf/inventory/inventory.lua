@@ -521,6 +521,12 @@ function INVENTORY_WEIGHT_UPDATE(frame)
 
 	arrowPicture:Resize(arrowPicture:GetOriginalWidth() * rulerRate, arrowPicture:GetOriginalHeight())
 
+	if rate >= 100 then
+		SYSMENU_INVENTORY_WEIGHT_NOTICE();
+	else
+		SYSMENU_INVENTORY_WEIGHT_NOTICE_CLOSE();
+	end
+
 	if rate > 100 then	
 		arrowPicture:SetOffset(-489, arrowPicture:GetOriginalY())
 		return;
@@ -529,8 +535,8 @@ function INVENTORY_WEIGHT_UPDATE(frame)
 	--SetOffset : rate에 맞춘 offset 움직임 값
 	local arrowPictureOffSetX = rate * arrowPicture:GetOriginalWidth() * 3.65 * 0.01;	
 	arrowPicture:SetOffset((arrowPictureOffSetX) * -1, arrowPicture:GetOriginalY())
-end
 
+end
 
 function INVITEM_INVINDEX_CHANGE(itemGuid)
 

@@ -213,6 +213,7 @@ function WEEKLYBOSSREWARD_REWARD_LIST_UPDATE(frame, ctrl, rewardstr)
 
         attr_pic:SetImage(GET_ITEM_ICON_IMAGE(cls));
         attr_name_text:SetTextByKey("value", cls.Name);
+        attr_name_text:AdjustFontSizeByWidth(attr_name_text:GetWidth())
         attr_count_text:SetTextByKey("value", strlist[2]);
 
         listy = listy + ctrlSet:GetHeight() + OFFSET_MIDDLE;

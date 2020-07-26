@@ -1,9 +1,14 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
-<uitile name="uieffect" x="300" y="0" width="300" height="200">
-    <frame fasthide="true" layout_gravity="left top"/>
-    <input moveable="false" hittestframe="false"/>
-    <layer layerlevel="10"/>
-    <draw drawframe="false" drawtitlebarframe="false" drawtitlebar="false"/>
-    <option closebutton="false" hideable="false"/>
-    <controls/>
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<uitile name="uieffect" x="0" y="0" width="256" height="256">
+	<frame fullheight="false" fasthide="true" layout_gravity="left top"/>
+	<skin frameskin="None"/>
+	<input moveable="false" hittestframe="false"/>
+	<layer layerlevel="10"/>
+	<draw drawframe="false"/>
+	<option closebutton="false" hideable="false"/>
+	<controls>
+		<groupbox name="gb" rect="0 0 256 256" margin="0 0 0 0" layout_gravity="left top" skin="None" hittest="false" scrollbar="false"/>
+		<picture name="snipecenter" parent="gb" margin="0 0 0 0" rect="0 0 256 256" hittest="false" image="snipe_center02" stretch="false" changecursor="false" layout_gravity="left top"/>
+	</controls>
 </uitile>

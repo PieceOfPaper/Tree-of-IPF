@@ -2245,16 +2245,37 @@ function TPSHOP_PREVIEWSLOT_REMOVE(parent, control, strArg, numArg)
 	TPSHOP_SET_PREVIEW_APC_IMAGE(parent:GetTopParentFrame(), 0);
 end
 
--- 미리보기 사진찍기
-function TPSHOP_SET_PREVIEW_APC_IMAGE(frame, rotDir)
-	local pcSession = session.GetMySession();
-	if pcSession == nil then
-		return
-	end
-	local apc = pcSession:GetPCDummyApc();
-	local invframe = ui.GetFrame("inventory");
-	local invSlot = nil;
+local function TPSHOP_GET_EQUIP_LIST()
 
+	local equip_list = {}
+	equip_list[ES_HAT] = "HAT"
+	equip_list[ES_HAT_L] = "HAT_L"
+	equip_list[ES_HAT_T] = "HAT_T"
+	equip_list[ES_HAIR] = "HAIR"
+	equip_list[ES_SHIRT] = "SHIRT"
+	equip_list[ES_GLOVES] = "GLOVES"
+	equip_list[ES_BOOTS] = "BOOTS"
+	equip_list[ES_HELMET] = "HAIR"  
+	equip_list[ES_ARMBAND] = "ARMBAND"
+	equip_list[ES_RH] = "RH"
+	equip_list[ES_LH] = "LH"
+	equip_list[ES_OUTER] = "OUTER"
+	equip_list[ES_PANTS] = "PANTS"
+	equip_list[ES_RING1] = "RING1"
+	equip_list[ES_RING2] = "RING2"
+	equip_list[ES_NECK] = "NECK"
+	equip_list[ES_LENS] = "LENS"
+	equip_list[ES_WING] = "WING"
+	equip_list[ES_SPECIAL_COSTUME] = "SPECIAL_COSTUME"
+	equip_list[ES_EFFECT_COSTUME] = "EFFECTCOSTUME"
+	equip_list[ES_EFFECT_COSTUME] = "EFFECTCOSTUME"
+	equip_list[ES_DOLL] = "DOLL"
+	
+	return equip_list
+end 
+
+local function TPSHOP_SET_PREVIEW_BASE_CHARACTER(apc, equip_list)
+	
 	-- 내 캐릭터의 가발 보이기/안보이기 설정에 따라 APC도 보이기/안보이기 설정을 해야 한다.
 	local myPCetc = GetMyEtcObject();
 	local hairWig_Visible = myPCetc.HAIR_WIG_Visible
@@ -2263,109 +2284,43 @@ function TPSHOP_SET_PREVIEW_APC_IMAGE(frame, rotDir)
 	else
 		apc:SetHairWigVisible(false);
 	end
-	
-	-- 장착 슬롯에 따라 리셋
-	for i = 0, ES_LAST do	--  EQUIP_SPOT만이 아닌 ES_LENS 포함
-		SWITCH(i) {				
-		[ES_HAT] = function() 
-				invSlot = GET_CHILD_RECURSIVELY(invframe, "HAT");
-		end,
-		[ES_HAT_L] = function() 
-				invSlot = GET_CHILD_RECURSIVELY(invframe, "HAT_L");
-		end,			
-		[ES_HAT_T] = function() 
-				invSlot = GET_CHILD_RECURSIVELY(invframe, "HAT_T");
-		end,
-		[ES_HAIR] = function() 
-				invSlot = GET_CHILD_RECURSIVELY(invframe, "HAIR");
-		end,
-		[ES_SHIRT] = function() 
-				invSlot = GET_CHILD_RECURSIVELY(invframe, "SHIRT");
-		end,
-		[ES_GLOVES] = function() 
-				invSlot = GET_CHILD_RECURSIVELY(invframe, "GLOVES");
-		end,
-		[ES_BOOTS] = function() 
-				invSlot = GET_CHILD_RECURSIVELY(invframe, "BOOTS");
-		end,
-		[ES_HELMET] = function()
-				invSlot = GET_CHILD_RECURSIVELY(invframe, "HAIR");
-		end,
-		[ES_ARMBAND] = function() 
-				invSlot = GET_CHILD_RECURSIVELY(invframe, "ARMBAND");
-		end,
-		[ES_RH] = function() 
-				invSlot = GET_CHILD_RECURSIVELY(invframe, "RH");
-		end,
-		[ES_LH] = function() 
-				invSlot = GET_CHILD_RECURSIVELY(invframe, "LH");
-		end,
-		[ES_OUTER] = function() 
-				invSlot = GET_CHILD_RECURSIVELY(invframe, "OUTER");
-		end,
-		[ES_PANTS] = function() 
-				invSlot = GET_CHILD_RECURSIVELY(invframe, "PANTS");
-		end,
-		[ES_RING1] = function() 
-				invSlot = GET_CHILD_RECURSIVELY(invframe, "RING1");
-		end,
-		[ES_RING2] = function() 
-				invSlot = GET_CHILD_RECURSIVELY(invframe, "RING2");
-		end,
-		[ES_NECK] = function() 
-				invSlot = GET_CHILD_RECURSIVELY(invframe, "NECK");
-		end,
-		[ES_LENS] = function() --ES_LENS
-				invSlot = GET_CHILD_RECURSIVELY(invframe, "LENS");
-		end,
-		[ES_WING] = function() --ES_WING
-				invSlot = GET_CHILD_RECURSIVELY(invframe, "WING");
-		end,
-		[ES_SPECIAL_COSTUME] = function() --ES_SPECIAL_COSTUME
-				invSlot = GET_CHILD_RECURSIVELY(invframe, "SPECIAL_COSTUME");
-		end,
-		[ES_EFFECT_COSTUME] = function() --ES_EFFECT_COSTUME
-				invSlot = GET_CHILD_RECURSIVELY(invframe, "EFFECTCOSTUME");
-		end,
-		--[ES_HELMET] = function() end,		-- 6
-		--[ES_OUTERADD1] = function() end,	-- 11
-		--[ES_OUTERADD2] = function() end,	-- 12
-		--[ES_BODY] = function() end,		-- 13
-		--[ES_PANTSADD1] = function() end,	-- 15	
-		--[ES_PANTSADD2] = function() end,	-- 16
-		--[ES_DOLL] = function() end,
-		default = function() invSlot = nil; end,
-		}
-		if invSlot == nil then
-			apc:SetEquipItem(i, 0);		
-		else
-			invSlot = tolua.cast(invSlot, "ui::CSlot");
-			local icon = invSlot:GetIcon();
+
+	-- 기본 장착 아이템 설정
+	local invframe = ui.GetFrame("inventory")
+	local invSlot = nil;
+
+	for i = 0, ES_LAST do
+		local name = equip_list[i]
+		invSlot = nil
+
+		if name ~= nil then
+			invSlot = GET_CHILD_RECURSIVELY(invframe, name)
+		end
+
+		local setClsID = 0
+		if invSlot ~= nil then
+			invSlot = tolua.cast(invSlot, "ui::CSlot")
+			local icon = invSlot:GetIcon()
 			if icon ~= nil then
-				local info = icon:GetInfo();
-				local invIteminfo = GET_PC_ITEM_BY_GUID(info:GetIESID());
+				local info = icon:GetInfo()
+				local invIteminfo = GET_PC_ITEM_BY_GUID(info:GetIESID())
 				if invIteminfo ~= nil then
-					local obj = GetIES(invIteminfo:GetObject());
+					local obj = GetIES(invIteminfo:GetObject())
 					if obj ~= nil then
-						local spotName = item.GetEquipSpotName(i);
+						local spotName = item.GetEquipSpotName(i)
 						if spotName == obj.EqpType then
-							apc:SetEquipItem(i, obj.ClassID);
-						else
-							apc:SetEquipItem(i, 0);	
+							setClsID = obj.ClassID
 						end
-					else
-						apc:SetEquipItem(i, 0);	
 					end
-				else	
-					apc:SetEquipItem(i, 0);	
 				end			
-			else	
-				apc:SetEquipItem(i, 0);							
-			end		
+			end	
 		end	
+		apc:SetEquipItem(i, setClsID)
 	end
-	
-	-- 헤어 색상 셋팅
+end
+
+-- 캐릭터 헤어 컬러 설정.
+local function TPSHOP_SET_PREVIEW_HAIR_COLOR(apc)
 	local pc = GetMyPCObject()
 	local nowheadindex = item.GetHeadIndex();
 	
@@ -2375,24 +2330,28 @@ function TPSHOP_SET_PREVIEW_APC_IMAGE(frame, rotDir)
 	local Selectclasslist = Selectclass:GetSubClassList();
 
 	local nowhaircls = Selectclasslist:GetClass(nowheadindex);
+	if nowhaircls == nil then
+		return;
+	end
 	
-	local nowengname = imcIES.GetString(nowhaircls, 'EngName') 
-	local nowcolor = imcIES.GetString(nowhaircls, 'EngColor')
+	local nowengname = imcIES.GetString(nowhaircls, "EngName") 
+	local nowcolor = imcIES.GetString(nowhaircls, "EngColor")
 	
 	local listCount = Selectclasslist:Count();
 	
 	for i=0, listCount do
 		local cls = Selectclasslist:GetByIndex(i);
 		if cls ~= nil then
-			if nowengname == imcIES.GetString(cls, 'EngName') and nowcolor == imcIES.GetString(cls, 'EngColor') then
-				apc:SetHeadType(i + 1);
+			if nowengname == imcIES.GetString(cls, "EngName") and nowcolor == imcIES.GetString(cls, "EngColor") then
+				apc:SetHeadType(cls:GetID());
 				break;
 			end
 		end
 	end
+end
 
-	-- 미리보기 물품 장착  	
-	if rotDir ~= nil then		-- rotDir 가 nil이면 원래대로 돌아간다. 값이 있다면 미리보기 슬롯에 따라 장착된다.
+-- 미리보기 슬롯 설정.
+local function TPSHOP_SET_PREVIEW_SLOT_LIST(apc, frame)
 		for j = 0, 1 do
 			local slotset = GET_CHILD_RECURSIVELY(frame,"previewslotset" .. j);
 			for i = 0, 2 do
@@ -2428,12 +2387,14 @@ function TPSHOP_SET_PREVIEW_APC_IMAGE(frame, rotDir)
 				end
 			end
 		end
-		
+
+		-- hair
 		local slotset = GET_CHILD_RECURSIVELY(frame, "previewslotset1");
 		if slotset ~= nil then
 			local slot = slotset:GetSlotByIndex(1);
 			if slot ~= nil then
 				local classname = slot:GetUserValue("CLASSNAME");
+			
 				if classname ~= "None" then
 					local hairColor = "default";
 					local itemobj = GetClass("Item", classname)
@@ -2451,12 +2412,32 @@ function TPSHOP_SET_PREVIEW_APC_IMAGE(frame, rotDir)
 				end
 			end
 		end
+end
 
-		--컴페니언 확인 부분	(보류시 주석처리할 곳)
+-- 미리보기 사진찍기
+function TPSHOP_SET_PREVIEW_APC_IMAGE(frame, rotDir)	
+	local pcSession = session.GetMySession();
+	if pcSession == nil then
+		return
+	end
+	local apc = pcSession:GetPCDummyApc();
+	local equip_list = TPSHOP_GET_EQUIP_LIST() 
+
+	-- 기본 장비 끼우기
+	TPSHOP_SET_PREVIEW_BASE_CHARACTER(apc, equip_list)
+
+	-- 기본 헤어 설정
+	TPSHOP_SET_PREVIEW_HAIR_COLOR(apc)
+
+	-- 미리보기 장비 장착
+	if rotDir ~= nil then
+		TPSHOP_SET_PREVIEW_SLOT_LIST(apc, frame)
 	else
+		-- rotDir 가 nil이면 원래대로 돌아간다. 
 		rotDir = 0;
 	end
-
+	
+	-- 갱신
 	local shihouette = GET_CHILD_RECURSIVELY(frame,"shihouette")
 	local imgName = ui.CaptureMyFullStdImageByAPC(apc, rotDir, 1);
 	shihouette:SetImage(imgName);

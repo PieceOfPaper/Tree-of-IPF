@@ -27,7 +27,13 @@ local function _RAREOPTION_SET_JEWELL_ITEM(frame, jewellItem)
 		end
 		for i = 1, #itemList do
 			local itemObj = GetIES(itemList[i]:GetObject());
-			if itemObj.Level == curSettedLv and itemObj.ItemGrade == curSettedGrade then
+			local itemObjLevel = itemObj.Level
+			
+			if itemObjLevel == 1 then
+				itemObjLevel = itemObj.NumberArg1
+			end
+
+			if itemObjLevel == curSettedLv and itemObj.ItemGrade == curSettedGrade then
 				jewellItem = itemList[i];
 				break;
 			end

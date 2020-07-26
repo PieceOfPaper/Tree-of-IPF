@@ -67,12 +67,21 @@ end
 
 function ShieldChargeClientScp_LEAVE(actor, obj, buff)
 
-    actor:GetAnimation():ResetSTDAnim();
-    actor:GetAnimation():ResetRUNAnim();
-    actor:GetAnimation():ResetWLKAnim();
-    actor:GetAnimation():ResetTURNAnim();
-    actor:SetAlwaysBattleState(false);
+    local buffRamMuay = actor:GetBuff():GetBuff('RamMuay_Buff');
 
+    if buffRamMuay ~= nil then
+        actor:GetAnimation():SetSTDAnim("SKL_NAKMUAY_ASTD");
+        actor:GetAnimation():SetRUNAnim("SKL_NAKMUAY_ARUN");actor:GetAnimation():SetRAISEAnim("SKL_NAKMUAY_RAISE");
+        actor:GetAnimation():SetOnAIRAnim("SKL_NAKMUAY_ONAIR");
+        actor:GetAnimation():SetFALLAnim("SKL_NAKMUAY_FALL");   
+    else
+        actor:GetAnimation():ResetSTDAnim();
+        actor:GetAnimation():ResetRUNAnim();
+        actor:GetAnimation():ResetWLKAnim();
+        actor:GetAnimation():ResetTURNAnim();
+    end
+
+    actor:SetAlwaysBattleState(false);
 end
 
 
@@ -88,10 +97,19 @@ end
 
 function SlitheringClientScp_LEAVE(actor, obj, buff)
 
-    actor:GetAnimation():ResetSTDAnim();
-    actor:GetAnimation():ResetRUNAnim();
-    actor:GetAnimation():ResetWLKAnim();
-    actor:GetAnimation():ResetTURNAnim();
+    local buffRamMuay = actor:GetBuff():GetBuff('RamMuay_Buff');
+
+    if buffRamMuay ~= nil then
+        actor:GetAnimation():SetSTDAnim("SKL_NAKMUAY_ASTD");
+        actor:GetAnimation():SetRUNAnim("SKL_NAKMUAY_ARUN");actor:GetAnimation():SetRAISEAnim("SKL_NAKMUAY_RAISE");
+        actor:GetAnimation():SetOnAIRAnim("SKL_NAKMUAY_ONAIR");
+        actor:GetAnimation():SetFALLAnim("SKL_NAKMUAY_FALL");   
+    else
+        actor:GetAnimation():ResetSTDAnim();
+        actor:GetAnimation():ResetRUNAnim();
+        actor:GetAnimation():ResetWLKAnim();
+        actor:GetAnimation():ResetTURNAnim();
+    end
     
     actor:SetAlwaysBattleState(false);
 
@@ -113,10 +131,20 @@ function PouncingClientScp_ENTER(actor, obj, buff)
 end
 
 function PouncingClientScp_LEAVE(actor, obj, buff)
-    actor:GetAnimation():ResetSTDAnim();
-    actor:GetAnimation():ResetRUNAnim();
-    actor:GetAnimation():ResetWLKAnim();
-    actor:GetAnimation():ResetTURNAnim();
+
+    local buffRamMuay = actor:GetBuff():GetBuff('RamMuay_Buff');
+
+    if buffRamMuay ~= nil then
+        actor:GetAnimation():SetSTDAnim("SKL_NAKMUAY_ASTD");
+        actor:GetAnimation():SetRUNAnim("SKL_NAKMUAY_ARUN");actor:GetAnimation():SetRAISEAnim("SKL_NAKMUAY_RAISE");
+        actor:GetAnimation():SetOnAIRAnim("SKL_NAKMUAY_ONAIR");
+        actor:GetAnimation():SetFALLAnim("SKL_NAKMUAY_FALL");   
+    else
+        actor:GetAnimation():ResetSTDAnim();
+        actor:GetAnimation():ResetRUNAnim();
+        actor:GetAnimation():ResetWLKAnim();
+        actor:GetAnimation():ResetTURNAnim();
+    end
 
     actor:SetAlwaysBattleState(false);
 end
@@ -1109,8 +1137,6 @@ function RamMuay_UPDATE(actor, obj, buff)
     if lhObj.ClassType == "Artefact" then
         actor:ShowModelByPart("LH", 0, 0);
     end
-    
-    actor:GetAnimation():SetSTDAnim("SKL_NAKMUAY_ASTD");
 end
 
 function RamMuay_LEAVE(actor, obj, buff)
@@ -1267,4 +1293,20 @@ end
 
 function DOLL_GABIA_BUFF_LEAVE(actor, obj, buff)
 	SCR_REMOVE_FAIRY(actor:GetHandleVal(), "doll_gabia");
+end
+
+function XMAS_EFFECT_2019_ENTER(actor, obj, buff)
+    effect.AddActorEffectByOffset(actor, "E_effectitem_whitebird", 0.4, "BOT");
+end
+
+function XMAS_EFFECT_2019_LEAVE(actor, obj, buff)
+    effect.DetachActorEffect(actor, "E_effectitem_whitebird", 0.0);
+end
+
+function WEEKLY_MIRTIS_EFFECT_ENTER(actor, obj, buff)
+    effect.AddActorEffectByOffset(actor, "E_effectitem_mirtis", 1, "BOT");
+end
+
+function WEEKLY_MIRTIS_EFFECT_LEAVE(actor, obj, buff)
+    effect.DetachActorEffect(actor, "E_effectitem_mirtis", 0.0);
 end

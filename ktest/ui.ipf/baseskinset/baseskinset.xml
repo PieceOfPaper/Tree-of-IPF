@@ -4351,6 +4351,39 @@
 			<img name="bottomcore" imgrect="390 356 18 34"/>
 			<img name="bottomright" imgrect="409 356 94 34"/>
 		</skin>
+		<skin name="badge_kepa_balloon" texture="\skin\say_balloon.tga">
+			<img name="topleft" imgrect="86 391 60 35"/>
+			<img name="topcore" imgrect="147 391 54 35"/>
+			<img name="topright" imgrect="202 391 60 35"/>
+			<img name="bodyleft" imgrect="86 427 60 16"/>
+			<img name="bodycore" imgrect="147 427 54 16"/>
+			<img name="bodyright" imgrect="202 427 60 16"/>
+			<img name="bottomleft" imgrect="86 444 60 35"/>
+			<img name="bottomcore" imgrect="147 444 54 35"/>
+			<img name="bottomright" imgrect="202 444 60 35"/>
+		</skin>
+		<skin name="badge_poporion_balloon" texture="\skin\say_balloon.tga">
+			<img name="topleft" imgrect="86 480 60 35"/>
+			<img name="topcore" imgrect="147 480 54 35"/>
+			<img name="topright" imgrect="202 480 60 35"/>
+			<img name="bodyleft" imgrect="86 516 60 16"/>
+			<img name="bodycore" imgrect="147 516 54 16"/>
+			<img name="bodyright" imgrect="202 516 60 16"/>
+			<img name="bottomleft" imgrect="86 533 60 35"/>
+			<img name="bottomcore" imgrect="147 533 54 35"/>
+			<img name="bottomright" imgrect="202 533 60 35"/>
+		</skin>
+		<skin name="badge_tiny_balloon" texture="\skin\say_balloon.tga">
+			<img name="topleft" imgrect="86 569 60 35"/>
+			<img name="topcore" imgrect="147 569 54 35"/>
+			<img name="topright" imgrect="202 569 60 35"/>
+			<img name="bodyleft" imgrect="86 605 60 16"/>
+			<img name="bodycore" imgrect="147 605 54 16"/>
+			<img name="bodyright" imgrect="202 605 60 16"/>
+			<img name="bottomleft" imgrect="86 622 60 35"/>
+			<img name="bottomcore" imgrect="147 622 54 35"/>
+			<img name="bottomright" imgrect="202 622 60 35"/>
+		</skin>
 		<skin name="test_paper_bg" texture="\skin\stamp_tour.tga">
 			<img name="topleft" imgrect="1 804 277 145"/>
 			<img name="topcore" imgrect="279 804 149 145"/>
@@ -7289,6 +7322,7 @@
 		<image name="bonusTP_pic" file="\skin\pip_test2.tga" imgrect="173 34 27 27"/>
 		<image name="left_pageup" file="\skin\pip_test.tga" imgrect="1624 132 21 32" CMM_Caption="인벤 헤어 컬러"/>
 		<image name="briquetting_bg_skin" file="\skin\briquetting_bg_skin.tga" imgrect="0 0 710 520" CMM_Caption="브리케팅 완성 bg"/>
+		<image name="bg_ark_craft" file="\skin\gacha_big_one.tga" imgrect="0 0 758 508" CMM_Caption="아크 제작"/>
 		<image name="cancle_gold_pic" file="\skin\pip_test2.tga" imgrect="802 0 31 31" CMM_Caption="금색 x "/>
 		<image name="market_zem_3" file="\skin\pip_test2.tga" imgrect="834 0 12 12" CMM_Caption="마켓 젬 아이콘"/>
 		<image name="market_zem_4" file="\skin\pip_test2.tga" imgrect="847 0 12 12"/>
@@ -7392,6 +7426,12 @@
 		<image name="gold_arrow_below" file="\skin\monstercard.tga" imgrect="1 915 65 81" CMM_Caption="황금화살표 아래 방향"/>
 		<image name="vaivora_decorate_attendance" file="\skin\attendance_sheet_skin.tga" imgrect="1 1004 329 116" CMM_Caption="2020 출석체크 타이틀 데코레이션"/>
 		<image name="rainbow_attendance" file="\skin\attendance_sheet_skin.tga" imgrect="1 1121 323 119" CMM_Caption="2020 출석체크 레인보우"/>
+		<image name="badge_kepa_balloon_direction" file="\skin\say_balloon.tga" imgrect="1 228 82 75" CMM_Caption="케파 말풍선 말꼬리"/>
+		<image name="badge_poporion_balloon_direction" file="\skin\say_balloon.tga" imgrect="1 305 82 75" CMM_Caption="포포리온 말풍선 말꼬리"/>
+		<image name="badge_tiny_balloon_direction" file="\skin\say_balloon.tga" imgrect="1 381 82 75" CMM_Caption="티니 말풍선 말꼬리"/>
+		<image name="badge_kepa_balloon_decoration" file="\skin\say_balloon.tga" imgrect="263 391 73 61" CMM_Caption="케파 말풍선 데코레이션"/>
+		<image name="badge_poporion_balloon_decoration" file="\skin\say_balloon.tga" imgrect="263 453 65 33" CMM_Caption="포포리온 말풍선 데코레이션"/>
+		<image name="badge_tiny_balloon_decoration" file="\skin\say_balloon.tga" imgrect="263 487 72 51" CMM_Caption="케파 말풍선 데코레이션"/>
 		<image name="challenge_gauge_no8" file="\skin\tooltip_skin_3.tga" imgrect="820 664 93 113" CMM_Caption="챌린지모드 8단계"/>
 		<image name="challenge_gauge_no9" file="\skin\tooltip_skin_3.tga" imgrect="914 664 93 113" CMM_Caption="챌린지모드 9단계"/>
 		<image name="challenge_gauge_no10" file="\skin\tooltip_skin_3.tga" imgrect="758 550 93 113" CMM_Caption="챌린지모드 10단계"/>
@@ -8653,6 +8693,7 @@
 		<image name="ragana_emotion72" file="\icon\emoticon\ragana_emotion03.png" imgrect="0 0 128 128"/>
 		<image name="ragana_emotion73" file="\icon\emoticon\ragana_emotion04.png" imgrect="0 0 128 128"/>
 		<image name="medeina_emotion03" file="\icon\emoticon\medeina_emotion03.png" imgrect="0 0 128 128"/>
+		<image name="marnox_emotion02" file="\icon\emoticon\marnox_emotion02.png" imgrect="0 0 128 128"/>
 	</imagelist>
 	<imagelist category="itemtooltip_image">
 		<image name="circle_gem" file="\skin\tooltip_skin_3.tga" imgrect="805 228 30 30"/>
@@ -9257,6 +9298,7 @@
 		<image name="icon_gesture_im" file="\icon\social.tga" imgrect="325 487 80 80"/>
 		<image name="icon_gesture_chair" file="\icon\social.tga" imgrect="406 487 80 80"/>
 		<image name="icon_pose_stand" file="\icon\social.tga" imgrect="1 568 80 80"/>
+		<image name="icon_gesture_unbelievable" file="\icon\social.tga" imgrect="82 568 80 80"/>
 	</imagelist>
 	<imagelist>
 		<image name="chat_page_arrow_left" file="\skin\mainframe_A.tga" imgrect="766 943 40 40"/>
@@ -9337,6 +9379,7 @@
 		<image name="fullgray" file="\icon\fullgray.bmp" imgrect="0 0 64 64"/>
 		<image name="snipe_bg" file="\icon\target_scope_01.tga" imgrect="0 0 256 256"/>
 		<image name="snipe_center" file="\icon\target_scope_02.tga" imgrect="0 0 256 256"/>
+		<image name="snipe_center02" file="\icon\target_scope_03.tga" imgrect="0 0 256 256"/>
 		<image name="samplecolors" file="\icon\samplecolors.bmp" imgrect="0 0 192 47"/>
 		<image name="basicind_up" file="\icon\indicator.tga" imgrect="0 0 40 40"/>
 		<image name="basicind_body_v" file="\icon\indicator.tga" imgrect="0 41 40 40"/>
@@ -10792,6 +10835,8 @@
 		<image name="plate_achieve_moringponia_first_kill_twn" file="\skin\user_title_skin.tga" imgrect="432 0 216 35" CMM_Caption="moringponia_first_kill_대만"/>
 		<image name="plate_achieve_weeklyrank_4" file="\skin\user_title_skin.tga" imgrect="430 36 214 34" CMM_Caption="주간보스_미르티스"/>
 		<image name="plate_achieve_weeklyrank_5" file="\skin\user_title_skin.tga" imgrect="430 71 214 34" CMM_Caption="주간보스_블롯"/>
+		<image name="plate_achieve_moringponia_first_kill_hard" file="\skin\user_title_skin.tga" imgrect="430 106 214 34" CMM_Caption="모링포니아 하드_퍼스트"/>
+		<image name="plate_achieve_moringponia_clear_hard" file="\skin\user_title_skin.tga" imgrect="430 141 214 34" CMM_Caption="모링포니아 하드_클리어"/>
 	</imagelist>
 	<imagelist category="skin_hair">
 		<image name="icon_skintone_01_m01" file="\skin\skinhair\icon_skintone_01_m01.png" imgrect="0 0 80 80" CMM_Caption="남성 01"/>

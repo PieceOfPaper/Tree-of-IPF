@@ -437,3 +437,21 @@ function SCR_CRUSADER_CHECK_CHECK_BUFF_C(actor, skl, buffName)
 
     return 1;
 end
+
+function SKL_CHECK_USE_RAMPAGE_SKILL_C(actor, skl, abilName)
+    if actor:GetBuff():GetBuff("RidingCompanion") ~= nil then
+        local obj = nil
+        local abil = session.GetAbilityByName(abilName);
+        if abil ~= nil then
+            obj = GetIES(abil:GetObject());
+        end
+        
+        if abil == nil or TryGetProp(obj, "ActiveState", 0) == 0 then
+            return 1;
+        else
+            return 0;
+        end
+    end
+    
+    return 1;
+end

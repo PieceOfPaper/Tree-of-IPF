@@ -117,10 +117,21 @@ function ON_GUILD_EVENT_RECRUITING_REMOVE(frame, msg, argstr, argnum)
 end
 
 function ON_GUILD_EVENT_RECRUITING_IN(frame, msg, argstr, argnum)
-	local btn_join = GET_CHILD(frame, "btn_join");
-	local btn_close = GET_CHILD(frame, "btn_close");
-	btn_join:ShowWindow(0);
-	btn_close:ShowWindow(0);
+	local btn_join = GET_CHILD(frame, "btn_join", "ui::CButton");
+	local btn_close = GET_CHILD(frame, "btn_close", "ui::CButton");
+	-- 일단 길드 이벤트 모집 시작한 사람(권한 있음)에게만 argnum이 1로 들어오도록 해놨으므로, 마감 또는 취소 기능은 시작한 사람만 가능하다.
+	if argnum == 1 then
+		btn_join:SetTextByKey('value', ScpArgMsg('RecruitmentEnd'));
+		btn_join:SetEventScript(ui.LBUTTONUP, "GUILD_EVENT_RECRUIT_END");
+		btn_close:SetTextByKey('value', ScpArgMsg('Cancel'));
+		btn_close:SetEventScript(ui.LBUTTONUP, "GUILD_EVENT_RECRUIT_CANCEL");
+
+		btn_join:ShowWindow(1);
+		btn_close:ShowWindow(1);
+	else
+		btn_join:ShowWindow(0);
+		btn_close:ShowWindow(0);
+	end
 end
 
 function ON_GUILD_EVENT_RECRUITING_OUT(frame, msg, argstr, argnum)
@@ -267,3 +278,21 @@ function GUILD_EVENT_POPUP_UPDATE_STARTWAITSEC(frame)
 
 	return 1;
 end;
+
+function REQ_GUILD_EVENT_RECRUIT_END()
+	local handle = session.GetMyHandle()
+	control.CustomCommand("REQ_GUILD_EVENT_RECRUIT_END", handle)
+end
+
+function GUILD_EVENT_RECRUIT_END()
+	ui.MsgBox(ScpArgMsg("ReallyEndRecruit"), "REQ_GUILD_EVENT_RECRUIT_END", "None");
+end
+
+function REQ_GUILD_EVENT_RECRUIT_CANCEL()
+	local handle = session.GetMyHandle()
+	control.CustomCommand("REQ_GUILD_EVENT_RECRUIT_CANCEL", handle)
+end
+
+function GUILD_EVENT_RECRUIT_CANCEL()
+	ui.MsgBox(ScpArgMsg("ReallyCancelRecruit"), "REQ_GUILD_EVENT_RECRUIT_CANCEL", "None");
+end

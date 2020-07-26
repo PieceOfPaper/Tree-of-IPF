@@ -43,6 +43,11 @@ function PARTY_RECOMMEND_CANCEL_SETTING(frame)
     if IsJoyStickMode() == 1 then
         jumpKey = "X";
     end
+    
+    if string.find(jumpKey, "NUMPAD") ~= nil then
+        local find_start, find_end = string.find(jumpKey, "NUMPAD");
+        jumpKey = string.sub(jumpKey, find_end + 1, string.len(jumpKey));
+    end
 
     local useShift = config.GetHotKeyElementAttributeForConfig(jumpKeyIdx, "UseShift");
     local useAlt = config.GetHotKeyElementAttributeForConfig(jumpKeyIdx, "UseAlt");

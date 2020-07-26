@@ -217,7 +217,7 @@ function PUT_ACCOUNT_ITEM_TO_WAREHOUSE_BY_INVITEM(frame, invItem, slot, fromFram
             local slotset = GET_CHILD_RECURSIVELY(frame, 'slotset');
             local goal_index = get_valid_index()                  
             if invItem.hasLifeTime == true then
-                local yesscp = string.format('item.PutItemToWarehouse(%d, "%s", "%s", %d, %d)', IT_ACCOUNT_WAREHOUSE, invItem:GetIESID(), tostring(invItem.count), frame:GetUserIValue('HANDLE'), goal_index);
+                local yesscp = string.format('PUT_ACCOUNT_ITEM_TO_WAREHOUSE_BY_INVITEM_MSG_YESSCP("%s", "%s")', invItem:GetIESID(), tostring(invItem.count));
                 ui.MsgBox(ScpArgMsg('PutLifeTimeItemInWareHouse{NAME}', 'NAME', itemCls.Name), yesscp, 'None');
                 return;
             end
@@ -239,6 +239,22 @@ function PUT_ACCOUNT_ITEM_TO_WAREHOUSE_BY_INVITEM(frame, invItem, slot, fromFram
             ON_ACCOUNT_WAREHOUSE_ITEM_LIST(frame);
         end
     end
+end
+
+function PUT_ACCOUNT_ITEM_TO_WAREHOUSE_BY_INVITEM_MSG_YESSCP(guid, count)
+    local frame = ui.GetFrame("accountwarehouse");
+    local invItem = GET_PC_ITEM_BY_GUID(guid);
+    if invItem == nil then
+        return;
+    end
+    
+    local obj = GetIES(invItem:GetObject());
+    if CHECK_EMPTYSLOT(frame, obj) == 1 then
+        return
+    end
+
+    local goal_index = get_valid_index();
+    item.PutItemToWarehouse(IT_ACCOUNT_WAREHOUSE, guid, count, frame:GetUserIValue("HANDLE"), goal_index)
 end
 
 -- 창고에 드래그 앤 드랍

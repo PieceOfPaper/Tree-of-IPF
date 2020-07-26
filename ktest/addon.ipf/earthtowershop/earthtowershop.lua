@@ -209,6 +209,12 @@ function REQ_EVENT_2002_FISHING_SHOP_OPEN()
     ui.OpenFrame('earthtowershop');
 end
 
+function REQ_EVENT_SHOP_OPEN_COMMON(shopType)
+    local frame = ui.GetFrame("earthtowershop");
+    frame:SetUserValue("SHOP_TYPE", shopType);
+    ui.OpenFrame('earthtowershop');
+end
+
 function EARTH_TOWER_SHOP_OPEN(frame)
     if frame == nil then
         frame = ui.GetFrame("earthtowershop")
@@ -320,6 +326,9 @@ function EARTH_TOWER_INIT(frame, shopType)
         close:SetTextTooltip(ScpArgMsg('CloseUI{NAME}', 'NAME', ScpArgMsg("EventShop")));
     elseif shopType == 'FishingShop2002' then
         title:SetText('{@st43}'..ScpArgMsg("EVENT_2002_FISHING_SHOP"));
+        close:SetTextTooltip(ScpArgMsg('CloseUI{NAME}', 'NAME', ScpArgMsg("EventShop")));
+    else
+        title:SetText('{@st43}'..ScpArgMsg(shopType));
         close:SetTextTooltip(ScpArgMsg('CloseUI{NAME}', 'NAME', ScpArgMsg("EventShop")));
     end
 
@@ -484,7 +493,7 @@ function EXCHANGE_CREATE_TREE_PAGE(tree, slotHeight, groupName, classType, cls, 
     end
     
     itemName:SetTextByKey("value", targetItem.Name .. " [" .. recipecls.TargetItemCnt .. ScpArgMsg("Piece") .. "]");
-    if targetItem.StringArg == "EnchantJewell" then
+    if targetItem.StringArg == "EnchantJewell" and cls.TargetItemAppendProperty ~= 'None' then
         local number_arg1 = TryGetProp(targetItem, 'NumberArg1', 0)
         if number_arg1 ~= 0 then
             itemName:SetTextByKey("value", targetItem.Name .. " [" .. recipecls.TargetItemCnt .. ScpArgMsg("Piece") .. "]");
@@ -498,7 +507,7 @@ function EXCHANGE_CREATE_TREE_PAGE(tree, slotHeight, groupName, classType, cls, 
     itemIcon:SetImage(targetItem.Icon);
     itemIcon:SetEnableStretch(1);
     
-    if targetItem.StringArg == "EnchantJewell" then
+    if targetItem.StringArg == "EnchantJewell" and cls.TargetItemAppendProperty ~= 'None' then
         SET_ITEM_TOOLTIP_BY_CLASSID(itemIcon, targetItem.ClassName, 'ItemTradeShop', cls.ClassName);
     else  
         SET_ITEM_TOOLTIP_ALL_TYPE(itemIcon, nil, targetItem.ClassName, '', targetItem.ClassID, 0);
@@ -835,6 +844,10 @@ function EARTH_TOWER_SHOP_TRADE_ENTER()
         item.DialogTransaction("EVENT_2001_NEWYEAR_SHOP_1_THREAD1", resultlist, cntText);
     elseif shopType == 'FishingShop2002' then
         item.DialogTransaction("EVENT_2002_FISHING_SHOP_1_THREAD1", resultlist, cntText);
+    else
+        local strArgList = NewStringList();
+        strArgList:Add(shopType);
+        item.DialogTransaction("EVENT_SHOP_1_THREAD1", resultlist, cntText,strArgList);
 	end
 end
 
@@ -867,7 +880,7 @@ function EARTH_TOWER_SHOP_TRADE_LEAVE()
         itemName:SetTextByKey("value", targetItem.Name.." ["..recipecls.TargetItemCnt..ScpArgMsg("Piece").."]");
     end
 
-    if targetItem.StringArg == "EnchantJewell" then
+    if targetItem.StringArg == "EnchantJewell" and recipecls.TargetItemAppendProperty ~= 'None' then
         itemName:SetTextByKey("value", "[Lv. "..recipecls.TargetItemAppendValue.."] "..targetItem.Name .. " [" .. recipecls.TargetItemCnt .. ScpArgMsg("Piece") .. "]");
     end  
 
@@ -972,7 +985,7 @@ function EARTHTOWERSHOP_CHANGECOUNT(frame, ctrl, change)
                 
                 -- item Name Setting
                 local targetItemName_text = GET_CHILD_RECURSIVELY(ctrlset, "itemName");
-                if targetItem.StringArg == "EnchantJewell" then
+                if targetItem.StringArg == "EnchantJewell" and recipecls.TargetItemAppendProperty ~= 'None' then
                     targetItemName_text:SetTextByKey("value", "[Lv. "..recipecls.TargetItemAppendValue.."] "..targetItem.Name .. " [" .. recipecls.TargetItemCnt * countText .. ScpArgMsg("Piece") .. "]");
                 else
                     targetItemName_text:SetTextByKey("value", targetItem.Name.." ["..recipecls.TargetItemCnt * countText..ScpArgMsg("Piece").."]");

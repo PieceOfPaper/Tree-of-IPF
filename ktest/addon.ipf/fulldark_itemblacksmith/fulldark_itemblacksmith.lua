@@ -1,6 +1,6 @@
 -- fulldark_legendcardslot_open.lua
 
-function PLAY_BLACKSMITH_SUCCESS_EFFECT(targetItemClassName)
+function PLAY_BLACKSMITH_SUCCESS_EFFECT(targetItemClassName, craftType)
 	ui.OpenFrame("fulldark_itemblacksmith")
 	local frame = ui.GetFrame("fulldark_itemblacksmith")
 
@@ -9,9 +9,17 @@ function PLAY_BLACKSMITH_SUCCESS_EFFECT(targetItemClassName)
 	if itemCls == nil then
 		return
 	end
-
-	local clsList = GetClassList("legendrecipe");
-	local obj = GetClassByNameFromList(clsList, targetItemClassName);
+	
+	local clsList = nil;
+	local obj = nil;
+	if craftType == "SPECIAL_MISC_CRAFT" then
+		clsList = GetClassList("SpecialMiscRecipe");
+		obj = GET_SPECIAL_MISC_TARGET_ITEM_CLASS(targetItemClassName);
+	else
+		clsList = GetClassList("legendrecipe");
+		obj = GetClassByNameFromList(clsList, targetItemClassName);
+	end
+	
 	local bgname = TryGetProp(obj, "RecipeBgImg");
 
 	local recipebg = GET_CHILD_RECURSIVELY(frame, "image");

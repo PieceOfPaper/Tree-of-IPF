@@ -518,7 +518,7 @@
 			<ToolScp Client="NO" Scp="SKL_CANCEL_CANCEL" UseSleep="NO"/>
 		</EndScripts>
 		<KeyInput>
-			<ToolScp Client="YES" Scp="SKL_KEY_GROUND_EVENT_METEOR" UseSleep="NO">
+			<ToolScp Client="YES" Scp="SKL_KEY_GROUND_EVENT" UseSleep="NO">
 				<Num Num="2"/>
 				<Num Num="0"/>
 				<Num Num="0"/>
@@ -539,6 +539,8 @@
 				<Num Num="0"/>
 				<Num Num="1"/>
 				<Num Num="0"/>
+				<Str Str="Meteor_FireBall_Buff"/>
+				<Str Str="None"/>
 			</ToolScp>
 		</KeyInput>
 		<KeyInputStart>

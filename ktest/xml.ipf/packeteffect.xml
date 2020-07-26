@@ -7,6 +7,7 @@
 		<Effect Name="F_buff_basic048_2"/>
 		<Effect Name="F_ground058_smoke2"/>
 		<Effect Name="dead2"/>
+        	<Effect Name="fishingrod_carrot_set"/>
 	</Category>
 	<Category ID="139">
 		<Effect Name="E_pc_effectitem_gabia"/>
@@ -18,12 +19,15 @@
 		<Effect Name="Weekly_FallingRock"/>
 		<Effect Name="LEGEND_RAID_MORINGPONIA_HARD"/>
 		<Effect Name="Field_Macro_Debuff_Remove"/>
+        <Effect Name="Crusader_Condemn_Damage_Pad"/>
+        <Effect Name="Crusader_Condemn_Heal_Pad"/>
 	</Category>
 	<Category ID="187">
 		<Effect Name="F_bg_boil002"/>
 		<Effect Name="F_wizard_snowrolling_ground"/>
 		<Effect Name="F_wizard_combustion_ground"/>
 		<Effect Name="guild_agit_extension"/>
+<Effect Name="F_buff_basic050_circle"/>
 	</Category>
 	<Category ID="14">
 		<Effect Name="GUILD_COLONY_F_REMAINS_37_1"/>
@@ -205,6 +209,23 @@
 		<Effect Name="F_circle033_spread_ou_blue"/>
 		<Effect Name="F_ground004_loop2"/>
 		<Effect Name="F_ground004_circle2"/>
+        <Effect Name="F_wizard_backmasking_ground"/>
+        <Effect Name="Tantaliser_Hard_Pad3"/>
+        <Effect Name="[MOR]SUMMON_MUSHROOM"/>
+        <Effect Name="[MOR]CURSE_PATTERN"/>
+        <Effect Name="[MOR]DARK_PATTERN"/>
+        <Effect Name="TANTALISER_APPEAR"/>
+        <Effect Name="[MOR]PAD_FOLLOW"/>
+        <Effect Name="I_wizard_AlchemisticMissile_force_rize#Dummy_effect_hand_L"/>
+        <Effect Name="I_wizard_AlchemisticMissile_force_rize#Bip01 Head"/>
+        <Effect Name="F_ground196_levitation_violet_loop"/>
+        <Effect Name="F_rize022_ground_dark_loop2"/>
+        <Effect Name="Moringponia_Hard_Petrify"/>
+        <Effect Name="Tantaliser_Hard_Nabu"/>
+        <Effect Name="Tantaliser_Hard_Breath"/>
+        <Effect Name="Tantaliser_Hard_Debuff_Pad"/>
+        <Effect Name="Moringponia_Hard_Curse"/>
+		<Effect Name="Moringponia_Hard_Poison"/>
 	</Category>
 	<Category ID="146">
 		<Effect Name="beginner"/>
@@ -2251,6 +2272,7 @@
 		<Effect Name="F_burstup048_fire_mint##1"/>
 		<Effect Name="I_horn001_ground_burstup"/>
 		<Effect Name="EVENT_2001_NEWYEAR_MISSION"/>
+        <Effect Name="LEGEND_RAID_MORINGPONIA_HARD"/>
 	</Category>
 	<Category ID="197">
 		<Effect Name="F_burstup030_fire1"/>

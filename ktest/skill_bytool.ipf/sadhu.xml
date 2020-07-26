@@ -227,7 +227,7 @@
 			<ToolScp Client="YES" Scp="MONSKL_C_CLEAR_RESERVE_ANIM" UseSleep="NO"/>
 		</EndScripts>
 		<KeyInput>
-			<ToolScp Client="YES" Scp="SKL_KEY_GROUND_EVENT_OOBE" UseSleep="NO">
+            <ToolScp Client="YES" Scp="SKL_KEY_GROUND_EVENT" UseSleep="NO">
 				<Num Num="3"/>
 				<Num Num="0"/>
 				<Num Num="0"/>
@@ -248,6 +248,8 @@
 				<Num Num="0"/>
 				<Num Num="0"/>
 				<Num Num="0"/>
+                <Str Str="OOBE_Debuff" />
+                <Str Str="None" />
 			</ToolScp>
 		</KeyInput>
 		<KeyInputStart>

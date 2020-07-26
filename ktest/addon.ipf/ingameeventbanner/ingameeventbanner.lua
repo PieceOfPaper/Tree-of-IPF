@@ -335,6 +335,11 @@ end
 function CLICKED_EVENTBANNER(parent, ctrl)
 	local bannerIndex = parent:GetUserIValue("bannerIndex")			
 	local banner = GetClassByIndex('event_banner', bannerIndex)
+
+	if banner.url == "None" or banner.url == "" then
+		return;
+	end
+	
 	login.OpenURL(banner.url);
 end
 

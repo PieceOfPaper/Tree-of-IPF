@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<uiframe name="legend_misc_exchange" x="0" y="0" width="530" height="609" create="open">
+	<draw drawtitlebar="false"/>
+	<skin frameskin="None"/>
+	<frame title="" fullheight="true" fasthide="true" layout_gravity="left top" open="pip" margin="-470 0 0 0"/>
+	<input maxwidth="1280" moveable="false"/>
+	<layer layerlevel="80"/>
+	<option closebutton="false"/>
+	<sound opensound="window_open" closesound="window_close"/>
+	<script OpenScp="LEGEND_MISC_EXCHANGE_OPEN"/>
+	<userconfig ITEM_NAME_TEXT_1="전환할 아이템을 올려주세요" SUCCESS_SOUND="sys_quest_item_get" EXCHANGE_EFFECT_NAME="UI_item_parts2" EXCHANGE_EFFECT_SCALE="5" EXCHANGE_EFFECT_DURATION="3"/>
+	<controls>
+		<groupbox name="bg" rect="0 0 530 1030" margin="0 0 0 0" layout_gravity="center top" draw="true" hittestbox="false" resizebyparent="false" resizebyresolution="true" scrollbar="true" skin="test_frame_low"/>
+		<groupbox name="pipwin_top" rect="0 0 530 60" margin="0 0 0 0" layout_gravity="center top" draw="true" hittestbox="false" resizebyparent="false" scrollbar="false" skin="test_frame_top"/>
+		<richtext name="title" rect="0 0 120 24" margin="0 18 0 0" layout_gravity="center top" drawbackground="false" fixwidth="false" fontname="white_16_ol" maxwidth="0" resizebytext="true" slideshow="false" spacey="0" textalign="left top" updateparent="false" format="{@st43}레전드 재료 전환" param1="value" param1_def=""/>
+		<button name="close" rect="0 0 44 44" margin="0 15 28 0" layout_gravity="right top" LBtnUpScp="LEGEND_MISC_EXCHANGE_CLOSE" oversound="button_over" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" clicksound="button_click_big" image="testclose_button"/>
+		<groupbox name="pic_bg" rect="0 0 468 362" margin="0 50 0 0" layout_gravity="center top" draw="false" hittestbox="false" resizebyparent="false" changecursor="false" scrollbar="false" hittest="true" skin="test_socket_topskin"/>
+		<button name="do_change" rect="0 0 180 50" margin="0 0 0 90" layout_gravity="center bottom" skin="test_red_button" format="{@st41b}{s18}%s" param1="value" param1_def="전환" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" oversound="button_cursor_over_3" clicksound="button_click_big" LBtnUpScp="LEGEND_MISC_EXCHANGE_BUTTON_CLICK"/>
+		<button name="send_ok" rect="0 0 180 50" margin="0 0 0 90" layout_gravity="center bottom" skin="test_red_button" format="{@st41b}{s18}%s" param1="value" param1_def="확인" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" oversound="button_cursor_over_3" clicksound="button_click_big" LBtnUpScp="LEGEND_MISC_EXCHANGE_CLEAR_UI"/>
+		<!-- target item -->
+		<slot name="slot1" parent="pic_bg" margin="0 0 0 0" rect="0 0 140 140" layout_gravity="center center" movepop="false" dropsound="icon_get_down" picksound="icon_pick_up" skin="invenslot2" DropScp="LEGEND_MISC_EXCHANGE_DROP_SRC_ITEM" RBtnUpScp="LEGEND_MISC_EXCHANGE_REMOVE_SRC_ITEM"/>
+		<picture name="slot1_bg_image" parent="slot1" rect="0 0 140 140" margin="10 13 0 0" layout_gravity="center center" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" hittest="false" image="socket_slot_bg" oversound="button_over"/>
+		<slot name="slot2" parent="pic_bg" margin="0 0 0 0" rect="0 0 140 140" layout_gravity="right center" movepop="false" dropsound="icon_get_down" picksound="icon_pick_up" skin="invenslot2" hittest="false"/>
+		<droplist name="droplist" rect="0 0 175 20" margin="0 130 15 0" layout_gravity="right top" frametextalign="left" skin="droplist_normal" visibleline="4" clicksound="button_click_big" SelectScp="LEGEND_MISC_EXCHANGE_DROPLIST_SELECT"/>
+		<groupbox name="item_text_bg" margin="0 320 0 0" rect="0 0 430 70" skin="monster_skill_bg" layout_gravity="center top"/>
+		<richtext name="item_text" parent="item_text_bg" margin="0 -2 0 0" rect="0 0 500 50" format="{@st42}{s20}%s{/}" param1="value" param1_def="전환할 아이템을 올려주세요" textalign="center center" fontname="white_20_ol" fixwidth="true" layout_gravity="center center"/>
+		<picture name="arrowpic" parent="pic_bg" rect="0 0 60 60" margin="0 0 0 0" layout_gravity="center center" image="gold_arrow_right" stretch="true"/>
+		<labelline name="labelline" rect="0 0 460 1" margin="0 415 0 0" layout_gravity="center top" skin="labelline_def_2"/>
+		<groupbox name="material_bg" margin="0 450 0 0" rect="0 0 450 370" layout_gravity="center top" skin="test_frame_midle"/>
+		<groupbox name="material_gb" margin="0 460 0 0" rect="0 0 430 360" layout_gravity="center top" draw="false"/>
+		<groupbox name="countbox" rect="0 0 170 37" margin="0 850 0 0" layout_gravity="center top" draw="true" hittestbox="false" slideshow="false" resizebyparent="false" skin="test_weight_skin"/>
+		<edit name="count" parent="countbox" rect="0 0 90 30" margin="0 -1 100 0" layout_gravity="right center" textalign="center center" fontname="white_18_ol" minnumber="0" maxnumber="999" numbermode="true" skin="none" caption="1" typingscp="LEGEND_MISC_EXCHANGE_EDIT_TYPING"/>
+		<button name="upBtn" parent="countbox" rect="0 0 30 30" margin="0 -8 60 0" layout_gravity="right center" image="test_up_w_btn" oversound="button_over" LBtnUpScp="LEGEND_MISC_EXCHANGE_ITEM_COUNT_UP_BTN_CLICK"/>
+		<button name="downBtn" parent="countbox" rect="0 0 30 30" margin="0 8 60 0" layout_gravity="right center" image="test_down_w_btn" oversound="button_over" LBtnUpScp="LEGEND_MISC_EXCHANGE_ITEM_COUNT_DOWN_BTN_CLICK"/>
+		<button name="maxBtn" parent="countbox" rect="0 0 60 36" margin="0 0 0 0" layout_gravity="right center" skin="test_white_h_btn" format="{@st66b}{s16}%s" param1="value" param1_def="최대" oversound="button_over" LBtnUpScp="LEGEND_MISC_EXCHANGE_ITEM_COUNT_MAX_BTN_CLICK"/>
+		<picture name="issuccess_bg" rect="0 0 400 120" margin="0 300 0 0" layout_gravity="center top" changecursor="false" hittest="false" image="BnYellow_skin" stretch="true" draw="false"/>
+		<picture name="issuccess_pic" parent="issuccess_bg" rect="0 0 250 85" margin="0 -7 0 0" layout_gravity="center center" changecursor="false" hittest="false" image="card_reinforce_SUCCESS" stretch="true" draw="false"/>
+	</controls>
+</uiframe>

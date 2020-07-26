@@ -86,7 +86,7 @@ function SYSMENU_CHECK_OPENCONDITION(frame)
 	CHECK_CTRL_OPENCONDITION(frame, "quest", "quest");
 	CHECK_CTRL_OPENCONDITION(frame, "sys_collection", "sys_collection");
 	CHECK_CTRL_OPENCONDITION(frame, "helplist", "helplist");
-
+	
 end
 
 function SYSMENU_CHECK_HIDE_VAR_ICONS(frame)
@@ -294,6 +294,39 @@ function SYSMENU_PC_NEWFRIEND_NOTICE(frame)
 	local parentCtrl = frame:GetChild('friend');
 	NOTICE_CTRL_SET(parentCtrl, "friend", cnt);
 
+end
+
+function SYSMENU_INVENTORY_WEIGHT_NOTICE()
+	local frame = ui.GetFrame("sysmenu");
+	if frame == nil then
+		return;
+	end
+
+	local parentCtrl = GET_CHILD_RECURSIVELY(frame, "inven");
+	if parentCtrl == nil then
+		return;
+	end
+
+	local noticeBallon = MAKE_BALLOON_FRAME(ScpArgMsg("NoticeInventoryOverWeight"), 0, 0, nil, "invenWeightNoticeBallon");
+	noticeBallon:ShowWindow(1);
+
+	local margin = parentCtrl:GetMargin();
+	local x = margin.right;
+	local y = margin.bottom;
+
+	x = x + (parentCtrl:GetWidth() / 2);
+	y = y + parentCtrl:GetHeight() - 5;
+
+	noticeBallon:SetGravity(ui.RIGHT, ui.BOTTOM);
+	noticeBallon:SetMargin(0, 0, x, y);
+	noticeBallon:SetLayerLevel(106);
+end
+
+function SYSMENU_INVENTORY_WEIGHT_NOTICE_CLOSE()
+	local noticeBallon = ui.GetFrame("invenWeightNoticeBallon");
+	if noticeBallon ~= nil then
+		noticeBallon:ShowWindow(0);
+	end
 end
 
 function SYSMENU_GUILD_NOTICE(frame, isChecked)
