@@ -91,8 +91,15 @@ shared_item_ark.get_require_count_for_exp_up = function(goal_lv, max_lv)
 end
 
 shared_item_ark.is_valid_condition_for_copy = function(item_dest, item_src)
+    local src_max_lv = TryGetProp(item_src, 'MaxArkLv')
+    local dest_max_lv = TryGetProp(item_dest, 'MaxArkLv')
+
     local src_lv = TryGetProp(item_src, 'ArkLevel', 1)
     local dest_lv = TryGetProp(item_dest, 'ArkLevel', 1) 
+
+    if dest_max_lv < src_lv then
+        return false
+    end
 
     if dest_lv > src_lv then
         return false
@@ -111,14 +118,14 @@ shared_item_ark.is_valid_condition_for_copy = function(item_dest, item_src)
 end
 
 -- 최대렙 확인
-shared_item_ark.is_max_lv = function(item)
+shared_item_ark.is_max_lv = function(item)    
     if item == nil then
         return "YES"
     end
 
     local max = TryGetProp(item, 'MaxArkLv', 10)    
     local lv = TryGetProp(item, 'ArkLevel', 1)
-
+    
     if lv >= max then
         return "YES"
     else
@@ -128,7 +135,7 @@ end
 
 -- 다음 레벨에 필요한 경험치
 shared_item_ark.get_next_lv_exp = function(item)    
-    local is_max_lv = shared_item_ark.is_max_lv(item)
+    local is_max_lv = shared_item_ark.is_max_lv(item)    
     if is_max_lv == "YES" then        
         return false, nil
     end
