@@ -14,6 +14,11 @@ function QUESTEPISODEREWARD_INFO(episodeName, xPos, prop)
     local episodeRewardIES = GetClass("Episode_Reward", episodeName);
     local pcObj = GetMyPCObject();
 	local result = SCR_EPISODE_CHECK(pcObj, episodeRewardIES.ClassName)
+	
+    -- 최신 에피소드 보상 UI 출력 예외 처리
+	if result == 'New' then
+	    return
+	end
 
     -- 에피소드 텍스트 
     local episodeNumberText = GET_CHILD_RECURSIVELY(frame, "episodeNumberText");

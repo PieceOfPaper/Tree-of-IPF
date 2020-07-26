@@ -24,28 +24,6 @@
 			</Trigger>
 		</TriggerList>
 	</SpcItem>
-	<SpcItem Name="Gem_Paladin_Sanctuary">
-		<TriggerList Act="UnEquip">
-			<Trigger>
-				<ExecList>
-					<ToolScp Scp="SPCI_GEM_SKILLUP" Client="NO" UseSleep="NO">
-						<Str Str="Paladin_Sanctuary"/>
-						<Num Num="-1"/>
-					</ToolScp>
-				</ExecList>
-			</Trigger>
-		</TriggerList>
-		<TriggerList Act="Equip">
-			<Trigger>
-				<ExecList>
-					<ToolScp Scp="SPCI_GEM_SKILLUP" Client="NO" UseSleep="NO">
-						<Str Str="Paladin_Sanctuary"/>
-						<Num Num="1"/>
-					</ToolScp>
-				</ExecList>
-			</Trigger>
-		</TriggerList>
-	</SpcItem>
 	<SpcItem Name="Gem_Musketeer_GroovingMuzzle">
 		<TriggerList Act="UnEquip">
 			<Trigger>
@@ -7384,6 +7362,28 @@
 			</Trigger>
 		</TriggerList>
 	</SpcItem>
+	<SpcItem Name="Gem_Paladin_Sanctuary">
+		<TriggerList Act="UnEquip">
+			<Trigger>
+				<ExecList>
+					<ToolScp Scp="SPCI_GEM_SKILLUP" Client="NO" UseSleep="NO">
+						<Str Str="Paladin_Sanctuary"/>
+						<Num Num="-1"/>
+					</ToolScp>
+				</ExecList>
+			</Trigger>
+		</TriggerList>
+		<TriggerList Act="Equip">
+			<Trigger>
+				<ExecList>
+					<ToolScp Scp="SPCI_GEM_SKILLUP" Client="NO" UseSleep="NO">
+						<Str Str="Paladin_Sanctuary"/>
+						<Num Num="1"/>
+					</ToolScp>
+				</ExecList>
+			</Trigger>
+		</TriggerList>
+	</SpcItem>
 	<SpcItem Name="Gem_Paladin_Conversion">
 		<TriggerList Act="UnEquip">
 			<Trigger>
@@ -9254,28 +9254,6 @@
 			</Trigger>
 		</TriggerList>
 	</SpcItem>
-	<SpcItem Name="GEM_Elementalist_StormDust">
-		<TriggerList Act="UnEquip">
-			<Trigger>
-				<ExecList>
-					<ToolScp Scp="SPCI_GEM_SKILLUP" Client="NO" UseSleep="NO">
-						<Str Str="Elementalist_StormDust"/>
-						<Num Num="-1"/>
-					</ToolScp>
-				</ExecList>
-			</Trigger>
-		</TriggerList>
-		<TriggerList Act="Equip">
-			<Trigger>
-				<ExecList>
-					<ToolScp Scp="SPCI_GEM_SKILLUP" Client="NO" UseSleep="NO">
-						<Str Str="Elementalist_StormDust"/>
-						<Num Num="1"/>
-					</ToolScp>
-				</ExecList>
-			</Trigger>
-		</TriggerList>
-	</SpcItem>
 	<SpcItem Name="GEM_Sage_MicroDimension">
 		<TriggerList Act="UnEquip">
 			<Trigger>
@@ -9996,50 +9974,6 @@
 				<ExecList>
 					<ToolScp Scp="SPCI_GEM_SKILLUP" Client="NO" UseSleep="NO">
 						<Str Str="Daoshi_PhantomEradication"/>
-						<Num Num="1"/>
-					</ToolScp>
-				</ExecList>
-			</Trigger>
-		</TriggerList>
-	</SpcItem>
-	<SpcItem Name="GEM_Wugushi_LatentVenom">
-		<TriggerList Act="UnEquip">
-			<Trigger>
-				<ExecList>
-					<ToolScp Scp="SPCI_GEM_SKILLUP" Client="NO" UseSleep="NO">
-						<Str Str="Wugushi_LatentVenom"/>
-						<Num Num="-1"/>
-					</ToolScp>
-				</ExecList>
-			</Trigger>
-		</TriggerList>
-		<TriggerList Act="Equip">
-			<Trigger>
-				<ExecList>
-					<ToolScp Scp="SPCI_GEM_SKILLUP" Client="NO" UseSleep="NO">
-						<Str Str="Wugushi_LatentVenom"/>
-						<Num Num="1"/>
-					</ToolScp>
-				</ExecList>
-			</Trigger>
-		</TriggerList>
-	</SpcItem>
-	<SpcItem Name="GEM_Wugushi_WideMiasma">
-		<TriggerList Act="UnEquip">
-			<Trigger>
-				<ExecList>
-					<ToolScp Scp="SPCI_GEM_SKILLUP" Client="NO" UseSleep="NO">
-						<Str Str="Wugushi_WideMiasma"/>
-						<Num Num="-1"/>
-					</ToolScp>
-				</ExecList>
-			</Trigger>
-		</TriggerList>
-		<TriggerList Act="Equip">
-			<Trigger>
-				<ExecList>
-					<ToolScp Scp="SPCI_GEM_SKILLUP" Client="NO" UseSleep="NO">
-						<Str Str="Wugushi_WideMiasma"/>
 						<Num Num="1"/>
 					</ToolScp>
 				</ExecList>

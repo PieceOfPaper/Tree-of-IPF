@@ -4351,6 +4351,28 @@
 			<img name="bottomcore" imgrect="390 356 18 34"/>
 			<img name="bottomright" imgrect="409 356 94 34"/>
 		</skin>
+		<skin name="test_paper_bg" texture="\skin\stamp_tour.tga">
+			<img name="topleft" imgrect="1 804 277 145"/>
+			<img name="topcore" imgrect="279 804 149 145"/>
+			<img name="topright" imgrect="429 804 277 145"/>
+			<img name="bodyleft" imgrect="1 950 277 60"/>
+			<img name="bodycore" imgrect="279 950 149 60"/>
+			<img name="bodyright" imgrect="429 950 277 60"/>
+			<img name="bottomleft" imgrect="1 1011 277 145"/>
+			<img name="bottomcore" imgrect="279 1011 149 145"/>
+			<img name="bottomright" imgrect="429 1011 277 145"/>
+		</skin>
+		<skin name="test_skill_skin3" texture="\skin\stamp_tour.tga">
+			<img name="topleft" imgrect="645 637 66 35"/>
+			<img name="topcore" imgrect="712 637 110 35"/>
+			<img name="topright" imgrect="823 637 65 35"/>
+			<img name="bodyleft" imgrect="645 673 66 50"/>
+			<img name="bodycore" imgrect="712 673 110 50"/>
+			<img name="bodyright" imgrect="823 673 65 50"/>
+			<img name="bottomleft" imgrect="645 724 66 35"/>
+			<img name="bottomcore" imgrect="712 724 110 35"/>
+			<img name="bottomright" imgrect="823 724 65 35"/>
+		</skin>
 	</skinlist>
 	<skinlist category="buttons">
 		<skin name="button_companion" texture="\skin\barrack.tga">
@@ -7375,6 +7397,15 @@
 		<image name="challenge_gauge_no10" file="\skin\tooltip_skin_3.tga" imgrect="758 550 93 113" CMM_Caption="챌린지모드 10단계"/>
 		<image name="challenge_gauge_no11" file="\skin\tooltip_skin_3.tga" imgrect="852 504 93 113" CMM_Caption="챌린지모드 11단계"/>
 		<image name="challenge_level_text" file="\skin\tooltip_skin_3.tga" imgrect="852 618 98 45" CMM_Caption="챌린지 레벨"/>
+		<image name="stamp_coin_mark" file="\skin\stamp_tour.tga" imgrect="889 650 97 74" CMM_Caption="코인 도장"/>
+		<image name="stamp_watch_mark" file="\skin\stamp_tour.tga" imgrect="987 650 97 74" CMM_Caption="시계 도장"/>
+		<image name="stamp_stamp_mark" file="\skin\stamp_tour.tga" imgrect="1085 650 97 74" CMM_Caption="도장 도장"/>
+		<image name="stamp_flag_mark" file="\skin\stamp_tour.tga" imgrect="1183 650 97 74" CMM_Caption="깃발 도장"/>
+		<image name="misson_checkbox" file="\skin\stamp_tour.tga" imgrect="645 760 40 29" CMM_Caption="오늘 할 일 체크마크"/>
+		<image name="misson_completion" file="\skin\stamp_tour.tga" imgrect="686 760 40 29" CMM_Caption="오늘 할 일 완료"/>
+		<image name="red_check_line" file="\skin\stamp_tour.tga" imgrect="889 725 430 22" CMM_Caption="오늘 할 일 밑줄"/>
+		<image name="stamp_roulette_mark" file="\skin\stamp_tour.tga" imgrect="1281 650 97 74" CMM_Caption="룰렛 도장"/>
+		<image name="coming_soon_notice" file="\skin\stamp_tour.tga" imgrect="727 760 316 76" CMM_Caption="커밍순"/>
 	</imagelist>
 	<imagelist category="je_button">
 		<image name="menu_guild_info" file="\skin\guild_skin.tga" imgrect="165 298 45 45" CMM_Caption="길드 정보"/>
@@ -7791,6 +7822,12 @@
 		<image name="indun_season_tap_clicked" file="\skin\indun_skin.tga" imgrect="787 817 52 56"/>
 		<image name="gauge_damage_meter_L" file="\skin\indun_skin.tga" imgrect="269 917 1 16" CMM_Caption="대미지미터기_좌"/>
 		<image name="gauge_damage_meter_R" file="\skin\indun_skin.tga" imgrect="510 917 1 16" CMM_Caption="대미지미터기_우"/>
+		<image name="button_view_info_big" file="\skin\pip_test2.tga" imgrect="657 392 39 37" CMM_Caption="새로고침_버튼사이즈_업"/>
+		<image name="button_view_info_big_cursoron" file="\skin\pip_test2.tga" imgrect="697 392 39 37"/>
+		<image name="button_view_info_big_clicked" file="\skin\pip_test2.tga" imgrect="697 392 39 37"/>
+		<image name="god_roulette_coin_entrance" file="\skin\stamp_tour.tga" imgrect="1044 760 72 72" CMM_Caption="여신의 룰렛 코인"/>
+		<image name="god_roulette_coin_entrance_cursoron" file="\skin\stamp_tour.tga" imgrect="1117 760 72 72"/>
+		<image name="god_roulette_coin_entrance_clicked" file="\skin\stamp_tour.tga" imgrect="1190 760 72 72"/>
 	</imagelist>
 	<imagelist category="testmin_image">
 		<image name="clock_inven" file="\skin\pip_test.tga" imgrect="403 698 50 50" CMM_Caption="기간제 시계 아이콘 및 날짜 뒷배경"/>
@@ -10214,6 +10251,19 @@
 		<image name="icon_Weekly_CRTDR_UP" file="\icon\buff_icon3.tga" imgrect="384 512 128 128" CMM_Caption="치명타 저항 특화"/>
 		<image name="icon_Weekly_StarPall" file="\icon\buff_icon3.tga" imgrect="512 512 128 128" CMM_Caption="스타폴"/>
 		<image name="icon_event_2002_choco" file="\icon\buff_icon3.tga" imgrect="640 512 128 128" CMM_Caption="발렌타인데이 버프"/>
+		<image name="icon_Event_Challenge_Count_Reset" file="\icon\buff_icon3.tga" imgrect="768 512 128 128" CMM_Caption="챌린지 모드 횟수 초기화"/>
+		<image name="icon_Weekly_IgnoreInvincibility" file="\icon\buff_icon3.tga" imgrect="896 512 128 128" CMM_Caption="무적 무시"/>
+		<image name="icon_Weekly_Meteor" file="\icon\buff_icon3.tga" imgrect="0 640 128 128" CMM_Caption="대운석 낙하"/>
+		<image name="icon_Weekly_PadPattern_01" file="\icon\buff_icon3.tga" imgrect="128 640 128 128" CMM_Caption="장판 버프"/>
+		<image name="icon_Weekly_PadPattern_02" file="\icon\buff_icon3.tga" imgrect="256 640 128 128" CMM_Caption="장판 버프2"/>
+		<image name="icon_Weekly_proportionOfDist" file="\icon\buff_icon3.tga" imgrect="384 640 128 128" CMM_Caption="거리 비례 대미지"/>
+		<image name="icon_Weekly_PurifyingStone" file="\icon\buff_icon3.tga" imgrect="512 640 128 128" CMM_Caption="정화석"/>
+		<image name="icon_Weekly_RuneOfDeath" file="\icon\buff_icon3.tga" imgrect="640 640 128 128" CMM_Caption="죽음의 룬"/>
+		<image name="icon_Weekly_SandStrom" file="\icon\buff_icon3.tga" imgrect="768 640 128 128" CMM_Caption="모래폭풍"/>
+		<image name="icon_Weekly_SPDRATE_UP" file="\icon\buff_icon3.tga" imgrect="896 640 128 128" CMM_Caption="일반 공격 특화"/>
+		<image name="icon_Weekly_SpecialForce" file="\icon\buff_icon3.tga" imgrect="0 768 128 128" CMM_Caption="특공"/>
+		<image name="icon_Weekly_Sphere" file="\icon\buff_icon3.tga" imgrect="128 768 128 128" CMM_Caption="비전 구체"/>
+		<image name="icon_Weekly_Warning" file="\icon\buff_icon3.tga" imgrect="256 768 128 128" CMM_Caption="사전 경고"/>
 	</imagelist>
 	<imagelist category="housing_bufficon">
 		<image name="icon_Weapon_Klaida" file="\icon\icon_hosing_buff.tga" imgrect="0 0 128 128"/>
@@ -10429,6 +10479,8 @@
 		<image name="005_npc_bayl" file="\skin\npccard\005_npc_bayl.tga" imgrect="0 0 330 440"/>
 		<image name="006_npc_Cyrenia" file="\skin\npccard\006_npc_Cyrenia.tga" imgrect="0 0 330 440"/>
 		<image name="007_npc_Neringa" file="\skin\npccard\007_npc_Neringa.tga" imgrect="0 0 330 440"/>
+		<image name="008_npc_Boruble" file="\skin\npccard\008_npc_Boruble.tga" imgrect="0 0 330 440"/>
+		<image name="009_npc_Maria" file="\skin\npccard\009_npc_Maria.tga" imgrect="0 0 330 440"/>
 	</imagelist>
 	<imagelist category="bosscard2">
 		<image name="001_boss_poata" file="\skin\bosscard\001_boss_poata.tga" imgrect="0 0 330 440"/>
@@ -10734,10 +10786,12 @@
 		<image name="plate_achieve_moringponia_clear" file="\skin\user_title_skin.tga" imgrect="215 36 214 37" CMM_Caption="moringponia_clear"/>
 		<image name="plate_original_revelator" file="\skin\user_title_skin.tga" imgrect="215 74 214 37" CMM_Caption="원초의 계시자_일본"/>
 		<image name="plate_achieve_weeklyrank_1" file="\skin\user_title_skin.tga" imgrect="215 112 214 34" CMM_Caption="주간보스_자우라"/>
-		<image name="plate_achieve_weeklyrank_2" file="\skin\user_title_skin.tga" imgrect="215 147 214 31" CMM_Caption="주간보스_헬가세르클"/>
-		<image name="plate_achieve_weeklyrank_3" file="\skin\user_title_skin.tga" imgrect="215 179 214 33" CMM_Caption="주간보스_누아엘레"/>
-		<image name="plate_achieve_moringponia_clear_twn" file="\skin\user_title_skin.tga" imgrect="215 213 214 37" CMM_Caption="moringponia_clear_대만"/>
+		<image name="plate_achieve_weeklyrank_2" file="\skin\user_title_skin.tga" imgrect="215 147 214 34" CMM_Caption="주간보스_헬가세르클"/>
+		<image name="plate_achieve_weeklyrank_3" file="\skin\user_title_skin.tga" imgrect="215 182 214 34" CMM_Caption="주간보스_누아엘레"/>
+		<image name="plate_achieve_moringponia_clear_twn" file="\skin\user_title_skin.tga" imgrect="215 217 214 37" CMM_Caption="moringponia_clear_대만"/>
 		<image name="plate_achieve_moringponia_first_kill_twn" file="\skin\user_title_skin.tga" imgrect="432 0 216 35" CMM_Caption="moringponia_first_kill_대만"/>
+		<image name="plate_achieve_weeklyrank_4" file="\skin\user_title_skin.tga" imgrect="430 36 214 34" CMM_Caption="주간보스_미르티스"/>
+		<image name="plate_achieve_weeklyrank_5" file="\skin\user_title_skin.tga" imgrect="430 71 214 34" CMM_Caption="주간보스_블롯"/>
 	</imagelist>
 	<imagelist category="skin_hair">
 		<image name="icon_skintone_01_m01" file="\skin\skinhair\icon_skintone_01_m01.png" imgrect="0 0 80 80" CMM_Caption="남성 01"/>

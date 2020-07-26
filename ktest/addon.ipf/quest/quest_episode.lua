@@ -5,6 +5,7 @@ local episodeStateInfo = {
 	Clear = 1,			-- 완료
 	Reward  = 2,		-- 보상 받기 가능
 	Progress = 3,     -- 진행중
+	New = 4,        -- 최신 에피소드
 };
 
 local episodeQuestList = nil;
@@ -162,6 +163,8 @@ function CHECK_EPISODE_STATE(episodeRewardClassname)
 		return episodeStateInfo.Clear;
 	elseif result == "Reward" then
 		return episodeStateInfo.Reward;
+	elseif result == "New" then
+	    return episodeStateInfo.New;
 	end
 
 	return episodeStateInfo.Progress;
@@ -186,6 +189,7 @@ function DRAW_EPISODE_QUEST_CTRL(bgCtrl, titleInfo, y)
 	-- 2. 클리어 - 모두 완료했고 보상을 가져갔음
 	-- 3. 보상 받기 가능
 	-- 4. 진행중
+	-- 5. 최신 에피소드
 	local episodeState = CHECK_EPISODE_STATE(titleInfo.name)
 	local colorTone = "FFFFFFFF";
 	local backGroundSkinName = titleCtrlSet:GetUserConfig("NORMAL_SKIN");
@@ -199,6 +203,8 @@ function DRAW_EPISODE_QUEST_CTRL(bgCtrl, titleInfo, y)
 	local textToolTip = nil;
 	if episodeState == episodeStateInfo.Locked then
 		textToolTip = ScpArgMsg("EpisodeLockMsg")
+	elseif episodeState == episodeStateInfo.New then
+	    textToolTip = ScpArgMsg("NewEpisodeLockMsg")
 	elseif episodeState == episodeStateInfo.Clear then
 		textToolTip = ScpArgMsg("EpisodeClearMsg")
 	end 
@@ -222,7 +228,7 @@ function DRAW_EPISODE_QUEST_CTRL(bgCtrl, titleInfo, y)
 
 	-- 상태 이미지 처리
 	local clearMark = GET_CHILD_RECURSIVELY(titleCtrlSet, "clearMark")	
-	local lockMark = GET_CHILD_RECURSIVELY(titleCtrlSet, "lockMark")	
+	local lockMark = GET_CHILD_RECURSIVELY(titleCtrlSet, "lockMark")
 	clearMark:ShowWindow(0);
 	lockMark:ShowWindow(0);
 	if episodeState == episodeStateInfo.Locked then
@@ -258,6 +264,8 @@ function DRAW_EPISODE_QUEST_CTRL(bgCtrl, titleInfo, y)
 		rewardBtn:ShowWindow(0);
 	elseif episodeState == episodeStateInfo.Locked then
 		rewardBtn:SetImage(titleCtrlSet:GetUserConfig("LOCK_REWARD_BOX"));
+	elseif episodeState == episodeStateInfo.New then
+	    rewardBtn:SetImage(titleCtrlSet:GetUserConfig("LOCK_REWARD_BOX"));
 	else
 		rewardBtn:SetColorTone(colorTone);
 	end
@@ -415,7 +423,7 @@ function CLICK_EPISODE_REWARD(ctrlSet, ctrl, strArg, numArg)
 	
 	local frame = ctrlSet:GetTopParentFrame();
 	local xPos = frame:GetWidth() -50;
-
-	QUESTEPISODEREWARD_INFO(strArg, xPos, {} );
+    
+    QUESTEPISODEREWARD_INFO(strArg, xPos, {} );
 	
 end

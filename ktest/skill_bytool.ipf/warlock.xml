@@ -382,21 +382,12 @@
 				<Frame Angle="0" AniTime="9999" Dist="0" ForceATK="0" HitCount="1" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="9799" Type="FAN" />
 			</HitList>
 			<EtcList>
-				<Scp Scp="SKL_BUFF" Client="NO" UseSleep="NO" Time="0">
-                    <Str Str="Mastemaevil_Buff"/>
-                    <Num Num="1" UseFunc="1" FuncTxt="return obj.Level;"/>
-                    <Num Num="0"/>
-                    <Num Num="6000"/>
-                    <Num Num="1"/>
-                    <Num Num="100"/>
-                    <Num Num="0"/>
-                </Scp>
                 <Scp Client="YES" Scp="C_VOICE_SOUND" Time="200" UseSleep="NO">
 					<Str Str="voice_wiz_m_mastema_cast" />
 					<Str Str="voice_wiz_mastema_cast" />
 				</Scp>
                 <Scp Client="NO" Scp="SKL_RUN_SCRIPT" Time="0" TimeSync="0" UseSleep="NO">
-                    <Str Str="WARLOCK_ORDER_INVOCATION" />
+                    <Str Str="WARLOCK_MASTEMAEVIL" />
                 </Scp>
                 <Scp Client="NO" Scp="MONSKL_CRE_PAD" Time="500" UseSleep="NO">
 					<Pos Angle="0" Dist="0" PosType="3" />

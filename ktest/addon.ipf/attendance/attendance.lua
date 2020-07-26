@@ -57,12 +57,16 @@ function ATTENDANCE_INIT_COMMON_INFO(frame, attendanceID)
 	periodText2:SetTextByKey('date', dateStr);
 
 	local infoText = GET_CHILD_RECURSIVELY(frame, 'infoText');
+	local newCharInfoText = GET_CHILD_RECURSIVELY(frame, 'newCharInfoText');
 	if attendanceID == 3 then
-		dateStr = ScpArgMsg("Attendance_infoText_1")..'{nl}'..ScpArgMsg("Attendance_infoText_2")..'{nl}'..ScpArgMsg("Attendance_infoText_3");		
+		dateStr = ScpArgMsg("Attendance_infoText_1")..'{nl}'..ScpArgMsg("Attendance_infoText_2")..'{nl}'..ScpArgMsg("Attendance_infoText_3");
+		newCharInfoStr = ScpArgMsg("Attendance_infoText_4");
 	else
 		dateStr = ScpArgMsg("Attendance_infoText_1")..'{nl}'..ScpArgMsg("Attendance_infoText_2");
+		newCharInfoStr = "";
 	end
 	infoText:SetText(dateStr);
+	newCharInfoText:SetText(newCharInfoStr);
 
 	local diffDays = imcTime.GetDifDaysFromNow(attendanceData.startTime);
 	frame:SetUserValue('TODAY_DAY_OFFSET', diffDays);
@@ -169,7 +173,7 @@ function ATTENDANCE_TOGGLE_VAKARINE_UI()
 	ON_ATTENDANCE_RESULT(frame, '', '', vakarineCls.ClassID);
 end
 
-function ATTENDANCE_OPEN_CHECK()
+function GET_PROGRESS_ATTENDANCE_CHECK()
 	local list, cnt = GetClassList('TPEventAttendance');
 	if list == nil then
 		return false;
@@ -182,10 +186,6 @@ function ATTENDANCE_OPEN_CHECK()
 	end
 
 	return false;
-end
-
-function ATTENDANCE_LIST_TOGGLE_UI()
-	LISTSELECT_UI_CREATE("attendance")
 end
 
 -- 해당하는 출석 UI창 출력
@@ -232,29 +232,37 @@ end
 function ATTENDANCE_REWARD_CHECK_UI_ON(frame, argStr, argNum, argNum2)
 	if argNum2 == 0 then
 		-- 마을이 아닐 경우 출석 보상 확인 안내 말풍선 UI 생성
-		local sysFrame = ui.GetFrame("sysmenu");
-		if sysFrame == nil then
-			return;
-		end
-		
-		local systemBtn = sysFrame:GetChild("system");
-		if systemBtn ~= nil then
-			local helpBalloon = MAKE_BALLOON_FRAME(ScpArgMsg('attendance'), 0, 0, nil, nil);
-			helpBalloon:ShowWindow(1);
-	        local margin = systemBtn:GetMargin();
-	        local x = margin.right;
-	        local y = margin.bottom;        
-			x = x + (systemBtn:GetWidth() / 2);
-			y = y + systemBtn:GetHeight() - 5;
-	        helpBalloon:SetGravity(ui.RIGHT, ui.BOTTOM);
-	        helpBalloon:SetMargin(0, 0, x, y);
-			helpBalloon:SetDuration(7);
-			helpBalloon:SetLayerLevel(105);
-		end
-
+		-- 로딩창이 닫힌후 UI 보여주도록 딜레이 줌
+		ReserveScript("ATTENDANCE_REWARD_BALLOON_CREATE()", 2);
 	elseif argNum2 == 1 then
 		-- 마을일 경우 출석 보상 확인 list UI 출력
-		ATTENDANCE_LIST_TOGGLE_UI();
+		-- 로딩창이 닫힌후 UI 보여주도록 딜레이 줌
+		ReserveScript("ATTENDANCE_LIST_TOGGLE_UI()", 2);
 	end
 end
 
+function ATTENDANCE_REWARD_BALLOON_CREATE()
+	local sysFrame = ui.GetFrame("sysmenu");
+	if sysFrame == nil then
+		return;
+	end
+	
+	local systemBtn = sysFrame:GetChild("system");
+	if systemBtn ~= nil then
+		local helpBalloon = MAKE_BALLOON_FRAME(ScpArgMsg('attendance'), 0, 0, nil, nil);
+		helpBalloon:ShowWindow(1);
+		local margin = systemBtn:GetMargin();
+		local x = margin.right;
+		local y = margin.bottom;        
+		x = x + (systemBtn:GetWidth() / 2);
+		y = y + systemBtn:GetHeight() - 5;
+		helpBalloon:SetGravity(ui.RIGHT, ui.BOTTOM);
+		helpBalloon:SetMargin(0, 0, x, y);
+		helpBalloon:SetDuration(7);
+		helpBalloon:SetLayerLevel(105);
+	end
+end
+
+function ATTENDANCE_LIST_TOGGLE_UI()
+	LISTSELECT_UI_CREATE("attendance")
+end

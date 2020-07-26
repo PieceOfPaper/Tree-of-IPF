@@ -5081,4 +5081,24 @@
 			<richtext name="rightText" rect="0 0 240 16" margin="0 0 3 0" layout_gravity="right center" format="%s" param1="value"/>
 		</controls>
 	</controlset>
+	<controlset name="icon_with_current_state" hittest="true" width="518" height="99" hittestset="false" draw="true" skin="test_skill_skin3">
+		<controls>
+			<picture name="iconpic" rect="0 0 97 74" margin="20 1 0 0" layout_gravity="left center"/>
+			<richtext name="text" rect="0 0 500 100" margin="0 -20 20 0" layout_gravity="right center" fontname="black_18_b" format="%s" param1="value" param1_def="내용" />
+			<labelline name="labelline" rect="0 0 212 2" margin="0 0 10 0" layout_gravity="right center" skin="labelline_def_2"/>
+			<richtext name="state" rect="0 0 500 100" margin="0 20 20 0" layout_gravity="right center" format="{@st42b}{ds}{s18}({#fff200}%s{/} / %s)" param1="cur" param1_def="0" param2="max" param2_def="0"/>
+			<button name="btn" rect="0 0 33 33" margin="0 20 110 0" layout_gravity="right center" stretch="true" image="quest_location_btn"/>
+			<picture name="blackbg" rect="0 0 506 87" margin="0 0 0 0" layout_gravity="center center" stretch="true" draw="false" image="fullblack"/>
+		</controls>
+	</controlset>
+	<controlset name="check_to_do_list" hittest="true" width="501" height="64" draw="true" hittestset="false" skin="test_skill_skin3">
+		<controls>
+			<picture name="checkbox" rect="0 0 40 29" margin="10 0 0 0" layout_gravity="left center" image="misson_checkbox"/>
+			<picture name="completion" rect="0 0 40 29" margin="10 0 0 0" layout_gravity="left center" image="misson_completion"/>
+			<richtext name="rewardtext" rect="0 0 300 50" margin="50 0 0 0" layout_gravity="left center" hittest="true" fontname="black_16_b"  format="%s" param1="value" fixwidth="true"/>
+			<picture name="rewardicon" rect="0 0 39 39" margin="0 -1 65 0" layout_gravity="right center" image="icon_item_Event_Roulette_Coin" stretch="true"/>
+			<richtext name="rewardcnt" rect="0 0 50 40" margin="0 0 5 0" layout_gravity="right center" format="{@st42b}{ds}{s16}x %s" param1="value" fixwidth="true" hittest="false" />
+			<picture name="checkline" rect="0 0 430 22" margin="50 0 0 0" layout_gravity="left center" image="red_check_line" hittest="false"/>
+		</controls>
+	</controlset>
 </controlsetlist>

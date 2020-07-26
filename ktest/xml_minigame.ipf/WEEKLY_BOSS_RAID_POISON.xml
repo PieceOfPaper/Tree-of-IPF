@@ -5,14 +5,14 @@
             <Stage Name="READY">
                 <ObjList/>
                 <StageEvents>
-                    <Event execMS="9000" execCount="1" eventName="START 실행" execWithStart="0">
+                    <Event execMS="15000" execCount="1" eventName="START 실행" execWithStart="0">
                         <execList>
                             <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
                                 <Str Str="START"/>
                             </ToolScp>
                         </execList>
                     </Event>
-                    <Event execMS="10000" execCount="1" eventName="3" execWithStart="0">
+                    <Event execMS="15000" execCount="1" eventName="3" execWithStart="0">
                         <execList>
                             <ToolScp Scp="MGAME_MSG_SIMPLE" Client="YES" UseSleep="NO">
                                 <Str Str="{@st55_a}"/>
@@ -21,7 +21,7 @@
                             </ToolScp>
                         </execList>
                     </Event>
-                    <Event execMS="11000" execCount="1" eventName="2" execWithStart="0">
+                    <Event execMS="16000" execCount="1" eventName="2" execWithStart="0">
                         <execList>
                             <ToolScp Scp="MGAME_MSG_SIMPLE" Client="YES" UseSleep="NO">
                                 <Str Str="{@st55_a}"/>
@@ -30,7 +30,7 @@
                             </ToolScp>
                         </execList>
                     </Event>
-                    <Event execMS="12000" execCount="1" eventName="1" execWithStart="0">
+                    <Event execMS="17000" execCount="1" eventName="1" execWithStart="0">
                         <execList>
                             <ToolScp Scp="MGAME_MSG_SIMPLE" Client="YES" UseSleep="NO">
                                 <Str Str="{@st55_a}"/>
@@ -39,7 +39,7 @@
                             </ToolScp>
                         </execList>
                     </Event>
-                    <Event execMS="13000" execCount="1" eventName="start" execWithStart="0">
+                    <Event execMS="18000" execCount="1" eventName="start" execWithStart="0">
                         <execList>
                             <ToolScp Scp="MGAME_MSG_SIMPLE" Client="YES" UseSleep="NO">
                                 <Str Str="{@st55_a}"/>
@@ -52,12 +52,20 @@
                         <execList>
                             <ToolScp Scp="MGAME_MSG_SIMPLE" Client="YES" UseSleep="NO">
                                 <Str Str="{@st55_a}"/>
-                                <Str Str="잠시 후 주간 보스 레이드가 시작됩니다."/>
+                                <Str Str="잠시 후 전투가 시작됩니다."/>
                                 <Num Num="3"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_EXEC_GIVE_BUFF" Client="NO" UseSleep="NO">
+                                <Str Str="WEEKLY_BOSS_RAID_BUFF"/>
+                                <Num Num="1"/>
+                                <Num Num="0"/>
+                                <Num Num="0"/>
+                                <Num Num="1"/>
+                                <Num Num="0"/>
                             </ToolScp>
                         </execList>
                     </Event>
-                    <Event execMS="13000" execCount="1" eventName="TIMER 실행" execWithStart="0">
+                    <Event execMS="18000" execCount="1" eventName="TIMER 실행" execWithStart="0">
                         <execList>
                             <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
                                 <Str Str="TIMER"/>
@@ -68,10 +76,13 @@
             </Stage>
             <Stage Name="START" AutoStart="0">
                 <ObjList>
-                    <Obj Type="Monster" MonType="59423" Pos="-17.08#5.67#44.52" genCount="1" genTime="20000" objectKey="1"/>
+                    <Obj Type="Monster" MonType="59319" Pos="-565.59#227.84#272.80" genCount="1" genTime="20000" objectKey="0" propList="&apos;Name&apos; &apos;UnvisibleName&apos; "/>
+                    <Obj Type="Monster" MonType="59319" Pos="-905.07#227.84#-59.11" genCount="1" genTime="20000" objectKey="2" propList="&apos;Name&apos; &apos;UnvisibleName&apos; "/>
+                    <Obj Type="Monster" MonType="59319" Pos="-918.69#227.84#297.10" genCount="1" genTime="20000" objectKey="3" propList="&apos;Name&apos; &apos;UnvisibleName&apos; "/>
+                    <Obj Type="Monster" MonType="59319" Pos="-565.90#227.84#-25.53" genCount="1" genTime="20000" objectKey="4" propList="&apos;Name&apos; &apos;UnvisibleName&apos; "/>
                 </ObjList>
                 <StageEvents>
-                    <Event execMS="4000" execCount="1" eventName="Boss_Set" execWithStart="0">
+                    <Event execCount="1" eventName="Boss_Set">
                         <execList>
                             <ToolScp Scp="MGAME_EVT_SCRIPT_ARG" Client="NO" UseSleep="NO">
                                 <Str Str="SCR_WEEKLY_BOSS_RAID_CUSTOM_LOG"/>
@@ -79,7 +90,7 @@
                                 <Num Num="0"/>
                             </ToolScp>
                             <ToolScp Scp="SCR_WEEKLY_BOSS_RAID_BOSS_SET_SCP" Client="NO" UseSleep="NO">
-                                <AbsPosRange X="-53.281219" Y="5.6665039" Z="-8.8971348"/>
+                                <AbsPosRange X="-752.20001" Y="227.94" Z="121.8"/>
                             </ToolScp>
                         </execList>
                     </Event>
@@ -89,24 +100,14 @@
                                 <Num Num="1"/>
                                 <Num Num="0"/>
                             </ToolScp>
-                        </execList>
-                    </Event>
-                    <Event execMS="4000" execCount="1" eventName="Map_Set" execWithStart="0">
-                        <execList>
-                            <ToolScp Scp="SCR_WEEKLY_BOSS_RAID_SET_MGAME_PATTERN" Client="NO" UseSleep="NO">
-                                <MGameObj List="START/1"/>
-                                <Str Str="Weekly_Ice_Wall"/>
+                            <ToolScp Scp="SCR_SET_SAVE_POINT_RESURRECT" Client="NO" UseSleep="NO">
+                                <Num Num="0"/>
                             </ToolScp>
                         </execList>
                     </Event>
                 </StageEvents>
             </Stage>
             <Stage Name="TIMER" AutoStart="0">
-                <StartScpList>
-                    <ToolScp Scp="MGAME_SET_TIMEOUT" Client="NO" UseSleep="NO">
-                        <Num Num="420"/>
-                    </ToolScp>
-                </StartScpList>
                 <ObjList/>
                 <StageEvents>
                     <Event execMS="0" execCount="1" eventName="TimeOut">
@@ -261,5 +262,10 @@
                 </StageEvents>
             </Stage>
         </StageList>
+        <WorldInitList>
+            <ToolScp Scp="MGAME_INIT_CHANGE_VIEW" Client="NO" UseSleep="NO">
+                <Num Num="1500"/>
+            </ToolScp>
+        </WorldInitList>
     </Game>
 </GameList>

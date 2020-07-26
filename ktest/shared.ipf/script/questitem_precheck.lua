@@ -9139,3 +9139,19 @@ function SCR_PRE_EP12_MAINSTREAM_RAIMA_WHEEL_ITEM(self, argObj, argstring, arg1,
     end
     return 0
 end
+
+function SCR_PRE_ITEM_BuffStone_NewUser(self, argStr, arg1, arg2)
+    local userType = GET_NEWUSER_TYPE(self);
+
+    if userType ~= 1 and userType ~= 2 and argStr ~= "IgnoreUserType" then
+        SendAddOnMsg(self, "NOTICE_Dm_!", ScpArgMsg("CannotUseNewUserBuffStoneByType"), 5);
+        return 0
+    end
+
+    if IsPVPServer(self) == 1 or IsPVPField(self) == 1 or IsJoinColonyWarMap(self) == 1 then
+        SendAddOnMsg(self, "NOTICE_Dm_!", ScpArgMsg("CannotUseNewUserBuffStoneByField"), 5);
+        return 0
+    end
+
+    return 1
+end

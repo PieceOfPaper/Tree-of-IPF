@@ -132,7 +132,7 @@ function CHECK_NEW_PUZZLE(frame, checkSlot)
 			if slot:GetUserIValue("SELECTED") == 0 then
 				local iconInfo = icon:GetInfo();
 				local row = math.floor(i / slotset:GetCol());
-				local col = math.mod(i, slotset:GetCol());
+				local col = math.fmod(i, slotset:GetCol());
 				geItemPuzzle.AddPuzzleInfo(row, col, iconInfo.type);
 
 				if checkSlot == slot then

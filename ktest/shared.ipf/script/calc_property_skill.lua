@@ -622,6 +622,89 @@ function SCR_GET_SKL_COOLDOWN(skill)
     return math.floor(ret);
 end
 
+function SCR_GET_SKL_COOLDOWN_ADD_LEVEL_BYGEM(skill)
+    
+    local pc = GetSkillOwner(skill);
+    local basicCoolDown = skill.BasicCoolDown;
+    
+    local level = TryGetProp(skill, "Level", 1)
+    local decreaseCoolDown = math.floor(basicCoolDown * (level-1) * 0.1)
+
+    if decreaseCoolDown > basicCoolDown then
+        decreaseCoolDown = basicCoolDown
+    end
+    
+    basicCoolDown = basicCoolDown - decreaseCoolDown 
+
+    local abilAddCoolDown = GetAbilityAddSpendValue(pc, skill.ClassName, "CoolDown");
+    basicCoolDown = basicCoolDown + abilAddCoolDown;
+    
+    local cls = GetClassList("SkillRestrict");
+    local sklCls = GetClassByNameFromList(cls, skill.ClassName);
+    local coolDownClassify = nil;
+    local zoneAddCoolDown = 0;
+    
+    if sklCls ~= nil then
+        local isKeyword = TryGetProp(sklCls, "Keyword", nil)
+        if IsRaidField(pc) == 1 then
+            if string.find(isKeyword, "IsRaidField") == 1 then
+                local addCoolDown = TryGetProp(sklCls, "Raid_CoolDown", nil)
+                addCoolDown = StringSplit(addCoolDown, "/");
+                coolDownClassify, zoneAddCoolDown = addCoolDown[1], addCoolDown[2]
+            end
+        elseif IsPVPField(pc) == 1 then
+            if string.find(isKeyword, "IsPVPField") == 1 then
+                local addCoolDown = TryGetProp(sklCls, "PVP_CoolDown", nil)
+                addCoolDown = StringSplit(addCoolDown, "/");
+                coolDownClassify, zoneAddCoolDown = addCoolDown[1], addCoolDown[2]
+            end
+        end
+    end
+    
+    local laimaCoolTime = GetExProp(pc, "LAIMA_BUFF_COOLDOWN")
+    if laimaCoolTime ~= 0 then
+        basicCoolDown = basicCoolDown * (1 - laimaCoolTime)
+    elseif IsBuffApplied(pc, 'CarveLaima_Debuff') == 'YES' then
+        basicCoolDown = basicCoolDown * 1.2;
+    end
+
+    --burning_event
+    if IsBuffApplied(pc, "Event_Cooldown_SPamount_Decrease") == "YES" then
+        basicCoolDown = SCR_COOLDOWN_SPAMOUNT_DECREASE(pc, "CoolDown", basicCoolDown)
+    elseif IsBuffApplied(pc, "FIELD_COOLDOWNREDUCE_BUFF") == "YES" or IsBuffApplied(pc, "FIELD_DEFAULTCOOLDOWN_BUFF") == "YES" or IsBuffApplied(pc, "FIELD_COOLDOWNREDUCE_MIN_BUFF") == "YES" then
+        basicCoolDown = SCR_FIELD_DUNGEON_CONSUME_DECREASE(pc, "CoolDown", basicCoolDown)
+    else
+        if IsBuffApplied(pc, 'GM_Cooldown_Buff') == 'YES' then
+            basicCoolDown = basicCoolDown * 0.9;
+        end
+        
+        if IsBuffApplied(pc, 'SpeForceFom_Buff') == 'YES' then
+            if skill.ClassName ~= "Centurion_SpecialForceFormation" then
+                basicCoolDown = basicCoolDown * 0.5;
+            end
+        end
+    end
+    -----------
+    --Mon_Buff--
+    local monCoolDownRate = GetExProp(pc, "MON_COOLDOWN_RATE")
+    if monCoolDownRate ~= 0 then
+        if monCoolDownRate <= -0.9 then
+            monCoolDownRate = -0.9
+        end
+        basicCoolDown = basicCoolDown + (basicCoolDown * monCoolDownRate)
+    end
+    
+    local ret = math.floor(basicCoolDown) / 1000
+    ret = math.floor(ret) * 1000;
+    if coolDownClassify == "Fix" then
+        ret = zoneAddCoolDown;
+    elseif coolDownClassify == "Add" then
+        ret = zoneAddCoolDown + ret
+    end
+    
+    return math.floor(ret);
+end
+
 function SCR_GET_SKL_COOLDOWN_KaguraDance(skill)
     local pc = GetSkillOwner(skill);
     local basicCoolDown = skill.BasicCoolDown - ((TryGetProp(skill, "Level", 0) - 1) * 5000);
@@ -1133,6 +1216,54 @@ function SCR_GET_SKL_COOLDOWN_WIZARD(skill)
     local abilAddCoolDown = GetAbilityAddSpendValue(pc, skill.ClassName, "CoolDown");
     
     basicCoolDown = basicCoolDown + abilAddCoolDown;
+    
+    local laimaCoolTime = GetExProp(pc, "LAIMA_BUFF_COOLDOWN")
+    if laimaCoolTime ~= 0 then
+        basicCoolDown = basicCoolDown * (1 - laimaCoolTime)
+    elseif IsBuffApplied(pc, 'CarveLaima_Debuff') == 'YES' then
+        basicCoolDown = basicCoolDown * 1.2;
+    end
+    
+    --burning_event
+    if IsBuffApplied(pc, "Event_Cooldown_SPamount_Decrease") == "YES" then
+        basicCoolDown = SCR_COOLDOWN_SPAMOUNT_DECREASE(pc, "CoolDown", basicCoolDown)
+    elseif IsBuffApplied(pc, "FIELD_COOLDOWNREDUCE_BUFF") == "YES" or IsBuffApplied(pc, "FIELD_DEFAULTCOOLDOWN_BUFF") == "YES" or IsBuffApplied(pc, "FIELD_COOLDOWNREDUCE_MIN_BUFF") == "YES" then
+        basicCoolDown = SCR_FIELD_DUNGEON_CONSUME_DECREASE(pc, "CoolDown", basicCoolDown)
+    else
+        if IsBuffApplied(pc, 'GM_Cooldown_Buff') == 'YES' then
+            basicCoolDown = basicCoolDown * 0.9;
+        end
+    end
+    ------------
+    --Mon_Buff--
+    local monCoolDownRate = GetExProp(pc, "MON_COOLDOWN_RATE")
+    if monCoolDownRate ~= 0 then
+        if monCoolDownRate <= -0.9 then
+            monCoolDownRate = -0.9
+        end
+        basicCoolDown = basicCoolDown + (basicCoolDown * monCoolDownRate)
+    end
+    
+    if basicCoolDown < skill.MinCoolDown then
+        return skill.MinCoolDown;
+    end
+    
+    if coolDownClassify == "FIX" then
+        basicCoolDown = zoneAddCoolDown;
+    elseif coolDownClassify == "Add" then
+        basicCoolDown = zoneAddCoolDown + basicCoolDown
+    end
+    
+    return basicCoolDown;
+end
+
+function SCR_GET_SKL_COOLDOWN_Teleportation(skill)
+    local pc = GetSkillOwner(skill);
+    
+    local basicCoolDown = skill.BasicCoolDown;
+    local abilAddCoolDown = GetAbilityAddSpendValue(pc, skill.ClassName, "CoolDown");
+    
+    basicCoolDown = (basicCoolDown - (TryGetProp(skill, "Level", 0) - 1) * 1000) + abilAddCoolDown;
     
     local laimaCoolTime = GetExProp(pc, "LAIMA_BUFF_COOLDOWN")
     if laimaCoolTime ~= 0 then
@@ -5774,14 +5905,10 @@ function SCR_Get_BloodCurse_BuffTime(skill)
 end
 
 function SCR_GET_Smite_Ratio(skill)
-
     local pc = GetSkillOwner(skill);
-    local abil = GetAbility(pc, "Paladin14") 
-    local value = 0
-    if abil ~= nil then 
-        return SCR_ABIL_ADD_SKILLFACTOR_TOOLTIP(abil);
-    end
+    local value = 10
 
+    return value;
 end
 
 function SCR_GET_Demolition_Ratio(skill)
@@ -9593,8 +9720,19 @@ function SCR_GET_PatronSaint_Bufftime(skill)
 end
 
 function SCR_GET_PatronSaint_Raito(skill)
+    local pc = GetSkillOwner(skill)
     local value = skill.Level * 5
     value = value * SCR_REINFORCEABILITY_TOOLTIP(skill)
+    return value;
+end
+
+function SCR_GET_PatronSaint_Raito2(skill)
+    local pc = GetSkillOwner(skill)
+    local value = 0
+    local abil = GetAbility(pc, 'Cleric29');
+    if abil ~= nil and 1 == TryGetProp(abil, "ActiveState", 0) then
+        value = 20
+    end
     return value;
 end
 
@@ -13575,5 +13713,10 @@ end
 
 function SCR_GET_BreakBrick_Ratio(skill)
     local value = skill.Level
+    return value
+end
+
+function SCR_GET_ShadowFatter_Ratio(skill)
+    local value = 20 + skill.Level * 2
     return value
 end

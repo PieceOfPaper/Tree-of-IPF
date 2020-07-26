@@ -1759,7 +1759,10 @@ function SCR_SKILLSCROLL(invItem)
 	end
 	
 	local sklType = obj.SkillType;
-	spcitem.CreateScrollSkill(sklType, invItem:GetIESID(), obj.SkillLevel, true);
+	local skillAdded = spcitem.CreateScrollSkill(sklType, invItem:GetIESID(), obj.SkillLevel, true);
+	if skillAdded == 0 then
+		return
+	end
 	control.Skill(sklType, obj.SkillLevel, true);
 end
 

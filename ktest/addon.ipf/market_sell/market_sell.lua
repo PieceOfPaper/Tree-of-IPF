@@ -7,6 +7,7 @@
 	addon:RegisterMsg('RESPONSE_MIN_PRICE', 'ON_RESPONSE_MIN_PRICE');
 	addon:RegisterMsg('WEB_RELOAD_SELL_LIST', 'ON_WEB_RELOAD_SELL_LIST');
 	addon:RegisterMsg('UPDATE_MARKET_TRADE_LIMIT', 'ON_UPDATE_MARKET_TRADE_LIMIT');
+	addon:RegisterMsg("SUCCESS_LOAD_REGISTERED_ITEM_LIST", "callback_SUCCESS_LOAD_REGISTERED_ITEM_LIST")
 end
 
 function ON_WEB_RELOAD_SELL_LIST(frame, msg, argStr, argNum)	
@@ -821,4 +822,12 @@ function ON_UPDATE_MARKET_TRADE_LIMIT(frame, msg, argStr, argNum)
 	local limitAmountText = GET_CHILD_RECURSIVELY(frame, 'limitAmountText');
 	limitAmountText:SetTextByKey('cur', GET_COMMAED_STRING(session.inventory.GetCurMarketTradeAmount()));
 	limitAmountText:SetTextByKey('max', GET_COMMAED_STRING(session.inventory.GetMarketLimitAmount()));
+end
+
+function REFRESH_SELL_LIST()
+	LoadRegisteredMarketItemList()
+end
+
+function callback_SUCCESS_LOAD_REGISTERED_ITEM_LIST(msg)
+	RequestMarketSellList()
 end

@@ -577,4 +577,40 @@
 			<Sound From="walk_left" To="step_soil"/>
 		</Anim>
 	</Material>
+	<Material ID="35" Name="20MAGICAL01_JUMP" KorName="마법진 스페이드" MaterialItem="misc_soil">
+		<Anim Name="LAND">
+			<Particle From="F_pc_jump_smoke" To="F_pc_jump_smoke" Scale="1"/>
+			<Sound From="pc_war_jump_2" To="step_dry_land"/>
+		</Anim>
+		<Anim Name="JUMP">
+			<Particle From="F_pc_jump_smoke" To="F_pc_effectitem_2020magical_jump01" Scale="0.6"/>
+			<Sound From="pc_war_jump" To="pc_war_jump_1"/>
+		</Anim>
+		<Anim Name="RUN">
+			<Particle From="F_pc_run_smoke" To="F_pc_run_smoke" Scale="1.7"/>
+			<Sound From="walk_left" To="step_soil"/>
+		</Anim>
+		<Anim Name="DASH">
+			<Particle From="F_pc_jump_smoke" To="F_pc_run_smoke" Scale="1.8"/>
+			<Sound From="walk_left" To="step_soil"/>
+		</Anim>
+	</Material>
+	<Material ID="36" Name="20MAGICAL02_JUMP" KorName="마법진 클로버" MaterialItem="misc_soil">
+		<Anim Name="LAND">
+			<Particle From="F_pc_jump_smoke" To="F_pc_jump_smoke" Scale="1"/>
+			<Sound From="pc_war_jump_2" To="step_dry_land"/>
+		</Anim>
+		<Anim Name="JUMP">
+			<Particle From="F_pc_jump_smoke" To="F_pc_effectitem_2020magical_jump02" Scale="0.6"/>
+			<Sound From="pc_war_jump" To="pc_war_jump_1"/>
+		</Anim>
+		<Anim Name="RUN">
+			<Particle From="F_pc_run_smoke" To="F_pc_run_smoke" Scale="1.7"/>
+			<Sound From="walk_left" To="step_soil"/>
+		</Anim>
+		<Anim Name="DASH">
+			<Particle From="F_pc_jump_smoke" To="F_pc_run_smoke" Scale="1.8"/>
+			<Sound From="walk_left" To="step_soil"/>
+		</Anim>
+	</Material>
 </Map_materials>

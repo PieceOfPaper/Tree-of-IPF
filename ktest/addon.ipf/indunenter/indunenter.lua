@@ -120,7 +120,9 @@ function SHOW_INDUNENTER_DIALOG(indunType, isAlreadyPlaying, enableAutoMatch, en
 
     local pc = GetMyPCObject()
 --    if  SCR_RAID_EVENT_20190102(nil, false) and admissionItemName == "Dungeon_Key01" then
-    if IsBuffApplied(pc, "Event_Unique_Raid_Bonus") == "YES" and admissionItemName == "Dungeon_Key01" then
+    if IsBuffApplied(pc,"Event_Steam_New_World_Buff") == "YES" and admissionItemName == "Dungeon_Key01" then
+        nowAdmissionItemCount = 1
+    elseif IsBuffApplied(pc, "Event_Unique_Raid_Bonus") == "YES" and admissionItemName == "Dungeon_Key01" then
         nowAdmissionItemCount = admissionItemCount
     elseif IsBuffApplied(pc, "Event_Unique_Raid_Bonus_Limit") == "YES" and admissionItemName == "Dungeon_Key01" then
         local accountObject = GetMyAccountObj(pc)
@@ -1886,10 +1888,12 @@ function INDUNENTER_CHECK_ADMISSION_ITEM(frame)
         local nowAdmissionItemCount = admissionItemCount + addCount - isTokenState
 
 --        if SCR_RAID_EVENT_20190102(nil , false) and admissionItemName == "Dungeon_Key01" then
-        if IsBuffApplied(user, "Event_Unique_Raid_Bonus") == "YES" and admissionItemName == "Dungeon_Key01" then
+        if IsBuffApplied(user,"Event_Steam_New_World_Buff") == "YES" and admissionItemName == "Dungeon_Key01" then
+            nowAdmissionItemCount = 1
+        elseif IsBuffApplied(user, "Event_Unique_Raid_Bonus") == "YES" and admissionItemName == "Dungeon_Key01" then
             nowAdmissionItemCount = admissionItemCount
-        elseif IsBuffApplied(pc, "Event_Unique_Raid_Bonus_Limit") == "YES" and admissionItemName == "Dungeon_Key01" then
-            local accountObject = GetMyAccountObj(pc)
+        elseif IsBuffApplied(user, "Event_Unique_Raid_Bonus_Limit") == "YES" and admissionItemName == "Dungeon_Key01" then
+            local accountObject = GetMyAccountObj(user)
             if TryGetProp(accountObject, "EVENT_UNIQUE_RAID_BONUS_LIMIT") > 0 then
                 nowAdmissionItemCount = admissionItemCount
             end
@@ -1906,14 +1910,26 @@ function INDUNENTER_CHECK_ADMISSION_ITEM(frame)
                 local yesScp = string.format("ReqMoveToIndun(%d,%d)", 1, multipleCnt);
                 local itemCls = GetClass("Item", admissionItemName);
                 local itemName = TryGetProp(itemCls, "Name");
-                if invItem == nil or cnt == nil or cnt < nowAdmissionItemCount then
-                    ui.MsgBox(ScpArgMsg("HaveNoAdmissionItem", "Name", itemName), yesScp, "None");
-                elseif invItem.isLockState == true then
-                    ui.MsgBox(ScpArgMsg("AdmissionItemIsLocked", "Name", itemName, "Count", nowAdmissionItemCount), yesScp, "None");
+
+                if indunCls.SubType ~= 'Casual' then
+                    if invItem == nil or cnt == nil or cnt < nowAdmissionItemCount then
+                        ui.MsgBox(ScpArgMsg("HaveNoAdmissionItem", "Name", itemName), yesScp, "None");
+                    elseif invItem.isLockState == true then
+                        ui.MsgBox(ScpArgMsg("AdmissionItemIsLocked", "Name", itemName, "Count", nowAdmissionItemCount), yesScp, "None");
+                    else
+                        ui.MsgBox(ScpArgMsg("EnterWithAdmissionItem", "Name", itemName, "Count", nowAdmissionItemCount), yesScp, "None");
+                    end
+                    return false;
                 else
-                    ui.MsgBox(ScpArgMsg("EnterWithAdmissionItem", "Name", itemName, "Count", nowAdmissionItemCount), yesScp, "None");
+                    if invItem == nil or cnt == nil or cnt < nowAdmissionItemCount then
+                        
+                    elseif invItem.isLockState == true then
+                        
+                    else
+                        ui.MsgBox(ScpArgMsg("EnterWithAdmissionItem", "Name", itemName, "Count", nowAdmissionItemCount), yesScp, "None");
+                        return false;
+                    end
                 end
-                return false;
             end
         end 
 

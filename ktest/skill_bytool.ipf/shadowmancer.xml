@@ -311,8 +311,17 @@
 					<Num Num="100" />
 					<Num Num="0" />
 				</Scp>
+                <Scp Client="NO" Scp="SKL_TGT_BUFF" Time="400" UseSleep="NO">
+                    <Str Str="ShadowdrainFatter_Debuff" />
+                    <Num FuncTxt="return obj.Level;" Num="0" UseFunc="1" />
+                    <Num Num="0" />
+                    <Num FuncTxt="return 20000 + obj.Level * 2000;" Num="0" UseFunc="1" />
+                    <Num Num="1" />
+                    <Num Num="100" />
+                    <Num Num="0" />
+                </Scp>
                 <Scp Client="NO" Scp="SKL_TGT_EFFECT" Time="400" UseSleep="NO">
-					<Str_Arg Arg="0.69999999" Str="F_ground170_dark3" />
+					<Str_Arg Arg="1.5" Str="F_ground170_dark3" />
 					<Num Num="0" />
 				</Scp>
 			</EtcList>

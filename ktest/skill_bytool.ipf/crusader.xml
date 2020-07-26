@@ -49,7 +49,7 @@ return &quot;I_cleric_HolySmash_shield_mesh_red&quot;, 0.7;
 
 " Arg="1"/>
                     <Str Str="arrow_cast"/>
-                    <Str_Arg Str="F_cleric_HolySmash_explosion" UseFunc="1" FuncTxt="if self ~= nil thne local abilBuff1 = info.GetBuffByName(self:GetHandleVal(), &quot;GoddessProtection_Buff&quot;)
+                    <Str_Arg Str="F_cleric_HolySmash_explosion" UseFunc="1" FuncTxt="if self ~= nil then local abilBuff1 = info.GetBuffByName(self:GetHandleVal(), &quot;GoddessProtection_Buff&quot;)
 
 
     local abilBuff2 = info.GetBuffByName(self:GetHandleVal(), &quot;GoddessPunishment_Buff&quot;)

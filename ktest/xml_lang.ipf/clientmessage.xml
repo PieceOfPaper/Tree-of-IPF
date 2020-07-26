@@ -558,7 +558,7 @@
 		<Class ClassID="4105" ClassName="ItemCheck" Data="아이템 확인"/>
 		<Class ClassID="4106" ClassName="HaveItemReallyUse" Data="보유하고 있는 아이템이 있습니다.{nl}그래도 사용하시겠습니까?{nl}보유하고 있는 아이템"/>
 		<Class ClassID="4107" ClassName="CantUseEnchantBomb" Data="주변에 대상이 없습니다."/>
-		<Class ClassID="4108" ClassName="AreYouSureEquipCard" Data="선택하신 몬스터 카드를 장착하시겠습니까?{nl}장착해제시 카드 레벨이 하락합니다."/>
+		<Class ClassID="4108" ClassName="AreYouSureEquipCard" Data="선택하신 카드를 장착하시겠습니까?{nl}장착해제시 카드 레벨이 하락합니다."/>
 		<Class ClassID="4109" ClassName="NoHaveZombiefySkill" Data="좀비만들기 스킬이 없어 좀비를 생성할 수 없습니다."/>
 		<Class ClassID="4110" ClassName="IsMaxCountZombie" Data="좀비 최대 생성수에 도달하여 좀비를 생성할 수 없습니다."/>
 		<Class ClassID="4111" ClassName="Money{MAX}OverAtAcc" Data="최대 {MAX} 소지금을 초과하여 저장 할 수 없습니다."/>
@@ -707,6 +707,9 @@
 		<Class ClassID="4257" ClassName="Ark" Data="아크"/>
 		<Class ClassID="4258" ClassName="LegendMaterial" Data="레전드 재료"/>
 		<Class ClassID="4259" ClassName="CanUseLV430" Data="430레벨 랜덤 옵션 아이템에만 사용할 수 있습니다."/>
+                <Class ClassID="4260" ClassName="MYSTIC_SAVIOR_CHAGE_CLOVER" Data="위기를 넘는 지혜를 담아!{nl}매지컬 세이비어 클로버!"/>
+		<Class ClassID="4261" ClassName="MYSTIC_SAVIOR_CHAGE_SPADE" Data="악을 처단하는 힘을 담아!{nl} 매지컬 세이비어 스페이드!"/>
+		<Class ClassID="4262" ClassName="MYSTIC_SAVIOR_CHAGE_ACE" Data="은혜로운 사랑을 담아!{nl}매지컬 세이비어 프로페서!"/>
 	</Category>
 	<Category Name="ItemTooltip">
 		<Class ClassID="5001" ClassName="CoolDown : {Sec} Sec" Data="재사용 대기시간 : {Sec}초"/>
@@ -1303,7 +1306,10 @@
 		<Class ClassID="10540" ClassName="DoSandra6LineRandomResetOptionCountNoReset" Data="산드라의 궁극의 돋보기는 소모됩니다.{nl} {nl}선택한 랜덤 옵션 아이템에 적용된 옵션 수치를 모두 최대치로 변경합니다.{nl} {nl}변경된 수치는 즉시 적용되며 이전으로 돌아갈 수 없습니다. 진행하시겠습니까?"/>
 		<Class ClassID="10541" ClassName="LackOfSandra6LineRevertRandomMaterial" Data="산드라의 궁극의 돋보기가 부족합니다."/>
 		<Class ClassID="10543" ClassName="OnlyUseRandomIcor" Data="랜덤 아이커에만 사용할 수 있습니다."/>
-		</Category>
+		<Class ClassID="10544" ClassName="SeasonServerCannotUse" Data="시즌 서버에서는 사용할 수 없습니다."/>
+		<Class ClassID="10545" ClassName="CannotUseNewUserBuffStoneByType" Data="신규/복귀 유저가 아니어서 사용하실 수 없습니다."/>
+		<Class ClassID="10546" ClassName="CannotUseNewUserBuffStoneByField" Data="PVP에서는 사용하실 수 없습니다."/>
+	</Category>
 	<Category Name="FoodTable">
 		<Class ClassID="20001" ClassName="IncreaseHP{Value}For{Time}Minute" Data="{Time}분 동안 HP가 {Value}% 증가합니다."/>
 		<Class ClassID="20002" ClassName="IncreaseSP{Value}For{Time}Minute" Data="{Time}분 동안 SP가 {Value}% 증가합니다."/>
@@ -1671,7 +1677,9 @@
 		<Class ClassID="21362" ClassName="GameExitDelayReason_InColonyWar" Data="{@st66b}{s20}캐릭터가 현재 {/}{s20}{#770000}콜로니전 {@st66b}{s20}지역에 있습니다.{/}"/>
 		<Class ClassID="21363" ClassName="GameExit_{Time}RaidReturn" Data="{Time}초 후 돌아갑니다."/>
 		<Class ClassID="21364" ClassName="GameExitDelayReason_WeeklyBoss" Data="{@st66b}{s20}캐릭터가 현재 {/}{s20}{#770000}전투 중{@st66b}{s20}입니다.{/}"/>
+<Class ClassID="21367" ClassName="NewEpisodeLockMsg" Data="{@st59}해당 에피소드의 클리어 보상은 추후 공개될 예정입니다.{nl}현재 {#FFFF00}[Episode12]{/}의 퀘스트 시작은 {#FFFF00}프리넬 기념구{/}의 {#FFFF00}큐폴 마야{/}로부터 시작할 수 있습니다.{/}"/>
 		<Class ClassID="21368" ClassName="StatusTooltipMsgRacetype" Data="동일 레벨 대상을 상대할 때 %만큼 대미지 증가"/>
+		<Class ClassID="21369" ClassName="Attendance_infoText_4" Data="{#0000FF}* 각 마을의 '바이보라의 날개' NPC에게 신규/복귀 전용 버프 스크롤을 지급 받으실 수 있습니다.{/}"/>
 	</Category>
 	<Category Name="ChatText">
 		<Class ClassID="22001" ClassName="Guard" Data="방어"/>
@@ -5355,6 +5363,7 @@
 		<Class ClassID="28360" ClassName="EVENT_1906_GUILD_REWARD_1" Data="바살로스 주화 상점을 이용한다"/>
 		<Class ClassID="28361" ClassName="EVENT_1906_TOTAL_SHOP_COIN" Data="오늘 주화를 총 {@st66d_y}{s18}{GET}{/}{/}개 획득하였습니다.{nl}{@st66d_y}{s18}{REMAIN}{/}{/}개의 주화를 더 획득할 수 있습니다."/>
 		<Class ClassID="28362" ClassName="EVENT_1906_GUILD_JOIN_REWARD_COIN_MSG" Data="길드 가입 보상을 수령한다"/>
+		<Class ClassID="28363" ClassName="NEWUSER_BUFFSTONE_GET_MSG" Data="신규/복귀 버프 활성화 스크롤을 수령했습니다.{nl}인벤토리를 확인해보세요!"/>
 		<Class ClassID="30001" ClassName="CASTLE_20_3_OBJ_3_MSG1" Data="은은한 붉은 빛이 도는 액체가 담긴 병이 가득 있습니다"/>
 		<Class ClassID="30002" ClassName="CASTLE_20_3_OBJ_4_MSG1" Data="별다른 것은 없는 것 같습니다"/>
 		<Class ClassID="30003" ClassName="CASTLE_20_3_SQ_3_MSG1" Data="살펴보는 중"/>
@@ -9056,6 +9065,17 @@
 		<Class ClassID="90235" ClassName="RiftModeResetFAIL" Data="차원 붕괴 지점 입장 횟수를 사용해주세요."/>
 		<Class ClassID="90236" ClassName="RiftModeResetSuccess" Data="차원 붕괴 지점{nl}입장 횟수가 1 추가되었습니다."/>
 		<Class ClassID="90237" ClassName="RiftModeReset" Data="{nl} {nl}사용 시 차원 붕괴 지점에 1회 더 입장 가능합니다.{nl} {nl}{@st66d_y}아이템을 사용하시겠습니까?"/>
+		<Class ClassID="90239" ClassName="EVENT_2002_FISHING_GIVE_COIN_LIMIT_BY_FISHING" Data="오늘 낚시로 획득 가능한 주화를 전부 획득하셨습니다."/>
+		<Class ClassID="90240" ClassName="EVENT_2002_FISHING_GIVE_COIN_LIMIT_BY_CONTENTS" Data="오늘 콘텐츠 플레이로 획득 가능한 주화를 전부 획득하셨습니다."/>
+		<Class ClassID="90241" ClassName="EVENT_2002_FISHING_CHECK_COIN_COUNT{FISHING}{PLAYTIME}{CONTENTS}" Data="[이벤트]잃어버린 주화 획득 정보{nl}낚시 {#ff6d00}({FISHING}/10){/}{nl}접속 {#ff6d00}({PLAYTIME}/20){/}{nl}콘텐츠 {#ff6d00}({CONTENTS}/20){/}"/>
+		<Class ClassID="90242" ClassName="EVENT_2002_FISHING_CAT_SEL_MSG" Data="낚시터 고양이에게 [이벤트]빨간 물고기를 건네준다."/>
+		<Class ClassID="90243" ClassName="EVENT_2002_FISHING_CAT_NOT_ENOUGH_FISH" Data="[이벤트]빨간 물고기가 부족합니다."/>
+		<Class ClassID="90244" ClassName="EVENT_2002_FISHING_SHOP" Data="잃어버린 주화 상점"/>
+		<Class ClassID="90252" ClassName="WEEKLYRAID_OVERCHARGE_MSG1" Data="동쪽 지역이 활성화되어 충전을 시작합니다."/>
+		<Class ClassID="90253" ClassName="WEEKLYRAID_OVERCHARGE_MSG2" Data="남쪽 지역이 활성화되어 충전을 시작합니다."/>
+		<Class ClassID="90254" ClassName="WEEKLYRAID_OVERCHARGE_MSG3" Data="서쪽 지역이 활성화되어 충전을 시작합니다."/>
+		<Class ClassID="90255" ClassName="WEEKLYRAID_OVERCHARGE_MSG4" Data="북쪽 지역이 활성화되어 충전을 시작합니다."/>
+		<Class ClassID="90256" ClassName="WEEKLYRAID_OVERCHARGE_MSG5" Data="{ol}{img icon_Weekly_Warning 40 40}{/}활성화 지역이 과충전 되었습니다.{nl}용량이 초과하여 보스 몬스터로부터 에너지를 방출됩니다."/>
 	</Category>
 	<Category Name="BattleText">
 		<Class ClassID="100001" ClassName="ADD_DAMAGE_{Auto_1}!" Data="추가 데미지 {Auto_1}!"/>
@@ -9778,6 +9798,7 @@
 		<Class ClassID="109001" ClassName="Test_Zone" Data="테스트존"/>
 		<Class ClassID="109002" ClassName="Klapeda" Data="클라페다"/>
 		<Class ClassID="109003" ClassName="f_siauliai" Data="샤울레이"/>
+		<Class ClassID="109004" ClassName="c_orsha" Data="오르샤"/>
 	</Category>
 	<Category Name="ItemCraft">
 		<Class ClassID="110001" ClassName="list_rsc_arrow_01" Data="출혈 화살"/>
@@ -13618,6 +13639,8 @@
 		<Class ClassID="300187" ClassName="Select_Arts" Data="신비한 서를 선택하세요"/>
 		<Class ClassID="300188" ClassName="needMoreItem" Data="가비야의 은총이 담긴 깃털 부족합니다."/>
 		<Class ClassID="300189" ClassName="Event_Theme" Data="[이벤트] 가비야 테마"/>
+		<Class ClassID="300190" ClassName="remain_TP" Data="미수령 TP"/>
+		<Class ClassID="300191" ClassName="remain_TP_exists" Data="미수령 TP가 존재합니다. 수령하시겠습니까?"/>
 		<Class ClassID="300192" ClassName="PremiumToken_14d_event" Data="[이벤트]토큰:14일[증정용]"/>
 		<Class ClassID="300193" ClassName="Premium_boostToken03_event01_team" Data="x8 경험의 서"/>
 		<Class ClassID="300194" ClassName="recycle_special" Data="스폐셜"/>
@@ -13711,10 +13734,17 @@
 		<Class ClassID="302076" ClassName="DISTRACTOR_shadow_raid_main" Data="흰 까마귀의 영면지"/>
 		<Class ClassID="302077" ClassName="STAMP_TOUR_HIDDEN_MISSION_COMPLETE" Data="히든 미션의 목표를 달성했습니다!{nl}클라페다나 오르샤에 있는 마법협회 NPC와 대화해 보상을 받아 가세요!"/>
 		<Class ClassID="302078" ClassName="HALLOWEEN_CANDY_UNSERVICEABILITY" Data="이미 호박맛 할로윈 사탕의 효과가 적용되고 있습니다.{nl}잔여 시간이 지난 뒤 다시 사용해주세요."/>
-		<Class ClassID="302079" ClassName="REGULAR_BURNING_EVENT_COUNT_RESET_SUCCESS" Data="성공적으로 레전드 레이드 및 업힐 디펜스 입장횟수를 초기화했습니다!"/>
+		<Class ClassID="302079" ClassName="REGULAR_BURNING_EVENT_COUNT_RESET_SUCCESS" Data="성공적으로 입장 횟수를 초기화했습니다!"/>
 		<Class ClassID="302080" ClassName="REGULAR_BURNING_EVENT_COUNT_RESET_FAIL" Data="문제가 발생하여 횟수 초기화가 진행되지 않았습니다.{nl}잠시 후, 다시 시도해주십시오."/>
 		<Class ClassID="302081" ClassName="REGULAR_BURNING_EVENT_SUPPORTER" Data="주말 앤 버닝 도우미"/>
 		<Class ClassID="302082" ClassName="npc_Xmas_Evt_NPC" Data="[유료 상품 교환 NPC]{nl}가비야의 전령"/>
+		<Class ClassID="302084" ClassName="EVENT_NEW_SEASON_SERVER_COIN_CHECK_STATE_1" Data="전체 코인 획득량"/>
+		<Class ClassID="302085" ClassName="EVENT_NEW_SEASON_SERVER_COIN_CHECK_STATE_2" Data="1시간 접속 코인"/>
+		<Class ClassID="302086" ClassName="EVENT_NEW_SEASON_SERVER_COIN_CHECK_STATE_3" Data="스탬프 투어 목표 진행률"/>
+		<Class ClassID="302087" ClassName="EVENT_NEW_SEASON_SERVER_COIN_CHECK_STATE_4" Data="콘텐츠 목표 진행률"/>
+		<Class ClassID="302088" ClassName="EVENT_NEW_SEASON_SERVER_COIN_CHECK_STATE_5" Data="룰렛 사용 횟수"/>
+		<Class ClassID="302089" ClassName="EVENT_NEW_SEASON_SERVER_stamp_tour_tip_text" Data="* 스탬프 투어 진행률은 해당 미션 보상을 받아야 적용됩니다."/>
+		<Class ClassID="302090" ClassName="EVENT_NEW_SEASON_SERVER_stamp_tour_tip_text2" Data="마법 협회 npc를 찾아가 이벤트에 참여하세요"/>
 	</Category>
 	<Category Name="Account">
 		<Class ClassID="303001" ClassName="MaxAccountWarehouseCount" Data="팀 창고"/>
@@ -14282,6 +14312,7 @@
 		<Class ClassID="815120" ClassName="PH_POINT_SHOP_POINT_TRADE_3" Data="3 단계 주거 정착 물품과 교환한다"/>
 		<Class ClassID="815121" ClassName="PH_POINT_SHOP_POINT_TRADE_CANT_1" Data="개인 하우징 포인트가 부족 합니다"/>
 		<Class ClassID="815122" ClassName="PH_POINT_SHOP_POINT_TRADE_SUCCESS_1" Data="개인 하우징"/>
+	<Class ClassID="815125" ClassName="PERSONAL_HOUSING_FULL_PC_COUNT" Data="입장 가능한 인원을 초과하여 입장할 수 없습니다."/>
 	</Category>
 	<Category Name="Ancient">
 		<Class ClassID="820000" ClassName="AncientMonRegItemUse" Data="{@st66d_y}{s20}{monName}{/}{/} 몬스터가 등록됩니다. 획득하시겠습니까?"/>
@@ -14526,6 +14557,7 @@
 		<Class ClassID="2200003" ClassName="MarketWebService_3" Data="아이템 정보를 얻어오는데 실패했습니다."/>
 		<Class ClassID="2200004" ClassName="MarketWebService_902" Data="서버로 잘못된 Parameter 정보가 전달되었습니다."/>
 		<Class ClassID="2200005" ClassName="MarketWebService_904" Data="서버오류로 정상적인 처리가 되지 않았습니다."/>
+    <Class ClassID="2200006" ClassName="MarketWebService_903" Data="아직 사용할 수 없습니다. 잠시 후 다시 시도해주세요."/>
 	</Category>
 	<Category Name="Raid">
 		<Class ClassID="514001" ClassName="VelcofferSealStoneScrMsg" Data="봉인 해제중.."/>
@@ -14800,5 +14832,6 @@
 		<Class ClassID="591011" ClassName="Rift_Dungeon_Full" Data="도전 중인 파티가 너무 많습니다."/>
 		<Class ClassID="591012" ClassName="Rift_Dungeon_Created" Data="차원 붕괴 지점이 생성 되었습니다."/>
 		<Class ClassID="591013" ClassName="Rift_Dungeon_Not_Exists" Data="생성된 차원 붕괴 지점이 없습니다.{nl}파티 리더만 생성 가능합니다."/>
+    <Class ClassID="591014" ClassName="Rift_Dungeon_Really2" Data="{Level} 단계를 선택하셨습니다. 입장 하시겠습니까?{nl}{Color}용병단 증표 소지량 : {HasCount} / {MaxCount}{/}"/>
 	</Category>
 </idspace>

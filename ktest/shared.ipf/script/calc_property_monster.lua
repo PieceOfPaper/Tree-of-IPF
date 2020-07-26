@@ -2036,6 +2036,10 @@ function SCR_MON_STAT_RATE(self, prop)
         local statTypeClass = GetClass("Stat_Monster_Type", statType);
         if statTypeClass ~= nil then
             statTypeRate = TryGetProp(statTypeClass, prop, statTypeRate);
+            --주간 보스 레이드 3주차 임시 처리--
+            if prop == "ATK" and statType == "Weekly_Boss" and GetExProp(self, "Weekly_Num") <= 3 then
+                statTypeRate = 112;
+            end
         end
     end
     

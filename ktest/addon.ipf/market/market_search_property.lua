@@ -65,7 +65,8 @@ local MARKET_OPTION_GROUP_PROP_LIST = {
 		"ADD_SOUL",
 		"ADD_HOLY",
 		"ADD_DARK",
-		"Add_Damage_Atk"
+		"Add_Damage_Atk",
+		"ADD_BOSS_ATK"
 	},
     ETC = {
 		"SR",

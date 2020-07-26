@@ -37,29 +37,41 @@ function PARTY_RECOMMEND_CANCEL_SETTING(frame)
     -- cancel key
     local cancelText = GET_CHILD_RECURSIVELY(frame, 'cancelText');
     config.InitHotKeyByCurrentUIMode('Battle');    
+
     local jumpKeyIdx = config.GetHotKeyElementIndex('ID', 'Jump');
     local jumpKey = config.GetHotKeyElementAttributeForConfig(jumpKeyIdx, 'Key');
+    if IsJoyStickMode() == 1 then
+        jumpKey = "X";
+    end
+
     local useShift = config.GetHotKeyElementAttributeForConfig(jumpKeyIdx, "UseShift");
     local useAlt = config.GetHotKeyElementAttributeForConfig(jumpKeyIdx, "UseAlt");
     local useCtrl = config.GetHotKeyElementAttributeForConfig(jumpKeyIdx, "UseCtrl");
+
     local KEY_IMG_SIZE = tonumber(frame:GetUserConfig('KEY_IMG_SIZE'));
     local imgName = 'key_'..jumpKey;
     local originImgWidth = ui.GetImageWidth(imgName);
     local originImgHeight = ui.GetImageHeight(imgName);
     local sizeAmendCoeff = KEY_IMG_SIZE / originImgWidth;
+
     local jumpKeyImg = string.format('{img %s %d %d}', imgName, KEY_IMG_SIZE, originImgHeight * sizeAmendCoeff);
+
     if useShift == 'YES' then
         jumpKeyImg = string.format('{img SHIFT %d %d}', KEY_IMG_SIZE, KEY_IMG_SIZE)..jumpKeyImg;
     end
+
     if useAlt == 'YES' then
         jumpKeyImg = string.format('{img alt %d %d}', KEY_IMG_SIZE, KEY_IMG_SIZE)..jumpKeyImg;
     end
+
     if useCtrl == 'YES' then
         jumpKeyImg = string.format('{img ctrl %d %d}', KEY_IMG_SIZE, KEY_IMG_SIZE)..jumpKeyImg;
     end
+
     if IsJoyStickMode() == 0 then
         cancelText:SetTextByKey('img', jumpKeyImg);
     end
+
     if IsJoyStickMode() == 1 then
         jumpKeyImg = string.format('{img %s %d %d}', "a_button", KEY_IMG_SIZE, originImgHeight * sizeAmendCoeff);
         cancelText:SetTextByKey('img', jumpKeyImg);

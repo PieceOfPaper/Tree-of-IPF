@@ -1,13 +1,24 @@
-g_earth_shop_local_parent = nil
-g_earth_shop_local_control = nil
-g_earth_shop_local_dragrecipeitem = nil
+local s_earth_shop_frame_name = ""
+local s_earth_shop_parent_name = ""
+local g_earth_shop_control_name = ""
 
 function EARTHTOWERSHOP_ON_INIT(addon, frame)
     addon:RegisterMsg('EARTHTOWERSHOP_BUY_ITEM', 'EARTHTOWERSHOP_BUY_ITEM');
 end
 
 function EARTHTOWERSHOP_BUY_ITEM(itemName,itemCount)
-    local ctrlset = g_earth_shop_local_control:GetParent();
+	local controlFrame = ui.GetFrame(s_earth_shop_frame_name);
+	if controlFrame == nil then
+		return
+	end
+
+    local parent = GET_CHILD_RECURSIVELY(controlFrame, s_earth_shop_parent_name);
+	local control = GET_CHILD_RECURSIVELY(parent, g_earth_shop_control_name);
+	if control == nil or parent == nil then
+		return
+	end
+
+    local ctrlset = parent;
     local recipecls = GetClass('ItemTradeShop', ctrlset:GetName());
     local exchangeCountText = GET_CHILD(ctrlset, "exchangeCount");
 	if recipecls.NeedProperty ~= 'None' then
@@ -35,14 +46,14 @@ function EARTHTOWERSHOP_BUY_ITEM(itemName,itemCount)
 --            end
 --        end
 		local cntText = ScpArgMsg("Excnaged_AccountCount_Remind","COUNT",string.format("%d", sCount))
-		local tradeBtn = GET_CHILD(ctrlset, "tradeBtn");
-		if sCount <= 0 then
-			cntText = ScpArgMsg("Excnaged_No_Enough");
+        local tradeBtn = GET_CHILD(ctrlset, "tradeBtn");
+        if sCount <= 0 then
+            cntText = ScpArgMsg("Excnaged_No_Enough");
             tradeBtn:SetColorTone("FF444444");
             tradeBtn:SetEnable(0);
-		end;
-		exchangeCountText:SetTextByKey("value", cntText);
-	end
+        end;
+        exchangeCountText:SetTextByKey("value", cntText);
+    end
 
 end
 function REQ_EARTH_TOWER_SHOP_OPEN()
@@ -192,6 +203,12 @@ function REQ_EVENT_2001_NEWYEAR_SHOP_OPEN()
     ui.OpenFrame('earthtowershop');
 end
 
+function REQ_EVENT_2002_FISHING_SHOP_OPEN()
+    local frame = ui.GetFrame("earthtowershop");
+    frame:SetUserValue("SHOP_TYPE", 'FishingShop2002');
+    ui.OpenFrame('earthtowershop');
+end
+
 function EARTH_TOWER_SHOP_OPEN(frame)
     if frame == nil then
         frame = ui.GetFrame("earthtowershop")
@@ -301,6 +318,9 @@ function EARTH_TOWER_INIT(frame, shopType)
     elseif shopType == 'NewYearShop' then
         title:SetText('{@st43}'..ScpArgMsg("EVENT_2001_NEWYEAR_SHOP"));
         close:SetTextTooltip(ScpArgMsg('CloseUI{NAME}', 'NAME', ScpArgMsg("EventShop")));
+    elseif shopType == 'FishingShop2002' then
+        title:SetText('{@st43}'..ScpArgMsg("EVENT_2002_FISHING_SHOP"));
+        close:SetTextTooltip(ScpArgMsg('CloseUI{NAME}', 'NAME', ScpArgMsg("EventShop")));
     end
 
 
@@ -335,13 +355,15 @@ function EARTH_TOWER_INIT(frame, shopType)
     while cls ~= nil do
 
         if cls.ShopType == shopType then
-            local haveM = CRAFT_HAVE_MATERIAL(cls);     
-            if checkHaveMaterial == 1 then
-                if haveM == 1 then
-                   INSERT_ITEM(cls, tree, slotHeight,haveM, shopType);
+            if EARTH_TOWER_IS_ITEM_SELL_TIME(cls) == true then
+                local haveM = CRAFT_HAVE_MATERIAL(cls);     
+                if checkHaveMaterial == 1 then
+                    if haveM == 1 then
+                    INSERT_ITEM(cls, tree, slotHeight,haveM, shopType);
+                    end
+                else
+                    INSERT_ITEM(cls, tree, slotHeight,haveM, shopType);
                 end
-            else
-                INSERT_ITEM(cls, tree, slotHeight,haveM, shopType);
             end
         end
         
@@ -353,6 +375,14 @@ function EARTH_TOWER_INIT(frame, shopType)
 
 end
 
+function EARTH_TOWER_IS_ITEM_SELL_TIME(recipeCls)
+    local startDateString = TryGetProp(recipeCls,'SellStartTime',nil)
+    local endDateString = TryGetProp(recipeCls,'SellEndTime',nil)
+    if startDateString ~= nil and endDateString ~= nil then
+        return IS_CURREUNT_IN_PERIOD(startDateString, endDateString, true)
+    end
+    return true;
+end
 
 function INSERT_ITEM(cls, tree, slotHeight, haveMaterial, shopType)
 
@@ -529,10 +559,6 @@ function EXCHANGE_CREATE_TREE_PAGE(tree, slotHeight, groupName, classType, cls, 
                 y = y + itemHeight;
                 itemCount = itemCount + 1;
             end
-
-            if dragRecipeItem ~= nil then
-                g_earth_shop_local_dragrecipeitem = dragRecipeItem;
-            end
         end
     end
 
@@ -619,9 +645,12 @@ function EXCHANGE_CREATE_TREE_PAGE(tree, slotHeight, groupName, classType, cls, 
 end
 
 function EARTH_TOWER_SHOP_EXEC(parent, ctrl)
-    g_earth_shop_local_parent = parent;
-    g_earth_shop_local_control = ctrl;
+    local frame = parent:GetTopParentFrame();
 
+	s_earth_shop_frame_name = frame:GetName();
+	s_earth_shop_parent_name = parent:GetName();
+    g_earth_shop_control_name = ctrl:GetName();
+    
     local parentcset = ctrl:GetParent();
     local edit_itemcount = GET_CHILD_RECURSIVELY(parentcset, "itemcount");
     if edit_itemcount == nil then 
@@ -657,7 +686,7 @@ function EARTH_TOWER_SHOP_EXEC(parent, ctrl)
             return;
         end
     end
-    local frame = g_earth_shop_local_parent:GetTopParentFrame();
+
     local shopType = frame:GetUserValue("SHOP_TYPE");
     if recipecls==nil or recipecls["Item_2_1"] ~='None' then
         AddLuaTimerFuncWithLimitCountEndFunc("EARTH_TOWER_SHOP_TRADE_ENTER", 100, resultCount - 1, "EARTH_TOWER_SHOP_TRADE_LEAVE");
@@ -667,18 +696,20 @@ function EARTH_TOWER_SHOP_EXEC(parent, ctrl)
 end
 
 function EARTH_TOWER_SHOP_TRADE_ENTER()
-    local frame = g_earth_shop_local_parent:GetTopParentFrame();
+	local frame = ui.GetFrame(s_earth_shop_frame_name);
+	if frame == nil then
+		return
+    end
+
+	local parent = GET_CHILD_RECURSIVELY(frame, s_earth_shop_parent_name);
+    local control = GET_CHILD_RECURSIVELY(parent, g_earth_shop_control_name);
+
     if frame:GetName() == 'legend_craft' then
-        LEGEND_CRAFT_EXECUTE(g_earth_shop_local_parent, g_earth_shop_local_control);
+        LEGEND_CRAFT_EXECUTE(parent, control);
         return;
     end
-    local parentcset = g_earth_shop_local_control:GetParent()
-    local frame = g_earth_shop_local_control:GetTopParentFrame(); 
-    if frame:GetName() == 'legend_craft' then
-       LEGEND_CRAFT_EXECUTE(g_earth_shop_local_parent, g_earth_shop_local_control);
-       return;
-   end
-    
+
+    local parentcset = parent;
     local cnt = parentcset:GetChildCount();
     for i = 0, cnt - 1 do
         local eachcset = parentcset:GetChildByIndex(i);    
@@ -802,13 +833,27 @@ function EARTH_TOWER_SHOP_TRADE_ENTER()
 --        item.DialogTransaction("EVENT1912_GREWUP_SHOP_1_TREAD1", resultlist, cntText);
     elseif shopType == 'NewYearShop' then
         item.DialogTransaction("EVENT_2001_NEWYEAR_SHOP_1_THREAD1", resultlist, cntText);
+    elseif shopType == 'FishingShop2002' then
+        item.DialogTransaction("EVENT_2002_FISHING_SHOP_1_THREAD1", resultlist, cntText);
 	end
 end
 
 function EARTH_TOWER_SHOP_TRADE_LEAVE()
-    session.ResetItemList();
+	local frame = ui.GetFrame(s_earth_shop_frame_name);
+	if frame == nil then
+		return
+	end
 
-    local ctrlSet = g_earth_shop_local_control:GetParent();
+    local parent = GET_CHILD_RECURSIVELY(frame, s_earth_shop_parent_name);
+	local control = GET_CHILD_RECURSIVELY(parent, g_earth_shop_control_name);
+	if control == nil or parent == nil then
+		return
+	end
+	
+    session.ResetItemList();
+	
+    local ctrlSet = parent;
+
     local recipecls = GetClass('ItemTradeShop', ctrlSet:GetName());
     if recipecls == nil then
         return;

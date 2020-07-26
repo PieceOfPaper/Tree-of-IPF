@@ -145,12 +145,20 @@ function ITEM_TRANSCEND_REG_TARGETITEM(frame, itemID)
     --    SCR_EVENT_TRANSCEND_DISCOUNT_TEXT(frame, obj)
     --end
     
-
+	local msg = ScpArgMsg('ItemDecomposeWarningProp_Transcend')
     --burning event
     local pc = GetMyPCObject()
-    if IsBuffApplied(pc, "Event_Even_Transcend_Discount_50") == "YES" then
-        SCR_EVENT_TRANSCEND_DISCOUNT_TEXT(frame, obj)
-    end
+	if IsBuffApplied(pc, "Event_Even_Transcend_Discount_50") == "YES" then
+		local transcendCount = TryGetProp(itemObj, "Transcend");
+		if transcendCount % 2 == 1 then
+			msg = msg..ScpArgMsg('EVENT_REINFORCE_DISCOUNT_MSG1')
+		end
+	end
+	--steam_new_world
+	if IsBuffApplied(pc, "Event_Steam_New_World_Buff") == "YES" then
+		msg = msg..ScpArgMsg('EVENT_REINFORCE_DISCOUNT_MSG1')
+	end
+	SCR_EVENT_TRANSCEND_DISCOUNT_TEXT(frame, msg)
 end
 
 -- 아아템 초월시 여신의 축복석 Text 갱신 함수.
@@ -168,16 +176,11 @@ function ITEM_TRANSCEND_NEEDMATERIAL_TEXT_UPDATE(frame, targetobj)
 end
 
 --EVENT_1811_WEEKEND
-function SCR_EVENT_TRANSCEND_DISCOUNT_TEXT(frame, itemObj)
-    local transcendCount = TryGetProp(itemObj, "Transcend");
+function SCR_EVENT_TRANSCEND_DISCOUNT_TEXT(frame, msg)
     local gbox = GET_CHILD(frame, "gbox");
     local gbox2 = GET_CHILD(gbox, "gbox2");
-    local reg = GET_CHILD(gbox2, "reg");
-	if transcendCount % 2 == 1 then
-	    reg:SetTextByKey("value", ScpArgMsg('ItemDecomposeWarningProp_Transcend')..ScpArgMsg('EVENT_REINFORCE_DISCOUNT_MSG1'));
-	else
-	    reg:SetTextByKey("value", ScpArgMsg('ItemDecomposeWarningProp_Transcend'));
-	end
+	local reg = GET_CHILD(gbox2, "reg");
+	reg:SetTextByKey("value",msg)
 end
 
 
@@ -503,12 +506,20 @@ elseif keyboard.IsKeyPressed("LALT") == 1 or isMax == true then
     --end
 
 
+	local msg = ScpArgMsg('ItemDecomposeWarningProp_Transcend')
     --burning_event
     local pc = GetMyPCObject()
     if IsBuffApplied(pc, "Event_Even_Transcend_Discount_50") == "YES" then
-        SCR_EVENT_TRANSCEND_DISCOUNT_TEXT(frame, targetObj)
+		local transcendCount = TryGetProp(targetObj, "Transcend");
+		if transcendCount % 2 == 1 then
+			msg = msg..ScpArgMsg('EVENT_REINFORCE_DISCOUNT_MSG1')
+		end
     end
 
+	if IsBuffApplied(pc, "Event_Steam_New_World_Buff") == "YES" then
+		msg = msg..ScpArgMsg('EVENT_REINFORCE_DISCOUNT_MSG1')
+    end
+	SCR_EVENT_TRANSCEND_DISCOUNT_TEXT(frame, msg)
 end
 
 -- 재료를 드레그 드롭했을 경우

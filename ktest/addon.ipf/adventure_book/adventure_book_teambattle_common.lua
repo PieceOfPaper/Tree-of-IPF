@@ -91,6 +91,7 @@ function ADVENTURE_BOOK_TEAM_BATTLE_RANK_UPDATE(frame, msg, argStr, argNum)
 	local league = session.worldPVP.GetRankProp("League");
 	local page = session.worldPVP.GetRankProp("Page");
 	local totalCount = session.worldPVP.GetRankProp("TotalCount");
+	
 	local cnt = session.worldPVP.GetRankInfoCount();
 	for i = 0 , cnt - 1 do
 		local info = session.worldPVP.GetRankInfoByIndex(i);

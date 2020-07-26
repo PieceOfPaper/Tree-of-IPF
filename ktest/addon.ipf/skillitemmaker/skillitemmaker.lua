@@ -73,7 +73,7 @@ function SKILLITEMMAKER_REGISTER(frame, skillType)
 	frame:SetUserValue("SKILLTYPE", skillType);
 	local skill_slot = GET_CHILD(frame, "skillslot", "ui::CSlot");
 	SET_SLOT_SKILL(skill_slot, sklObj);
-	
+
 	local count = sklObj.Level;
 	if skillTreeCls.MaxLevel < count then
 		count = skillTreeCls.MaxLevel;
@@ -87,7 +87,7 @@ function SKILLITEMMAKER_REGISTER(frame, skillType)
 	-- 시모니 레벨만큼 할 것
 	frame:GetChild("skilllevel"):SetTextByKey("value", count);
 	frame:GetChild("skillname"):SetTextByKey("value", sklObj.Name);
-				
+	
 	local makecount = GET_CHILD(frame, "makecount", "ui::CNumUpDown");
 	makecount:SetNumChangeScp("SKILLITEMKAE_NUMCHANGE");
 	makecount:SetNumberValue(1);	
@@ -228,9 +228,19 @@ function UPDATE_SKILLITEMMAKE_PRICE(frame, sklObj, levelSkill)
 	totalprice:SetTextByKey("value", GetCommaedText(totalVis));
 	matslot:SetText('{s20}{ol}{b}'..totalBottle, 'count', ui.RIGHT, ui.BOTTOM, -2, 1);
 
+	local makeSec = 3;	-- GET_SKILL_ITEM_MAKE_TIME(sklObj, curCount);
+	if frame:GetUserValue("SKLNAME") == "Pardoner_Simony" then
+		local mySimonySkill = GetSkill(GetMyPCObject(), frame:GetUserValue("SKLNAME"));
+		makeSec = 3 - (TryGetProp(mySimonySkill, "Level", 1) - 1)
+
+		if makeSec < 1 then
+			makeSec = 1
+		end
+	end
+
 	local makecount = GET_CHILD(frame, "makecount", "ui::CNumUpDown");
 	local curCount = makecount:GetNumber();
-	local makeSec = 3;	-- GET_SKILL_ITEM_MAKE_TIME(sklObj, curCount);
+
 	local progtime = frame:GetChild("progtime");
 	progtime:SetTextByKey("value", makeSec);
 	local gauge = GET_CHILD(frame, "gauge", "ui::CGauge");

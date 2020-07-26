@@ -80,7 +80,7 @@ function SKL_KEY_SELECT_CELL(actor, obj, dik, cellCount, cellSize, chargeTime, a
 	return 1;
 end
 
-function SKL_KEY_GROUND_EVENT(actor, obj, dik, chargeTime, autoShot, shotCasting, lookTargetPos, selRange, upAbleSec, useDynamicLevel, isVisivle, isFullCharge, effectName, scale, nodeName, lifeTime, shockWave, shockPower, shockTime, shockFreq, shockAngle, onlyMouseMode, quickCast, hitCancel, isScroll, abilName)
+function SKL_KEY_GROUND_EVENT(actor, obj, dik, chargeTime, autoShot, shotCasting, lookTargetPos, selRange, upAbleSec, useDynamicLevel, isVisivle, isFullCharge, effectName, scale, nodeName, lifeTime, shockWave, shockPower, shockTime, shockFreq, shockAngle, onlyMouseMode, quickCast, hitCancel, buffName, abilName, isScroll)
 
 	if onlyMouseMode == 1 and session.config.IsMouseMode() == false then
 		geSkillControl.SendGizmoPosByCurrentTarget(actor, obj.type);
@@ -155,6 +155,10 @@ function SKL_KEY_GROUND_EVENT(actor, obj, dik, chargeTime, autoShot, shotCasting
 		end
 	end
 
+	if isScroll == nil or isScroll == 0 then
+		isScroll = false;
+	end
+
 	geSkillControl.GroundSelecting(actor, obj.type, dik, chargeTime, autoShot, shotCasting, lookTargetPos, selRange, upAbleSec, isVisivle, useDynamicLevel, isFullCharge, effectName, nodeName, lifeTime, scale,1,1,1, shockwave, intensity, time, frequency, angle, nil, quickCast, isScroll);
 
 	if nil ~= hitCancel and hitCancel == 1 then
@@ -218,6 +222,15 @@ function SKL_SKILL_REUSE_ON_BTN_UP(actor, obj, dik, buffName)
 end
 
 function SKL_PARTY_TARGET_BY_KEY(actor, obj, dik, showHPGauge, isScroll)
+
+	local abil = session.GetAbilityByName("Cleric30");
+	if abil ~= nil then
+		local obj = GetIES(abil:GetObject());
+		if obj ~= nil and obj.ActiveState == 1 then
+			return 0, 1;
+		end
+	end
+
 	if showHPGauge == nil then
 		showHPGauge = 0;
 	end

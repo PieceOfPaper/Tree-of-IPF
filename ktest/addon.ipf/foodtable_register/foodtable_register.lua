@@ -99,6 +99,11 @@ function _FOODTABLE_REG_EXEC()
 		title = titleEdit:GetText();
 	end
 
+	if shared > 0 and (title == nil or TrimString(title) == "") then
+		ui.SysMsg(ClMsg("InputTitlePlease"))
+		return
+	end
+
     session.camp.RequestBuildFoodTable(sklCls.ClassID, shared, title);
 end
 

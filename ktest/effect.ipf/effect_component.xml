@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by IMCGames Co., Ltd (IMCGames Co., Ltd) -->
 <ComponentList>
+	<Particle name="guildmileage_coin" texture="guildmileage_coin" width="10.00" height="9.00" pivot_x="0.50" pivot_y="0.50" texel_x="0" texel_y="0" texel_width="128" texel_height="128"/>
 	<Particle name="light001_1" texture="light001_1" width="4.00" height="4.00" pivot_x="0.50" pivot_y="0.50" texel_x="0" texel_y="0" texel_width="64" texel_height="64"/>
 	<Particle name="arrow007" texture="arrow007" width="1.00" height="1.00" pivot_x="0.5" pivot_y="1" texel_x="0" texel_y="0" texel_width="256" texel_height="256"/>
 	<Particle name="arrow006" texture="arrow006" width="1.00" height="1.00" pivot_x="0.50" pivot_y="0.50" texel_x="0" texel_y="0" texel_width="256" texel_height="256"/>
@@ -676,6 +677,12 @@
 	<Trail name="dash001_pink" texture="dash001_pink" height="5.00" texel_x="0" texel_y="0" texel_width="32" texel_height="16"/>
 	<Trail name="dash001" texture="dash001" height="5.00" texel_x="0" texel_y="0" texel_width="32" texel_height="16"/>
 	<Trail name="smoke002" texture="smoke002" height="10.00" texel_x="512" texel_y="512" texel_width="64" texel_height="64"/>
+	<Model name="pc_pose_flex05" model="pc_pose_flex05.xac" motion="pc_pose_flex05_ani.xsm" texturepath="effect\high\modeltexture\" overlap="true" AlphaType="BLEND"/>
+	<Model name="pc_pose_flex04" model="pc_pose_flex04.xac" motion="pc_pose_flex04_ani.xsm" texturepath="effect\high\modeltexture\" overlap="true" AlphaType="BLEND"/>
+	<Model name="pc_pose_flex03" model="pc_pose_flex03.xac" motion="pc_pose_flex03_ani.xsm" texturepath="effect\high\modeltexture\" overlap="true" AlphaType="BLEND"/>
+	<Model name="pc_pose_flex02" model="pc_pose_flex02.xac" motion="pc_pose_flex02_ani.xsm" texturepath="effect\high\modeltexture\" overlap="true" AlphaType="BLEND"/>
+	<Model name="pc_pose_flex01" model="pc_pose_flex01.xac" motion="pc_pose_flex01_ani.xsm" texturepath="effect\high\modeltexture\" overlap="true" AlphaType="BLEND"/>
+	<Model name="pc_pose_flex" model="pc_pose_flex.xac" motion="pc_pose_flex_ani.xsm" texturepath="effect\high\modeltexture\" overlap="true" AlphaType="BLEND"/>
 	<Model name="hornofgolem001_arts" model="hornofgolem001_arts.xac" motion="hornofgolem001_arts_ani.xsm" texturepath="effect\high\modeltexture\" overlap="true" AlphaType="BLEND"/>
 	<Model name="effectitem_whitebirds" model="effectitem_whitebirds.xac" motion="effectitem_whitebirds_ani.xsm" texturepath="effect\high\modeltexture\" overlap="flase" AlphaType="TEST"/>
 	<Model name="subzeroshield_obj5" model="subzeroshield_obj5.xac" motion="None" texturepath="effect\high\modeltexture\" overlap="flase" AlphaType="TEST"/>
