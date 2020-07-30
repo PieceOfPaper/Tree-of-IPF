@@ -133,8 +133,12 @@ function ON_BARRACK_NAME_CHANGE_RESULT(frame, addon, str, result)
 	elseif result == -2 then
 	  	ui.SysMsg(ClMsg("HadFobbidenWord"));
 	elseif result == -50 then
-		ui.SysMsg(ClMsg("CantCreateTeamCuzExisting"));
+		if GetServerNation() == "GLOBAL" then
+			ui.SysMsg(ClMsg("CantCreateTeamCuzExisting"));
+		else
+			ui.SysMsg(ClMsg("SeasonServerCannotCreateTeamName"));
+		end
 	else
-			ui.SysMsg(ClMsg("TeamNameChangeFailed"));
-		end			
+		ui.SysMsg(ClMsg("TeamNameChangeFailed"));
 	end
+end

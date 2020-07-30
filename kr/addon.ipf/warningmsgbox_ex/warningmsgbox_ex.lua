@@ -3,7 +3,7 @@ function WARNINGMSGBOX_EX_ON_INIT(addon, frame)
 	addon:RegisterMsg("DO_OPEN_WARNINGMSGBOX_EX_UI", "WARNINGMSGBOX_EX_FRAME_OPEN")
 end
 
-function WARNINGMSGBOX_EX_FRAME_OPEN(frame, msg, argStr, argNum)
+function WARNINGMSGBOX_EX_FRAME_OPEN(frame, msg, argStr, argNum, option)
 	local arg_list = SCR_STRING_CUT(argStr, ';')
 	if arg_list == nil or #arg_list <= 0 then
 		return
@@ -19,6 +19,22 @@ function WARNINGMSGBOX_EX_FRAME_OPEN(frame, msg, argStr, argNum)
 	
 	local frame = ui.GetFrame('warningmsgbox_ex')
 	
+	-- 커스터마이징 옵션.
+	local compare_msg_color = nil;
+	local compare_msg_desc = nil;
+	if option ~= nil then
+		if option.ChangeTitle ~= nil then
+			local warningTitle = GET_CHILD_RECURSIVELY(frame, "warningtitle")
+			warningTitle:SetText(ClMsg(option.ChangeTitle));
+		end
+		if option.CompareTextColor ~= nil then
+			compare_msg_color = option.CompareTextColor;
+		end
+		if option.CompareTextDesc ~= nil then
+			compare_msg_desc = option.CompareTextDesc;
+		end
+	end
+
 	local warningText = GET_CHILD_RECURSIVELY(frame, "warningtext")
 	warningText:SetText(clmsg)
 
@@ -36,7 +52,18 @@ function WARNINGMSGBOX_EX_FRAME_OPEN(frame, msg, argStr, argNum)
 
 	if compare_msg ~= '' then
 		compareText:ShowWindow(1)
-		compareText:SetTextByKey('value', compare_msg)
+
+		if compare_msg_desc ~= nil then
+			compareText:SetTextByKey('desc', compare_msg_desc)
+		end
+
+		if compare_msg_color ~= nil then
+			compareText:SetTextByKey('value', compare_msg_color..compare_msg..'{/}')
+		else
+			compareText:SetTextByKey('value', compare_msg)
+		end
+
+
 		compareHeight = compareText:GetHeight()
 		compareText:SetMargin(0, 0, 0, 130 + compareHeight)
 

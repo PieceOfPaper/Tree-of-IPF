@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by IMC (IMCGames Co., Ltd) -->
-<uiframe name="warningmsgbox_ex" x="0" y="0" width="500" height="750" create="open" barrackuse="true">
+<uiframe name="warningmsgbox_ex" x="0" y="0" width="600" height="750" create="open" barrackuse="true">
 	<draw drawtitlebar="false"/>
 	<skin frameskin=" "/>
 	<frame titlepos="0 0" layout_gravity="center center" margin="0 0 0 0"/>
@@ -11,12 +11,12 @@
 	<option closebutton="false" hideable="false"/>
 	<sound opensound="window_open" closesound="window_close"/>
 	<controls>
-		<groupbox name="bg" rect="0 0 500 450" margin="0 0 0 0" layout_gravity="center top" draw="true" hittestbox="false" resizebyparent="true" resizebyresolution="false" skin="test_win_lastpopup"/>
-		<groupbox name="warningbox" margin="0 50 0 0" rect="0 0 400 400" skin="None" layout_gravity="center top"/>
-		<richtext name="warningtitle" margin="0 42 0 0" rect="0 0 200 50" layout_gravity="center top" caption="{s30}주의" textalign="center center" resizebytext="true" spacey="0" maxwidth="0" fontname="orange_32_b_ol_ds" fixwidth="false" parent="warningbox"/>
-		<richtext name="warningtext" margin="0 112 0 0" rect="0 0 350 30" layout_gravity="center top" caption="{s18}WARNING" textalign="center top" resizebytext="true" spacey="0" maxwidth="0" fontname="white_18_b_ol_ds" fixwidth="true" parent="warningbox"/>
-		<richtext name="comparetext" margin="0 0 0 130" rect="0 0 350 30" layout_gravity="center bottom" format="{s18}다음 문구를 입력해 주세요{nl}[%s]" param1="value" param1_def="" textalign="center top" resizebytext="true" spacey="0" maxwidth="0" fontname="white_18_b_ol_ds" fixwidth="true" parent="warningbox"/>
-    	<edit name="input" rect="0 0 300 36" margin="0 0 0 87" layout_gravity="center bottom" OffsetForDraw="0 0" clicksound="button_click" drawbackground="true" fontname="white_20_ol" oversound="button_over" skin="inventory_serch" textalign="center center" texttooltip="{@st59}내용을 입력합니다{/}" typingsound="chat_typing" typingscp="UPDATE_TYPING_SCRIPT_WARNINGMSGBOX_EX"/>
+		<groupbox name="bg" rect="0 0 600 600" margin="0 0 0 0" layout_gravity="center top" draw="true" hittestbox="false" resizebyparent="true" resizebyresolution="false" skin="test_win_lastpopup"/>
+		<groupbox name="warningbox" margin="0 50 0 0" rect="0 0 500 500" skin="None" layout_gravity="center top"/>
+		<richtext name="warningtitle" margin="0 42 0 0" rect="0 0 400 50" layout_gravity="center top" caption="{s30}주의" textalign="center center" resizebytext="true" spacey="0" maxwidth="0" fontname="orange_32_b_ol_ds" fixwidth="false" parent="warningbox"/>
+		<richtext name="warningtext" margin="0 112 0 0" rect="0 0 450 30" layout_gravity="center top" caption="{s18}WARNING" textalign="center top" resizebytext="true" spacey="0" maxwidth="0" fontname="white_18_b_ol_ds" fixwidth="true" parent="warningbox"/>
+		<richtext name="comparetext" margin="0 0 0 135" rect="0 0 500 70" layout_gravity="center bottom" format="{s20}%s{nl}[%s]" param1="desc" param1_def="다음 문구를 입력해 주세요" param2="value" param2_def="" textalign="center top" resizebytext="true" spacey="0" maxwidth="0" fontname="white_18_b_ol_ds" fixwidth="true" parent="warningbox"/>
+		<edit name="input" rect="0 0 400 30" margin="0 0 0 86" layout_gravity="center bottom" OffsetForDraw="0 0" clicksound="button_click" drawbackground="true" fontname="white_20_ol" oversound="button_over" skin="inventory_serch" textalign="center center" texttooltip="{@st59}내용을 입력합니다{/}" typingsound="chat_typing" typingscp="UPDATE_TYPING_SCRIPT_WARNINGMSGBOX_EX"/>
     	<button name="yes" rect="0 0 150 50" margin="-80 0 0 30" layout_gravity="center bottom" LBtnUpArgNum="" LBtnUpScp="" fontname="white_16_b_ol" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" caption="{@st41b}{img icon_button_warning 36 36}예" clicksound="button_click_big" skin="test_red_button" oversound="button_over"/>
 		<button name="no" rect="0 0 150 50" margin="80 0 0 30" layout_gravity="center bottom" LBtnUpArgNum="" LBtnUpScp="ui.CloseFrame(&apos;warningmsgbox&apos;)" fontname="white_16_b_ol" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" caption="{@st41b}아니오" clicksound="button_click_big" skin="test_gray_button" oversound="button_over"/>
 		<button name="ok" rect="0 0 150 50" margin="0 0 0 30" layout_gravity="center bottom" LBtnUpArgNum="" LBtnUpScp="" fontname="white_16_b_ol" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" caption="{@st41b}{img icon_button_warning 36 36}확인" clicksound="button_click_big" skin="test_red_button" oversound="button_over"/>

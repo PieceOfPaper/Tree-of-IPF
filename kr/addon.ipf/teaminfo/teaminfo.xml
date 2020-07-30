@@ -20,7 +20,7 @@
        
 	    <!-- team edit -->
 		<groupbox name="gb_top" margin="0 60 0 0" rect="0 0 470 60" layout_gravity="center top" draw="false" hittestbox="false" resizebyparent="false" resizebyresolution="true" scrollbar="true" skin="test_frame_low"/>
-		
+		<button name="btn_teamDelete" parent="gb_top" margin="0 10 0 0" rect="0 0 200 50" layout_gravity="center top" caption="{@st41b}팀 삭제{/}" texttooltip="{@st59}팀 삭제를 요청합니다.{/}" textalign="center center" skin="test_red_button" clicksound="button_click_big" oversound="button_over" textoffset="0 0" MouseOnAnim="btn_mouseover" MouseOffAnim="btn_mouseoff" LBtnUpScp="TEAM_DELETE"/>
 
         <!-- team info -->
         <groupbox name="gb_mid" margin="0 60 0 0" rect="0 0 470 970" layout_gravity="center top" draw="false" hittestbox="false" resizebyparent="false" resizebyresolution="true" scrollbar="true" skin="test_frame_low"/>

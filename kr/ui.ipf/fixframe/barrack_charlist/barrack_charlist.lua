@@ -1182,10 +1182,10 @@ function SELECT_GAMESTART_CHANNEL(parent, ctrl)
 
 end
 
-function BARRACK_TO_GAME()
+function BARRACK_TO_GAME()	
 	if IS_SEASON_SERVER() == "YES" and IS_SEASON_SERVER_OPEN() == false then
 		if session.IsGM() ~= 1 then
-			ui.SysMsg(ClMsg("CantUseNow"));
+			ui.SysMsg(ClMsg("SeasonServerCannotZoneEnter"));
             return;
         end
 	end

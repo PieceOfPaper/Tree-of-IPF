@@ -51,6 +51,8 @@
 		<Class ClassID="47" ClassName="CantCreateTeamCuzExisting" Data="Cannot create a team due to the existing team in the other world."/>
 		<Class ClassID="48" ClassName="CantConnectChatServer{error}" Data="ErrorCode[{error}] 채팅 서버에 연결할 수 없습니다."/>
 		<Class ClassID="49" ClassName="DisconnectCuzdiffHwid" Data="이전과 다른 하드웨어로 접속하여 보호모드가 실행됩니다."/>
+		<Class ClassID="50" ClassName="SeasonServerCannotCreateTeamName" Data="통합 대상 서버 혹은 시즌 서버에 팀이 존재합니다. 팀은 통합 대상 서버와 시즌 서버 중 한 곳에만 생성할 수 있습니다. {nl} {nl}시즌 서버 운영 기간 중, 팀 생성 및 삭제와 관련한 자세한 내용은 공식 홈페이지의 공지사항을 참고하여 주세요."/>
+		<Class ClassID="51" ClassName="SeasonServerCannotZoneEnter" Data="팀 사전 등록 기간입니다.{nl}8월 6일 (목) 점검 후부터 팀 사전 등록 보상 수령 및 게임 시작이 가능합니다."/>
 	</Category>
 	<Category Name="ChatMsg">
 		<Class ClassID="300" ClassName="TemporarilyUnavailable_1" Data="일시적으로 중지된 기능입니다."/>
@@ -10618,9 +10620,10 @@
 		<Class ClassID="124057" ClassName="DoNotMarketTarde" Data="마켓 거래가 가능한 거래 등급이 아닙니다."/>
 		<Class ClassID="124058" ClassName="MaxSlotCountMsg" Data="슬롯이 가득 차, 더 이상 아이템과 실버를 획득하실 수 없습니다.{nl}본 메시지 출력 이후 획득하지 못한 아이템과 실버는 복구의 대상이 되지 않습니다."/>
 		<Class ClassID="124059" ClassName="MaxSlotCountMsgCompare" Data="아이템과 실버를 획득할 수 없습니다"/>
-                <Class ClassID="124060" ClassName="TeamDeleteWarning" Data="팀 삭제 시, 프리미엄 TP를 제외한 모든 캐릭터/캐릭터가 보유한 유,무료 아이템/게임 데이터/컴패니언이 삭제됩니다. 그래도 진행하시겠습니까?"/>
-		<Class ClassID="124061" ClassName="TeamDeleteWarningCompare" Data="프리미엄 TP를 제외한 모든 데이터 삭제"/>
+                <Class ClassID="124060" ClassName="TeamDeleteWarning" Data="{s20}팀 삭제 시 모든 캐릭터와 컴패니언, 유/무료 아이템,{nl}TP를 포함한 {#ffa200}모든 게임 데이터가 삭제{/}되며{nl}{#ffa200}복구가 불가능{/}합니다.(프리미엄 TP는 보존){nl} {nl}정말로 팀을 삭제하시려면, 아래 문구를 입력해 주세요.{nl}{/}"/>
+		<Class ClassID="124061" ClassName="TeamDeleteWarningCompare" Data="모든 데이터가 삭제되며 복구할 수 없음에 동의합니다"/>
 		<Class ClassID="124062" ClassName="CannotBecauseLowLevel{LEVEL}" Data="캐릭터 레벨이 {LEVEL}레벨 이상인 경우만 사용 가능합니다."/>
+                <Class ClassID="124063" ClassName="TeamDeleteWarningTitle" Data="{S30}{#ffa200}게임 데이터 삭제 주의!!{/}{/}"/>
 	</Category>
 	<Category Name="Quest">
 		<Class ClassID="125001" ClassName="QuestAlignFilter_All" Data="모든 퀘스트"/>
