@@ -61,12 +61,13 @@ function EVENT_STAMP_GET_CURRENT_MISSION(groupName,currentpage)
 		missionCls = GetClassByIndexFromList(clsList, i);
 		if missionCls.Group == groupName then
 			if currentpage == cnt then
-				break
+				return missionCls;
 			end
 			cnt = cnt  + 1
 		end
 	end
-	return missionCls
+
+	return nil;
 end
 
 --EVENT_2007_TOS_VACANCE
