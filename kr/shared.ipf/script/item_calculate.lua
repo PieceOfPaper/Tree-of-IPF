@@ -475,7 +475,7 @@ function GET_BASIC_MATK(item)
     return itemATK;
 end
 
-function SCR_REFRESH_WEAPON(item, pc, enchantUpdate, ignoreReinfAndTranscend, reinfBonusValue)
+function SCR_REFRESH_WEAPON(item, enchantUpdate, ignoreReinfAndTranscend, reinfBonusValue)
     if nil == enchantUpdate then
         enchantUpdate = 0;
     end
@@ -543,7 +543,7 @@ function SCR_REFRESH_WEAPON(item, pc, enchantUpdate, ignoreReinfAndTranscend, re
     MAKE_ITEM_OPTION_BY_OPTION_SOCKET(item);
 end
 
-function SCR_REFRESH_ARMOR(item, pc, enchantUpdate, ignoreReinfAndTranscend, reinfBonusValue)    
+function SCR_REFRESH_ARMOR(item, enchantUpdate, ignoreReinfAndTranscend, reinfBonusValue)
     if enchantUpdate == nil then
         enchantUpdate = 0
     end
@@ -662,16 +662,17 @@ function SCR_REFRESH_ARMOR(item, pc, enchantUpdate, ignoreReinfAndTranscend, rei
         if basicDef < 1 then
             basicDef = 1;
         end
-        basicDef = math.floor(basicDef) * upgradeRatio + GET_REINFORCE_ADD_VALUE(basicProp, item, ignoreReinfAndTranscend, reinfBonusValue) + buffarg
-        item[basicProp] = SyncFloor(basicDef);
-    end
     
+        local pc = GetItemOwner(item)
     -- pvp 전용아이템인 경우 체크 (팀배, 수정광산 적용)    
     if pc ~= nil and TryGetProp(item, 'StringArg', 'None') == 'FreePvP' then        
-        if IsJoinColonyWarMap(pc) == 1 or ( IsPVPField(pc) == 0 and IsTeamBattleLeague(pc) == 0) then
-            item.DEF = 0
-            item.MDEF = 0                
+            if IsJoinColonyWarMap(pc) == 1 or ( IsPvPMineMap(pc) == false and IsTeamBattleLeague(pc) == 0) then
+                basicDef = 0
+            end
         end
+
+        basicDef = math.floor(basicDef) * upgradeRatio + GET_REINFORCE_ADD_VALUE(basicProp, item, ignoreReinfAndTranscend, reinfBonusValue) + buffarg
+        item[basicProp] = SyncFloor(basicDef);
     end
     
     APPLY_AWAKEN(item);
@@ -680,7 +681,7 @@ function SCR_REFRESH_ARMOR(item, pc, enchantUpdate, ignoreReinfAndTranscend, rei
     MAKE_ITEM_OPTION_BY_OPTION_SOCKET(item);
 end
 
-function SCR_REFRESH_ACC(item, pc, enchantUpdate, ignoreReinfAndTranscend, reinfBonusValue)
+function SCR_REFRESH_ACC(item, enchantUpdate, ignoreReinfAndTranscend, reinfBonusValue)
     if enchantUpdate == nil then
         enchantUpdate = 0
     end
@@ -865,7 +866,7 @@ function APPLY_OPTION_SOCKET(item)
     end
 end
 
-function SCR_REFRESH_HAIRACC(item, pc)
+function SCR_REFRESH_HAIRACC(item)
     local class = GetClassByType('Item', item.ClassID);
     INIT_ARMOR_PROP(item, class)
     for i = 1, 3 do
