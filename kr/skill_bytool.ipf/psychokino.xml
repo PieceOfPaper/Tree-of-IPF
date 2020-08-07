@@ -557,15 +557,15 @@ return value"/>
 					<Num Num="15" />
 					<Num Num="1" />
 				</Scp>
-				<Scp Client="NO" LoopTime="500" Scp="SKL_TGT_BUFF" Time="400" UseSleep="NO">
+				<Scp Client="NO" LoopTime="1500" Scp="SKL_TGT_BUFF" Time="400" UseSleep="NO">
 					<Str Str="Stun" />
 					<Num Num="1" />
 					<Num Num="0" />
 					<Num Num="1000" />
 					<Num Num="1" />
-					<Num FuncTxt="return obj.Level * 10;" Num="0" UseFunc="1" />
+					<Num Num="50" />
 					<Num Num="0" />
-					<Num Num="1" />
+					<Num Num="0" />
 				</Scp>
 				<Scp Client="NO" LoopTime="1000" Scp="SKL_CONSUME_SP" Time="400" UseSleep="NO">
 					<Num FuncTxt="local value = 42 local lv = self.Lv local bylvCorrect = lv - 300 if bylvCorrect &lt; 0 then     bylvCorrect = bylvCorrect * 2.75 / 1000 elseif bylvCorrect &gt;= 0 then     bylvCorrect = bylvCorrect * 1.25 / 1000 end value = value * (1 + bylvCorrect) local abil = GetAbility(self, &quot;Psychokino10&quot;) if abil ~= nil and abil.ActiveState == 1 then value = value * 1.2 end return math.floor(value)" Num="3" UseFunc="1" />

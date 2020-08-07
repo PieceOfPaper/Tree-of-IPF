@@ -79,6 +79,7 @@
         <Effect Name="skl_eff_falconer_tomahawk_ground_abil"/>
         <Effect Name="skl_eff_exorcist_entity_body_abil"/>
         <Effect Name="skl_eff_pyromancer_hellbreath_abil"/>
+        <Effect Name="I_emo_badword"/>
     </Category>
     <Category ID="70">
         <Effect Name="EVENT_2001_NEWYEAR_INIT_PAD"/>
@@ -2780,6 +2781,20 @@
         <Effect Name="LEGEND_RAID_MORINGPONIA_HARD_SOLO"/>
         <Effect Name="UNIQUE_RAID_GLACIER_SOLO"/>
         <Effect Name="skl_eff_piedpiper_friedenslied_melody_abil"/>
+    <Effect Name="SKL_POUNCING_ABIL_RIDE"/>
+		<Effect Name="FRIEDENSLIED_DANCE_RIDE"/>
+		<Effect Name="FRIEDENSLIED_DANCE_ABIL_RIDE"/>
+	<Effect Name="SKL_POUNCING_STAND_ABIL"/>
+        <Effect Name="None##1.5"/>
+        <Effect Name="E_Dynamite#Bip001 R Finger01"/>
+        <Effect Name="F_spread_in032_dark_loop##1.2"/>
+        <Effect Name="F_sys_target_monsterlight"/>
+        <Effect Name="I_force054_fire#Dummy_effect01"/>
+        <Effect Name="Dummy_Impaler1"/>
+        <Effect Name="F_buff_basic059_ground_red"/>
+        <Effect Name="F_cleric_HandKnife_shot_ground"/>
+        <Effect Name="F_cleric_cure_loop_ground"/>
+        <Effect Name="Apkrova_Pad"/>
     </Category>
     <Category ID="84">
         <Effect Name="M_PAST_FLIBRARY_1"/>
@@ -23163,6 +23178,11 @@
     </Category>
     <Category ID="300">
         <Effect Name="DefClass123"/>
+	<Effect Name="I_anvil_dead002_mash"/>
+	<Effect Name="I_anvil_dead003_mesh_ruby"/>
+	<Effect Name="I_anvil_dead003_mesh_diamond"/>
+	<Effect Name="I_anvil_dead003_mesh_gold"/>
+	<Effect Name="I_anvil_dead003_mesh_platinum"/>
     </Category>
     <Category ID="130">
         <Effect Name="E_Cleric_StoneShower"/>
@@ -23393,5 +23413,5 @@
         <Effect Name="skl7p"/>
         <Effect Name="skl5_cast"/>
         <Effect Name="[mon]StackBuff"/>
-    </Category>
+	</Category>
 </packeteffects>

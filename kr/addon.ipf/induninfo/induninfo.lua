@@ -1333,15 +1333,14 @@ function SORT_BY_LEVEL_REVERSE(a, b)
 end
 
 function INDUNINFO_OPEN_INDUN_MAP(parent, ctrl)
-    local mapID = parent:GetUserValue('INDUN_START_MAP_ID');
-    local indunClassID = parent:GetUserValue('INDUN_CLASS_ID');
-    local topFrame = parent:GetTopParentFrame()
-    local resetGroupID = topFrame:GetUserIValue('SELECT')
-    if resetGroupID < 0 then
-        OPEN_INDUN_MAP_INFO(indunClassID, mapID, resetGroupID);
-    else
-        OPEN_INDUN_MAP_INFO(indunClassID, mapID);
-    end
+    local mapID = parent:GetUserValue('INDUN_START_MAP_ID')
+    local mapName = GetClassByType("Map", mapID).ClassName
+    local episode = GET_EPISODE_BY_MAPNAME(mapName)
+    
+    ui.OpenFrame("worldmap2_mainmap")
+
+    WORLDMAP2_SUBMAP_OPEN_FROM_MAINMAP_BY_EPISODE(episode)
+    WORLDMAP2_SUBMAP_ZONE_CHECK(mapName)
 end
 
 function INDUN_CANNOT_YET(msg)

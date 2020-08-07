@@ -1017,7 +1017,7 @@
 			<picture name="index" rect="0 0 5 5" margin="14 0 0 0" hittest="false" layout_gravity="left center" image="white_dot" stretch="true"/>
 		</controls>
 	</controlset>
-	<controlset name="partyinfo" toggle="false" hittest="false" width="450" height="62" skin="">
+	<controlset name="partyinfo" toggle="false" hittest="true" width="450" height="62" skin="" hittestset="true">
 		<controls>
 			<gauge name="hp" rect="0 0 134 22" margin="56 30 0 0" ratewidth="true" skin="party_info_gauge_hp_2" text1="{ds}{b}%v / %m" textoffset1="0 1" textfont1="white_12_ol" textalign1="center top" hittest="false" layout_gravity="left top" point="100"/>
 			<gauge name="sp" rect="0 0 134 22" margin="56 37 0 0" ratewidth="true" skin="party_info_gauge_sp_2" text1="" textoffset1="0 1" textfont1="white_12_ol" textalign1="center bottom" hittest="false" layout_gravity="left top" point="100"/>
@@ -5138,7 +5138,7 @@
 			<picture name="clear_Pic" rect="0 0 140 140" margin="0 0 15 15" layout_gravity="right bottom" image="very_nice_stamp" stretch="true" hittest="false"/>
 			<picture name="comingsoon_Pic" rect="0 0 474 114" margin="0 0 0 0" layout_gravity="center center" image="coming_soon_notice" stretch="true" hittest="false"/>
 			<button name="go_btn" rect="0 0 100 40" margin="30 175 0 0" layout_gravity="left top" LBtnUpScp="ON_EVENT_STAMP_TOUR_GO_BUTTON_CLICK" skin="test_red_button" caption="{@st42b}{s16}바로가기{/}" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" oversound="button_cursor_over_2" clicksound="button_click_stats_OK"/>
-			<button name="question" parent="title_gb" rect="0 0 44 44" margin="0 2 8 0" layout_gravity="right top" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" hittest="true" image="testquesten_button" oversound="button_over" LBtnUpScp="ON_EVENT_STAMP_TOUR_HELP_CLICK" />
+			<button name="question" rect="0 0 44 44" margin="0 14 8 0" layout_gravity="right top" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" hittest="true" image="testquesten_button" oversound="button_over" LBtnUpScp="ON_EVENT_STAMP_TOUR_HELP_CLICK" />
 			</controls>
 	</controlset>
 	<controlset name="event_stamp_tour_mission_block_summer" hittest="true" width="541" height="250" stateskin="false">
@@ -5392,6 +5392,124 @@
 		<controls>
 			<richtext name="itemSlotsetText" rect="0 0 70 20" margin="10 3 0 0" layout_gravity="left top" caption="일반" fontname="black_16_b"/>
 			<slotset name="itemSlotset" rect="0 0 480 100" margin="0 30 0 0" layout_gravity="center top" LBtnDownScp="ITEM_DECOMPOSE_SLOT_LBTDOWN" enabledrag="false" enableselect="true" hideindrag="true" row="2" col="10" maxselect="60" size="50 50" skin="invenslot2" spc="2 2" enabledrop="false" enablepop="false"/>
+		</controls>
+	</controlset>
+	<!--월드맵-->
+	<controlset name="city_set" hittest="true" width="400" height="400">
+		<controls>
+			<button name="city_img" rect="0 0 250 250" margin="0 0 0 0" layout_gravity="center center" image="worldmap2_btn_epi_01" LBtnDownScp="OPEN_WORLDMAP2_SUBMAP_FROM_MAINMAP" oversound="button_cursor_over_2" clicksound="button_click_4" MouseOnAnim="btn_mouseover_4" MouseOffAnim="btn_mouseoff_4"/>
+			<button name="city_btn" rect="0 0 218 135" margin="0 0 0 0" layout_gravity="center center" image="worldmap2_Mbar_town" LBtnDownScp="OPEN_WORLDMAP2_SUBMAP_FROM_MAINMAP" oversound="button_cursor_over_2" clicksound="button_click_4"/>
+			<richtext name="city_episode_text" rect="0 0 218 135" margin="0 0 0 0" layout_gravity="center center"/>
+			<picture name="pc_pos" rect="0 0 38 38" margin="0 0 0 0" layout_gravity="center center" image="worldmap2_map_pc" imagealign="center center" stretch="false" hittest="true" LBtnUpScp="WORLDMAP2_MAINMAP_MOVE_MYPOS" texttooltip="내 캐릭터의 위치를 불러옵니다." oversound="button_cursor_over_2" clicksound="button_click_4"/>
+		</controls>
+	</controlset>
+	<controlset name="episode_set" hittest="true" width="220" height="220">
+		<controls>
+			<button name="episode_img" rect="0 0 200 200" margin="0 0 0 0" layout_gravity="center center" image="worldmap2_btn_epi_02" LBtnDownScp="OPEN_WORLDMAP2_SUBMAP_FROM_MAINMAP" oversound="button_cursor_over_2" clicksound="button_click_4" MouseOnAnim="btn_mouseover_4" MouseOffAnim="btn_mouseoff_4"/>
+			<button name="episode_btn" rect="0 0 172 54" margin="0 0 0 0" layout_gravity="center center" image="worldmap2_Mbar_ep" LBtnDownScp="OPEN_WORLDMAP2_SUBMAP_FROM_MAINMAP" oversound="button_cursor_over_2" clicksound="button_click_4"/>
+			<picture name="pc_pos" rect="0 0 38 38" margin="0 0 0 0" layout_gravity="center center" image="worldmap2_map_pc" imagealign="center center" stretch="false" hittest="true" LBtnUpScp="WORLDMAP2_MAINMAP_MOVE_MYPOS" texttooltip="내 캐릭터의 위치를 불러옵니다." oversound="button_cursor_over_2" clicksound="button_click_4"/>
+		</controls>
+	</controlset>
+	<controlset name="sub_episode_set" hittest="true" width="158" height="132">
+		<controls>
+			<button name="sub_episode_btn" rect="0 0 158 112" margin="0 0 0 0" layout_gravity="center center" skin="worldmap2_Mbar_subq" LBtnDownScp="OPEN_WORLDMAP2_SUBMAP_FROM_MAINMAP" oversound="button_cursor_over_2" clicksound="button_click_4"/>
+			<picture name="pc_pos" rect="0 0 38 38" margin="0 0 0 0" layout_gravity="center center" image="worldmap2_map_pc" imagealign="center center" stretch="false" hittest="true" LBtnUpScp="WORLDMAP2_MAINMAP_MOVE_MYPOS" texttooltip="내 캐릭터의 위치를 불러옵니다." oversound="button_cursor_over_2" clicksound="button_click_4"/>
+		</controls>
+	</controlset>
+	<controlset name="submap_zone_left_set" hittest="true" width="300" height="100">
+		<controls>
+			<button name="zone_btn" rect="0 0 60 60" margin="0 0 0 0" layout_gravity="right center" image="worldmap2_map_zone_btn" LBtnDownScp="WORLDMAP2_SUBMAP_ZONE_BTN_CLICK"/>
+			<picture name="zone_pc_pos" rect="0 0 38 38" margin="0 -30 -3 0" layout_gravity="right center" image="worldmap2_map_pc" imagealign="center center"/>
+			<richtext name="zone_text_fieldboss" rect="0 0 240 50" margin="22 -30 0 0" layout_gravity="left center" textalign="right center" resizebytext="false" visible="false"/>
+			<richtext name="zone_text_top" rect="0 0 240 50" margin="22 -10 0 0" layout_gravity="left center" textalign="right center" resizebytext="false"/>
+			<richtext name="zone_text_bottom" rect="0 0 240 50" margin="22 10 0 0" layout_gravity="left center" textalign="right center" resizebytext="false"/>
+		</controls>
+	</controlset>
+	<controlset name="submap_zone_right_set" hittest="true" width="300" height="100">
+		<controls>
+			<button name="zone_btn" rect="0 0 60 60" margin="0 0 0 0" layout_gravity="left center" image="worldmap2_map_zone_btn" LBtnDownScp="WORLDMAP2_SUBMAP_ZONE_BTN_CLICK"/>
+			<picture name="zone_pc_pos" rect="0 0 38 38" margin="-3 -30 0 0" layout_gravity="left center" image="worldmap2_map_pc" imagealign="center center"/>
+			<richtext name="zone_text_fieldboss" rect="0 0 240 50" margin="0 -30 22 0" layout_gravity="right center" textalign="left center" resizebytext="false" visible="false"/>
+			<richtext name="zone_text_top" rect="0 0 240 50" margin="0 -10 22 0" layout_gravity="right center" textalign="left center" resizebytext="false"/>
+			<richtext name="zone_text_bottom" rect="0 0 240 50" margin="0 10 22 0" layout_gravity="right center" textalign="left center" resizebytext="false"/>
+		</controls>
+	</controlset>
+	<controlset name="submap_city_left_set" hittest="true" width="300" height="120">
+		<controls>
+			<button name="zone_btn" rect="0 0 60 60" margin="0 0 0 0" layout_gravity="right center" image="worldmap2_map_zone_btn" LBtnDownScp="WORLDMAP2_SUBMAP_ZONE_BTN_CLICK"/>
+			<picture name="zone_pc_pos" rect="0 0 38 38" margin="0 -40 14 0" layout_gravity="right center" image="worldmap2_map_pc" imagealign="center center"/>
+			<richtext name="zone_text_fieldboss" rect="0 0 240 50" margin="0 -30 0 0" layout_gravity="left center" textalign="right center" resizebytext="false" visible="false"/>
+			<richtext name="zone_text_top" rect="0 0 240 50" margin="0 -10 0 0" layout_gravity="left center" textalign="right center" resizebytext="false"/>
+			<richtext name="zone_text_bottom" rect="0 0 240 50" margin="0 10 0 0" layout_gravity="left center" textalign="right center" resizebytext="false"/>
+		</controls>
+	</controlset>
+	<controlset name="submap_city_right_set" hittest="true" width="300" height="120">
+		<controls>
+			<button name="zone_btn" rect="0 0 60 60" margin="0 0 0 0" layout_gravity="left center" image="worldmap2_map_zone_btn" LBtnDownScp="WORLDMAP2_SUBMAP_ZONE_BTN_CLICK"/>
+			<picture name="zone_pc_pos" rect="0 0 38 38" margin="6 -40 0 0" layout_gravity="left center" image="worldmap2_map_pc" imagealign="center center"/>
+			<richtext name="zone_text_fieldboss" rect="0 0 240 50" margin="0 -30 0 0" layout_gravity="left center" textalign="right center" resizebytext="false" visible="false"/>
+			<richtext name="zone_text_top" rect="0 0 240 50" margin="0 -10 0 0" layout_gravity="right center" textalign="left center" resizebytext="false"/>
+			<richtext name="zone_text_bottom" rect="0 0 240 50" margin="0 10 0 0" layout_gravity="right center" textalign="left center" resizebytext="false"/>
+		</controls>
+	</controlset>
+	<controlset name="submap_gray_left_set" hittest="true" width="300" height="120">
+		<controls>
+			<button name="zone_btn" rect="0 0 60 60" margin="0 0 0 0" layout_gravity="right center" image="worldmap2_map_zone_btn" LBtnDownScp="WORLDMAP2_SUBMAP_ZONE_BTN_CLICK"/>
+			<picture name="zone_pc_pos" rect="0 0 38 38" margin="0 -30 2 0" layout_gravity="right center" image="worldmap2_map_pc" imagealign="center center"/>
+			<richtext name="zone_text_top" rect="0 0 240 50" margin="19 -10 0 0" layout_gravity="left center" textalign="right center" resizebytext="false"/>
+			<richtext name="zone_text_bottom" rect="0 0 240 50" margin="19 10 0 0" layout_gravity="left center" textalign="right center" resizebytext="false"/>
+		</controls>
+	</controlset>
+	<controlset name="submap_gray_right_set" hittest="true" width="300" height="120">
+		<controls>
+			<button name="zone_btn" rect="0 0 60 60" margin="0 0 0 0" layout_gravity="left center" image="worldmap2_map_zone_btn" LBtnDownScp="WORLDMAP2_SUBMAP_ZONE_BTN_CLICK"/>
+			<picture name="zone_pc_pos" rect="0 0 38 38" margin="0 -30 0 0" layout_gravity="left center" image="worldmap2_map_pc" imagealign="center center"/>
+			<richtext name="zone_text_top" rect="0 0 240 50" margin="0 -10 19 0" layout_gravity="right center" textalign="left center" resizebytext="false"/>
+			<richtext name="zone_text_bottom" rect="0 0 240 50" margin="0 10 19 0" layout_gravity="right center" textalign="left center" resizebytext="false"/>
+		</controls>
+	</controlset>
+	<controlset name="minimap_info_quest_set" hittest="true" width="480" height="38" skin="worldmap2_frame_04">
+		<controls>
+			<button name="quest_box" rect="0 0 480 38" margin="0 0 0 0" layout_gravity="center top" textalign="left center" textoffset="5 0" skin="worldmap2_btn_square2"/>
+			<checkbox name="spot_img" rect="0 0 28 28" margin="190 0 0 0" layout_gravity="center center" skin="worldmap2_spot" LBtnDownScp="WORLDMAP2_MINIMAP_QUEST_LOCATION" oversound="button_over" clicksound="button_click"/>
+			<checkbox name="check_img" rect="0 0 28 28" margin="220 0 0 0" layout_gravity="center center" skin="worldmap2_checkbox" oversound="button_over" clicksound="button_click"/>
+		</controls>
+	</controlset>
+	<controlset name="minimap_info_npc_set" hittest="true" width="480" height="38" skin="worldmap2_frame_04">
+		<controls>
+			<button name="npc_box" rect="0 0 480 38" margin="0 0 0 0" layout_gravity="center top" textalign="left center" textoffset="5 0" skin="worldmap2_btn_square2"/>
+			<checkbox name="spot_img" rect="0 0 28 28" margin="220 0 0 0" layout_gravity="center center" skin="worldmap2_spot" LBtnDownScp="WORLDMAP2_MINIMAP_NPC_LOCATION" oversound="button_over" clicksound="button_click"/>
+		</controls>
+	</controlset>
+	<controlset name="minimap_info_monster_set" hittest="true" width="480" height="80" skin="worldmap2_frame_04">
+		<controls>
+			<richtext name="level_text" rect="0 0 60 30" margin="180 0 0 0" layout_gravity="center center" textalign="left center" resizebytext="false"/>
+			<richtext name="fieldboss_text" rect="0 0 100 30" margin="-117 -22 0 0" layout_gravity="center center" textalign="center center"/>
+			<picture name="monster_icon" rect="0 0 64 64" margin="-200 0 0 0" layout_gravity="center center"/>
+			<picture name="monster_icon_frame" rect="0 0 64 64" margin="-200 0 0 0" layout_gravity="center center"/>
+			<button name="monster_box" rect="0 0 480 80" margin="0 0 0 0" layout_gravity="center center" textalign="left center" skin="worldmap2_btn_square2"/>
+		</controls>
+	</controlset>
+	<controlset name="colonymap_champions_league_set" hittest="true" width="395" height="120" skin="worldmap2_frame_04">
+		<controls>
+			<richtext name="title_text" rect="0 0 150 32" margin="-110 -38 0 0" layout_gravity="center center" textalign="left center" resizebytext="false"/>
+			<richtext name="guild_text" rect="0 0 150 32" margin="-102 -15 0 0" layout_gravity="center center" textalign="left center" resizebytext="false" caption="{@st104gold_14}점령길드"/>
+			<richtext name="guild_info_text" rect="0 0 150 32" margin="20 -15 0 0" layout_gravity="center center" textalign="left center" resizebytext="false"/>
+			<richtext name="tax_city_text" rect="0 0 150 32" margin="-102 7 0 0" layout_gravity="center center" textalign="left center" resizebytext="false" caption="{@st104gold_14}적립요율 적용 도시"/>
+			<richtext name="tax_city_info_text" rect="0 0 150 32" margin="20 7 0 0" layout_gravity="center center" textalign="left center" resizebytext="false"/>
+			<richtext name="tax_rate_text" rect="0 0 150 32" margin="-102 29 0 0" layout_gravity="center center" textalign="left center" resizebytext="false" caption="{@st104gold_14}적용중인 적립요율"/>
+			<richtext name="tax_rate_info_text" rect="0 0 150 32" margin="20 29 0 0" layout_gravity="center center" textalign="left center" resizebytext="false"/>
+			<picture name="spot_img" rect="0 0 100 100" margin="135 0 0 0" layout_gravity="center center" image="colonymap_unoccupation" imagealign="center center"/>
+			<button name="background_btn" rect="0 0 395 120" margin="0 0 0 0" layout_gravity="center center" skin="worldmap2_btn_square" LBtnUpScp="WORLDMAP2_COLONYMAP_SET_PREVIEW_BY_BTN" oversound="button_cursor_over_3" clicksound="button_click_big"/>
+		</controls>
+	</controlset>
+	<controlset name="colonymap_challenges_league_set" hittest="true" width="395" height="97" skin="worldmap2_frame_04">
+		<controls>
+			<richtext name="title_text" rect="0 0 150 32" margin="-110 -10 0 0" layout_gravity="center center" textalign="left center" resizebytext="false"/>
+			<richtext name="guild_text" rect="0 0 150 32" margin="-102 12 0 0" layout_gravity="center center" textalign="left center" resizebytext="false" caption="{@st104gold_14}점령길드"/>
+			<richtext name="guild_info_text" rect="0 0 150 32" margin="-45 12 0 0" layout_gravity="center center" textalign="left center" resizebytext="false"/>
+			<picture name="spot_img" rect="0 0 100 100" margin="135 0 0 0" layout_gravity="center center" image="colonymap_unoccupation" imagealign="center center"/>
+			<button name="background_btn" rect="0 0 395 97" margin="0 0 0 0" layout_gravity="center center" skin="worldmap2_btn_square" LBtnUpScp="WORLDMAP2_COLONYMAP_SET_PREVIEW_BY_BTN" oversound="button_cursor_over_3" clicksound="button_click_big"/>
 		</controls>
 	</controlset>
 	<controlset name="icoradd_multiple_set" toggle="false" hittest="true" width="657" height="222" skin="test_skin_01_btn" stateskin="false">

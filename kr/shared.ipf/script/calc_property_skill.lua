@@ -13326,23 +13326,25 @@ function SCR_COMMON_COOLDOWN_DECREASE(pc, skill, basicCoolDown)
     -- end
     
     local tempskill = GetSkill(pc, TryGetProp(skill, "ClassName", "None"))
-
 -- 바카리네 방어구
-    if IsBuffApplied(pc, 'ITEM_BUFF_vakarine_armor') == 'YES' and IsShieldSkill(TryGetProp(tempskill, 'ClassName', 'None')) == 1 and TryGetProp(tempskill, 'ValueType', 'None') == 'Attack' then 
-        basicCoolDown = basicCoolDown * (1 - 0.2) -- 감소율 20%
+    if tempskill ~= nil and GetExProp(pc, 'ep12_vakarine_leather_stack') > 0 and IsShieldSkill(TryGetProp(tempskill, 'ClassName', 'None')) == 1 and TryGetProp(tempskill, 'ValueType', 'None') == 'Attack' then 
+        local stack = GetExProp(pc, 'ep12_vakarine_leather_stack')
+        basicCoolDown = basicCoolDown * (1 - (0.05 * stack)) -- 부위당 5%        
     end
 
     -- 달리아 방어구    
-    if IsBuffApplied(pc, 'ITEM_BUFF_dalia_fury') == 'YES' and TryGetProp(tempskill, 'CastingCategory', 'None') == 'channeling' and TryGetProp(tempskill, 'ValueType', 'None') == 'Attack' then
-        basicCoolDown = basicCoolDown * (1 - 0.2) -- 감소율 20%
+    if tempskill ~= nil and GetExProp(pc, 'ep12_dalia_leather_stack') > 0 and TryGetProp(tempskill, 'CastingCategory', 'None') == 'channeling' and TryGetProp(tempskill, 'ValueType', 'None') == 'Attack' then
+        local stack = GetExProp(pc, 'ep12_dalia_leather_stack')
+        basicCoolDown = basicCoolDown * (1 - (0.05 * stack)) -- 부위당 5%
     end
 
     -- 가비야의 선물    
-    if IsBuffApplied(pc, 'ITEM_BUFF_gabija_present') == 'YES' then
+    if GetExProp(pc, 'ep12_gabija_casting_stack') > 0 then
+        local stack = GetExProp(pc, 'ep12_gabija_casting_stack')
         if TryGetProp(tempskill, 'CastingCategory', 'None') == 'cast' and TryGetProp(tempskill, 'ValueType', 'None') == 'Attack' then
-            basicCoolDown = basicCoolDown * (1 - 0.2) -- 감소율 20%
+            basicCoolDown = basicCoolDown * (1 - (0.05 * stack)) -- 부위당 5%
         elseif TryGetProp(tempskill, 'CastingCategory', 'None') == 'dynamic_casting' and TryGetProp(tempskill, 'ValueType', 'None') == 'Attack' then
-            basicCoolDown = basicCoolDown * (1 - 0.1) -- 감소율 1%
+            basicCoolDown = basicCoolDown * (1 - (0.025 * stack)) -- 부위당 2.5%
         end
     end
     

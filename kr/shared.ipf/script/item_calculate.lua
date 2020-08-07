@@ -475,7 +475,7 @@ function GET_BASIC_MATK(item)
     return itemATK;
 end
 
-function SCR_REFRESH_WEAPON(item, enchantUpdate, ignoreReinfAndTranscend, reinfBonusValue)
+function SCR_REFRESH_WEAPON(item, pc, enchantUpdate, ignoreReinfAndTranscend, reinfBonusValue)
     if nil == enchantUpdate then
         enchantUpdate = 0;
     end
@@ -543,7 +543,7 @@ function SCR_REFRESH_WEAPON(item, enchantUpdate, ignoreReinfAndTranscend, reinfB
     MAKE_ITEM_OPTION_BY_OPTION_SOCKET(item);
 end
 
-function SCR_REFRESH_ARMOR(item, enchantUpdate, ignoreReinfAndTranscend, reinfBonusValue)
+function SCR_REFRESH_ARMOR(item, pc, enchantUpdate, ignoreReinfAndTranscend, reinfBonusValue)    
     if enchantUpdate == nil then
         enchantUpdate = 0
     end
@@ -666,13 +666,21 @@ function SCR_REFRESH_ARMOR(item, enchantUpdate, ignoreReinfAndTranscend, reinfBo
         item[basicProp] = SyncFloor(basicDef);
     end
     
+    -- pvp 전용아이템인 경우 체크 (팀배, 수정광산 적용)    
+    if pc ~= nil and TryGetProp(item, 'StringArg', 'None') == 'FreePvP' then        
+        if IsJoinColonyWarMap(pc) == 1 or ( IsPVPField(pc) == 0 and IsTeamBattleLeague(pc) == 0) then
+            item.DEF = 0
+            item.MDEF = 0                
+        end
+    end
+    
     APPLY_AWAKEN(item);
     APPLY_RANDOM_OPTION(item);
     APPLY_RARE_RANDOM_OPTION(item);
     MAKE_ITEM_OPTION_BY_OPTION_SOCKET(item);
 end
 
-function SCR_REFRESH_ACC(item, enchantUpdate, ignoreReinfAndTranscend, reinfBonusValue)
+function SCR_REFRESH_ACC(item, pc, enchantUpdate, ignoreReinfAndTranscend, reinfBonusValue)
     if enchantUpdate == nil then
         enchantUpdate = 0
     end
@@ -857,7 +865,7 @@ function APPLY_OPTION_SOCKET(item)
     end
 end
 
-function SCR_REFRESH_HAIRACC(item)
+function SCR_REFRESH_HAIRACC(item, pc)
     local class = GetClassByType('Item', item.ClassID);
     INIT_ARMOR_PROP(item, class)
     for i = 1, 3 do

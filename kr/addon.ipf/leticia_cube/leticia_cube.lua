@@ -17,10 +17,24 @@ function LETICIA_CUBE_LIST_UPDATE(frame)
     local defaultSetted = false;
     local ITEM_LIST_INTERVAL = frame:GetUserConfig('ITEM_LIST_INTERVAL');
     local gachaList, cnt = GetClassList("GachaDetail");
-    for i = 0, cnt-1 do
+    local pc = GetMyPCObject()
+    
+        for i = 0, cnt -1 do
         local info = GetClassByIndexFromList(gachaList, i);
         if info ~= nil then
-            if info.Group == "NPC" then
+            local is_create = true;
+    
+            if IS_SEASON_SERVER(pc) == "YES" then
+                if TryGetProp(info, "RewardGroup", "None") ~= "Gacha_TP2_Season_001" then
+                    is_create = false;
+                    end
+            else
+                if TryGetProp(info, "RewardGroup", "None") == "Gacha_TP2_Season_001" then
+                    is_create = false;
+                end
+            end
+    
+            if info.Group == "NPC" and is_create == true then
                 local cube = cubeListBox:CreateOrGetControlSet("leticia_cube_list", 'LIST_'..info.ClassName, 0, 0);
                 cube = AUTO_CAST(cube);
 
@@ -35,10 +49,11 @@ function LETICIA_CUBE_LIST_UPDATE(frame)
                     tpText:SetTextByKey('consumeType', TP_IMG);
                     tpText:SetTextByKey('typeName', 'TP');
                     priceText:SetText(info.Price);                    
-                else
-                    tpText:SetTextByKey('consumeType', itemCls.Icon);
-                    tpText:SetTextByKey('typeName', '');
-                    priceText:SetText(itemCls.Name);                    
+                elseif info.ConsumeType == 'ITEM' then
+                    local consumeItem = GetClass('Item', info.ConsumeItem);
+                    tpText:SetTextByKey('consumeType', consumeItem.Icon);
+                    tpText:SetTextByKey('typeName', consumeItem.Name);
+                    priceText:SetText(math.floor(info.ConsumeItemCnt));
                 end
                 itemNameText:SetText(itemCls.Name);
 
@@ -46,15 +61,15 @@ function LETICIA_CUBE_LIST_UPDATE(frame)
                 cube:SetEventScriptArgString(ui.LBUTTONDOWN, info.ItemClassName);
                 cube:SetUserValue('GACHA_DETAIL_CLASS_NAME', info.ClassName);
 
-                if defaultSetted == false then
+                 if defaultSetted == false then
                     LETICIA_CUBE_CHANGE_INFO(cubeListBox, cube, info.ItemClassName);
                     defaultSetted = true;
-                end
-            end
-        end
+                 end
+              end
+          end
+       end
+       GBOX_AUTO_ALIGN(cubeListBox, 0, ITEM_LIST_INTERVAL, 0, true, false);
     end
-    GBOX_AUTO_ALIGN(cubeListBox, 0, ITEM_LIST_INTERVAL, 0, true, false);
-end
 
 function LETICIA_CUBE_CHANGE_INFO(cubeListBox, ctrlSet, argStr)
     local itemCls = GetClass("Item", argStr);
@@ -93,13 +108,25 @@ function LETICIA_CUBE_OPEN_BUTTON(frame, ctrl, argStr, argNum, _gachaClassName, 
     local clMsg = '';
     if gachaCls.ConsumeType == 'TP' then
         clMsg = string.format('{@st66d}{s18}{img %s 40 40} %d{/}{/}', TP_IMG, gachaCls.Price);
-    else
-        clMsg = string.format('{@st66d}{s18}{img %s 40 40} %s{/}{/}', cubeItemCls.Icon, cubeItemCls.Name);
-    end    
+    elseif gachaCls.ConsumeType == 'ITEM' then
+        local consumeItem = GetClass('Item', gachaCls.ConsumeItem);
+        local consumeInvItem = session.GetInvItemByName(gachaCls.ConsumeItem);        
+        if consumeInvItem == nil or consumeInvItem.count < tonumber(gachaCls.ConsumeItemCnt) then
+            ui.SysMsg(ClMsg('REQUEST_TAKE_ITEM'));
+            return;
+        end
+
+        clMsg = string.format('{@st66d}{s18}{img %s 40 40} %s %d%s{/}{/}', consumeItem.Icon, consumeItem.Name, gachaCls.ConsumeItemCnt, ClMsg('Piece'));
+    end
+        
+    local pc = GetMyPCObject()
+    local aobj = GetMyAccountObj(pc)
+    local Cnt = TryGetProp(aobj, "LETICIA_CUBE_OPEN_COUNT", 0)
 
     if frame:GetUserIValue('OPEN_MSG_BOX') == 0 then
-        ui.MsgBox(ScpArgMsg('LeticiaGacha{CONSUME}', 'CONSUME', clMsg)..'{nl} {nl}'..'{#85070a}'..ClMsg('ContainWarningItem'), 'REQ_LETICIA_CUBE_OPEN("'..cubeName..'")', 'LETICIA_CUBE_CLOSE_ALL()');
+        ui.MsgBox(ScpArgMsg('LeticiaGacha{CONSUME}', 'CONSUME', clMsg, 'COUNT', Cnt)..'{nl} {nl}'..'{#85070a}'..ClMsg('ContainWarningItem'), 'REQ_LETICIA_CUBE_OPEN("'..cubeName..'")', 'LETICIA_CUBE_CLOSE_ALL()');
         frame:SetUserValue('OPEN_MSG_BOX', 1);
+        ui.SetHoldUI(true);
     end
 end
 
@@ -114,6 +141,7 @@ end
 function LETICIA_CUBE_MSG_BOX_RESET()
     local leticia_cube = ui.GetFrame('leticia_cube');
     leticia_cube:SetUserValue('OPEN_MSG_BOX', 0);
+    ui.SetHoldUI(false);
 end
 
 function LETICIA_CUBE_CLOSE_ALL()

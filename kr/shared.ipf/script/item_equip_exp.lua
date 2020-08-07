@@ -130,6 +130,7 @@ function GET_MORE_EVENT_EXP(pc)
 	sumExp = sumExp + IsBuffAppliedEXP(pc, 'EVENT_2006_SWEET_ZONGZI_4'); -- 2006 단쫑즈 4단계 --
 	sumExp = sumExp + IsBuffAppliedEXP(pc, 'EVENT_2006_SWEET_ZONGZI_5'); -- 2006 단쫑즈 5단계 --
 	sumExp = sumExp + IsBuffAppliedEXP(pc, 'EVENT_2006_SALTY_ZONGZI'); -- 2006 짠쫑즈 --
+	sumExp = sumExp + IsBuffAppliedEXP(pc, 'Event_Kor_New_World_Buff'); -- 스팀 시즌 서버 혜택
 	if  TryGetProp(pc, 'Lv', 0) < 450 then
 	    sumExp = sumExp + IsBuffAppliedEXP(pc, 'ITEM_BUFF_2020ArborDay_ExpUP'); --2020 근본--
 	end

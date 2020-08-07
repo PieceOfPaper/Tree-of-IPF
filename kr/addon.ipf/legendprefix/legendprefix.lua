@@ -290,7 +290,8 @@ end
 function LEGENDPREFIX_SET_MAT_COUNT(frame, targetObject, needItemCls)
 	local needItemClsName = needItemCls.ClassName;
 	local matText = GET_CHILD_RECURSIVELY(frame, 'matText');
-	local needCnt = GET_LEGEND_PREFIX_NEED_MATERIAL_COUNT_BY_NEEDITEM(targetObject, needItemClsName);
+
+	local needCnt = GET_LEGEND_PREFIX_NEED_MATERIAL_COUNT_BY_NEEDITEM(targetObject, needItemClsName, GetMyPCObject());
 	if needCnt == 0 then
 		return;
 	end

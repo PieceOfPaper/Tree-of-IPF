@@ -4498,6 +4498,218 @@
 			<img name="bottomcore" imgrect="142 808 62 29"/>
 			<img name="bottomright" imgrect="205 808 55 29"/>
 		</skin>
+		<skin name="worldmap2_frame_01" texture="\skin\worldmap2.tga">
+			<img name="topleft" imgrect="0 0 20 20"/>
+			<img name="topcore" imgrect="21 0 20 20"/>
+			<img name="topright" imgrect="42 0 20 20"/>
+			<img name="bodyleft" imgrect="0 21 20 20"/>
+			<img name="bodycore" imgrect="21 21 20 20"/>
+			<img name="bodyright" imgrect="42 21 20 20"/>
+			<img name="bottomleft" imgrect="0 42 20 20"/>
+			<img name="bottomcore" imgrect="21 42 20 20"/>
+			<img name="bottomright" imgrect="42 42 20 20"/>
+		</skin>
+		<skin name="worldmap2_frame_02_gold" texture="\skin\worldmap2.tga">
+			<img name="topleft" imgrect="497 254 104 100"/>
+			<img name="topcore" imgrect="602 254 84 100"/>
+			<img name="topright" imgrect="687 254 104 100"/>
+			<img name="bodyleft" imgrect="497 355 104 84"/>
+			<img name="bodycore" imgrect="602 355 84 84"/>
+			<img name="bodyright" imgrect="687 355 104 84"/>
+			<img name="bottomleft" imgrect="497 440 104 100"/>
+			<img name="bottomcore" imgrect="602 440 84 100"/>
+			<img name="bottomright" imgrect="687 440 104 100"/>
+		</skin>
+		<skin name="worldmap2_frame_03" texture="\skin\worldmap2.tga">
+			<img name="topleft" imgrect="63 0 20 20"/>
+			<img name="topcore" imgrect="84 0 20 20"/>
+			<img name="topright" imgrect="105 0 20 20"/>
+			<img name="bodyleft" imgrect="63 21 20 20"/>
+			<img name="bodycore" imgrect="84 21 20 20"/>
+			<img name="bodyright" imgrect="105 21 20 20"/>
+			<img name="bottomleft" imgrect="63 42 20 20"/>
+			<img name="bottomcore" imgrect="84 42 20 20"/>
+			<img name="bottomright" imgrect="105 42 20 20"/>
+		</skin>
+		<skin name="worldmap2_frame_04" texture="\skin\worldmap2.tga">
+			<img name="topleft" imgrect="189 72 20 20"/>
+			<img name="topcore" imgrect="210 72 20 20"/>
+			<img name="topright" imgrect="231 72 20 20"/>
+			<img name="bodyleft" imgrect="189 93 20 20"/>
+			<img name="bodycore" imgrect="210 93 20 20"/>
+			<img name="bodyright" imgrect="231 93 20 20"/>
+			<img name="bottomleft" imgrect="189 114 20 20"/>
+			<img name="bottomcore" imgrect="210 114 20 20"/>
+			<img name="bottomright" imgrect="231 114 20 20"/>
+		</skin>
+		<skin name="worldmap2_search_bg" texture="\skin\worldmap2.tga">
+			<img name="topleft" imgrect="0 363 20 2"/>
+			<img name="topcore" imgrect="21 363 24 2"/>
+			<img name="topright" imgrect="46 363 20 2"/>
+			<img name="bodyleft" imgrect="0 366 20 32"/>
+			<img name="bodycore" imgrect="21 366 24 32"/>
+			<img name="bodyright" imgrect="46 366 20 32"/>
+			<img name="bottomleft" imgrect="0 399 20 2"/>
+			<img name="bottomcore" imgrect="21 399 24 2"/>
+			<img name="bottomright" imgrect="46 399 20 2"/>
+		</skin>
+		<skin name="worldmap2_Sbar_subq" texture="\skin\worldmap2_icon.tga">
+			<img name="topleft" imgrect="556 579 98 1"/>
+			<img name="topcore" imgrect="655 579 21 1"/>
+			<img name="topright" imgrect="677 579 97 1"/>
+			<img name="bodyleft" imgrect="556 581 98 152"/>
+			<img name="bodycore" imgrect="655 581 21 152"/>
+			<img name="bodyright" imgrect="677 581 97 152"/>
+			<img name="bottomleft" imgrect="556 579 98 1"/>
+			<img name="bottomcore" imgrect="655 579 21 1"/>
+			<img name="bottomright" imgrect="677 579 97 1"/>
+		</skin>
+	</skinlist>
+	<skinlist category="yiseul_buttons">
+		<skin name="worldmap2_btn_round" texture="\skin\worldmap2.tga">
+			<img name="topleft" imgrect="165 137 20 16"/>
+			<img name="topcore" imgrect="186 137 22 16"/>
+			<img name="topright" imgrect="209 137 20 16"/>
+			<img name="bodyleft" imgrect="165 154 20 12"/>
+			<img name="bodycore" imgrect="186 154 22 12"/>
+			<img name="bodyright" imgrect="209 154 20 12"/>
+			<img name="bottomleft" imgrect="165 167 20 22"/>
+			<img name="bottomcore" imgrect="186 167 22 22"/>
+			<img name="bottomright" imgrect="209 167 20 22"/>
+		</skin>
+		<skin name="worldmap2_btn_round_cursoron" texture="\skin\worldmap2.tga">
+			<img name="topleft" imgrect="230 137 20 16"/>
+			<img name="topcore" imgrect="251 137 22 16"/>
+			<img name="topright" imgrect="274 137 20 16"/>
+			<img name="bodyleft" imgrect="230 154 20 12"/>
+			<img name="bodycore" imgrect="251 154 22 12"/>
+			<img name="bodyright" imgrect="274 154 20 12"/>
+			<img name="bottomleft" imgrect="230 167 20 22"/>
+			<img name="bottomcore" imgrect="251 167 22 22"/>
+			<img name="bottomright" imgrect="274 167 20 22"/>
+		</skin>
+		<skin name="worldmap2_btn_round_clicked" texture="\skin\worldmap2.tga">
+			<img name="topleft" imgrect="295 137 20 16"/>
+			<img name="topcore" imgrect="316 137 22 16"/>
+			<img name="topright" imgrect="339 137 20 16"/>
+			<img name="bodyleft" imgrect="295 154 20 12"/>
+			<img name="bodycore" imgrect="316 154 22 12"/>
+			<img name="bodyright" imgrect="339 154 20 12"/>
+			<img name="bottomleft" imgrect="295 167 20 22"/>
+			<img name="bottomcore" imgrect="316 167 22 22"/>
+			<img name="bottomright" imgrect="339 167 20 22"/>
+		</skin>
+		<skin name="worldmap2_btn_square" texture="\skin\worldmap2.tga">
+			<img name="topleft" imgrect="0 72 20 20"/>
+			<img name="topcore" imgrect="21 72 20 20 "/>
+			<img name="topright" imgrect="42 72 20 20"/>
+			<img name="bodyleft" imgrect="0 93 20 20"/>
+			<img name="bodycore" imgrect="21 93 20 20"/>
+			<img name="bodyright" imgrect="42 93 20 20"/>
+			<img name="bottomleft" imgrect="0 114 20 20"/>
+			<img name="bottomcore" imgrect="21 114 20 20"/>
+			<img name="bottomright" imgrect="42 114 20 20"/>
+		</skin>
+		<skin name="worldmap2_btn_square_cursoron" texture="\skin\worldmap2.tga">
+			<img name="topleft" imgrect="63 72 20 20"/>
+			<img name="topcore" imgrect="84 72 20 20"/>
+			<img name="topright" imgrect="105 72 20 20"/>
+			<img name="bodyleft" imgrect="63 93 20 20"/>
+			<img name="bodycore" imgrect="84 93 20 20"/>
+			<img name="bodyright" imgrect="105 93 20 20"/>
+			<img name="bottomleft" imgrect="63 114 20 20"/>
+			<img name="bottomcore" imgrect="84 114 20 20"/>
+			<img name="bottomright" imgrect="105 114 20 20"/>
+		</skin>
+		<skin name="worldmap2_btn_square_clicked" texture="\skin\worldmap2.tga">
+			<img name="topleft" imgrect="126 72 20 20"/>
+			<img name="topcore" imgrect="147 72 20 20"/>
+			<img name="topright" imgrect="168 72 20 20"/>
+			<img name="bodyleft" imgrect="126 93 20 20"/>
+			<img name="bodycore" imgrect="147 93 20 20"/>
+			<img name="bodyright" imgrect="168 93 20 20"/>
+			<img name="bottomleft" imgrect="126 114 20 20"/>
+			<img name="bottomcore" imgrect="147 114 20 20"/>
+			<img name="bottomright" imgrect="168 114 20 20"/>
+		</skin>
+		<skin name="worldmap2_btn_square2" texture="\skin\worldmap2.tga">
+			<img name="topleft" imgrect="0 72 20 20"/>
+			<img name="topcore" imgrect="21 72 20 20 "/>
+			<img name="topright" imgrect="42 72 20 20"/>
+			<img name="bodyleft" imgrect="0 93 20 20"/>
+			<img name="bodycore" imgrect="21 93 20 20"/>
+			<img name="bodyright" imgrect="42 93 20 20"/>
+			<img name="bottomleft" imgrect="0 114 20 20"/>
+			<img name="bottomcore" imgrect="21 114 20 20"/>
+			<img name="bottomright" imgrect="42 114 20 20"/>
+		</skin>
+		<skin name="worldmap2_btn_square2_cursoron" texture="\skin\worldmap2.tga">
+			<img name="topleft" imgrect="63 72 20 20"/>
+			<img name="topcore" imgrect="84 72 20 20"/>
+			<img name="topright" imgrect="105 72 20 20"/>
+			<img name="bodyleft" imgrect="63 93 20 20"/>
+			<img name="bodycore" imgrect="84 93 20 20"/>
+			<img name="bodyright" imgrect="105 93 20 20"/>
+			<img name="bottomleft" imgrect="63 114 20 20"/>
+			<img name="bottomcore" imgrect="84 114 20 20"/>
+			<img name="bottomright" imgrect="105 114 20 20"/>
+		</skin>
+		<skin name="worldmap2_btn_square2_clicked" texture="\skin\worldmap2.tga">
+			<img name="topleft" imgrect="63 72 20 20"/>
+			<img name="topcore" imgrect="84 72 20 20"/>
+			<img name="topright" imgrect="105 72 20 20"/>
+			<img name="bodyleft" imgrect="63 93 20 20"/>
+			<img name="bodycore" imgrect="84 93 20 20"/>
+			<img name="bodyright" imgrect="105 93 20 20"/>
+			<img name="bottomleft" imgrect="63 114 20 20"/>
+			<img name="bottomcore" imgrect="84 114 20 20"/>
+			<img name="bottomright" imgrect="105 114 20 20"/>
+		</skin>
+		<skin name="worldmap2_Mbar_subq" texture="\skin\worldmap2_icon.tga">
+			<img name="topleft" imgrect="220 803 67 1"/>
+			<img name="topcore" imgrect="220 803 67 1"/>
+			<img name="topright" imgrect="220 803 67 1"/>
+			<img name="bodyleft" imgrect="220 581 67 110"/>
+			<img name="bodycore" imgrect="288 581 20 110"/>
+			<img name="bodyright" imgrect="309 581 69 110"/>
+			<img name="bottomleft" imgrect="220 803 67 1"/>
+			<img name="bottomcore" imgrect="220 803 67 1"/>
+			<img name="bottomright" imgrect="220 803 67 1"/>
+		</skin>
+		<skin name="worldmap2_Mbar_subq_cursoron" texture="\skin\worldmap2_icon.tga">
+			<img name="topleft" imgrect="220 803 67 1"/>
+			<img name="topcore" imgrect="220 803 67 1"/>
+			<img name="topright" imgrect="220 803 67 1"/>
+			<img name="bodyleft" imgrect="220 692 67 110"/>
+			<img name="bodycore" imgrect="288 692 20 110"/>
+			<img name="bodyright" imgrect="309 692 69 110"/>
+			<img name="bottomleft" imgrect="220 803 67 1"/>
+			<img name="bottomcore" imgrect="220 803 67 1"/>
+			<img name="bottomright" imgrect="220 803 67 1"/>
+		</skin>
+		<skin name="worldmap2_Mbar_subq_clicked" texture="\skin\worldmap2_icon.tga">
+			<img name="topleft" imgrect="220 803 67 1"/>
+			<img name="topcore" imgrect="220 803 67 1"/>
+			<img name="topright" imgrect="220 803 67 1"/>
+			<img name="bodyleft" imgrect="220 692 67 110"/>
+			<img name="bodycore" imgrect="288 692 20 110"/>
+			<img name="bodyright" imgrect="309 692 69 110"/>
+			<img name="bottomleft" imgrect="220 803 67 1"/>
+			<img name="bottomcore" imgrect="220 803 67 1"/>
+			<img name="bottomright" imgrect="220 803 67 1"/>
+		</skin>
+		<skin name="worldmap2_spot" texture="\skin\worldmap2.tga">
+			<img name="on" imgrect="487 143 28 28"/>
+			<img name="off" imgrect="458 143 28 28"/>
+		</skin>
+		<skin name="worldmap2_checkbox" texture="\skin\worldmap2.tga">
+			<img name="on" imgrect="487 172 28 28"/>
+			<img name="off" imgrect="458 172 28 28"/>
+		</skin>
+		<skin name="worldmap2_bookmark" texture="\skin\worldmap2.tga">
+			<img name="on" imgrect="392 68 28 28"/>
+			<img name="off" imgrect="392 39 28 28"/>
+		</skin>
 	</skinlist>
 	<skinlist category="buttons">
 		<skin name="button_companion" texture="\skin\barrack.tga">
@@ -6187,6 +6399,22 @@
 			<img name="dropbutton_click" imgrect="660 777 20 16"/>
 			<img name="dropbutton_cursoron" imgrect="702 777 20 16"/>
 		</skin>
+		<skin name="worldmap2_category_droplist" texture="\skin\worldmap2.tga">
+			<img name="left" imgrect="165 191 30 38"/>
+			<img name="middle" imgrect="196 191 30 38"/>
+			<img name="right" imgrect="227 191 30 38"/>
+			<img name="dropbutton" imgrect="165 230 22 20"/>
+			<img name="dropbutton_click" imgrect="211 230 22 20"/>
+			<img name="dropbutton_cursoron" imgrect="188 230 22 20"/>
+		</skin>
+		<skin name="worldmap2_minimap_droplist" texture="\skin\worldmap2.tga">
+			<img name="left" imgrect="46 459 4 28"/>
+			<img name="middle" imgrect="51 459 50 28"/>
+			<img name="right" imgrect="102 459 50 28"/>
+			<img name="dropbutton" imgrect="153 453 13 9"/>
+			<img name="dropbutton_click" imgrect="153 463 13 9"/>
+			<img name="dropbutton_cursoron" imgrect="153 463 13 9"/>
+		</skin>
 	</skinlist>
 	<skinlist>
 		<skin name="Char1_1_F" texture="\skin\mainframe_04.tga">
@@ -6431,6 +6659,42 @@
 		</skin>
 		<skin name="ark_slot" texture="\skin\pip_test.tga">
 			<img name="slot" imgrect="2049 0 60 60"/>
+			<img name="mouseon" imgrect="1163 801 100 100"/>
+			<img name="cooltime" imgrect="1163 801 100 100"/>
+			<img name="selected" imgrect="1163 801 100 100"/>
+		</skin>
+		<skin name="shirt100" texture="\skin\pip_test.tga">
+			<img name="slot" imgrect="0 1025 100 100"/>
+			<img name="mouseon" imgrect="1163 801 100 100"/>
+			<img name="cooltime" imgrect="1163 801 100 100"/>
+			<img name="selected" imgrect="1163 801 100 100"/>
+		</skin>
+		<skin name="pants100" texture="\skin\pip_test.tga">
+			<img name="slot" imgrect="101 1025 100 100"/>
+			<img name="mouseon" imgrect="1163 801 100 100"/>
+			<img name="cooltime" imgrect="1163 801 100 100"/>
+			<img name="selected" imgrect="1163 801 100 100"/>
+		</skin>
+		<skin name="gloves100" texture="\skin\pip_test.tga">
+			<img name="slot" imgrect="202 1025 100 100"/>
+			<img name="mouseon" imgrect="1163 801 100 100"/>
+			<img name="cooltime" imgrect="1163 801 100 100"/>
+			<img name="selected" imgrect="1163 801 100 100"/>
+		</skin>
+		<skin name="boots100" texture="\skin\pip_test.tga">
+			<img name="slot" imgrect="303 1025 100 100"/>
+			<img name="mouseon" imgrect="1163 801 100 100"/>
+			<img name="cooltime" imgrect="1163 801 100 100"/>
+			<img name="selected" imgrect="1163 801 100 100"/>
+		</skin>
+		<skin name="rh100" texture="\skin\pip_test.tga">
+			<img name="slot" imgrect="404 1025 100 100"/>
+			<img name="mouseon" imgrect="1163 801 100 100"/>
+			<img name="cooltime" imgrect="1163 801 100 100"/>
+			<img name="selected" imgrect="1163 801 100 100"/>
+		</skin>
+		<skin name="lh100" texture="\skin\pip_test.tga">
+			<img name="slot" imgrect="505 1025 100 100"/>
 			<img name="mouseon" imgrect="1163 801 100 100"/>
 			<img name="cooltime" imgrect="1163 801 100 100"/>
 			<img name="selected" imgrect="1163 801 100 100"/>
@@ -7644,6 +7908,7 @@
 		<image name="toketmon_compound_plus" file="\skin\tocket_monsters.tga" imgrect="755 80 125 129" CMM_Caption="트켓몬 합성 마크"/>
 		<image name="toketmon_evolution_star" file="\skin\tocket_monsters.tga" imgrect="881 80 130 129" CMM_Caption="트켓몬 진화 마크"/>
 		<image name="monster_card_g_frame_02" file="\skin\tocket_monsters.tga" imgrect="971 506 161 221" CMM_Caption="트켓몬 프레임_02"/>
+		<image name="gold_02arrow_below" file="\skin\pip_test.tga" imgrect="606 1025 65 58" CMM_Caption="2개 골드 화살표_아래"/>
 	</imagelist>
 	<imagelist category="yiseul_image">
 		<image name="AbillityReset_skin" file="\skin\paid_skin_title.tga" imgrect="0 330 316 165" CMM_Caption="특성 초기화"/>
@@ -7661,6 +7926,12 @@
 		<image name="flex_box_bg" file="\skin\flex_box.tga" imgrect="0 0 445 704" CMM_Caption="FLEX BOX 스킨 bg"/>
 		<image name="range_item_rank" file="\skin\flex_box.tga" imgrect="446 294 47 18" CMM_Caption="랭크 ~ 표시"/>
 		<image name="LegendEquip_Glacier" file="\skin\LegendEquip_Glacier.tga" imgrect="0 0 832 640" CMM_Caption="글레이시어 장비 제작 배경"/>
+		<image name="gacha_leticia_bonus" file="\skin\gacha_leticia_bonus.tga" imgrect="0 0 758 550" CMM_Caption="레티샤 회차보상 배경"/>
+		<image name="bonus_rank_S" file="\skin\gacha_ui.tga" imgrect="513 171 100 100" CMM_Caption="회차 보너스 등급 S 마크"/>
+		<image name="bonus_rank_A" file="\skin\gacha_ui.tga" imgrect="513 272 100 100" CMM_Caption="회차 보너스 등급 A 마크"/>
+		<image name="bonus_rank_B" file="\skin\gacha_ui.tga" imgrect="513 373 100 100" CMM_Caption="회차 보너스 등급 B 마크"/>
+		<image name="craft_reinforce" file="\skin\pip_test_item.tga" imgrect="603 1136 80 80" CMM_Caption="강화 수치 아이콘"/>
+		<image name="craft_transcend" file="\skin\pip_test_item.tga" imgrect="684 1136 80 80" CMM_Caption="초월 수치 아이콘"/>
 	</imagelist>
 	<imagelist category="je_button">
 		<image name="menu_guild_info" file="\skin\guild_skin.tga" imgrect="165 298 45 45" CMM_Caption="길드 정보"/>
@@ -8165,6 +8436,199 @@
 		<image name="flex_box_btn" file="\skin\flex_box.tga" imgrect="446 75 75 72" CMM_Caption="FLEX BOX ui 버튼"/>
 		<image name="flex_box_btn_cursoron" file="\skin\flex_box.tga" imgrect="446 148 75 72"/>
 		<image name="flex_box_btn_clicked" file="\skin\flex_box.tga" imgrect="446 221 75 72"/>
+		<image name="worldmap2_btn_epi_01" file="\skin\worldmap2_icon.tga" imgrect="0 0 233 209" CMM_Caption="메인맵 에피소드 버튼01_클라페다"/>
+		<image name="worldmap2_btn_epi_01_cursoron" file="\skin\worldmap2_icon2.tga" imgrect="0 0 233 209"/>
+		<image name="worldmap2_btn_epi_01_clicked" file="\skin\worldmap2_icon2.tga" imgrect="0 0 233 209"/>
+		<image name="worldmap2_btn_epi_02" file="\skin\worldmap2_icon.tga" imgrect="0 225 128 139" CMM_Caption="메인맵 에피소드 버튼02"/>
+		<image name="worldmap2_btn_epi_02_cursoron" file="\skin\worldmap2_icon2.tga" imgrect="0 225 128 139"/>
+		<image name="worldmap2_btn_epi_02_clicked" file="\skin\worldmap2_icon2.tga" imgrect="0 225 128 139"/>
+		<image name="worldmap2_btn_epi_03" file="\skin\worldmap2_icon.tga" imgrect="129 225 122 140" CMM_Caption="메인맵 에피소드 버튼03"/>
+		<image name="worldmap2_btn_epi_03_cursoron" file="\skin\worldmap2_icon2.tga" imgrect="129 225 122 140"/>
+		<image name="worldmap2_btn_epi_03_clicked" file="\skin\worldmap2_icon2.tga" imgrect="129 225 122 140"/>
+		<image name="worldmap2_btn_epi_04" file="\skin\worldmap2_icon.tga" imgrect="252 225 150 122" CMM_Caption="메인맵 에피소드 버튼04"/>
+		<image name="worldmap2_btn_epi_04_cursoron" file="\skin\worldmap2_icon2.tga" imgrect="252 225 150 122"/>
+		<image name="worldmap2_btn_epi_04_clicked" file="\skin\worldmap2_icon2.tga" imgrect="252 225 150 122"/>
+		<image name="worldmap2_btn_epi_05" file="\skin\worldmap2_icon.tga" imgrect="234 0 221 209" CMM_Caption="메인맵 에피소드 버튼05_페디미안"/>
+		<image name="worldmap2_btn_epi_05_cursoron" file="\skin\worldmap2_icon2.tga" imgrect="234 0 221 209"/>
+		<image name="worldmap2_btn_epi_05_clicked" file="\skin\worldmap2_icon2.tga" imgrect="234 0 221 209"/>
+		<image name="worldmap2_btn_epi_06" file="\skin\worldmap2_icon.tga" imgrect="403 225 108 119" CMM_Caption="메인맵 에피소드 버튼06"/>
+		<image name="worldmap2_btn_epi_06_cursoron" file="\skin\worldmap2_icon2.tga" imgrect="403 225 108 119"/>
+		<image name="worldmap2_btn_epi_06_clicked" file="\skin\worldmap2_icon2.tga" imgrect="403 225 108 119"/>
+		<image name="worldmap2_btn_epi_07_1" file="\skin\worldmap2_icon.tga" imgrect="512 225 140 164" CMM_Caption="메인맵 에피소드 버튼07_1"/>
+		<image name="worldmap2_btn_epi_07_1_cursoron" file="\skin\worldmap2_icon2.tga" imgrect="512 225 140 164"/>
+		<image name="worldmap2_btn_epi_07_1_clicked" file="\skin\worldmap2_icon2.tga" imgrect="512 225 140 164"/>
+		<image name="worldmap2_btn_epi_07_2" file="\skin\worldmap2_icon.tga" imgrect="653 225 126 141" CMM_Caption="메인맵 에피소드 버튼07_2"/>
+		<image name="worldmap2_btn_epi_07_2_cursoron" file="\skin\worldmap2_icon2.tga" imgrect="653 225 126 141"/>
+		<image name="worldmap2_btn_epi_07_2_clicked" file="\skin\worldmap2_icon2.tga" imgrect="653 225 126 141"/>
+		<image name="worldmap2_btn_epi_07_3" file="\skin\worldmap2_icon.tga" imgrect="780 225 148 129" CMM_Caption="메인맵 에피소드 버튼07_3"/>
+		<image name="worldmap2_btn_epi_07_3_cursoron" file="\skin\worldmap2_icon2.tga" imgrect="780 225 148 129"/>
+		<image name="worldmap2_btn_epi_07_3_clicked" file="\skin\worldmap2_icon2.tga" imgrect="780 225 148 129"/>
+		<image name="worldmap2_btn_epi_08_1" file="\skin\worldmap2_icon.tga" imgrect="929 225 152 127" CMM_Caption="메인맵 에피소드 버튼08_1"/>
+		<image name="worldmap2_btn_epi_08_1_cursoron" file="\skin\worldmap2_icon2.tga" imgrect="929 225 152 127"/>
+		<image name="worldmap2_btn_epi_08_1_clicked" file="\skin\worldmap2_icon2.tga" imgrect="929 225 152 127"/>
+		<image name="worldmap2_btn_epi_08_2" file="\skin\worldmap2_icon.tga" imgrect="0 391 125 146" CMM_Caption="메인맵 에피소드 버튼08_2"/>
+		<image name="worldmap2_btn_epi_08_2_cursoron" file="\skin\worldmap2_icon2.tga" imgrect="0 391 125 146"/>
+		<image name="worldmap2_btn_epi_08_2_clicked" file="\skin\worldmap2_icon2.tga" imgrect="0 391 125 146"/>
+		<image name="worldmap2_btn_epi_09_1" file="\skin\worldmap2_icon.tga" imgrect="126 391 154 132" CMM_Caption="메인맵 에피소드 버튼09_1"/>
+		<image name="worldmap2_btn_epi_09_1_cursoron" file="\skin\worldmap2_icon2.tga" imgrect="126 391 154 132"/>
+		<image name="worldmap2_btn_epi_09_1_clicked" file="\skin\worldmap2_icon2.tga" imgrect="126 391 154 132"/>
+		<image name="worldmap2_btn_epi_09_2" file="\skin\worldmap2_icon.tga" imgrect="281 391 139 121" CMM_Caption="메인맵 에피소드 버튼09_2"/>
+		<image name="worldmap2_btn_epi_09_2_cursoron" file="\skin\worldmap2_icon2.tga" imgrect="281 391 139 121"/>
+		<image name="worldmap2_btn_epi_09_2_clicked" file="\skin\worldmap2_icon2.tga" imgrect="281 391 139 121"/>
+		<image name="worldmap2_btn_epi_10" file="\skin\worldmap2_icon.tga" imgrect="421 391 134 114" CMM_Caption="메인맵 에피소드 버튼10"/>
+		<image name="worldmap2_btn_epi_10_cursoron" file="\skin\worldmap2_icon2.tga" imgrect="421 391 134 114"/>
+		<image name="worldmap2_btn_epi_10_clicked" file="\skin\worldmap2_icon2.tga" imgrect="421 391 134 114"/>
+		<image name="worldmap2_btn_epi_11_1" file="\skin\worldmap2_icon.tga" imgrect="556 391 117 128" CMM_Caption="메인맵 에피소드 버튼11_1"/>
+		<image name="worldmap2_btn_epi_11_1_cursoron" file="\skin\worldmap2_icon2.tga" imgrect="556 391 117 128"/>
+		<image name="worldmap2_btn_epi_11_1_clicked" file="\skin\worldmap2_icon2.tga" imgrect="556 391 117 128"/>
+		<image name="worldmap2_btn_epi_11_2" file="\skin\worldmap2_icon.tga" imgrect="674 391 144 148" CMM_Caption="메인맵 에피소드 버튼11_2"/>
+		<image name="worldmap2_btn_epi_11_2_cursoron" file="\skin\worldmap2_icon.tga" imgrect="674 391 144 148"/>
+		<image name="worldmap2_btn_epi_11_2_clicked" file="\skin\worldmap2_icon.tga" imgrect="674 391 144 148"/>
+		<image name="worldmap2_btn_epi_11_3" file="\skin\worldmap2_icon.tga" imgrect="819 391 138 123" CMM_Caption="메인맵 에피소드 버튼11_3"/>
+		<image name="worldmap2_btn_epi_11_3_cursoron" file="\skin\worldmap2_icon2.tga" imgrect="819 391 138 123"/>
+		<image name="worldmap2_btn_epi_11_3_clicked" file="\skin\worldmap2_icon2.tga" imgrect="819 391 138 123"/>
+		<image name="worldmap2_btn_epi_12" file="\skin\worldmap2_icon.tga" imgrect="958 391 119 148" CMM_Caption="메인맵 에피소드 버튼12"/>
+		<image name="worldmap2_btn_epi_12_cursoron" file="\skin\worldmap2_icon2.tga" imgrect="958 391 119 148"/>
+		<image name="worldmap2_btn_epi_12_clicked" file="\skin\worldmap2_icon2.tga" imgrect="958 391 119 148"/>
+		<image name="worldmap2_btn_epi_13" file="\skin\worldmap2_icon.tga" imgrect="456 0 223 224" CMM_Caption="메인맵 에피소드 버튼13_오르샤"/>
+		<image name="worldmap2_btn_epi_13_cursoron" file="\skin\worldmap2_icon2.tga" imgrect="456 0 223 224"/>
+		<image name="worldmap2_btn_epi_13_clicked" file="\skin\worldmap2_icon2.tga" imgrect="456 0 223 224"/>
+	</imagelist>
+	<imagelist category="worldmap_image">
+		<image name="worldmap2_mainmap" file="\skin\worldmap\worldmap2_mainmap.png" imgrect="0 0 1920 1080" CMM_Caption="월드맵배경"/>
+		<image name="worldmap2_submap_01" file="\skin\worldmap\worldmap2_submap_01.png" imgrect="0 0 1920 1080" CMM_Caption="서브맵배경1"/>
+		<image name="worldmap2_submap_02" file="\skin\worldmap\worldmap2_submap_02.png" imgrect="0 0 1920 1080" CMM_Caption="서브맵배경2"/>
+		<image name="worldmap2_submap_03" file="\skin\worldmap\worldmap2_submap_03.png" imgrect="0 0 1920 1080" CMM_Caption="서브맵배경3"/>
+		<image name="worldmap2_submap_04" file="\skin\worldmap\worldmap2_submap_04.png" imgrect="0 0 1920 1080" CMM_Caption="서브맵배경4"/>
+		<image name="worldmap2_submap_05" file="\skin\worldmap\worldmap2_submap_05.png" imgrect="0 0 1920 1080" CMM_Caption="서브맵배경5"/>
+		<image name="worldmap2_submap_06" file="\skin\worldmap\worldmap2_submap_06.png" imgrect="0 0 1920 1080" CMM_Caption="서브맵배경6"/>
+		<image name="worldmap2_submap_07_1" file="\skin\worldmap\worldmap2_submap_07_1.png" imgrect="0 0 1920 1080" CMM_Caption="서브맵배경7_1"/>
+		<image name="worldmap2_submap_07_2" file="\skin\worldmap\worldmap2_submap_07_2.png" imgrect="0 0 1920 1080" CMM_Caption="서브맵배경7_2"/>
+		<image name="worldmap2_submap_07_3" file="\skin\worldmap\worldmap2_submap_07_3.png" imgrect="0 0 1920 1080" CMM_Caption="서브맵배경7_3"/>
+		<image name="worldmap2_submap_08_1" file="\skin\worldmap\worldmap2_submap_08_1.png" imgrect="0 0 1920 1080" CMM_Caption="서브맵배경8_1"/>
+		<image name="worldmap2_submap_08_2" file="\skin\worldmap\worldmap2_submap_08_2.png" imgrect="0 0 1920 1080" CMM_Caption="서브맵배경8_2"/>
+		<image name="worldmap2_submap_09_1" file="\skin\worldmap\worldmap2_submap_09_1.png" imgrect="0 0 1920 1080" CMM_Caption="서브맵배경9_1"/>
+		<image name="worldmap2_submap_09_2" file="\skin\worldmap\worldmap2_submap_09_2.png" imgrect="0 0 1920 1080" CMM_Caption="서브맵배경9_2"/>
+		<image name="worldmap2_submap_10" file="\skin\worldmap\worldmap2_submap_10.png" imgrect="0 0 1920 1080" CMM_Caption="서브맵배경10"/>
+		<image name="worldmap2_submap_11_1" file="\skin\worldmap\worldmap2_submap_11_1.png" imgrect="0 0 1920 1080" CMM_Caption="서브맵배경11_1"/>
+		<image name="worldmap2_submap_11_2" file="\skin\worldmap\worldmap2_submap_11_2.png" imgrect="0 0 1920 1080" CMM_Caption="서브맵배경11_2"/>
+		<image name="worldmap2_submap_11_3" file="\skin\worldmap\worldmap2_submap_11_3.png" imgrect="0 0 1920 1080" CMM_Caption="서브맵배경11_3"/>
+		<image name="worldmap2_submap_12" file="\skin\worldmap\worldmap2_submap_12.png" imgrect="0 0 1920 1080" CMM_Caption="서브맵배경12"/>
+		<image name="worldmap2_submap_13" file="\skin\worldmap\worldmap2_submap_13.png" imgrect="0 0 1920 1080" CMM_Caption="서브맵배경13"/>
+		<image name="worldmap2_submap_sq_01" file="\skin\worldmap\worldmap2_submap_sq_01.png" imgrect="0 0 1920 1080" CMM_Caption="서브퀘배경1"/>
+		<image name="worldmap2_submap_sq_02" file="\skin\worldmap\worldmap2_submap_sq_02.png" imgrect="0 0 1920 1080" CMM_Caption="서브퀘배경2"/>
+		<image name="worldmap2_submap_sq_03" file="\skin\worldmap\worldmap2_submap_sq_03.png" imgrect="0 0 1920 1080" CMM_Caption="서브퀘배경3"/>
+		<image name="worldmap2_submap_sq_04" file="\skin\worldmap\worldmap2_submap_sq_04.png" imgrect="0 0 1920 1080" CMM_Caption="서브퀘배경4"/>
+		<image name="worldmap2_submap_sq_05" file="\skin\worldmap\worldmap2_submap_sq_05.png" imgrect="0 0 1920 1080" CMM_Caption="서브퀘배경5"/>
+		<image name="worldmap2_submap_sq_06" file="\skin\worldmap\worldmap2_submap_sq_06.png" imgrect="0 0 1920 1080" CMM_Caption="서브퀘배경6"/>
+		<image name="worldmap2_submap_sq_07" file="\skin\worldmap\worldmap2_submap_sq_07.png" imgrect="0 0 1920 1080" CMM_Caption="서브퀘배경7"/>
+		<image name="worldmap2_Colony_f_farm_47_2" file="\skin\worldmap\worldmap2_Colony_f_farm_47_2.png" imgrect="0 0 256 256" CMM_Caption="콜로니 미니맵1"/>
+		<image name="worldmap2_Colony_f_pilgrimroad_41_2" file="\skin\worldmap\worldmap2_Colony_f_pilgrimroad_41_2.png" imgrect="0 0 256 256" CMM_Caption="콜로니 미니맵2"/>
+		<image name="worldmap2_Colony_f_pilgrimroad_49" file="\skin\worldmap\worldmap2_Colony_f_pilgrimroad_49.png" imgrect="0 0 256 256" CMM_Caption="콜로니 미니맵3"/>
+		<image name="worldmap2_Colony_f_remains_37_1" file="\skin\worldmap\worldmap2_Colony_f_remains_37_1.png" imgrect="0 0 256 256" CMM_Caption="콜로니 미니맵4"/>
+		<image name="worldmap2_Colony_f_siauliai_47_4" file="\skin\worldmap\worldmap2_Colony_f_siauliai_47_4.png" imgrect="0 0 256 256" CMM_Caption="콜로니 미니맵5"/>
+		<image name="worldmap2_Colony_f_tableland_72" file="\skin\worldmap\worldmap2_Colony_f_tableland_72.png" imgrect="0 0 256 256" CMM_Caption="콜로니 미니맵6"/>
+		<image name="worldmap2_title_green" file="\skin\worldmap2.tga" imgrect="0 254 390 56" CMM_Caption="타이틀 배경_그린"/>
+		<image name="worldmap2_title_gold" file="\skin\worldmap2.tga" imgrect="0 311 390 50" CMM_Caption="타이틀 배경_골드"/>
+		<image name="worldmap2_map_pc" file="\skin\worldmap2.tga" imgrect="392 0 38 38" CMM_Caption="맵_pc위치"/>
+		<image name="worldmap2_map_town_btn" file="\skin\worldmap2.tga" imgrect="431 0 60 45" CMM_Caption="맵_마을"/>
+		<image name="worldmap2_map_town_btn_cursoron" file="\skin\worldmap2.tga" imgrect="431 46 60 45"/>
+		<image name="worldmap2_map_town_btn_clicked" file="\skin\worldmap2.tga" imgrect="431 92 60 45"/>
+		<image name="worldmap2_map_zone_btn" file="\skin\worldmap2.tga" imgrect="492 0 32 32" CMM_Caption="맵_존"/>
+		<image name="worldmap2_map_zone_btn_cursoron" file="\skin\worldmap2.tga" imgrect="492 33 32 32"/>
+		<image name="worldmap2_map_zone_btn_clicked" file="\skin\worldmap2.tga" imgrect="492 66 32 32"/>
+		<image name="worldmap2_map_zone2_btn" file="\skin\worldmap2.tga" imgrect="492 102 32 32" CMM_Caption="맵_존_연결된맵"/>
+		<image name="worldmap2_map_zone2_btn_cursoron" file="\skin\worldmap2.tga" imgrect="525 102 32 32"/>
+		<image name="worldmap2_map_zone2_btn_clicked" file="\skin\worldmap2.tga" imgrect="558 102 32 32"/>
+		<image name="worldmap2_map_colony_battle" file="\skin\worldmap2.tga" imgrect="525 0 50 50" CMM_Caption="맵_콜로니_전투중"/>
+		<image name="worldmap2_map_colony_chall_non" file="\skin\worldmap2.tga" imgrect="576 0 50 50" CMM_Caption="맵_콜로니_챌린저스_미점령"/>
+		<image name="worldmap2_map_colony_chall_occu" file="\skin\worldmap2.tga" imgrect="576 51 50 50" CMM_Caption="맵_콜로니_챌린저스_점령"/>
+		<image name="worldmap2_map_colony_champ_non" file="\skin\worldmap2.tga" imgrect="627 0 50 50" CMM_Caption="맵_콜로니_챔피언스_미점령"/>
+		<image name="worldmap2_map_colony_champ_occu" file="\skin\worldmap2.tga" imgrect="627 51 50 50" CMM_Caption="맵_콜로니_챔피언스_점령"/>
+		<image name="worldmap2_map_zonecheck" file="\skin\worldmap2.tga" imgrect="392 254 102 102" CMM_Caption="맵_존체크"/>
+		<image name="worldmap2_map_colony_title_chall" file="\skin\worldmap2.tga" imgrect="425 143 32 32" CMM_Caption="콜로니_챌린저스 타이틀 아이콘"/>
+		<image name="worldmap2_map_colony_title_champ" file="\skin\worldmap2.tga" imgrect="392 143 32 32" CMM_Caption="콜로니_챔피언스 타이틀 아이콘"/>
+		<image name="worldmap2_icon_star_2" file="\skin\worldmap2.tga" imgrect="458 201 44 22" CMM_Caption="아이콘_별_2"/>
+		<image name="worldmap2_icon_star_1" file="\skin\worldmap2.tga" imgrect="458 224 44 22" CMM_Caption="아이콘_별_1"/>
+		<image name="worldmap2_category_btn" file="\skin\worldmap2.tga" imgrect="165 230 22 20" CMM_Caption="카테고리_드롭버튼"/>
+		<image name="worldmap2_category_btn_cursoron" file="\skin\worldmap2.tga" imgrect="188 230 22 20"/>
+		<image name="worldmap2_category_btn_clicked" file="\skin\worldmap2.tga" imgrect="211 230 22 20"/>
+		<image name="worldmap2_search_btn" file="\skin\worldmap2.tga" imgrect="68 363 38 38" CMM_Caption="검색 버튼"/>
+		<image name="worldmap2_search_btn_cursoron" file="\skin\worldmap2.tga" imgrect="107 363 38 38"/>
+		<image name="worldmap2_search_btn_clicked" file="\skin\worldmap2.tga" imgrect="107 363 38 38"/>
+		<image name="worldmap2_token_gray" file="\skin\worldmap2.tga" imgrect="555 143 38 38" CMM_Caption="토큰_사용불가"/>
+		<image name="worldmap2_token_gold" file="\skin\worldmap2.tga" imgrect="516 143 38 38" CMM_Caption="토큰_사용가능"/>
+		<image name="worldmap2_back_btn" file="\skin\worldmap2.tga" imgrect="678 0 42 38" CMM_Caption="서브맵 뒤로가기 버튼"/>
+		<image name="worldmap2_back_btn_cursoron" file="\skin\worldmap2.tga" imgrect="678 39 42 38"/>
+		<image name="worldmap2_back_btn_clicked" file="\skin\worldmap2.tga" imgrect="678 78 42 38"/>
+		<image name="worldmap2_tab" file="\skin\worldmap2.tga" imgrect="0 403 164 42" CMM_Caption="미니맵 탭버튼"/>
+		<image name="worldmap2_tab_cursoron" file="\skin\worldmap2.tga" imgrect="165 403 164 42"/>
+		<image name="worldmap2_tab_clicked" file="\skin\worldmap2.tga" imgrect="330 403 164 42"/>
+		<image name="worldmap2_mainframe" file="\skin\worldmap2_mainframe.tga" imgrect="0 0 1920 1080" CMM_Caption="메인맵 프레임"/>
+		<image name="worldmap2_subframe" file="\skin\worldmap2_subframe.tga" imgrect="0 0 1920 1080" CMM_Caption="서브맵 프레임"/>
+		<image name="worldmap2_icon_epi_01" file="\skin\worldmap2_icon.tga" imgrect="0 0 233 209" CMM_Caption="메인맵 에피소드아이콘01_클라페다"/>
+		<image name="worldmap2_icon_epi_02" file="\skin\worldmap2_icon.tga" imgrect="0 225 128 139" CMM_Caption="메인맵 에피소드아이콘02"/>
+		<image name="worldmap2_icon_epi_03" file="\skin\worldmap2_icon.tga" imgrect="129 225 122 140" CMM_Caption="메인맵 에피소드아이콘03"/>
+		<image name="worldmap2_icon_epi_04" file="\skin\worldmap2_icon.tga" imgrect="252 225 150 122" CMM_Caption="메인맵 에피소드아이콘04"/>
+		<image name="worldmap2_icon_epi_05" file="\skin\worldmap2_icon.tga" imgrect="234 0 221 209" CMM_Caption="메인맵 에피소드아이콘05_페디미안"/>
+		<image name="worldmap2_icon_epi_06" file="\skin\worldmap2_icon.tga" imgrect="403 225 108 119" CMM_Caption="메인맵 에피소드아이콘06"/>
+		<image name="worldmap2_icon_epi_07_1" file="\skin\worldmap2_icon.tga" imgrect="512 225 140 164" CMM_Caption="메인맵 에피소드아이콘07_1"/>
+		<image name="worldmap2_icon_epi_07_2" file="\skin\worldmap2_icon.tga" imgrect="653 225 126 141" CMM_Caption="메인맵 에피소드아이콘07_2"/>
+		<image name="worldmap2_icon_epi_07_3" file="\skin\worldmap2_icon.tga" imgrect="780 225 148 129" CMM_Caption="메인맵 에피소드아이콘07_3"/>
+		<image name="worldmap2_icon_epi_08_1" file="\skin\worldmap2_icon.tga" imgrect="929 225 152 127" CMM_Caption="메인맵 에피소드아이콘08_1"/>
+		<image name="worldmap2_icon_epi_08_2" file="\skin\worldmap2_icon.tga" imgrect="0 391 125 146" CMM_Caption="메인맵 에피소드아이콘08_2"/>
+		<image name="worldmap2_icon_epi_09_1" file="\skin\worldmap2_icon.tga" imgrect="126 391 154 132" CMM_Caption="메인맵 에피소드아이콘09_1"/>
+		<image name="worldmap2_icon_epi_09_2" file="\skin\worldmap2_icon.tga" imgrect="281 391 139 121" CMM_Caption="메인맵 에피소드아이콘09_2"/>
+		<image name="worldmap2_icon_epi_10" file="\skin\worldmap2_icon.tga" imgrect="421 391 134 114" CMM_Caption="메인맵 에피소드아이콘10"/>
+		<image name="worldmap2_icon_epi_11_1" file="\skin\worldmap2_icon.tga" imgrect="556 391 117 128" CMM_Caption="메인맵 에피소드아이콘11_1"/>
+		<image name="worldmap2_icon_epi_11_2" file="\skin\worldmap2_icon.tga" imgrect="674 391 144 148" CMM_Caption="메인맵 에피소드아이콘11_2"/>
+		<image name="worldmap2_icon_epi_11_3" file="\skin\worldmap2_icon.tga" imgrect="819 391 138 123" CMM_Caption="메인맵 에피소드아이콘11_3"/>
+		<image name="worldmap2_icon_epi_12" file="\skin\worldmap2_icon.tga" imgrect="958 391 119 148" CMM_Caption="메인맵 에피소드아이콘12"/>
+		<image name="worldmap2_icon_epi_13" file="\skin\worldmap2_icon.tga" imgrect="456 0 223 224" CMM_Caption="메인맵 에피소드아이콘13_오르샤"/>
+		<image name="worldmap2_icon_compass" file="\skin\worldmap2_icon.tga" imgrect="838 0 243 212" CMM_Caption="나침반"/>
+		<image name="worldmap2_Mbar_town" file="\skin\worldmap2_icon.tga" imgrect="0 581 218 135" CMM_Caption="메인맵_마을띠지"/>
+		<image name="worldmap2_Mbar_town_cursoron" file="\skin\worldmap2_icon.tga" imgrect="0 717 218 135"/>
+		<image name="worldmap2_Mbar_town_clicked" file="\skin\worldmap2_icon.tga" imgrect="0 717 218 135"/>
+		<image name="worldmap2_Mbar_ep" file="\skin\worldmap2_icon.tga" imgrect="380 581 172 54" CMM_Caption="메인맵_에피소드띠지"/>
+		<image name="worldmap2_Mbar_ep_cursoron" file="\skin\worldmap2_icon.tga" imgrect="380 636 172 54"/>
+		<image name="worldmap2_Mbar_ep_clicked" file="\skin\worldmap2_icon.tga" imgrect="380 636 172 54"/>
+		<image name="worldmap2_Sbar_ep" file="\skin\worldmap2_icon.tga" imgrect="556 735 238 74" CMM_Caption="서브맵_에피소드띠지"/>
+		<image name="worldmap2_arrow_right" file="\skin\worldmap2_icon.tga" imgrect="798 581 166 100" CMM_Caption="손가락화살표_오른쪽"/>
+		<image name="worldmap2_arrow_right_cursoron" file="\skin\worldmap2_icon.tga" imgrect="965 581 166 100"/>
+		<image name="worldmap2_arrow_right_clicked" file="\skin\worldmap2_icon.tga" imgrect="965 581 166 100"/>
+		<image name="worldmap2_arrow_left" file="\skin\worldmap2_icon.tga" imgrect="798 685 166 100" CMM_Caption="손가락화살표_왼쪽"/>
+		<image name="worldmap2_arrow_left_cursoron" file="\skin\worldmap2_icon.tga" imgrect="965 685 166 100"/>
+		<image name="worldmap2_arrow_left_clicked" file="\skin\worldmap2_icon.tga" imgrect="965 685 166 100"/>
+		<image name="worldmap2_icon_Sepi_01" file="\skin\worldmap2_subicon.tga" imgrect="0 0 234 209" CMM_Caption="서브맵 에피소드아이콘01_클라페다"/>
+		<image name="worldmap2_icon_Sepi_02" file="\skin\worldmap2_subicon.tga" imgrect="235 0 177 194" CMM_Caption="서브맵 에피소드아이콘02"/>
+		<image name="worldmap2_icon_Sepi_03" file="\skin\worldmap2_subicon.tga" imgrect="413 0 169 194" CMM_Caption="서브맵 에피소드아이콘03"/>
+		<image name="worldmap2_icon_Sepi_04" file="\skin\worldmap2_subicon.tga" imgrect="583 0 209 168" CMM_Caption="서브맵 에피소드아이콘04"/>
+		<image name="worldmap2_icon_Sepi_05" file="\skin\worldmap2_subicon.tga" imgrect="0 210 223 209" CMM_Caption="서브맵 에피소드아이콘05_페디미안"/>
+		<image name="worldmap2_icon_Sepi_06" file="\skin\worldmap2_subicon.tga" imgrect="224 210 161 177" CMM_Caption="서브맵 에피소드아이콘06"/>
+		<image name="worldmap2_icon_Sepi_07_1" file="\skin\worldmap2_subicon.tga" imgrect="386 210 182 211" CMM_Caption="서브맵 에피소드아이콘07_1"/>
+		<image name="worldmap2_icon_Sepi_07_2" file="\skin\worldmap2_subicon.tga" imgrect="569 210 176 194" CMM_Caption="서브맵 에피소드아이콘07_2"/>
+		<image name="worldmap2_icon_Sepi_07_3" file="\skin\worldmap2_subicon.tga" imgrect="746 210 205 178" CMM_Caption="서브맵 에피소드아이콘07_3"/>
+		<image name="worldmap2_icon_Sepi_08_1" file="\skin\worldmap2_subicon.tga" imgrect="0 422 210 176" CMM_Caption="서브맵 에피소드아이콘08_1"/>
+		<image name="worldmap2_icon_Sepi_08_2" file="\skin\worldmap2_subicon.tga" imgrect="211 422 174 202" CMM_Caption="서브맵 에피소드아이콘08_2"/>
+		<image name="worldmap2_icon_Sepi_09_1" file="\skin\worldmap2_subicon.tga" imgrect="386 422 214 183" CMM_Caption="서브맵 에피소드아이콘09_1"/>
+		<image name="worldmap2_icon_Sepi_09_2" file="\skin\worldmap2_subicon.tga" imgrect="601 422 202 176" CMM_Caption="서브맵 에피소드아이콘09_2"/>
+		<image name="worldmap2_icon_Sepi_10" file="\skin\worldmap2_subicon.tga" imgrect="0 625 186 157" CMM_Caption="서브맵 에피소드아이콘10"/>
+		<image name="worldmap2_icon_Sepi_11_1" file="\skin\worldmap2_subicon.tga" imgrect="187 625 162 178" CMM_Caption="서브맵 에피소드아이콘11_1"/>
+		<image name="worldmap2_icon_Sepi_11_2" file="\skin\worldmap2_subicon.tga" imgrect="350 625 200 205" CMM_Caption="서브맵 에피소드아이콘11_2"/>
+		<image name="worldmap2_icon_Sepi_11_3" file="\skin\worldmap2_subicon.tga" imgrect="551 625 201 179" CMM_Caption="서브맵 에피소드아이콘11_3"/>
+		<image name="worldmap2_icon_Sepi_12" file="\skin\worldmap2_subicon.tga" imgrect="753 625 154 192" CMM_Caption="서브맵 에피소드아이콘12"/>
+		<image name="worldmap2_icon_Sepi_13" file="\skin\worldmap2_subicon.tga" imgrect="909 592 223 225" CMM_Caption="서브맵 에피소드아이콘13"/>
+		<image name="worldmap2_spot_btn" file="\skin\worldmap2.tga" imgrect="458 143 28 28" CMM_Caption="위치아이콘_인터랙션x"/>
+		<image name="worldmap2_map_submap" file="\skin\worldmap2.tga" imgrect="594 143 38 34" CMM_Caption="맵_서브맵이동_일반"/>
+		<image name="worldmap2_map_submap_cursoron" file="\skin\worldmap2.tga" imgrect="633 143 38 34"/>
+		<image name="worldmap2_map_submap_clicked" file="\skin\worldmap2.tga" imgrect="672 143 38 34"/>
+		<image name="worldmap2_map_submap2" file="\skin\worldmap2.tga" imgrect="594 178 38 34" CMM_Caption="맵_서브맵이동_마을"/>
+		<image name="worldmap2_map_submap2_cursoron" file="\skin\worldmap2.tga" imgrect="633 178 38 34"/>
+		<image name="worldmap2_map_submap2_clicked" file="\skin\worldmap2.tga" imgrect="672 178 38 34"/>
+		<image name="worldmap2_monframe" file="\skin\worldmap2.tga" imgrect="721 0 64 64" CMM_Caption="몬스터 아이콘 프레임"/>
+		<image name="worldmap2_minimap_droplist_icon" file="\skin\worldmap2.tga" imgrect="0 453 45 40" CMM_Caption="미니맵 드롭리스트 아이콘"/>
+		<image name="worldmap2_scroll_icon" file="\skin\worldmap2.tga" imgrect="392 97 18 22" CMM_Caption="주문서 아이콘"/>
+		<image name="worldmaptoken_image" file="\skin\worldmap2.tga" imgrect="711 143 55 45" CMM_Caption="토큰 혜택 아이콘"/>
 	</imagelist>
 	<imagelist category="testmin_image">
 		<image name="clock_inven" file="\skin\pip_test.tga" imgrect="403 698 50 50" CMM_Caption="기간제 시계 아이콘 및 날짜 뒷배경"/>
@@ -9864,6 +10328,7 @@
 		<image name="minimap_clear" file="\icon\minimap_icon3.tga" imgrect="0 0 84 84"/>
 		<image name="minimap_personal_house" file="\icon\minimap_icon3.tga" imgrect="257 672 80 80 "/>
 		<image name="minimap_kedora" file="\icon\minimap_icon3.tga" imgrect="328 882 84 84"/>
+		<image name="minimap_elevator" file="\icon\minimap_icon3.tga" imgrect="432 977 80 80"/>
 	</imagelist>
 	<imagelist category="quest_tags">
 		<image name="quest_tag_1_MAIN" file="\icon\minimap_icon.tga" imgrect="61 31 16 16"/>
@@ -10721,6 +11186,7 @@
 		<image name="icon_arch_Lucky" file="\icon\buff_icon3.tga" imgrect="640 1664 128 128" CMM_Caption="럭키 버프"/>
 		<image name="icon_arch_Coursingabil" file="\icon\buff_icon3.tga" imgrect="768 1664 128 128" CMM_Caption="피의 얼룩 디버프"/>
 		<image name="icon_pet_cadet_armadillo_buff" file="\icon\buff_icon3.tga" imgrect="896 1664 128 128" CMM_Caption="사관생도 아르마딜로"/>
+		<image name="icon_Provoke_fury" file="\icon\buff_icon3.tga" imgrect="128 1792 128 128" CMM_Caption="프로보크-격노"/>
 	</imagelist>
 	<imagelist category="housing_bufficon">
 		<image name="icon_Weapon_Klaida" file="\icon\icon_hosing_buff.tga" imgrect="0 0 128 128"/>
@@ -10948,6 +11414,8 @@
 		<image name="017_npc_Rozaliia" file="\skin\npccard\017_npc_Rozaliia.tga" imgrect="0 0 330 440"/>
 		<image name="018_npc_Vilius" file="\skin\npccard\018_npc_Vilius.tga" imgrect="0 0 330 440"/>
 		<image name="019_npc_JenaHavindar" file="\skin\npccard\019_npc_JenaHavindar.tga" imgrect="0 0 330 440"/>
+		<image name="020_npc_ReamToiler" file="\skin\npccard\020_npc_ReamToiler.tga" imgrect="0 0 330 440"/>
+		<image name="021_npc_NoirParesseus" file="\skin\npccard\021_npc_NoirParesseus.tga" imgrect="0 0 330 440"/>
 	</imagelist>
 	<imagelist category="bosscard2">
 		<image name="001_boss_poata" file="\skin\bosscard\001_boss_poata.tga" imgrect="0 0 330 440"/>

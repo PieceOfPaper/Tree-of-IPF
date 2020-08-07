@@ -392,6 +392,7 @@
 		<Class ClassID="2339" ClassName="ReinforceBroke{BEFORE}{ITEM}" Data="[{BEFORE}{ITEM}] 강화에 실패하여 장비가 파괴되었습니다."/>
 		<Class ClassID="2340" ClassName="MustAddIcorToSlot" Data="장착할 아이커를 등록해야 합니다."/>
 		<Class ClassID="2341" ClassName="ExceedItemGetLimit" Data="획득 가능한 아이템 최대 수량을 초과 하였습니다."/>
+<Class ClassID="2352" ClassName="GlobalCool{num}" Data="무적에 관련된 특성이나 기능은 {num}초 뒤 ON/OFF가 가능 합니다."/>
 	</Category>
 	<Category Name="ClassContents">
 		<Class ClassID="2500" ClassName="FullWeeklyGainClassResetExp" Data="주간 획득 가능한 클래스 변경 포인트를 모두 달성하였습니다."/>
@@ -618,7 +619,7 @@
 		<Class ClassID="4141" ClassName="ThisIsEndedEvent" Data="종료 기한이 지난 이벤트입니다."/>
 		<Class ClassID="4142" ClassName="THMace" Data="양손둔기"/>
 		<Class ClassID="4143" ClassName="Event_Select_Acc_Box_Title" Data="슈페리어 브레이슬릿(15일) 상자"/>
-		<Class ClassID="4144" ClassName="LeticiaGacha{CONSUME}" Data="큐브 개봉시{nl}{CONSUME}{nl}소모됩니다.{nl}정말 개봉하시겠습니까?"/>
+		<Class ClassID="4144" ClassName="LeticiaGacha{CONSUME}" Data="큐브 개봉시{nl}{CONSUME}  소모됩니다.{nl}정말 개봉하시겠습니까?"/>
 		<Class ClassID="4145" ClassName="SelectCostume{ITEM}" Data="{@st66d_y}{s20}{ITEM}{/}{/} {nl}코스튬을 정말 선택하시겠습니까?{nl} {nl}선택 후에는 다른 코스튬으로{nl}교환할 수 없습니다."/>
 		<Class ClassID="4146" ClassName="Card_Summon_Check_god" Data="여신상 주변에서는 사용하실 수 없습니다."/>
 		<Class ClassID="4147" ClassName="Card_Summon_check_Boss" Data="보스 몬스터 주변에서는 사용하실 수 없습니다."/>
@@ -753,6 +754,8 @@
 		<Class ClassID="4278" ClassName="FixOptionItem" Data="[고정]"/>    
 		<Class ClassID="4279" ClassName="CantUseSkillUsing" Data="스킬 사용중엔 사용하실 수 없습니다."/>
 		<Class ClassID="4280" ClassName="CantUseThisArea" Data="사용하실 수 없는 지역입니다."/>
+		<Class ClassID="4281" ClassName="MoreTranscendForCraft{count}" Data="제작을 위한 재료의 초월 수치가 {count}이상 필요합니다."/>
+		<Class ClassID="4282" ClassName="CantCraftCusRestriciton" Data="제작을 위한 재료가 제작 조건을 만족하지 않습니다."/>
 	</Category>
 	<Category Name="ItemTooltip">
 		<Class ClassID="5001" ClassName="CoolDown : {Sec} Sec" Data="재사용 대기시간 : {Sec}초"/>
@@ -1774,9 +1777,13 @@
 		<Class ClassID="21391" ClassName="EndEventMessage" Data="이벤트가 종료되었습니다."/>
                 <Class ClassID="21392" ClassName="ForeverBlockMessage" Data="{Reason} 사유로 인하여{nl}이용자님의 계정은 영구적으로{nl}서버 접속이 불가능하게 되었습니다.{nl}사유 및 기간에 대하여 문의가 있을 시에는{nl}공식홈페이지를 통하여 문의 부탁드립니다."/>
 		<Class ClassID="21393" ClassName="PeriodBlockMessage" Data="{Reason} 사유로 인하여{nl}{StartTime}부터{nl}{EndTime}까지{nl}접속이 제한되었습니다.{nl}사유 및 기간에 대하여 문의가 있을 시에는{nl}공식홈페이지를 통하여 문의 부탁드립니다."/>
-		<Class ClassID="21394" ClassName="PossibleChangeName_2{Name}" Data="{#0000FF}{Name}{/}이름은 {nl}사용 가능한 이름입니다.{nl}"/>
+		<Class ClassID="21394" ClassName="PossibleChangeName_2{Name}" Data="{@st66d_y}{s20}{Name}{/}{/}{nl}사용 가능한 이름입니다.{nl} "/>
 		<Class ClassID="21395" ClassName="ReallCreate?" Data="생성하시겠습니까?"/>
 		<Class ClassID="21396" ClassName="LEGEND_RAID_GLACIER_HARD" Data="하얀 마녀의 숲 : 레전드(Hard)"/>		
+		<Class ClassID="21399" ClassName="LowerThan{SEC}" Data="{SEC}초 미만"/>
+		<Class ClassID="21398" ClassName="OpenCountBonus{COUNT}" Data="{@st66d_y}{s20}{COUNT}{/}{/}{@st45tw}{s20}회차 보너스"/>
+		<Class ClassID="21400" ClassName="MaterialOfBoostToken1" Data="[x4 경험의 서] 제작 재료입니다."/>
+		<Class ClassID="21401" ClassName="MaterialOfBoostToken2" Data="[x8 경험의 서] 제작 재료입니다."/>
 	</Category>
 	<Category Name="ChatText">
 		<Class ClassID="22001" ClassName="Guard" Data="방어"/>
@@ -9756,6 +9763,8 @@
 		<Class ClassID="102457" ClassName="EventGuildQuestRewardPCAlreadyGet" Data="소속 길드의 길드 퀘스트 클리어 횟수 기록은 다음과 같습니다.{nl}길드 퀘스트 클리어 횟수: {TOTALCOUNT}{nl}{#ff0000}이미 보상을 지급받으셨습니다.{/}"/>
 		<Class ClassID="102458" ClassName="EventGuildQuestRewardCheck" Data="{#003399}[길드 이벤트]{/} 길드 보상 받기"/>
 		<Class ClassID="102459" ClassName="EventGuildQuestRewardPCCheck" Data="{#003399}[길드 이벤트]{/} 개인 보상 받기"/>
+		<Class ClassID="102460" ClassName="EventSeasonGuildQuestRewardCheck" Data="{#003399}[시즌서버]{/} 길드 이벤트 보상 수령하기"/>
+		<Class ClassID="102461" ClassName="EventSeasonGuildQuestCheckMsg{WEEKCOUNT}{TOTALCOUNT}" Data="길드 퀘스트 누적 클리어 횟수{nl}주간 클리어 횟수({WEEKCOUNT}/3){nl}누적 클리어 횟수({TOTALCOUNT}/12){nl}{#FF0000}※주간 클리어 횟수는 매주 월요일 06시에 초기화 됩니다.{/}"/>
 	</Category>
 	<Category Name="EqupClasses">
 		<Class ClassID="103001" ClassName="THSword" Data="양손검"/>
@@ -13762,7 +13771,7 @@
 		<Class ClassID="300054" ClassName="Premium_SkillResetLng" Data="전체 스킬 포인트 초기화"/>
 		<Class ClassID="300056" ClassName="Token_ExpUp{PER}" Data="몬스터 처치 시 획득 경험치 증가 "/>
 		<Class ClassID="300057" ClassName="EquipPremiumItem" Data="현재 장착중인 헤어는 구입하실 수 없습니다."/>
-		<Class ClassID="300058" ClassName="TPText{Premium}and{Event}" Data="TP : {Premium}  Event : {Event}"/>
+		<Class ClassID="300058" ClassName="TPText{Premium}and{Event}" Data="프리미엄TP : {Premium}  이벤트TP : {Event}"/>
 		<Class ClassID="300059" ClassName="AllowTradeByCount" Data="거래 무제한"/>
 		<Class ClassID="300062" ClassName="Premium_StatResetLng" Data="전체 스탯을 초기화 시킵니다."/>
 		<Class ClassID="300063" ClassName="PremiumToken_event" Data="토큰[증정용]"/>
@@ -13887,6 +13896,7 @@
 		<Class ClassID="300197" ClassName="Premium_AbilityResetLng" Data="전체 특성을 초기화 시킵니다."/>
 		<Class ClassID="300198" ClassName="Premium_JobArtsResetLng" Data="해당 직업의 전체 아츠를 초기화 시킵니다."/>
 		<Class ClassID="300199" ClassName="CanUseIcorMultiple" Data="아이커 일괄 장착/해제 가능"/>
+		<Class ClassID="300200" ClassName="CanUseWorldMapToken" Data="여신상 비용 면제 및 월드맵 토큰 이동 가능"/>
 	</Category>
 	<Category Name="TPHistory">
 		<Class ClassID="301001" ClassName="RemainLogoutPC" Data="로그아웃 PC 만들기"/>
@@ -13980,12 +13990,12 @@
 		<Class ClassID="302081" ClassName="REGULAR_BURNING_EVENT_SUPPORTER" Data="주말 앤 버닝 도우미"/>
 		<Class ClassID="302082" ClassName="npc_Xmas_Evt_NPC" Data="[유료 상품 교환 NPC]{nl}가비야의 전령"/>
 		<Class ClassID="302084" ClassName="EVENT_NEW_SEASON_SERVER_COIN_CHECK_STATE_1" Data="전체 코인 획득량"/>
-		<Class ClassID="302085" ClassName="EVENT_NEW_SEASON_SERVER_COIN_CHECK_STATE_2" Data="1시간 접속 시 코인 10개 획득"/>
+		<Class ClassID="302085" ClassName="EVENT_NEW_SEASON_SERVER_COIN_CHECK_STATE_2" Data="1시간 접속 시 코인 5개 획득"/>
 		<Class ClassID="302086" ClassName="EVENT_NEW_SEASON_SERVER_COIN_CHECK_STATE_3" Data="스탬프 투어 목표 진행률"/>
 		<Class ClassID="302087" ClassName="EVENT_NEW_SEASON_SERVER_COIN_CHECK_STATE_4" Data="콘텐츠 목표 진행률"/>
 		<Class ClassID="302088" ClassName="EVENT_NEW_SEASON_SERVER_COIN_CHECK_STATE_5" Data="룰렛 사용 횟수"/>
 		<Class ClassID="302089" ClassName="EVENT_NEW_SEASON_SERVER_stamp_tour_tip_text" Data="* 스탬프 투어 진행률은 해당 미션 보상을 받아야 적용됩니다."/>
-		<Class ClassID="302090" ClassName="EVENT_NEW_SEASON_SERVER_stamp_tour_tip_text2" Data="마법 협회 npc를 찾아가 이벤트에 참여하세요"/>
+		<Class ClassID="302090" ClassName="EVENT_NEW_SEASON_SERVER_stamp_tour_tip_text2" Data="마법 협회 NPC를 찾아가 이벤트에 참여하세요"/>
 		<Class ClassID="302091" ClassName="REGULAR_BURNING_EVENT_CHALLENGE_RESET_SUCCESS" Data="성공적으로 챌린지 모드 입장횟수를 초기화했습니다!"/>
 		<Class ClassID="302092" ClassName="DailyContentMissionAcquireCount" Data="콘텐츠 목표 일일 획득량"/>
 		<Class ClassID="302093" ClassName="GODDESS_ROULETTE_NPC_DIALOG_MSG_1" Data="여신의 룰렛 돌리기"/>
@@ -14038,13 +14048,31 @@
 		<Class ClassID="302140" ClassName="EVENT_FLEX_BOX_LIMIT_BY_CONTENTS{ITEM}" Data="오늘 콘텐츠 플레이로 획득 가능한 {ITEM}을(를) 전부 획득하셨습니다."/>
 		<Class ClassID="302141" ClassName="Event_Flex_box_Open_Max_Count" Data="개봉 가능 횟 수를 모두 이용하셨습니다."/>
 		<Class ClassID="302142" ClassName="EVENT_FLEX_BOX_StackOverItemExist" Data="인벤토리에 메데이나 FLEX BOX의 상품 중 최대 수량을 가진 아이템이 존재합니다."/>
+		<Class ClassID="302143" ClassName="STAMP_TOUR_ALL_CLEAR_REWARD_ACQUIRE" Data=" 스탬프 투어 미션 클리어 기념 상자 수령하기"/>
+		<Class ClassID="302144" ClassName="NEW_SEASON_SERVER_COIN_CHECK_TOOLTIP_1" Data="일일 1시간 접속, 스탬프 투어, 콘텐츠 이용을 통해 획득한 모든 주화 입니다.{nl}최대 600개 획득 가능합니다."/>
+		<Class ClassID="302145" ClassName="NEW_SEASON_SERVER_COIN_CHECK_TOOLTIP_2" Data="하루 1시간 누적 접속 시 코인을 획득할 수 있습니다.{nl}오전 05시 01분에 접속하신 경우, 코인을 획득할 수 없습니다.{nl}{#FF0000}매일 오전 6시 초기화 됩니다.{/}"/>
+		<Class ClassID="302146" ClassName="NEW_SEASON_SERVER_COIN_CHECK_TOOLTIP_3" Data="여신의 룰렛 코인을 획득할 수 있는 미션의 진행률 입니다."/>
+		<Class ClassID="302147" ClassName="NEW_SEASON_SERVER_COIN_CHECK_TOOLTIP_4" Data="콘텐츠 첫 클리어 통해 여신의 룰렛 코인을 획득할 수 있습니다."/>
+		<Class ClassID="302148" ClassName="NEW_SEASON_SERVER_COIN_CHECK_TOOLTIP_5" Data="현재 룰렛을 돌린 횟수 입니다."/>
 		<Class ClassID="302163" ClassName="STAMP_TOUR_WEEK_HIDDEN_MSG" Data="{week}주차 미션 클리어 후 공개됩니다."/>
+		<Class ClassID="302149" ClassName="EVENT_2007_GUILD_BUFF" Data="시즌 서버 버프 받기"/>
 		<Class ClassID="302150" ClassName="Next" Data="다음"/>
 		<Class ClassID="302151" ClassName="EVENT_2006_DRANGON_BOAT_MORU" Data="죽엽 모루를 이용해 강화 가능한 아이템입니다."/>
 		<Class ClassID="302152" ClassName="EVENT_2007_LUCKY_TICKET_CHECK_MESSAGE{COIN}" Data="[이벤트]모아라 행운의 티켓{nl}일일 획득량 {#3366FF}({COIN}/500){/}{nl}{#FF0000} ※일일 최대 획득량은 오전 6시 초기화 됩니다.{/}"/>
 		<Class ClassID="302153" ClassName="EVENT_2007_LUCKY_TICKET_SEL_MSG1" Data="{#003399}[모아라 행운의 티켓]{/} 이벤트 안내"/>
 		<Class ClassID="302154" ClassName="EVENT_2007_LUCKY_TICKET_SEL_MSG2" Data="{#003399}[모아라 행운의 티켓]{/} 이벤트 상점"/>
 		<Class ClassID="302155" ClassName="luckyShop2007" Data="모아라 행운의 티켓 이벤트 상점"/>
+		<Class ClassID="302164" ClassName="EVENT_SEASON_SERVER_REWARD_PROGRESS" Data="450레벨 달성 보상 ({State1}){nl}440레벨 달성 보상 ({State2}){nl}이벤트 기간: 8월 6일 ~ 10월 22일 점검 전"/>
+		<Class ClassID="302165" ClassName="EVENT_SEASON_SERVER_REWARD_DONE" Data="이미 만랩 달성 보상을 획득하였습니다."/>
+		
+		<Class ClassID="302173" ClassName="EVENT_2007_GUILD_MSG1" Data="조건을 충족하지 못하였습니다."/>
+		<Class ClassID="302174" ClassName="EVENT_2007_GUILD_MSG2" Data="버프를 활성화 했습니다. (24시간){nl}6시간 후 다시 버프를 활성화할 수 있습니다."/>
+		<Class ClassID="302175" ClassName="EVENT_2007_GUILD_MSG3" Data="이미 버프 효과를 받고있습니다."/>
+		<Class ClassID="302176" ClassName="EVENT_2007_GUILD_DLG1" Data="촉망받는 길드 버프를 활성화를 위해서는 다음과 같은 조건이 만족되어야 합니다.{nl}1. 길드 마스터의 레벨이 440LV 이상{nl}2. 길드원이 길드 마스터 포함 10명 이상{np}길드 버프 활성화는 모든 길드원이 가능합니다.{nl}버프 활성화는 24시간 동안 유지되며, 6시간의 쿨타임이 있습니다.{nl} 버프는 맵 이동 시에 적용됩니다."/>
+		
+		<Class ClassID="302182" ClassName="Recieved" Data="수령"/>
+		<Class ClassID="302183" ClassName="NotRecieved" Data="미수령"/>
+		<Class ClassID="302184" ClassName="EVENT_2007_GUILD_MSG4" Data="버프가 활성화 되었습니다. 맵 이동 혹은 재 접속 시 버프가 적용됩니다."/>
 	</Category>
 	<Category Name="Account">
 		<Class ClassID="303001" ClassName="MaxAccountWarehouseCount" Data="팀 창고"/>
@@ -14249,7 +14277,7 @@
 	</Category>
 	<Category Name="FieldBossMessage">
 		<Class ClassID="510500" ClassName="FieldBoss{Name}WillAppear" Data="잠시 후 필드 보스가 등장합니다 : {Name}"/>
-	</Category>
+    </Category>
 	<Category Name="FishRubbing">
 		<Class ClassID="510600" ClassName="FishRubbingMSG1" Data="그는 좋은 물고기였습니다."/>
 		<Class ClassID="510601" ClassName="FishRubbingMSG2" Data="이거 먹을 수 있을까?"/>
@@ -14283,10 +14311,10 @@
 		<Class ClassID="510718" ClassName="pvp_mine_get_crystal" Data="{COUNT} 획득!"/>
 		<Class ClassID="510719" ClassName="pvp_mine_before_30m" Data="자원 쟁탈전 유니폼 모드 시작 30분 전입니다."/>
 		<Class ClassID="510720" ClassName="pvp_mine_before_10m" Data="자원 쟁탈전 유니폼 모드 시작 10분 전입니다."/>
-		<Class ClassID="510721" ClassName="pvp_mine_before_5m" Data="자원 쟁탈전 유니폼 모드 시작 5분 전입니다.{nl}각 마을 및 샤울레이 광산 마을 북쪽 끝에서 입장할 수 있습니다."/>
-		<Class ClassID="510722" ClassName="pvp_mine_before_start" Data="자원 쟁탈전 유니폼 모드가 시작되었습니다!{nl}각 마을 및 샤울레이 광산 마을 북쪽 끝에서 입장할 수 있습니다."/>
-		<Class ClassID="510723" ClassName="pvp_mine_2nd_before_3m" Data="2회차 자원 쟁탈전 일반 모드 시작 3분 전입니다.{nl}각 마을 및 샤울레이 광산 마을 북쪽 끝에서 입장할 수 있습니다."/>
-		<Class ClassID="510724" ClassName="pvp_mine_2nd_before_start" Data="2회차 자원 쟁탈전 일반 모드가 시작되었습니다!{nl}각 마을 및 샤울레이 광산 마을 북쪽 끝에서 입장할 수 있습니다."/>
+		<Class ClassID="510721" ClassName="pvp_mine_before_5m" Data="자원 쟁탈전 유니폼 모드 시작 5분 전입니다.{nl}콘텐츠 현황판(F10)을 통해 입장할 수 있습니다."/>
+		<Class ClassID="510722" ClassName="pvp_mine_before_start" Data="자원 쟁탈전 유니폼 모드가 시작되었습니다!{nl}콘텐츠 현황판(F10)을 통해 입장할 수 있습니다."/>
+		<Class ClassID="510723" ClassName="pvp_mine_2nd_before_3m" Data="2회차 자원 쟁탈전 일반 모드 시작 3분 전입니다.{nl}콘텐츠 현황판(F10)을 통해 입장할 수 있습니다."/>
+		<Class ClassID="510724" ClassName="pvp_mine_2nd_before_start" Data="2회차 자원 쟁탈전 일반 모드가 시작되었습니다!{nl}콘텐츠 현황판(F10)을 통해 입장할 수 있습니다."/>
 		<Class ClassID="510725" ClassName="pvp_mine_start_time_check" Data="특정 시간외에는 출입이 금지됩니다. 출입 가능 시간은 다음과 같습니다.{nl}유니폼 모드 : {HOUR}시 {MINf}분 ~ {HOUR}시 {MINf2}분{nl}일반 모드 : {HOUR}시 {MINs}분 ~ {HOUR}시 {MINs2}분"/>
 		<Class ClassID="510726" ClassName="bladetryst" Data="칼날 서약단"/>
 		<Class ClassID="510727" ClassName="goldencroon" Data="황금 노래단"/>
@@ -14525,8 +14553,8 @@
 		<Class ClassID="801171" ClassName="GUILD_COLONY_MSG_LEAVE_2" Data="이동 : 길드 타워가 설치된 위치"/>
 		<Class ClassID="801172" ClassName="BattleChat_Colony_GuildMember{Name}HasKilledBy{From}OfGuild{FromGuild}" Data="{b}{ol}{FromGuild} 길드 {From}이 {Name}처치"/>
 		<Class ClassID="801173" ClassName="BattleChat_Colony_GuildMember{Name}Killed{Target}OfGuild{TargetGuild}" Data="{b}{ol}{Name}가 {TargetGuild} 길드 {Target}처치"/>
-		<Class ClassID="801174" ClassName="PRE_Challenge_RepeatHealPotion" Data="챌린지 모드 6단 이하에서만 사용 가능합니다."/>		
-		<Class ClassID="801175" ClassName="PRE_Challenge_RepeatHealPotion2" Data="이미 효과가 활성화 중입니다."/>		
+		<Class ClassID="801174" ClassName="PRE_Challenge_RepeatHealPotion" Data="챌린지 모드 6단 이하에서만 사용 가능합니다."/>
+		<Class ClassID="801175" ClassName="PRE_Challenge_RepeatHealPotion2" Data="이미 효과가 활성화 중입니다."/>
 	</Category>
 	<Category Name="ColonyTax">
 		<Class ClassID="810000" ClassName="ColonyTaxRateDetail{Default}{Min}{Max}{ModifyDelay}{DisableModifyDelay1}{DisableModifyDelay2}" Data="- 챔피언스 리그 지역을 최종 점령한 길드는 각 도시의 적립요율을 조정할 수 있습니다.({Min}% ~ {Max}%) {nl}- 도시 적립요율은 기본적으로 표준 요율({Default}%)이 적용되어 있습니다.{nl}- 도시 적립요율 조정은 길드 마스터 또는 해당 권한을 가진 일원만 가능합니다.{nl}- 도시 적립요율은 조정 후, {ModifyDelay}시간 뒤에 재조정이 가능합니다.{nl}- 콜로니전 시작 {DisableModifyDelay1}시간 전부터 종료 {DisableModifyDelay2}분 후까지 도시 적립요율 조정이 제한됩니다.{nl}- 매 콜로니전 종료 후, 챔피언스 리그 지역의 최종 점령 길드가 지난번 점령 길드와 다른 경우 도시 적립요율은 표준 요율({Default}%)로 조정됩니다.{nl}- 챔피언스 리그 지역의 최종 점령 길드에 가입된 인원들은 해당 적립요율 적용 도시에 한해 최소 요율({Min}%)로 고정되어 적용됩니다.{nl}- 적립금 누적 기간 동안 [적립요율 적용 항목]의 실버 소비 시, 적용된 요율에 따라 적립금이 누적됩니다.{nl}   (적립금 누적 기간 : 콜로니전 종료 5분 후 시각을 기점으로 다음 콜로니전 종료 시 까지){nl}- 적립금 누적 기간이 끝나면 [적립금 분배] 탭에서 수령된 적립금을 길드원에게 분배할 수 있습니다."/>
@@ -14726,7 +14754,8 @@
 		<Class ClassID="820052" ClassName="AncientCombineSameCard" Data="동일한 카드 3장으로는 합성할 수 없습니다.{/}"/>
 		<Class ClassID="820053" ClassName="AncientCardLock" Data="어시스터가 잠금 상태입니다."/>
 		<Class ClassID="820054" ClassName="AncientCardLockMsg" Data="잠금 설정할 어시스터를 선택해주세요."/>
-	</Category>
+		<Class ClassID="820055" ClassName="AncientCardOnlyInfoTab" Data="어시스터 정보 탭에서만 가능합니다."/>
+		</Category>
 	<Category Name="NXA">
 		<Class ClassID="900000" ClassName="NXABillingPurchaseSuccess" Data="?????????????"/>
 		<Class ClassID="900001" ClassName="NXABillingPurchaseFailed" Data="Purchase Failed"/>
@@ -15309,11 +15338,37 @@
 		<Class ClassID="593011" ClassName="EVENT_2006_SUMMER_STA" Data="5초마다 스태미나가 {ARG}만큼 회복됩니다."/>
 		<Class ClassID="593012" ClassName="EVENT_2006_SUMMER_ATK" Data="물리, 마법 공격력이 각각 {ARG}만큼 증가합니다."/>
 	</Category>
+	<Category Name="worldmap2">
+		<Class ClassID="594000" ClassName="fog_rate" Data="탐사율"/>
+		<Class ClassID="594001" ClassName="average_level" Data="권장레벨"/>
+		<Class ClassID="594002" ClassName="OutOfQuestCheckCount" Data="퀘스트를 지령창에 더 이상 등록할 수 없습니다.{nl}퀘스트는 지령창에 최대 5개까지 등록 가능합니다."/>
+		<Class ClassID="594003" ClassName="colony" Data="콜로니"/>
+		<Class ClassID="594004" ClassName="favorite" Data="즐겨찾기"/>
+		<Class ClassID="594005" ClassName="last_warp_area" Data="주문서 사용 지역"/>
+		<Class ClassID="594006" ClassName="select_your_choice" Data="항목을 선택하세요"/>
+		<Class ClassID="594007" ClassName="TokenWarpDisable{TIME}" Data="토큰 이동을 사용하실 수 없습니다. 남은 대기시간: {TIME}초"/>
+		<Class ClassID="594008" ClassName="TokenWarpTo{MAPNAME}" Data="{MAPNAME}(으)로 토큰 이동을 하시겠습니까?"/>
+		<Class ClassID="594009" ClassName="TokenWarp" Data="토큰 이동"/>
+		<Class ClassID="594010" ClassName="OutOfFavoriteMapCount" Data="즐겨찾기에 맵을 더 이상 등록할 수 없습니다.{nl}즐겨찾기는 최대 5개까지 등록 가능합니다."/>
+		<Class ClassID="594011" ClassName="Check{COLONY}" Data="{COLONY} 지역을 확인합니다."/>
+		<Class ClassID="594012" ClassName="MoveTo{EPISODE}" Data="{EPISODE}로 이동합니다."/>
+		<Class ClassID="594013" ClassName="AddBookMark" Data="즐겨찾기에 추가합니다."/>
+		<Class ClassID="594014" ClassName="RemoveBookMark" Data="즐겨찾기에서 제거합니다."/>
+		<Class ClassID="594015" ClassName="FieldBoss" Data="필드 보스"/>
+		<Class ClassID="594016" ClassName="TaxRate" Data="세율"/>
+		<Class ClassID="594017" ClassName="NoQuestToShow" Data="표시할 퀘스트가 없습니다."/>
+		<Class ClassID="594018" ClassName="NoNPCToShow" Data="표시할 NPC가 없습니다."/>
+		<Class ClassID="594019" ClassName="NoMonsterToShow" Data="표시할 몬스터가 없습니다."/>
+		<Class ClassID="594020" ClassName="NoGuildTowerToShow" Data="길드에 속해 있지 않거나, 길드 타워가 설치되지 않았습니다."/>
+		<Class ClassID="594021" ClassName="challenge_level_enable" Data="챌린지"/>
+		<Class ClassID="594022" ClassName="challenge_level_disable" Data="챌린지 불가"/>
+	</Category>
 	<Category Name="GlobalEventDialog">
 		<Class ClassID="597000" ClassName="EVENT_2004_NEWUSER_SEL_MSG1_GLOBAL" Data="{#003399}[트린이날]{/} 이벤트"/>
 	</Category>
 	<Category Name="NPCName">
 		<Class ClassID="595000" ClassName="EVENT_FLEX_BOX_NPC_NAME" Data="[이벤트] 큐폴"/>
+		<Class ClassID="595001" ClassName="EVENT_GODDESS_ROULETTE_NPC_NAME" Data="[이벤트] 여신의 룰렛"/>
 	</Category>
 	<Category Name="EventProgressCheck">
 		<Class ClassID="596000" ClassName="FLEX!" Data="FLEX!"/>

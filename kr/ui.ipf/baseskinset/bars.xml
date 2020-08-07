@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by imc (imc) -->
 <!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by MintPC (Mi) -->
 <skinset name="Base">
 	<skinlist category="bars">
@@ -78,6 +78,11 @@
 			<img name="middle" imgrect="542 1653 84 74"/>
 			<img name="right" imgrect="627 1653 148 74"/>
 		</skin>
+		<skin name="worldmap2_bar_category" texture="\skin\worldmap2.tga">
+			<img name="left" imgrect="165 191 30 38"/>
+			<img name="middle" imgrect="196 191 30 38"/>
+			<img name="right" imgrect="227 191 30 38"/>
+		</skin>
 	</skinlist>
 	<skinlist category="scrollbars">
 		<skin name="verticalscrollbar2" texture="\skin\pip_test.tga">
@@ -144,6 +149,24 @@
 			<img name="btntrform" imgrect="648 771 18 18"/>
 			<img name="btntrform_cursoron" imgrect="667 771 18 18"/>
 			<img name="btntrform_click" imgrect="686 771 18 18"/>
+		</skin>
+		<skin name="worldmap2_scrollbar" texture="\skin\worldmap2.tga">
+			<img name="background" imgrect="284 0 18 26"/>
+			<img name="btnup" imgrect="303 0 18 15"/>
+			<img name="btnup_cursoron" imgrect="303 32 18 15"/>
+			<img name="btnup_click" imgrect="303 64 18 15"/>
+			<img name="btndown" imgrect="303 16 18 15"/>
+			<img name="btndown_cursoron" imgrect="303 48 18 15"/>
+			<img name="btndown_click" imgrect="303 80 18 15"/>
+			<img name="bartop" imgrect="322 0 14 10"/>
+			<img name="bartop_cursoron" imgrect="337 0 14 10"/>
+			<img name="bartop_click" imgrect="352 0 14 10"/>
+			<img name="barmiddle" imgrect="322 11 14 20"/>
+			<img name="barmiddle_cursoron" imgrect="337 11 14 20"/>
+			<img name="barmiddle_click" imgrect="352 11 14 20"/>
+			<img name="barbottom" imgrect="322 32 14 10"/>
+			<img name="barbottom_cursoron" imgrect="337 32 14 10"/>
+			<img name="barbottom_click" imgrect="352 32 14 10"/>
 		</skin>
 	</skinlist>
 </skinset>

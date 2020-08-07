@@ -18,7 +18,7 @@ function GET_EVENT_PROGRESS_CHECK_ITEM(type)
     local table = 
     {
         [1] = "Event_Roulette_Coin_2",
-        [2] = "Event_Roulette_Coin",
+        [2] = "Event_Roulette_Coin_2",
         [3] = "EVENT_Flex_Gold_Moneybag",
     }
 
@@ -51,7 +51,7 @@ function GET_EVENT_PROGRESS_CHECK_CUR_VALUE(type, accObj)
     local table = 
     {
         [1] = {TryGetProp(accObj, "GODDESS_ROULETTE_COIN_ACQUIRE_COUNT", 0), TryGetProp(accObj, "GODDESS_ROULETTE_DAILY_PLAY_TIME_MINUTE", 0), GET_EVENT_PROGRESS_STAMP_TOUR_CLEAR_COUNT(), TryGetProp(accObj, "GODDESS_ROULETTE_DAILY_CONTENTS_ACQUIRE_COUNT", 0), TryGetProp(accObj, "GODDESS_ROULETTE_USE_ROULETTE_COUNT", 0)},
-        [2] = {TryGetProp(accObj, "EVENT_NEW_SEASON_SERVER_COIN_ACQUIRE_COUNT", 0), TryGetProp(accObj, "EVENT_NEW_SEASON_SERVER_DAY_PLAY_TIME_MINUTE", 0), GET_EVENT_PROGRESS_STAMP_TOUR_CLEAR_COUNT(), CREATE_EVENT_PROGRESS_CHECK_CONTENTS_MISSION_CLEAR_COUNT(), TryGetProp(accObj, "EVENT_NEW_SEASON_SERVER_USE_ROULETTE_COUNT", 0)},
+        [2] = {TryGetProp(accObj, "GODDESS_ROULETTE_COIN_ACQUIRE_COUNT", 0), TryGetProp(accObj, "GODDESS_ROULETTE_DAILY_PLAY_TIME_MINUTE", 0), GET_EVENT_PROGRESS_STAMP_TOUR_CLEAR_COUNT(), TryGetProp(accObj, "GODDESS_ROULETTE_DAILY_CONTENTS_ACQUIRE_COUNT", 0), TryGetProp(accObj, "GODDESS_ROULETTE_USE_ROULETTE_COUNT", 0)},
         [3] = {TryGetProp(accObj, "EVENT_FLEX_BOX_ACQUIRE_CONSUME_COUNT", 0), TryGetProp(accObj, "EVENT_FLEX_BOX_DAILY_PLAY_CONSUME_COUNT", 0), GET_EVENT_PROGRESS_STAMP_TOUR_CLEAR_COUNT(), TryGetProp(accObj, "EVENT_FLEX_BOX_DAILY_CONTENTS_CONSUME_COUNT", 0), TryGetProp(accObj, "EVENT_FLEX_BOX_OPEN_COUNT", 0)},
     }
 
@@ -75,7 +75,7 @@ function GET_EVENT_PROGRESS_CHECK_EVENT_STATE(type)
     {
         [1] = {"cur", "cur", "cur", "pre", "pre"},
         [2] = {"cur", "cur", "cur", "cur", "pre"},
-        [3] = {"cur", "cur", "cur", "cur", "cur"},
+        [3] = {"cur", "cur", "end", "cur", "cur"},
     }
 
     return table[type];
@@ -108,7 +108,7 @@ function GET_EVENT_PROGRESS_CHECK_ACQUIRE_STATE_TOOLTIP(type)
     local table = 
     {
         [1] = {ClMsg("GoddessRouletteTexttooltip_1"), ClMsg("GoddessRouletteTexttooltip_2"), ClMsg("GoddessRouletteTexttooltip_3"), ClMsg("GoddessRouletteTexttooltip_4"), ClMsg("GoddessRouletteTexttooltip_5")},
-        [2] = {ClMsg("NEW_SEASON_SERVER_COIN_CHECK_TOOLTIP_1"), ClMsg("NEW_SEASON_SERVER_COIN_CHECK_TOOLTIP_2"), ClMsg("NEW_SEASON_SERVER_COIN_CHECK_TOOLTIP_3"), ClMsg("NEW_SEASON_SERVER_COIN_CHECK_TOOLTIP_4"), ClMsg("NEW_SEASON_SERVER_COIN_CHECK_TOOLTIP_5")},
+        [2] = {ClMsg("GoddessRouletteTexttooltip_1"), ClMsg("GoddessRouletteTexttooltip_2"), ClMsg("GoddessRouletteTexttooltip_3"), ClMsg("GoddessRouletteTexttooltip_4"), ClMsg("GoddessRouletteTexttooltip_5")},        
         [3] = {ClMsg("EVENT_2007_FLEX_BOX_CHECK_TOOLTIP_1"), ClMsg("EVENT_2007_FLEX_BOX_CHECK_TOOLTIP_2"), ClMsg("EVENT_2007_FLEX_BOX_CHECK_TOOLTIP_3"), ClMsg("EVENT_2007_FLEX_BOX_CHECK_TOOLTIP_4"), ClMsg("EVENT_2007_FLEX_BOX_CHECK_TOOLTIP_5")},
     }
 
@@ -120,7 +120,7 @@ function GET_EVENT_PROGRESS_CHECK_ACQUIRE_STATE_MAX_VALUE(type)
     local table = 
     {
         [1] = {1000, 10, 33, 10, 100},
-        [2] = {600, 2, 33, 36, 60},
+        [2] = {GODDESS_ROULETTE_COIN_MAX_COUNT, GODDESS_ROULETTE_DAILY_PLAY_TIME_VALUE, GODDESS_ROULETTE_STAMP_TOUR_MAX_COUNT, GODDESS_ROULETTE_DAILY_CONTENTS_MAX_COIN_COUNT, GODDESS_ROULETTE_MAX_COUNT},
         [3] = {0, GET_EVENT_FLEX_BOX_DAILY_PLAY_TIME_MAX_CONSUME_COUNT(), 24, GET_EVENT_FLEX_BOX_DAILY_CONTENTS_MAX_CONSUME_COUNT(), GET_EVENT_FLEX_BOX_MAX_OPEN_COUNT()},
     }
 
@@ -132,7 +132,7 @@ function GET_EVENT_PROGRESS_CHECK_ACQUIRE_STATE_NPC(type)
     local table = 
     {
         [1] = {"None", "None", "Klapeda/c_Klaipe/-292/291;c_orsha/c_orsha/-985/415;", "None", "None"},
-        [2] = {"None", "None", "Klapeda/c_Klaipe/-292/291;c_orsha/c_orsha/-985/415;", "None", "None"},
+        [2] = {"None", "None", "Klapeda/c_Klaipe/-292/291;c_orsha/c_orsha/-985/415;", "None", "Klapeda/c_Klaipe/-664/576;c_fedimian/c_fedimian/-284/-346;c_orsha/c_orsha/184/246;"},
         [3] = {"None", "None", "Klapeda/c_Klaipe/-679/581;c_fedimian/c_fedimian/-532/-180;c_orsha/c_orsha/184/246;", "None", "Klapeda/c_Klaipe/-679/581;c_fedimian/c_fedimian/-532/-180;c_orsha/c_orsha/184/246;"},
     }
 
@@ -143,7 +143,7 @@ function GET_EVENT_PROGRESS_CHECK_ACQUIRE_STATE_CLEAR_TEXT(type)
     local table = 
     {
         [1] = {"None", "GoddessRouletteDailyPlayTimeClearText", "None", "GoddessRouletteDailyPlayTimeClearText", "Goddess_Roulette_Max_Rullet_count"},
-        [2] = {"None", "GoddessRouletteDailyPlayTimeClearText", "None", "None", "Goddess_Roulette_Max_Rullet_count"},
+        [2] = {"None", "GoddessRouletteDailyPlayTimeClearText", "None", "GoddessRouletteDailyPlayTimeClearText", "Goddess_Roulette_Max_Rullet_count"},
         [3] = {"None", "GoddessRouletteDailyPlayTimeClearText", "None", "GoddessRouletteDailyPlayTimeClearText", "Event_Flex_box_Open_Max_Count"},
     }
 
@@ -213,7 +213,7 @@ function GET_EVENT_PROGRESS_CONTENTS_MAX_CONSUME_COUNT(type)
     local table = 
     {
         [1] = "daily",
-        [2] = "first",
+        [2] = "daily",
         [3] = "daily",
     }
 

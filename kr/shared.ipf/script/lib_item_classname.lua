@@ -4,7 +4,10 @@ function GET_INDUN_MULTIPLE_ITEM_LIST()
             'Adventure_dungeoncount_01',
             'Event_dungeoncount_1',
             'Event_dungeoncount_2',
-            'Event_dungeoncount_3'};
+            'Event_dungeoncount_3',
+            'Event_dungeoncount_4',
+            'Event_dungeoncount_5',
+            'Event_dungeoncount_6'};
 end
 
 function IS_INDUN_MULTIPLE_ITEM(itemClassName)

@@ -394,6 +394,16 @@
                     <Num Num="0"/>
                     <Num Num="0"/>
                 </Scp>
+                <Scp Client="NO" Scp="SKL_TGT_BUFF" Time="0" UseSleep="NO">
+                    <Str Str="Aggress_Crtdr_Debuff"/>
+                    <Num FuncTxt="return obj.Level;" Num="0" UseFunc="1"/>
+                    <Num Num="0"/>
+                    <Num Num="10000"/>
+                    <Num Num="1"/>
+                    <Num Num="100"/>
+                    <Num Num="0"/>
+                    <Num Num="0"/>
+                </Scp>
                 <Scp Client="YES" Scp="C_VOICE_SOUND" Time="0" UseSleep="NO">
                     <Str Str="voice_scout_m_aggress_cast"/>
                     <Str Str="voice_scout_f_aggress_cast"/>

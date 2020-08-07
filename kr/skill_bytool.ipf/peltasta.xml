@@ -338,6 +338,15 @@ return value"/>
                             <Num Num="1"/>
                             <Num Num="1"/>
                         </Scp>
+                        <Scp Scp="SKL_BUFF" Client="NO" UseSleep="NO" Time="0">
+                            <Str Str="SwashBuckling_Expletive_Buff"/>
+                            <Num Num="1"/>
+                            <Num Num="0"/>
+                            <Num Num="3000"/>
+                            <Num Num="1"/>
+                            <Num Num="100"/>
+                            <Num Num="0"/>
+                        </Scp>
                         <Scp Scp="SKL_TGT_BUFF_IF_NOBUFF" Client="NO" UseSleep="NO" Time="100">
                             <Str Str="SwashBuckling_Expletive_Immune_Debuff"/>
                             <Str Str="SwashBuckling_Expletive_Debuff"/>

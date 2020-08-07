@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='utf-8'?>
 <ToolSkill>
-<Skill Name="Swordman_PainBarrier">
+    <Skill Name="Swordman_PainBarrier">
         <MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
             <HitList>
                 <Frame Angle="0" AniTime="9999" Dist="0" ForceATK="0" HitCount="1" Length="30" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="9799" Type="FAN" Width="30"/>
@@ -34,12 +34,36 @@
             </EtcList>
         </MainSkl>
     </Skill>
+    <Skill Name="Swordman_GungHo">
+        <MainSkl ScrLock="None" JumpFlee="NO" MSPDToUsePos="0">
+            <EtcList>
+                <Scp Scp="SKL_BUFF" Client="NO" UseSleep="NO" Time="0">
+                    <Str Str="GungHo"/>
+                    <Num Num="0" UseFunc="1" FuncTxt="return obj.Level"/>
+                    <Num Num="0"/>
+                    <Num Num="1800000"/>
+                    <Num Num="1"/>
+                    <Num Num="100"/>
+                    <Num Num="0"/>
+                </Scp>
+                <Scp Scp="SKL_ADD_EVIL_BUFF" Client="NO" UseSleep="NO" Time="0">
+                    <Str Str="None" UseFunc="0" FuncTxt=""/>
+                    <Num Num="0" UseFunc="0" FuncTxt=""/>
+                    <Num Num="0"/>
+                    <Num Num="0"/>
+                    <Num Num="0"/>
+                    <Num Num="0"/>
+                    <Num Num="0"/>
+                </Scp>
+            </EtcList>
+        </MainSkl>
+    </Skill>
     <Skill Name="Swordman_Liberate">
         <MainSkl ScrLock="None" JumpFlee="NO" MSPDToUsePos="0">
             <EtcList>
                 <Scp Scp="SKL_RUN_SCRIPT" Client="NO" UseSleep="NO" Time="500">
                     <Str Str="SCR_Liberate_Buff_kantrybe"/>
-                </Scp>
+                </Scp>                
             </EtcList>
         </MainSkl>
     </Skill>
@@ -221,4 +245,4 @@
             </EtcList>
         </MainSkl>
     </Skill>
-    </ToolSkill>
+</ToolSkill>

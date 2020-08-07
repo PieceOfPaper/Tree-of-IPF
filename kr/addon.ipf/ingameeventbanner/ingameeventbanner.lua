@@ -232,59 +232,65 @@ function UPDATE_EVENTBANNER_UI(frame)
 
 	for i = 0, bannerCnt - 1 do
 		local banner = GetClassByIndex('event_banner', i)
-		local bannerCtrl = bannerBox:CreateOrGetControlSet('ingame_event_banner', 'event_banner_' .. bannerCtrlIndex, 0, eventUserBannerHeight + (180 * bannerCtrlIndex + bannerUserCommandIndex * 30));
-		bannerCtrl:SetUserValue("bannerIndex", i)
+		local showtype = TryGetProp(banner, "ShowType", "None");
+		if GET_ENABLE_SHOW_BANNER(showtype) == true then
+			local bannerCtrl = bannerBox:CreateOrGetControlSet('ingame_event_banner', 'event_banner_' .. bannerCtrlIndex, 0, eventUserBannerHeight + (180 * bannerCtrlIndex + bannerUserCommandIndex * 30));
+			bannerCtrl:SetUserValue("bannerIndex", i)
+		
+			local bannerImage = GET_CHILD_RECURSIVELY(bannerCtrl, 'banner');
+			bannerImage = tolua.cast(bannerImage, "ui::CPicture");
+			bannerImage:SetImage(banner.ImagePath)
+			bannerImage:SetTextTooltip(banner.Name)
+			
+			local time_limited_bg = GET_CHILD_RECURSIVELY(bannerCtrl, "time_limited_bg");
+			local time_limited_text = GET_CHILD_RECURSIVELY(bannerCtrl, "time_limited_text");
+			time_limited_text:SetUserValue("curIndex", i)
+			time_limited_text:RunUpdateScript("SHOW_REMAIN_BANNER_TIME");
+			
+			local new_ribbon = GET_CHILD_RECURSIVELY(bannerCtrl, "new_ribbon");
+			local deadline_ribbon = GET_CHILD_RECURSIVELY(bannerCtrl, "deadline_ribbon");
+			local exchange_ribbon = GET_CHILD_RECURSIVELY(bannerCtrl, "exchange_ribbon");
+			new_ribbon:SetVisible(0);
+			deadline_ribbon:SetVisible(0);
+			exchange_ribbon:SetVisible(0);
 	
-		local bannerImage = GET_CHILD_RECURSIVELY(bannerCtrl, 'banner');
-		bannerImage = tolua.cast(bannerImage, "ui::CPicture");
-		bannerImage:SetImage(banner.ImagePath)
-		bannerImage:SetTextTooltip(banner.Name)
-		
-		local time_limited_bg = GET_CHILD_RECURSIVELY(bannerCtrl, "time_limited_bg");
-		local time_limited_text = GET_CHILD_RECURSIVELY(bannerCtrl, "time_limited_text");
-		time_limited_text:SetUserValue("curIndex", i)
-		time_limited_text:RunUpdateScript("SHOW_REMAIN_BANNER_TIME");
-		
-		local new_ribbon = GET_CHILD_RECURSIVELY(bannerCtrl, "new_ribbon");
-		local deadline_ribbon = GET_CHILD_RECURSIVELY(bannerCtrl, "deadline_ribbon");
-		local exchange_ribbon = GET_CHILD_RECURSIVELY(bannerCtrl, "exchange_ribbon");
-		new_ribbon:SetVisible(0);
-		deadline_ribbon:SetVisible(0);
-		exchange_ribbon:SetVisible(0);
-
-	    local bannerFlag = 0
-		--endTime 이 있어야 exchange 부르고, endtime 있는데 exchange없으면 endtime 만 지나도 안보이게하고
-		local remainStartTime = CHECK_EVENTBANNER_REMAIN_TIME(banner.StartTimeYYYYMM, banner.StartTimeDDHHMM)
-		
-		if remainStartTime ~= nil and remainStartTime < 0 then
-			local remainNewTime = CHECK_EVENTBANNER_REMAIN_TIME(banner.NewTimeYYYYMM, banner.NewTimeDDHHMM)
-			local remainDeadlineTime = CHECK_EVENTBANNER_REMAIN_TIME(banner.DeadlineTimeYYYYMM, banner.DeadlineTimeDDHHMM)
-			local remainEndTime = CHECK_EVENTBANNER_REMAIN_TIME(banner.EndTimeYYYYMM, banner.EndTimeDDHHMM)
-			local remainExchangeTime = CHECK_EVENTBANNER_REMAIN_TIME(banner.ExchangeTimeYYYYMM, banner.ExchangeTimeDDHHMM)
-
-			if remainNewTime ~= nil and remainNewTime >= 0 then
-				new_ribbon : SetVisible(1);
-			else
-				new_ribbon : SetVisible(0);
-			end
-
-			if remainDeadlineTime ~= nil and remainDeadlineTime <= 0 then
-				deadline_ribbon : SetVisible(1);
-			else
-				deadline_ribbon : SetVisible(0);
-			end
-			if remainEndTime ~= nil and remainEndTime >= 0 then
-				bannerCtrl:ShowWindow(1)
-				--endtime ribbon, timer 넣자
-				bannerCtrlIndex = bannerCtrlIndex + 1
-				bannerFlag = 1
-			elseif remainEndTime ~= nil and remainEndTime < 0 then
-				if remainExchangeTime ~= nil and remainExchangeTime >= 0 then
+			local bannerFlag = 0
+			--endTime 이 있어야 exchange 부르고, endtime 있는데 exchange없으면 endtime 만 지나도 안보이게하고
+			local remainStartTime = CHECK_EVENTBANNER_REMAIN_TIME(banner.StartTimeYYYYMM, banner.StartTimeDDHHMM)
+			
+			if remainStartTime ~= nil and remainStartTime < 0 then
+				local remainNewTime = CHECK_EVENTBANNER_REMAIN_TIME(banner.NewTimeYYYYMM, banner.NewTimeDDHHMM)
+				local remainDeadlineTime = CHECK_EVENTBANNER_REMAIN_TIME(banner.DeadlineTimeYYYYMM, banner.DeadlineTimeDDHHMM)
+				local remainEndTime = CHECK_EVENTBANNER_REMAIN_TIME(banner.EndTimeYYYYMM, banner.EndTimeDDHHMM)
+				local remainExchangeTime = CHECK_EVENTBANNER_REMAIN_TIME(banner.ExchangeTimeYYYYMM, banner.ExchangeTimeDDHHMM)
+	
+				if remainNewTime ~= nil and remainNewTime >= 0 then
+					new_ribbon : SetVisible(1);
+				else
+					new_ribbon : SetVisible(0);
+				end
+	
+				if remainDeadlineTime ~= nil and remainDeadlineTime <= 0 then
+					deadline_ribbon : SetVisible(1);
+				else
+					deadline_ribbon : SetVisible(0);
+				end
+				if remainEndTime ~= nil and remainEndTime >= 0 then
 					bannerCtrl:ShowWindow(1)
-					--exchangetime ribbon 넣자
-					exchange_ribbon : SetVisible(1);
+					--endtime ribbon, timer 넣자
 					bannerCtrlIndex = bannerCtrlIndex + 1
 					bannerFlag = 1
+				elseif remainEndTime ~= nil and remainEndTime < 0 then
+					if remainExchangeTime ~= nil and remainExchangeTime >= 0 then
+						bannerCtrl:ShowWindow(1)
+						--exchangetime ribbon 넣자
+						exchange_ribbon : SetVisible(1);
+						bannerCtrlIndex = bannerCtrlIndex + 1
+						bannerFlag = 1
+					else
+						bannerCtrl:ShowWindow(0)
+						bannerBox: RemoveChild('event_banner_' ..bannerCtrlIndex)
+					end
 				else
 					bannerCtrl:ShowWindow(0)
 					bannerBox: RemoveChild('event_banner_' ..bannerCtrlIndex)
@@ -293,38 +299,37 @@ function UPDATE_EVENTBANNER_UI(frame)
 				bannerCtrl:ShowWindow(0)
 				bannerBox: RemoveChild('event_banner_' ..bannerCtrlIndex)
 			end
-		else
-			bannerCtrl:ShowWindow(0)
-			bannerBox: RemoveChild('event_banner_' ..bannerCtrlIndex)
-		end
-		local userCommandFlag = 0
-		if bannerFlag == 1 then
-		    local imgList = {'notice_red_btn','notice_blue_btn','notice_green_btn','notice_yellow_btn','notice_purple_btn'}
-		    for i2 = 1, 3 do
-    		    if GetPropType(banner,'UserCommand'..i2) ~= nil and  banner['UserCommand'..i2] == 'YES' then
-    		        bannerUserCommandIndex = bannerUserCommandIndex + 1
-    		        userCommandFlag = 1
-    		        break
-    		    end
-		    end
-        	if userCommandFlag == 1 then
-    		    for i2 = 1, 3 do
-        		    if GetPropType(banner,'UserCommand'..i2) ~= nil and banner['UserCommand'..i2] == 'YES' then
-            	        local imgBtn = bannerBox:CreateControl('button', 'userCommand_'..bannerCtrlIndex..'_'..i2, 10 + 30*(i2-1), 180 * bannerCtrlIndex + (bannerUserCommandIndex-1) * 30 + 5, 30, 30)
-                    	tolua.cast(imgBtn, 'ui::CButton');
-                    	imgBtn:SetImage(imgList[i2])
---                    	imgBtn:SetSkinName(imgList[i2])
---                    	imgBtn:SetSkinName("test_gray_button");
-                        
-    --                    local curquest = session.GetUserConfig("CUR_QUEST", 0);
-    --                    local StrScript = string.format("EXEC_ABANDON_QUEST(%d)", curquest);
-                        imgBtn:SetEventScript(ui.LBUTTONUP, string.format("EVENT_BANNER_USERCOMMAND_BTN(%d)", banner.ClassID + i2), true);
-                    	imgBtn:SetOverSound('button_over');
-                    	imgBtn:SetClickSound('button_click_big');
-                    end
-                end 
-        	end
-    	end
+
+			local userCommandFlag = 0
+			if bannerFlag == 1 then
+				local imgList = {'notice_red_btn','notice_blue_btn','notice_green_btn','notice_yellow_btn','notice_purple_btn'}
+				for i2 = 1, 3 do
+					if GetPropType(banner,'UserCommand'..i2) ~= nil and  banner['UserCommand'..i2] == 'YES' then
+						bannerUserCommandIndex = bannerUserCommandIndex + 1
+						userCommandFlag = 1
+						break
+					end
+				end
+				if userCommandFlag == 1 then
+					for i2 = 1, 3 do
+						if GetPropType(banner,'UserCommand'..i2) ~= nil and banner['UserCommand'..i2] == 'YES' then
+							local imgBtn = bannerBox:CreateControl('button', 'userCommand_'..bannerCtrlIndex..'_'..i2, 10 + 30*(i2-1), 180 * bannerCtrlIndex + (bannerUserCommandIndex-1) * 30 + 5, 30, 30)
+							tolua.cast(imgBtn, 'ui::CButton');
+							imgBtn:SetImage(imgList[i2])
+
+	                    	-- imgBtn:SetSkinName(imgList[i2])
+							-- imgBtn:SetSkinName("test_gray_button");
+							-- local curquest = session.GetUserConfig("CUR_QUEST", 0);
+							-- local StrScript = string.format("EXEC_ABANDON_QUEST(%d)", curquest);
+
+							imgBtn:SetEventScript(ui.LBUTTONUP, string.format("EVENT_BANNER_USERCOMMAND_BTN(%d)", banner.ClassID + i2), true);
+							imgBtn:SetOverSound('button_over');
+							imgBtn:SetClickSound('button_click_big');
+						end
+					end 
+				end
+			end
+		end		
 	end
 end
 
@@ -505,4 +510,20 @@ function EVENTBANNER_MAKE_USERTYPE(bgCtrl, userType, eventEndTimeStampStr)
 
 	bannerCtrl:Invalidate()
 	return bannerCtrl:GetHeight();
+end
+
+function GET_ENABLE_SHOW_BANNER(type)
+	if type == "None" then
+		return true;
+	end
+
+	if type == "Normal" and IS_SEASON_SERVER() == "NO" then
+		return true;
+	end
+
+	if type == "Season" and IS_SEASON_SERVER() == "YES" then
+		return true;
+	end
+
+	return false;
 end

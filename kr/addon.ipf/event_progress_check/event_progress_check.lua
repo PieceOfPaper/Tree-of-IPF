@@ -1,5 +1,7 @@
 function EVENT_PROGRESS_CHECK_ON_INIT(addon, frame)
 	addon:RegisterMsg("EVENT_PROGRESS_CHECK_OPEN_COMMAND", "EVENT_PROGRESS_CHECK_OPEN_COMMAND");
+
+	addon:RegisterMsg("EVENT_PROGRESS_CHECK_DAILY_PLAY_TIME_UPDATE", "EVENT_PROGRESS_CHECK_DAILY_PLAY_TIME_UPDATE");
 end
 
 function EVENT_PROGRESS_CHECK_OPEN_COMMAND(frame, msg, argStr, type)
@@ -159,6 +161,34 @@ function EVENT_PROGRESS_CHECK_ACQUIRE_STATE_OPEN(frame, type)
 		end
 
 		y = y + ctrlSet:GetHeight();
+	end
+end
+
+function EVENT_PROGRESS_CHECK_DAILY_PLAY_TIME_UPDATE(frame, msg, time)
+	local frame = ui.GetFrame("event_progress_check");	
+	if frame:IsVisible() == 0 then
+		return;
+	end
+
+	local tab = GET_CHILD(frame, "tab");
+	local index = tab:GetSelectItemIndex();
+	if index ~= 0 then
+		return;
+	end
+
+	local listgb = GET_CHILD(frame, "listgb");
+	local ctrlSet = GET_CHILD_RECURSIVELY(frame, "CTRLSET_2");
+	if ctrlSet == nil then
+		return;
+	end
+	
+	local state = GET_CHILD(ctrlSet, "state");
+	state:SetTextByKey("cur", time);
+
+	if 60 <= tonumber(time) then
+		local blackbg = GET_CHILD(ctrlSet, "blackbg");
+		blackbg:ShowWindow(1);
+		blackbg:SetAlpha(90);
 	end
 end
 
@@ -425,7 +455,7 @@ function CREATE_EVENT_PROGRESS_CHECK_CONTENTS_LIST_FIRST(type, starty, listgb, i
 end
 
 function ENABLE_EVENT_PROGRESS_CONTENTS_DAILY(missionCls, itemClassName)
-	for i = 1, 3 do
+	for i = 1, 4 do
 		local coinName = TryGetProp(missionCls, "CoinName_"..i)
 		if coinName == itemClassName then
 			return true, TryGetProp(missionCls, "CoinCount_"..i);

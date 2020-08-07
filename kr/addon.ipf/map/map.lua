@@ -128,13 +128,16 @@ function MAKE_MAP_AREA_INFO(frame, mapClassName, font, mapWidth, mapHeight, offs
 	local clsList, cnt = GetClassList("Map_Area");
 	for i = 0, cnt -1 do
 		local cls = GetClassByIndexFromList(clsList, i);
-        local check_word = "GuildColony_"
-        local sStart, sEnd = string.find(mapClassName, check_word)
+
+		local check_word = "GuildColony_"
+		local zoneClassName = mapClassName
+		local sStart, sEnd = string.find(mapClassName, check_word)
         if sStart ~= nil then
             local sLength = string.len(mapClassName)
-            mapClassName = string.sub(mapClassName, sEnd+1, sLength)
-        end
-		if cls ~= nil and mapClassName == cls.ZoneClassName then
+            zoneClassName = string.sub(mapClassName, sEnd+1, sLength)
+		end
+		
+		if cls ~= nil and zoneClassName == cls.ZoneClassName then
 
 			local centerX, centerY, centerZ, posCnt = 0, 0, 0, 0;
 			
@@ -554,11 +557,6 @@ function MAP_MAKE_NPC_LIST(frame, mapprop, npclist, statelist, questIESlist, que
                     else
                         PictureC:ShowWindow(0);
                     end
-				end
-				
-				-- EVNET_GODDESS_ROULETTE
-				if MonProp:GetClassName() == "NPC_goddess_Roulette"  then
-					PictureC:ShowWindow(0);
 				end
 			end
 		end

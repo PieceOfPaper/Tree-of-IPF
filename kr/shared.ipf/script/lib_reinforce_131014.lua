@@ -213,8 +213,10 @@ function GET_REINFORCE_PRICE(fromItem, moruItem, pc)
     --steam_new_world
     -- if IsBuffApplied(pc, "Event_Steam_New_World_Buff") == "YES" then
     --     value = value/2
-    -- end
-    
+	-- end
+	if IsBuffApplied(pc, "Event_Kor_New_World_Buff") == "YES" then
+        value = value/2
+    end
     -- pvp템의 강화 비용 1/10로
     if TryGetProp(fromItem, 'StringArg', 'None') == 'FreePvP' then
         value = value * 0.1

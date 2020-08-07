@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<uiframe name="worldmap2_minimap" x="0" y="0" width="1750" height="985">
+	<frame fasthide="true" scale_align="center center" layout_gravity="center center"/>
+	<skin frameskin="worldmap2_frame_02_gold"/>
+	<draw drawtitlebar="false"/>
+	<layer layerlevel="220"/>
+	<option closebutton="false" visible="false"/>
+	<input hittestframe="true" hittesttitlebar="false"/>
+	<script OpenScp="OPEN_WORLDMAP2_MINIMAP" CloseScp="CLOSE_WORLDMAP2_MINIMAP"/>
+	<sound opensound="skill_window_open" closesound="skill_window_close"/>
+	<controls>
+		<groupbox name="minimap_pic_bg" rect="0 0 800 800" margin="-280 50 0 0" layout_gravity="center center" skin="None" stretch="true" scrollbar="false"/>
+		<groupbox name="minimap_info_bg_frame" rect="0 0 510 688" margin="530 60 0 0" layout_gravity="center center" skin="worldmap2_frame_03" stretch="true" scrollbar="false"/>
+		<groupbox name="minimap_info_bg" rect="0 0 506 680" margin="533 60 0 0" layout_gravity="center center" skin="None" stretch="true" scrollbar="true"/>
+		<droplist name="minimap_dungeon_list" rect="0 0 200 38" margin="-700 -400 0 0" layout_gravity="center center" skin="worldmap2_minimap_droplist" textalign="left center" frametextalign="left" framebodycolor="255 0 0 0" frameselectcolor="255 29 17 9" framebordercolor="0 0 0 0" defaultfont="st101lightbrown_16_f" selectedfont="st101lightbrown_16_f" cursoronfont="st101lightbrown_16_f" framedefaultfont="st102_14_f" framecursoronfont="st104bright_14_f" SelectScp="WORLDMAP2_MINIMAP_SELECT_DUNGEON" visibleline="5" buttonoffset="10"/>
+		<picture name="minimap_dungeon_list_pic" rect="0 0 45 40" margin="-800 -405 0 0" layout_gravity="center center" image="worldmap2_minimap_droplist_icon"/>
+		<picture name="minimap_title" rect="0 0 390 50" margin="0 -400 0 0" layout_gravity="center center" image="worldmap2_title_gold"/>
+		<picture name="minimap_star_rate" rect="0 0 44 22" margin="758 -340 0 0" layout_gravity="center center" image="worldmap2_icon_star_1" stretch="false"/>
+		<button name="minimap_token_btn" rect="0 0 144 50" margin="-730 380 0 0" layout_gravity="center center" LBtnUpScp="WORLDMAP2_MINIMAP_CLICK_TOKEN_BTN" oversound="button_cursor_over_3" clicksound="button_click_big" textalign="center center" textoffset="-4 -3" caption="{@st101lightbrown_16}토큰 이동" skin="worldmap2_btn_round"/>
+		<button name="minimap_close_btn" rect="0 0 38 38" margin="830 -445 0 0" layout_gravity="center center" LBtnUpScp="ui.CloseFrame('worldmap2_minimap')" oversound="button_cursor_over_3" clicksound="button_click_big" texttooltip="미니맵을 닫습니다." image="testclose_button"/>
+		<richtext name="minimap_title_text" rect="0 0 390 50" margin="0 -400 0 0" layout_gravity="center center"/>
+		<richtext name="minimap_fog_text" rect="0 0 390 50" margin="0 -365 0 0" layout_gravity="center center"/>
+		<richtext name="minimap_level_text" rect="0 0 150 50" margin="705 -390 0 0" layout_gravity="center center" resizebytext="false" textalign="right center"/>
+		<richtext name="minimap_challenge_text" rect="0 0 150 50" margin="705 -365 0 0" layout_gravity="center center" resizebytext="false" textalign="right center"/>
+		<tab name="minimap_info_tab" rect="0 0 510 42" margin="536 -303 0 0" layout_gravity="center center" itemspc="3" skin="tab3" clicksound="inven_arrange"/>
+		<tabitem name="quest" parent="minimap_info_tab" SelectScp="WORLDMAP2_MINIMAP_INFO_SETTING" normalimage="worldmap2_tab" overimage="worldmap2_tab_cursoron" selectimage="worldmap2_tab_clicked" width="168"/>
+		<tabitem name="npc" parent="minimap_info_tab" SelectScp="WORLDMAP2_MINIMAP_INFO_SETTING" normalimage="worldmap2_tab" overimage="worldmap2_tab_cursoron" selectimage="worldmap2_tab_clicked" width="168"/>
+		<tabitem name="monster" parent="minimap_info_tab" SelectScp="WORLDMAP2_MINIMAP_INFO_SETTING" normalimage="worldmap2_tab" overimage="worldmap2_tab_cursoron" selectimage="worldmap2_tab_clicked" width="168"/>
+		<richtext name="minimap_quest_tab_text" rect="0 0 150 50" margin="365 -300 0 0" layout_gravity="center center" caption="{@st100brown_16}퀘스트{/}" LBtnUpScp="WORLDMAP2_MINIMAP_OPEN_INFO_BY_TEXT" LBtnUpArgNum="0"/>
+		<richtext name="minimap_npc_tab_text" rect="0 0 150 50" margin="532 -300 0 0" layout_gravity="center center" caption="{@st100brown_16}NPC{/}" LBtnUpScp="WORLDMAP2_MINIMAP_OPEN_INFO_BY_TEXT" LBtnUpArgNum="1"/>
+		<richtext name="minimap_monster_tab_text" rect="0 0 150 50" margin="699 -300 0 0" layout_gravity="center center" caption="{@st100brown_16}몬스터{/}" LBtnUpScp="WORLDMAP2_MINIMAP_OPEN_INFO_BY_TEXT" LBtnUpArgNum="2"/>
+		<richtext name="minimap_nothing_text" rect="0 0 150 50" margin="532 50 0 0" layout_gravity="center center" caption="{@st100brown_16}표시할 퀘스트가 없습니다.{/}"/>
+		<checkbox name="minimap_bookmark_btn" rect="0 0 28 28" margin="0 0 0 0" layout_gravity="center center" skin="worldmap2_bookmark" LBtnDownScp="WORLDMAP2_TOGGLE_BOOKMARK" oversound="button_cursor_over_2" clicksound="button_click_big"/>
+	</controls>
+</uiframe>

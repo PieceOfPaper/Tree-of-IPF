@@ -1,5 +1,5 @@
 ClassID,GenType,Lv,Range,GenRange,RespawnTime,MaxPop,Minimap,Hide,UseAIOufOfPC,AnchorCount,UP_ReturnRange,P_MaxDialog,ClassType,Name,UniqueName,QuestName,Tag,Tactics,BTree,SimpleAI,Dialog,Enter,Leave,Save,OnlyPCCheck,SmartGen,Faction,ArgStr1,ArgStr2,ArgStr3,Tendency
-1,1,1,30,-1,1,1,1,0,0,0,0,0,"npc_miner2","수레 관리자","","","","MON_DUMMY","","","TABLELAND_11_1_CART_MANAGER","","","NO","YES","NO","Neutral","","","",""
+1,1,1,30,-1,1,1,0,0,0,0,0,0,"npc_miner2","수레 관리자","","","","MON_DUMMY","","","TABLELAND_11_1_CART_MANAGER","","","NO","YES","NO","Neutral","","","",""
 2,2,1,30,-1,1,1,0,0,0,0,0,0,"goat_cable_lever","","","","","MON_DUMMY","","","","TABLELAND_11_1_CART_LEVER","","NO","YES","NO","Neutral","","","",""
 3,3,1,40,-1,60000,1,2,0,0,0,0,0,"Warp_arrow","루클리스 거리","","","","MON_DUMMY","","","","TABLELAND11_1_FLASH61","","NO","YES","NO","Neutral","","","",""
 4,4,1,40,-1,60000,1,2,0,0,1,0,0,"Warp_arrow","메사파슬라","","","","MON_DUMMY","","","","TABLELAND11_1_TABLELAND28_1","","NO","YES","NO","Neutral","","","",""
@@ -48,3 +48,5 @@ ClassID,GenType,Lv,Range,GenRange,RespawnTime,MaxPop,Minimap,Hide,UseAIOufOfPC,A
 5002,5002,1,150,-1,1,1,2,0,0,0,0,0,"npc_kupole_kaze_1","[아우스테야의 하인]{nl}큐폴 카제","","","","","","RVR_BK_GET_OCCUPY_GUILD_AI","RVR_BK_KAZE_NPC_1","RVR_BK_KAZE_NPC_1","","NO","YES","NO","Neutral","","","",""
 5003,5003,1,300,1,1,1,0,0,0,0,0,0,"HiddenTrigger_CantGen300","필드젠X","","","","","","","","","","NO","YES","NO","Neutral","","","",""
 5004,5004,1,40,1,1,1,0,0,0,0,0,0,"id_gate_npc","UnvisibleName","","","","","","","BORUTOSKAPAS_GO_GUILDMISSION","BORUTOSKAPAS_GO_GUILDMISSION","","NO","YES","NO","Neutral","","","",""
+5005,5005,1,40,1,1,1,2,0,0,0,0,0,"npc_elevator","수레 관리자","","","","","","","","","","NO","YES","NO","Neutral","","","",""
+5006,5006,1,40,1,1,1,2,0,0,0,0,0,"npc_elevator","수레 도착 지점","","","","","","","","","","NO","YES","NO","Neutral","","","",""

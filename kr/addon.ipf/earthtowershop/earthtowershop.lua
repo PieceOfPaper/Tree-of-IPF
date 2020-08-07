@@ -579,7 +579,7 @@ function EXCHANGE_CREATE_TREE_PAGE(tree, slotHeight, groupName, classType, cls, 
     local itemCount = 0;
     for i = 1, 5 do
         if recipecls["Item_"..i.."_1"] ~= "None" then
-        local recipeItemCnt, invItemCnt, dragRecipeItem, invItem, recipeItemLv, invItemlist  = GET_RECIPE_MATERIAL_INFO(recipecls, i);
+        local recipeItemCnt, invItemCnt, dragRecipeItem, invItem, recipeItemLv, invItemlist  = GET_RECIPE_MATERIAL_INFO(recipecls, i, GetMyPCObject());
             if invItemlist ~= nil then
                 for j = 0, recipeItemCnt - 1 do
                     local itemSet = nil
@@ -749,7 +749,7 @@ function EARTH_TOWER_SHOP_EXEC(parent, ctrl)
             for index = 1, 5 do
                 local clsName = "Item_"..index.."_1";
                 local itemName = recipecls[clsName];
-                local recipeItemCnt, invItemCnt, dragRecipeItem, invItem, recipeItemLv, invItemlist = GET_RECIPE_MATERIAL_INFO(recipecls, index);
+                local recipeItemCnt, invItemCnt, dragRecipeItem, invItem, recipeItemLv, invItemlist = GET_RECIPE_MATERIAL_INFO(recipecls, index, GetMyPCObject());
 
                 if dragRecipeItem ~= nil then
                     local itemCount = GET_TOTAL_ITEM_CNT(dragRecipeItem.ClassID);
@@ -833,7 +833,7 @@ function EARTH_TOWER_SHOP_TRADE_ENTER()
     for index = 1, 5 do
         local clsName = "Item_"..index.."_1";
         local itemName = recipeCls[clsName];
-        local recipeItemCnt, invItemCnt, dragRecipeItem, invItem, recipeItemLv, invItemlist = GET_RECIPE_MATERIAL_INFO(recipeCls, index);
+        local recipeItemCnt, invItemCnt, dragRecipeItem, invItem, recipeItemLv, invItemlist = GET_RECIPE_MATERIAL_INFO(recipeCls, index, GetMyPCObject());
 
         if dragRecipeItem ~= nil then
             local itemCount = GET_TOTAL_ITEM_CNT(dragRecipeItem.ClassID);
@@ -1023,7 +1023,7 @@ function EARTH_TOWER_SHOP_TRADE_LEAVE()
 
     for i = 1, 5 do
         if recipecls["Item_"..i.."_1"] ~= "None" then
-            local recipeItemCnt, invItemCnt, dragRecipeItem, invItem, recipeItemLv, invItemlist  = GET_RECIPE_MATERIAL_INFO(recipecls, i);
+            local recipeItemCnt, invItemCnt, dragRecipeItem, invItem, recipeItemLv, invItemlist  = GET_RECIPE_MATERIAL_INFO(recipecls, i, GetMyPCObject());
             local eachSet = GET_CHILD_RECURSIVELY(ctrlSet, "EACHMATERIALITEM_"..i);
             if invItemlist == nil and eachSet~=nil then
                -- needCount Reset
@@ -1130,7 +1130,7 @@ function EARTHTOWERSHOP_CHANGECOUNT(frame, ctrl, change)
 
                 for j = 1, 5 do
                     if recipecls["Item_"..j.."_1"] ~= "None" then
-                       local recipeItemCnt, recipeItemLv = GET_RECIPE_REQITEM_CNT(recipecls, "Item_"..j.."_1");
+                       local recipeItemCnt, recipeItemLv = GET_RECIPE_REQITEM_CNT(recipecls, "Item_"..j.."_1", GetMyPCObject());
 
                        -- needCnt Setting
                        local needcountText = GET_CHILD_RECURSIVELY(eachSet, "needcount", "ui::CSlot");

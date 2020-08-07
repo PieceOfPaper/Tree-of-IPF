@@ -210,11 +210,6 @@ function UPDATE_MINIMAP(frame)
                             PictureC:ShowWindow(0);
                         end
 					end
-
-					-- EVNET_GODDESS_ROULETTE
-					if MonProp:GetClassName() == "NPC_goddess_Roulette" then
-						PictureC:ShowWindow(0);
-					end
 				end
 			end
 		end

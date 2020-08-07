@@ -27,14 +27,6 @@ function SKL_KEY_DYNAMIC_CASTING(actor, obj, dik, movable, rangeChargeTime, maxC
 		end
 	end
 
-	local abilDoppelsoeldner35 = session.GetAbilityByName("Doppelsoeldner35");
-	if abilDoppelsoeldner35 ~= nil then
-		local abil_obj2 = GetIES(abilDoppelsoeldner35:GetObject());
-		if abil_obj2.ActiveState == 1 then
-			movable = 0
-		end
-	end
-
 	if isVisivle == nil then
 		isVisivle = 1;
 	end
@@ -123,14 +115,6 @@ function SKL_KEY_DYNAMIC_CASTING_HAVE_ABIL(actor, obj, dik, movable, rangeCharge
 					local abil_obj = GetIES(moveAbil:GetObject());
 					if abil_obj.ActiveState == 1 and obj.type == 11005 then
 						movable = 1
-					end
-				end
-				
-				local abilDoppelsoeldner35 = session.GetAbilityByName("Doppelsoeldner35");
-				if abilDoppelsoeldner35 ~= nil then
-					local abil_obj2 = GetIES(abilDoppelsoeldner35:GetObject());
-					if abil_obj2.ActiveState == 1 then
-						movable = 0
 					end
 				end
 

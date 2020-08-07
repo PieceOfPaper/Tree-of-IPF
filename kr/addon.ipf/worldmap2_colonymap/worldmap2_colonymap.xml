@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<uiframe name="worldmap2_colonymap" x="0" y="0" width="470" height="1060">
+	<frame margin="715 0 0 0" fasthide="true" scale_align="center center" layout_gravity="center center"/>
+	<skin frameskin="worldmap2_frame_01"/>
+	<draw blend="100" drawtitlebar="false"/>
+	<input moveable="true" hittestframe="true"/>
+	<layer layerlevel="230"/>
+	<option closebutton="false"/>
+	<script OpenScp="OPEN_WORLDMAP2_COLONYMAP" CloseScp="CLOSE_WORLDMAP2_COLONYMAP"/>
+	<sound opensound="skill_window_open" closesound="skill_window_close"/>
+	<controls>
+		<picture name="colonymap_title_pic" rect="0 0 390 56" margin="0 -468 0 0" layout_gravity="center center" image="worldmap2_title_green"/>
+		<picture name="colonymap_champions_pic" rect="0 0 32 32" margin="-200 -410 0 0" layout_gravity="center center" image="worldmap2_map_colony_title_champ"/>
+		<picture name="colonymap_challenges_pic" rect="0 0 32 32" margin="-200 -100 0 0" layout_gravity="center center" image="worldmap2_map_colony_title_chall"/>
+		<groupbox name="colonymap_champions_gb_frame" rect="0 0 420 244" margin="0 -265 0 0" layout_gravity="center center" skin="worldmap2_frame_03" stretch="true" scrollbar="true"/>
+		<groupbox name="colonymap_champions_gb" rect="0 0 423 240" margin="1 -265 0 0" layout_gravity="center center" skin="None" stretch="true" scrollbar="true"/>
+		<groupbox name="colonymap_challenges_gb_frame" rect="0 0 420 244" margin="0 45 0 0" layout_gravity="center center" skin="worldmap2_frame_03" stretch="true" scrollbar="true"/>
+		<groupbox name="colonymap_challenges_gb" rect="0 0 423 240" margin="1 45 0 0" layout_gravity="center center" skin="None" stretch="true" scrollbar="true"/>
+		<groupbox name="colonymap_preview_gb" rect="0 0 250 250" margin="0 340 0 0" layout_gravity="center center" skin="None" stretch="true" scrollbar="false"/>
+		<richtext name="colonymap_title_text" rect="0 0 396 56" margin="0 -468 0 0" layout_gravity="center center" textalign="center center" caption="{@st100cream_24}콜로니"/>
+		<richtext name="colonymap_champions_text" rect="0 0 100 32" margin="-133 -406 0 0" layout_gravity="center center" textalign="center center" caption="{@st101lightbrown_16}챔피언스 리그"/>
+		<richtext name="colonymap_challenges_text" rect="0 0 100 32" margin="-133 -96 0 0" layout_gravity="center center" textalign="center center" caption="{@st101lightbrown_16}챌린저스 리그"/>
+		<richtext name="colonymap_preview_text" rect="0 0 200 32" margin="-110 200 0 0" layout_gravity="center center" textalign="left center" resizebytext="false"/>
+		<button name="colonymap_close_btn" rect="0 0 38 38" margin="215 -510 0 0" layout_gravity="center center" LBtnUpScp="ui.CloseFrame('worldmap2_colonymap')" texttooltip="콜로니 정보창을 닫습니다." oversound="button_cursor_over_3" clicksound="button_click_big" image="testclose_button"/>
+		<button name="colonymap_preview_btn" rect="0 0 148 50" margin="0 495 0 0" layout_gravity="center center" LBtnUpScp="WORLDMAP2_COLONYMAP_GO_PREVIEW" texttooltip="해당 콜로니 지역의 위치를 확인합니다." oversound="button_cursor_over_3" clicksound="button_click_big" skin="worldmap2_btn_round" textoffset="-4 -2" caption="{img worldmap2_spot_btn 28 28} {@st101lightbrown_16}맵 위치 보기"/>
+	</controls>
+</uiframe>

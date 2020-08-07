@@ -240,7 +240,7 @@ function REQUEST_ANCIENT_FIGHT(handle)
 end
 
 function REQUEST_PERSONAL_HOUSING_WARP(aidx)
-    local yesscp = string.format("HOUSING_PROMOTE_POST_REQUEST_POST_HOUST_WARP(%s, 0)", aidx);
+    local yesscp = string.format("HOUSING_PROMOTE_POST_REQUEST_POST_HOUST_WARP('%s', 0)", aidx);
     ui.MsgBox(ScpArgMsg("ANSWER_JOIN_PH_1"), yesscp, "None");
 end
 

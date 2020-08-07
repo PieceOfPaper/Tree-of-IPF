@@ -1,13 +1,17 @@
--- 글로벌 신섭 룰렛 이벤트 가능 조건 확인
-function IS_EVENT_NEW_SEASON_SERVER(accObj)
-    return false;
-end
-
 -- 2008 여름 시즌서버
 function IS_SEASON_SERVER(pc)
     local groupid = GetServerGroupID();
     
+    -- qa 1006, 스테이지 8001
+    if (GetServerNation() == "KOR" and (groupid == 1006 or groupid == 8001)) then
+        return "YES";
+    end
+
     if (GetServerNation() == "KOR" and (groupid == 3001 or groupid == 3002)) then
+        return "YES";
+    end
+
+    if (GetServerNation() == "GLOBAL" and (groupid == 10001 or groupid == 10003 or groupid == 10004 or groupid == 10005)) then
         return "YES";
     end
 
@@ -24,7 +28,7 @@ function IS_SEASON_SERVER(pc)
         end
         
         local value = TryGetProp(accObj, "EVENT_NEW_SEASON_SERVER_ACCOUNT", 0);     
-        if value == 1 then
+        if value == GET_SEASON_SERVER_CHECK_PROP_VALUE() then
             return "YES";
         else
             return "NO";
@@ -39,4 +43,14 @@ function IS_SEASON_SERVER_OPEN()
     local end_time = "2020-08-06 06:00:00";
     
     return date_time.is_later_than(now_time, end_time);
+end
+
+function GET_SEASON_SERVER_CHECK_PROP_VALUE()
+    if GetServerNation() == "KOR" then
+        return 1;
+    end
+
+    if GetServerNation() == "GLOBAL" then
+        return 2;
+    end
 end

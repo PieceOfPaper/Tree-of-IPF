@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<uiframe name="worldmap2_submap" x="0" y="0" width="1920" height="1080">
+	<frame stretch="true" fasthide="true" fullwidth="true" fullheight="true" scale_align="center center" layout_gravity="center center"/>
+	<skin frameskin="fullblack_bg"/>
+	<draw drawtitlebar="false"/>
+	<layer layerlevel="210"/>
+	<option visible="false" closebutton="false"/>
+	<input hittestframe="true"/>
+	<script OpenScp="OPEN_WORLDMAP2_SUBMAP" CloseScp="CLOSE_WORLDMAP2_SUBMAP"/>
+	<userconfig SUBMAP_NAME="None" SUBMAP_ICON_X="-800" SUBMAP_ICON_Y="-250"/>
+	<sound opensound="inven_win_open" closesound="inven_win_close"/>
+	<controls>
+		<picture name="submap_pic" rect="0 0 1920 1080" margin="0 0 0 0" layout_gravity="center center" image="None" stretch="true" hittest="true" imagealign="center center"/>
+		<picture name="submap_icon" rect="0 0 400 400" margin="0 0 0 0" layout_gravity="center center" image="None" stretch="false" hittest="false" imagealign="center center"/>
+		<picture name="submap_frame" rect="0 0 1920 1080" margin="0 0 0 0" layout_gravity="center center" image="worldmap2_subframe" stretch="true" hittest="true" imagealign="center center"/>
+		<picture name="submap_sbar_ep" rect="0 0 238 74" margin="0 0 0 0" layout_gravity="center center" image="worldmap2_Sbar_ep" stretch="false" hittest="false" imagealign="center center" textalign="center center" textoffset="0 5"/>
+		<groupbox name="submap_sbar_subq" rect="0 0 218 152" margin="0 0 0 0" layout_gravity="center center" skin="worldmap2_Sbar_subq"/>
+		<richtext name="submap_sbar_subq_text" rect="0 0 218 152" margin="0 0 0 0" layout_gravity="center center"/>
+		<droplist name="category_3" rect="0 0 250 38" margin="-370 -514 0 0" layout_gravity="center center" skin="worldmap2_category_droplist" textalign="left center" frametextalign="left" defaultfont="st101lightbrown_16_f" selectedfont="st101lightbrown_16_f" cursoronfont="st101lightbrown_16_f" SelectScp="WORLDMAP2_CATEGORY3_SELECT" visibleline="8" buttonoffset="15" framebodycolor="255 0 0 0" frameselectcolor="255 29 17 9" framebordercolor="0 0 0 0" framedefaultfont="st102_14_f" framecursoronfont="st104bright_14_f" listoversound="button_cursor_over_2" listclicksound="button_click"/>
+		<droplist name="category_2" rect="0 0 220 38" margin="-585 -514 0 0" layout_gravity="center center" skin="worldmap2_category_droplist" textalign="left center" frametextalign="left" defaultfont="st101lightbrown_16_f" selectedfont="st101lightbrown_16_f" cursoronfont="st101lightbrown_16_f" SelectScp="WORLDMAP2_CATEGORY2_SELECT" visibleline="8" buttonoffset="15" framebodycolor="255 0 0 0" frameselectcolor="255 29 17 9" framebordercolor="0 0 0 0" framedefaultfont="st102_14_f" framecursoronfont="st104bright_14_f" listoversound="button_cursor_over_2" listclicksound="button_click"/>
+		<droplist name="category_1" rect="0 0 190 38" margin="-770 -514 0 0" layout_gravity="center center" skin="worldmap2_category_droplist" textalign="left center" frametextalign="left" defaultfont="st101lightbrown_16_f" selectedfont="st101lightbrown_16_f" cursoronfont="st101lightbrown_16_f" SelectScp="WORLDMAP2_CATEGORY1_SELECT" visibleline="6" buttonoffset="15" framebodycolor="255 0 0 0" frameselectcolor="255 29 17 9" framebordercolor="0 0 0 0" framedefaultfont="st102_14_f" framecursoronfont="st104bright_14_f" listoversound="button_cursor_over_2" listclicksound="button_click"/>
+		<groupbox name="search_edit_pic" rect="0 0 323 38" margin="669 -514 0 0" layout_gravity="center center" skin="worldmap2_search_bg"/>
+		<edit name="search_edit" rect="0 0 320 38" margin="672 -514 0 0" layout_gravity="center center" drawbackground="false" fontname="worldmap2_search_16" textalign="left center" maxlen="128" EnterKeyScp="WORLDMAP2_SEARCH" typingscp="WORLDMAP2_SEARCH_UPDATE" clicksound="button_click_big"/>
+		<button name="submap_colony_btn" rect="0 0 120 50" margin="300 -511 0 0" layout_gravity="center center" texttooltip="콜로니 정보를 확인합니다." LBtnUpScp="ui.ToggleFrame('worldmap2_colonymap')" oversound="button_cursor_over_3" clicksound="button_click_big" skin="worldmap2_btn_round" textalign="center center" textoffset="0 -2" caption="{@st101lightbrown_16}콜로니"/>
+		<button name="submap_help_btn" rect="0 0 120 50" margin="430 -511 0 0" layout_gravity="center center" texttooltip="도움말을 확인합니다." LBtnUpScp="WORLDMAP2_HELPLIST" oversound="button_cursor_over_3" clicksound="button_click_big" skin="worldmap2_btn_round" textalign="center center" textoffset="0 -2" caption="{@st101lightbrown_16}도움말"/>
+		<button name="submap_search_btn" rect="0 0 38 38" margin="850 -514 0 0" layout_gravity="center center" texttooltip="검색어로 지역을 검색합니다." LBtnUpScp="WORLDMAP2_SEARCH" oversound="button_cursor_over_3" clicksound="button_click_big" image="worldmap2_search_btn"/>
+		<button name="submap_close_btn" rect="0 0 38 38" margin="930 -514 0 0" layout_gravity="center center" texttooltip="지도를 닫습니다." LBtnUpScp="WORLDMAP2_CLOSE" oversound="button_cursor_over_3" clicksound="button_click_big" image="testclose_button"/>
+		<button name="submap_left_btn" rect="0 0 166 100" margin="-840 15 0 0" layout_gravity="center center" LBtnUpScp="WORLDMAP2_SUBMAP_LBTN" clicksound="button_click_big" image="worldmap2_arrow_left"/>
+		<button name="submap_right_btn" rect="0 0 166 100" margin="840 15 0 0" layout_gravity="center center" LBtnUpScp="WORLDMAP2_SUBMAP_RBTN" clicksound="button_click_big" image="worldmap2_arrow_right"/>
+		<button name="submap_back_btn" rect="0 0 42 38" margin="-920 -510 0 0" layout_gravity="center center" LBtnUpScp="WORLDMAP2_SUBMAP_BACK" oversound="button_cursor_over_3" clicksound="button_click_big" image="worldmap2_back_btn"/>
+		<groupbox name="submap_show_option_gb" rect="0 0 200 86" margin="-800 -150 0 0" layout_gravity="center center" skin="worldmap2_frame_03"/>
+		<checkbox name="submap_show_all" parent="submap_show_option_gb" rect="0 0 28 28" margin="-70 -18 0 0" layout_gravity="center center" skin="worldmap2_checkbox" LBtnDownScp="WORPDMAP2_SUBMAP_TOGGLE_SHOW_OPTION" checked="true" oversound="button_over" clicksound="button_click"/>
+		<checkbox name="submap_show_undefined" parent="submap_show_option_gb" rect="0 0 28 28" margin="-70 18 0 0" layout_gravity="center center" skin="worldmap2_checkbox" LBtnDownScp="WORPDMAP2_SUBMAP_TOGGLE_SHOW_OPTION" checked="true" oversound="button_over" clicksound="button_click"/>
+		<richtext name="submap_show_all_text" parent="submap_show_option_gb" rect="0 0 100 30" margin="0 -18 0 0" caption="{@st100white_16}모든 맵 표시" textalign="left center" resizebytext="false" layout_gravity="center center"/>
+		<richtext name="submap_show_undefined_text" parent="submap_show_option_gb" rect="0 0 100 30" margin="0 18 0 0" caption="{@st100orange_16}미확인 여신상 표시" textalign="left center" resizebytext="false" layout_gravity="center center"/>
+		<groupbox name="submap_tip" layout_gravity="center center" rect="0 0 620 40" margin="0 515 0 0" skin="shadow_box" scrollbar="false" scale_align="center bottom"/>
+		<richtext parent="submap_tip" name="submap_tip_text" layout_gravity="center center" rect="0 0 620 40" margin="0 0 0 0" textalign="center center" caption="{@st100white_16}키보드의 쉬프트 키를 누른 상태에서 지역을 클릭하면 토큰 이동을 이용할 수 있습니다."/>
+	</controls>
+</uiframe>

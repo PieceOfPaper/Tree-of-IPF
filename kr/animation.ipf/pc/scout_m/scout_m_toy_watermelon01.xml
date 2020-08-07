@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<ActionDesc>
+	<Particle frame="11" attachNode="Dummy_gacha_root" particleName="F_blood001_red" useAttach="false" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+	<AttachModel frame="0" XAC="toy_wooden_stick" node="Dummy_R_HAND" isAttach="true" autoDetach="true" index="0" anim="none"/>
+	<AttachModel frame="0" XAC="toy_watermelon" node="Dummy_GACHA_ROOT" isAttach="true" autoDetach="true" index="1" anim="toy_watermelon_O_ani.xsm"/>
+</ActionDesc>

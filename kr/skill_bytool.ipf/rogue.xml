@@ -40,6 +40,15 @@
 					<Num Num="100"/>
 					<Num Num="-1"/>
 				</ToolScp>
+				<ToolScp Scp="S_R_TGTBUFF" Client="NO" UseSleep="NO">
+					<Str Str="KnifeThrowing_Crtdr_Debuff"/>
+					<Num Num="1" UseFunc="1" FuncTxt="return  skill.Level"/>
+					<Num Num="0"/>
+					<Num Num="0" UseFunc="1" FuncTxt="local value = 5000 + skill.Level * 1000 local zone = GetZoneName(self); if IsPVPServer(self) == 1 or IsPVPField(self) == 1 then     value = value * 0.5; end return value"/>
+					<Num Num="1"/>
+					<Num Num="100"/>
+					<Num Num="-1"/>
+				</ToolScp>
 				<ToolScp Client="NO" Scp="S_R_TGT_Decrease_heal_debuff" UseSleep="NO">
 					<Str FuncTxt="local func_name = 'get_decrease_heal_debuff_tooltip_' .. TryGetProp(skill, 'ClassName', 'None')
                local func = _G[func_name]

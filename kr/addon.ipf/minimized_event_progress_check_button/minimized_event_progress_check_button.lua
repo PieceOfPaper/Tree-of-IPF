@@ -3,15 +3,13 @@ function MINIMIZED_EVENT_PROGRESS_CHECK_BUTTON_ON_INIT(addon, frame)
 end
 
 function MINIMIZED_EVENT_PROGRESS_CHECK_BUTTON_INIT(frame)
-	local accObj = GetMyAccountObj();
-
 	local btn = GET_CHILD(frame, "openBtn");
 	btn:SetEventScript(ui.LBUTTONUP, "MINIMIZED_EVENT_PROGRESS_CHECK_BUTTON_CLICK");
 	
 	local title = GET_CHILD(frame, "title");
 
 	-- SEASON_SERVER
-	if IS_EVENT_NEW_SEASON_SERVER(accObj) == true then
+	if IS_SEASON_SERVER() == "YES" then
 		btn:SetImage("god_roulette_coin_entrance");
 		btn:SetEventScriptArgNumber(ui.LBUTTONUP, 2);
 		
@@ -20,7 +18,7 @@ function MINIMIZED_EVENT_PROGRESS_CHECK_BUTTON_INIT(frame)
 	end
 
 	-- FLEX_BOX
-	if IS_EVENT_NEW_SEASON_SERVER(accObj) == false then
+	if IS_SEASON_SERVER() == "NO"  then
 		btn:SetImage("flex_box_btn");
 		btn:SetEventScriptArgNumber(ui.LBUTTONUP, 3);
 		

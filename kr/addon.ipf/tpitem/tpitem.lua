@@ -2600,7 +2600,7 @@ function TPSHOP_ITEM_BASKET_BUY(parent, control)
 			if CHECK_LIMIT_PAYMENT_STATE_C() == true then
         		ui.MsgBox_NonNested_Ex(msg, 0x00000004, parent:GetName(), "EXEC_BUY_MARKET_ITEM", "TPSHOP_ITEM_BASKET_BUY_CANCEL");	
 			else
-				POPUP_LIMIT_PAYMENT(ScpArgMsg("ReallyBuy?"), parent:GetName(), allPrice)
+				POPUP_LIMIT_PAYMENT(msg, parent:GetName(), allPrice)
 			end
 		else
 			ui.MsgBox_NonNested_Ex(msg, 0x00000004, parent:GetName(), "EXEC_BUY_MARKET_ITEM", "TPSHOP_ITEM_BASKET_BUY_CANCEL");	

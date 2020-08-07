@@ -12652,6 +12652,18 @@
             </ToolScp>
         </List>
     </AI>
+	<AI Name="EVENT_GODDESS_ROULETTE_NPC_AI" UpdateMS="60000" ActiveMessageMapInBattle="1">
+		<List>
+			<ToolScp Scp="SAI_FUNC_DIRECT" Client="NO" UseSleep="NO">
+				<Str Str="SCR_EVENT_GODDESS_ROULETTE_NPC_AI_UPDATE"/>
+			</ToolScp>
+		</List>
+		<StartList>
+			<ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+				<Str Str="SCR_EVENT_GODDESS_ROULETTE_NPC_AI_BORN"/>
+			</ToolScp>
+		</StartList>
+	</AI>
 	<AI Name="LIMESOTNE_52_5_WALL_AI" ActiveMessageMapInBattle="1">
 		<StartList>
 			<ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">

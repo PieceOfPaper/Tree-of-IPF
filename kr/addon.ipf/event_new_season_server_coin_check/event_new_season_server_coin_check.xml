@@ -1,28 +1,3 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
-<uiframe name="event_new_season_server_coin_check" x="0" y="0" width="576" height="780">
-	<frame fullheight="false" fasthide="true" layout_gravity="center center" margin="0 0 0 0" draw="false"/>
-	<draw drawtitlebar="false"/>
-	<skin frameskin="None"/>
-	<input moveable="false" maxwidth="576" hittestframe="false"/>
-	<option visible="false" hideable="true" closebutton="false" moveable="true" alwaysVisible="false"/>
-	<layer layerlevel="95"/>
-	<script OpenScp="EVENT_NEW_SEASON_SERVER_COIN_CHECK_OPEN" CloseScp="EVENT_NEW_SEASON_SERVER_COIN_CHECK_CLOSE"/>
-	<userconfig COIN_ACQUIRE_TITLE="코인 획득 현황" STAMP_TOUR_TITLE="스탬프 투어 미션 목록" CONTENTS_MISSION_TITLE="콘텐츠 미션 목록" COIN_ACQUIRE_STAT_ICON_1="stamp_coin_mark" COIN_ACQUIRE_STAT_ICON_2="stamp_watch_mark" COIN_ACQUIRE_STAT_ICON_3="stamp_stamp_mark" COIN_ACQUIRE_STAT_ICON_4="stamp_flag_mark" COIN_ACQUIRE_STAT_ICON_5="stamp_roulette_mark"/>
-	<controls>
-		<groupbox name="mainbg" rect="0 0 576 769" margin="0 20 0 0" layout_gravity="center top" skin="test_paper_bg" draw="true" hittest="true"/>
-		<groupbox name="titlegb" rect="0 0 470 80" margin="0 -8 0 0" layout_gravity="center top" draw="true" skin="test_h_redribbon_skin" />
-		<richtext name="title" parent="titlegb" rect="0 0 500 60" margin="0 -2 0 0" layout_gravity="center center" caption="{@st43b}{s22}여신의 룰렛 코인"/>		
-		<button name="closeBtn" rect="0 0 36 37" margin="0 26 5 0" layout_gravity="right top" image="gold_close_button" LBtnUpScp="ui.CloseFrame(&apos;event_new_season_server_coin_check&apos;)"/>
-		<tab name="tab" rect="0 0 550 41" margin="50 85 0 0" layout_gravity="left top" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" clicksound="inven_arrange" fixwidth="true" itemspc="0" oversound="button_cursor_over_2" skin="tab2" LBtnDownScp="EVENT_NEW_SEASON_SERVER_COIN_CHECK_TAB_CLICK"/>
-		<tabitem name="tabitem1" parent="tab" caption="{@st66b}{s18}획득 현황" width="160" layout_gravity="center top"/>
-		<tabitem name="tabitem2" parent="tab" caption="{@st66b}{s18}스탬프" width="160" layout_gravity="center top"/>
-		<tabitem name="tabitem3" parent="tab" caption="{@st66b}{s18}콘텐츠" width="160" layout_gravity="center top"/>
-		<groupbox name="groupboxbg"  rect="0 0 520 580" margin="0 130 0 0" layout_gravity="center top" draw="true" skin="test_frame_midle"/>
-		<groupbox name="namegb" parent="groupboxbg" rect="0 0 518 53" margin="0 11 0 0" layout_gravity="center top" skin="test_pvp_resul_team"/>
-		<richtext name="nametext" parent="namegb" rect="0 0 500 40" margin="0 0 0 0" layout_gravity="center center" format="{@st42b}{s20}%s{/}" param1="value" param1_def="탭 제목" skin="test_pvp_resul_team"/>
-		<richtext name="tiptext" rect="0 0 500 10" margin="0 0 0 22" layout_gravity="center bottom" format="{@st66b}{s16}%s{/}" param1="value" param1_def="안내 내용" fixwidth="true" textalign="center top"/>
-		<groupbox name="listgb" rect="0 0 518 500" margin="0 200 0 0" layout_gravity="center top" draw="false" scrollbar="true" hittestbox="true"/>
-		<button name="notebtn" parent="namegb" rect="0 0 100 36" margin="0 0 5 0" layout_gravity="right center" skin="test_white_h_btn" format="{@st66b}{s16}%s" param1="value" param1_def="스탬프 수첩" oversound="button_over" LBtnUpScp="ON_EVENT_STAMP_TOUR_UI_OPEN_COMMAND"/>
-	</controls>
-</uiframe>
+<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by imc (imc) -->
+<name/>

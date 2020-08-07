@@ -518,12 +518,7 @@ function GET_ABILITY_LEARN_COST(pc, groupClass, abilClass, destLv)
 end
 
 function GET_ABILITY_PRICE(price, groupClass, abilClass, abilLv)
-	if IS_SEASON_SERVER(nil) == "YES" then
-		price = price - (price * 0.4)
---	else
---	    price = price - (price * 0.2)
-	end
-  
+
 	price = math.floor(price);
 	
 	return price;

@@ -39,11 +39,14 @@
     </Skill>
     <Skill Name="Varna_Aqkrova">
         <MainSkl ScrLock="None" JumpFlee="NO" MSPDToUsePos="0">
+            <HitList>
+                <Frame Type="FAN" Time="99799" HitCount="1" TermMin="0" TermMax="0" PosType="0" Dist="0" RandDist="0" RandomPerHit="0" Angle="0" Width="30" Length="30" SklAngle="0.17453292" AniTime="99999" RotAngle="0" ForceATK="0"/>
+            </HitList>        
             <EtcList>
                 <Scp Scp="MONSKL_CRE_PAD" Client="NO" UseSleep="NO" Time="0">
                     <Pos Angle="0" Dist="0" PosType="3"/>
                     <Angle Angle="0"/>
-                    <Str Str="Aqkrova_Pad"/>
+                    <Str Str="Apkrova_Pad"/>
                 </Scp>
                 <Scp Scp="SKL_BUFF" Client="NO" UseSleep="NO" Time="0">
                     <Str Str="Aqkrova_Debuff"/>

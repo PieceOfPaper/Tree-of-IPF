@@ -814,11 +814,11 @@
                     <Str Str="Skill_SuperArmor_Buff"/>
                     <Num Num="100"/>
                 </Scp>
-                <Scp Scp="C_SKL_LOCK_MOVE" Client="YES" UseSleep="NO" Time="2900">
-                    <Num Num="0"/>
-                </Scp>
                 <Scp Scp="SKL_RUN_SCRIPT" Client="NO" UseSleep="NO" Time="0">
                     <Str Str="SKL_ADDBUFF_OUTRAGE"/>
+                </Scp>
+                <Scp Scp="C_SKL_LOCK_MOVE" Client="YES" UseSleep="NO" Time="2900">
+                    <Num Num="0"/>
                 </Scp>
             </EtcList>
         </MainSkl>

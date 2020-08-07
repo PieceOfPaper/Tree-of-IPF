@@ -206,7 +206,7 @@ function DRAW_HETHRAN_RECIPE_NEEDITEM_TOOLTIP(tooltipframe, invitem, ypos, mainf
 
 	for i = 1 , 5 do
 		if recipecls["Item_"..i.."_1"] ~= "None" then
-			local recipeItemCnt, invItemCnt, dragRecipeItem = GET_RECIPE_MATERIAL_INFO(recipecls, i);
+			local recipeItemCnt, invItemCnt, dragRecipeItem = GET_RECIPE_MATERIAL_INFO(recipecls, i, GetMyPCObject());
 
 			local itemSet = gbox_items:CreateOrGetControlSet("tooltip_recipe_eachitem", "ITEM_" .. i, 0, inner_yPos);
 			itemSet = tolua.cast(itemSet, 'ui::CControlSet');

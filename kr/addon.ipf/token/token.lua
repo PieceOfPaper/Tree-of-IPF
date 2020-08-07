@@ -100,6 +100,13 @@ function BEFORE_APPLIED_TOKEN_OPEN(invItem)
 	local value = GET_CHILD_RECURSIVELY(ctrlSet, "value");
 	value:ShowWindow(0);
 
+	local ctrlSet = gBox:CreateControlSet("tokenDetail", "CTRLSET_" .. 10,  ui.CENTER_HORZ, ui.TOP, 0, 0, 0, 0);
+	local prop = ctrlSet:GetChild("prop");
+	local imag = string.format("{img worldmaptoken_image %d %d}", 55, 45)
+	prop:SetTextByKey("value", imag..ClMsg("CanUseWorldMapToken"));
+	local value = GET_CHILD_RECURSIVELY(ctrlSet, "value");
+	value:ShowWindow(0);
+
 --    local ctrlSet = gBox:CreateControlSet("tokenDetail", "CTRLSET_" .. 9,  ui.CENTER_HORZ, ui.TOP, 0, 0, 0, 0);
 --    local prop = ctrlSet:GetChild("prop");
 --    local imag = string.format("{img 1plus_image %d %d}", 55, 45)
@@ -184,15 +191,13 @@ function TOKEN_GET_IMGNAME2()
 	return "{img 50percent_image3 %d %d}"
 end
 
-function BEFORE_APPLIED_BOOST_TOKEN_OPEN(invItem)	
-	
+function BEFORE_APPLIED_BOOST_TOKEN_OPEN(invItem)
 	local obj = GetIES(invItem:GetObject());
 	
 	if obj.ItemLifeTimeOver > 0 then
 		ui.SysMsg(ScpArgMsg('LessThanItemLifeTime'));
 		return;
 	end
-	
 	
 	local frame = ui.GetFrame("token");
 	if invItem.isLockState then 
@@ -209,8 +214,10 @@ function BEFORE_APPLIED_BOOST_TOKEN_OPEN(invItem)
 	local itemobj = GetIES(invItem:GetObject());
 	local gBox = frame:GetChild("gBox");
 	gBox:RemoveAllChild();
-	
-	local ctrlSet = gBox:CreateControlSet("tokenDetail", "CTRLSET_0",  ui.CENTER_HORZ, ui.TOP, 0, 0, 0, 0);
+    
+    -- 1번 컨트롤셋
+    local ctrlSet = gBox:CreateControlSet("tokenDetail", "CTRLSET_0",  ui.CENTER_HORZ, ui.TOP, 10, 0, 0, 0);
+    
 	local prop = ctrlSet:GetChild("prop");
 	local imag = string.format("{img 30percent_image %d %d}", 55, 45);
 	if itemobj.ClassName == "Premium_boostToken02" or itemobj.ClassName == "Premium_boostToken02_event01" or itemobj.ClassName == "Event_160908_6_14d" or itemobj.ClassName == "Premium_boostToken02_1d" then
@@ -222,9 +229,9 @@ function BEFORE_APPLIED_BOOST_TOKEN_OPEN(invItem)
     else
         imag = string.format("{img 30percent_image %d %d}", 55, 45);
     end
-	prop:SetTextByKey("value", imag .. ClMsg("token_expup")); 
+    prop:SetTextByKey("value", imag .. ClMsg("token_expup"));
+    
 	local value = GET_CHILD_RECURSIVELY(ctrlSet, "value");
-
 	if itemobj.ClassName == "Premium_boostToken02" or itemobj.ClassName == "Premium_boostToken02_event01" or itemobj.ClassName == "Event_160908_6_14d" or itemobj.ClassName == "Premium_boostToken02_1d" then
     	value:SetTextByKey("value", string.format("{img 150percent_image2 %d %d}", 100, 45) );
 	elseif itemobj.ClassName == "Premium_boostToken03" or itemobj.ClassName == "Premium_boostToken03_event01" or itemobj.ClassName == 'Premium_boostToken03_event01_team' then
@@ -234,7 +241,10 @@ function BEFORE_APPLIED_BOOST_TOKEN_OPEN(invItem)
 	else
     	value:SetTextByKey("value", string.format("{img 30percent_image2 %d %d}", 100, 45) );
     end
-	local ctrlSet = gBox:CreateControlSet("tokenDetail", "CTRLSET_1",  ui.CENTER_HORZ, ui.TOP, 0, 0, 0, 0);
+
+    -- 2번 컨트롤셋
+    local ctrlSet = gBox:CreateControlSet("tokenDetail", "CTRLSET_1",  ui.CENTER_HORZ, ui.TOP, 10, 0, 0, 0);
+    
 	local prop = ctrlSet:GetChild("prop");
 	if itemobj.ClassName == "Premium_boostToken02" or itemobj.ClassName == "Premium_boostToken02_event01" then
     	imag = string.format("{img 5multiply_image %d %d}", 55, 45);
@@ -243,7 +253,8 @@ function BEFORE_APPLIED_BOOST_TOKEN_OPEN(invItem)
 	else
     	imag = string.format("{img 2multiply_image %d %d}", 55, 45) 
     end	
-	prop:SetTextByKey("value",imag .. ClMsg("token_staup")); 
+    prop:SetTextByKey("value",imag .. ClMsg("token_staup"));
+    
 	local value = GET_CHILD_RECURSIVELY(ctrlSet, "value");
 	local itemobj = GetIES(invItem:GetObject());
 	if itemobj.ClassName == "Premium_boostToken02" or itemobj.ClassName == "Premium_boostToken02_event01" or itemobj.ClassName == "Event_160908_6_14d" or itemobj.ClassName == "Premium_boostToken02_1d" then
@@ -257,17 +268,28 @@ function BEFORE_APPLIED_BOOST_TOKEN_OPEN(invItem)
 	GBOX_AUTO_ALIGN(gBox, 0, 2, 0, true, false);
 	local itemobj = GetIES(invItem:GetObject());
 	local arg1 = itemobj.NumberArg1 / 1000;
-	local endTime = GET_TIME_TXT(arg1, 1)
+	local endTime = GET_TIME_TXT(arg1, 1);
 	local endTxt = frame:GetChild("endTime");
-	endTxt:SetTextByKey("value", endTime); 
+	endTxt:SetTextByKey("value", endTime);
 
 	local strTxt = frame:GetChild("richtext_1");
 	strTxt:SetTextByKey("value", ClMsg(itemobj.ClassName)); 
-
 	
 	local bg2 = frame:GetChild("bg2");
 	local strTxt = bg2:GetChild("str");
-	strTxt:SetTextByKey("value", ClMsg(itemobj.ClassName)); 
+    strTxt:SetTextByKey("value", "["..ClMsg(itemobj.ClassName).."]");
+    
+    if IS_VALID_RECIPE_MATERIAL_FOR_BOOSTTOKEN("Premium_boostToken", itemobj) == true then
+        local margin = strTxt:GetMargin()
+
+        strTxt:SetTextByKey("value", ClMsg("MaterialOfBoostToken1").."{nl}".."["..ClMsg(itemobj.ClassName).."]");
+    end
+
+    if IS_VALID_RECIPE_MATERIAL_FOR_BOOSTTOKEN("Premium_boostToken02", itemobj) == true then
+        local margin = strTxt:GetMargin()
+
+        strTxt:SetTextByKey("value", ClMsg("MaterialOfBoostToken2").."{nl}".."["..ClMsg(itemobj.ClassName).."]");
+    end
 
 	local endTxt2 = bg2:GetChild("endTime2");
 	endTxt2:SetTextByKey("value2", endTime); 
@@ -425,7 +447,10 @@ function REQ_TOKEN_ITEM(parent, ctrl)
 		return;
 	end
 	
-	if argList == 'Premium_indunReset' or argList == 'Premium_indunReset_14d' or argList == 'Premium_indunReset_14d_test' or argList == 'Premium_indunReset_1add' or argList == 'Premium_indunReset_1h' or argList == 'Premium_indunReset_1add_14d' or argList == 'Premium_indunReset_TA' or argList == 'indunReset_1add_14d_NoStack' or argList == 'Event_1704_Premium_indunReset_1add' or argList == 'Event_1704_Premium_indunReset' or argList == 'indunReset_1add_14d_NoStack_Team' or argList == 'Event_indunReset_Team_14d' or argList == 'Event_indunReset_Team_1' or argList == 'Event_indunReset_Team_2' or argList == 'Event_indunReset_Team_3' then
+	if argList == 'Premium_indunReset' or argList == 'Premium_indunReset_14d' or argList == 'Premium_indunReset_14d_test' or argList == 'Premium_indunReset_1add' or argList == 'Premium_indunReset_1h' or 
+	   argList == 'Premium_indunReset_1add_14d' or argList == 'Premium_indunReset_TA' or argList == 'indunReset_1add_14d_NoStack' or argList == 'Event_1704_Premium_indunReset_1add' or argList == 'Event_1704_Premium_indunReset' or 
+	   argList == 'indunReset_1add_14d_NoStack_Team' or argList == 'Event_indunReset_Team_14d' or argList == 'Event_indunReset_Team_1' or argList == 'Event_indunReset_Team_2' or argList == 'Event_indunReset_Team_3' or
+	   argList == 'Event_indunReset_Team_4' or argList == 'Event_indunReset_Team_5' or argList == 'Event_indunReset_Team_6' then
 
 		local etcObj = GetMyEtcObject();
 		-- 2개뿐이여서 고정으로 넣어둠

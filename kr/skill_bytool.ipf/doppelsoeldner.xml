@@ -328,6 +328,13 @@
             value = 1
         end
     end
+    local abil2 = session.GetAbilityByName('Doppelsoeldner35');
+    if abil2 ~= nil then
+        local abilObj2 = GetIES(abil2:GetObject());
+        if abilObj2.ActiveState == 1 then
+            value = 0
+        end
+    end
     
     return value"/>
                 <Num Num="0"/>

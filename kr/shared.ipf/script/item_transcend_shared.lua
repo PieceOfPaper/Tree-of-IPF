@@ -226,8 +226,13 @@ function GET_TRANSCEND_MATERIAL_COUNT(targetItem, Arg1)
     --     if needMatCount < 1 then
     --         needMatCount = 1
     --     end
-    -- end
-
+	-- end
+	if IsBuffApplied(pc, "Event_Kor_New_World_Buff") == "YES" then
+        needMatCount = math.floor(needMatCount/2)
+        if needMatCount < 1 then
+            needMatCount = 1
+        end
+    end
     -- PvP ?�이?�인 경우, ?�구??개수 1
     if TryGetProp(targetItem, 'StringArg', 'None') == 'FreePvP' then
         needMatCount = 1

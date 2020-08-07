@@ -36,6 +36,7 @@ function SYSTEMOPTION_CREATE(frame)
 	SET_SIMPLIFY_MODEL(frame);
 	SET_RENDER_SHADOW(frame);
 	SET_QUESTINFOSET_TRANSPARENCY(frame);
+	SET_COOLDOWN_DECIMAL_POINT_SEC(frame);
 	SHOW_COLONY_BATTLEMESSAGE(frame);		
 	SYSTEMOPTION_INIT_TAB(frame);
 end
@@ -724,7 +725,7 @@ function SHOW_COLONY_EFFECTCOSTUME(frame)
 		chkShowGuildInColonyEffectCostume:SetCheck(isShow);
 	end
 
-	effect.ShowColonyEffectCostume();
+	effect.ShowColonyEffectCostume(isShow);
 end
 
 -- // Colony Option // --
@@ -1028,4 +1029,21 @@ function SET_ENABLE_DAYLIGHT_OPTION(frame, ctrl, str, num)
 	local isEnable = ctrl:IsChecked();
     config.SetEnableDayLight(isEnable);
 	config.SaveConfig();
+end
+function CONFIG_COOLDOWN_DECIMAL_POINT_SEC(frame, ctrl, str, num)
+	tolua.cast(ctrl, "ui::CSlideBar")
+	config.SetCoolDownDecimalPointSec(ctrl:GetLevel())
+	SET_COOLDOWN_DECIMAL_POINT_SEC(frame)
+end
+
+function SET_COOLDOWN_DECIMAL_POINT_SEC(frame)
+	local value = config.GetCoolDownDecimalPointSec()
+	local slide = GET_CHILD_RECURSIVELY(frame, "coolDownDecimalPointSec", "ui::CSlideBar")
+	slide:SetLevel(value)
+	local txt = GET_CHILD_RECURSIVELY(frame, "coolDownDecimalPointSec_text", "ui::CRichText")
+	if value <= 0 then
+		txt:SetTextByKey("opValue", ClMsg("NONE"))
+	else
+		txt:SetTextByKey("opValue", ScpArgMsg("LowerThan{SEC}", "SEC", value))
+	end
 end

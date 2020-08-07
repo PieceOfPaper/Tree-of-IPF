@@ -518,7 +518,12 @@ end
 return value"/>
                     <Num FuncTxt="return obj.Level;" Num="0" UseFunc="1"/>
                     <Num Num="0"/>
-                    <Num Num="60000"/>
+                    <Num Num="0" UseFunc="1" FuncTxt="local value = 60000  
+local abil = GetAbility(self, 'Onmyoji28')
+if abil ~= nil then
+    value = 1800000
+end
+return value"/>
                     <Num Num="1"/>
                     <Num Num="100"/>
                     <Num Num="0"/>

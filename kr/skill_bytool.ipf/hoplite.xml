@@ -121,16 +121,6 @@
                 </Scp>
             </EtcList>
         </MainSkl>
-        <ByCondSkills>
-            <SubSkl>
-                <Cond>
-                    <ToolScp Scp="SKL_SELECT_ABIL" Client="NO" UseSleep="NO">
-                        <Str Str="Hoplite40"/>
-                    </ToolScp>
-                </Cond>
-                <Skill ScrLock="None" JumpFlee="NO" MSPDToUsePos="0"/>
-            </SubSkl>
-        </ByCondSkills>
     </Skill>
     <Skill Name="Hoplite_ThrouwingSpear">
         <KeyInput>

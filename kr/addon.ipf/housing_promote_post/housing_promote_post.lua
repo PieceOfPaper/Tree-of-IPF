@@ -199,7 +199,7 @@ function HOUSING_PROMOTE_POST_WARP_HOUSE(parent, ctrl, aidx)
         return;
     end
 
-    local yesscp = string.format("HOUSING_PROMOTE_POST_REQUEST_POST_HOUST_WARP(%s, 1)", aidx);
+    local yesscp = string.format("HOUSING_PROMOTE_POST_REQUEST_POST_HOUST_WARP('%s', 1)", aidx);
     ui.MsgBox(ScpArgMsg("ANSWER_JOIN_PH_1"), yesscp, "None");    
 end
 

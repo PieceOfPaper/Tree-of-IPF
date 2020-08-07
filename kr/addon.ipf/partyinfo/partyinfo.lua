@@ -17,9 +17,9 @@ function PARTYINFO_CONTROL_INIT()
 
 	if IS_NEED_SUMMON_UI() == 0 then
 		if title_gbox ~= nil and button ~= nil and buttonText ~= nil then
-			title_gbox:EnableDrawFrame(0);
+			title_gbox:EnableDrawFrame(1);
 			button:SetVisible(0);
-			buttonText:SetVisible(0);
+			buttonText:SetVisible(1);
 		end
 	elseif IS_NEED_SUMMON_UI() == 1 and summonsUI ~= nil and summonsUI:IsVisible() then
 		if button ~= nil and buttonText ~= nil then
@@ -663,18 +663,18 @@ function SET_LOGOUT_PARTYINFO_ITEM(frame, msg, partyMemberInfo, count, makeLogou
 	local lvbox = partyInfoCtrlSet:GetChild('lvbox');
 	local levelObj = partyInfoCtrlSet:GetChild('lvbox');
 	local levelRichText = tolua.cast(levelObj, "ui::CRichText");
-
 	levelRichText:SetTextByKey("lv", 'Out');
 	lvbox:Resize(levelRichText:GetWidth(), lvbox:GetHeight());
-
-	partyInfoCtrlSet:SetEventScript(ui.RBUTTONUP, "CONTEXT_PARTY");
-	partyInfoCtrlSet:SetEventScriptArgString(ui.RBUTTONUP, partyMemberInfo:GetAID());
 
 	local color = FAR_MEMBER_FACE_COLORTONE
 	jobportraitImg:SetColorTone(color);
 	levelRichText:SetColorTone(color);
 	hpGauge:SetColorTone(color);
 	spGauge:SetColorTone(color);
+
+	-- 파티 ContextMenu
+	partyInfoCtrlSet:SetEventScript(ui.RBUTTONUP, "CONTEXT_PARTY");
+	partyInfoCtrlSet:SetEventScriptArgString(ui.RBUTTONUP, partyMemberInfo:GetAID());
 
 	frame:Resize(frame:GetWidth(), count * partyInfoCtrlSet:GetHeight());
 	return 1;
@@ -1033,7 +1033,7 @@ function PARTYINFO_UPDATE_BUTTON(frame)
 
 		frame:SetVisible(0);
 		frame:SetUserConfig("CHANGE_FLAG", "1");
-		title_gbox:EnableDrawFrame(0);
+	title_gbox:EnableDrawFrame(0);
 
 		if button ~= nil and buttonText ~= nil then
 			button:SetVisible(0);
@@ -1054,9 +1054,8 @@ function PARTYINFO_UPDATE_BUTTON(frame)
 			end
 			button:SetVisible(1);
 			button:EnableHitTest(1);
-
 			buttonText:SetVisible(1);
-		buttonText:SetTextByKey("title", ClMsg("SummonsInfo_PartyInfo"));
+			buttonText:SetTextByKey("title", ClMsg("SummonsInfo_PartyInfo"));
 		end
 	end
 

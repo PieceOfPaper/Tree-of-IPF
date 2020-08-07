@@ -1,18 +1,9 @@
 first_click_x = nil  -- 월드맵에서 드래그를 위해서 클릭할 때, 최초 좌표를 기억한다.
 first_click_y = nil
 
-
 function WORLDMAP_ON_INIT(addon, frame)
     addon:RegisterMsg('UPDATE_OTHER_GUILD_EMBLEM', 'ON_UPDATE_OTHER_GUILD_EMBLEM');
     addon:RegisterMsg('COLONY_OCCUPATION_INFO_UPDATE', 'UPDATE_WORLDMAP_CONTROLS');
-end
-
-
-function UI_TOGGLE_WORLDMAP()
-	if app.IsBarrackMode() == true then
-		return;
-	end
-	ui.ToggleFrame('worldmap')
 end
 
 function CLAMP_WORLDMAP_POS(frame, cx, cy)
@@ -1155,45 +1146,6 @@ function WORLDMAP_SEARCH_BY_NAME(frame, ctrl)
 	end
 end
 
-function INTE_WARP_OPEN_BY_NPC()
-
-   	local frame = ui.GetFrame('worldmap');
-	
-	frame:SetUserValue("Type", "NPC");
-
-	frame:ShowWindow(1);
-	frame:Invalidate();
-
-	RUN_CHECK_LASTUIOPEN_POS(frame)
-	
-
-end
-
-function INTE_WARP_OPEN_NORMAL()
-   	local frame = ui.GetFrame('worldmap');	
-	frame:SetUserValue("Type", "Normal");
-	frame:ShowWindow(1);
-	frame:Invalidate();	
-end
-
-function INTE_WARP_OPEN_DIB()
-
-   	local frame = ui.GetFrame('worldmap');
-	
-	frame:SetUserValue("Type", "Dievdirbys");
-
-	frame:ShowWindow(1);
-	frame:Invalidate();
-
-end
-
-function INTE_WARP_OPEN_FOR_QUICK_SLOT()
-   	local frame = ui.GetFrame('worldmap');
-	frame:SetUserValue('SCROLL_WARP', 'YES')
-	frame:ShowWindow(1);
-	frame:Invalidate()
-end
-
 function MAPNAME_FONT_CHECK(mapLvValue)
     local pc = GetMyPCObject();
     local pcLv = pc.Lv
@@ -1475,87 +1427,6 @@ function UPDATE_WARP_MINIMAP_TOOLTIP(tooltipframe, strarg, strnum)
 	end
 	
 	tooltipframe:Invalidate()
-end
-
-function WARP_TO_AREA(frame, cset, argStr, argNum)  
-	local warpFrame = ui.GetFrame('worldmap');
-	local test = frame:GetTopParentFrame();
-	local x, y = GET_MOUSE_POS();
-	
-	if first_click_x ~= nil and first_click_y ~= nil then	-- 클릭 좌표점이 존재한다면 마우스를 클릭하고 드래그 했다가, 워프 지점으로 도달했다는 경우다.
-		if math.abs(first_click_x - x) > 5 or math.abs(first_click_y - y) > 5 then	-- 마우스 다운과 업의 좌표의 차이가 각각 5초과라는 소리는 드래그하다 여기 들어왔다는 소리
-			first_click_x = nil		-- 워프시키지 않고 좌표를 리셋하고 끝냄
-			fifst_click_y = nil
-			return;
-		end
-	end
-
-	first_click_x = nil	-- 정상적으로 클릭해서 워프를 해도 좌표를 리셋
-	first_click_y = nil
-
-	local camp_warp_class = GetClass('camp_warp', argStr)
-
-	local pc = GetMyPCObject();
-	local nowZoneName = GetZoneName(pc);
-
-	local warpcost = 0;
-	local targetMapName = 0;	
-	local type = warpFrame:GetUserValue("Type");
-	if camp_warp_class ~= nil then
-		targetMapName = camp_warp_class.Zone;        
-    	warpcost = geMapTable.CalcWarpCostBind(AMMEND_NOW_ZONE_NAME(nowZoneName), camp_warp_class.Zone);        
-	elseif argStr ~= nil then        
-		warpcost = geMapTable.CalcWarpCostBind(AMMEND_NOW_ZONE_NAME(nowZoneName), argStr);    
-		targetMapName = argStr;    
-	end
-	
-	if targetMapName == nowZoneName then
-		ui.SysMsg(ScpArgMsg("ThatCurrentPosition"));
-		return;
-	end	
-
-	if warpcost < 0 then
-		warpcost = 0
-	end
-		
-	local etc = GetMyEtcObject();
-	local prevWarpZone = GetClassByType("Map", etc.ItemWarpMapID)
-
-	if prevWarpZone ~= nil then
-		if targetMapName == TryGetProp(prevWarpZone, "ClassName") then
-			warpcost = 0
-		end	
-	end
-	
-	if type == "Dievdirbys" or type == 'Normal' then
-		warpcost = 0
-	end
-	
-	local warpitemname = warpFrame:GetUserValue('SCROLL_WARP');
-	if (warpitemname == 'NO' or warpitemname == 'None') and IsGreaterThanForBigNumber(warpcost, GET_TOTAL_MONEY_STR()) == 1 then
-		ui.SysMsg(ScpArgMsg('Auto_SilBeoKa_BuJogHapNiDa.'));
-		return;
-	end
-    
-    local dest_mapClassID
-    if camp_warp_class ~= nil then
-	    dest_mapClassID = camp_warp_class.ClassID
-	else
-	    local mapcls = GetClass('Map',argStr)
-		if mapcls ~= nil then
-			dest_mapClassID = mapcls.ClassID
-		end
-	end
-	local cheat = string.format("/intewarp %d %d", dest_mapClassID, argNum);
-	if warpitemname ~= 'NO' and warpitemname ~= 'None' then
-        local warp_item_ies_id = warpFrame:GetUserValue('SCROLL_WARP_IESID')		
-        cheat = string.format("/intewarpByItem %d %d %s", dest_mapClassID, argNum, warp_item_ies_id);
-	end
-	movie.InteWarp(session.GetMyHandle(), cheat);
-	packet.ClientDirect("InteWarp");    
-    if warpFrame:IsVisible() == 1 then
-		ui.CloseFrame('worldmap')
-	end
 end
 
 function RUN_INTE_WARP(actor)

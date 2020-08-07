@@ -56,7 +56,7 @@ function _PUMP_RECIPE_OPEN(frame, recipeType, itemName)
     local deductItemCnt = 0;
     local checkItemCls = nil;
     for i = 1 , 5 do
-        local recipeItemCnt, invItemCnt, itemCls = GET_RECIPE_MATERIAL_INFO(recipeCls, i);
+        local recipeItemCnt, invItemCnt, itemCls = GET_RECIPE_MATERIAL_INFO(recipeCls, i, GetMyPCObject());
         if recipeItemCnt == nil then
             break;
         end

@@ -213,14 +213,7 @@ function GET_GUILD_ABILITY_LEVEL(guildObj, abilName)
 end
 
 function GET_GUILD_MAKE_PRICE()
-
-	local isSeasonServer = IS_SEASON_SERVER(nil);
-	if isSeasonServer == "YES" then
-		return 1000000 - (1000000 * 0.9)
-	end
-
 	return 1000000;
-
 end
 
 function GET_REMAIN_TICKET_COUNT(guildObj)

@@ -1110,7 +1110,8 @@ function ADD_QUEST_INFOSET_CTRL(frame, ctrl, argStr, questClassID, notUpdateRigh
 		quest.AddCheckQuest(questClassID);                
 		if quest.GetCheckQuestCount() > 5 then
 			ctrl:SetCheck(0);
-			quest.RemoveCheckQuest(questClassID);            
+            quest.RemoveCheckQuest(questClassID);
+            ui.SysMsg(ClMsg('OutOfQuestCheckCount'));
 			return;
 		end
 	else
@@ -2127,11 +2128,14 @@ function GET_QUEST_LOCATION(questIES)
 end
 
 function SCR_VIEW_QUEST_LOCATION(ctrlSet, ctrl, strArg, numArg)
-	local questClassID = numArg; 
-	local questIES = GetClassByType('QuestProgressCheck',questClassID)
-	local mapName = GET_QUEST_LOCATION(questIES)
+	local quest = GetClassByType('QuestProgressCheck', numArg)
+    local mapName = GET_QUEST_LOCATION(quest)
+    local episode = GET_EPISODE_BY_MAPNAME(mapName)
+    
+    ui.OpenFrame("worldmap2_mainmap")
 
-	OPEN_FLOATINGLOCATIONMAP_INFO(mapName);	
+    WORLDMAP2_SUBMAP_OPEN_FROM_MAINMAP_BY_EPISODE(episode)
+    WORLDMAP2_SUBMAP_ZONE_CHECK(mapName)
 end
 
 function EXEC_ABANDON_QUEST(questID)    

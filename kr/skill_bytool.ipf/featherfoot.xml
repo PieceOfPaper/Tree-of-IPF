@@ -314,7 +314,7 @@ end"/>
 				<Frame Angle="0" AniTime="9999" Dist="0" ForceATK="0" HitCount="1" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="9799" Type="FAN"/>
 			</HitList>
 			<EtcList>
-				<Scp Client="NO" Scp="SKL_SET_TARGET_SQUARE" Time="100" UseSleep="NO">
+				<Scp Client="NO" Scp="SKL_SET_TARGET_SQUARE" Time="100" UseSleep="NO" LoopTime="400">
 					<Pos Angle="0" Dist="0"/>
 					<Num Num="0"/>
 					<Num Num="50"/>
@@ -389,8 +389,9 @@ end"/>
 				<ToolScp Client="NO" Scp="S_R_TGTBUFF" UseSleep="NO">
 					<Str Str="Common_Rotten" UseFunc="1" FuncTxt="local abilLevel = GET_ABIL_LEVEL(self, 'Featherfoot32');
 
-if abilLevel ~= 0 then 
-
+if abilLevel ~= 0 then
+local time = 10000 + skill.Level * 2000 
+AddBuff(self, target, 'Hexing_Def_Debuff', 1, 0, time, 1);
 return 'Hexing_Debuff';
 
 else 

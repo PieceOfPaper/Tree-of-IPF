@@ -302,12 +302,18 @@ function LEGEND_CRAFT_MAKE_CTRLSET(recipeBox, recipeCls, checkGroup, checkMateri
 			local matItemCls = GetClass('Item', materialItemName);
 			local item = GET_CHILD(matCtrlset, 'item');
 			local require_reinforce = TryGetProp(recipeCls, 'MaterialItemReinforce_'.. i, 0)
+			local require_transcend = TryGetProp(recipeCls, 'MaterialItemTranscend_'.. i, 0)
 			local prefix = ''
+			local prefix_transcend = ''
 			if require_reinforce ~= 0 then
-				prefix = '{#FF0000}+' .. tostring(require_reinforce) .. ' {/}'
+				prefix = '{#FF0000}+' .. tostring(require_reinforce) .. '{img craft_reinforce 25 25}' ..  ' {/}'
 			end
 
-			item:SetText(prefix .. matItemCls.Name);
+			if require_transcend ~= 0 then
+				prefix_transcend = '{#FF0000}+' .. tostring(require_transcend) .. '{img craft_transcend 25 25}' .. ' {/}'
+			end
+
+			item:SetText(prefix_transcend .. prefix .. matItemCls.Name);
 
 			local needcount = GET_CHILD(matCtrlset, 'needcount');
 			local matItemCnt = recipeCls['MaterialItemCnt_'..i];

@@ -388,7 +388,7 @@ function CRAFT_HAVE_MATERIAL(recipecls)
 	for i = 1 , 5 do
 		if recipecls["Item_"..i.."_1"] ~= "None" then
 			
-			local recipeItemCnt, invItemCnt = GET_RECIPE_MATERIAL_INFO(recipecls, i);            
+			local recipeItemCnt, invItemCnt = GET_RECIPE_MATERIAL_INFO(recipecls, i, GetMyPCObject());            
 			if math.is_larger_than(tostring(recipeItemCnt), tostring(invItemCnt)) == 1 then
 				return 0;
 			end
@@ -652,7 +652,7 @@ local function SET_REQITEM_CERTAIN_NUMBER()
 
 	for i = 1 , 5 do
 		if recipecls["Item_"..i.."_1"] ~= "None" then
-			local recipeItemCnt, invItemCnt, dragRecipeItem, invItem, recipeItemLv, invItemlist  = GET_RECIPE_MATERIAL_INFO(recipecls, i);
+			local recipeItemCnt, invItemCnt, dragRecipeItem, invItem, recipeItemLv, invItemlist  = GET_RECIPE_MATERIAL_INFO(recipecls, i, GetMyPCObject());
 			if nil ~= invItemlist then
 				for j = 0, recipeItemCnt - 1 do
 					local slot = frame:GetChild("EACHMATERIALITEM_" .. i ..'_'.. j);
@@ -688,7 +688,7 @@ local function CHECK_MATERIAL_COUNT(recipecls, totalCount)
     for index = 1, 5 do
         local clsName = "Item_"..index.."_1";
 		local itemName = recipecls[clsName];
-		local recipeItemCnt, recipeItemLv = GET_RECIPE_REQITEM_CNT(recipecls, clsName);        
+		local recipeItemCnt, recipeItemLv = GET_RECIPE_REQITEM_CNT(recipecls, clsName, GetMyPCObject());        
         if itemName ~= 'None' then
             havingItemCount[itemName] = 0
             if recipeItemCnt ~= nil and recipeItemCnt ~= 'None' then
@@ -804,7 +804,7 @@ function CRAFT_START_CRAFT(idSpace, recipeName, totalCount, upDown)
 	for index=1, 5 do
 		local clsName = "Item_"..index.."_1";
 		local itemName = recipecls[clsName];        
-		local recipeItemCnt, recipeItemLv = GET_RECIPE_REQITEM_CNT(recipecls, clsName);
+		local recipeItemCnt, recipeItemLv = GET_RECIPE_REQITEM_CNT(recipecls, clsName, GetMyPCObject());
 
 		if 'None' ~= itemName then
 			for j = 0, resultlist:Count() - 1 do
@@ -1026,7 +1026,7 @@ function CRAFT_DETAIL_CRAFT_EXEC_ON_SUCCESS(frame, msg, str, time)
 		local clsName = "Item_"..index.."_1";        
 		local itemName = recipecls[clsName];
         if itemName ~= 'None' then
-            local recipeItemCnt, recipeItemLv = GET_RECIPE_REQITEM_CNT(recipecls, clsName)
+            local recipeItemCnt, recipeItemLv = GET_RECIPE_REQITEM_CNT(recipecls, clsName, GetMyPCObject())
             if recipeItemCnt ~= 0 then
                 item_count = item_count + 1
                 map_classname[item_count] = itemName
@@ -1388,7 +1388,7 @@ function CRAFT_MAKE_DETAIL_REQITEMS(ctrlset)
 
 	for i = 1 , 5 do
 		if recipecls["Item_"..i.."_1"] ~= "None" then
-			local recipeItemCnt, invItemCnt, dragRecipeItem, invItem, recipeItemLv, invItemlist  = GET_RECIPE_MATERIAL_INFO(recipecls, i);
+			local recipeItemCnt, invItemCnt, dragRecipeItem, invItem, recipeItemLv, invItemlist  = GET_RECIPE_MATERIAL_INFO(recipecls, i, GetMyPCObject());
 			if invItemlist ~= nil then -- 재료 아이템이 비스택형이면 일로 온다
 				for j = 0, recipeItemCnt - 1 do
 					local itemSet = ctrlset:CreateOrGetControlSet(g_craftRecipe_detail_item, "EACHMATERIALITEM_" .. i ..'_'.. j, x, y);
@@ -1499,7 +1499,7 @@ function ITMCRAFT_BUTTON_UP(ctrl)
 
 	for i = 1 , 5 do
 		if recipecls["Item_"..i.."_1"] ~= "None" then
-			local recipeItemCnt, invItemCnt, dragRecipeItem, invItem, recipeItemLv, invItemlist  = GET_RECIPE_MATERIAL_INFO(recipecls, i);
+			local recipeItemCnt, invItemCnt, dragRecipeItem, invItem, recipeItemLv, invItemlist  = GET_RECIPE_MATERIAL_INFO(recipecls, i, GetMyPCObject());
 			if nil ~= invItemlist then
 				for j = 0, recipeItemCnt - 1 do
 					local slot = frame:GetChild("EACHMATERIALITEM_" .. i ..'_'.. j);
@@ -1788,7 +1788,9 @@ function CRAFT_ITEM_ALL(itemSet, btn)
 	local resultlist = session.GetItemIDList();	
 
 	local check_reinforce = false
+	local check_transcend = false
 	local restrict_reinforce = 0
+	local restrict_transcend = 0
 
 	local legend_recipe = targetslot:GetUserValue('recipe_name')		
 	if legend_recipe ~= 'None' then
@@ -1800,10 +1802,31 @@ function CRAFT_ITEM_ALL(itemSet, btn)
 			if restrict_reinforce ~= 0 then
 				check_reinforce = true
 			end
+
+			restrict_transcend = TryGetProp(legend_recipe_cls, 'MaterialItemTranscend_' .. slot_number, 0)
+			if restrict_transcend ~= 0 then
+				check_transcend = true
+			end
 		end	
 	end
 
-	local min_reinforce = 1000
+	local function sort_tmp(a, b)		
+		local a_obj = GetIES(a:GetObject())
+		local b_obj = GetIES(b:GetObject())
+
+		if TryGetProp(a_obj, 'Reinforce_2', 0) < TryGetProp(b_obj, 'Reinforce_2', 0) then
+			-- 강화가 우선
+			return true
+		elseif TryGetProp(a_obj, 'Reinforce_2', 0) == TryGetProp(b_obj, 'Reinforce_2', 0) then
+			return TryGetProp(a_obj, 'Transcend', 0) < TryGetProp(b_obj, 'Transcend', 0)
+		else
+			return false;
+		end	
+	end
+
+	if check_transcend == true or check_reinforce == true then  -- 강화/초월로 정렬
+		table.sort(invItemlist, sort_tmp)		
+	end
 
 	for i = 1, #invItemlist do
 		local tempinvItem = invItemlist[i];
@@ -1816,27 +1839,38 @@ function CRAFT_ITEM_ALL(itemSet, btn)
 			end
 		end
 
-		if check_reinforce == true then
-			local item_obj = GetIES(tempinvItem:GetObject())
-			if isAlreadyAdd == 0 and tempinvItem.isLockState == false and TryGetProp(item_obj, 'Reinforce_2', 0) >= restrict_reinforce then				
-				local diff = math.abs(TryGetProp(item_obj, 'Reinforce_2', 0) - restrict_reinforce)
-				if diff < min_reinforce then
-					min_reinforce = diff
-					invItemadd = tempinvItem					
-				end
+		if check_reinforce == false and check_transcend == false then
+			if isAlreadyAdd == 0 and tempinvItem.isLockState == false then
+				invItemadd = tempinvItem
+				break
 			end
 		else
-		if isAlreadyAdd == 0 and tempinvItem.isLockState == false then
+			if check_reinforce == true and check_transcend == true then
+				local item_obj = GetIES(tempinvItem:GetObject())
+				if isAlreadyAdd == 0 and tempinvItem.isLockState == false 
+				and TryGetProp(item_obj, 'Reinforce_2', 0) >= restrict_reinforce 
+				and TryGetProp(item_obj, 'Transcend', 0) >= restrict_transcend then
+					invItemadd = tempinvItem
+					break
+				end
+			elseif check_reinforce == true then
+			local item_obj = GetIES(tempinvItem:GetObject())
+			if isAlreadyAdd == 0 and tempinvItem.isLockState == false and TryGetProp(item_obj, 'Reinforce_2', 0) >= restrict_reinforce then				
+					invItemadd = tempinvItem					
+					break
+				end
+			elseif check_transcend == true then
+				local item_obj = GetIES(tempinvItem:GetObject())
+				if isAlreadyAdd == 0 and tempinvItem.isLockState == false and TryGetProp(item_obj, 'Transcend', 0) >= restrict_transcend then
 			invItemadd = tempinvItem
 			break
 		end
 	end
 	end
+	end
 
 	if invItemadd == nil then
-		if check_reinforce == true then
-			ui.SysMsg(ScpArgMsg('MoreReinforceForCraft{count}', 'count', restrict_reinforce))
-		end
+		ui.SysMsg(ScpArgMsg('CantCraftCusRestriciton'))
 		return
 	end
 	
@@ -1850,21 +1884,17 @@ function CRAFT_ITEM_ALL(itemSet, btn)
 	itemSet:SetUserValue(itemSet:GetName(), tostring(item_guid))
 
 	if IS_EQUIP(itemObj) == true then		
-		-- 제작재료 강화수치 체크
-		local legend_recipe = targetslot:GetUserValue('recipe_name')		
-		if legend_recipe ~= 'None' then
-			local legend_recipe_cls = GetClass('legendrecipe', legend_recipe)			
-			local token = StringSplit(itemSet:GetName(), '_')
-			if #token >= 2 then
-				local slot_number = token[2]
-				local restrict_reinforce = TryGetProp(legend_recipe_cls, 'MaterialItemReinforce_' .. slot_number, 0)
+		-- 제작재료 강화/초월 수치 체크
 				if TryGetProp(itemObj, 'Reinforce_2', 0) < restrict_reinforce then
 					ui.SysMsg(ScpArgMsg('MoreReinforceForCraft{count}', 'count', restrict_reinforce))
 					return
 				end
+		
+		if TryGetProp(itemObj, 'Transcend', 0) < restrict_transcend then
+			ui.SysMsg(ScpArgMsg('MoreTranscendForCraft{count}', 'count', restrict_transcend))
+			return
 			end			
-		end
-		-- end of 제작재료 강화수치 체크
+		-- end of 제작재료 강화/초월 수치 체크
 
 		local frame = ui.GetFrame(g_itemCraftFrameName);
 		frame:SetUserValue("TARGETSET", itemSet:GetName())
@@ -1959,7 +1989,9 @@ function CRAFT_ITEM_ALL_ForLegend()
 	local resultlist = session.GetItemIDList();	
 
 	local check_reinforce = false
+	local check_transcend = false
 	local restrict_reinforce = 0
+	local restrict_transcend = 0
 
 	local legend_recipe = targetslot:GetUserValue('recipe_name')		
 	if legend_recipe ~= 'None' then
@@ -1971,10 +2003,31 @@ function CRAFT_ITEM_ALL_ForLegend()
 			if restrict_reinforce ~= 0 then
 				check_reinforce = true
 			end
+
+			restrict_transcend = TryGetProp(legend_recipe_cls, 'MaterialItemTranscend_' .. slot_number, 0)
+			if restrict_transcend ~= 0 then
+				check_transcend = true
+			end
 		end	
 	end
 
-	local min_reinforce = 1000
+	local function sort_tmp(a, b)		
+		local a_obj = GetIES(a:GetObject())
+		local b_obj = GetIES(b:GetObject())
+			
+		if TryGetProp(a_obj, 'Reinforce_2', 0) < TryGetProp(b_obj, 'Reinforce_2', 0) then
+			-- 강화가 우선
+			return true
+		elseif TryGetProp(a_obj, 'Reinforce_2', 0) == TryGetProp(b_obj, 'Reinforce_2', 0) then
+			return TryGetProp(a_obj, 'Transcend', 0) < TryGetProp(b_obj, 'Transcend', 0)
+		else
+			return false;
+		end	
+	end
+
+	if check_transcend == true or check_reinforce == true then  -- 강화/초월로 정렬
+		table.sort(invItemlist, sort_tmp)		
+	end
 
 	for i = 1, #invItemlist do
 		local tempinvItem = invItemlist[i];
@@ -1987,24 +2040,38 @@ function CRAFT_ITEM_ALL_ForLegend()
 			end
 		end
 
-		if check_reinforce == true then
-			local item_obj = GetIES(tempinvItem:GetObject())
-			if isAlreadyAdd == 0 and tempinvItem.isLockState == false and TryGetProp(item_obj, 'Reinforce_2', 0) >= restrict_reinforce then				
-				local diff = math.abs(TryGetProp(item_obj, 'Reinforce_2', 0) - restrict_reinforce)
-				if diff < min_reinforce then
-					min_reinforce = diff
-					invItemadd = tempinvItem					
-				end
+		if check_reinforce == false and check_transcend == false then
+			if isAlreadyAdd == 0 and tempinvItem.isLockState == false then
+				invItemadd = tempinvItem
+				break
 			end
 		else
-		if isAlreadyAdd == 0 and tempinvItem.isLockState == false then
+			if check_reinforce == true and check_transcend == true then
+				local item_obj = GetIES(tempinvItem:GetObject())
+				if isAlreadyAdd == 0 and tempinvItem.isLockState == false 
+				and TryGetProp(item_obj, 'Reinforce_2', 0) >= restrict_reinforce 
+				and TryGetProp(item_obj, 'Transcend', 0) >= restrict_transcend then
+					invItemadd = tempinvItem
+					break
+				end
+			elseif check_reinforce == true then
+			local item_obj = GetIES(tempinvItem:GetObject())
+			if isAlreadyAdd == 0 and tempinvItem.isLockState == false and TryGetProp(item_obj, 'Reinforce_2', 0) >= restrict_reinforce then				
+					invItemadd = tempinvItem					
+					break
+				end
+			elseif check_transcend == true then
+				local item_obj = GetIES(tempinvItem:GetObject())
+				if isAlreadyAdd == 0 and tempinvItem.isLockState == false and TryGetProp(item_obj, 'Transcend', 0) >= restrict_transcend then
 			invItemadd = tempinvItem
 			break
 		end
 	end
 	end
+	end	
 
 	if invItemadd == nil then
+		ui.SysMsg(ScpArgMsg('CantCraftCusRestriciton'))	
 		return
 	end
 	
@@ -2018,21 +2085,17 @@ function CRAFT_ITEM_ALL_ForLegend()
 	itemSet:SetUserValue(itemSet:GetName(), tostring(item_guid))
 
 	if IS_EQUIP(itemObj) == true then		
-		-- 제작재료 강화수치 체크
-		local legend_recipe = targetslot:GetUserValue('recipe_name')		
-		if legend_recipe ~= 'None' then
-			local legend_recipe_cls = GetClass('legendrecipe', legend_recipe)			
-			local token = StringSplit(itemSet:GetName(), '_')
-			if #token >= 2 then
-				local slot_number = token[2]
-				local restrict_reinforce = TryGetProp(legend_recipe_cls, 'MaterialItemReinforce_' .. slot_number, 0)
+		-- 제작재료 강화/초월 수치 체크
 				if TryGetProp(itemObj, 'Reinforce_2', 0) < restrict_reinforce then
 					ui.SysMsg(ScpArgMsg('MoreReinforceForCraft{count}', 'count', restrict_reinforce))
 					return
 				end
+		
+		if TryGetProp(itemObj, 'Transcend', 0) < restrict_transcend then
+			ui.SysMsg(ScpArgMsg('MoreTranscendForCraft{count}', 'count', restrict_transcend))
+			return
 			end			
-		end
-		-- end of 제작재료 강화수치 체크
+		-- end of 제작재료 강화/초월 수치 체크
 
 		local frame = ui.GetFrame(g_itemCraftFrameName);
 		frame:SetUserValue("TARGETSET", itemSet:GetName())
@@ -2157,7 +2220,7 @@ function MAKE_DETAIL_REQITEMS(ctrlset)
 	local itemHeight = ui.GetControlSetAttribute("journalRecipe_detail_item", 'height');
 	for i = 1 , 5 do
 		if recipecls["Item_"..i.."_1"] ~= "None" then
-			local recipeItemCnt, invItemCnt, dragRecipeItem = GET_RECIPE_MATERIAL_INFO(recipecls, i);
+			local recipeItemCnt, invItemCnt, dragRecipeItem = GET_RECIPE_MATERIAL_INFO(recipecls, i, GetMyPCObject());
 
 			local itemSet = ctrlset:CreateOrGetControlSet("journalRecipe_detail_item", "ITEM_" .. i, x, y);
 			JOURNAL_DETAIL_CTRL_INIT(itemSet);

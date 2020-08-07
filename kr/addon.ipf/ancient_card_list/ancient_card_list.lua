@@ -973,7 +973,7 @@ function ON_ANCIENT_CARD_LOCK_MODE()
 	AUTO_CAST(tab)
 	local index = tab:GetSelectItemIndex();
 	if index ~= ANCIENT_INFO_TAB then
-		addon.BroadMsg("NOTICE_Dm_scroll", "어시스터 정보 탭에서만 가능합니다.", 3);
+		addon.BroadMsg("NOTICE_Dm_scroll", "AncientCardOnlyInfoTab", 3);
 		return
 	end
 	local isLockMode = frame:GetUserValue("LOCK_MODE") ~= "YES"

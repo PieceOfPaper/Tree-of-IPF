@@ -487,7 +487,7 @@ return time;"/>
 			</ToolScp>
 		</leaveEvent>
 	</PadSkill>
-	<PadSkill Name="Aqkrova_Pad" CheckerType="0" Range="80" AllowOverlap="1">
+	<PadSkill Name="Apkrova_Pad" CheckerType="0" Range="80" AllowOverlap="1">
 		<createEvent>
 			<ToolScp Scp="PAD_ADD_LIFE" Client="NO" UseSleep="NO">
 				<Num Num="10000" UseFunc="1" FuncTxt="local value = 10000; local isDragonPower = GetExProp(self, 'ITEM_DRAGON_POWER') if tonumber(isDragonPower) >= 1 then value = 20000 end return value"/>
@@ -496,17 +496,15 @@ return time;"/>
 			<ToolScp Scp="C_PAD_EFFECT_POS" Client="YES" UseSleep="NO">
 				<Str_Arg Str="F_buff_basic059_ground_red" Arg="2.5"/>
 				<Pos Angle="0" Dist="0"/>
-				<Num Num="10000"/>
+				<Num Num="0"/>
 				<Str_Arg Str="None" Arg="1"/>
-				<Num Num="1"/>
-			</ToolScp>
+				</ToolScp>
 			<ToolScp Scp="C_PAD_EFFECT_POS" Client="YES" UseSleep="NO">
 				<Str_Arg Str="F_cleric_HandKnife_shot_ground" Arg="1.5"/>
 				<Pos Angle="0" Dist="0"/>
-				<Num Num="1000"/>
+				<Num Num="0"/>
 				<Str_Arg Str="None" Arg="1"/>
-				<Num Num="1"/>
-			</ToolScp>
+				</ToolScp>
 		</createEvent>
 		<leaveEvent>
 			<ToolScp Scp="PAD_TGT_BUFF_REMOVE" Client="NO" UseSleep="NO">
@@ -686,22 +684,31 @@ return time;"/>
 				<Num Num="1"/>
 				<Num Num="0.0049999999"/>
 			</ToolScp>
-			<ToolScp Scp="PAD_CRE_MON" Client="NO" UseSleep="NO">
+			<ToolScp Scp="C_PAD_MONSTER" Client="YES" UseSleep="NO">
 				<Str Str="pcskill_tutu"/>
-				<Pos Angle="0" Dist="-10"/>
-				<Angle Angle="0"/>
-				<Num Num="0"/>
-				<Num Num="10"/>
-				<MonProp/>
-				<Str_Arg Str="None" Arg="1"/>
 				<Num Num="1"/>
-				<Str Str="None"/>
+				<Str Str="std"/>
 				<Str Str="None"/>
 				<Num Num="0"/>
-				<Str Str="SCR_WUGUSHI36_BORN"/>
-			</ToolScp>
+				</ToolScp>
 		</createEvent>
-		<updateEvent>
+		<enterEvent>
+            <ToolScp Scp="PAD_ACTIVATE" Client="NO" UseSleep="NO">
+                <Str Str="ENEMY"/>
+            </ToolScp>
+            <ToolScp Scp="PAD_TGT_BUFF" Client="NO" UseSleep="NO">
+                <Str Str="ENEMY"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+                <Str Str="JincanGu_Abil_Debuff"/>
+                <Num Num="1" UseFunc="1" FuncTxt="return obj.Level;"/>
+                <Num Num="0"/>
+                <Num Num="60000"/>
+                <Num Num="1"/>
+                <Num Num="100"/>
+            </ToolScp>
+        </enterEvent>
+        <updateEvent>
 			<ToolScp Scp="PAD_BUFF_CHECK_BUFF_ENEMY" Client="NO" UseSleep="NO">
 				<Str Str="ENEMY"/>
 				<Num Num="0"/>
@@ -12162,7 +12169,7 @@ end" Arg="1"/>
 			</ToolScp>
 		</updateEvent>
 	</PadSkill>
-    <PadSkill Name="Matross_CanisterShot_Abil" CheckerType="0" Range="60" Relation="6" AllowOverlap="1" IsMagicType="0">
+    <PadSkill Name="Matross_CanisterShot_Abil" CheckerType="0" Range="60" Relation="6" AllowOverlap="1" IsMagicType="0" ApplyFlyMon="1">
         <createEvent>
             <ToolScp Scp="PAD_ADD_LIFE" Client="NO" UseSleep="NO">
                 <Num Num="4000"/>
@@ -15350,6 +15357,18 @@ return GET_ABIL_LEVEL(self, &quot;PlagueDoctor6&quot;);"/>
                 <Num Num="0"/>
                 <Num Num="0"/>
                 <Str Str="PlagueVapours_Debuff"/>
+                <Num Num="1" UseFunc="1" FuncTxt="return obj.Level;"/>
+                <Num Num="0"/>
+                <Num Num="15000"/>
+                <Num Num="1"/>
+                <Num Num="100"/>
+                <Num Num="0"/>
+            </ToolScp>
+            <ToolScp Scp="PAD_TGT_BUFF" Client="NO" UseSleep="NO">
+                <Str Str="ENEMY"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+                <Str Str="PlagueVapours_Crtdr_Debuff"/>
                 <Num Num="1" UseFunc="1" FuncTxt="return obj.Level;"/>
                 <Num Num="0"/>
                 <Num Num="15000"/>
@@ -21716,6 +21735,18 @@ end"/>
 				<Num Num="100"/>
 				<Num Num="0"/>
 			</ToolScp>
+            <ToolScp Scp="PAD_TGT_BUFF" Client="NO" UseSleep="NO">
+                <Str Str="ENEMY"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+                <Str Str="Lethargy_Atk_Debuff"/>
+                <Num Num="1" UseFunc="1" FuncTxt="return obj.Level"/>
+                <Num Num="0"/>
+                <Num Num="10000" UseFunc="1" FuncTxt="return 20000 + (GET_ABIL_LEVEL(self, &quot;Wizard6&quot;) * 2000)"/>
+                <Num Num="1"/>
+                <Num Num="100"/>
+                <Num Num="0"/>
+            </ToolScp>            
 		</enterEvent>
 		<updateEvent>
 			<ToolScp Scp="PAD_ADD_LIFE" Client="NO" UseSleep="NO">

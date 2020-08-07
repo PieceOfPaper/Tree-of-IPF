@@ -359,17 +359,17 @@
 			</EventFrameList>
 		</Line>
 	</File>
-  <File FileName="skill_disenchant">
-    <Line ImageName="blue_orb_32" isText="0">
-      <KeyFrameList>
-        <KeyFrame Time="0" Easing="1" x="0" y="-300" posRandomMin="0" posRandomMax="0" sx="2" sy="2" angle="0" alpha="1" colorTone="00000000"/>
-        <KeyFrame Time="0.5" Easing="0.5" x="0" y="-350" posRandomMin="0" posRandomMax="0" sx="0" sy="0" angle="0" alpha="1" colorTone="00000000"/>
-      </KeyFrameList>
-      <EventFrameList>
-        <Event Time="1.0333329" Scp="UI_Force_Destroy" Client="NO" UseSleep="NO"/>
-      </EventFrameList>
-    </Line>
-  </File>
+	<File FileName="skill_disenchant">
+		<Line ImageName="blue_orb_32" isText="0">
+			<KeyFrameList>
+				<KeyFrame Time="0" Easing="1" x="0" y="-300" posRandomMin="0" posRandomMax="0" sx="2" sy="2" angle="0" alpha="1" colorTone="00000000"/>
+				<KeyFrame Time="0.5" Easing="0.5" x="0" y="-350" posRandomMin="0" posRandomMax="0" sx="0" sy="0" angle="0" alpha="1" colorTone="00000000"/>
+			</KeyFrameList>
+			<EventFrameList>
+				<Event Time="1.0333329" Scp="UI_Force_Destroy" Client="NO" UseSleep="NO"/>
+			</EventFrameList>
+		</Line>
+	</File>
 	<File FileName="simbol_ani_2" TotalSec="0.5">
 		<Line ImageName="{@st42}aaaaaaa" isText="1">
 			<KeyFrameList>
@@ -742,32 +742,32 @@
 			</EventFrameList>
 		</Line>
 	</File>
-  <File FileName="reinf_finish_certificate" TotalSec="0.80000001">
-    <Line ImageName="blue_orb_32" isText="0">
-      <KeyFrameList>
-        <KeyFrame Time="0" Easing="1" x="0" y="0" posRandomMin="0" posRandomMax="0" sx="0.5" sy="0.5" angle="0" alpha="1" colorTone="00000000"/>
-        <KeyFrame Time="0.60000002" Easing="0.5" x="1" y="1" posRandomMin="130" posRandomMax="150" sx="0.5" sy="0.5" angle="1" alpha="0" colorTone="00000000"/>
-      </KeyFrameList>
-      <EventFrameList>
-        <Event Time="0.63333303" Scp="UI_Force_Destroy" Client="NO" UseSleep="NO"/>
-        <Event Time="0" Scp="UI_Force_RunFunction" Client="NO" UseSleep="NO">
-          <Str Str="REINF_FORCE_END_CERTIFICATE"/>
-        </Event>
-        <Event Time="0" Scp="UI_PlaySound" Client="NO" UseSleep="NO">
-          <Str Str="reinforce_sucess"/>
-        </Event>
-      </EventFrameList>
-    </Line>
-  </File>
+	<File FileName="reinf_finish_certificate" TotalSec="0.80000001">
+		<Line ImageName="blue_orb_32" isText="0">
+			<KeyFrameList>
+				<KeyFrame Time="0" Easing="1" x="0" y="0" posRandomMin="0" posRandomMax="0" sx="0.5" sy="0.5" angle="0" alpha="1" colorTone="00000000"/>
+				<KeyFrame Time="0.60000002" Easing="0.5" x="1" y="1" posRandomMin="130" posRandomMax="150" sx="0.5" sy="0.5" angle="1" alpha="0" colorTone="00000000"/>
+			</KeyFrameList>
+			<EventFrameList>
+				<Event Time="0.63333303" Scp="UI_Force_Destroy" Client="NO" UseSleep="NO"/>
+				<Event Time="0" Scp="UI_Force_RunFunction" Client="NO" UseSleep="NO">
+					<Str Str="REINF_FORCE_END_CERTIFICATE"/>
+				</Event>
+				<Event Time="0" Scp="UI_PlaySound" Client="NO" UseSleep="NO">
+					<Str Str="reinforce_sucess"/>
+				</Event>
+			</EventFrameList>
+		</Line>
+	</File>
 	<File FileName="popup_start_up" TotalSec="0.30">
-    <Line ImageName="{@st42}aaaaaaa" isText="1">
-      <KeyFrameList>
-        <KeyFrame Time="0" Easing="1" x="0" y="70" posRandomMin="0" posRandomMax="0" sx="1" sy="1" angle="0" alpha="0" colorTone="00000000"/>
-        <KeyFrame Time="0.03" Easing="2" x="0" y="0" posRandomMin="0" posRandomMax="0" sx="1" sy="1" angle="0" alpha="0.3" colorTone="00000000"/>
-        <KeyFrame Time="0.30" Easing="2" x="0" y="0" posRandomMin="0" posRandomMax="0" sx="1" sy="1" angle="0" alpha="1" colorTone="00000000"/>
-      </KeyFrameList>
-    </Line>
-  </File>
+		<Line ImageName="{@st42}aaaaaaa" isText="1">
+			<KeyFrameList>
+				<KeyFrame Time="0" Easing="1" x="0" y="70" posRandomMin="0" posRandomMax="0" sx="1" sy="1" angle="0" alpha="0" colorTone="00000000"/>
+				<KeyFrame Time="0.03" Easing="2" x="0" y="0" posRandomMin="0" posRandomMax="0" sx="1" sy="1" angle="0" alpha="0.3" colorTone="00000000"/>
+				<KeyFrame Time="0.30" Easing="2" x="0" y="0" posRandomMin="0" posRandomMax="0" sx="1" sy="1" angle="0" alpha="1" colorTone="00000000"/>
+			</KeyFrameList>
+		</Line>
+	</File>
 	<File FileName="popup_start3" TotalSec="0.30">
 		<Line ImageName="{@st42}aaaaaaa" isText="1">
 			<KeyFrameList>
@@ -877,16 +877,16 @@
 			</KeyFrameList>
 		</Line>
 	</File>
-  <File FileName="hair_gacha" TotalSec="3.0">
-    <Line ImageName="blue_orb_32" isText="0">
-      <KeyFrameList>
-        <KeyFrame Time="0" Easing="1" x="0" y="0" posRandomMin="0" posRandomMax="0" sx="1.2" sy="1.2" angle="0" alpha="0" colorTone="00000000"/>
-        <KeyFrame Time="0.5" Easing="1" x="0" y="0" posRandomMin="0" posRandomMax="0" sx="1.2" sy="1.2" angle="0" alpha="1" colorTone="00000000"/>
-        <KeyFrame Time="2.5" Easing="2" x="0" y="0" posRandomMin="0" posRandomMax="0" sx="1.2" sy="1.2" angle="0" alpha="1" colorTone="00000000"/>
-        <KeyFrame Time="3.0" Easing="2" x="0" y="0" posRandomMin="0" posRandomMax="0" sx="1.2" sy="1.2" angle="0" alpha="0" colorTone="00000000"/>
-      </KeyFrameList>
-    </Line>
-  </File>
+	<File FileName="hair_gacha" TotalSec="3.0">
+		<Line ImageName="blue_orb_32" isText="0">
+			<KeyFrameList>
+				<KeyFrame Time="0" Easing="1" x="0" y="0" posRandomMin="0" posRandomMax="0" sx="1.2" sy="1.2" angle="0" alpha="0" colorTone="00000000"/>
+				<KeyFrame Time="0.5" Easing="1" x="0" y="0" posRandomMin="0" posRandomMax="0" sx="1.2" sy="1.2" angle="0" alpha="1" colorTone="00000000"/>
+				<KeyFrame Time="2.5" Easing="2" x="0" y="0" posRandomMin="0" posRandomMax="0" sx="1.2" sy="1.2" angle="0" alpha="1" colorTone="00000000"/>
+				<KeyFrame Time="3.0" Easing="2" x="0" y="0" posRandomMin="0" posRandomMax="0" sx="1.2" sy="1.2" angle="0" alpha="0" colorTone="00000000"/>
+			</KeyFrameList>
+		</Line>
+	</File>
 	<File FileName="party_ticket" TotalSec="0.69999999">
 		<Line ImageName="{@st42}aaaaaaa" isText="1">
 			<KeyFrameList>
@@ -1439,6 +1439,14 @@ return IMCRandom(6, 10);"/>
 			</KeyFrameList>
 		</Line>
 	</File>
+	<File FileName="btn_mouseover_4" TotalSec="0.1">
+		<Line ImageName="{@st42}%s Kill" isText="1">
+			<KeyFrameList>
+				<KeyFrame Time="0" Easing="1" x="0" y="0" posRandomMin="0" posRandomMax="0" sx="1" sy="1" angle="0" alpha="1" colorTone="00000000"/>
+				<KeyFrame Time="0.1" Easing="2" x="0" y="0" posRandomMin="0" posRandomMax="0" sx="1.02" sy="1.02" angle="0" alpha="1" colorTone="00000000"/>
+			</KeyFrameList>
+		</Line>
+	</File>
 	<File FileName="btn_mouseover_3" TotalSec="0.1">
 		<Line ImageName="{@st42}%s Kill" isText="1">
 			<KeyFrameList>
@@ -1460,6 +1468,14 @@ return IMCRandom(6, 10);"/>
 			<KeyFrameList>
 				<KeyFrame Time="0" Easing="1" x="0" y="0" posRandomMin="0" posRandomMax="0" sx="1" sy="1" angle="0" alpha="1" colorTone="00000000"/>
 				<KeyFrame Time="0.1" Easing="2" x="0" y="0" posRandomMin="0" posRandomMax="0" sx="1.05" sy="1.05" angle="0" alpha="1" colorTone="00000000"/>
+			</KeyFrameList>
+		</Line>
+	</File>
+	<File FileName="btn_mouseoff_4" TotalSec="0.1">
+		<Line ImageName="{@st42}%s Kill" isText="1">
+			<KeyFrameList>
+				<KeyFrame Time="0" Easing="1" x="0" y="0" posRandomMin="0" posRandomMax="0" sx="1.02" sy="1.02" angle="0" alpha="1" colorTone="00000000"/>
+				<KeyFrame Time="0.1" Easing="2" x="0" y="0" posRandomMin="0" posRandomMax="0" sx="1" sy="1" angle="0" alpha="1" colorTone="00000000"/>
 			</KeyFrameList>
 		</Line>
 	</File>
@@ -1754,35 +1770,35 @@ return IMCRandom(6, 10);"/>
 			</KeyFrameList>
 		</Line>
 	</File>
-  <File FileName="slotsetDownMove" TotalSec="0.5">
-    <Line ImageName="{@st42}aaaaaaa" isText="0">
-      <KeyFrameList>
-        <KeyFrame Time="0" Easing="1" x="0" y="0" posRandomMin="0" posRandomMax="0" sx="1" sy="1" angle="0" alpha="1" colorTone="00000000"/>
-        <KeyFrame Time="0.2" Easing="1" x="0" y="17" posRandomMin="0" posRandomMax="0" sx="1" sy="1" angle="0" alpha="1" colorTone="00000000"/>
-        <KeyFrame Time="0.4" Easing="1" x="0" y="54" posRandomMin="0" posRandomMax="0" sx="1" sy="1" angle="0" alpha="1" colorTone="00000000"/>
-        <KeyFrame Time="0.5" Easing="1" x="0" y="67" posRandomMin="0" posRandomMax="0" sx="1" sy="1" angle="0" alpha="1" colorTone="00000000"/>
-      </KeyFrameList>
-    </Line>
-  </File>
-  <File FileName="slotsetUpMove" TotalSec="0.5">
-    <Line ImageName="{@st42}aaaaaaa" isText="0">
-      <KeyFrameList>
-        <KeyFrame Time="0" Easing="1" x="0" y="0" posRandomMin="0" posRandomMax="0" sx="1" sy="1" angle="0" alpha="1" colorTone="00000000"/>
-        <KeyFrame Time="0.2" Easing="1" x="0" y="-17" posRandomMin="0" posRandomMax="0" sx="1" sy="1" angle="0" alpha="1" colorTone="00000000"/>
-        <KeyFrame Time="0.4" Easing="1" x="0" y="-54" posRandomMin="0" posRandomMax="0" sx="1" sy="1" angle="0" alpha="1" colorTone="00000000"/>
-        <KeyFrame Time="0.5" Easing="1" x="0" y="-67" posRandomMin="0" posRandomMax="0" sx="1" sy="1" angle="0" alpha="1" colorTone="00000000"/>
-      </KeyFrameList>
-    </Line>
-  </File>
-  <File FileName="sizeUpAndDown" TotalSec="1.5">
-    <Line ImageName="{@st42}aaaaaaa" isText="0">
-      <KeyFrameList>
-        <KeyFrame Time="0.2" Easing="1" x="0" y="0" posRandomMin="0" posRandomMax="0" sx="1.05" sy="1.05" angle="0" alpha="1" colorTone="00000000"/>
-        <KeyFrame Time="0.3" Easing="1" x="0" y="0" posRandomMin="0" posRandomMax="0" sx="1.2" sy="1.2" angle="0" alpha="1" colorTone="00000000"/>
-        <KeyFrame Time="0.5" Easing="1" x="0" y="0" posRandomMin="0" posRandomMax="0" sx="1.4" sy="1.4" angle="0" alpha="1" colorTone="00000000"/>
-        <KeyFrame Time="1.4" Easing="1" x="0" y="0" posRandomMin="0" posRandomMax="0" sx="1.5" sy="1.5" angle="0" alpha="1" colorTone="00000000"/>
-        <KeyFrame Time="1.5" Easing="1" x="0" y="0" posRandomMin="0" posRandomMax="0" sx="1.0" sy="1.0" angle="0" alpha="1" colorTone="00000000"/>
-      </KeyFrameList>
-    </Line>
-  </File>
+	<File FileName="slotsetDownMove" TotalSec="0.5">
+		<Line ImageName="{@st42}aaaaaaa" isText="0">
+			<KeyFrameList>
+				<KeyFrame Time="0" Easing="1" x="0" y="0" posRandomMin="0" posRandomMax="0" sx="1" sy="1" angle="0" alpha="1" colorTone="00000000"/>
+				<KeyFrame Time="0.2" Easing="1" x="0" y="17" posRandomMin="0" posRandomMax="0" sx="1" sy="1" angle="0" alpha="1" colorTone="00000000"/>
+				<KeyFrame Time="0.4" Easing="1" x="0" y="54" posRandomMin="0" posRandomMax="0" sx="1" sy="1" angle="0" alpha="1" colorTone="00000000"/>
+				<KeyFrame Time="0.5" Easing="1" x="0" y="67" posRandomMin="0" posRandomMax="0" sx="1" sy="1" angle="0" alpha="1" colorTone="00000000"/>
+			</KeyFrameList>
+		</Line>
+	</File>
+	<File FileName="slotsetUpMove" TotalSec="0.5">
+		<Line ImageName="{@st42}aaaaaaa" isText="0">
+			<KeyFrameList>
+				<KeyFrame Time="0" Easing="1" x="0" y="0" posRandomMin="0" posRandomMax="0" sx="1" sy="1" angle="0" alpha="1" colorTone="00000000"/>
+				<KeyFrame Time="0.2" Easing="1" x="0" y="-17" posRandomMin="0" posRandomMax="0" sx="1" sy="1" angle="0" alpha="1" colorTone="00000000"/>
+				<KeyFrame Time="0.4" Easing="1" x="0" y="-54" posRandomMin="0" posRandomMax="0" sx="1" sy="1" angle="0" alpha="1" colorTone="00000000"/>
+				<KeyFrame Time="0.5" Easing="1" x="0" y="-67" posRandomMin="0" posRandomMax="0" sx="1" sy="1" angle="0" alpha="1" colorTone="00000000"/>
+			</KeyFrameList>
+		</Line>
+	</File>
+	<File FileName="sizeUpAndDown" TotalSec="1.5">
+		<Line ImageName="{@st42}aaaaaaa" isText="0">
+			<KeyFrameList>
+				<KeyFrame Time="0.2" Easing="1" x="0" y="0" posRandomMin="0" posRandomMax="0" sx="1.05" sy="1.05" angle="0" alpha="1" colorTone="00000000"/>
+				<KeyFrame Time="0.3" Easing="1" x="0" y="0" posRandomMin="0" posRandomMax="0" sx="1.2" sy="1.2" angle="0" alpha="1" colorTone="00000000"/>
+				<KeyFrame Time="0.5" Easing="1" x="0" y="0" posRandomMin="0" posRandomMax="0" sx="1.4" sy="1.4" angle="0" alpha="1" colorTone="00000000"/>
+				<KeyFrame Time="1.4" Easing="1" x="0" y="0" posRandomMin="0" posRandomMax="0" sx="1.5" sy="1.5" angle="0" alpha="1" colorTone="00000000"/>
+				<KeyFrame Time="1.5" Easing="1" x="0" y="0" posRandomMin="0" posRandomMax="0" sx="1.0" sy="1.0" angle="0" alpha="1" colorTone="00000000"/>
+			</KeyFrameList>
+		</Line>
+	</File>
 </UIForce>

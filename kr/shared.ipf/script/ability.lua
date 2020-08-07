@@ -2728,6 +2728,15 @@ function SCR_ABIL_Paladin43_INACTIVE(self, ability)
     end
 end
 
+function SCR_ABIL_Swordman28_ACTIVE(self, ability)    
+    SetExProp(self, 'provoke_active', 1)
+    
+end
+
+function SCR_ABIL_Swordman28_INACTIVE(self, ability)    
+    SetExProp(self, 'provoke_active', 0)
+end
+
 function SCR_ABIL_Sapper42_ACTIVE(self, ability)
     local skill = GetSkill(self, "Sapper_PunjiStake");
     if skill ~= nil then
@@ -2757,7 +2766,11 @@ function SCR_ABIL_Chaplain21_INACTIVE(self, ability)
 end
 
 function SCR_ABIL_Onmyoji28_ACTIVE(self, ability)
-
+    local skill = GetSkill(self, "Onmyoji_YinYangConsonance");
+    if skill ~= nil then
+        InvalidateSkill(self, skill.ClassName);
+        SendSkillProperty(self, skill);
+    end
 end
 
 function SCR_ABIL_Onmyoji28_INACTIVE(self, ability)
@@ -2765,4 +2778,50 @@ function SCR_ABIL_Onmyoji28_INACTIVE(self, ability)
     RemoveBuff(self, "GenbuArmor_Earth_Abil_Buff")
     RemoveBuff(self, "GenbuArmor_Soul_Abil_Buff")
     RemoveBuff(self, "GenbuArmor_Melee_Abil_Buff")
+    
+    local skill = GetSkill(self, "Onmyoji_YinYangConsonance");
+    if skill ~= nil then
+        InvalidateSkill(self, skill.ClassName);
+        SendSkillProperty(self, skill);
+    end
+end
+
+function SCR_ABIL_Thaumaturge22_ACTIVE(self, ability)
+    local skill = GetSkill(self, "Thaumaturge_SwellBody");
+    if skill ~= nil then
+        SetSkillOverHeat(self, skill.ClassName, 0)
+        RequestResetOverHeat(self, "SwellBody_OH")
+        InvalidateSkill(self, skill.ClassName);
+        SendSkillProperty(self, skill);
+    end
+end
+
+function SCR_ABIL_Thaumaturge22_INACTIVE(self, ability)
+    local skill = GetSkill(self, "Thaumaturge_SwellBody");
+    if skill ~= nil then
+        SetSkillOverHeat(self, skill.ClassName, 2)
+        RequestResetOverHeat(self, "SwellBody_OH")
+        InvalidateSkill(self, skill.ClassName);
+        SendSkillProperty(self, skill);
+    end
+end
+
+function SCR_ABIL_Thaumaturge23_ACTIVE(self, ability)
+    local skill = GetSkill(self, "Thaumaturge_ShrinkBody");
+    if skill ~= nil then
+        SetSkillOverHeat(self, skill.ClassName, 0)
+        RequestResetOverHeat(self, "ShrinkBody_OH")
+        InvalidateSkill(self, skill.ClassName);
+        SendSkillProperty(self, skill);
+    end
+end
+
+function SCR_ABIL_Thaumaturge23_INACTIVE(self, ability)
+    local skill = GetSkill(self, "Thaumaturge_ShrinkBody");
+    if skill ~= nil then
+        SetSkillOverHeat(self, skill.ClassName, 2)
+        RequestResetOverHeat(self, "ShrinkBody_OH")
+        InvalidateSkill(self, skill.ClassName);
+        SendSkillProperty(self, skill);
+    end
 end

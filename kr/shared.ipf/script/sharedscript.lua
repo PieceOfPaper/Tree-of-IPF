@@ -65,7 +65,7 @@ end
 date_time.get_lua_datetime = function(_year, _month, _day, _hour, _min, _sec)
     if _year == nil or _month == nil or _day == nil or _hour == nil or _min == nil or _sec == nil then
         return nil
-    end
+	end
     return os.time { year = _year, month = _month, day = _day, hour = _hour, min = _min, sec = _sec }
 end
 
@@ -1862,9 +1862,15 @@ function CHANGE_BOSSDROPLIST(self, equipDropList)
     ChangeClassValue(self, 'EquipDropType', equipDropList);
 end
 
-function GET_RECIPE_REQITEM_CNT(cls, propname)
+function GET_RECIPE_REQITEM_CNT(cls, propname,pc)
 
-    local recipeType = cls.RecipeType;
+	local recipeType = cls.RecipeType;
+	--EVENT_2007_GUILD
+	if IsBuffApplied(pc,"EVENT_Season_Guild_Benefits_BUFF") == "YES" then
+		if cls[propname] == "misc_pvp_mine2" then
+			return cls[propname .. "_Cnt"] * 0.8, TryGet(cls, propname .. "_Level");
+		end
+	end
     if recipeType == "Anvil" or recipeType == "Grill" then
         return cls[propname .. "_Cnt"], TryGet(cls, propname .. "_Level");
     elseif recipeType == "Drag" or recipeType == "Upgrade" then
@@ -2067,7 +2073,7 @@ function SCR_POSSIBLE_UI_OPEN_CHECK(pc, questIES, subQuestZoneList, chType)
             ret = "OPEN"
             return ret, subQuestZoneList
         end
-    elseif questIES.QuestMode == "MAIN" or questIES.QuestMode == "SUB" or questIES.PossibleUI_Notify == 'UNCOND' then
+    elseif questIES.QuestMode == "MAIN" or questIES.QuestMode == "SUB" or questIES.QuestMode == 'REPEAT' or questIES.PossibleUI_Notify == 'UNCOND' then
         ret = "OPEN"
         return ret, subQuestZoneList
     end

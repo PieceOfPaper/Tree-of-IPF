@@ -22,7 +22,7 @@ function DRAGRECIPE_MSGBOX(invItemList, makeInfo, recipeCls)
 	local listCount = #invItemList;		
 	for i=1, listCount do
 		local invItem = invItemList[i];
-		local recipeItemCnt, recipeItemLv = GET_RECIPE_REQITEM_CNT(recipeCls, "Item_"..i .. "_1");
+		local recipeItemCnt, recipeItemLv = GET_RECIPE_REQITEM_CNT(recipeCls, "Item_"..i .. "_1", GetMyPCObject());
 		local invItemCount = GET_PC_ITEM_COUNT_BY_LEVEL(invItem.type, recipeItemLv);
 		frame:SetUserValue("ITEMID_"..i, invItem:GetIESID());
 		minCnt = math.min(minCnt, math.floor(invItemCount / recipeItemCnt));

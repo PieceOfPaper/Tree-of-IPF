@@ -13,9 +13,9 @@
   <userconfig GACHA_EFT_1="I_gacha_end01" GACHA_EFT_SCALE_1="7.0" GACHA_EFT_2="I_gacha_end02" GACHA_EFT_SCALE_2="7.0" GACHA_EFT_3="I_gacha_end03" GACHA_EFT_SCALE_3="7.0"/>
   <script OpenScp="HAIR_GACHA_FULLSCREEN_OPEN" CloseScp="HAIR_GACHA_FULLSCREEN_CLOSE"/>
 	<controls>
-		<picture name="bigitembgimg" rect="0 0 758 508" margin="0 0 0 0" layout_gravity="center center" changecursor="false" hittest="false" image="gacha_big_01" stretch="true"/>
-		<picture name="bigitemimg" rect="0 0 200 200" margin="0 0 0 40" layout_gravity="center center" changecursor="false" hittest="false" image="gacha_big_01" stretch="true"/>
-		<richtext name="itemname" rect="0 0 200 30" margin="0 250 0 0" layout_gravity="center center" format="{@st43}%s 획득!{/}" param1="name" param1_def="def"/>
+		<picture name="bigitembgimg" rect="0 0 758 508" margin="0 -40 0 0" layout_gravity="center center" changecursor="false" hittest="false" image="gacha_big_01" stretch="true"/>
+		<picture name="bigitemimg" rect="0 0 200 200" margin="0 -40 0 40" layout_gravity="center center" changecursor="false" hittest="false" image="gacha_big_01" stretch="true"/>
+		<richtext name="itemname" rect="0 0 200 30" margin="0 240 0 0" layout_gravity="center center" format="{@st43}%s 획득!{/}" param1="name" param1_def="def"/>
 		<button name="skip_gacha_btn" rect="0 0 124 50" margin="0 300 0 0" layout_gravity="center center" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" caption="" clicksound="button_click_3" oversound="button_cursor_over_2" image="gachanext_btn" LBtnDownScp="HAIR_GACHA_FULLSCREEN_DO_CLOSE"/>
 		<groupbox name="leticiaBox" rect="0 0 400 60" margin="0 300 0 0" layout_gravity="center center" draw="false"/>
 		<button name="continueBtn" rect="0 0 250 60" parent="leticiaBox" margin="0 0 0 0" layout_gravity="left center" skin="test_red_button" caption="{@st42b}{s20}연속 구매" fontname="white_16_b_ol" LBtnDownScp="LETICIA_MORE_CLICK_CONTINUE_ONE"/>

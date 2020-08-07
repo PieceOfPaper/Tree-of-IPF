@@ -4,9 +4,7 @@ function  FULLDARK_DO_CLOSE(frame)
 end
 
 function FULLDARK_OPEN()
-	ui.OpenFrame("hair_gacha_skip_btn")
-	local frame = ui.GetFrame("hair_gacha_skip_btn")
-	frame:ShowWindow(1)
+
 end
 
 function FULLDARK_CLOSE(frame, isLeticia, byContinue)
@@ -38,10 +36,10 @@ function FULLDARK_CLOSE(frame, isLeticia, byContinue)
 end
 
 -------------------
-function DARK_FRAME_DO_OPEN(isLeticia)
-    ui.OpenFrame("hair_gacha_skip_btn");
-	local frame = ui.GetFrame("hair_gacha_skip_btn");
-	frame:ShowWindow(1);
+function DARK_FRAME_DO_OPEN(isLeticia, itemCount)
+	if 1 < itemCount then
+		ui.OpenFrame("hair_gacha_skip_btn")
+	end
 
 	local darkframe = ui.GetFrame("fulldark");
     darkframe:SetUserValue('IS_LETICIA', isLeticia);
@@ -51,16 +49,22 @@ end
 
 function DARK_FRAME_DO_CLOSE(byContinue)
 	local darkframe = ui.GetFrame("fulldark");
-    local gachaCnt = darkframe:GetUserIValue('GACHA_COUNT');    
-    if darkframe:GetUserIValue('IS_LETICIA') == 1 and gachaCnt > 1 then
+	local gachaCnt = darkframe:GetUserIValue('GACHA_COUNT');
+	if darkframe:GetUserIValue('IS_LETICIA') == 1 and gachaCnt > 1 then
         FULLDARK_CLOSE(darkframe, true);
         ui.OpenFrame('leticia_more');
     else
+		local popupFrame = ui.GetFrame("hair_gacha_popup");
+		local openCountRewardStr = popupFrame:GetUserValue("OPEN_COUNT_REWARD_STR");
+		if openCountRewardStr ~= "" then
+			OPEN_COUNT_REWARD(openCountRewardStr, 1)
+		end
+
         if byContinue ~= nil then
             FULLDARK_CLOSE(darkframe, true, byContinue);
         else
     	    darkframe:ShowWindow(0);
-    	end
+		end
     end
 end
 

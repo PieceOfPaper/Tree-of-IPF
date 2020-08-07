@@ -23,6 +23,6 @@
 		<richtext name="mapRank" parent="map" rect="0 48 200 30" layout_gravity="center top" caption="" fontname="white_20" hittest="false" spacey="0"/>
 		<richtext name="rate" rect="0 55 200 30" layout_gravity="center top" caption="탐사율 : 50.0%" format="{@st45tw}[탐사율 %s%]{/}" param1="rate"/>
 		<button name="close_map" rect="0 0 44 44" margin="0 18 18 0" layout_gravity="right top" LBtnDownScp="" LBtnUpArgNum="" LBtnUpScp="ui.CloseFrame(&apos;map&apos;)" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" caption="" image="testclose_button" clicksound="button_click_big" oversound="button_over" texttooltip="{@st59}지도를 닫습니다 (M){/}"/>
-		<button name="open_map" rect="0 0 120 40" margin="0 18 80 0" layout_gravity="right top" LBtnUpArgNum="" LBtnUpScp="CLOSE_AND_OPEN_UI" LBtnUpArgStr="worldmap" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" caption="{@st66b}전체 지도{/}" skin="test_pvp_btn" clicksound="button_click_big" oversound="button_over" texttooltip="{@st59}전체 지도를 엽니다{/}"/>
+		<button name="open_map" rect="0 0 120 40" margin="0 18 80 0" layout_gravity="right top" LBtnUpArgNum="" LBtnUpScp="CLOSE_AND_OPEN_UI" LBtnUpArgStr="worldmap2_mainmap" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" caption="{@st66b}월드맵{/}" skin="test_pvp_btn" clicksound="button_click_big" oversound="button_over" texttooltip="{@st59}월드맵을 엽니다.{/}"/>
 	</controls>
 </uiframe>

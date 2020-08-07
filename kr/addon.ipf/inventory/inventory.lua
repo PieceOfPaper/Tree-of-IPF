@@ -1708,7 +1708,8 @@ function TRY_TO_USE_WARP_ITEM(invitem, itemobj)
 		end
 		
 		local pc = GetMyPCObject();
-		local warpFrame = ui.GetFrame('worldmap');
+        local warpFrame = ui.GetFrame('worldmap2_mainmap');
+        warpFrame:SetUserValue('WARP_TYPE', "ITEM")
 		warpFrame:SetUserValue('SCROLL_WARP', itemobj.ClassName)
         warpFrame:SetUserValue('SCROLL_WARP_IESID', tostring(invitem:GetIESID()))        
 		warpFrame:ShowWindow(1);

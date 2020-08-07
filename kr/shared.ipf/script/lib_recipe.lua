@@ -140,14 +140,14 @@ function IS_ALL_MATERIAL_CHECKED(checkList, numCheckList)
     return true;
 end
 
-function GET_RECIPE_MATERIAL_INFO(recipeCls, index)
+function GET_RECIPE_MATERIAL_INFO(recipeCls, index,pc)
     local clsName = "Item_"..index.."_1";
 	local itemName = recipeCls[clsName];
 	if itemName == "None" then
 		return nil;
     end
     
-    local recipeItemCnt, recipeItemLv = GET_RECIPE_REQITEM_CNT(recipeCls, clsName);
+    local recipeItemCnt, recipeItemLv = GET_RECIPE_REQITEM_CNT(recipeCls, clsName,pc);
     local dragRecipeItem = GetClass('Item', itemName);
 
     if itemName == "misc_pvp_mine2" then

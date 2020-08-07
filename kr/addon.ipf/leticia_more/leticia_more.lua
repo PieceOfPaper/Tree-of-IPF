@@ -1,6 +1,21 @@
 function LETICIA_MORE_OPEN(frame)
     local fulldark = ui.GetFrame('fulldark');
     fulldark:SetLayerLevel(80);
+
+    local popupFrame = ui.GetFrame("hair_gacha_popup");
+    local openCountRewardStr = popupFrame:GetUserValue("OPEN_COUNT_REWARD_STR");
+    local continueBtn = GET_CHILD_RECURSIVELY(frame, "continueBtn");
+	if openCountRewardStr ~= "" then
+		continueBtn:ShowWindow(0);
+
+		local closeBtn = GET_CHILD_RECURSIVELY(frame, "closeBtn");
+		closeBtn:SetGravity(ui.CENTER_HORZ, ui.CENTER_VERT);
+    else
+		continueBtn:ShowWindow(1);
+
+		local closeBtn = GET_CHILD_RECURSIVELY(frame, "closeBtn");
+		closeBtn:SetGravity(ui.RIGHT, ui.CENTER_VERT);
+    end
 end
 
 function LETICIA_MORE_CLOSE(frame, byContinue)
@@ -27,7 +42,12 @@ function LETICIA_MORE_CLOSE(frame, byContinue)
             ui.CloseFrame('fulldark');
         end
     end
-    
+
+    local popupFrame = ui.GetFrame("hair_gacha_popup");
+    local openCountRewardStr = popupFrame:GetUserValue("OPEN_COUNT_REWARD_STR");
+    if openCountRewardStr ~= "" then
+        OPEN_COUNT_REWARD(openCountRewardStr, 11)
+    end
 end
 
 function LETICIA_MORE_CLICK_CONTINUE(parent, ctrl)

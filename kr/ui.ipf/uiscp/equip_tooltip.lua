@@ -2025,6 +2025,13 @@ local function _CREATE_ARK_LV(gBox, ypos, step, class_name, curlv)
     local tooltip_func = _G[func_str]  -- get_tooltip_Ark_str_arg1 시리즈
 	if tooltip_func ~= nil then
 		local tooltip_type, status, interval, add_value, summon_atk, client_msg, unit = tooltip_func();		
+		local option_active_lv = nil
+		local option_active_func_str = string.format('get_%s_option_active_lv', class_name)
+		local option_active_func = _G[option_active_func_str]
+		if option_active_func ~= nil then
+			option_active_lv = option_active_func();			
+		end
+
 		local option = status        
 		local grade_count = math.floor(curlv / interval);
 		if tooltip_type == 3 then
@@ -2033,7 +2040,7 @@ local function _CREATE_ARK_LV(gBox, ypos, step, class_name, curlv)
 			add_value = math.floor(add_value * grade_count);		
 		end
 		
-		if add_value <= 0 then
+		if add_value <= 0 and (option_active_lv == nil or curlv < option_active_lv)then			
 			return ypos;
 		end
 		
@@ -2044,7 +2051,7 @@ local function _CREATE_ARK_LV(gBox, ypos, step, class_name, curlv)
 			strInfo = strInfo .. ' ' .. add_msg
 		elseif tooltip_type == 3 then
 			if unit == nil then				
-				strInfo = string.format(" - %s "..ScpArgMsg("PropUp").."%d", ScpArgMsg(option), add_value + summon_atk) .. '%'				
+				strInfo = string.format(" - %s "..ScpArgMsg("PropUp").."%d", ScpArgMsg(option), add_value + summon_atk) .. '%'								
 			else
 				strInfo = string.format(" - %s "..ScpArgMsg("PropUp").."%d", ScpArgMsg(option), add_value + summon_atk) .. unit				
 			end
@@ -2153,7 +2160,7 @@ function DRAW_ARK_LV(tooltipframe, invitem, ypos, mainframename)
 
 	-- 레벨에 따른 옵션 증가 text
 	local _ypos = 43;			-- offset
-	for i = 1, max_ark_option_count do 	-- 옵션이 최대 10개 있다고 가정함
+	for i = 1, max_ark_option_count do 	-- 옵션이 최대 10개 있다고 가정함		
 		_ypos = _CREATE_ARK_LV(CSet, _ypos, i, class_name, curlv);
 	end
 	

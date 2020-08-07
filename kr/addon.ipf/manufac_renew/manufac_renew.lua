@@ -488,7 +488,7 @@ function DRAW_RECIPE_MATERIAL(exinfoGroupBox, recipecls, ypos, drawStartIndex)
 				if propname == 'FromItem' or propname == 'NeedWiki' then
 					recipeItemCnt = 1;
 				else
-					recipeItemCnt, recipeItemLv = GET_RECIPE_REQITEM_CNT(recipecls, propname);
+					recipeItemCnt, recipeItemLv = GET_RECIPE_REQITEM_CNT(recipecls, propname, GetMyPCObject());
 				end
 
 				local itemRecipePicCtrl = exinfoGroupBox:CreateOrGetControl('picture', recipeItem, recipeItemXPos, groupboxYPos, recipeItemPicSize, recipeItemPicSize);

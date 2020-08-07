@@ -120,25 +120,18 @@ function PouncingClientScp_ENTER(actor, obj, buff)
     if abil ~= nil then
         local abilObj = GetIES(abil:GetObject());
         if abilObj.ActiveState == 1 then
-            actor:GetAnimation():SetRUNAnim("SKL_POUNCING_STAND_ABIL");
-            actor:GetAnimation():SetWLKAnim("SKL_POUNCING_STAND_ABIL");
-            actor:GetAnimation():SetSTDAnim("SKL_POUNCING_STAND_ABIL");
-            actor:GetAnimation():SetTURNAnim("None");
-        elseif abilObj.ActiveState ~= 1 then
-            actor:GetAnimation():SetRUNAnim("SKL_POUNCING");
-            actor:GetAnimation():SetWLKAnim("SKL_POUNCING");
-            actor:GetAnimation():SetTURNAnim("None");
-            actor:GetAnimation():SetSTDAnim("SKL_POUNCING_STAND");
+            return;
         end
-    else
-        actor:GetAnimation():SetRUNAnim("SKL_POUNCING");
-        actor:GetAnimation():SetWLKAnim("SKL_POUNCING");
-        actor:GetAnimation():SetTURNAnim("None");
-        actor:GetAnimation():SetSTDAnim("SKL_POUNCING_STAND");
     end
-    
+
+    actor:GetAnimation():SetRUNAnim("SKL_POUNCING");
+    actor:GetAnimation():SetWLKAnim("SKL_POUNCING");
+    actor:GetAnimation():SetTURNAnim("None");
+
     if actor:GetVehicleActor() ~= nil then
         actor:GetAnimation():SetSTDAnim("SKL_POUNCING");
+    else
+        actor:GetAnimation():SetSTDAnim("SKL_POUNCING_STAND");
     end
 
     actor:SetAlwaysBattleState(true);
@@ -1369,7 +1362,7 @@ function DOLL_HAUBERK_BUFF_LEAVE(actor, obj, buff)
 end
 
 function XMAS_EFFECT_2019_ENTER(actor, obj, buff)
-    effect.AddActorEffectByOffset(actor, "E_effectitem_whitebird", 0.4, "BOT");
+    effect.AddActorEffectByOffset(actor, "E_effectitem_whitebird", 0.4, "BOT", false, true);
 end
 
 function XMAS_EFFECT_2019_LEAVE(actor, obj, buff)
@@ -1377,7 +1370,7 @@ function XMAS_EFFECT_2019_LEAVE(actor, obj, buff)
 end
 
 function WEEKLY_MIRTIS_EFFECT_ENTER(actor, obj, buff)
-    effect.AddActorEffectByOffset(actor, "E_effectitem_mirtis", 1, "BOT");
+    effect.AddActorEffectByOffset(actor, "E_effectitem_mirtis", 1, "BOT", false, true);
 end
 
 function WEEKLY_MIRTIS_EFFECT_LEAVE(actor, obj, buff)
@@ -1385,7 +1378,7 @@ function WEEKLY_MIRTIS_EFFECT_LEAVE(actor, obj, buff)
 end
 
 function WEEKLY_WARPULIS_EFFECT_ENTER(actor, obj, buff)
-    effect.AddActorEffectByOffset(actor, "E_effect_item_warpulis", 0.8, "BOT");
+    effect.AddActorEffectByOffset(actor, "E_effect_item_warpulis", 0.8, "BOT", false, true);
 end
 
 function WEEKLY_WARPULIS_EFFECT_LEAVE(actor, obj, buff)
@@ -1400,7 +1393,7 @@ function HiphopEffect_pre_LEAVE(actor, obj, buff)
 end
 
 function ITEM_EFFECT_LITTLEPRINCE_ENTER(actor, obj, buff)
-    effect.AddActorEffectByOffset(actor, "E_effectitem_littleprince", 0.4, "MID")
+    effect.AddActorEffectByOffset(actor, "E_effectitem_littleprince", 0.4, "MID", false, true)
 end
 
 function ITEM_EFFECT_LITTLEPRINCE_LEAVE(actor, obj, buff)
@@ -1416,7 +1409,7 @@ function Bunsin_Mijinhide_Buff_CLIENT_LEAVE(actor, obj, buff)
 end
 
 function EP12TACTICAL_EFFECT02_PRE_ENTER(actor, obj, buff)
-    effect.AddActorEffectByOffset(actor, "I_policeline001_mesh", 1, "Middle", true);
+    effect.AddActorEffectByOffset(actor, "I_policeline001_mesh", 1, "Middle", true, true);
     actor:SetEquipItemFlagProp("EFFECTCOSTUME", 1);
 end
 
@@ -1427,7 +1420,11 @@ end
 
 -- Friedenslied_Debuff
 function FRIEDENSLIED_DANCE_ENTER(actor, obj, buff)
-    actor:GetAnimation():SetSTDAnim("FRIEDENSLIED_DANCE");
+    if actor:GetVehicleActor() ~= nil then
+        actor:GetAnimation():SetSTDAnim("FRIEDENSLIED_DANCE_RIDE");
+    else
+        actor:GetAnimation():SetSTDAnim("FRIEDENSLIED_DANCE");
+    end
     actor:SetAlwaysBattleState(true);
 end
 
@@ -1438,11 +1435,37 @@ end
 
 -- Friedenslied_AbilDance_Debuff
 function FRIEDENSLIED_ABILDANCE_ENTER(actor, obj, buff)
-    actor:GetAnimation():SetSTDAnim("FRIEDENSLIED_DANCE_ABIL");
+    if actor:GetVehicleActor() ~= nil then
+        actor:GetAnimation():SetSTDAnim("FRIEDENSLIED_DANCE_ABIL_RIDE");
+    else
+        actor:GetAnimation():SetSTDAnim("FRIEDENSLIED_DANCE_ABIL");
+    end
     actor:SetAlwaysBattleState(true);
 end
 
 function FRIEDENSLIED_ABILDANCE_LEAVE(actor, obj, buff)
     actor:GetAnimation():ResetSTDAnim();
     actor:SetAlwaysBattleState(false);
+end-- 끼룩끼룩 갈매기 떼
+function ITEM_EP12FLYINGSEAGULL_EFFECT_PRE_ENTER(actor, obj, buff)
+    effect.AddActorEffectByOffset(actor, "I_pc_effectitem_flyingseagull", 1.35, "BOT", true, true);
+    actor:SetEquipItemFlagProp("EFFECTCOSTUME", 1);
 end
+
+function ITEM_EP12FLYINGSEAGULL_EFFECT_PRE_LEAVE(actor, obj, buff)
+    effect.DetachActorEffect(actor, "I_pc_effectitem_flyingseagull", 0);
+    actor:SetEquipItemFlagProp("EFFECTCOSTUME", 0);
+end
+
+-- 주변을 맴도는 상어 떼
+function ITEM_EP12TWINSHARK_EFFECT_PRE_ENTER(actor, obj, buff)
+    effect.AddActorEffectByOffset(actor, "E_effect_twinshark", 1.35, "BOT", true, true);
+    actor:SetEquipItemFlagProp("EFFECTCOSTUME", 1);
+end
+
+function ITEM_EP12TWINSHARK_EFFECT_PRE_LEAVE(actor, obj, buff)
+    effect.DetachActorEffect(actor, "E_effect_twinshark", 0);
+    actor:SetEquipItemFlagProp("EFFECTCOSTUME", 0);
+end
+
+    
